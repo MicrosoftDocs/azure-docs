@@ -1,6 +1,6 @@
 ---
-title: Azure Government Image Gallery | Microsoft Docs
-description: This article provides an overview of the Azure Government Image Gallery and the images included
+title: Azure Government image gallery | Microsoft Docs
+description: This article provides an overview of the Azure Government image gallery and the images included
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,193 +13,358 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
+ms.date: 05/12/2017
 ms.author: brendal
 
 ---
-# Azure Government Marketplace Images
-## Overview
-The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+# Azure Government Marketplace images
 
-## Variations
-* Marketplace images are not currently supported in DoD
+The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The following table shows a list of available images within the Azure Government Marketplace.  Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual machine pricing</a>.
 
-## Images - Azure Resource Manager
-| Publisher | Image Name |
-| --- | --- |
-| Esri |ArcGIS 10.4.1 for Server |
-| Barracuda Networks, Inc. |Barracuda NextGen Control Center (BYOL) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-Series (BYOL) |
-| Microsoft |BizTalk Server 2016 Community Technology Preview 2 |
-| Microsoft |{BYOL} SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |
-| Microsoft |{BYOL} SQL Server 2016 RTM Standard on Windows Server 2012 R2 |
-| OpenLogic |CentOS-based 6.7 |
-| OpenLogic |CentOS-based 6.8 |
-| OpenLogic |CentOS-based 7.2 |
-| CoreOS |CoreOS Linux (Stable) |
-| F5 Networks |F5 BIG-IP ADC+SEC BEST – BYOL |
-| F5 Networks |F5 BIG-IP ADC BETTER – BYOL |
-| F5 Networks |F5 BIG-IP ADC GOOD (LTM) - BYOL |
-| Bitnami |Moodle |
-| Citrix |NetScaler VPX Bring Your Own License |
-| SUSE |openSUSE Leap 42.1 |
-| Red Hat |Red Hat Enterprise Linux 6.8 |
-| Red Hat |Red Hat Enterprise Linux 7.2 |
-| Microsoft |SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |
-| Microsoft |SQL Server 2016 RTM Standard on Windows Server 2012 R2 |
-| SUSE |SLES 11 SP4 |
-| SUSE |SLES 12 SP1 |
-| Microsoft |Windows Server 2012 R2 Datacenter |
-| Barracuda Networks, Inc. |Barracuda Web Application Firewall (WAF) - BYOL |
-| Microsoft |Windows Server 2008 R2 SP1 |
-| Microsoft |Windows Server 2012 Datacenter |
-| Microsoft |Windows Server 2012 R2 Datacenter |
+## Images: Azure Resource Manager
+|Publisher|Offer|SKU|
+| --- | --- | --- |
+| a10networks | a10-vthunder-adc | vthunder_410_byol |
+| a10networks | a10-vthunder-adc | vthunder_byol 
+| akumina | akumina-interchange | akam101 |
+| alertlogic | alert-logic-tm | 20215000100-tmpbyol |
+| barracudanetworks | barracuda-email-security-gateway | byol |
+| barracudanetworks | barracuda-message-archiver | byol |
+| barracudanetworks | barracuda-ng-cc | byol |
+| barracudanetworks | barracuda-ng-firewall | byol |
+| barracudanetworks | barracuda-spam-firewall | byol |
+| barracudanetworks | waf | byol |
+| beyondtrust | beyondinsight | uvm-azm |
+| bitnami | abantecart | 1-2 |
+| bitnami | activemq | 5-13 |
+| bitnami | akeneo | 1-4 |
+| bitnami | alfrescocommunity | 201602 |
+| bitnami | apachesolr | 5-5 |
+| bitnami | artifactory | 4-5 |
+| bitnami | canvaslms | 2016-02 |
+| bitnami | cassandra | 3-7 |
+| bitnami | chyrp | 2-5 |
+| bitnami | civicrm | 4-7 |
+| bitnami | cmsmadesimple | 2-1 |
+| bitnami | codedx | 2-3 |
+| bitnami | codiad | 2-7 |
+| bitnami | concrete5 | 5-7 |
+| bitnami | coppermine | 1-5 |
+| bitnami | couchdb | 1-6 |
+| bitnami | diaspora | 0-5 |
+| bitnami | discourse | 1-4 |
+| bitnami | djangostack | 1-8 |
+| bitnami | dokuwiki | 20150810a |
+| bitnami | dolibarr | 3-8 |
+| bitnami | dreamfactory | 2-1 |
+| bitnami | drupal | 8-0 |
+| bitnami | eclipseche | 4-4 |
+| bitnami | elastic-search | 2-2 |
+| bitnami | elk | 4-6 |
+| bitnami | erpnext | 6-21 |
+| bitnami | espocrm | 3-9 |
+| bitnami | exoplatform | 4 |
+| bitnami | exoplatformenterprise | 4-2 |
+| bitnami | ezpublish | 2014-11 |
+| bitnami | fatfreecrm | 0-13 |
+| bitnami | ghost | 0-7 |
+| bitnami | gitlab | 8-5 |
+| bitnami | hadoop | 2-7 |
+| bitnami | hhvmstack | 3-9 |
+| bitnami | hordegroupwarewebmail | 5-2 |
+| bitnami | jasperreports | 6-2 |
+| bitnami | jbossas | 7-2 |
+| bitnami | jenkins | 1-650 |
+| bitnami | joomla | 3-5 |
+| bitnami | jrubystack | 9-0 |
+| bitnami | kafka | 0-1 |
+| bitnami | lampstack | 5-6 |
+| bitnami | lappstack | 5-6 |
+| bitnami | letschat | 0-4 |
+| bitnami | liferay | 6-2 |
+| bitnami | limesurvey | 20160228 |
+| bitnami | livehelperchat | 2-44v |
+| bitnami | magento | 2-0 |
+| bitnami | mahara | 15-10 |
+| bitnami | mantis | 1-2 |
+| bitnami | mattermost | 3-6 |
+| bitnami | mautic | 1-2 |
+| bitnami | mean | 3-2 |
+| bitnami | mediawiki | 1-26 |
+| bitnami | memcached | 1-4 |
+| bitnami | modx | 2-4 |
+| bitnami | mongodb | 3-2 |
+| bitnami | moodle | 3-0 |
+| bitnami | moodle | moodle-free-byol |
+| bitnami | multicraft | public |
+| bitnami | mybb | 1-8 |
+| bitnami | mysql | 5-6 |
+| bitnami | neos | 2-0 |
+| bitnami | nginxstack | 1-9 |
+| bitnami | noalyss | 6-9 |
+| bitnami | nodejs | 4-3 |
+| bitnami | ocportal | 9 |
+| bitnami | odoo | 9-0 |
+| bitnami | openatrium | 2-54 |
+| bitnami | opencart | 2-1 |
+| bitnami | openedx | cypress |
+| bitnami | openfire | 4 |
+| bitnami | openproject | 5-0 |
+| bitnami | orangehrm | 3-3 |
+| bitnami | orocrm | 1 |
+| bitnami | osqa | 1-0rc |
+| bitnami | owncloud | 8-2 |
+| bitnami | oxid-eshop | 4-9 |
+| bitnami | parseserver | 2-1 |
+| bitnami | phabricator | 20160208 |
+| bitnami | phpbb | 3-1 |
+| bitnami | phplist | 3-2 |
+| bitnami | pimcore | 3-1 |
+| bitnami | piwik | 2-16 |
+| bitnami | plone | 5-0 |
+| bitnami | pootle | 2-7 |
+| bitnami | postgresql | 9-5 |
+| bitnami | prestashop | 1-6-1 |
+| bitnami | processmakerenterprise | 3-1 |
+| bitnami | processmakeropensourceedition | 3-0 |
+| bitnami | processwire | 2-7 |
+| bitnami | publify | 8-2 |
+| bitnami | rabbitmq | 3-6 |
+| bitnami | railo | 4-2 |
+| bitnami | redash | 0-10 |
+| bitnami | redis | 3-2 |
+| bitnami | redmine | 3 |
+| bitnami | redmineplusagile | public |
+| bitnami | refinerycms | 2-1 |
+| bitnami | reportserver | 2-2 |
+| bitnami | reportserverenterprise | 3-0 |
+| bitnami | resourcespace | 7-5 |
+| bitnami | reviewboard | 2-5 |
+| bitnami | reviewboardpowerpack | public |
+| bitnami | roundcube | 1-1 |
+| bitnami | rubystack | 2-0 |
+| bitnami | sharelock | 0-1 |
+| bitnami | shopware | default |
+| bitnami | silverstripe | 3-2 |
+| bitnami | simpleinvoices | 2013-1 |
+| bitnami | simplemachinesforum | 2-0 |
+| bitnami | sitecake | 2-2 |
+| bitnami | spree | 3-0 |
+| bitnami | squash | 20151209 |
+| bitnami | subversion | 1-8 |
+| bitnami | sugarcrm | 6-5 |
+| bitnami | suitecrm | 7-4 |
+| bitnami | testlink | 1-9 |
+| bitnami | tikiwikicmsgroupware | 14-2 |
+| bitnami | tinytinyrss | 20160220 |
+| bitnami | tom-cat | 7-0 |
+| bitnami | trac | 1-0 |
+| bitnami | tracks | 2-3 |
+| bitnami | typo3 | 7-6 |
+| bitnami | weblate | 2-4 |
+| bitnami | webmailpro | public |
+| bitnami | wildfly | 10-0 |
+| bitnami | wordpress | 4-4 |
+| bitnami | wordpress-multisite | 4 |
+| bitnami | x-cart | public |
+| bitnami | xoops | 2-5 |
+| bitnami | youtrack | 7-0 |
+| bitnami | zurmo | 3-1 |
+| Canonical | UbuntuServer | 12.04.5-LTS |
+| Canonical | UbuntuServer | 14.04.4-LTS |
+| Canonical | UbuntuServer | 14.04.5-LTS |
+| Canonical | UbuntuServer | 16.04-LTS |
+| Canonical | UbuntuServer | 16.04.0-LTS |
+| Canonical | UbuntuServer | 16.10 |
+| Canonical | UbuntuServer | 17.04 |
+| Canonical | UbuntuServer | 17.04-DAILY |
+| checkpoint | check-point-r77-10 | SG-BYOL |
+| checkpoint | sg2 | sg-byol2 |
+| chef-software | chef-automate | byol |
+| cisco | cisco-asav | asav-azure-byol |
+| cisco | cisco-csr-1000v | 3_16 |
+| cisco | cisco-csr-1000v | csr-azure-byol |
+| citrix | netscalervpx110-6531 | netscalerbyol |
+| citrix | netscalervpx111 | netscalerbyol |
+| citrix | netscalervpx120 | netscalerbyol |
+| citrix | xenapp-server | coldfireserver |
+| citrix | xenapp-vda-rdsh | coldfirerdsh |
+| citrix | xenapp-vda-rdsh | server2016rdsh |
+| citrix | xenapp-vda-vdi | coldfirevdi |
+| citrix | xenapp-vda-vdi | server2016vdi |
+| clouber | cws | cuber |
+| cloudera | cloudera-centos-6 | cloudera-centos-6 |
+| cloudera | cloudera-centos-os | 6_7 |
+| cloudera | cloudera-centos-os | 6_8 |
+| cloudera | cloudera-centos-os | 7_2 |
+| codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
+| commvault | commvault | csmav11 |
+| composable | composable | composable-govt |
+| CoreOS | CoreOS | Stable |
+| couchbase | couchbase-server-enterprise | byol |
+| couchbase | couchbase-sync-gateway-enterprise | byol |
+| credativ | Debian | 7 |
+| credativ | Debian | 8 |
+| credativ | Debian | 9-beta |
+| datastax | datastax-enterprise | datastaxenterprise |
+| dell_software | rapid-recovery-replication-target-vm-for-azure |quest_rr_replication_target_vm_for_azure 
+| docker | docker-ee | docker-ee |
+| docker | docker4azure-cs | docker4azure-cs-1_12 |
+| docker | docker4azure-cs | docker4azure-cs-1_1x |
+| enterprise-ethereum-alliance | quorum-demo | quorum-demo |
+| esri | arcgis-10-4-for-server | cloud |
+| esri | arcgis-enterprise | byol |
+| esri | arcgis-for-server | cloud |
+| eventtracker | eventtracker-siem | etlm |
+| eventtracker | eventtracker-siem | etsc |
+| f5-networks | f5-big-ip | f5-bigip-virtual-edition-best-byol |
+| f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
+| f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
+| fortinet | fortinet-fortimanager | fortinet-fortimanager |
+| fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
+| fortinet | fortinet_fortimail | fortinet_fortimail |
+| fortinet | fortinet_fortiweb-vm_v5 | fortinet_fw-vm |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v1400 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v2200 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-cp-v800 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v1420 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
+| infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
+| kemptech | kemp360central-byol | kemp360central-byol |
+| kemptech | vlm-azure | basic-byol |
+| kemptech | vlm-azure | freeloadmaster |
+| kemptech | vlm-azure | vlm-byol-lts |
+| mico | mobile-impact-platform | mipvm |
+| MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
+| MicrosoftBizTalkServer | BizTalk-Server | 2016-PreRelease |
+| MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
+| MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series-BBUpdate |
+| MicrosoftHybridCloudStorage | StorSimpleVA | StorSimpleUpdate3RC |
+| MicrosoftOSTC | FreeBSD | 10.3 |
+| MicrosoftOSTC | FreeBSD | 11 |
+| MicrosoftOSTC | FreeBSD | 11.0 |
+| MicrosoftRServer | RServer-CentOS | Enterprise |
+| MicrosoftRServer | RServer-RedHat | Enterprise |
+| MicrosoftRServer | RServer-Ubuntu | Enterprise |
+| MicrosoftRServer | RServer-WS2016 | Enterprise |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2016 |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2014SP1-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | SQLDEV |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2016-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Express |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016SP1-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v152-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v152-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2016-Nano-Server |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2008-R2-SP1-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2012-R2-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
+| MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
+| MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
+| OpenLogic | CentOS | 6.7 |
+| OpenLogic | CentOS | 6.8 |
+| OpenLogic | CentOS | 6.9 |
+| OpenLogic | CentOS | 7.2 |
+| OpenLogic | CentOS | 7.2n |
+| OpenLogic | CentOS | 7.3 |
+| Oracle | Oracle-Database-Ee | 12.1.0.2 |
+| Oracle | Oracle-Database-Se | 12.1.0.2 |
+| Oracle | Oracle-Linux | 6.7 |
+| Oracle | Oracle-Linux | 6.8 |
+| Oracle | Oracle-Linux | 7.2 |
+| orfast-technologies | orfast-mam-1 | orasft_mam_01 |
+| paloaltonetworks | vmseries1 | byol |
+| RedHat | RHEL | 6.8 |
+| RedHat | RHEL | 6.9 |
+| RedHat | RHEL | 6.9-LVM |
+| RedHat | RHEL | 7.2 |
+| RedHat | RHEL | 7.3 |
+| RedHat | RHEL | 7.3-LVM |
+| RedHat | RHEL-SAP-APPS | 6.8 |
+| RedHat | RHEL-SAP-APPS | 7.3 |
+| RedHat | RHEL-SAP-HANA | 6.7 |
+| RedHat | RHEL-SAP-HANA | 7.2 |
+| riverbed | riverbed-steelhead-9-1-3 | steelhead-9-1-3 |
+| riverbed | riverbed-steelhead-9-2 | riverbed-steelhead-9-2 |
+| riverbed | riverbed-steelhead-9-5-0 | riverbed-steelhead-9-5-0 |
+| riverbed | riverbed-steelhead-9-6-0 | riverbed-steelhead-9-6-0 |
+| scalegrid | centos | free |
+| sophos | sophos-xg | byol |
+| splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
+| stonefly | stonefly-cloud-drive | byol_stonefly |
+| SUSE | openSUSE-Leap | 42.1 |
+| SUSE | openSUSE-Leap | 42.2 |
+| SUSE | SLES | 11-SP4 |
+| SUSE | SLES | 12-SP1 |
+| SUSE | SLES | 12-SP2 |
+| SUSE | SLES-BYOS | 11-SP4 |
+| SUSE | SLES-BYOS | 12-SP2 |
+| SUSE | SLES-SAP-BYOS | 12-SP1 |
+| SUSE | SLES-SAP-BYOS | 12-SP2 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Server-BYOS | 3.0 |
+| suse-byos | sles-byos | 12-sp1 |
+| talon | talon-fast | talon-azure-byol |
+| tenable | tenable-nessus-byol | serv-nes-byol-azure |
+| winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
 
-## Images - Classic Resource Provider.
-| Publisher | Image Name | Description | OS | Disk Size |
-| --- | --- | --- | --- | --- |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Process Server |The Microsoft Azure Site Recovery Process Server is used for caching, compression, and encryption of replication traffic in the Microsoft Azure Site Recovery scenario of setting up failback of virtual... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Master Target Server |The Microsoft Azure Site Recovery Master Target Server is used as a repository and for retention of replication traffic from Windows source virtual or physical servers in the Azure Site Recovery scena... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Configuration Server VPN |The Microsoft Azure Site Recovery Configuration Server acts as the centralized management server for disaster recovery management operations in the Microsoft Azure Site Recovery scenario of setting up... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Configuration Server Non-VPN |The Microsoft Azure Site Recovery Configuration Server acts as the centralized management server for disaster recovery management operations in the Microsoft Azure Site Recovery scenario of setting up... |Windows |GB |
-| ASR-Prod-GalleryImages |Microsoft Azure Site Recovery Process Server V2 |The Microsoft Azure Site Recovery Process Server is used for caching, compression, and encryption of replication traffic in the Microsoft Azure Site Recovery scenario of setting up failback of virtual... |Windows |GB |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-Series 7.0.0-672 |The Barracuda’s NextGen Firewall F-Series https://www.barracuda.com/products/nextgenfirewall-f is a powerful, user-friendly appliance to protect and manage your network. As a Linux-based secu... |Linux |80 GB |
-| Barracuda Networks, Inc. |Barracuda Web Application Firewall 8.0.101101 |The Barracuda’s Web Application Firewall https://www.barracuda.com/products/webapplicationfirewall is a powerful, user-friendly appliance to protect your website from attack, protect your dat... |Linux |50 GB |
-| Bitnami |Ruby Stack 2.1 |Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications. Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo... |Linux |30 GB |
-| Bitnami |Ruby Stack 2.0 |Bitnami RubyStack greatly simplifies the development and deployment of Ruby on Rails applications. Ruby on Rails is a full-stack MVC framework for database-backed web applications that is optimized fo... |Linux |30 GB |
-| Bitnami |Nginx Stack 1.6 |Bitnami Nginx Stack provides a complete, fully-integrated and ready to run PHP, MySQL and Nginx development environment. In addition, it bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD,... |Linux |30 GB |
-| Bitnami |LAMP Stack 5.6 |Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t... |Linux |30 GB |
-| Bitnami |LAMP Stack 5.4 |Bitnami LAMPStack greatly simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP and phpMyAdmin and all of the other software required t... |Linux |30 GB |
-| Bitnami |Drupal 8 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| Bitnami |Drupal 7 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| Bitnami |Drupal 6 |Drupal powered by Bitnami is a pre-configured, ready to run image for running Drupal on Microsoft Azure. Drupal is one of the most versatile open source content management systems on the market. Over ... |Linux |30 GB |
-| BizTalk |BizTalk Server 2016 Community Technology Preview 2 |Microsoft BizTalk Server 2016 Community Technology Preview 2 on Windows Server 2016 Technical Preview 4. This release focuses on a number of important improvements. Support for SQL Server 2016 AlwaysO... |Windows |128 GB |
-| Canonical |Ubuntu Server 12.04.5-LTS |Ubuntu Server 12.04.5-LTS (amd64 20160315) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 12.04.5-LTS will be available unt... |Linux |30 GB |
-| Canonical |Ubuntu Server 14.04.4-LTS |Ubuntu Server 14.04.4-LTS (amd64 20160314) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 14.04.4-LTS will be available unt... |Linux |30 GB |
-| Canonical |Ubuntu Server 16.04 LTS |Ubuntu Server 16.04 LTS (amd64 20160420.3) for Microsoft Azure. Ubuntu Server is the world's most popular Linux for cloud environments. Updates and patches for Ubuntu 16.04 LTS will be available until... |Linux |30 GB |
-| Check Point |Check Point vSec, R77.30-015052 |Check Point vSEC for Azure delivers a next generation firewall and security gateway. |Linux |50 GB |
-| Check Point |Check Point vSec, R77.30.022.105 |Check Point vSEC for Azure delivers a next generation firewall and security gateway. |Linux |50 GB |
-| CloudLink |CloudLink SecureVM 5.0 BYOL |Control, monitor and encrypt VMs with ease and confidence. CloudLink SecureVM by EMC unlocks native Windows BitLocker and Linux OS encryption features by providing policy-based key management and orche... |Linux |30 GB |
-| CloudLink |CloudLink SecureVM |CloudLink® SecureVM provides VM volume encryption and pre-boot authorization with VM image integrity validation, allowing you to control when and where your VMs boot. SecureVM unlocks native Windows B... |Linux |30 GB |
-| coreos |CoreOS Stable |The Stable channel should be used by production clusters. Versions of CoreOS are battle-tested within the Beta and Alpha channels before being promoted. |Linux |31 GB |
-| coreos |CoreOS Stable |The Stable channel should be used by production clusters. Versions of CoreOS are battle-tested within the Beta and Alpha channels before being promoted. |Linux |31 GB |
-| credativ |Debian 7 "Wheezy" |Debian 7 "Wheezy" (20160628.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| credativ |Debian 8 "Jessie" |Debian 8 "Jessie" (20160628.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| credativ |Debian 9 "Stretch" DAILY |Debian 9 "Stretch" (daily build 20160816.0) for Microsoft Azure. Debian GNU/Linux is one of the most popular Linux distributions. |Linux |30 GB |
-| Dynamics NAV |Microsoft Dynamics NAV 2016 on Windows Server 2012 R2 |Microsoft Dynamics NAV is a business solution from Microsoft that is quick to implement, easy to use, and that has the power to support your ambitions for your business. This image contains a pre-conf... |Windows |128 GB |
-| Esri |ArcGIS 10.3.1 for Server (Windows) |ArcGIS for Server, the world’s most versatile GIS server, puts you in complete control of your organization’s critical geospatial assets and data. |Windows |128 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, May 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, July 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance 1100, October 2015 |Microsoft StorSimple Virtual Appliance 1100 |Windows |32 GB |
-| Microsoft Hybrid Cloud Storage Group |StorSimple Virtual Appliance GU2, Feb 2016 |Microsoft StorSimple Virtual Appliance GU2 |Windows |32 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Standard Edition (10.3.6) is a leading Java application server for enterprises of all sizes, providing developers with the tool... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 11g Enterprise Edition (10.3.6) is a leading Java application server for modern data centers. It takes full advantage of the latest... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c Standard Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies.  Minimum recomme... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Standard Edition (12.1.0.1.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Oracle WebLogic... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 12c Enterprise Edition on Windows Server 2012 |Oracle Database http://www.oracle.com/database 12c Enterprise Edition (12.1.0.1.0) is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a f... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 12c Standard Edition on Windows Server 2012 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Standard Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-criti... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Minimum recom... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 8 on Windows Server 2012 R2 |Java Platform http://www.oracle.com/java, Standard Edition 8 (update 25) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 7 on Windows Server 2012 |Java Platform http://www.oracle.com/java, Standard Edition 7 (update 71) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |JDK 6 on Windows Server 2012 |Java Platform http://www.oracle.com/java, Standard Edition 6 (update 85) enables development of secure, portable, high-performance applications and includes a Java Development Kit (JDK), Java... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle Database 11g R2 and WebLogic Server 11g Standard Edition on Windows Server 2008 R2 |Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Oracle WebLo... |Windows |128 GB |
-| Microsoft Open Technologies, Inc. |Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012 |Oracle WebLogic Server http://www.oracle.com/weblogicserver 12c Enterprise Edition (12.1.2.0) is a leading Java EE application server, delivering next-generation applications on a mission-cri... |Windows |128 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP2 Standard on Windows Server 2012 |Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Express on Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Web on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Express on Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 SP1 Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2014 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Microsoft Azure, including enabling CEIP whic... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Developer Windows Server 2012 R2 |This image contains the Developer version of SQL Server 2016. This includes all the functionality of Enterprise edition, but it is licensed for development and testing only, not production. It include... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Express Windows Server 2012 R2 |This image contains the Express with Tools version of SQL Server. This image does not charge for a SQL license and it is tailored for dev/test and micro workloads. This image has been pre-configured f... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Standard on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Web Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP2 Enterprise on Windows Server 2012 |This image contains the full version of SQL Server. Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A3 or higher. ... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2012 SP3 Web on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft SQL Server Group |SQL Server 2016 RTM Enterprise on Windows Server 2012 R2 |This image contains the full version of SQL Server. For production workloads we recommend that you use a virtual machine size of DS3 or higher. This image has been pre-configured for Microsoft Azure, in... |Windows |127 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, June 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, April 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, February 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, January 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 Technical Preview 5 - Nano Server |Nano Server is a new headless deployment option for Windows Server, running at a fraction of the size of the full operating system. This Technical Preview allows you to try Nano Server and find out ho... |Windows |8 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, July 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, December 2015 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, August 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, July 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, August 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 with Containers Tech Preview 5 |Windows Server brings the breadth and depth of Microsoft's experience delivering global-scale cloud services to your datacenter infrastructure. Windows Server 2016 with Containers Technical Preview 5 ... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, November 2015 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, November 2015 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, April 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, June 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2016 Technical Preview 5 |Windows Server 2016 Technical Preview is an opportunity to experience the cloud-ready operating system that delivers new layers of security and Azure-inspired innovation for the applications and infra... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 R2 Datacenter, August 2016 |At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, December 2015 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, January 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, February 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, July 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, June 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, November 2015 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, December 2015 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, January 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2008 R2 SP1, April 2016 |Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro... |Windows |128 GB |
-| Microsoft Windows Server Group |Windows Server 2012 Datacenter, February 2016 |Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a... |Windows |128 GB |
-| OpenLogic |OpenLogic 6.7 |This distribution of Linux is based on CentOS version 6.7 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 6.8 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2 |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. |Linux |30 GB |
-| OpenLogic |OpenLogic 7.2n |This distribution of Linux is based on CentOS version 7.2 and is provided by OpenLogic. It contains an installation of the Basic Server packages. This image is identical to the standard CentOS 7.2 ima... |Linux |30 GB |
-| Oracle |Oracle WebLogic Server 12.1.2 on Oracle Linux 6.4.0.0.0 |Oracle WebLogic Server 12c Enterprise Edition is a leading Java EE application server, delivering next-generation applications on a mission-critical cloud platform, with native cloud management, and i... |Linux |30 GB |
-| Oracle |Oracle Database 12.1.0.1 Standard Edition on Oracle Linux 6.4.0.0.0 |Oracle Database 12c Standard Edition is an affordable, full-featured data management solution that is ideal for midsize companies. More information can be found at http://www.oracle.com/database. |Linux |40 GB |
-| Oracle |Oracle Linux 7.0.0.0.0 |Oracle Linux 7.0.0.0 delivers extreme performance, advanced scalability, and reliability for enterprise applications and systems. Optimized for enterprise workloads, Oracle Linux is the only operating... |Linux |30 GB |
-| Oracle |Oracle Database 12.1.0.1 Enterprise Edition on Oracle Linux 6.4.0.0.0 |Oracle Database 12c Enterprise Edition is a next-generation database designed for the cloud, providing a new multitenant architecture on top of a fast, scalable, reliable, and secure database platform... |Linux |40 GB |
-| Remote Desktop Host |Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus |This image contains the Windows Server 2012 R2 operating system with the Remote Desktop Session Host (RD Session Host) role installed along with Microsoft Office 365 ProPlus which has Shared Computer ... |Windows |127 GB |
-| Remote Desktop Host |Windows Server Remote Desktop Session Host on Windows Server 2012 R2 |This image contains the Windows Server 2012 R2 operating system with the Remote Desktop Session Host (RD Session Host) role installed. This image has been pre-configured for Microsoft Azure. RD Session ... |Windows |127 GB |
-| SharePoint |SharePoint Server 2016 Trial |Microsoft SharePoint Server 2016 Trial on Windows Server 2012 R2 Datacenter. Virtual Machines created with this trial image will expire on September 19, 2016. This image includes a complete installati... |Windows |128 GB |
-| SharePoint |SharePoint Server 2013 Trial |Microsoft SharePoint Server 2013 Trial on Windows Server 2012 Datacenter. Virtual Machines created with this trial image will expire on September 19, 2016. This image includes a complete installation ... |Windows |128 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |openSUSE Leap 42.1 |Stable, innovative, and fun! A year's worth of continuous improvement in tools and procedures, and countless hours developing, packaging, and testing have produced a stable release providing the best ... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 for SAP Cloud Appliance Library |The SUSE Linux Enterprise Server 11 SP4 for SAP Cloud Appliance Library image is the base image for SAP's Cloud Appliance library. It will be used automatically when deploying an SAP Cloud Appliance L... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 12 SP1 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| SUSE |SUSE Linux Enterprise Server 11 SP4 |Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n... |Linux |30 GB |
-| Visual Studio |Team Foundation Server 2013 Update 4 on Windows Server 2012 R2 |Microsoft Team Foundation Server 2013 Trial on Windows Server 2012 R2 Update. Virtual Machines created with this trial image will require a product key for Team Foundation Server (such as from an MSDN... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2013 Update 5 with Tools for Apache Cordova CTP 3.2 on Windows Server 2012 R2 |This image provides Visual Studio Community 2013 Update 5, Azure Tools 2.8, and CTP 3.2 of the Tools for Apache Cordova running on Windows Server 2012 R2.  It allows you to easily and quickly set up a... |Windows |128 GBVisual Studio |
-| Visual Studio |Visual Studio Community 2015 with Azure SDK 2.9 on Windows Server 2012 R2 |Visual Studio Community 2015 is our free, full featured and extensible IDE for non-enterprise application development.  This image contains Windows Server 2012 R2 with Visual Studio Community 2015.  I... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2 |Visual Studio Community 2015 Update 2 is our free, full featured and extensible IDE for non-enterprise application development. This image contains Windows Server 2012 R2 with Visual Studio Community... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 with Azure SDK 2.9 on Windows Server 2012 R2 |With Visual Studio Enterprise you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to deliver desktop... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 Update?3 with Azure SDK 2.9.1 on Windows Server 2012 R2 |With Visual Studio Enterprise 2015 Update 3 you can create applications across devices and services, using a single solution with a consistent development experience. ?You get the tools, you need to d... |Windows |128 GB |
-| Visual Studio |Visual Studio Community 2013 Update 5 with Azure 2.9 on Windows Server 2012 R2 |This image of Visual Studio Community 2013 Update 5 with Azure Tools 2.9 enables you to unleash the full power of Visual Studio to develop cross-platform solutions.  Create apps in one unified IDE, an... |Windows |128 GB |
-| Visual Studio |Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windows Server 2012 R2 |With Visual Studio Enterprise 2015 Update 2 you can create applications across devices and services, using a single solution with a consistent development experience.  You get the tools, you need to d... |Windows |128 GB |
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
-## Quick Start Templates
+## Quickstart templates
 ### Step 1
-Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+Go to the GitHub repository for Azure Quickstart templates, and select from the following list of solution templates:
 
-| Quick Start Template |
+| Quickstart template |
 | --- |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
@@ -208,34 +373,33 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a> |
 
 ### Step 2
-In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
+In the readme file, open the template by clicking **Deploy to Azure Government** at the top of the page.
 
 ### Step 3
-A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
+A browser page opens the **Template deployment** blade in the Azure Government portal. On the **Parameters** blade, complete the required fields, and click **Okay**.
 
 ### Step 4
-Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
+If you accept legal terms and conditions, select **Pin to dashboard**, and then click **create**.
 
 > [!NOTE]
-> You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
+> You need a valid Azure Government account to continue. To use Azure Government in your organization, sign up for an [Azure Government trial](https://azuregov.microsoft.com/trial/azuregovtrial).
 > 
 > 
 
 ### Step 5
-The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
+The blades close, and you return to your portal dashboard view, showing the image deployment. This takes several minutes. After the VM solution is running, it appears in your dashboard. If you did not select the **Pin to dashboard** option in step 4, you can search for the VM in your **Resources**.
 
 > [!NOTE]
-> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
+> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and subscriptions that run on Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations. These templates are provided "as-is" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
 > 
 > 
 
 ## Next steps
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](documentation-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
+The following resources provide more information on deploying from the image gallery or creating your own VHD. To uncover any programmatic differences with endpoints when you are working with Azure Government, see the [Azure Government developer guide](documentation-government-developer-guide.md).
 
-### Other Resources:
-* [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Virtual Machine FAQ](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Deploying a Windows virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Virtual machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Capture Linux VM image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 

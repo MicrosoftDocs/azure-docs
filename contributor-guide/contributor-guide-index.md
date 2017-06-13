@@ -28,7 +28,8 @@ ms.author: tysonn
 
 ## Authoring articles: tools, processes, guidance
 * [Tools and setup for authoring in GitHub](tools-and-setup.md)
-* [Git commands for creating a new article or updating an existing article](git-commands-for-master.md)
+* [Git commands for working in the master branch](git-commands-for-master.md)
+* [Working in a release branch](release-branches.md)
 
 <!-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)-->
 
@@ -48,6 +49,6 @@ ms.author: tysonn
 * [Create images in markdown](create-images-markdown.md)
 * [Use syntax highlighting for code snippets in markdown](syntax-highlighting-markdown.md)
 * [Custom markdown extensions used in our technical articles](custom-markdown-extensions.md)
-* [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
+* [Markdown template for technical articles](../markdown%20templates/markdown-template-for-new-articles.md)
 * [Metadata for Azure technical articles](article-metadata.md)
 

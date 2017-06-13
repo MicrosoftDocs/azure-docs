@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub in the cloud
 
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
 ![connection between DHT22, Thing Dev, and IoT Hub](media/iot-hub-sparkfun-thing-dev-get-started/1_connection-hdt22-thing-dev-iot-hub.png)
 
 ## What you will do
@@ -37,6 +39,8 @@ Connect Sparkfun ESP8266 Thing Dev to an IoT hub you will create. Then run a sam
 * How to send the sensor data to your IoT hub.
 
 ## What you will need
+
+![parts needed for the tutorial](media/iot-hub-sparkfun-thing-dev-get-started/2_parts-needed-for-the-tutorial.png)
 
 To complete this operation, you need the following parts from your Thing Dev Starter Kit:
 
@@ -284,8 +288,4 @@ If you see the following output from the serial monitor window and the blinking 
 
 You have successfully connected a Sparkfun ESP8266 Thing Dev to your IoT hub and sent the captured sensor data to your IoT hub. 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

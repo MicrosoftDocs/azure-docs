@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
 # Example Storm toplogies and components for Apache Storm on HDInsight
 
-The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, DocumentDB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO
+The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO
 
 | Description | Demonstrates | Language/Framework |
 |:--- |:--- |:--- |
@@ -35,12 +35,12 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |Event Hubs |Java |
 | [Use Power Bi to visualize data from a Storm topology][94d15238] |Power BI |C# |
 | [Analyzing sensor data with Storm and HBase in HDInsight][ab894747] |Event Hubs, HBase, Socket.IO, Web dashboard |C#, Java, JavaScript, HTML |
-| [Process vehicle sensor data from Event Hubs using Storm on HDInsight][246ee964] |Event Hubs, DocumentDb, Azure Storage Blob (WASB) |C#, Java |
+| [Process vehicle sensor data from Event Hubs using Storm on HDInsight][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob (WASB) |C#, Java |
 | [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase, using Storm on HDInsight][b4b68194] |Event Hubs, HBase |C# |
-| [Template C# Storm topology project for working with Azure services from Storm on HDInsight][ce0c02a2] |Event Hubs, DocumentDb, SQL Database, HBase, SignalR |C#, Java |
+| [Template C# Storm topology project for working with Azure services from Storm on HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |
 | [Scalability benchmarks for reading from Azure Event Hubs using Storm on HDInsight][d6c540e3] |Message throughput, Event Hubs, SQL Database |C#, Java |
 | [Correlate events using Storm and HBase on HDInsight](hdinsight-storm-correlation-topology.md) |HBase |C# |
-| [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with Java and Clojure based Storm topologies |Python |
+| [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 
 ## Next Steps
 
@@ -56,8 +56,8 @@ The following is a list of examples created and maintained by Microsoft for use 
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Learn how to read and write data from Azure Event Hubs with Storm on HDInsight."
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hubs, visualize it using D3.js, and (optionally,) store it to HBase."
 [3c86c7c8]: hdinsight-storm-twitter-trending.md "Learn how to use Trident to create a Storm topology that determines trending topics (based on hashtags,) on Twitter."
-[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "Learn how to use a Storm topology to read messages from Azure Event Hubs, read documents from Azure DocumentDB for data referencing and save data to Azure Storage."
+[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "Learn how to use a Storm topology to read messages from Azure Event Hubs, read documents from Azure Cosmos DB for data referencing and save data to Azure Storage."
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Several topologies to demonstrate throughput when reading from Azure Event Hubs and storing to SQL Database using Apache Storm on HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Learn how to read data from Azure Event Hubs, aggregate & transform the data, then store it to HBase on HDInsight."
-[ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "This project contains templates for spouts, bolts and topologies to interact with various Azure services like Event Hubs, DocumentDB, and SQL Database."
+[ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "This project contains templates for spouts, bolts and topologies to interact with various Azure services like Event Hubs, Cosmos DB, and SQL Database."
 

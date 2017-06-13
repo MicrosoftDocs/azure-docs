@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 
 # Design, build, and deploy Azure Logic Apps in Visual Studio
@@ -38,7 +38,7 @@ follow these steps.
 
 ### Prerequisites
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) or Visual Studio 2015
 * [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Access to the web when using the embedded designer
@@ -56,9 +56,9 @@ you find **Azure Logic Apps Tools for Visual Studio**.
 5. Restart Visual Studio after installation.
 
 > [!NOTE]
-> You can also download Azure Logic Apps Tools 
-> for Visual Studio directly from the 
-> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+> You can also download [Azure Logic Apps Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) 
+> and the [Azure Logic Apps Tools for Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
+> directly from the Visual Studio Marketplace.
 
 After you finish installation, 
 you can use the Azure Resource Group project with Logic App Designer.

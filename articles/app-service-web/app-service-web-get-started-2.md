@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Add functionality to your first web app
-In [Deploy your first web app to Azure in five minutes](app-service-web-get-started-cli-nodejs.md), you deployed a sample web app to
+In [Deploy your first web app to Azure in five minutes](app-service-web-get-started-dotnet.md), you deployed a sample web app to
 [Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some
 great functionalities to your deployed web app. In a few minutes, you will:
 

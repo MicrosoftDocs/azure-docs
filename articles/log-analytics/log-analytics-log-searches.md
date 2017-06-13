@@ -3,7 +3,7 @@ title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: banders
+ms.date: 05/16/2017
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -143,7 +143,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### To search using a boolean operator
-* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![search with boolean](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Although you can control the time interval graphically, and most times you might want to do that, there are advantages to including a time filter directly into the query. For example, this works great with dashboards where you can override the time for each tile, regardless of the *global* time selector on the dashboard page. For more information, see [Time Matters in Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).

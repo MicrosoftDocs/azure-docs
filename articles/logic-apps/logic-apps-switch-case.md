@@ -1,76 +1,94 @@
 ---
-title: Use Switch Statement in Azure Logic Apps | Microsoft Docs
-description: Switch statement allows you to easily take different actions based on the value of an expression in Logic Apps
+title: Switch statement for different actions in Azure Logic Apps | Microsoft Docs
+description: Choose different actions to perform in logic apps based on expression values by using a switch statement
 services: logic-apps
-documentationcenter: dev-center-name
-manager: erikre
+keywords: switch statement
+author: derek1ee
+manager: anneta
+editor: ''
+documentationcenter: ''
 
+ms.assetid: 
 ms.service: logic-apps
-ms.devlang: wdl
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: deli
-
+ms.author: LADocs; deli
 ---
-# Use switch statement in Logic Apps
-When authoring a workflow, you often need to take different actions based on the value of an object or expression. For example, you may want your Logic App to behave differently based on the status code of an HTTP request, or the selected option of an approval email.
 
-These scenarios can be achieved by using a switch statement: Logic App evaluates a token or expression, and chooses the case with the same value to execute actions within. Only one case should match the switch statement.
+# Perform different actions in logic apps with a switch statement
 
- > [!TIP]
- > Like all programming language, switch statement only supports equality operators. Use a condition statement if you need other relational operators (for example, greater than).
- >
- > To ensure deterministic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
+When authoring a workflow, you often have to take different actions based on the value of an object or expression. 
+For example, you might want your logic app to behave differently based on the status code of an HTTP request, 
+or an option selected in an email.
+
+You can use a switch statement to implement these scenarios. Your logic app can evaluate a token or expression, 
+and choose the case with the same value to execute the specified actions. Only one case should match the switch statement.
+
+> [!TIP]
+> Like all programming languages, switch statements support only equality operators. 
+> If you need other relational operators, such as "greater than", use a condition statement.
+> To ensure deterministic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
 
 ## Prerequisites
 
-- Active Azure subscription.
-	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
-- [Basic knowledge of Logic Apps](logic-apps-what-are-logic-apps.md).
+- An active Azure subscription. If you don't have an active Azure subscription, 
+[create a free account](https://azure.microsoft.com/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
+- [Basic knowledge about logic apps](logic-apps-what-are-logic-apps.md)
 
-## Working with switch statement in designer
-To demonstrate the usage of switch statement, let's create a Logic App that monitors files uploaded to Dropbox. The Logic App will send out an approval email to determine if it should be transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
+## Add a switch statement to your workflow
 
-1. Start by create a Logic App, and select **Dropbox - When a file is created** trigger.
+To show how a switch statement works, this example creates a logic app that monitors files uploaded to Dropbox. 
+When the new files are uploaded, the logic app sends email to an approver who chooses whether to transfer those files to SharePoint. 
+The app uses a switch statement that performs different actions based on the value that the approver selects.
 
- ![Use Dropbox - When a file is created trigger](./media/logic-apps-switch-case/dropbox-trigger.jpg)
+1. Create a logic app, and select this trigger: **Dropbox - When a file is created**.
 
-2. Follow up the trigger with an **Outlook.com - Send approval email** action.
+   ![Use Dropbox - When a file is created trigger](./media/logic-apps-switch-case/dropbox-trigger.jpg)
 
- > [!TIP]
- > Logic Apps also supports approval email scenario from an Office 365 Outlook account.
+2. Under the trigger, add this action: **Outlook.com - Send approval email**
 
- - If you don't have an existing connection, you will be prompted to create one.
- - Fill in required fields, we will send email to approvers@contoso.com.
- - Under *User Options*, enter `Approve, Reject`.
+   > [!TIP]
+   > Logic apps also support sending approval email scenarios from an Office 365 Outlook account.
 
- ![Configure connection](./media/logic-apps-switch-case/send-approval-email-action.jpg)
+   - If you don't have an existing connection, you're prompted to create one.
+   - Fill in the required fields. For example, under **To**, specify the email address for sending the approver email.
+   - Under **User Options**, enter `Approve, Reject`.
+
+   ![Configure connection](./media/logic-apps-switch-case/send-approval-email-action.jpg)
 
 3. Add a switch statement.
- - Select **+ New step**, **... More**, **Add a switch statement**.
- - We want to select what to execute based on `SelectedOptions` output of the *Send approval email* action, you can find it in the **Add dynamic content** selector.
- - Use *Case 1* to handle when user selected `Approve`.
-	- If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
-	- Add another action within the case to notify users that a new file is available on SharePoint.
- - Add another case to handle when user selected `Reject`.
-	- If rejected, send a notification email informing other approvers that the file is rejected and no further action is required.
- - We know `SelectedOptions` only has two provided options, *default* case can be left empty.
 
- ![Switch statement](./media/logic-apps-switch-case/switch.jpg)
+   - Select **+ New step** > **... More** > **Add a switch case**. 
+   - Now we want to select the action to perform based on the `SelectedOptions` output from the *Send approval email* action. 
+   You can find this field in the **Add dynamic content** selector.
+   - Use *Case 1* to handle when the approver selects `Approve`.
+     - If approved, copy the original file to SharePoint Online with the [**SharePoint Online - Create file** action](../connectors/connectors-create-api-sharepointonline.md).
+     - Add another action within the case to notify users that a new file is available on SharePoint.
+   - Add another case to handle when user selects `Reject`.
+     - If rejected, send a notification email informing other approvers that the file is rejected and no further action is required.
+   - `SelectedOptions` provides only two options, so we can leave the **Default** case empty.
 
- > [!NOTE]
- > Switch statement needs at least one case in additional to the default case.
+   ![Switch statement](./media/logic-apps-switch-case/switch.jpg)
 
-4. After the switch statement, delete the original file uploaded to Dropbox with **Dropbox - Delete file** action.
+   > [!NOTE]
+   > A switch statement needs at least one case in addition to the default case.
 
-5. Save your Logic App, and test it by uploading a file to Dropbox. You should receive an approval email shortly after, select an option, and observe the behavior.
- > [!TIP]
- > Check out how to [monitor your Logic Apps](logic-apps-monitor-your-logic-apps.md).
+4. After the switch statement, delete the original file uploaded to Dropbox 
+by adding this action: **Dropbox - Delete file**
 
-## Understanding code behind
-Now you have successfully created a Logic App using switch statement. Let's look at the code behind as follows.
+5. Save your logic app. Test your app by uploading a file to Dropbox. 
+You should receive an approval email shortly. Select an option, and observe the behavior.
+
+   > [!TIP]
+   > Check out how to [monitor your logic apps](logic-apps-monitor-your-logic-apps.md).
+
+## Understand the code behind switch statements
+
+Now that you successfully created a logic app using a switch statement, 
+let's look at the code definition behind the switch statement.
 
 ```json
 "Switch": {
@@ -97,12 +115,26 @@ Now you have successfully created a Logic App using switch statement. Let's look
 }
 ```
 
-`"Switch"` is the name of the switch statement, it can be renamed for readability. `"type": "Switch"` indicates the action is a switch statement. `"expression"`, in this case, user's selected option, is evaluated against each case declared later in the definition. `"cases"` can contain any number of cases, and if none of the cases match the switch expression, actions within `"default"` is executed.
+* `"Switch"` is the name of the switch statement, which you can rename for readability. 
+* `"type": "Switch"` indicates that the action is a switch statement. 
+* `"expression"` is the approver's selected option in this example 
+and is evaluated against each case declared later in the definition. 
+* `"cases"` can contain any number of cases. For each case, `"Case *"` 
+is the default name of the case, which you can rename for readability. 
+`"case"` specifies the case label, which the switch expression uses for comparison, 
+and must be a constant and unique value. If none of the cases match the switch expression, 
+actions under `"default"` are executed.
 
-There can be any number of cases inside `"cases"`. For each case, `"Case 1"` is the name of the case, it can be renamed for readability. `"case"` specifies the case label, which the switch expression compares with, that must be a constant and unique value.  
+## Get help
+
+To ask questions, answer questions, and see what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
+[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
-- Try other [Logic Apps features](logic-apps-use-logic-app-features.md).
-- Learn about [error and exception handling](logic-apps-exception-handling.md).
-- Explore more [workflow language capabilities](logic-apps-author-definitions.md).
-- Leave a comment with your questions or feedback, or [tell us how can we improve Logic Apps](https://feedback.azure.com/forums/287593-logic-apps).
+
+- Learn how to [add conditions](logic-apps-use-logic-app-features.md)
+- Learn about [error and exception handling](logic-apps-exception-handling.md)
+- Explore more [workflow language capabilities](logic-apps-author-definitions.md)

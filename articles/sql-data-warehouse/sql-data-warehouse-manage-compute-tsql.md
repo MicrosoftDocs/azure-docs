@@ -3,7 +3,7 @@ title: Pause, resume, scale with T-SQL in Azure SQL Data Warehouse | Microsoft D
 description: Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
+ms.date: 03/30/2017
+ms.author: elbutter;barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (T-SQL)
@@ -32,7 +32,7 @@ ms.author: barbkess
 ## View current DWU settings
 To view the current DWU settings for your databases:
 
-1. Open SQL Server Object Explorer in Visual Studio 2015.
+1. Open SQL Server Object Explorer in Visual Studio.
 2. Connect to the master database associated with the logical SQL Database server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example: 
 

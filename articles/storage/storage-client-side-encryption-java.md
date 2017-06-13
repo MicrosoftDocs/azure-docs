@@ -3,7 +3,7 @@ title: Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft 
 description: The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
 documentationcenter: java
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 
@@ -11,10 +11,10 @@ ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: lakasa
 
 ---
 # Client-Side Encryption and Azure Key Vault with Java for Microsoft Azure Storage
@@ -40,7 +40,7 @@ Decryption via the envelope technique works in the following way:
 
 1. The client library assumes that the user is managing the key encryption key (KEK) either locally or in Azure Key Vaults. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.  
 2. The client library downloads the encrypted data along with any encryption material that is stored on the service.  
-3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider’s unwrapping algorithm.  
+3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider's unwrapping algorithm.  
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
@@ -189,7 +189,7 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### Table service encryption
-In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [Encrypt] attribute on the entity’s getter and setter.
+In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [Encrypt] attribute on the entity's getter and setter.
 
 ### Using the resolver
 

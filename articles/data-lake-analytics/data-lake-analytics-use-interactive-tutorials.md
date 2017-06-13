@@ -20,12 +20,6 @@ ms.author: edmaca
 # Use Azure Data Lake Analytics interactive tutorials
 The Azure portal provides an interactive tutorial for you to get started with Data Lake Analytics. This article shows you how to go through the tutorial for analyzing website logs.
 
-> [!NOTE]
-> If you want to go through the same tutorial using Visual Studio, see [Analyze website logs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> More interactive tutorials to be added to the portal.
-> 
-> 
-
 For other tutorials, see:
 
 * [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)

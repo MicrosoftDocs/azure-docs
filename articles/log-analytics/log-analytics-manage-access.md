@@ -3,7 +3,7 @@ title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft D
 description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
 
 ---
 # Manage workspaces
@@ -55,7 +55,7 @@ If you are using System Center Operations Manager, each Operations Manager manag
 
 You can view details about your workspace in the Azure portal. You can also view details in the OMS portal.
 
-#### View workspace information the Azure portal
+#### View workspace information in the Azure portal
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
@@ -73,7 +73,7 @@ By default, the Microsoft account or Organizational account that creates the wor
 There are two permission models that control access to a Log Analytics workspace:
 
 1. Legacy Log Analytics user roles
-2. [Azure role-based access](../active-directory/role-based-access-control-configure.md) 
+2. [Azure role-based access](../active-directory/role-based-access-control-configure.md)
 
 The following table summarizes the access that can be set using each permission model:
 
@@ -89,20 +89,22 @@ The following table summarizes the access that can be set using each permission 
 
 The legacy Log Analytics user roles only control access to activities performed in the [Log Analytics portal](https://mms.microsoft.com).
 
-The following activities in the Log Analytics portal also require Azure permissions:
+The following activities also require Azure permissions:
 
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing management solutions                        | Resource Group write <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Adding and removing management solutions                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
- 
+| Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
+
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
 If you have at least Azure read permission on the Log Analytics workspace, you can open the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace.
 
-When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). 
+When opening the Log Analytics portal, you switch to using the legacy Log Analytics user roles. If you do not have a role assignment in the Log Analytics portal, the service [checks the Azure permissions you have on the workspace](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Your role assignment in the Log Analytics portal is determined using as follows:
 
 | Conditions                                                   | Log Analytics user role assigned | Notes |
@@ -115,7 +117,7 @@ Your role assignment in the Log Analytics portal is determined using as follows:
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is in the Azure Active Directory linked to the workspace | Administrator | Typically the customer of a CSP |
 | For Cloud Solution Provider (CSP) managed subscriptions <br> The account you are signed-in with is not in the Azure Active Directory linked to the workspace | Contributor | Typically the CSP |
 
-<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Refer to [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) for more information on role definitions. When evaluating roles, an action of `*` is not equivalent to `Microsoft.OperationalInsights/workspaces/*`.
 
 Some points to keep in mind about the Azure portal:
 
@@ -198,9 +200,6 @@ All workspaces created after September 26, 2016 must be linked to an Azure subsc
     > [!IMPORTANT]
     > To link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access the workspace. If not, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### To link a workspace to an Azure subscription in the Azure portal
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Browse for **Log Analytics** and then select it.
@@ -221,7 +220,7 @@ All workspaces created after September 26, 2016 must be linked to an Azure subsc
 8. Click **OK**. The workspace is now linked to your Azure account.
 
 > [!NOTE]
-> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS website.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
+> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS portal.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -246,7 +245,7 @@ To ensure that usage of a workspace is applied to your entitlements from the OMS
 The OMS subscription entitlements are not visible in the Azure or OMS portal. You can see entitlements and usage in the Enterprise Portal.  
 
 If you need to change the Azure subscription that your workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-to
+
 ### Using Azure Commitment from an Enterprise Agreement
 If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
 
@@ -291,7 +290,7 @@ On the Standard pricing tier, Log Analytics makes available the last 30 days of 
 On the Premium pricing tier, Log Analytics makes available the last 365 days of data.
 On the Standalone and OMS pricing tiers, by default, Log Analytics makes available the last 31 days of data.
 
-When you use the Standalone and OMS pricing tiers, you can keep upto 2 years of data (730 days). Data stored longer than the default of 31 days incurs a data retention charge. For more information on pricing, see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
+When you use the Standalone and OMS pricing tiers, you can keep up to 2 years of data (730 days). Data stored longer than the default of 31 days incurs a data retention charge. For more information on pricing, see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 To change the length of data retention:
 

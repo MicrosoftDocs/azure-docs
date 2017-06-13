@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
 # Network Performance Monitor solution in Log Analytics
+
+![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 This document describes how to set-up and use the Network Performance Monitor solution in Log Analytics, which helps you monitor the performance of your networks-in near real-time-to detect and locate network performance bottlenecks. With the Network Performance Monitor solution, you can monitor the loss and latency between two networks, subnets or servers. Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods are not able to detect. Network Performance Monitor generates alerts and notifies as and when a threshold is breached for a network link. These thresholds can be learned automatically by the system or you can configure them to use custom alert rules. Network Performance Monitor ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device.
 
@@ -173,7 +175,7 @@ If you choose ICMP when you create a synthetic transaction rule, the NPM agents 
 Consider the following information before you choose a protocol to use:
 
 ##### Discovering multiple network routes
-TCP provides more accurate when discovering multiple routes and it needs with fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have *N* number of routes between two subnets you need more than 5*N* agents in either a source or destination subnet.
+TCP is more accurate when discovering multiple routes and it needs fewer agents in each subnet. For example, one or two agents using TCP can discover all redundant paths between subnets. However, you need several agents using ICMP to achieve similar results. Using ICMP, if you have *N* number of routes between two subnets you need more than 5*N* agents in either a source or destination subnet.
 
 ##### Accuracy of results
 Routers and switches tend to assign lower priority to ICMP ECHO packets compared to TCP packets. In certain situations, when network devices are heavily loaded, the data obtained by TCP more closely reflects the loss and latency experienced by applications. This occurs because most of the application traffic flows over TCP. In such cases, ICMP provides less accurate results compared to TCP.

@@ -1,5 +1,5 @@
 ---
-title: Access Hadoop YARN application logs programmatically | Microsoft Docs
+title: Access Hadoop YARN application logs programmatically - Azure | Microsoft Docs
 description: Access application logs programmatically on a Hadoop cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 
@@ -23,12 +23,12 @@ ROBOTS: NOINDEX
 This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Windows-based Hadoop cluster in Azure HDInsight
 
 > [!IMPORTANT]
-> The information in this document applies only to Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-> 
+> The information in this document applies only to Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+>
 
 
 ### Prerequisites
-* A Windows-based HDInsight cluster.  See [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+* A Windows-based HDInsight cluster.  See [Create Windows-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## YARN Timeline Server
 The <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> provides generic information on completed applications as well as framework-specific application information through two different interfaces. Specifically:
@@ -66,9 +66,9 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 
 
 ## YARN ResourceManager UI
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard: 
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard:
 
-1. Sign in to [Azure portal](https://portal.azure.com/). 
+1. Sign in to [Azure portal](https://portal.azure.com/).
 2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
 3. On the top menu, click **Dashboard**. You will see a page opened on a new browser tab called **HDInsight Query Console**.
 4. From **HDInsight Query Console**, click **Yarn UI**.

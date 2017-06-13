@@ -3,7 +3,7 @@ title: Load sample data into SQL Data Warehouse | Microsoft Docs
 description: Load sample data into SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
 ms.custom: loading
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
+
 
 ---
 # Load sample data into SQL Data Warehouse

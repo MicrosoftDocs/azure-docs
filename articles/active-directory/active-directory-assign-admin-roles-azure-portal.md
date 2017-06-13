@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-ms.author: femila
+ms.date: 05/23/2017
+ms.author: curtand
 
 ---
 # Assigning administrator roles in Azure Active Directory
@@ -30,7 +30,7 @@ The following administrator roles are available:
 
 * **Billing Administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
-* **Compliance Administrator**:Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).”
+* **Compliance Administrator**:Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at “[About Office 365 admin roles](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).”
 
 * **CRM Service Administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -135,8 +135,33 @@ The following administrator roles are available:
 ## Details about the global administrator role
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
+### To add a colleague as a global administrator
+
+1. Sign in to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) with an account that's a global admin for the tenant directory.
+
+   ![Opening azure AD admin center](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
+
+2. Select **Users and groups &gt; All users**
+
+3. Find the user you want to designate as a global administrator and open the blade for that user.
+
+4. On the user blade, select **Directory role**.
+ 
+5. On the directory role blade, select the **Global administrator** role, and save.
+
 ## Assign or remove administrator roles
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md).
+
+## Deprecated roles
+
+The following roles should not be used. They been deprecated and will be removed from Azure AD in the future.
+
+* AdHoc License Administrator
+* Email Verified User Creator
+* Device Join
+* Device Managers
+* Device Users
+* Workplace Device Join
 
 ## Next steps
 

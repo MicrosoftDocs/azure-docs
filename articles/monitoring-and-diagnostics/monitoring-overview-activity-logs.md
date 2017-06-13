@@ -35,7 +35,9 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 >
 
 View the following video introducing the Activity Log.
-[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> 
+>
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -43,9 +45,9 @@ Here are some of the things you can do with the Activity Log:
 ![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
+* [Create an alert that triggers off an Activity Log event.](monitoring-activity-log-alerts.md)
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
 * Query and view it in the **Azure portal**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
@@ -76,11 +78,10 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select:  
-
-   * regions for which you would like to export events
-   * the Storage Account to which you would like to save events
-   * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
-   * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+  * regions for which you would like to export events
+  * the Storage Account to which you would like to save events
+  * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
+  * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
      ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.

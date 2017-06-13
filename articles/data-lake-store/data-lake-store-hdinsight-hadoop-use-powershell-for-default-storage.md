@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 05/08/2017
 ms.author: nitinme
 
 ---
@@ -28,11 +28,9 @@ Learn how to use Azure PowerShell to configure Azure HDInsight clusters with Azu
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5 and 3.6.
 
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is *not available* for HDInsight Premium clusters.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is *not supported* as a storage option for either default and additional storage.
 
 To configure HDInsight to work with Data Lake Store by using PowerShell, follow the instructions in the next five sections.
 
@@ -40,18 +38,18 @@ To configure HDInsight to work with Data Lake Store by using PowerShell, follow 
 Before you begin this tutorial, make sure that you meet the following requirements:
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azureps-cmdlets-docs).
-* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). You use Windows SDK to create a security certificate.
+* **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azure/overview).
+* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). The SDK is used to create a security certificate.
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
-	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
 ## Create a Data Lake Store account
 To create a Data Lake Store account, do the following:
 
-1. From your desktop, open a PowerShell window, and then enter the following snippet:
+1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners. 
 
         # Sign in to your Azure account
         Login-AzureRmAccount
@@ -67,28 +65,44 @@ To create a Data Lake Store account, do the following:
 
 	> [!NOTE]
 	> If you register the Data Lake Store resource provider and receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Store. To enable your Azure subscription for the Data Lake Store public preview, follow the instructions in [Get started with Azure Data Lake Store by using the Azure portal](data-lake-store-get-started-portal.md).
-	> 
+	>
 
-2. When you are prompted to sign in, sign in as one of the subscription administrators or owners.
-3. A Data Lake Store account is associated with an Azure resource group. Start by creating a resource group.
+2. A Data Lake Store account is associated with an Azure resource group. Start by creating a resource group.
 
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Create an Azure resource group](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure resource group")
+    You should see an output like this:
+
+		ResourceGroupName : hdiadlgrp
+		Location          : eastus2
+		ProvisioningState : Succeeded
+		Tags              :
+		ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Create a Data Lake Store account. The account name you specify must contain only lowercase letters and numbers.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Create an Azure Data Lake account](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake account")
-4. Verify that the account has been created successfully.
+	You should see an output like the following:
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+		...
+		ProvisioningState           : Succeeded
+		State                       : Active
+		CreationTime                : 5/5/2017 10:53:56 PM
+		EncryptionState             : Enabled
+		...
+		LastModifiedTime            : 5/5/2017 10:53:56 PM
+		Endpoint                    : hdiadlstore.azuredatalakestore.net
+		DefaultGroup                :
+		Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+		Name                        : hdiadlstore
+		Type                        : Microsoft.DataLakeStore/accounts
+		Location                    : East US 2
+		Tags                        : {}
 
-    The output should be **True**.
-
-5. Using Data Lake Store as default storage requires you to specify a root path to which the cluster-specific files are copied during cluster creation. To create a root path, which is **/clusters/hdiadlcluster** in the  snippet, use the following cmdlets:
+4. Using Data Lake Store as default storage requires you to specify a root path to which the cluster-specific files are copied during cluster creation. To create a root path, which is **/clusters/hdiadlcluster** in the  snippet, use the following cmdlets:
 
         $myrootdir = "/"
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/clusters/hdiadlcluster
@@ -116,7 +130,7 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    When you are prompted, enter the private key password that you specified earlier. The value you specify for the **-po** parameter is the password that's associated with the .pfx file. After the command has been completed successfully, you should also see a CertFile.pfx in the certificate directory that you specified.
+    When you are prompted, enter the private key password that you specified earlier. The value you specify for the **-po** parameter is the password that's associated with the .pfx file. After the command has been completed successfully, you should also see a **CertFile.pfx** in the certificate directory that you specified.
 
 ### Create an Azure AD and a service principal
 In this section, you create a service principal for an Azure AD application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. To create an application in Azure AD, run the following commands:
@@ -168,7 +182,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
 		$location = "East US 2"
         $storageAccountName = $dataLakeStoreName   					   # Data Lake Store account name
 		$storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
-		$clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+		$clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
@@ -184,7 +198,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
                -DefaultStorageAccountType AzureDataLakeStore `
                -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
                -DefaultStorageRootPath $storageRootPath `
-               -Version "3.5" `
+               -Version "3.6" `
                -SshCredential $sshCredentials `
                -AadTenantId $tenantId `
                -ObjectId $objectId `

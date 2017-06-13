@@ -1,4 +1,4 @@
----
+﻿---
 title: Use PowerShell to get started with Azure Data Lake Store | Microsoft Docs
 description: Use Azure PowerShell to create a Data Lake Store account and perform basic operations
 services: data-lake-store
@@ -24,7 +24,7 @@ ms.author: nitinme
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -36,10 +36,10 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Store account and
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Authentication
-This article uses a simpler authentication approach with Data Lake Store where you are prompted to enter your Azure account credentials. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+This article uses a simpler authentication approach with Data Lake Store where you are prompted to enter your Azure account credentials. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
 
 ## Create an Azure Data Lake Store account
 1. From your desktop, open a new Windows PowerShell window, and enter the following snippet to log in to your Azure account, set the subscription, and register the Data Lake Store provider. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:

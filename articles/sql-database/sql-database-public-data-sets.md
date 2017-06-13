@@ -7,10 +7,9 @@ author: douglaslMS
 manager: jhubbard
 editor: ''
 tags: ''
-
+ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
-ms.custom: 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

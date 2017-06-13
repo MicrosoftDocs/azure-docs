@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 06/07/2017
 ms.author: markvi
 
 ---
@@ -26,7 +26,9 @@ Certificate-based authentication (CBA) enables you to be authenticated by Azure 
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
+This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, US Government and China plans.
+
+
 
 This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
@@ -40,6 +42,10 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
 | Skype for Business |![Check][1] |
+| Azure Information Protection app |![Check][1] |
+| Microsoft Teams |![Check][1] |
+
+
 
 ### Implementation requirements
 
@@ -60,7 +66,7 @@ As a best practice, you should update the ADFS error pages with instructions on 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
 Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request. By default, Azure AD translates this in the request to ADFS to ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Just set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘. 
-You can use the [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) cmdlet to perform this task:
+You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

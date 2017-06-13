@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 05/24/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -46,21 +46,24 @@ The name of the workspace is in the name of each Log Analytics resource.  This i
 ## Saved Searches
 Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a solution to allow users to query data collected by your solution.  Saved searches will appear under **Favorites** in the OMS portal and **Saved Searches** in the Azure portal .  A saved search is also required for each alert.   
 
-[Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure. 
+[Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
-		"name": "<name-of-savedsearch>"
+		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
 		"type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-		"apiVersion": "<api-version-of-resource>",
-		"dependsOn": []
-		"tags": {},
+		"apiVersion": "[variables('LogAnalyticsApiVersion')]",
+		"dependsOn": [
+		],
+		"tags": { },
 		"properties": {
 			"etag": "*",
-			"query": "<query-to-run>",
-			"displayName": "<saved-search-display-name>",
-			"category": ""<saved-search-category>"
+			"query": "[variables('SavedSearch').Query]",
+			"displayName": "[variables('SavedSearch').DisplayName]",
+			"category": "[variables('SavedSearch').Category]"
 		}
 	}
+
+
 
 Each of the properties of a saved search are described in the following table. 
 
@@ -80,7 +83,7 @@ Alert rules in a management solution are made up of the following three differen
 
 - **Saved search.**  Defines the log search that will be run.  Multiple alert rules can share a single saved search.
 - **Schedule.**  Defines how often the log search will be run.  Each alert rule will have one and only one schedule.
-- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
+- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
 - **Webhook action (optional).**  If the alert rule will call a webhook, then it requires an additional action resource with a type of **Webhook**.    
 
 Saved search resources are described above.  The other resources are described below.
@@ -88,22 +91,25 @@ Saved search resources are described above.  The other resources are described b
 
 ### Schedule resource
 
-A saved search can have one or more schedules with each schedule representing a separate alert rule. The schedule defines how often the search is run and the time interval over which the data is retrieved.  Schedule resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` and have the following structure. 
+A saved search can have one or more schedules with each schedule representing a separate alert rule. The schedule defines how often the search is run and the time interval over which the data is retrieved.  Schedule resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
-    {
-      "name": "<name-of-schedule-resource>",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-      "apiVersion": "<api-version-of-resource>",
-      "dependsOn": [
-        "<name-of-saved-search>"
-      ],
-      "properties": {  
-        "etag": "*",               
-        "interval": <schedule-interval-in-minutes>,
-        "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-enabled>       
-      }
-    }
+
+	{
+		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
+		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
+		"apiVersion": "[variables('LogAnalyticsApiVersion')]",
+		"dependsOn": [
+			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name)]"
+		],
+		"properties": {
+			"etag": "*",
+			"interval": "[variables('Schedule').Interval]",
+			"queryTimeSpan": "[variables('Schedule').TimeSpan]",
+			"enabled": "[variables('Schedule').Enabled]"
+		}
+	}
+
+
 
 The properties for schedule resources are described in the following table.
 
@@ -125,43 +131,41 @@ Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedS
 
 Every schedule will have one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
 
-Alert actions have the following structure.
+Alert actions have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+
+
 
 	{
-		"name": "<name-of-the-action>",
+		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
 		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-		"apiVersion": "<api-version-of-resource>",
+		"apiVersion": "[variables('LogAnalyticsApiVersion')]",
 		"dependsOn": [
-			<name-of-schedule>
+			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
 		],
 		"properties": {
 			"etag": "*",
 			"type": "Alert",
-			"name": "<display-name-of-alert>",
-			"description": "<description-of-alert>",
-			"severity": "<severity-of-alert>",
+			"name": "[variables('Alert').Name]",
+			"description": "[variables('Alert').Description]",
+			"severity": "[variables('Alert').Severity]",
 			"threshold": {
-				"operator": "<threshold-operator>",
-				"value": "<threshold-value>"
+				"operator": "[variables('Alert').Threshold.Operator]",
+				"value": "[variables('Alert').Threshold.Value]",
 		        "metricsTrigger": {
-					"triggerCondition": "<trigger-condition>",
-					"operator": "<trigger-operator>",
-					"value": "<trigger-value>"
+					"triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
+					"operator": "[variables('Alert').Trigger.Operator]",
+					"value": "[variables('Alert').Trigger.Value]"
 				},
-			},
-			"throttling": {
-				"durationInMinutes": "<throttling-duration-in-minutes>"
 			},
 			"emailNotification": {
 				"recipients": [
-					<mail-recipients>
+					"[variables('Alert').Recipients]"
 				],
-				"subject": "<mail-subject>",
-				"attachment": "None"
+				"subject": "[variables('Alert').Subject]"
 			},
 			"remediation": {
-				"runbookName": "<name-of-runbook>",
-				"webhookUri": "<runbook-uri>"
+				"runbookName": "[variables('Alert').Remedition.RunbookName]",
+				"webhookUri": "[variables('Alert').Remedition.WebhookUri]"
 			}
 		}
 	}
@@ -227,26 +231,25 @@ This section is optional  Include it if you want a runbook to start in response 
 
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent. They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks. They also provide the additional option of providing a payload to be delivered to the remote process.
 
-If your alert will call a webhook, then it need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
+If your alert will call a webhook, then it will need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
 
-	{
-		"name": "<name-of-the-action>",
-		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-		"apiVersion": "<api-version-of-resource>",
-		"dependsOn": [
-			<name-of-schedule>
-			<name-of-alert-action>
-		],
-		"properties": {
-			"etag": "*",
-			"type": "Webhook",
-			"name": "<display-name-of-action>",
-			"severity": "<severity-of-alert>",
-			"customPayload": "<payload-to-send>"
-		}
-	}
+    {
+      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
+      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+      "dependsOn": [
+			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
+      ],
+      "properties": {
+        "etag": "*",
+        "type": "[variables('Alert').Webhook.Type]",
+        "name": "[variables('Alert').Webhook.Name]",
+        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
+        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
+      }
+    }
 
-The properties for Alert action resources are described in the following tables.
+The properties for Webhook action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
@@ -270,7 +273,7 @@ Following is a sample of a solution that include that includes the following res
 The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
-	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
 	    "parameters": {
 	      "workspaceName": {

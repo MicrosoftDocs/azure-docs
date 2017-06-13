@@ -21,8 +21,6 @@ ms.author: gwallace
 
 Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Results
 
 The preliminary results returned give an overall picture of the health of the resource. Deeper information can be provided for resources as shown in the following section:
@@ -55,7 +53,7 @@ The following tables show the different fault types (id under results from the p
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | No Connections are not connected. This is only a warning.| Yes|
+| ConnectionsNotConnected | Connections are not connected. This is only a warning.| Yes|
 | GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection
@@ -76,6 +74,24 @@ The following tables show the different fault types (id under results from the p
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
+## Supported Gateway types
+
+The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+|  |  |
+|---------|---------|
+|**Gateway types**   |         |
+|VPN      | Supported        |
+|ExpressRoute | Not Supported |
+|Hypernet | Not Supported|
+|**VPN types** | |
+|Route Based | Supported|
+|Policy Based | Not Supported|
+|**Connection types**||
+|IPSec| Supported|
+|VNet2Vnet| Supported|
+|ExpressRoute| Not Supported|
+|Hypernet| Not Supported|
+|VPNClient| Not Supported|
 
 ## Log files
 

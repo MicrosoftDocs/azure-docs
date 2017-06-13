@@ -54,11 +54,11 @@ $ az acs kubernetes install-cli
 You can launch the Kubernetes web UI by running:
 
 ```console
-$ az acs kubernetes browse
+$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 This should open a web browser configured to talk to a secure proxy connecting your
-local machine to the Kubernetes Wweb UI.
+local machine to the Kubernetes web UI.
 
 ### Create and expose a service
 1. In the Kubernetes web UI, click **Create** button in the upper right window.

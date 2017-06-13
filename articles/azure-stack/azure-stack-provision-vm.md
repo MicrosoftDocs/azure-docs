@@ -1,6 +1,6 @@
 ---
-title: Provision a VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a VM in Azure Stack.
+title: Create a test VM in Azure Stack | Microsoft Docs
+description: Learn how to provision a test VM in Azure Stack as an administrator.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/1/2017
+ms.date: 5/10/2017
 ms.author: erikje
 
 ---
-# Provision a virtual machine
-As an administrator, you can create virtual machines to evaluate resources before offering them in plans.
+# Create a test virtual machine in Azure Stack
+As an administrator, you can create a test virtual machine to validate your Azure Stack deployment.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Eval image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
 > 
 > 
 
-## Provision a virtual machine
-1. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
+## Create a virtual machine
+1. On the Azure Stack POC computer, sign in to `https://adminportal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
 
 2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
@@ -39,4 +39,4 @@ As an administrator, you can create virtual machines to evaluate resources befor
     ![](media/azure-stack-provision-vm/image06.png)
 
 ## Next steps
-[Storage accounts](azure-stack-provision-storage-account.md)
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)

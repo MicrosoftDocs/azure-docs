@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 
 ---
@@ -82,7 +82,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 3. End the call.
 
 ### View fraud reports
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. On the left, select Active Directory.
 3. At the top select **Multi-Factor Auth Providers**. This brings up a list of your Multi-Factor Auth Providers.
 4. Select your Multi-Factor Auth Provider and click **Manage** at the bottom of the page. The Azure Multi-Factor Authentication Management Portal opens.
@@ -94,7 +94,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 A one-time bypass allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone-call, you can enable a one-time bypass so the user can access the desired resource.
 
 ### Create a one-time bypass
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Management Portal per the instructions at the top of this page.
 3. In the Azure Multi-Factor Authentication Management Portal, if you see the name of your tenant or Azure MFA Provider on the left with a **+** next to it, click the **+** see different MFA Server replication groups and the Azure Default group. Select the appropriate group.
 4. Under User Administration, select **One-Time Bypass**.
@@ -106,7 +106,7 @@ A one-time bypass allows a user to authenticate a single time without performing
 7. The time limit goes into effect immediately, so the user needs to sign in before the one-time bypass expires. 
 
 ### View the one-time bypass report
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. On the left, select Active Directory.
 3. At the top select **Multi-Factor Auth Providers**. This brings up a list of your Multi-Factor Auth Providers.
 4. Select your Multi-Factor Auth Provider and click **Manage** at the bottom of the page. The Azure Multi-Factor Authentication Management Portal opens.
@@ -130,7 +130,7 @@ There are two parts to creating your custom message. First, you upload the messa
 To upload your custom message:
 
 1. Create a custom voice message using one of the supported file formats.
-2. Sign in to the [Azure classic portal](https://portal.azure.com/).
+2. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 3. Navigate to the MFA Management Portal per the instructions at the top of this page.
 4. In the Azure Multi-Factor Authentication Management Portal, click **Voice Messages** under the Configure section.
 5. On the Configure: Voice Messages page, click **New Voice Message**.
@@ -160,7 +160,7 @@ Caching allows you to set a specific time period so that subsequent authenticati
 Caching is not intended to be used for sign-ins to Azure AD.
 
 ### Set up caching 
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Management Portal per the instructions at the top of this page.
 3. In the Azure Multi-Factor Authentication Management Portal, click **Caching** under the Configure section.
 4. On the Configure caching page click **New Cache**.
@@ -189,7 +189,7 @@ When Trusted IPs is enabled, two-step verification is *not* required for browser
 Whether Trusted IPs is enabled or not, two-step verification is required for browser flows, and app passwords are required for older rich client apps. 
 
 ### To enable Trusted IPs
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Service Settings page per the instructions at the beginning of this article.
 3. On the Service Settings page, under Trusted IPs, you have two options:
    
@@ -251,7 +251,7 @@ Azure AD supports federation (single sign-on) with on-premises Windows Server Ac
 ### Allow app password creation
 By default, users cannot create app passwords. This feature must be enabled. To allow users the ability to create app passwords, use the following procedure:
 
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Service Settings page per the instructions at the beginning of this article.
 3. Select the radio button next to **Allow users to create app passwords to sign into non-browser apps**.
 
@@ -279,7 +279,7 @@ Therefore, remembering MFA on trusted devices reduces the number of authenticati
 >This feature is not compatible with the "Keep me signed in" feature of AD FS when users perform two-step verification for AD FS through the Azure MFA Server or a third-party MFA solution. If your users select "Keep me signed in" on AD FS and also mark their device as trusted for MFA, they won't be able to verify after the "Remember MFA" number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original MFA claim and date instead of performing two-step verification again. This sets off a verification loop between Azure AD and AD FS. 
 
 ### Enable Remember multi-factor authentication
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Service Settings page per the instructions at the beginning of this article.
 3. On the Service Settings page, under manage user device settings, check the **Allow users to remember multi-factor authentication on devices they trust** box.
    ![Remember devices](./media/multi-factor-authentication-whats-next/remember.png)
@@ -306,7 +306,7 @@ When your users enroll their accounts for MFA, they choose their preferred verif
 | Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every thirty seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### How to enable/disable authentication methods
-1. Sign in to the [Azure classic portal](https://portal.azure.com/).
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the MFA Service Settings page per the instructions at the beginning of this article.
 3. On the Service Settings page, under verification options, select/unselect the options you wish to use.
    ![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)

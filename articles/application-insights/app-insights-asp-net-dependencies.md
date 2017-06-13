@@ -3,7 +3,7 @@ title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
+ms.date: 05/04/2017
+ms.author: cfreeman
 
 ---
 # Set up Application Insights: Dependency tracking
@@ -27,7 +27,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
   * SQL databases
   * ASP.NET web and WCF services that use HTTP-based bindings
   * Local or remote HTTP calls
-  * Azure DocumentDb, table, blob storage, and queue
+  * Azure Cosmos DB, table, blob storage, and queue
 * Web pages
   * AJAX calls
 
@@ -115,9 +115,9 @@ In a different case, there is no dependency call that is particularly long. But 
 
 There seems to be a big gap after the first dependency call, so we should look at our code to see why that is.
 
-### Profiling your live site
+### Profile your live site
 
-No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
+No idea where the time goes? The [Application Insights profiler](app-insights-profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
 
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.

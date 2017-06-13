@@ -61,7 +61,7 @@ Organizations that do not enforce data-access control by taking advantage of cap
 
 ## VM availability and network access
 
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 
@@ -119,7 +119,7 @@ Organizations that don't enforce a strong security posture for their VMs remain 
 
 Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. For this reason, it is imperative to monitor VM access not only reactively, while an issue is occurring, but also proactively, against baseline performance as measured during normal operation.
 
-By analyzing [Azure diagnostic log files](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+By analyzing [Azure diagnostic log files](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), you can monitor your VM resources and identify potential issues that might compromise performance and availability. The Azure Diagnostics Extension provides monitoring and diagnostics capabilities on Windows-based VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 You can also use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource’s health.
 

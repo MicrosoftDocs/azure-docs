@@ -1,5 +1,5 @@
 ---
-title: Add Hive libraries during HDInsight cluster creation | Microsoft Docs
+title: Add Hive libraries during HDInsight cluster creation - Azure | Microsoft Docs
 description: Learn how to add Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
 services: hdinsight
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -31,8 +31,8 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
 >
-> * **Linux-based HDInsight** - when using the **Hive command-line**, **WebHCat**, and **HiveServer2**.
-> * **Windows-based HDInsight** - when using the **Hive command-line** and **WebHCat**.
+> * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
+> * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 
 ## The script
 
@@ -43,7 +43,7 @@ For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/li
 For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 **Requirements**
 

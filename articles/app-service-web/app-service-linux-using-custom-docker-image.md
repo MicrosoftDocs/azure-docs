@@ -1,6 +1,6 @@
 ---
-title: How to use a custom Docker image for Azure App Service on Linux | Microsoft Docs
-description: How to use a custom Docker image for App Service on Linux.
+title: How to use a custom Docker image for Azure Web App on Linux | Microsoft Docs
+description: How to use a custom Docker image for Azure Web App on Linux.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
@@ -19,7 +19,10 @@ ms.author: naziml;wesmc
 
 ---
 
-# Using a custom Docker image for App Service on Linux #
+# Using a custom Docker image for Azure Web App on Linux #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses Docker containers to host these pre-built application stacks. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. Custom Docker images can be hosted on either a public or private Docker repository.
 
@@ -94,12 +97,12 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 ## Next Steps ##
 
-Follow the following links to get started with App Service on Linux.   
+Follow the following links to get started with Web App on Linux.   
 
-* [Introduction to App Service on Linux](./app-service-linux-intro.md)
-* [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
-* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+* [Introduction to Azure Web App on Linux](./app-service-linux-intro.md)
+* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 
 Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

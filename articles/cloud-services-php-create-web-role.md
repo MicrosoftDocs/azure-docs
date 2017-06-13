@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure web and worker roles for PHP | Microsoft Docs
 description: A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime.
 services: ''
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -27,7 +27,7 @@ Azure provides three compute models for running applications: Azure App Service,
 For more information about these options, see [Compute hosting options provided by Azure](cloud-services/cloud-services-choose-me.md).
 
 ## Download the Azure SDK for PHP
-The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create a Cloud Services project
 The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and it contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files.
@@ -197,7 +197,7 @@ To stop the emulators, execute this command:
     PS C:\MyProject> Stop-AzureEmulator
 
 ## Publish your application
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Next steps
 For more information, see the [PHP Developer Center](/develop/php/).

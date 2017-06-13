@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 
 ---
@@ -29,7 +29,7 @@ Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by
 
 **If I create a standard managed disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
+A standard managed disk created from an 80 GB VHD will be treated as the next available standard disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **Are there any transaction costs for standard managed disks?**
 
@@ -75,6 +75,7 @@ No, the VMs in an Availability Set must use either all managed or all unmanaged 
 
 Not currently, but it will become the default in the future.
 
+
 **Can I create an empty managed disk?**
 
 Yes, you can create an empty disk. A managed disk can be created independently of a VM, i.e., without attaching it to a VM.
@@ -88,7 +89,6 @@ The supported fault domain count is 2 or 3 for Availability Sets using Managed D
 You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
 
 **What kind of RBAC support do we have for Managed Disks?**
-
 Managed Disks supports three key default roles:
 
 1.  Owner: Can manage everything, including access.
@@ -109,6 +109,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, we support both managed and unmanaged disks. However, we recommend you start using managed disks for new workloads and migrate your current workloads to Managed Disks.
 
+
 **If I create a disk of size 128 GB and then increase the size to 130 GB will I be charged for the next disk size (512 GB)?**
 
 Yes.
@@ -117,11 +118,59 @@ Yes.
 
 Azure Managed Disks currently only supports locally-redundant storage (LRS).
 
+**Can I shrink/downsize my Managed Disks?**
+No. This feature is not supported currently. 
+
+**Can I change the computer name property when using a specialized (not sysprepped or generalized) OS disk to provision a VM**
+No. You cannot update computer name property. New VM will inherit it from the parent VM which was used to create the OS disk. 
+
+**Where can I find sample Azure resource manager templates to create VMs with Managed Disks**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
+## Managed Disks and Storage service encryption (SSE)
+
+**Is SSE enabled by default when I create a Managed Disk?**
+
+Yes
+
+**Who manages the encryption keys?**
+
+Keys are managed by Microsoft.
+
+**Can I disable SSE for my Managed Disks?**
+
+No
+
+**Is SSE available in only specific regions?**
+
+No. It is available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany regions.
+
+**How can I find if my Managed Disk is encrypted?**
+
+You can find created time of Managed Disks from Azure portal, CLI and PowerShell. If created time is greater than June 9th, 2017 then your disks are encrypted. 
+
+**How can I encrypt my existing disks created before June 10th, 2017?**
+
+Starting June 10th 2017, new data written to existing Managed Disks will be automatically encrypted. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
+
+[Copy Managed Disks using CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+[Copy Managed Disks using PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+**Are managed snapshots and images encrypted?**
+
+Yes. All managed snapshots and images created after June 9th, 2017 are automatically encrypted. 
+
+**Will an exported VHD from a Managed Disk or a snapshot also be encrypted?**
+
+No. But if you export a VHD to an encrypted storage account from an encrypted Managed Disk or snapshot then it will be encrypted. 
+
+
 ## Managed Disks and port 8443
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
-
-The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
 
 **What happens if a VM is deployed with extensions and the port is not unblocked?**
 
@@ -135,7 +184,7 @@ There will be no impact on the deployment.
 
 The extension won't be successfully deployed. The status of the extension will be unknown. 
 
-**What happens if an ARM template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
+**What happens if an Azure resource manager template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
 
 The first VM will show as a failed deployment because the extensions were not successfully deployed. The second VM will not be deployed. 
 
@@ -157,7 +206,7 @@ No.
 
 **Is there an estimated date for this issue to be fixed so I no longer have to unblock port 8443?**
 
-Yes, by the end of May 2017.
+Yes, by the end of June 2017.
 
 ## Premium Disks – both managed and unmanaged
 
@@ -184,6 +233,10 @@ The combined limits for cache and local SSD for a DS series are 4000 IOPS per co
 **Is the local SSD supported for Managed Disks VMs?**
 
 The local SSD is temporary storage that is included with a managed disks VM. There is no extra cost for this temporary storage. It is recommended that you do not use this local SSD for storing your application data as it is not persisted in Azure Blob storage.
+
+**Is there any repercurssions on using TRIM on Premium Disks?**
+
+There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
 
 ## What if my question isn't answered here?
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 ---
 
@@ -35,7 +35,7 @@ In this article, two previously created Azure Web App endpoints are associated t
     6. Click **Create**.
     7. When the global deployment of your Traffic Manager profile is complete, it is listed in respective resource group as one of the resources.
 
-![Create a Traffic Manager profile](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## Add Traffic Manager endpoints
 
@@ -53,7 +53,7 @@ In this article, two previously created Azure Web App endpoints are associated t
 5.	Repeat steps 3 and 4 for the next Azure Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
 6.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
-![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## Use the Traffic Manager profile
 1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, click the traffic manager profile.

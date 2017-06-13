@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using .NET Standard | Microsoft Docs
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
-ms.author: jotaub;sethm
+ms.author: sethm
+
 ---
 
 # Get started receiving messages with the Event Processor Host in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an Event Hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your Event Hub and storage account values. Or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
@@ -32,9 +33,9 @@ This tutorial shows how to write a .NET Core console application that receives m
 * An Azure Event Hubs namespace.
 * An Azure storage account.
 
-## Create an Event Hubs namespace and an Event Hub  
+## Create an Event Hubs namespace and an event hub  
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.  
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.  
 
 ## Create an Azure storage account  
 
@@ -117,7 +118,7 @@ Add the following NuGet packages to the project:
 	using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -207,13 +208,13 @@ Add the following NuGet packages to the project:
 
 4. Run the program, and ensure that there are no errors.
 
-Congratulations! You have now received messages from an Event Hub by using the Event Processor Host.
+Congratulations! You have now received messages from an event hub by using the Event Processor Host.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png

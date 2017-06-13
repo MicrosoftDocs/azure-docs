@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated Patching for SQL Server VMs (Classic) | Microsoft Docs
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using the classic deployment mode.
 services: virtual-machines-windows
@@ -46,7 +46,7 @@ To use Automated Patching, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs).
+* [Install the latest Azure PowerShell commands](/powershell/azure/overview).
 
 **SQL Server IaaS Extension**:
 

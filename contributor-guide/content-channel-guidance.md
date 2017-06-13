@@ -27,7 +27,9 @@ The following types of content are delivered in other Azure or Microsoft content
 
 * **Downloadable files**: Technical documents should be delivered as articles, not downloads. Do not create downloadable PDFs of content from the technical content repository. Other downloadable things should go to the Download Center.
 
-* **Feedback - soliciting feedback via email addresses**: The approved feedback paths for Azure content include the feedback link that appears in the site footer, the satisfaction rating and verbatim control, the Disqus comments, direct article contributions through GitHub pull requests, and the UserVoice site. Please don't add to this plethora of channels by asking people to send feedback via email.
+* **Feedback**:
+    - Soliciting feedback via email addresses. The approved feedback paths for Azure content include the feedback link that appears in the site footer, the satisfaction rating and verbatim control, the Disqus comments, direct article contributions through GitHub pull requests, and the UserVoice site. Please don't add to this plethora of channels by asking people to send feedback via email.
+    - Articles asking for feedback are not technical content and should not be published. There are plenty of feedback methods available on the site.
 
 * **Future product plans**: Do not publish statements about future product plans in technical documentation. Technical documentation should describe only what is possible in the released product.
 
@@ -36,6 +38,8 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Legal terms**: There are all-up Azure legal terms: https://azure.microsoft.com/en-us/support/legal/
 
 * **Marketing content**: Content that provides a high-level feature/benefit description or that just lists at a high level the capabilities of a service is probably marketing content. It belongs in marketing areas of the site. To publish marketing content, file a work request for azure.microsoft.com.
+
+* **Open Source Software (OSS) technical documentation**: Technical documentation for Open Source Software should not be published to Docs.Microsoft.Com. The documentation files should be co-located in the same repository where the source code resides, making discovery easy and intuitive. As with the source code itself, the community is also responsible for the review process and quality control of the documentation.
 
 * **Placeholder articles for future content**: Do not publish "coming soon" articles as placeholders for future content. We only publish actual technical content articles that contain relevant, useful technical content.
 
@@ -61,4 +65,3 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Troubleshooting content of most types**: Although each service may include up to 10 troubleshooting articles and index files as described above, most formal troubleshooting and support content should be published as KB articles on http://support.microsoft.com.
 
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
-

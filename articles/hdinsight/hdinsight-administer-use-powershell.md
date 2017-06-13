@@ -1,5 +1,5 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Microsoft Docs
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
 editor: cgronlun
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
@@ -39,7 +39,7 @@ To check the version of the installed PowerShell:
 
     Get-Module *azure*
 
-To uninstall the older version, run Programs and Features in the control panel. 
+To uninstall the older version, run Programs and Features in the control panel.
 
 ## Create clusters
 See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -68,40 +68,40 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 > [!NOTE]
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+>
+>
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
 * Hadoop
-  
+
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
-  
+
     When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
 * HBase
-  
+
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
-  
+
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 * Storm
-  
+
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
-  
+
     Rebalancing can be accomplished in two ways:
-  
+
   * Storm web UI
   * Command-line interface (CLI) tool
-    
+
     Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
-    
+
     The Storm web UI is available on the HDInsight cluster:
-    
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
-    
+
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+
     Here is an example how to use the CLI command to rebalance the Storm topology:
-    
+
         ## Reconfigure the topology "mytopology" to use 5 worker processes,
         ## the spout "blue-spout" to use 3 executors, and
         ## the bolt "yellow-bolt" to use 10 executors
@@ -142,8 +142,8 @@ To grant:
 
 > [!NOTE]
 > By granting/revoking the access, you will reset the cluster user name and password.
-> 
-> 
+>
+>
 
 This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
@@ -160,7 +160,7 @@ The following Powershell script demonstrates how to get the default storage acco
     $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
@@ -176,7 +176,7 @@ In the Resource Manager mode, each HDInsight cluster belongs to an Azure resourc
 
 See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
 
-**To submit Hive jobs** 
+**To submit Hive jobs**
 
 See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
@@ -209,8 +209,8 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md

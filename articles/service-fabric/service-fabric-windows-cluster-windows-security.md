@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2017
+ms.date: 04/28/2017
 ms.author: ryanwi
 
 ---
@@ -30,7 +30,6 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure API Management with virtual networks
 description: Learn how to setup a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
@@ -76,9 +76,9 @@ Click **Save** at the top of the screen.
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
-* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create an Azure API Management service inside a VNET.
+* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) to create an Azure API Management service inside a VNET.
 
-* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
+* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
 
 ## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
 After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
@@ -91,8 +91,8 @@ Following is a list of common misconfiguration issues that can occur while deplo
 * **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 > [!IMPORTANT]
-> It is recommended that, if you are using a Custom DNS Server for the VNET, you set that up **before** deploying an API Management service into it. Otherwise we need to restart the CloudService hosting the service, for it to pick up the new DNS Server settings.
->
+> It is recommended that, if you are using a Custom DNS Server(s) for the VNET, you set that up **before** deploying an API Management service into it. Otherwise you need to 
+> update the API Management service each time you change the DNS Servers(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -106,13 +106,14 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 11000 - 11999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 14000 - 14999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 9350 - 9354 |Outbound |TCP |Dependency on Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 5671 |Outbound |AMQP |Dependency for Log to event Hub policy |VIRTUAL_NETWORK / INTERNET |External & Internal |
+| * / 5671 |Outbound |AMQP |Dependency for Log to Event Hub policy and monitoring agent |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | 6381 - 6383 / 6381 - 6383 |Inbound & Outbound |UDP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |-
 | * / 445 |Outbound |TCP |Dependency on Azure File Share for GIT |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com.
+
+* **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
 
 * **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:

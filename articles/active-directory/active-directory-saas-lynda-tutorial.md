@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 
 ---
@@ -35,7 +35,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 
 ![Scenario](./media/active-directory-saas-lynda-tutorial/IC781046.png "Scenario")
 
-## Enabling the application integration for Lynda.com
+## Enable the application integration for Lynda.com
 The objective of this section is to outline how to enable the application integration for Lynda.com.
 
 **To enable the application integration for Lynda.com, perform the following steps:**
@@ -60,7 +60,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Lynda.com](./media/active-directory-saas-lynda-tutorial/IC777525.png "Lynda.com")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Lynda.com with their account in Azure AD using federation based on the SAML protocol.
 
@@ -87,7 +87,7 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure single sign-on](./media/active-directory-saas-lynda-tutorial/IC777530.png "Configure single sign-on")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 There is no action item for you to configure user provisioning to Lynda.com.  
 When an assigned user tries to log into Lynda.com using the access panel, Lynda.com checks whether the user exists.  
@@ -98,7 +98,7 @@ If there is no user account available yet, it is automatically created by Lynda.
 >You can use any other Lynda.com user account creation tools or APIs provided by Lynda.com to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to Lynda.com, perform the following steps:**

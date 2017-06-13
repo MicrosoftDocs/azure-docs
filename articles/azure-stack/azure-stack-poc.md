@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 4/11/2017
 ms.author: helaw
+ms.custom: mvc
 
 ---
 # What is Azure Stack Technical Preview 3?
@@ -32,5 +33,5 @@ Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure ser
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
 
-[Taking the cloud to your datacenter whitepaper (pdf)](http://download.microsoft.com/download/3/F/3/3F3811C0-969D-422C-9EDA-42CB79BABA96/Bring-the-cloud-to-your-datacenter-Microsoft-Azure-Stack.pdf)
+[Hybrid Application innovation with Azure and Azure Stack (pdf)](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)
 

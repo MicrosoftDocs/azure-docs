@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 
 ---
@@ -22,7 +22,7 @@ In the [Azure Portal](https://portal.azure.com/), you can manually set the insta
 
 Before scaling based on instance count, you should consider that scaling is affected by **Pricing tier** in addition to instance count. Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is *Scale up* or *Scale down*). This article specifically covers *Scale in* and *out*.
 
-You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to adjust scale manually or automatically.
+You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to adjust scale manually or automatically.
 
 > [!NOTE]
 > This article describes how to create an autoscale setting in the portal at [http://portal.azure.com](http://portal.azure.com). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
@@ -30,11 +30,9 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 > 
 
 ## Scaling manually
-1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
-2. The **Scale** tile in **Operations** will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
-   
-    ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.
+1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as an **App Service plan**.
+2. Click **Settings > Scale out (App Service plan).**
+3. At the top of the **Scale** blade you can see a history of autoscale actions of the service.
    
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    

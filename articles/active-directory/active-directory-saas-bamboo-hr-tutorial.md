@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 
 ---
@@ -29,7 +29,7 @@ After completing this tutorial, the Azure AD users you have assigned to BambooHR
 The scenario outlined in this tutorial consists of the following building blocks:
 
 * Enabling the application integration for BambooHR
-* Configuring single sign-on
+* Configuring single sign-on (SSO)
 * Configuring user provisioning
 * Assigning users
 
@@ -124,7 +124,7 @@ In order to enable Azure AD users to log into BambooHR, they must be provisioned
 >You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts. 
 > 
 
-## Assig users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to BambooHR, perform the following steps:**
@@ -137,5 +137,5 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

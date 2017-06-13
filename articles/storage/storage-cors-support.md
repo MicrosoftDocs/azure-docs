@@ -40,7 +40,7 @@ If CORS is enabled for the service and there is a CORS rule that matches the pre
 
 If CORS is not enabled for the service or no CORS rule matches the preflight request, the service will respond with status code 403 (Forbidden).
 
-If the OPTIONS request doesn’t contain the required CORS headers (the Origin and Access-Control-Request-Method headers), the service will respond with status code 400 (Bad request).
+If the OPTIONS request doesn't contain the required CORS headers (the Origin and Access-Control-Request-Method headers), the service will respond with status code 400 (Bad request).
 
 Note that a preflight request is evaluated against the service (Blob, Queue, and Table) and not against the requested resource. The account owner must have enabled CORS as part of the account service properties in order for the request to succeed.
 

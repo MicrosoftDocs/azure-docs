@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/23/2016
+ms.date: 04/28/2017
 ms.author: nitinme
 
 ---
@@ -24,7 +24,7 @@ ms.author: nitinme
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -61,7 +61,7 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.4</version>
+            <version>2.1.5</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>

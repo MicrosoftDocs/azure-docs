@@ -12,30 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
 
 # Tutorial: Azure Active Directory integration with Onit
 The objective of this tutorial is to show the integration of Azure and Onit.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* An Onit single sign-on enabled subscription
+* An Onit single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Onit will be able to single sign-on (SSO) to the application at your Onit company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Onit
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-onit-tutorial/IC791166.png "Scenario")
 
-## Enabling the application integration for Onit
+## Enable the application integration for Onit
 The objective of this section is to outline how to enable the application integration for Onit.
 
 **To enable the application integration for Onit, perform the following steps:**
@@ -60,11 +61,12 @@ The objective of this section is to outline how to enable the application integr
    
    ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Onit with their account in Azure AD using federation based on the SAML protocol.  
 
-Configuring single sign-on for Onit requires you to retrieve a thumbprint value from a certificate.  
+Configuring SSO for Onit requires you to retrieve a thumbprint value from a certificate.
+
 If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
 Your Onit application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
@@ -73,7 +75,7 @@ The following screenshot shows an example for this.
 
 ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.png "Single Sign-On")
 
-**To configure single sign-on, perform the following steps:**
+**To configure SSO, perform the following steps:**
 
 1. In the Azure classic portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
    
@@ -85,10 +87,10 @@ The following screenshot shows an example for this.
    |name|User.userprincipalname|
    |email|User.mail|
 
-   1.  For each data row in the table above, click **add user attribute**.
-   2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-   3.  From the **Attribute Value** list, select the attribute value shown for that row.
-   4.  Click **Complete**.
+   1. For each data row in the table above, click **add user attribute**.
+   2. In the **Attribute Name** textbox, type the attribute name shown for that row.
+   3. From the **Attribute Value** list, select the attribute value shown for that row.
+   4. Click **Complete**.
 
 3. Click **Apply Changes**.
 4. In your browser, click **Back** to open the **Quick Start** dialog again.
@@ -135,7 +137,7 @@ The following screenshot shows an example for this.
     
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
     
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into Onit, they must be provisioned into Onit.  
 
@@ -151,20 +153,21 @@ In the case of Onit, provisioning is a manual task.
    
    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
    
-   1. Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
-   2. Click **Create**.    
+  1. Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
+  2. Click **Create**.    
    
       >[!NOTE]
       >The account owner will get an email including a link to confirm the account before it becomes active.
-      > 
-       
+      >
+      >
+     
 
 > [!NOTE]
 > You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
@@ -178,5 +181,9 @@ To test your configuration, you need to grant the Azure AD users you want to all
    
    ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)

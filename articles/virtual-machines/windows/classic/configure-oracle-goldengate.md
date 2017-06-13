@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 05/31/2017
 ms.author: rclaus
 
 ---
@@ -31,7 +31,7 @@ In addition, the tutorial assumes that you have already implemented the followin
 * You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](oracle-considerations.md) topic. Note that Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
 * You’ve downloaded the Oracle GoldenGate software from the [Oracle Downloads](http://www.oracle.com/us/downloads/index.html) web site. You’ve selected the Product Pack Oracle Fusion Middleware – Data Integration. Then, you’ve selected Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64 (64-bit) for an Oracle 11g database. Next, download Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008 (64bit).
 * You have created two Virtual Machines (VMs) in Azure using Oracle Enterprise Edition on Windows Server. Make sure that the Virtual Machines are in the [same cloud service](../../virtual-machines-linux-load-balance.md) and in the same [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the persistent private IP address.
-* You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B at the Azure classic portal.
+* You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B in the Azure portal.
 * You’ve created test databases “TestGG1” on Site A and “TestGG2” on Site B.
 * You log on to your Windows server as a member of the Administrators group or a member of the **ORA_DBA** group.
 
@@ -76,7 +76,7 @@ For subsequent releases of Oracle Database and Oracle GoldenGate, there might be
 ## 1. Setup database on Site A and Site B
 This section explains how to perform the database prerequisites on both Site A and Site B. You must perform all the steps of this section on both sites: Site A and Site B.
 
-First, remote desktop to Site A and Site B via the Azure classic portal. Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:
+First, remote desktop to Site A and Site B via the Azure portal. Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:
 
     mkdir C:\OracleGG
 
@@ -163,7 +163,7 @@ Next, create and enable a database trigger, INVENTORY_CDR_TRG, on the newly crea
 ## 2. Prepare Site A and Site B for database replication
 This section explains how to prepare Site A and Site B for database replication. You must perform all the steps of this section on both sites: Site A and Site B.
 
-First, remote desktop to Site A and Site B via the Azure classic portal. Switch the database to archivelog mode using the SQL*Plus command window:
+First, remote desktop to Site A and Site B via the Azure portal. Switch the database to archivelog mode using the SQL*Plus command window:
 
     sql>shutdown immediate
     sql>startup mount
@@ -264,7 +264,7 @@ Start the manager process:
 ## 5. Create Extract Group and Data Pump processes on Site A and Site B
 ### Create Extract and Data Pump processes on Site A
 You need to create the Extract and Data Pump processes on Site A and Site B.
-Remote desktop to Site A and Site B via the Azure classic portal. Open up GGSCI command interpreter window. Run the following commands on Site A:
+Remote desktop to Site A and Site B via the Azure portal. Open up GGSCI command interpreter window. Run the following commands on Site A:
 
     GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
     EXTRACT added.

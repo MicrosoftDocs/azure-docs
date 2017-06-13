@@ -1,0 +1,1 @@
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure. Also, you will need to have an SSH public key named `id_rsa.pub` in the .ssh directory of your user profile.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with PowerShell for Azure Batch | Microsoft Docs
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 services: batch
@@ -22,14 +22,14 @@ ms.custom: H1Hack27Feb2017
 
 With the Azure Batch PowerShell cmdlets, you can perform and script many of the same tasks you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This is a quick introduction to the cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks.
 
-For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
 
 This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements.
 
 ## Prerequisites
 Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
-* [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Install and configure Azure PowerShell](/powershell/azure/overview)
 * Run the **Login-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
   
     `Login-AzureRmAccount`
@@ -39,7 +39,7 @@ Perform the following operations to use Azure PowerShell to manage your Batch re
 
 ## Manage Batch accounts and keys
 ### Create a Batch account
-**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
+**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -233,6 +233,6 @@ You've now updated the pool's properties in the Batch service. To actually deplo
 > 
 
 ## Next steps
-* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
 * For more information about applications and application packages in Batch, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
 

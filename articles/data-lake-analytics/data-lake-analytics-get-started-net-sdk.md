@@ -3,8 +3,8 @@ title: Get started with Azure Data Lake Analytics using .NET SDK | Microsoft Doc
 description: 'Learn how to use the .NET SDK to create Data Lake Analytics accounts, create Data Lake Analytics jobs, and submit jobs written in U-SQL. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
@@ -22,26 +22,21 @@ ms.author: edmaca
 
 Learn how to use the Azure .NET SDK to submit jobs written in [U-SQL](data-lake-analytics-u-sql-get-started.md) to Data Lake Analytics. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a C# console application to submit a U-SQL job that reads a tab separated values (TSV) file and converts it into a comma 
-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this article.
+In this tutorial, you will develop a C# console application to submit a U-SQL job that reads a tab separated values (TSV) file and converts it into a comma  separated values (CSV) file. 
 
 ## Prerequisites
-Before you begin this tutorial, you must have the following:
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 * **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* **An Azure Data Lake Analytics account**. See [Manage Data Lake Analytics using Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md).
+* **An Azure Data Lake Analytics account**. 
 
-## Create console application
-In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
+## Create a C# console application
 
 A sample search log can be found in a public Azure Blob container. In the application, you will download the file to your workstation, and then upload the file to the default Data Lake Store account of your Data Lake Analytics account.
 
 **To create a U-SQL script**
 
-Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-Create a **SampleUSQLScript.txt** file with the following U-SQL script, and place the file in the **C:\temp\** path.  The path is hardcoded in the .NET application that you create in the next procedure.  
+Create a **SampleUSQLScript.usql** text file with the following U-SQL script, and place the file in the `C:\temp\` path.  The path is hardcoded in the .NET application that you create in the next procedure.  
 
     @searchlog =
         EXTRACT UserId          int,
@@ -58,22 +53,9 @@ Create a **SampleUSQLScript.txt** file with the following U-SQL script, and plac
         TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
 
-This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
+This U-SQL script reads the source data file using `Extractors.Tsv()`, and then creates a csv file using `Outputters.Csv()`. 
 
-In the C# program, you need to prepare the **/Samples/Data/SearchLog.tsv** file, and the **/Output/** folder.    
-
-It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
-
-    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-You must use absolute paths to access  files in linked Storage accounts.  The syntax for files stored in the linked Azure Storage account is:
-
-    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
-> [!NOTE]
-> There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Azure portal, the [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
-> 
-> 
+In the C# program, you need to prepare the `/Samples/Data/SearchLog.tsv` file, and the `/Output/` folder.    
 
 **To create an application**
 
@@ -83,7 +65,6 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
    
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
-        Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
 4. In Program.cs, paste the following code:
@@ -95,7 +76,6 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.StoreUploader;
         using Microsoft.Azure.Management.DataLake.Analytics;
         using Microsoft.Azure.Management.DataLake.Analytics.Models;
         using Microsoft.WindowsAzure.Storage.Blob;
@@ -167,10 +147,7 @@ You must use absolute paths to access  files in linked Storage accounts.  The sy
 
             public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
             {
-                var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-                var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-                var uploader = new DataLakeStoreUploader(parameters, frontend);
-                uploader.Execute();
+                _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite = force);
             }
 
             public static void DownloadFile(string srcPath, string destPath)

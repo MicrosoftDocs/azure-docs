@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure log integration FAQ | Microsoft Docs
 description: This FAQ answers questions about Azure log integration.
 services: security
@@ -13,15 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
 # Azure log integration frequently asked questions (FAQ)
 This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 ## Is the Azure Log Integration software free?
-Yes. There is no charge for the Azure Log Integration software. 
+Yes. There is no charge for the Azure Log Integration software.
+
+## Where is Azure Log Integration available?
+
+It is currently available in Azure commercial and Azure Government and not available in China, or Germany.
 
 ## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
 Run the command **azlog source list**.
@@ -78,7 +83,7 @@ See:
 See [Managing and responding to security alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## How can I modify what is collected with VM diagnostics?
-See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
+See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
 
 ### Get the WAD config
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -103,8 +108,11 @@ The following example is a configuration where only EventID 4624 and EventId 462
 
 After making changes, check the storage account to ensure that the correct events are collected.
 
-If you run into any issues during the installation and configuration, Please open a [support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), select 'Log Integration' as the service for which you are requesting support.
+If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
 
+### Can I use Azure Log integration to integrate Network Watcher logs into my SIEM?
+
+Network watcher generates large quantities of logging information and these logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azlog does not support reading these logs and making them available to a SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

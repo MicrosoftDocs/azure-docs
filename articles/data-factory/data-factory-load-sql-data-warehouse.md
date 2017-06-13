@@ -13,26 +13,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 
 ---
-# Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory [Copy Wizard]
+# Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Data Factory
 [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
 
-Getting started with Azure SQL Data Warehouse is now easier than ever using **Azure Data Factory**.  Azure Data Factory is a fully managed cloud-based data integration service, which can be used to populate a SQL Data Warehouse with the data from your existing system, and saving you valuable time while evaluating SQL Data Warehouse and building your analytics solutions on top of it.  Here are the key benefits of loading data into Azure SQL Data Warehouse using Azure Data Factory:
+Getting started with Azure SQL Data Warehouse is now easier than ever using **Azure Data Factory**.  Azure Data Factory is a fully managed cloud-based data integration service, which can be used to populate a SQL Data Warehouse with the data from your existing system, and saving you valuable time while evaluating SQL Data Warehouse and building your analytics solutions. Here are the key benefits of loading data into Azure SQL Data Warehouse using Azure Data Factory:
 
 * **Easy to set up**: 5-step intuitive wizard with no scripting required.
 * **Rich data store support**: built-in support for a rich set of on-premises and cloud-based data stores.
 * **Secure and compliant**: data is transferred over HTTPS or ExpressRoute, and global service presence ensures your data never leaves the geographical boundary
 * **Unparalleled performance by using PolyBase** – Using Polybase is the most efficient way to move data into Azure SQL Data Warehouse. Using the staging blob feature, you can achieve high load speeds from all types of data stores besides Azure Blob storage, which the Polybase supports by default.
 
-This article shows you how to use Data Factory Copy Wizard to load 1 TB data from Azure Blob Storage into Azure SQL Data Warehouse in under 15 minutes, at over 1.2 GBps throughput.
+This article shows you how to use Data Factory Copy Wizard to load 1-TB data from Azure Blob Storage into Azure SQL Data Warehouse in under 15 minutes, at over 1.2 GBps throughput.
 
 This article provides step-by-step instructions for moving data into Azure SQL Data Warehouse by using the Copy Wizard.
 
 > [!NOTE]
-> See [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) article for general information about capabilities of Data Factory in moving data to/from Azure SQL Data Warehouse.
+>  For general information about capabilities of Data Factory in moving data to/from Azure SQL Data Warehouse, see [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) article.
 >
 > You can also build pipelines using Azure portal, Visual Studio, PowerShell, etc. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.  
 >
@@ -55,9 +55,9 @@ This article provides step-by-step instructions for moving data into Azure SQL D
   > [!NOTE]
   > When loading from Azure Blob, the data loading performance is directly proportional to the number of DWUs you configure on the SQL Data Warehouse:
   >
-  > Loading 1 TB into 1,000 DWU SQL Data Warehouse takes 87min (~200MBps throughput)
-  > Loading 1 TB into 2,000 DWU SQL Data Warehouse takes 46min (~380MBps throughput)
-  > Loading 1 TB into 6,000 DWU SQL Data Warehouse takes 14min (~1.2GBps throughput)
+  > Loading 1 TB into 1,000 DWU SQL Data Warehouse takes 87 minutes (~200 MBps throughput)
+  > Loading 1 TB into 2,000 DWU SQL Data Warehouse takes 46 minutes (~380 MBps throughput)
+  > Loading 1 TB into 6,000 DWU SQL Data Warehouse takes 14 minutes (~1.2 GBps throughput)
   >
   >
 
@@ -142,7 +142,7 @@ In the **Properties** page:
 	![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## Step 2: Configure source
-This section shows you the steps to configure the source: Azure Blob containing the 1 TB TPC-H line item files.
+This section shows you the steps to configure the source: Azure Blob containing the 1-TB TPC-H line item files.
 
 1. Select the **Azure Blob Storage** as the data store and click **Next**.
 
@@ -175,9 +175,7 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 	![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Accept the default settings for column mapping and click **Next**.
-
-	![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+4. In Schema mapping page, leave "Apply column mapping" option unchecked and click **Next**.
 
 ## Step 4: Performance settings
 

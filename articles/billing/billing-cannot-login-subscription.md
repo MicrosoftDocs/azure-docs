@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
 
 ---
@@ -28,16 +28,22 @@ If your internet browser page hangs, try each of the following steps until you c
 * Use a different Internet browser.
 * If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. 
   
-  A.    Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
+  A. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
   
-  B.    Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
+  B. Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
 
 ## Error message "No subscriptions found”
 If your account doesn’t have sufficient permissions, you may see a **No subscription found** error message. Make sure you log in as the right administrator. An Account Administrator can only access the [Account Center](https://account.windowsazure.com/Subscriptions). The Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the Azure classic portal.
 
 **Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
-To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
+To fix this issue:
+
+* Make sure the right Azure directory is selected by clicking your account at the top right.
+
+![Select the directory at the top right of the Azure portal](./media/billing-cannot-login-subscription/directory-switch.png)
+
+* If the right Azure directory is selected but you still get the error, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
 
 **Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
 

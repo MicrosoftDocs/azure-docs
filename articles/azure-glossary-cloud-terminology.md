@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
@@ -34,7 +34,7 @@ See also [How Azure subscriptions are associated with Azure Active Directory](ac
 
 ### <a name="availability-set"></a>availability set
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
-See also [Manage the availability of Windows virtual machines](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See also [Manage the availability of Windows virtual machines](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="classic-model"></a>Azure classic deployment model
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure resources can be deployed in one model or the other, while others can be deployed in both models. Guidance for individual Azure resources detail which model(s) a resource can be deployed with.
@@ -43,15 +43,15 @@ One of two [deployment models](resource-manager-deployment-model.md) used to dep
 A [command-line interface](cli-install-nodejs.md) that can be used to manage Azure services from Windows, OSX, and Linux PCs.
 
 ### <a name="powershell"></a>Azure PowerShell
-A [command-line interface](/powershell/azureps-cmdlets-docs) to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI. Guidance for each individual Azure resource details which model(s) a resource can be deployed with.   
-See also [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
+A [command-line interface](/powershell/azure/overview) to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI. Guidance for each individual Azure resource details which model(s) a resource can be deployed with.   
+See also [How to install and configure Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>Azure Resource Manager deployment model
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure resources can be deployed in one model or the other, while others can be deployed in both models. Guidance for individual Azure resources detail which model(s) a resource can be deployed with.
 
 ### <a name="fault-domain"></a>fault domain
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
-See also [Manage the availability of Windows virtual machines](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+See also [Manage the availability of Windows virtual machines](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ### <a name="geo"></a>geo
 A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
@@ -63,7 +63,7 @@ See also [Active Geo-Replication for Azure SQL Database](sql-database/sql-databa
 
 ### <a name="image"></a>image
 A file that contains the operating system and application configuration that can be used to create any number of virtual machines. In Azure there are two types of images: VM image and OS image. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. An OS image contains only a generalized operating system with no data disk configurations.  
-See also [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+See also [Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="limits"></a>limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  
@@ -121,7 +121,7 @@ See also [Using tags to organize your Azure resources](resource-group-using-tags
 
 ### <a name="update-domain"></a>update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  
-See also [Manage the availability of Windows virtual machines](virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+See also [Manage the availability of Windows virtual machines](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ### <a name="vm"></a>virtual machine
 The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes.  
@@ -129,7 +129,7 @@ See also [Virtual Machines documentation](https://azure.microsoft.com/documentat
 
 ### <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.  
-See also [About virtual machine extensions and features (Windows)](virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](virtual-machines/virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See also [About virtual machine extensions and features (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="vnet"></a>virtual network
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  

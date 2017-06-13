@@ -46,8 +46,6 @@ To back up files and folders from a server or client, you need to create a backu
 ## Download the vault credential file
 The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the classic portal. The certificate private key does not persist in the portal or the service.
 
-Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
-
 ### To download the vault credential file to a local machine
 1. In the left navigation pane, click **Recovery Services**, and then select the backup vault that you created.
 

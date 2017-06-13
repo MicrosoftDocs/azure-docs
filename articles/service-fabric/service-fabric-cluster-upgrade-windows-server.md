@@ -3,7 +3,7 @@ title: Upgrade a standalone Azure Service Fabric cluster on Windows Server | Mic
 description: Upgrade the Azure Service Fabric code and/or configuration that runs a standalone Service Fabric cluster, including setting the cluster update mode.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: chackdan
+ms.author: dekapur
 
 ---
-# Upgrade your standalone Azure Service Fabric cluster on Windows Server
+# Upgrade your standalone Azure Service Fabric on Windows Server cluster
 > [!div class="op_single_selector"]
 > * [Azure Cluster](service-fabric-cluster-upgrade.md)
 > * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
@@ -109,6 +109,10 @@ Use these steps to upgrade your cluster to a supported version if your cluster n
 > If you are running a cluster that is not connected to the Internet, you will have to monitor the Service Fabric team blog to learn about a new release. The system does not show a cluster health warning to alert you of a new release.  
 >
 >
+
+#### Auto Provisioning vs Manual Provisioning
+To enable automatic downloading and registration for the latest code version, set up Service Fabric Update Service. Refer to the Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [Standalone Package](service-fabric-cluster-standalone-package-contents.md) for instructions.
+For manual process, follow the instructions below.
 
 Modify your cluster configuration to set the following property to false before you start a configuration upgrade.
 
