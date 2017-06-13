@@ -76,7 +76,7 @@ requests
 1. Click *New step* and then select *Add an action*.
 2. Search for Office 365 Outlook.
 3. Click Office 365 Outlook – Send an email.
-![Office 365 Outlook selection](.media/app-insights-automate-with-flow/flow5.png)
+![Office 365 Outlook selection](./media/app-insights-automate-with-flow/flow5.png)
 4. In the email action add the following data:
  - Specify the email address of the recipient
  - Provide a subject for the email
