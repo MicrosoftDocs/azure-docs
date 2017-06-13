@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 06/12/2017
 ms.author: juliako
 
 ---
@@ -56,6 +56,11 @@ Contains a sequence of the following elements.
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controls the trade-off between encode speed and video quality. Could be one of the following values: **Speed**, **Balanced**, or **Quality**<br/><br/> Default: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |Feature will be exposed in a future releases. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Collection of output video layers. |
+
+### Attributes
+| Name | Type | Description |
+| --- | --- | --- |
+| **Condition** |**xs:string** | When the input has no video, you may want to force the encoder to insert a monochrome video track. To do that, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (to insert a video at only the lowest bitrate) or Condition="InsertBlackIfNoVideo" (to insert a video at all output bitrates). For more information, see [this](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) topic.|
 
 ## <a name="H264Layers"></a> H264Layers
 ### Elements
