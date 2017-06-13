@@ -1,6 +1,6 @@
 ---
-title: Persist job and task output to Azure Storage - Azure Batch | Microsoft Docs
-description: Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal.
+title: Persist job and task output to Azure Storage with the File Conventions library for .NET - Azure Batch | Microsoft Docs
+description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task and job output to Azure Storage, and view the persisted output in the Azure portal.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 A task running in Azure Batch frequently produces output data when it runs. Task output data often needs to be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. While you can persist data to the file system of a Batch compute node, nodes are ephemeral, and all data on a node is lost when it is reimaged. Therefore it's important to persist task data that you'll need later to a data store such as Azure Storage.
 
-One way to persist task data is to use the [Azure Batch File Conventions library for .NET]([nuget_package]). The Batch File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario. 
+One way to persist task data is to use the [Azure Batch File Conventions library for .NET][nuget_package]. The Batch File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario. 
 
 The File Conventions library names your storage containers and task output files according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). The library provides classes and methods to upload output files to Azure Storage and to retrieve those files. To retrieve output files with the library, you can locate the files for a given job or task by listing them by ID and purpose. You don't need to know the names or locations of the files. For example, you can use the File Conventions library to list all intermediate files for a given task, or get a preview file for a given job.
 
@@ -140,18 +140,18 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-The commented section `Code to process data and produce output file(s)` is simply a placeholder for the code that your task would normally perform. For example, you might have code that downloads data from Azure Storage and performs transformation or calculation on it. The important part of this snippet is demonstrating how you can wrap such code in a `using` block to periodically update a file with [SaveTrackedAsync][net_savetrackedasync].
+The commented section `Code to process data and produce output file(s)` is a placeholder for the code that your task would normally perform. For example, you might have code that downloads data from Azure Storage and performs transformation or calculation on it. The important part of this snippet is demonstrating how you can wrap such code in a `using` block to periodically update a file with [SaveTrackedAsync][net_savetrackedasync].
 
 The node agent is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. The `Task.Delay` call is required at the end of this `using` block to ensure that the node agent has time to flush the contents of standard out to the stdout.txt file on the node. Without this delay, it is possible to miss the last few seconds of output. This delay may not be required for all files.
 
 > [!NOTE]
-> When you enable file tracking with SaveTrackedAsync, only *appends* to the tracked file are persisted to Azure Storage. Use this method only for tracking non-rotating log files or other files that are appended to, that is, data is only added to the end of the file when it's updated.
+> When you enable file tracking with **SaveTrackedAsync**, only *appends* to the tracked file are persisted to Azure Storage. Use this method only for tracking non-rotating log files or other files that are written to with append operations to the end of the file.
 > 
 > 
 
 ## Retrieve output
 
-When you retrieve your persisted output using the Azure Batch File Conventions library, you do so in a task- and job-centric manner. You can request the output for given task or job without needing to know its path in blob Storage, or even its file name. You can simply say, "Give me the output files for task *109*."
+When you retrieve your persisted output using the Azure Batch File Conventions library, you do so in a task- and job-centric manner. You can request the output for given task or job without needing to know its path in Azure Storage, or even its file name. Instead, you can request output files by task or job ID.
 
 The following code snippet iterates through all of a job's tasks, prints some information about the output files for the task, and then downloads its files from Storage.
 
