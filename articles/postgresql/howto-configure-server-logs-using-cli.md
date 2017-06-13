@@ -29,7 +29,7 @@ You can configure the server to access query logs and error logs. Error logs can
 
 For more information, see [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
 
-## List logs for Azure PostgreSQL server
+## List logs for Azure Database for PostgreSQL server
 To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs#list) command.
 
 You can list the log files for server **mypgserver-20170401.postgres.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
