@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -50,7 +50,7 @@ Returns the sum of the two provided integers.
 
 An integer that contains the sum of the parameters.
 
-### Examples
+### Example
 
 The following example adds two parameters.
 
@@ -113,7 +113,7 @@ The **loopName** property enables you to specify whether copyIndex is referring 
  
 For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-### Examples
+### Example
 
 The following example shows a copy loop and the index value included in the name. 
 
@@ -153,7 +153,7 @@ Returns the integer division of the two provided integers.
 
 An integer representing the division.
 
-### Examples
+### Example
 
 The following example divides one parameter by another parameter.
 
@@ -210,7 +210,7 @@ Converts the value to a floating point number. You only use this function when p
 ### Return value
 A floating point number.
 
-### Examples
+### Example
 
 The following example shows how to use float to pass parameters to a Logic App:
 
@@ -245,7 +245,7 @@ Converts the specified value to an integer.
 
 An integer of the converted value.
 
-### Examples
+### Example
 
 The following example converts the user-provided parameter value to integer.
 
@@ -294,7 +294,7 @@ Returns the minimum value from an array of integers or a comma-separated list of
 
 An integer representing minimum value from the collection.
 
-### Examples
+### Example
 
 The following example shows how to use min with an array and a list of integers:
 
@@ -346,7 +346,7 @@ Returns the maximum value from an array of integers or a comma-separated list of
 
 An integer representing the maximum value from the collection.
 
-### Examples
+### Example
 
 The following example shows how to use max with an array and a list of integers:
 
@@ -398,7 +398,7 @@ Returns the remainder of the integer division using the two provided integers.
 ### Return value
 An integer representing the remainder.
 
-### Examples
+### Example
 
 The following example returns the remainder of dividing one parameter by another parameter.
 
@@ -457,7 +457,7 @@ Returns the multiplication of the two provided integers.
 
 An integer representing the multiplication.
 
-### Examples
+### Example
 
 The following example multiplies one parameter by another parameter.
 
@@ -515,7 +515,7 @@ Returns the subtraction of the two provided integers.
 ### Return value
 An integer representing the subtraction.
 
-### Examples
+### Example
 
 The following example subtracts one parameter from another parameter.
 

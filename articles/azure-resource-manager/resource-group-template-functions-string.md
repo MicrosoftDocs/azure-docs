@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -1402,6 +1402,19 @@ Returns a substring that starts at the specified character position and contains
 
 The substring.
 
+### Remarks
+
+The function fails when the substring extends beyond the end of the string. The following example fails with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
+
 ### Examples
 
 The following example extracts a substring from a parameter.
@@ -1432,16 +1445,6 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
-The following example fails with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
-
-```json
-"parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
-}
-```
 
 <a id="take" />
 
@@ -1685,12 +1688,6 @@ The returned value is not a random string, but rather the result of a hash funct
 
     tcvhiyu5h2o5o
 
-### Return value
-
-A string containing 13 characters.
-
-### Examples
-
 The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
 Unique scoped to subscription
@@ -1720,6 +1717,31 @@ The following example shows how to create a unique name for a storage account ba
     ...
 ```
 
+### Return value
+
+A string containing 13 characters.
+
+### Examples
+
+The following example returns results from uniquestring:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "uniqueRG": {
+            "value": "[uniqueString(resourceGroup().id)]",
+            "type" : "string"
+        },
+        "uniqueDeploy": {
+            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "type" : "string"
+        }
+    }
+}
+```
 
 <a id="uri" />
 

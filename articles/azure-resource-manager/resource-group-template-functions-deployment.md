@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -82,7 +82,17 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
-### Examples
+### Remarks
+
+You can use deployment() to link to another template based on the URI of the parent template.
+
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
+
+### Example
 
 The following example returns the deployment object:
 
@@ -100,13 +110,29 @@ The following example returns the deployment object:
 }
 ```
 
-The following example shows how to use deployment() to link to another template based on the URI of the parent template.
+The preceding example returns the following object:
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+{
+  "name": "deployment",
+  "properties": {
+    "template": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [],
+      "outputs": {
+        "subscriptionOutput": {
+          "type": "Object",
+          "value": "[deployment()]"
+        }
+      }
+    },
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Accepted"
+  }
 }
-```  
+```
 
 <a id="parameters" />
 
@@ -125,9 +151,9 @@ Returns a parameter value. The specified parameter name must be defined in the p
 
 The value of the specified parameter.
 
-### Examples
+### Remarks
 
-The following example shows a simplified use of the parameters function.
+Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
 
 ```json
 "parameters": { 
@@ -137,13 +163,80 @@ The following example shows a simplified use of the parameters function.
 },
 "resources": [
    {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2016-08-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       ...
    }
 ]
 ```
+
+### Example
+
+The following example shows a simplified use of the parameters function.
+
+```json
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"stringParameter": {
+			"type" : "string",
+			"defaultValue": "option 1"
+		},
+        "intParameter": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "objectParameter": {
+            "type": "object",
+            "defaultValue": {"one": "a", "two": "b"}
+        },
+        "arrayParameter": {
+            "type": "array",
+            "defaultValue": [1, 2, 3]
+        },
+        "crossParameter": {
+            "type": "string",
+            "defaultValue": "[parameters('stringParameter')]"
+        }
+	},
+	"variables": {},
+	"resources": [],
+	"outputs": {
+		"stringOutput": {
+			"value": "[parameters('stringParameter')]",
+			"type" : "string"
+		},
+        "intOutput": {
+			"value": "[parameters('intParameter')]",
+			"type" : "int"
+		},
+        "objectOutput": {
+			"value": "[parameters('objectParameter')]",
+			"type" : "object"
+		},
+        "arrayOutput": {
+			"value": "[parameters('arrayParameter')]",
+			"type" : "array"
+		},
+        "crossOutput": {
+			"value": "[parameters('crossParameter')]",
+			"type" : "string"
+		}
+	}
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringOutput | String | option 1 |
+| intOutput | Int | 1 |
+| objectOutput | Object | {"one": "a", "two": "b"} |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | option 1 |
 
 <a id="variables" />
 
@@ -162,22 +255,78 @@ Returns the value of variable. The specified variable name must be defined in th
 
 The value of the specified variable.
 
-### Examples
+### Remarks
 
-The following example uses a variable value.
+Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
 
 ```json
 "variables": {
-  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageName')]",
-    ...
-  }
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines",
+        "dependsOn": [
+            "[variables('storageName')]"
+        ],
+        ...
+    }
 ],
 ```
+
+### Example
+
+The example template returns different variable values.
+
+```json
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"variables": {
+		"var1": "myVariable",
+		"var2": [ 1,2,3,4 ],
+		"var3": "[ variables('var1') ]",
+		"var4": {
+			"property1": "value1",
+			"property2": "value2"
+  		}
+	},
+	"resources": [],
+	"outputs": {
+		"exampleOutput1": {
+			"value": "[variables('var1')]",
+			"type" : "string"
+		},
+		"exampleOutput2": {
+			"value": "[variables('var2')]",
+			"type" : "array"
+		},
+		"exampleOutput3": {
+			"value": "[variables('var3')]",
+			"type" : "string"
+		},
+		"exampleOutput4": {
+			"value": "[variables('var4')]",
+			"type" : "object"
+		}
+	}
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| exampleOutput1 | String | myVariable |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

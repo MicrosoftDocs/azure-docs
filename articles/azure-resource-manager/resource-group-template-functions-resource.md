@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -47,24 +47,6 @@ Returns the values for any resource type that supports the list operation. The m
 | resourceName or resourceIdentifier |Yes |string |Unique identifier for the resource. |
 | apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
 
-### Remarks
-
-Any operation that starts with **list** can be used as a function in your template. The available operations include not only listKeys, but also operations like `list`, `listAdminKeys`, and `listStatus`. To determine which resource types have a list operation, you have the following options:
-
-* View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Use the [Get-​Azure​Rm​Provider​Operation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
-
-  ```powershell
-  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
-  ```
-* Use the following Azure CLI command, and the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations:
-
-  ```azurecli
-  azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
-  ```
-
-Specify the resource by using either the [resourceId function](#resourceid), or the format `{providerNamespace}/{resourceType}/{resourceName}`.
-
 ### Return value
 
 The returned object from listKeys has the following format:
@@ -88,7 +70,26 @@ The returned object from listKeys has the following format:
 
 Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template. 
 
-### Examples
+### Remarks
+
+Any operation that starts with **list** can be used as a function in your template. The available operations include not only listKeys, but also operations like `list`, `listAdminKeys`, and `listStatus`. To determine which resource types have a list operation, you have the following options:
+
+* View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Use the [Get-​Azure​Rm​Provider​Operation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
+
+  ```powershell
+  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+  ```
+* Use the following Azure CLI command to filter only the list operations:
+
+  ```azurecli
+  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
+  ```
+
+Specify the resource by using either the [resourceId function](#resourceid), or the format `{providerNamespace}/{resourceType}/{resourceName}`.
+
+
+### Example
 
 The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
@@ -139,7 +140,7 @@ Each supported type is returned in the following format:
 
 Array ordering of the returned values is not guaranteed.
 
-### Examples
+### Example
 
 The following example shows how to use the provider function:
 
@@ -150,10 +151,32 @@ The following example shows how to use the provider function:
     "resources": [],
     "outputs": {
         "providerOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
+            "value": "[providers('Microsoft.Web', 'sites')]",
             "type" : "object"
         }
     }
+}
+```
+
+The preceding example returns an object in the following format:
+
+```json
+{
+  "resourceType": "sites",
+  "locations": [
+    "South Central US",
+    "North Europe",
+    "West Europe",
+    "Southeast Asia",
+    ...
+  ],
+  "apiVersions": [
+    "2016-08-01",
+    "2016-03-01",
+    "2015-08-01-preview",
+    "2015-08-01",
+    ...
+  ]
 }
 ```
 
@@ -171,6 +194,10 @@ Returns an object representing a resource's runtime state.
 | resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. |
 | apiVersion |No |string |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
 
+### Return value
+
+Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+
 ### Remarks
 
 The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template. 
@@ -179,34 +206,24 @@ By using the reference function, you implicitly declare that one resource depend
 
 To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
 
-### Return value
-
-Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
-
-### Examples
-
-The following example references a storage account that is not deployed in this template, but exists within the same resource group.
+Typically, you use the **reference** function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountName": {
-            "type": "string"
-        }
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
+    "FQDN": {
+        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "type" : "string"
     }
 }
 ```
 
-Or, you can deploy and reference the resource in the same template.
+### Example
+
+To deploy and reference the resource in the same template, use:
 
 ```json
 {
@@ -241,17 +258,41 @@ Or, you can deploy and reference the resource in the same template.
 }
 ``` 
 
-Typically, you use the reference function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
+The preceding example returns an object in the following format:
 
 ```json
-"outputs": {
-    "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-        "type" : "string"
+{
+   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "primaryEndpoints": {
+     "blob": "https://examplestorage.blob.core.windows.net/",
+     "file": "https://examplestorage.file.core.windows.net/",
+     "queue": "https://examplestorage.queue.core.windows.net/",
+     "table": "https://examplestorage.table.core.windows.net/"
+   },
+   "primaryLocation": "southcentralus",
+   "provisioningState": "Succeeded",
+   "statusOfPrimary": "available",
+   "supportsHttpsTrafficOnly": false
+}
+```
+
+The following example references a storage account that is not deployed in this template, but exists within the same resource group.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string"
+        }
     },
-    "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
-        "type" : "string"
+    "resources": [],
+    "outputs": {
+        "ExistingStorage": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+            "type" : "object"
+        }
     }
 }
 ```
@@ -280,7 +321,23 @@ The returned object is in the following format:
 }
 ```
 
-### Examples
+### Remarks
+
+A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location to assign the location for a web site.
+
+```json
+"resources": [
+   {
+      "apiVersion": "2016-08-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('siteName')]",
+      "location": "[resourceGroup().location]",
+      ...
+   }
+]
+```
+
+### Example
 
 The following template returns the properties of the resource group.
 
@@ -298,18 +355,17 @@ The following template returns the properties of the resource group.
 }
 ```
 
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location to assign the location for a web site.
+The preceding example returns an object in the following format:
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2014-06-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+{
+  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
+  "name": "examplegroup",
+  "location": "southcentralus",
+  "properties": {
+    "provisioningState": "Succeeded"
+  }
+}
 ```
 
 <a id="resourceid" />
@@ -337,29 +393,32 @@ The identifier is returned in the following format:
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### Examples
+### Remarks
 
-The following example returns the resource ID for a storage account in the resource group:
+The parameter values you specify depend on whether the resource is in the same subscription and resource group as the current deployment.
+
+To get the resource ID for a storage account in the same subscription and resource group, use:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceIdOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        }
-    }
-}
+"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-The following example shows how to retrieve the resource ids for a web site in a different resource group, and a database in a different resource group:
+To get the resource ID for a storage account in the same subscription but a different resource group, use:
 
 ```json
-[resourceId('otherResourceGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+To get the resource ID for a storage account in a different subscription and resource group, use:
+
+```json
+"[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+To get the resource ID for a database in a different resource group, use:
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
@@ -407,6 +466,45 @@ Often, you need to use this function when using a storage account or virtual net
 }
 ```
 
+### Example
+
+The following example returns the resource ID for a storage account in the resource group:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "sameRGOutput": {
+            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentRGOutput": {
+            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentSubOutput": {
+            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "nestedResourceOutput": {
+            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
+            "type" : "string"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/{different-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+
 <a id="subscription" />
 
 ## subscription
@@ -427,7 +525,7 @@ The function returns the following format:
 }
 ```
 
-### Examples
+### Example
 
 The following example shows the subscription function called in the outputs section. 
 

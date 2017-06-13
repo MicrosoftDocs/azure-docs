@@ -57,7 +57,7 @@ Converts the value to an array.
 
 An array.
 
-### Examples
+### Example
 
 The following example shows how to use the array function with different types.
 
@@ -124,7 +124,7 @@ Returns first non-null value from the parameters. Empty strings, empty arrays, a
 
 The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null. 
 
-### Examples
+### Example
 
 The following example shows the output from different uses of coalesce.
 
@@ -201,7 +201,7 @@ This function can take any number of arguments, and can accept either strings or
 ### Return value
 A string or array of concatenated values.
 
-### Examples
+### Example
 
 The following example shows how to combine two arrays.
 
@@ -290,7 +290,7 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 **True** if the item is found; otherwise, **False**.
 
-### Examples
+### Example
 
 The following example shows how to use contains with different types:
 
@@ -372,7 +372,7 @@ Creates an array from the parameters.
 
 An array.
 
-### Examples
+### Example
 
 The following example shows how to use createArray with different types:
 
@@ -440,7 +440,7 @@ Determines if an array, object, or string is empty.
 
 Returns **True** if the value is empty; otherwise, **False**.
 
-### Examples
+### Example
 
 The following example checks whether an array, object, and string are empty.
 
@@ -506,7 +506,7 @@ Returns the first element of the array, or first character of the string.
 
 The type (string, int, array, or object) of the first element in an array, or the first character of a string.
 
-### Examples
+### Example
 
 The following example shows how to use the first function with an array and string.
 
@@ -561,7 +561,7 @@ Returns a single array or object with the common elements from the parameters.
 
 An array or object with the common elements.
 
-### Examples
+### Example
 
 The following example shows how to use intersection with arrays and objects:
 
@@ -626,7 +626,7 @@ Returns the last element of the array, or last character of the string.
 
 The type (string, int, array, or object) of the last element in an array, or the last character of a string.
 
-### Examples
+### Example
 
 The following example shows how to use the last function with an array and string.
 
@@ -679,7 +679,7 @@ Returns the number of elements in an array, or characters in a string.
 
 An int. 
 
-### Examples
+### Example
 
 The following example shows how to use length with an array and string:
 
@@ -750,7 +750,7 @@ Returns the minimum value from an array of integers or a comma-separated list of
 
 An int representing the minimum value.
 
-### Examples
+### Example
 
 The following example shows how to use min with an array and a list of integers:
 
@@ -802,7 +802,7 @@ Returns the maximum value from an array of integers or a comma-separated list of
 
 An int representing the maximum value.
 
-### Examples
+### Example
 
 The following example shows how to use max with an array and a list of integers:
 
@@ -855,7 +855,7 @@ Creates an array of integers from a starting integer and containing a number of 
 
 An array of integers.
 
-### Examples
+### Example
 
 The following example shows how to use the range function:
 
@@ -907,7 +907,7 @@ Returns an array with all the elements after the specified number in the array, 
 
 An array or string.
 
-### Examples
+### Example
 
 The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
@@ -976,7 +976,7 @@ Returns an array with the specified number of elements from the start of the arr
 
 An array or string.
 
-### Examples
+### Example
 
 The following example takes the specified number of elements from the array, and characters from a string.
 
@@ -1046,7 +1046,7 @@ Returns a single array or object with all elements from the parameters. Duplicat
 
 An array or object.
 
-### Examples
+### Example
 
 The following example shows how to use union with arrays and objects:
 

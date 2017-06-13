@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -45,7 +45,26 @@ Checks whether two values equal each other.
 
 Returns **True** if the values are equal; otherwise, **False**.
 
-### Examples
+### Remarks
+
+The equals function is often used with the `condition` element to test whether a resource is deployed.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### Example
 
 The example template checks different types of values for equality. All the default values return True.
 
@@ -119,23 +138,6 @@ The output from the preceding example with the default values is:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-The equals function is often used with the `condition` element to test whether a resource is deployed.
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
 <a id="less" />
 
 ## less
@@ -154,7 +156,7 @@ Checks whether the first value is less than the second value.
 
 Returns **True** if the first value is less than the second value; otherwise, **False**.
 
-### Examples
+### Example
 
 The example template checks whether the one value is less than the other.
 
@@ -220,7 +222,7 @@ Checks whether the first value is less than or equal to the second value.
 
 Returns **True** if the first value is less than or equal to the second value; otherwise, **False**.
 
-### Examples
+### Example
 
 The example template checks whether the one value is less than or equal to the other.
 
@@ -286,7 +288,7 @@ Checks whether the first value is greater than the second value.
 
 Returns **True** if the first value is greater than the second value; otherwise, **False**.
 
-### Examples
+### Example
 
 The example template checks whether the one value is greater than the other.
 
@@ -348,7 +350,11 @@ Checks whether the first value is greater than or equal to the second value.
 | arg1 |Yes |int or string |The first value for the greater or equal comparison. |
 | arg2 |Yes |int or string |The second value for the greater or equal comparison. |
 
-### Examples
+### Return value
+
+Returns **True** if the first value is greater than or equal to the second value; otherwise, **False**.
+
+### Example
 
 The example template checks whether the one value is greater than or equal to the other.
 
@@ -396,9 +402,6 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-### Return value
-
-Returns **True** if the first value is greater than or equal to the second value; otherwise, **False**.
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
