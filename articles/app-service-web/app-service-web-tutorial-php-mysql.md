@@ -331,7 +331,7 @@ az appservice web config appsettings update \
     --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="<phpapp_user>@<mysql_server_name>" DB_PASSWORD="<phpapp_password>"
 ```
 
-You can use the PHP [getenv()](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env()](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv()`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
+You can use the PHP [getenv](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [
@@ -592,7 +592,7 @@ Once log streaming has started, refresh the Azure web app in the browser to get 
 
 To stop log streaming at anytime, type `Ctrl`+`C`. 
 
-A PHP application can use the standard [error_log()](http://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
+A PHP application can use the standard [error_log](http://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
 As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 
 ## Manage the Azure web app
