@@ -1,5 +1,5 @@
 ---
-title: How to create Azure VM Images with Packer | Microsoft Docs
+title: How to create Linux Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -31,7 +31,7 @@ First, create a resource group with [az group create](/cli/azure/group#create). 
 az group create -n myResourceGroup -l eastus
 ```
 
-Next, create a storage account with [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, and are case-sensitive. Provide your own unique storage account name. The following example creates a storage account named *mystorageaccount*:
+Next, create a storage account with [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, between 3 and 24 characters in length, and contain numbers and lowercase letters only. The following example creates a storage account named *mystorageaccount*:
 
 ```azurecli
 az storage account create \
@@ -42,7 +42,7 @@ az storage account create \
 
 
 ## Create Azure credentials
-Packer communicates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
+Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
 
@@ -103,8 +103,8 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
     "image_sku": "16.04.0-LTS",
 
     "azure_tags": {
-        "dept": "engineering",
-        "task": "image deployment"
+        "dept": "Engineering",
+        "task": "Image deployment"
     },
 
     "location": "East US",
