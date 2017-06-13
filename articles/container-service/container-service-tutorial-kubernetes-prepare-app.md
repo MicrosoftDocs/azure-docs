@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Prepare App
 
-Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, the sample application will be prepared and tested in your own development environment. The outcome will be Docker container images that will be used throughout the remainder of this tutorial set. Steps completed include:
+Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, the sample application will be prepared and tested in your own development environment. The outcome will be Docker container images that will be used throughout the remainder of the tutorial set. Steps completed include:
 
 > [!div class="checklist"]docker-compose rm --force
 > * Clone an existing applications code repository
@@ -40,19 +40,23 @@ To complete this tutorial, you also need a Docker development environment. Docke
 
 ## Create container images
 
-The sample application that will be used in this tutorial is a basic voting system. The application consists of a front-end web component built in Python flask, and a back-end MySQL database. Use git to download a copy to your development environment.
+The sample application that will be used in this tutorial is a basic voting system. The application consists of a front-end web component built with Python Flask, and a back-end MySQL database. 
+
+Use git to download a copy to your development environment.
 
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Inside of the application directory are pre-created Docker and Kubernetes configuration files. These are used to create assets throughout the tutorial set. Change directories so that you are in the cloned directory.
+Inside of the application directory are pre-created Docker and Kubernetes configuration files. These are used to create assets throughout the tutorial set. 
+
+Change directories so that you are in the cloned directory.
 
 ```bash
 cd ./azure-kubernetes-samples/flask-mysql-vote/
 ```
 
-Inside of the cloned repo is two directories, *azure-vote* which containers the Azure Vote application, and *azure-vote-mysql* which containers a schema file for the Azure Vote database. In each of these directories is a Dockerfile that automates the creation of the Azure Vote container images.
+Inside of the cloned repo are two directories, *azure-vote* which contains the Azure Vote application, and *azure-vote-mysql*, which contains a schema file for the Azure Vote database. In each of these directories is a Dockerfile that automates the creation of the Azure Vote container images.
 
 At the root of the cloned repo is a docker-compose.yaml file. Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. This file is configured to use both Azure Vote Dockerfiles to create two container images, and then to start the Azure Vote application from these container images.
 
@@ -123,6 +127,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 3aa02e8ae965        azure-vote-front     "/usr/bin/supervisord"   59 seconds ago      Up 57 seconds       443/tcp, 0.0.0.0:8080->80/tcp   flaskmysqlvote_azure-vote-front_1
 5ae60b3ba181        azure-vote-backend   "docker-entrypoint..."   59 seconds ago      Up 58 seconds       0.0.0.0:3306->3306/tcp          azure-vote-back
 ```
+
+## Test application
 
 Browse to `http://localhost:8080` to see the running application. 
 

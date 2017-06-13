@@ -21,33 +21,21 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Deploy Application
 
-TODO - Quick app refactor to improve performance. Also address the below item.
+If you have been following along in this tutorial set, at this point an application was tested in a development environment, container images created and up loaded to an Azure Container registry, and finally an Azure Container Service Kubernetes cluster deployed. In this tutorial, the Azure Voting app will be deployed onto the cluster. In subsequent tutorials, this application will be scaled out, updated, and the deployment process simplified using Helm.
 
-TODO - Now that app creates table, startup dependency between back and front pod.
+Tasks completed in this tutorial include:
 
-TODO - Standardize environment variables between app and MySQL so that secret can be shared.
+> [!div class="checklist"]
+> * Understand the Kubernetes resources that will be deployed
+> * Deploy and test the application
 
-TODO - Create secret and new deployment for MySQL (once the above step is completed).
+## Understand Kubernetes Objects
 
-TODO - Determine how to present YAML (GitHub, one code block, many code blocks).
+When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the application deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim which is a request to use a persistent volume, and a deployment which manages the state of the application. 
 
-TODO (completed) - Try premium storage for volume mount (perf issue).
+For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
-TODO (completed) - Create complete deployment / consolidate YAML, include in app repository.
-
-TODO (completed) - Convert expose command to YAML definitions.
-
-TODO (completed) - Move create DB operation into app. This remove the need to manage two images.
-
-TODO (completed) - Integrate Azure Container Registry.
-
-TODO (completed) - integrate Azure disk driver and move MySQL file.
-
-TODO (completed) - figure out service discovery (currently hard coded pod address).
-
-TODO (completed) - integrate secrets for environment variables.
-
-## Create storage resources
+Each Kubernetes object is defined and deployed using YAML. The following example show the configuration for a storage class object. 
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -60,154 +48,69 @@ parameters:
  location: eastus
 ```
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-```
-
-## Create secrets
-
-Base64 encode secrets for front-end.
+To create an object in Kubernetes, the `kubectl create` command is used. For instance, if the pervious storage class object definition was saved in a file named *storage-class.yaml*, it would be deployed using the following command.
 
 ```bash
-# MYSQL_DATABASE_USER
-echo -n dbuser | base64
-
-# MYSQL_DATABASE_PASSWORD
-echo -n Password12 | base64
-
-# MYSQL_DATABASE_DB
-echo -n azurevote | base64
-
-# MYSQL_DATABASE_HOST - this name will equal a service created for the MySQL deployment.
-echo -n azure-vote-back | base64
+kubectl create -f storage-class.yaml
 ```
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: azure-vote-front-secret
-type: Opaque
-data:
-  MYSQL_DATABASE_USER: ZGJ1c2Vy
-  MYSQL_DATABASE_PASSWORD: UGFzc3dvcmQxMg==
-  MYSQL_DATABASE_DB: YXp1cmV2b3Rl
-  MYSQL_DATABASE_HOST: YXp1cmUtdm90ZS1iYWNr
+To return a list of Kubernetes object, use the `kubectl get` command, with the object class name. For instance, the following example returns a list of existing storage class object.
+
+```bash
+kubectl get storageclass
 ```
 
-## Create deployments and services
+Output:
 
-### Back-end (MySQL)
-
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
-      - name: azure-vote-back
-        image: mysql:latest
-        args: ["--ignore-db-dir=lost+found"]
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password12
-        - name: MYSQL_USER
-          value: dbuser
-        - name: MYSQL_PASSWORD
-          value: Password12
-        - name: MYSQL_DATABASE
-          value: azurevote
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+```bash
+NAME                TYPE
+default (default)   kubernetes.io/azure-disk   
+slow                kubernetes.io/azure-disk
 ```
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 3306
-  selector:
-    app: azure-vote-back
+To gather detailed information on a specific object, including configuration and deployment status, use the `kubectl describe` command.
+
+```bash
+kubectl describe storageclass slow
 ```
 
-### Front-end (Python)
+Output:
 
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      containers:
-      - name: azure-vote-front
-        image: mycontainerregistry22269.azurecr.io/azure-vote-front
-        ports:
-        - containerPort: 8000
-        env:
-        - name: MYSQL_DATABASE_USER
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote-front-secret
-              key: MYSQL_DATABASE_USER
-        - name: MYSQL_DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote-front-secret
-              key: MYSQL_DATABASE_PASSWORD
-        - name: MYSQL_DATABASE_DB
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote-front-secret
-              key: MYSQL_DATABASE_DB
-        - name: MYSQL_DATABASE_HOST
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote-front-secret
-              key: MYSQL_DATABASE_HOST
+```bash
+ame:		slow
+IsDefaultClass:	No
+Annotations:	<none>
+Provisioner:	kubernetes.io/azure-disk
+Parameters:	location=eastus,skuName=Standard_LRS
+Events:		<none>
 ```
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 8000
-  selector:
-    app: azure-vote-front
+## Deploy Azure Vote App
+
+```bash
+kubectl create -f https://raw.githubusercontent.com/neilpeterson/azure-kubernetes-samples/master/flask-mysql-vote/azure-vote-kubernetes.yaml
 ```
+
+```bash
+storageclass "slow" created
+persistentvolumeclaim "mysql-pv-claim" created
+secret "azure-vote" created
+deployment "azure-vote-back" created
+service "azure-vote-back" created
+deployment "azure-vote-front" created
+service "azure-vote-front" created
+```
+
+## Next steps
+
+In this tutorial, the Azure vote application was deployed to an Azure Container Service Kubernetes cluster. Tasks completed include:  
+
+> [!div class="checklist"]
+> * Understand the Kubernetes resources that will be deployed
+> * Deploy and test the application
+
+Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
+
+> [!div class="nextstepaction"]
+> [Scale Kubernetes application and infrastructure](./container-service-tutorial-kubernetes-scale-application.md)
+

@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Prepare ACR
 
-This tutorial demonstrates how to deploy and Azure Container Registry (ACR), and push container images to it. This tutorial sets up an ACR environment that will integrate with an Azure Container Service Kubernetes cluster in subsequent tutorials. This tutorial covers the following tasks:
+Azure Container Registry (ACR) is a private container image registry, the you can deploy in Azure. This tutorial demonstrates how to deploy an ACR instance, and push container images to it. In subsequent tutorials, this ACR instance will be integrated with an Azure Container Service Kubernetes cluster for securely running container images. This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Deploy Azure Container Registry
@@ -34,9 +34,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Deploy Azure Container Registry
 
-When deploying an Azure Container Registry, you first need a resource group. In this example, a resource group named *myResourceGroup* is created in the eastus region.
+When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az greoup create](/cli/azure/group#create) command.
+Create a resource group with the [az greoup create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the eastus region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -73,7 +73,7 @@ Once the registry has been created, the Azure CLI outputs data similar to the fo
 }
 ```
 
-Get the container registry credentials using the [az acr credential show](/cli/azure/acr/credential) command. Substitute the `--name` with the one noted in the last step. Take note of one password, it is needed in a later step.
+Get the container registry credentials using the [az acr credential show](/cli/azure/acr/credential) command. Substitute the `--name` value with the one noted in the last step. Take note of one password, it is needed in a later step.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
@@ -120,7 +120,7 @@ docker tag azure-vote-front mycontainerregistry1326.azurecr.io/azure-vote-front
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker tag azure-vote-back mycontainerregistry1326.azurecr.io/azure-vote-back.
+docker tag azure-vote-back mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
 
 Once tagged, run `docker images` to verify the operation.
