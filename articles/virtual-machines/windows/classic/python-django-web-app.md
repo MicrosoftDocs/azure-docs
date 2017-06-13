@@ -32,7 +32,7 @@ ms.author: huvalo
 
 This tutorial shows you how to host a Django-based website on Windows Server in Azure Virtual Machines. In the tutorial, we assume no previous experience with Azure. When you finish the tutorial, you can have a Django-based application up and running in the cloud.
 
-Learn how to:
+You can learn how to:
 
 * Set up an Azure virtual machine to host Django. Although this tutorial explains how to accomplish this for **Windows Server**, you can do the same for a Linux VM hosted in Azure.
 * Create a new Django application from Windows.
@@ -69,7 +69,7 @@ The following screenshot shows the completed application:
 
 ## <a id="setup"> </a>Install Python, Django, and WFastCGI
 > [!NOTE]
-> To download by using Internet Explorer, you might have to configure Internet Explorer Enhanced Security Configuration settings. To do this, select **Start** > **Administrative Tools** > **Server Manager** > **Local Server**. Select **IE Enhanced Security Configuration**, and then select **Off**.
+> To download by using Internet Explorer, you might have to configure Internet Explorer Enhanced Security Configuration settings. To do this, click **Start** > **Administrative Tools** > **Server Manager** > **Local Server**. Click **IE Enhanced Security Configuration**, and then select **Off**.
 
 1. Install the latest versions of Python 2.7 or Python 3.4 from [python.org][python.org].
 2. Install the wfastcgi and django packages using pip.
@@ -106,7 +106,7 @@ The following screenshot shows the completed application:
    * **helloworld\manage.py** helps you start hosting and stop hosting your Django-based website.
    * **helloworld\helloworld\settings.py** has Django settings for your application.
    * **helloworld\helloworld\urls.py** has the mapping code between each URL and its view.
-3. In the C:\inetpub\wwwroot\helloworld\helloworld directory, create a new file named **views.py**. This file has the view that renders the "hello world" page. Open your editor, and then enter the following commands:
+3. In the C:\inetpub\wwwroot\helloworld\helloworld directory, create a new file named views.py. This file has the view that renders the "hello world" page. Open your editor, and then enter the following commands:
    
        from django.http import HttpResponse
        def home(request):
@@ -163,7 +163,7 @@ The following screenshot shows the completed application:
             </handlers>
           </system.webServer>
         </configuration>
-4. Update the location of the IIS default web site to point to the Django project folder:
+4. Update the location of the IIS default website to point to the Django project folder:
    
         %windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:"C:\inetpub\wwwroot\helloworld"
 5. Load the webpage in your browser.

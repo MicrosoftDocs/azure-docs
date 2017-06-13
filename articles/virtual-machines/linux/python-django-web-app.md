@@ -29,10 +29,10 @@ ms.author: huvalo
 
 This tutorial shows you how to host a Django-based website on Linux in Azure Virtual Machines. In the tutorial, we assume no previous experience with Azure. When you finish the tutorial, you can have a Django-based application up and running in the cloud.
 
-Learn how to:
+You can learn how to:
 
 * Set up an Azure virtual machine to host Django. Although this tutorial explains how to accomplish this for **Linux**, you can do the same for a Windows Server VM hosted in Azure. 
-* Create a new Django application from Linux.
+* Create a new Django application in Linux.
 
 The tutorial shows you how to build a basic Hello World web
 application. The application is hosted in an Azure virtual machine.
@@ -45,13 +45,13 @@ The following screenshot shows the completed application:
 
 ## Create and set up an Azure virtual machine to host Django
 
-1. To create an Azure virtual machine of the Ubuntu Server 14.04 LTS distribution, see [Create a Linux virtual machine in the Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Also, you can choose password authentication instead of using an SSH public key.
+1. To create an Azure virtual machine of the Ubuntu Server 14.04 LTS distribution, see [Create a Linux virtual machine in the Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You also can choose password authentication instead of using an SSH public key.
 2. To edit the network security group to allow incoming HTTP traffic to port 80, see [Create network security groups in the Azure portal](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 3. (Optional) By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  To create a VM with an FQDN, see [Create an FQDN in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Set up the development environment
 > [!NOTE]
-> If you need to install Python or want to use the client libraries, see the [Python Installation Guide](../../python-how-to-install.md).
+> If you need to install Python or want to use the client libraries, see the [Python installation guide](../../python-how-to-install.md).
 
 The Ubuntu Linux VM has Python 2.7 preinstalled, but it doesn't have Apache or Django. Complete the following steps to connect to your VM and install Apache and Django:
 
@@ -85,7 +85,7 @@ The Ubuntu Linux VM has Python 2.7 preinstalled, but it doesn't have Apache or D
        def home(request):
            html = "<html><body>Hello World!</body></html>"
            return HttpResponse(html)
-4. Replace the contents of the **urls.py** file with the following:
+4. Replace the contents of the urls.py file with the following commands:
    
        from django.conf.urls import patterns, url
        urlpatterns = patterns('',
@@ -93,14 +93,14 @@ The Ubuntu Linux VM has Python 2.7 preinstalled, but it doesn't have Apache or D
        )
 
 ## Set up Apache
-1. Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following values. Replace *yourVmName* with the actual name of the machine you are using (for example *pyubuntu*).
+1. Create an Apache virtual host configuration file /etc/apache2/sites-available/helloworld.conf. Set the contents to the following values. Replace *yourVmName* with the actual name of the machine you are using (for example *pyubuntu*).
    
        <VirtualHost *:80>
        ServerName yourVmName
        </VirtualHost>
        WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
        WSGIPythonPath /var/www/helloworld
-2. To enable the site, use the following command:
+2. To activate the site, use the following command:
    
        $ sudo a2ensite helloworld
 3. To restart Apache, use the following command:
