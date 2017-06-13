@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -115,8 +115,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [RightAnswers Client support team](https://www.rightanswers.com/contact-us/) to get these values. 
  
-
-
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/tutorial_rightanswers_certificate.png) 
@@ -127,14 +125,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. To configure single sign-on on **RightAnswers** side, you need to send the downloaded **Metadata XML** to [RightAnswers support team](https://www.rightanswers.com/contact-us/).
 
-
-    >[!NOTE]
-    >Your RightAnswers support team has to do the actual SSO configuration.
-    >You will get a notification when SSO has been enabled for your subscription.
+	>[!NOTE]
+	>Your RightAnswers support team has to do the actual SSO configuration.
+	>You will get a notification when SSO has been enabled for your subscription.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -213,8 +209,6 @@ If you want to test your SSO settings, open the Access Panel. For more informati
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
