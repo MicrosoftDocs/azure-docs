@@ -278,7 +278,7 @@ To stop PHP, type `Ctrl`+`C` in the terminal.
 
 Make sure that the sensitive data in _.env.production_ is not committed into Git.
 
-Open the *.gitignore* file from the repository root and add the filename:
+Open the `.gitignore` file from the repository root and add the filename:
 
 ```
 .env.production
