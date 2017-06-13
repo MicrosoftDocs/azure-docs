@@ -57,7 +57,7 @@ This tutorial provides two ways to retrieve connection string information:
 
 It is important to note that Azure Cosmos DB supports the standard MongoDB connection string URI format, with a couple of specific requirements: Azure Cosmos DB accounts require authentication and secure communication via SSL.  Thus, the connection string format is:
 
-    mongodb://username:password@host:port/[database]?ssl=true&replicaSet=globaldb
+    mongodb://username:password@host:port/[database]?ssl=true
 
 Where the values of this string are available in the Connection String blade shown above.
 
