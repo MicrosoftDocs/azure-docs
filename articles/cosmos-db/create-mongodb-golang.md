@@ -202,18 +202,13 @@ if err != nil {
 }
 ```
     
-## Run the web app
+## Run the app
 
-1. In your IDE, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
+1. In Goglang, click Run.
 
-2. In the NuGet **Browse** box, type *MongoDB.Driver*.
+    You'll see that the app finishes and exits in the Run pane on the bottom.
 
-3. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
-
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
-
-5. Click **Create** in the browser and create a few new tasks in your task list app.
-
+    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/goglang-cosmos-db.png)
 
 ## Review SLAs in the Azure portal
 
