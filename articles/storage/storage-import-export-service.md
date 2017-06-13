@@ -81,6 +81,13 @@ For import jobs, only the first data volume on the drive will be processed. The 
 > 
 > 
 
+Below is a list of external USB adaptors used to copy data to internal HDDs. 
+Anker 68UPSATAA-02BU
+Anker 68UPSHHDS-BU
+Startech SATADOCK22UE
+Orico 6628SUS3-C-BK (6628 Series)
+Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+
 ### Encryption
 The data on the drive must be encrypted using BitLocker Drive Encryption. This protects your data while it is in transit.
 
