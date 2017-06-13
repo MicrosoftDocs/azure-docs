@@ -155,19 +155,6 @@ az login
 ``` 
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
-<!--
-### Create a resource group
-
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
-
-The following example creates a resource group in the North Europe region:
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "North Europe"
-```
-
-To see what possible values you can use for `--location`, use the [az appservice list-locations](/cli/azure/appservice#list-locations) command.
--->
 
 ## Create a MySQL server
 
