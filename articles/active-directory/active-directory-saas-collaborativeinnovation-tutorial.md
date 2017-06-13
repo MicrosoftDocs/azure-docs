@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 
 ---
@@ -110,14 +110,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.foundry.<companyname>.com/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.foundry.<companyname>.com/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.foundry.<companyname>.com`
 	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Collaborative Innovation Client support team](https://www.unilever.com/contact/) to get these values.  
 
-4. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Peform the following steps on each of the displayed attributes-
+4. Collaborative Innovation application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/attribute.png)
+	
+5. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
 
-	a. Click on the attribute to open the **Edit Attribute** window.
+	a. Click the attribute to open the **Edit Attribute** window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/url_update.png)
 
@@ -125,15 +129,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Click **Ok** to save the setting.
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
 
-6. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Collaborative Innovation** side, you need to send the downloaded **Metadata XML** to [Collaborative Innovation support team](https://www.unilever.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Collaborative Innovation** side, you need to send the downloaded **Metadata XML** to [Collaborative Innovation support team](https://www.unilever.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
