@@ -15,6 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Help secure AngularJS single-page apps by using Azure AD

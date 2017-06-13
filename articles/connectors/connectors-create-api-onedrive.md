@@ -83,9 +83,9 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/onedriveconnector/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/onedriveconnector/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

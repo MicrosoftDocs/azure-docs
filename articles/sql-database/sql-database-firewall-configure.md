@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -162,7 +162,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 The following example sets a server-level firewall rule using the Azure CLI: 
 
-```azurecli
+```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
 ```

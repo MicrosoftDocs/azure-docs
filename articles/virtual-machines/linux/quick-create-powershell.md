@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
-
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with PowerShell
@@ -152,7 +152,8 @@ apt-get -y install nginx
 With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
-## Delete virtual machine
+
+## Clean up resources
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 

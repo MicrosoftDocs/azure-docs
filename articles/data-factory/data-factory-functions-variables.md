@@ -24,16 +24,16 @@ This article provides information about functions and variables supported by Azu
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
-| WindowEnd |End of time interval for current activity run window |activity |same as above |
+| WindowEnd |End of time interval for current activity run window |activity |same as WindowStart. |
 | SliceStart |Start of time interval for data  slice being produced |activity<br/>dataset |<ol><li>Specify dynamic folder paths and file names while working with [Azure Blob](data-factory-azure-blob-connector.md) and [File System datasets](data-factory-onprem-file-system-connector.md).</li><li>Specify input dependencies with data factory functions in activity inputs collection.</li></ol> |
-| SliceEnd |End of time interval for current data slice being produced |activity<br/>dataset |same as SliceStart. |
+| SliceEnd |End of time interval for current data slice. |activity<br/>dataset |same as SliceStart. |
 
 > [!NOTE]
-> Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. Therefore, WindowStart, WindowEnd, and SliceStart and SliceEnd always map to the same time period and a single output slice.
+> Currently data factory requires that the schedule specified in the activity exactly matches the schedule specified in availability of the output dataset. Therefore, WindowStart, WindowEnd, and SliceStart and SliceEnd always map to the same time period and a single output slice.
 > 
 
 ### Example for using a system variable
-In the following example, year, month, day, and time of **SliceStart** are extracted into separate , which are used by **folderPath** and **fileName** properties.
+In the following example, year, month, day, and time of **SliceStart** are extracted into separate variables that are used by **folderPath** and **fileName** properties.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -93,10 +93,10 @@ The following tables list all the functions in Azure Data Factory:
 | Text |Format(X) |X: String variable |Formats the text (use `\\'` combination to escape `'` character).|
 
 > [!IMPORTANT]
-> When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
+> When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
 
 #### Example
-In the following example, input and output parameters for the Hive activity are determined by using the Text.Format function and SliceStart system variable. 
+In the following example, input and output parameters for the Hive activity are determined by using the `Text.Format` function and SliceStart system variable. 
 
 ```json  
 {
@@ -137,7 +137,7 @@ In the following example, input and output parameters for the Hive activity are 
 
 ### Example 2
 
-In the following example, the DateTime parameter for the Stored Procedure Activity is determined by using the Text.Format function and the SliceStart variable. 
+In the following example, the DateTime parameter for the Stored Procedure Activity is determined by using the Text. Format function and the SliceStart variable. 
 
 ```json
 {

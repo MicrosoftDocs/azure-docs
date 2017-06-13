@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
@@ -30,6 +31,8 @@ To automate the build and test phase of application development, you can use a c
 > * Verify GitHub commits build new Docker image and updates running app
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
@@ -62,13 +65,13 @@ runcmd:
 
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
 Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
     --name myVM \
     --image UbuntuLTS \
@@ -81,7 +84,7 @@ It takes a few minutes for the VM to be created and configured.
 
 To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#open-port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
@@ -90,7 +93,7 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ## Configure Jenkins
 To access your Jenkins instance, obtain the public IP address of your VM:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
@@ -204,7 +207,7 @@ To see the whole pipeline in action, edit the *index.js* file in your forked Git
 
 If needed, obtain the public IP address of your VM again:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 

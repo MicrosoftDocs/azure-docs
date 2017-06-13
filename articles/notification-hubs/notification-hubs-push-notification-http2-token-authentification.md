@@ -40,7 +40,7 @@ Note that if you migrated from using certificate credentials for APNS:
 ## Obtaining authentication information from Apple
 To enable token-based authentication, you need the following properties from your Apple Developer Account:
 ### Key Identifier
-The key identifier can be obtained from the APNs "Auth Key" page in your Apple Developer Account
+The key identifier can be obtained from the "Keys" page in your Apple Developer Account
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 

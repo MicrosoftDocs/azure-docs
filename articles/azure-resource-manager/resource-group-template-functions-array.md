@@ -570,7 +570,7 @@ The following example shows how to use the last function with an array and strin
 
 ### Return value
 
-The type (string, int, array, or object) of the last element in an array, or a string of the last character.
+The type (string, int, array, or object) of the last element in an array, or the last character of a string.
 
 <a id="length" />
 

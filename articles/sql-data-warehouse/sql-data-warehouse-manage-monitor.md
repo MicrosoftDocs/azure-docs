@@ -3,7 +3,7 @@ title: Monitor your workload using DMVs | Microsoft Docs
 description: Learn how to monitor your workload using DMVs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Monitor your workload using DMVs

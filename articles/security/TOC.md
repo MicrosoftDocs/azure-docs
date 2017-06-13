@@ -10,6 +10,8 @@
 ### [Advanced threat detection](azure-threat-detection.md)
 ### [Logging and auditing](azure-log-audit.md)
 ### [Isolation in the public cloud](azure-isolation.md)
+### [Security technical capabilities](azure-security-technical-capabilities.md)
+### [Governance in Azure](governance-in-azure.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
@@ -18,6 +20,7 @@
 
 ## Network security
 ### [Network security best practices](azure-security-network-security-best-practices.md)
+###[Azure network security](azure-network-security.md)
 ### [Boundary security](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Secure hybrid network architecture](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

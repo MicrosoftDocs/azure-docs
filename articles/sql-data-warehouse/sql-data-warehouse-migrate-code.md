@@ -3,7 +3,7 @@ title: Migrate your SQL code to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 ms.date: 01/30/2017
-ms.author: jrj;barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Migrate your SQL code to SQL Data Warehouse

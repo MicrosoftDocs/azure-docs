@@ -3,7 +3,7 @@ title: How distributed data works in Azure SQL Data Warehouse | Microsoft Docs
 description: Learn how data is distributed for Massively Parallel Processing (MPP) and the options for distributing tables in Azure SQL Data Warehouse and Parallel Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: jrowlandjones
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: jrj;barbkess
 
 ---
 # Distributed data and distributed tables for Massively Parallel Processing (MPP)

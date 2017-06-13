@@ -4,7 +4,7 @@
 The standard Azure metadata section looks like this:
   ```
   ---
-  title: <page title displayed in search results. Include the brand Azure> | Microsoft Docs
+  title: <page title displayed in search results. Include the brand Azure>
   description: <article description that is displayed in search results>
   services: <service slug assigned to your service by ACOM>
   cloud: <optional; cloud value assigned by ACOM for sovereign clouds such as Azure Government and Azure Stack>
@@ -19,22 +19,22 @@ The standard Azure metadata section looks like this:
   ms.author: <your microsoft alias, one value only, alias only>
 ---
   ```
-##Usage
+## Usage
 
 - The element name and attribute names are case sensitive.
 
 ## Attributes and values
 
-![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces and including the site identifier *| Microsoft Docs* (typed as: space pipe space Microsoft Docs). The H1 of an article should expand on the title, not duplicate it. 
+![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces. Note that the site identifier *| Microsoft Docs* will automatically be added to your title value in the OPS build process. 
 
 ![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 115 characters long to 145 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
 - This text may be displayed as the description or abstract paragraph in search results on Google.
 - This text is displayed in [the article index results](https://azure.microsoft.com/documentation/articles/).
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. This value is usually referred to as the "service slug". This value is assigned by the ACOM team, and is used across the azure.microsoft.com site and in URLs for the service. List the applicable services, separated by commas.
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. This value is usually referred to as the "service slug". This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable services, separated by commas.
 
-![](./media/article-metadata/checkmark-small.png)**cloud**: Required only for sovereign clouds such as Azure Government and Azure Stack. This value is assigned by the ACOM team, and is used across the azure.microsoft.com site and in URLs for the service. List the applicable services
+![](./media/article-metadata/checkmark-small.png)**cloud**: Required only for sovereign clouds such as Azure Government and Azure Stack. This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable clouds, separated by commas.
 
 ![](./media/article-metadata/checkmark-small.png)**author**: Required, one value only. List the GitHub account for the primary author or article SME. Get the capitalization right, it matters!
 

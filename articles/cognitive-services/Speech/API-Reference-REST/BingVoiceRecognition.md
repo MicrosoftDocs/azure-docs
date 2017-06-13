@@ -104,7 +104,7 @@ These `locale` codes are supported in **interactive** and **dictation** mode.
 | es-ES | Spanish (Spain) | sv-SE | Swedish (Sweden) |
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong) |
-| fr-CA | Spanish (Mexico) | zh-TW | Chinese (Mandarin, Taiwanese)|
+| fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
 | fr-FR | French (France) | ||
 
 ### Conversational mode

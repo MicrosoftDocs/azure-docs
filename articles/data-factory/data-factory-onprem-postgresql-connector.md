@@ -20,25 +20,33 @@ ms.author: jingwang
 # Move data from PostgreSQL using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a PostgreSQL data store to other data stores, but not for moving data from other data stores to an PostgreSQL data store. 
+You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from a PostgreSQL database to other data stores, but not for moving data from other data stores to an PostgreSQL database. 
 
 ## prerequisites
 
 Data Factory service supports connecting to on-premises PostgreSQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
 
-Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS VM. You can install the gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database.
+Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS VM. You can install gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database.
 
 > [!NOTE]
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
+For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- You can also use the following tools to create a pipeline: 
+    - Azure portal
+    - Visual Studio
+    - Azure PowerShell
+    - Azure Resource Manager template
+    - .NET API
+    - REST API
+
+     See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -65,7 +73,7 @@ The following table provides description for JSON elements specific to PostgreSQ
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database. |Yes |
 
 ## Dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties:
 
@@ -85,11 +93,11 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
 | query |Use the custom query to read data. |SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". |No (if **tableName** of **dataset** is specified) |
 
 > [!NOTE]
-> Schema and table names are case-sensitive and they have to  be enclosed in `""` (double quotes) in the query.  
+> Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.  
 
 **Example:**
 
- "query": "select * from \"MySchema\".\"MyTable\""
+ `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## JSON example: Copy data from PostgreSQL to Azure Blob
 This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
@@ -145,7 +153,7 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.
 
-Setting “external”: true informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting `"external": true` informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {

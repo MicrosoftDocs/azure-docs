@@ -106,7 +106,7 @@ Use a U-SQL script to deploy that R script with the DEPLOY RESOURCE statement.
 
 ### Functional limitations
 * The R Engine can't be instantiated twice in the same process. 
-* Currently, U-SQL dies not support Combiner UDOs for prediction using partitioned models generated using Reducer UDOs. Users can declare the partitioned models as resource and use them in their R Script (see sample code ExtR_PredictUsingLMRawStringReducer.usql)
+* Currently, U-SQL does not support Combiner UDOs for prediction using partitioned models generated using Reducer UDOs. Users can declare the partitioned models as resource and use them in their R Script (see sample code ExtR_PredictUsingLMRawStringReducer.usql)
 
 ### R Versions
 Only R 3.2.2 is supported.
