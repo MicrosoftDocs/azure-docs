@@ -23,23 +23,25 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quick-start demonstrates how to use an existing [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections.
 
-In other words, your Golang application only knows that it’s connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
+In other words, your Golang application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 ## Prerequisites
 
-1.  [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
-2.  An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-3.  An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
+- An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
 <a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## Set up your application
+## Clone the sample application
+
+Clone the sample application and install the required packages.
 
 1. Create a folder named CosmosDBAccess inside the GOROOT\src folder, which is C:\Go\ by default.
-2. Run the following command using a git terminal window such as git bash, to clone the sample repository into the CosmosDBAccess folder. 
+2. Run the following command using a git terminal window such as git bash to clone the sample repository into the CosmosDBAccess folder. 
 
     ```bash
     git clone https://github.com/Golang-Coach/Lessons.git
@@ -60,22 +62,25 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Click **Quick start** in the left navigation menu, and then click **Other** to view the connection string information required by the Go application.
 
-    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+2. In Goglang, open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the connection string information from the Azure portal as shown in the following screenshot. 
 
-2. In Goglang, open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the connection string information from the Azure portal. The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image above, the Database name is golang-coachdb.
+    The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image below, the Database name is golang-coach.
 
     ```go
     Database: "The prefix of the Host value in the Azure portal",
     Username: "The Username in the Azure portal",
     Password: "The Password in the Azure portal",
     ```
+
+    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+
 3. Save the main.go file.
 
 ## Review the code
 
 Let's make a quick review of what's happening in the main.go file. 
 
-### Connect the Go app to Azure Cosmos DB
+### Connecting the Go app to Azure Cosmos DB
 
 Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
@@ -198,10 +203,10 @@ Azure Cosmos DB supports deleting JSON documents.
     
 ## Run the app
 
-1. In Goglang, ensure that your GOPATH (available under File, Settings, Go, GOPATH) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
+1. In Goglang, ensure that your GOPATH (available under **File**, **Settings**, **Go**, **GOPATH**) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
 2. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
-    You'll see that the app finishes and exits with the following output. The Description is from the document that was created in [Create a document](#create-document).
+    The app finishes and displays the description of the document created in [Create a document](#create-document).
     
     ```
     Description: A framework for building native apps with React.
@@ -213,11 +218,11 @@ Azure Cosmos DB supports deleting JSON documents.
     
 ## Review your document in Data Explorer
 
-Go back to the Azure portal to see your document Data Explorer.
+Go back to the Azure portal to see your document in Data Explorer.
 
 1. Click **Data Explorer (Preview)** in the left navigation menu, expand **golang-coach**, **package**, and then click **Documents**. In the **Documents** tab, click the \_id to display the document in the right pane. 
 
-    ![Data Explorer showing the newly created document](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+    ![Data Explorer showing the newly created document](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
 2. You can then work with the document inline and click **Update** to save it. You can also delete the document, or create new documents or queries.
 
