@@ -14,4 +14,3 @@ SLA (Service Level Agreement) information can be found on the [SLA](https://azur
 
 > [!NOTE]
 > * The throughput is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
-> * VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
