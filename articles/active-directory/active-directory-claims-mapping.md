@@ -1,6 +1,6 @@
 ---
 title: 'Claims Mapping in Azure Active Directory (Public Preview)| Microsoft Docs'
-description: This page describe claims mapping in Azure AD.
+description: This page describe Azure Active Directory claims mapping.
 services: active-directory
 author: billmath
 manager: femila
@@ -240,9 +240,8 @@ Property Overview
 
 **Summary:** This property determines whether the basic claim set is included in tokens affected by this policy. 
 
-If set to True, all claims in the basic claim set are emitted in tokens affected by the policy. 
-
-If set to False, claims in the basic claim set will not be in the tokens unless they are individually added in the claims schema property of the same policy.
+- If set to True, all claims in the basic claim set are emitted in tokens affected by the policy. 
+- If set to False, claims in the basic claim set will not be in the tokens unless they are individually added in the claims schema property of the same policy.
 
 >[!NOTE] 
 >Claims in the core claim set will be present in every token regardless of what this property is set to. 
@@ -326,12 +325,12 @@ The ID element identifies which property on the source will provide the value fo
 
 **TransformationID:** The TransformationID element must be provided only if the Source element is set to “transformation”.
 
-This element must match the ID element of the transformation entry in the ClaimsTransformation property that defines how the data for this claim is generated.
+- This element must match the ID element of the transformation entry in the ClaimsTransformation property that defines how the data for this claim is generated.
 
 **Claim Type:** The JwtClaimType and SamlClaimType elements define which claim this claim schema entry refers to.
 
-The JwtClaimTypeshould must contain the name of the claim to be emitted in JWTs.
-The SamlClaimType must contain the URI of the claim to be emitted in SAML tokens.
+- The JwtClaimTypeshould must contain the name of the claim to be emitted in JWTs.
+- The SamlClaimType must contain the URI of the claim to be emitted in SAML tokens.
 
 >[!NOTE]
 >Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. See Exceptions and Restrictions section below.
@@ -362,9 +361,8 @@ Based on the method chosen, a set of inputs and outputs will be expected. These 
 **InputClaims:** An InputClaims element can be used to pass the data from a claim schema entry to a transformation. It has two attributes: ClaimTypeReferenceId and 
 TransformationClaimType.
 
-ClaimTypeReferenceId is joined with ID element of the claim schema entry to find the appropriate input claim. 
-
-TransformationClaimType is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
+- ClaimTypeReferenceId is joined with ID element of the claim schema entry to find the appropriate input claim. 
+- TransformationClaimType is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
 
 **InputParameters:** An InputParameters element is used to pass a constant value to a transformation. It has two attributes: Value and ID.
 Value is the actual constant value to be passed.
