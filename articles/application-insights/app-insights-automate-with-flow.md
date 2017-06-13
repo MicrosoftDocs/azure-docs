@@ -19,8 +19,10 @@ ms.author: cfreeman
 Do you find yourself repeatedly running the same queries on your telemetry data to check that
 your service is functioning properly? Looking to automate these queries for finding trends and
 anomalies and build your own workflows around them? Well, Application Insights for Microsoft
-Flow are just what you need!
-With this integration, numerous processes can now be automated without writing a single line of code. After you create a flow using an Application Insights action it automatically runs your Application Insights Analytics query. You can add additional actions as well. Flow makes hundreds of actions available. For example, you could use Flow to automatically send an email notification, or create a bug in Visual Studio Team Services.
+Flow is just what you need!
+With this integration, numerous processes can now be automated without writing a single line of code. After you create a flow using an Application Insights action it automatically runs your Application Insights Analytics query. You can add additional actions as well. Flow makes hundreds of actions available. For example, you could use Flow to automatically send an email notification, or create a bug in Visual Studio Team Services. 
+
+<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/?v=17.23h). --> 
 
 ## Tutorial for creating a flow for Application Insights
 
