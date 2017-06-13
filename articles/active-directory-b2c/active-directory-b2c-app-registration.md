@@ -32,7 +32,9 @@ Applications created from the Azure AD B2C blade in the Azure portal must be man
 
 Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
 
-[!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+
+[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Choose next steps based on the application type you are registering:
 
