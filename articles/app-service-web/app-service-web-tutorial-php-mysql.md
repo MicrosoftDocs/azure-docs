@@ -18,7 +18,7 @@ ms.author: cephalin
 ms.custom: mvc
 ---
 # Build a PHP and MySQL web app in Azure
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a PHP web app in Azure and connect it to a MySQL database. When you are finished, you have a [Laravel](https://laravel.com/) app running on [Azure App Service Web Apps](app-service-web-overview.md).
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a PHP web app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service Web Apps.
 
 ![PHP app running in Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -41,11 +41,11 @@ To complete this tutorial:
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Prepare local MySQL
 
@@ -64,9 +64,9 @@ If your command runs successfully, then your MySQL server is running. If not, ma
 
 ### Create a database
 
-In the `mysql` prompt, create a database.
+At the `mysql` prompt, create a database.
 
-```sql
+```sql 
 CREATE DATABASE sampledb;
 ```
 
@@ -81,7 +81,7 @@ In this step, you get a Laravel sample application, configure its database conne
 
 Open the terminal window and `cd` to a working directory.  
 
-Run the following commands to clone the sample repository. 
+Run the following command to clone the sample repository. 
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -137,13 +137,19 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 ![PHP connects successfully to MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-To stop PHP, type `Ctrl`+`C` in the terminal. 
+To stop PHP, type `Ctrl + C` in the terminal. 
 
 ## Create production MySQL in Azure
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
-[!INCLUDE [Login to Azure](../../includes/login-to-azure.md)] 
+## Log in to Azure
+
+Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+
+```azurecli 
+az login 
+```
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
@@ -191,7 +197,7 @@ az mysql server firewall-rule create \
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) doesn't currently enable connections only from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
+> Azure Database for MySQL (Preview) doesn't currently limit connections only to Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
 >
 >
 
@@ -205,7 +211,7 @@ mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.database.window
 
 ### Create a production database
 
-In the `mysql` prompt, create a database.
+At the `mysql` prompt, create a database.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -213,7 +219,7 @@ CREATE DATABASE sampledb;
 
 ### Create a user with permissions
 
-Create a database user and give it all privileges in the `sampledb` database. Replace the placeholders _&lt;phpapp_user>_ and _&lt;phpapp_password>_.
+Create a database user and give it all privileges in the `sampledb` database. Replace the placeholders *&lt;phpapp_user>* and *&lt;phpapp_password>*.
 
 ```sql
 CREATE USER '<phpapp_user>' IDENTIFIED BY '<phpapp_password>'; 
@@ -272,13 +278,13 @@ Add a few tasks in the page.
 
 ![PHP connects successfully to Azure Database for MySQL (Preview)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-To stop PHP, type `Ctrl`+`C` in the terminal. 
+To stop PHP, type `Ctrl + C` in the terminal. 
 
 ### Secure sensitive data
 
 Make sure that the sensitive data in _.env.production_ is not committed into Git.
 
-Open the .gitignore* file from the repository root and add the filename:
+Open the *.gitignore* file from the repository root and add the filename:
 
 ```
 .env.production
@@ -299,9 +305,35 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+### Create a web app
 
-The web app is a place holder for where you deploy the PHP web app.
+Create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
+
+In the following command, substitute the _&lt;appname>_ placeholder with a unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom URL entry to the web app before you expose it to your users. 
+
+```azurecli-interactive
+az appservice web create \
+    --name <app_name> \
+    --resource-group myResourceGroup \
+    --plan myAppServicePlan
+```
+
+When the web app has been created, the Azure CLI shows information similar to the following example: 
+
+```json 
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  ...
+  < Output has been truncated for readability >
+}
+```
 
 ### Set the PHP version
 
@@ -444,7 +476,7 @@ For the tasks scenario, you modify the application so that you can mark a task a
 
 ### Add a column
 
-In the terminal, navigate the root of the Git repository.
+In the terminal, navigate to the root of the Git repository.
 
 Generate a new database migration for the `tasks` table:
 
@@ -603,9 +635,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 ![Portal navigation to Azure web app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-You have landed in your web app's page.
-
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your web app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete. 
 
 The left menu provides pages for configuring your app. 
 
@@ -627,7 +657,7 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to it.
+Advance to the next tutorial to learn how to map a custom DNS name to a web app.
 
 > [!div class="nextstepaction"] 
 > [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
