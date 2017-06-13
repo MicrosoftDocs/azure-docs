@@ -35,9 +35,7 @@ The following table lists several common devices and related help:
 |Cisco ASR  |[Community suggested solutions for Cisco ASR on Azure VPN](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall  |[Community suggested solutions for Sonicwall on Azure VPN](https://support.sonicwall.com/search?k=Azure+VPN)   |
 |Barracuda  |[Community suggested solutions for Barracuda on Azure VPN](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
-|Checkpoint |[Community suggested solutions for Checkpoint devices](https://supportcenter.checkpoint.com/supportcenter/portal%3bjsessionid=uRi0INB6nVl7kjX8pl5rzY5g.harp1)       |
 |F5         |[Community suggested solutions for F5 on Azure VPN](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
-|Juniper    |[Community suggested solutions for Juniper devices](http://www.juniper.net/search/public/)          |
 |Palo       |[Community suggested solutions for Palo on Azure VPN](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |
 |Watchguard |[Community suggested solutions for Watchguard on Azure VPN](http://watchguardsupport.force.com/SupportSearch#q=Azure%20VPN&t=All&sort=relevancy)  |
 
