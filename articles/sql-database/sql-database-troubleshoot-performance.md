@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: v-shysun
 
 ---
@@ -27,7 +27,7 @@ This article provides overview of monitoring and performance tuning options that
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Monitoring and troubleshooting database perfomance
+## Monitoring and troubleshooting database performance
 
 Azure SQL Database enables you to easily monitor your database usage and identify queries that might cause the performance issues. You can monitor database performance using Azure portal or system views. You have the following options for monitoring and troubleshooting database performance:
 
@@ -35,7 +35,7 @@ Azure SQL Database enables you to easily monitor your database usage and identif
 2. Use [Query Performance Insight](sql-database-query-performance.md) to identify the queries that spend the most of resources.
 3. You can use dynamic management views (DMVs), Extended Events (`XEvents`), and the Query Store in SSMS to get performance parameters in real time.
 
-See the [performance guidance topic](sql-database-performance-guidance.md) to find techniques that you can use to to improve performance of Azure SQL Database if you identify some issue using these reports or views.
+See the [performance guidance topic](sql-database-performance-guidance.md) to find techniques that you can use to improve performance of Azure SQL Database if you identify some issue using these reports or views.
 
 > [!IMPORTANT] 
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -48,7 +48,7 @@ You can also let Azure SQL database to [automatically optimize performance of yo
 You can use the following options to improve performance of your database:
 
 1. Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues.
-2. [Enable automatic tuning](sql-database-automatic-tuning-enable.md) and let Azure SQL database automatically fix identified perfromance issues.
+2. [Enable automatic tuning](sql-database-automatic-tuning-enable.md) and let Azure SQL database automatically fix identified performance issues.
 
 ## Improving database performance with more resources
 
