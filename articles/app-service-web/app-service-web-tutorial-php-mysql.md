@@ -97,7 +97,7 @@ composer install
 
 ### Configure MySQL connection
 
-In the repository root, create a *.env* file and copy the following variables into it. Replace the _&lt;root_password>_ placeholder with the root user's password.
+In the repository root, create a file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the root user's password.
 
 ```
 APP_ENV=local
@@ -143,7 +143,7 @@ To stop PHP, type `Ctrl`+`C` in the terminal.
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Login to Azure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
@@ -278,7 +278,7 @@ To stop PHP, type `Ctrl`+`C` in the terminal.
 
 Make sure that the sensitive data in _.env.production_ is not committed into Git.
 
-Open *.gitignore* from the repository root and add the filename:
+Open the *.gitignore* file from the repository root and add the filename:
 
 ```
 .env.production
@@ -301,7 +301,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-The web app is a place holder for where you will deploy the PHP web app.
+The web app is a place holder for where you deploy the PHP web app.
 
 ### Set the PHP version
 
@@ -488,7 +488,7 @@ Based on the [Laravel naming convention](https://laravel.com/docs/5.4/eloquent#d
 
 ### Update application logic
 
-Open *routes/web.php*. The application defines its routes and business logic here.
+Open the *routes/web.php* file. The application defines its routes and business logic here.
 
 At the end of the file, add a route with the following code:
 
@@ -511,7 +511,7 @@ The preceding code makes a simple update to the data model by toggling the value
 
 ### Update the view
 
-Open *resources/views/tasks.blade.php*. Find the `<tr>` opening tag and replace it with:
+Open the *resources/views/tasks.blade.php* file. Find the `<tr>` opening tag and replace it with:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
