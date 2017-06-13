@@ -1,6 +1,6 @@
 ---
 title: 'How To Restore a Server in Azure Database for PostgreSQL | Microsoft Docs'
-description: This article describes how to backup and restore a server in Azure Database for PostgreSQL using the Azure CLI.
+description: This article describes how to backup and restore a server in Azure Database for PostgreSQL using the Azure CLI command line.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,9 +9,9 @@ editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ---
 
 # How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure CLI
