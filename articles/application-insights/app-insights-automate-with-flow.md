@@ -50,7 +50,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 ![Application ID in the Azure portal](./media/app-insights-automate-with-flow/appid.png) 
 
-1. Provide a name for your connection along with the Application ID and API Key.
+- Provide a name for your connection along with the Application ID and API Key.
 
 ![Flow connection screen](./media/app-insights-automate-with-flow/flow3.png)
 
@@ -58,7 +58,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 This example selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates based on the operation_Id identifier. The query then segments the results using the autocluster algorithm. 
 When creating your own queries, make sure to verify that they are working properly in Analytics before adding it to your flow.
 
-1. Add the following Analytics query and select the Html table chart type. 
+- Add the following Analytics query and select the Html table chart type. 
 
 ```
 requests
@@ -90,7 +90,7 @@ requests
 ![Office 365 email configuration dynamic menu](./media/app-insights-automate-with-flow/flow7.png)
 
 ### Step 7: Save and test your flow
-1. Add a name to your flow and click *Create flow*.
+- Add a name to your flow and click *Create flow*.
 ![Microsoft Flow creation screen](./media/app-insights-automate-with-flow/flow8.png)
 
 You can either wait for the trigger to run this action, or you can run the flow immediately by [running the trigger on demand](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
