@@ -29,7 +29,7 @@
 ### [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
 ### [Step 4: Plan networking](site-recovery-network-design.md)
 ### [Step 5: Prepare Azure](vmware-walkthrough-prepare-azure.md)
-### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware)
+### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
 ### [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
 ### [Step 8: Set up the source and target](vmware-walkthrough-source-target.md)
 ### [Step 9: Set up a replication policy](vmware-walkthrough-replication.md)
