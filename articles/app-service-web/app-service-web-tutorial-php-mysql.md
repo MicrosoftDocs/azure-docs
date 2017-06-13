@@ -72,10 +72,6 @@ CREATE DATABASE sampledb;
 
 Exit your server connection by typing `quit`.
 
-```sql
-quit
-```
-
 <a name="step2"></a>
 
 ## Create local PHP app
@@ -141,19 +137,13 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 ![PHP connects successfully to MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-To stop PHP at any time, type `Ctrl`+`C` in the terminal. 
+To stop PHP, type `Ctrl`+`C` in the terminal. 
 
 ## Create production MySQL in Azure
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
-### Log in to Azure
-
-You are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host the PHP application in Azure App Service. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
-
-```azurecli-interactive 
-az login 
-``` 
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
@@ -294,7 +284,7 @@ Open *.gitignore* from the repository root and add the filename:
 .env.production
 ```
 
-Save the changes, then commit the changes to Git.
+Save the changes, and then commit the changes to Git.
 
 ```bash
 git add .gitignore
@@ -311,6 +301,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
+The web app is a place holder for where you will deploy the PHP web app.
 
 ### Set the PHP version
 
