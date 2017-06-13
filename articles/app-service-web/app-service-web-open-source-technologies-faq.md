@@ -108,7 +108,7 @@ To change the version of the Node.js application, you can use one of the followi
     1. Moves content to the Azure web app.
     2. Creates a default deployment script, if there isn’t one (deploy.cmd, .deployment files) in the web app root folder.
     3. Runs a deployment script in which it creates an iisnode.yml file if you mention the Node.js version in the package.json file > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. The iisnode.yml file has the following line of code:
+    The iisnode.yml file has the following line of code:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
@@ -140,7 +140,7 @@ For information about installing Django, see [Deploying a Django app to App Serv
 
 ## Where are the Tomcat log files located?
 
-For Azure Marketplace, Azure Gallery, and custom deployments:
+For Azure Marketplace and custom deployments:
 
 * Folder location: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Files of interest:
@@ -190,7 +190,6 @@ If you try to copy live log files for a Java app (for example, Tomcat), you migh
 
     ```
     Error transferring file [filename] Copying files from remote side failed.
-
     The process cannot access the file because it is being used by another process.
     ```
 
@@ -204,7 +203,7 @@ Another workaround is to write a WebJob that runs on a schedule and copies these
 
 ## Where do I find the log files for Jetty?
 
-For Marketplace, Gallery, and custom deployments, the log file is in the D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs folder. Note that the folder location depends on the version of Jetty you are using. For example, the path provided here is for Jetty 9.1.2. Look for jetty_*YYYY_MM_DD*.stderrout.log.
+For Marketplace and custom deployments, the log file is in the D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs folder. Note that the folder location depends on the version of Jetty you are using. For example, the path provided here is for Jetty 9.1.2. Look for jetty_*YYYY_MM_DD*.stderrout.log.
 
 For portal App Setting deployments, the log file is in D:\home\LogFiles. Look for jetty_*YYYY_MM_DD*.stderrout.log
 
