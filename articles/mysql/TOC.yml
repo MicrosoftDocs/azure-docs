@@ -83,13 +83,13 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
-  - name: Connect Applications
+  - name: Connect applications
     items:
-    - name: Connection Strings
+    - name: Connection strings
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
-    - name: Web App
+    - name: Web apps
       href: howto-connect-webapp.md
 - name: Reference
   items:
