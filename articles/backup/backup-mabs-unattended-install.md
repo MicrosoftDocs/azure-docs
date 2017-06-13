@@ -1,6 +1,6 @@
 ---
-title: Silent installation of Azure Backup Server version 2 | Microsoft Docs
-description: Use a PowerShell script to silently install Azure Backup Server version 2. This kind of installation is also called an unattended installation.
+title: Silent installation of Azure Backup Server v2 | Microsoft Docs
+description: Use a PowerShell script to silently install Azure Backup Server v2. This kind of installation is also called an unattended installation.
 services: backup
 documentationcenter: ' '
 author: markgalioto
@@ -15,15 +15,15 @@ ms.date: 05/30/2017
 ms.author: markgal;masaran
 
 ---
-# Run an unattended installation of Azure Backup Server version 2
+# Run an unattended installation of Azure Backup Server v2
 
-Learn how to run an unattended installation of Azure Backup Server version 2. 
+Learn how to run an unattended installation of Azure Backup Server v2. 
 
-These steps do not apply if you are installing Azure Backup Server version 1.
+These steps do not apply if you are installing Azure Backup Server v1.
 
-## Install Backup Server version 2
+## Install Backup Server v2
 
-1. On the server that hosts Azure Backup Server version 2, create a text file. (You can create the file in Notepad or in another text editor.) Save the file as MABSSetup.ini. 
+1. On the server that hosts Azure Backup Server v2, create a text file. (You can create the file in Notepad or in another text editor.) Save the file as MABSSetup.ini. 
 
 2. Paste the following code in the MABSSetup.ini file. Replace the text inside the brackets (\< \>) with values from your environment. The following text is an example:
 

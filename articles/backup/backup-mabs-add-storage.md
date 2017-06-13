@@ -1,6 +1,6 @@
 ---
-title: Use Modern Backup Storage with Azure Backup Server version 2 | Microsoft Docs
-description: Learn about the new features in Azure Backup Server version 2. This article describes how to upgrade your Backup Server installation.
+title: Use Modern Backup Storage with Azure Backup Server v2 | Microsoft Docs
+description: Learn about the new features in Azure Backup Server v2. This article describes how to upgrade your Backup Server installation.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -17,19 +17,19 @@ ms.date: 05/15/2017
 ms.author: masaran;markgal
 ---
 
-# Add storage to Azure Backup Server version 2
+# Add storage to Azure Backup Server v2
 
-Azure Backup Server version 2 comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage. 
+Azure Backup Server v2 comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage. 
 
 > [!NOTE]
-> To use Modern Backup Storage, you must run Backup Server version 2 on Windows Server 2016. 
-> If you run Backup Server version 2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server version 1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
+> To use Modern Backup Storage, you must run Backup Server v2 on Windows Server 2016. 
+> If you run Backup Server v2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server v1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
 
-## Volumes in Backup Server version 2
+## Volumes in Backup Server v2
 
-Backup Server version 2 accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
+Backup Server v2 accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
 
-1.	Set up Backup Server version 2 on a VM.
+1.	Set up Backup Server v2 on a VM.
 2.	Create a volume on a virtual disk in a storage pool:
     1.  Add a disk to a storage pool and create a virtual disk with simple layout.
     2.  Add any additional disks, and extend the virtual disk.
@@ -39,7 +39,7 @@ Backup Server version 2 accepts storage volumes. When you add a volume, Backup S
 
 ## Create a volume for Modern Backup Storage
 
-Using Backup Server version 2 with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
+Using Backup Server v2 with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
 
 1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**. 
 
