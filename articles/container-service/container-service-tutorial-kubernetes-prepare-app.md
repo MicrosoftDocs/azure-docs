@@ -102,4 +102,4 @@ A sample application was prepared and tested in a Docker development environment
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)new-dockerfilenew-dockerfile
+> [Push images to Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
