@@ -37,9 +37,9 @@ To automate your ASE creation:
 
 
 ## Creating the ASE
-An example Azure Resource Manager template, and its associated parameters file, are available on GitHub [here][quickstartilbasecreate].
+An example Azure Resource Manager template that creates an ASE, and its associated parameters file, are available on GitHub [here][quickstartasev2create].
 
-Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as External ASEs.  The list below calls out parameters of special note, or that are unique, when creating an ILB ASE:
+If you want to make an ILB ASE then there you should instead use the Resource Manager templates [here][quickstartilbasecreate].  They cater to that use case.  Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as External ASEs.  The list below calls out parameters of special note, or that are unique, when creating an ILB ASE:
 
 * *interalLoadBalancingMode*:  In most cases set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.  If this property is instead set to 2, then only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
 * *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE.  In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*.  However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain.  Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network.  For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
@@ -80,7 +80,7 @@ The Powershell code snippet below shows an example of generating a self-signed c
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Once the SSL certificate has been successfully generated and converted to a base64 encoded string, the example Azure Resource Manager template on GitHub for [configuring the default SSL certificate][configuringDefaultSSLCertificate] can be used.
+Once the SSL certificate has been successfully generated and converted to a base64 encoded string, the example Azure Resource Manager template on GitHub for [configuring the default SSL certificate][quickstartconfiguressl] can be used.
 
 The parameters in the *azuredeploy.parameters.json* file are listed below:
 
@@ -131,10 +131,21 @@ Once the template completes, apps on the ILB ASE can be accessed over HTTPS and 
 
 However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI SSL certificate bindings for individual apps.  
 
+## ASEv1 ##
+The App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was centered around ASEv2. This section shows you the differences between ASEv1 and ASEv2.
+
+In ASEv1, you need to manage all of the resources manually. That includes the front-ends, workers, and, IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool you want to host it in.
+
+ASEv1 uses a different pricing model from ASEv2. In ASEv1, you need to pay for each core allocated. That includes cores used for front-ends or workers that are not hosting any workloads. In ASEv1, default maximum scale size of an App Service Environment is 55 total hosts. That includes workers and front-ends. The one advantage to ASEv1 is that it can be deployed in a classic virtual network as well as a Resource Manager virtual network. You can learn more about ASEv1 from here: [App Service Environment v1 introduction][ASEv1Intro]
+
+If you want to create an ASEv1 using a Resource Manager template you can start here with [Creating an ILB ASE v1 with a Resource Manager template][ILBASEv1Template].
 
 
 <!--Links-->
-[quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
+[quickstartilbasecreate]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
+[quickstartasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
+[quickstartconfiguressl]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
+[quickstartwebapponasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
 [examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./app-service-env-intro.md
@@ -159,3 +170,4 @@ However, just like apps running on the public multi-tenant service, developers c
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ILBASEv1Template]: ../../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md
