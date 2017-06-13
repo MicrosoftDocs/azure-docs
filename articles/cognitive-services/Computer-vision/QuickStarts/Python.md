@@ -171,7 +171,7 @@ params = {
     'language': 'en',
 }
 
-# Replace the three dots below with the URL of a JPEG image of a celebrity.
+# Replace the three dots below with the full file path to a JPEG image of a celebrity on your computer or network.
 image = open('...','rb').read() # Read image file in binary mode
 
 try:
