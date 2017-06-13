@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: yurid
 
 ---
@@ -40,12 +40,21 @@ Security Center uses the Microsoft Monitoring Agent – this is the same agent u
 
 * HealthService.exe
 
+If you open the services management console (services.msc), you will also see the Microsoft Monitoring Agent service running as shown below:
+
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+
+To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Microsoft Monitoring Agent Service**, right click on it and click **Properties**. In the **Details** tab, look the file version as shown below:
+
+![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
+
 ## Microsoft Monitoring Agent installation scenarios
 There are three installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
 
 * **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
 .
-* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using an  old agent (from few months ago), you will be able to view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. In case you filter on the subscription the resource belongs to, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
+* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using agents downloaded and installed manually prior to February 2017, you will be able to view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. In case you filter on the subscription the resource belongs to, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
 * **Agent manually installed on a computer or VM located on-premises or in another cloud provider**: the expected behavior here is the same as explained in the previous scenario.
 
 >[!NOTE]
