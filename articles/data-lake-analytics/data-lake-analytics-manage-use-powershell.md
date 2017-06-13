@@ -20,7 +20,7 @@ ms.author: edmaca
 # Manage Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell. To see management topics using other tools, click the tab select above.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell. 
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ If you don't already have a Resource Group to use, create one.
 New-AzureRmResourceGroup -Name  $rg -Location $location
 ```
 
-Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create a new account. 
+Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create an account. 
 
 ```
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
@@ -160,7 +160,7 @@ Test existence of a specific Data Lake Analytics account
 
     Test-AdlAnalyticsAccount -Name $adla
 
-The cmdlet will return either **True** or **False**.
+The cmdlet returns either **True** or **False**.
 
 ## Manage account data sources
 Data Lake Analytics currently supports the following data sources:
@@ -217,7 +217,7 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 ## Create a Data Lake Analytics account using a template
 
-You can also use an Azure Resource Group template using thefollowing  PowerShell script:
+You can also use an Azure Resource Group template using the following  PowerShell script:
 
 ```
 $AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -247,7 +247,7 @@ For more information, see
 
 **Example template**
 
-Save the text below as a json file, and then use PowerShell script to call the template. 
+Save the following text as a `.json` file, and then use thepreceding PowerShell script to use the template. 
 
 ```
 {
@@ -306,5 +306,5 @@ Save the text below as a json file, and then use PowerShell script to call the t
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* Get started with Data Lake Analytics using [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
-* Manage Azure Data Lake Analytics using [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  [Azure Portal](data-lake-analytics-manage-use-portal.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
+* Get started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
+* Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  [Azure portal](data-lake-analytics-manage-use-portal.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
