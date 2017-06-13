@@ -34,7 +34,7 @@ Tasks:
 
 * Define the number of VMs in each application tier you require.
 * Determine if you need to adjust the number of fault or update domains to be used for your application.
-* Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
+* Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set.
 
 ## Availability sets
 In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets ensures that at least one VM remains running.
@@ -49,8 +49,7 @@ When designing your application infrastructure, plan the application tiers that 
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end user may not be able to resolve them if the primary VM is unavailable.
 
-Design your application for high availability at storage layer. The best practice is to [use Managed Disks for VMs in an Availability Set](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). If you are currently using unmanaged disks, we highly recommend you to [convert VMs in Availability Set to use Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Design your application for high availability at storage layer. The best practice is to [use Managed Disks for VMs in an Availability Set](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). If you are currently using unmanaged disks, we highly recommend you to [convert VMs in Availability Set to use Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks).
 
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-

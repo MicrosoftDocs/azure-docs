@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop apps
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

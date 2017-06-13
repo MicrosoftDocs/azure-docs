@@ -1,6 +1,6 @@
 ---
-title: Automatically Scale-up your Azure Event Hubs Throughput Units | Microsoft Docs
-description: Enable auto-inflate on your namespace to automatically scale-up your throughput units
+title: Automatically scale up Azure Event Hubs throughput units | Microsoft Docs
+description: Enable Auto-inflate on a namespace to automatically scale up throughput units
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,40 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2017
-ms.author: shvija
+ms.date: 06/12/2017
+ms.author: shvija;sethm
+
 ---
 
-# Automatically Scale-up your Azure Event Hubs Throughput Units
+# Automatically scale up Azure Event Hubs throughput units
 
 ## Overview
-Event Hubs customers increase their usage after onboarding on to the service. This requires increasing the predetermined throughput units to scale your Event Hubs to handle greater transfer rates. Auto-inflate feature of Event Hubs automatically scales up the number of Throughput Units (TU) to meet usage needs. This prevents throttling scenarios, where
 
-* data ingress rates exceed set Throughput Units
-* data egress request rates exceed set Throughput Units
+Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs customers often increase their usage after onboarding to the service. Such increases require increasing the predetermined throughput units (TUs) to scale Event Hubs and handle larger transfer rates. The *Auto-inflate* feature of Event Hubs automatically scales up the number of TUs to meet usage needs. Increasing TUs prevents throttling scenarios, in which:
 
-## How does Auto-Inflate work?
-Event Hubs traffic is controlled by throughput units. A single throughput unit allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-Inflate lets you start small with minimum required throughput units and lets you scale-up automatically to the limit you want the number of throughput units you want to grow to, depending on the increase in your traffic. This gives the following benefits:
-1.	This provides an efficient scaling mechanism to start small and scale-up as you grow
-2.	Once enabled, you can automatically scale-up to the specified upper limit without hitting throttling issues
-3.	Gives you more control on scaling as you control when and how much to scale
+* Data ingress rates exceed set TUs.
+* Data egress request rates exceed set TUs.
 
-## How do I enable Auto-Inflate on my namespace?
-You can enable or disable Auto-Inflate on your namespace,
-1.	Through the portal (this will be available starting June 12 2017)
-2.	Through Azure Resource Manager template
+## How Auto-inflate works
 
-### Enabling Auto-Inflate through the portal
-You can enable the auto-Inflate feature on your namespace when creating your Event Hubs namespace 
+Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units. The feature then scales automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:
+
+- An efficient scaling mechanism to start small and scale up as you grow.
+- Automatically scale to the specified upper limit without throttling issues.
+- More control over scaling, as you control when and how much to scale.
+
+## Enable Auto-inflate on a namespace
+
+You can enable or disable Auto-inflate on a namespace using either of the following methods:
+
+1. The [Azure portal](https://portal.azure.com).
+2. An Azure Resource Manager template.
+
+### Enable Auto-inflate through the portal
+
+You can enable the Auto-inflate feature on a namespace when creating an Event Hubs namespace:
+ 
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-With this option turned on, you can start small on your throughput units and scale-up as your usage need increases. The upper limit for inflation does not affect your pricing as pricing depends on the number of TUs being using for the hour.
-You can also enable the auto-inflate using the Scale option on your settings blade in the portal 
+With this option enabled, you can start small on your throughput units and scale up as your usage needs increase. The upper limit for inflation does not affect pricing, which depends on the number of TUs used per hour.
+
+You can also enable Auto-inflate using the **Scale** option on the settings blade in the portal:
+ 
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
-### Enabling Auto-Inflate using Azure Resource Manager template
-Auto-inflate can be enabled while deploying using Azure Resource Manager template. By setting the 
-"isAutoInflateEnabled": true property and specifying the maximum throughput units that you want to inflate up to as, "maximumThroughputUnits": 10.
+### Enable Auto-Inflate using an Azure Resource Manager template
+
+You can enable Auto-inflate during an Azure Resource Manager template deployment. For example, set the 
+`isAutoInflateEnabled` property to **true** and set `maximumThroughputUnits` to 10.
+
 ```json
 "resources": [
         {
@@ -87,12 +99,12 @@ Auto-inflate can be enabled while deploying using Azure Resource Manager templat
         }
     ]
 ```
- For the complete template, see [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
+
+For the complete template, see the [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
 
 ## Next steps
+
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md)
-
-
