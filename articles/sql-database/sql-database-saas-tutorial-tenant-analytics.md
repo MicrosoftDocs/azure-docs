@@ -10,11 +10,11 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 

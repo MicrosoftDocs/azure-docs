@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: v-donglo
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-publish-a-machine-learning-web-service
+redirect_document_id: TRUE 
 
 ---
 # Deploy a new web service

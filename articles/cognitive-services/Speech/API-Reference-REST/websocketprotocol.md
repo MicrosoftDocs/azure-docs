@@ -32,6 +32,7 @@ service and includes standard web socket upgrade headers along with other header
 GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
+Connection: Upgrade
 ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=

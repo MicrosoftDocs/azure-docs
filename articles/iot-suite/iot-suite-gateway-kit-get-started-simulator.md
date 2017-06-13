@@ -21,9 +21,9 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-This tutorial shows you how to use the Azure IoT Edge to simulate temperature and humidity data to send to the remote monitoring preconfigured solution. The tutorial uses:
+This tutorial shows you how to use Azure IoT Edge to simulate temperature and humidity data to send to the remote monitoring preconfigured solution. The tutorial uses:
 
-- The Azure IoT Edge to implement a sample gateway.
+- Azure IoT Edge to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
 ## Overview
