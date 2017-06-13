@@ -28,8 +28,8 @@ In other words, your Golang application only knows that it’s connecting to a d
 ## Prerequisites
 
 1.  [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
-2.  Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-3.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+2.  An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+3.  An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, we're using Goglang.
 
 <a id="create-account"></a>
 ## Create a database account
@@ -41,8 +41,13 @@ In other words, your Golang application only knows that it’s connecting to a d
 It’s time to play with the code. Open your favorite editor (Gogland, Visual Studio Code,
 or Atom). In this article, I use Gogland editor.
 
-1.  Create folder CosmosDBAcces folder inside GOROOT\src folder, which is C:\Go\ by default.
-2.  Run below command using the Goglang editor, or a git terminal window such as git bash, to get the mgo package. You may need to restart any open command prompts if you just installed Go.
+1. Create a folder named CosmosDBAccess inside the GOROOT\src folder, which is C:\Go\ by default.
+2. Run the following command using a git terminal window such as git bash, to clone the sample repository into the CosmosDBAccess folder. 
+
+    ```bash
+    git clone https://github.com/Golang-Coach/Lessons.git
+    ```
+3.  Run the following command to get the mgo package. 
 
     ```
     go get gopkg.in/mgo.v2
@@ -50,16 +55,8 @@ or Atom). In this article, I use Gogland editor.
 
 The [mgo](http://labix.org/mgo) driver (pronounced as *mango*) is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
-## Clone the sample application
-
-Now let's clone the Go app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
-
-- Run the following command to clone the sample repository into the CosmosDBAccess folder. 
-
-    ```bash
-    git clone https://github.com/Golang-Coach/Lessons.git
-    ```
 <a id="connection-string"></a>
+
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
@@ -68,7 +65,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
 
-2. Open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the information from the Azure portal. The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image, the Database name is golang-couchdb.
+2. In Goglang, open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the connection string information from the Azure portal. The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image above, the Database name is golang-coachdb.
 
     ```go
     Database: "The prefix of the Host value in the Azure portal",
@@ -79,9 +76,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. In the main.go file you'll find the following code. 
+Let's make a quick review of what's happening in the main.go file. 
 
-### Connect the Go app with Azure Cosmos DB
+### Connect the Go app to Azure Cosmos DB
 
 Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
@@ -126,6 +123,8 @@ An instance of the **DialWIthInfo{}** object is used to create the session objec
 ```go
    collection := session.DB(“golang-couch”).C(“package”)
 ```
+
+<a id="create-document"></a>
 
 ### Create a document
 
@@ -192,21 +191,38 @@ Azure Cosmos DB supports deleting JSON documents.
 
 ```go
 // Delete a document
-query := bson.M{"_id": result.Id}
-err = collection.Remove(query)
-if err != nil {
-    log.Fatal("Error deleting record: ", err)
-    return
-}
+// query := bson.M{"_id": result.Id}
+// err = collection.Remove(query)
+// if err != nil {
+//    log.Fatal("Error deleting record: ", err)
+//    return
+// }
 ```
     
 ## Run the app
 
-1. In Goglang, click Run.
+1. In Goglang, ensure that your GOPATH (available under File, Settings, Go, GOPATH) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
+2. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
-    You'll see that the app finishes and exits in the Run pane on the bottom.
+    You'll see that the app finishes and exits with the following output. The Description is the from the document that was created in [Create a document](#create-document).
+    
+    ```
+    Description: A framework for building native apps with React.
+    
+    Process finished with exit code 0`.
+    ```
 
     ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/goglang-cosmos-db.png)
+    
+## Review your document in Data Explorer
+
+Go back to the Azure portal to see your document Data Explorer.
+
+1. Click **Data Explorer (Preview)** in the left navigation menu, expand golang-coach, package, and then click **Documents**. In the Documents tab, click the `_id` for the new document to display the document in the right pane. 
+
+    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+    
+2. You can then work with the document inline and click Update to save it. You can also delete the document, or create new documents or queries.
 
 ## Review SLAs in the Azure portal
 
