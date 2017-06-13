@@ -122,7 +122,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_general_400.png)
-<CS>
+
+6. On the **EverBridge Configuration** section, click **Configure EverBridge** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_configure.png) 
+
 6. To get SSO configured for your application, you need to sign-on to your Everbridge tenant as an administrator.
 
 7. In the menu on the top, click the **Settings** tab and select **Single Sign-On** under **Security**.
@@ -144,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     f. As **Service Provider Initiated Request Binding**, select HTTP Redirect.
 
 	g. Click **Save**
-<CE>
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
