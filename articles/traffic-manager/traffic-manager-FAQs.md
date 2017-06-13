@@ -52,7 +52,7 @@ The Performance method routes traffic to the closest available endpoint. The net
 ### What application protocols can I use with Traffic Manager?
 
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore, the connection can use any application protocol. 
-Traffic Manager's endpoint health monitoring can be done without using any application protocols if you select TCP as the monitoring protocol. If you choose to have the health verified using an application protocol, the endpoint needs to be able to respond to either HTTP or HTTPS GET requests.
+ If you select TCP as the monitoring protocol, Traffic Manager's endpoint health monitoring can be done without using any application protocols. If you choose to have the health verified using an application protocol, the endpoint needs to be able to respond to either HTTP or HTTPS GET requests.
 
 ### Can I use Traffic Manager with a 'naked' domain name?
 
@@ -65,20 +65,20 @@ To work around this issue, we recommend using an HTTP redirect to direct traffic
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
-No, at this time Traffic Manager considers only the source IP address of the DNS query it receives, which in most cases is the IP address of the DNS resolver, when performing lookups for Geographic and Performance routing methods.  
+No, currently Traffic Manager considers only the source IP address of the DNS query it receives, which usually is the IP address of the DNS resolver, when performing lookups for Geographic and Performance routing methods.  
 Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it to DNS servers is currently not supported in Traffic Manager. You can register your support for this feature request through our [community feedback site](https://feedback.azure.com/forums/217313-networking).
 
 
 ### What is DNS TTL and how does it impact my users?
 
-When a DNS query lands on Traffic Manager, it sets a value in the response called time-to-live (TTL). This value,whose unit is in seconds, indicates to DNS resolvers downstream on how long to cache this response. While DNS resolvers are not guaranteed to cache this result, caching it enables them to respond to any subsequent queries off the cache instead of going to Traffic Manager DNS servers. This impacts the responses as follows:
-- a higher TTL reduces the number of queries that land on the Traffic Manager DNS servers, which can reduce the cost for a customer since queries served is a billable usage.
+When a DNS query lands on Traffic Manager, it sets a value in the response called time-to-live (TTL). This value, whose unit is in seconds, indicates to DNS resolvers downstream on how long to cache this response. While DNS resolvers are not guaranteed to cache this result, caching it enables them to respond to any subsequent queries off the cache instead of going to Traffic Manager DNS servers. This impacts the responses as follows:
+- a higher TTL reduces the number of queries that land on the Traffic Manager DNS servers, which can reduce the cost for a customer since number of queries served is a billable usage.
 - a higher TTL can potentially reduce the time it takes to do a DNS lookup.
 - a higher TTL also means that your data does not reflect the latest health information that Traffic Manager has obtained through its probing agents.
 
 ### How high or low can I set the TTL for Traffic Manager responses?
 
-You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with RFC-1035). Note that having a TTL of 0 means, downstream DNS resolvers won’t be caching query responses and all queries are expected to be reaching the Traffic Manager DNS servers for resolution.
+You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with RFC-1035). Having a TTL of 0 means that downstream DNS resolvers does not be cache query responses and all queries are expected to reach the Traffic Manager DNS servers for resolution.
 
 ## Traffic Manager Geographic traffic routing method
 
@@ -86,16 +86,16 @@ You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and a
 Geographic routing type can be used in any scenario where an Azure customer needs to distinguish their users based on geographic regions. For example, using the Geographic traffic routing method, you can give users from specific regions a different user experience than those from other regions. Another example is complying with local data sovereignty mandates that require that users from a specific region be served only by endpoints in that region.
 
 ### What are the regions that are supported by Traffic Manager for geographic routing? 
-The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page will be kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page is kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### How does traffic manager determine where a user is querying from? 
-Traffic Manager looks at the source IP of the query (this most likely will be a local DNS resolver doing the querying on behalf of the user) and uses an internal IP to region map to determine the location. This map is updated on an ongoing basis to account for changes in the internet. 
+Traffic Manager looks at the source IP of the query (this most likely is a local DNS resolver doing the querying on behalf of the user) and uses an internal IP to region map to determine the location. This map is updated on an ongoing basis to account for changes in the internet. 
 
-### Is it guaranteed that Traffic Manager will correctly determine the exact geographic location of the user in every case?
+### Is it guaranteed that Traffic Manager can correctly determine the exact geographic location of the user in every case?
 No, Traffic Manager cannot guarantee that the geographic region we infer from the source IP address of a DNS query will always correspond to the user’s location due to the following reasons: 
 
 - First, as described in the previous FAQ, the source IP address we see is that of a DNS resolver doing the lookup on behalf of the user. While the geographic location of the DNS resolver is a good proxy for the geographic location of the user, it can also be different depending upon the footprint of the DNS resolver service and the specific DNS resolver service a customer has chosen to use. 
-As an example, a customer located in Malaysia could specify in their device’s settings use a DNS resolver service whose DNS server in Singapore might get picked to handle the query resolutions for that user/device. In that case, Traffic Manager will see only the resolver’s IP address which corresponds to the Singapore location. Also, see the earlier FAQ regarding client subnet address support on this page.
+As an example, a customer located in Malaysia could specify in their device’s settings use a DNS resolver service whose DNS server in Singapore might get picked to handle the query resolutions for that user/device. In that case, Traffic Manager can only see the resolver’s IP address that corresponds to the Singapore location. Also, see the earlier FAQ regarding client subnet address support on this page.
 
 - Second, Traffic Manager uses an internal map to do the IP address to geographic region translation. While this map is validated and updated on an ongoing basis to increase its accuracy and account for the evolving nature of the internet, there is still the possibility that our information is not an exact representation of the geographic location of all the IP addresses.
 
@@ -105,21 +105,21 @@ No, the location of the endpoint imposes no restrictions on which regions can be
 
 ### Can I assign geographic regions to endpoints in a profile that is not configured to do geographic routing? 
 
-Yes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration will be ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager will use those mappings.
+Yes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
 
 
 ### Why am I getting an error when I try to change the routing method of an existing profile to Geographic?
 
-All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, you will have to first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping. 
+All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, have to first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping. 
 
 
 ###  Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled? 
 
-A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, in the event of that endpoint going unhealthy, Traffic Manager will continue to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (e.g. if an endpoint that has region Spain goes unhealthy, we will not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. In order to get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
+A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we will not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
 
 ### Are there any restrictions on the API version that supports this routing type?
 
-Yes, only API version 2017-03-01 and newer supports the Geographic routing type. Any older API versions cannot be used to created profiles of Geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profiles of Geographic routing type will not be returned. In addition, when using older API versions, any profiles returned that has endpoints with a geographic region assignment will not have its geographic region assignment shown.
+Yes, only API version 2017-03-01 and newer supports the Geographic routing type. Any older API versions cannot be used to created profiles of Geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profile of Geographic routing type is not returned. In addition, when using older API versions, any profile returned that has endpoints with a geographic region assignment, does not have its geographic region assignment shown.
 
 
 
@@ -129,10 +129,8 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 
 Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. How you configure Traffic Manager depends on whether you are using the classic deployment model or the Resource Manager experience.
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-* In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
-* In the classic deployment model interface, Traffic Manager requires that Cloud Services or Web Apps configured as Azure endpoints reside in the same subscription as the Traffic Manager profile. Cloud Service endpoints in other subscriptions can be added to Traffic Manager as 'external' endpoints. These external endpoints are billed as Azure endpoints, rather than the external rate.
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -195,7 +193,7 @@ Traffic Manager provides multiple settings that can help you to control the fail
 - you can specify that the Traffic Manager probes the endpoints more frequently by setting the Probing Interval at 10 seconds. This ensures that any endpoint going unhealthy can be detected as soon as possible. 
 - you can specify how long to wait before a health check request times out (minimum time out value is 5 sec).
 - you can specify how many failures can occur before the endpoint is marked as unhealthy. This value can be low as 0, in which case the endpoint is marked unhealthy as soon as it fails the first health check. However, using the minimum value of 0 for the tolerated number of failures can lead to endpoints being taken out of rotation due to any transient jitters that might be occurring at the time the probing happened.
-- you can specify the time-to-live (TTL) for the DNS response to be as low as 0. Doing so means that DNS resolvers can not cache the response and each new query gets a response that incorporates the most up-to-date health information that the Traffic Manager has.
+- you can specify the time-to-live (TTL) for the DNS response to be as low as 0. Doing so means that DNS resolvers cannot cache the response and each new query gets a response that incorporates the most up-to-date health information that the Traffic Manager has.
 
 By using these settings, Traffic Manager can provide failovers under 10 seconds after an endpoint goes unhealthy and a DNS query is made against the corresponding profile.
 
@@ -238,7 +236,7 @@ The following list contains the IP addresses from which Traffic Manager health c
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
-The number of Traffic Manager health checks reaching your endpoint is dependent on the following:
+The number of Traffic Manager health checks reaching your endpoint depends on the following:
 - how often you have set the monitoring interval to be (smaller interval means more requests landing on your endpoint in any given time period).
 - the number of locations from where the health checks originate (the IP addresses from where you can expect these checks is listed above).
 
