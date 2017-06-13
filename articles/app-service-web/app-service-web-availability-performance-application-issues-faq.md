@@ -182,7 +182,7 @@ This error typically occurs if the outbound TCP connections on the VM instance a
 
 This error also might occur if you try to access a local address from your application. For more information, see [Local address requests](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
-For more information about outbound connections in your web app, see the blog post [outgoing connections to Azure websites](http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
+For more information about outbound connections in your web app, see the blog post about [outgoing connections to Azure websites](http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
 
 ## I can't remote debug my web app in Visual Studio. How do I address this?
 
