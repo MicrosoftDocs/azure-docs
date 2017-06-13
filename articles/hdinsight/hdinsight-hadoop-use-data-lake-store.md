@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 06/10/2017
 ms.author: jgao
 
 ---
@@ -43,12 +43,12 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 
 | HDInsight cluster type | Data Lake Store as default storage | Data Lake Store as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 3.5 | Yes | Yes | |
+| HDInsight version 3.6 | Yes | Yes | |
+| HDInsight version 3.5 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.4 | No | Yes | |
 | HDInsight version 3.3 | No | No | |
 | HDInsight version 3.2 | No | Yes | |
 | HDInsight Premium (tier)| No | No | |
-| HBase (all HDInsight versions) | No | No| |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.

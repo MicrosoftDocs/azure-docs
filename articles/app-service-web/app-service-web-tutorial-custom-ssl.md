@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Bind an existing custom SSL certificate to Azure Web Apps
 
-This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
+Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
 
 ![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -31,10 +31,8 @@ In this tutorial, you learn how to:
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
 
-> [!TIP]
+> [!NOTE]
 > If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md). 
->
-> 
 
 ## Prerequisites
 
@@ -48,7 +46,7 @@ To complete this tutorial:
 
 ### Requirements for your SSL certificate
 
-To use your certificate in App Service, your certificate must meet all the following requirements:
+To use a certificate in App Service, the certificate must meet all the following requirements:
 
 * Signed by a trusted certificate authority
 * Exported as a password-protected PFX file
@@ -56,12 +54,10 @@ To use your certificate in App Service, your certificate must meet all the follo
 * Contains all intermediate certificates in the certificate chain
 
 > [!NOTE]
-> **Elliptic Curve Cryptography (ECC) certificates** can work with App Service, but outside the scope
-> of this article. Work with your certificate authority on the exact steps to create ECC certificates.
-> 
->
+> **Elliptic Curve Cryptography (ECC) certificates** can work with App Service but are not covered by this article. Work with your certificate authority on the exact steps to create ECC certificates.
 
 ## Prepare your web app
+
 To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your web app is in the supported pricing tier.
 
 ### Log in to Azure
@@ -70,7 +66,7 @@ Open the [Azure portal](https://portal.azure.com).
 
 ### Navigate to your web app
 
-From the left menu, click **App Services**, then click the name of your web app.
+From the left menu, click **App Services**, and then click the name of your web app.
 
 ![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
 
@@ -86,7 +82,7 @@ Check to make sure that your web app is not in the **Free** or **Shared** tier. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Custom SSL is not supported in the **Free** and **Shared** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **Free** or **Shared** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
@@ -96,7 +92,7 @@ Click **Select**.
 
 ![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
-When you see the notification below, the scale operation is complete.
+When you see the following notification, the scale operation is complete.
 
 ![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
@@ -120,11 +116,11 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 ### Upload your SSL certificate
 
-To upload your SSL certificate, click **SSL certificates** in the left-hand navigation of your web app.
+To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
 
 Click **Upload Certificate**.
 
-In **PFX Certificate File**, select your PFX file that. In **Certificate password**, type the password that you created when exporting the PFX file.
+In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
@@ -168,6 +164,7 @@ Your web app's **Custom domain** page is updated with the new, dedicated IP addr
 <a name="test"></a>
 
 ## Test HTTPS
+
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
 to `https://<your.custom.domain>` to see that it serves up your web app.
 
@@ -177,20 +174,17 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 > If your web app gives you certificate validation errors, you're probably using a self-signed certificate.
 >
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file. 
->
->
 
 <a name="bkmk_enforce"></a>
 
 ## Enforce HTTPS
-If you still want to allow HTTP access to your web app, skip this step. 
+
+If you want to allow HTTP access to your web app, skip this step. 
 
 App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_.
-> 
-> 
 
 If you're a .NET developer, you should be relatively familiar with this file. It is in the root of your solution.
 
@@ -198,7 +192,7 @@ Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a cha
 
 Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
 
-This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ in this folder with the following XML:
+This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ file in this folder with the following XML:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -221,7 +215,7 @@ This file should be located in _/home/site/wwwroot_. If not, create a _web.confi
 </configuration>
 ```
 
-For an existing _web.config_, copy the entire `<rule>` element into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` elements in your _web.config_, place the copied `<rule>` element before the other `<rule>` elements.
+For an existing _web.config_ file, copy the entire `<rule>` element into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` elements in your _web.config_, place the copied `<rule>` element before the other `<rule>` elements.
 
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
