@@ -25,7 +25,7 @@ Azure Cosmos DB is a globally replicated, multi-model database service that that
 
 Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
 
-For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](https://docs.microsoft.com/azure/cosmos-db/).
+For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/cosmos-db/).
 
 ### What happened to DocumentDB?
 The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API (Preview) and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
@@ -39,7 +39,7 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 ### How does Azure Cosmos DB offer predictable performance?
 A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to the DocumentDB API collection, Graph API graphs, MongoDB API collection, and Table API tables. 
+You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API table. 
 
 ### Is Azure Cosmos DB HIPAA compliant?
 Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -59,7 +59,7 @@ If you are new to Azure, you can sign up for an [Azure free account](https://azu
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ### How can I get additional help with Azure Cosmos DB?
-If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) or the [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
@@ -69,16 +69,13 @@ Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure su
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
 
 ### What are the regions that PreferredLocations can be set to? 
-The current valid regions for PreferredLocations are: West US, West Central US, West US 2, East US, East US 2, Central US, South Central US, North Central US, West Europe, North Europe, East Asia, Southeast Asia, Japan West, Japan East, Australia Southeast, Australia East, Central India, South India, West India, Canada East, Canada Central, Germany Central, Germany Northeast, China North, China East, Korea South, Korea Central, UK West, UK South, Brazil South, USGov Arizona, and USGov Texas.
+The PreferredLocations value can be set to any of the Azure regions in which Cosmos DB is available. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-### Is there something I should be aware of when distributing data across the world via the Azure datacenters? 
-Azure Cosmos DB is present across all the regions. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. You'll find the current list of regions in the preceding answer. 
+### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
+Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
-When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a region, you cannot replicate out of that region. Similarly, you cannot enable replication into other locations from an outside account. 
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a sovereign region, you cannot replicate out of that sovereign region. Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
-### Do you plan to provide more price options in the future?
-Yes, we plan to provide more optimal pricing models in near future. 
- 
 ## Develop against the DocumentDB API
 
 ### How do I start developing against the DocumentDB API?
@@ -158,22 +155,22 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 ### Terms 
 The Azure Cosmos DB: Table API (Preview) refers to the premium offering by Azure Cosmos DB for table support announced at Build 2017. 
 
-The standard Table SDK is the existing Azure Storage Table SDK. 
+The standard table SDK is the existing Azure Storage table SDK. 
 
 ### How can I use the new Table API (Preview) offering? 
-The Microsoft Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add the Table API container to your Azure subscription. 
+The Azure Cosmos DB Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. 
 
 During the preview period, when [SDKs](../cosmos-db/table-sdk-dotnet.md) are available for .NET, you can get started by completing the [Table API](../cosmos-db/create-table-dotnet.md) quick-start article.
 
 ### Do I need a new SDK to use the Table API (Preview)? 
-Yes, you can find a new SDK in the form of a NuGet package at [Azure Cosmos DB Table .NET API: Download and release notes](../cosmos-db/table-sdk-dotnet.md). It is called SDK for Windows Azure Storage 8.1.2 with the premium Table API (Preview). 
+Yes, the [Windows Azure Storage premium table (Preview) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) is available on NuGet. Additional information is available on the [Azure Cosmos DB Table .NET API: Download and release notes](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) page. 
 
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
 
 * [Uservoice](https://feedback.azure.com/forums/263030-documentdb)
 * [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
 
 ### What is the connection string that I need to use to connect to the Table API (Preview)?
 The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com`. You can get the connection string from the Keys page in the Azure portal. 
@@ -189,8 +186,8 @@ For information about config settings, see [Azure Cosmos DB capabilities](../cos
 </appSettings>
 
 
-### Are there any changes for customers who are using the existing standard Table SDK?
-None. There are no changes for existing or new customers who are using the existing standard Table SDK. 
+### Are there any changes for customers who are using the existing standard table SDK?
+None. There are no changes for existing or new customers who are using the existing standard table SDK. 
 
 ### How do I view table data that is stored in Azure Cosmos DB for use with the Table API (review)? 
 You can use the Azure portal to browse the data. You can also use the Table API (Preview) code or the tools mentioned in the next answer. 
@@ -204,12 +201,12 @@ Tools with the flexibility to take a connection string in the format specified p
 We plan to add support for PowerShell and Azure CLI for Table API (Preview). 
 
 ### Is the concurrency on operations controlled?
-Yes, optimistic concurrency is provided via the use of the ETag mechanism, as expected in the standard Table API. 
+Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
 
 ### Is the OData query model supported for entities? 
 Yes, the Table API (Preview) supports OData query and LINQ query. 
 
-### Can I connect to the standard Azure Table and the new premium Table API (Preview) side by side in the same application? 
+### Can I connect to the standard Azure table and the new premium Table API (Preview) side by side in the same application? 
 Yes, you can connect by creating two separate instances of the CloudTableClient, each pointing to its own URI via the connection string.
 
 ### How do I migrate an existing Azure Table storage application to this new offering?
@@ -225,16 +222,16 @@ Azure Cosmos DB is designed to provide unlimited storage via the use of horizont
 You can use the Table API (Preview) **Metrics** pane to monitor requests and storage usage. 
 
 ### How do I calculate the throughput I require?
-You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can represent your entity as a JSON and provide the numbers for your operations. 
+You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can represent your entity as JSON and provide the numbers for your operations. 
 
 ### Can I use the new Table API (Preview) SDK locally with the emulator?
 Yes, you can use the Table API (Preview) with the local emulator when you use the new SDK. To download new emulator, go to [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md). The StorageConnectionString value in app.config needs to be `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
 
 ### Can my existing application work with the Table API (Preview)? 
-The surface area of the new Table API (Preview) is compatible with the existing Azure standard Table SDK across the create, delete, update, and query operations in the .NET API. Ensure that you have a row key, because the Table API (Preview) requires both a partition key and a row key. We also plan to add more SDK support as we proceed toward GA of this service offering.
+The surface area of the new Table API (Preview) is compatible with the existing Azure standard table SDK across the create, delete, update, and query operations in the .NET API. Ensure that you have a row key, because the Table API (Preview) requires both a partition key and a row key. We also plan to add more SDK support as we proceed toward GA of this service offering.
 
-### Do I need to migrate my existing Azure Table-based applications to the new SDK if I do not want to use the Table API (Preview) features?
-No, you can create and use existing standard Table assets without interruption of any kind. However, if you do not use the new Table API (Preview), you cannot benefit from the automatic index, the additional consistency option, or global distribution. 
+### Do I need to migrate my existing Azure table-based applications to the new SDK if I do not want to use the Table API (Preview) features?
+No, you can create and use existing standard table assets without interruption of any kind. However, if you do not use the new Table API (Preview), you cannot benefit from the automatic index, the additional consistency option, or global distribution. 
 
 ### How do I add replication of the data in the premium Table API (Preview) across multiple regions of Azure?
 You can use the Azure Cosmos DB portal’s [global replication settings](tutorial-global-distribution-documentdb.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
@@ -245,25 +242,26 @@ You can use the Azure Cosmos DB global replication portal pane to add a region a
 ### How do I configure my preferred read regions for low latency when I distribute my data? 
 To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API (Preview) throws an error if LocationMode is set. Remove that code, because the premium Table API (Preview) picks up this information from the app.config file. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
 
-### How do I think about consistency levels in Table API (Preview)? 
-Azure Cosmos DB provides well-reasoned trade-offs between consistency, availability, and latency. As of this release, it offers five consistency levels to Table API (Preview) developers, so you can choose the right consistency model at the Table level and make individual requests while querying the data. When a client connects, it can specify a consistency level. You can change the level via the app.config setting for the value of the TableConsistencyLevel key. 
+### How should I think about consistency levels in the Table API (Preview)? 
+Azure Cosmos DB provides well-reasoned trade-offs between consistency, availability, and latency. Azure Cosmos DB offers five consistency levels to Table API (Preview) developers, so you can choose the right consistency model at the table level and make individual requests while querying the data. When a client connects, it can specify a consistency level. You can change the level via the app.config setting for the value of the TableConsistencyLevel key. 
 
 The Table API (Preview) provides low-latency reads with "Read your own writes," with Session consistency as the default. For more information, see [Consistency levels](consistency-levels.md). 
-By default, the standard Table today provides Strong consistency within a region and Eventual consistency in the secondary locations. 
 
-### Does Azure Cosmos DB offer more consistency levels than standard Tables?
+By default, Azure Table storage provides Strong consistency within a region and Eventual consistency in the secondary locations. 
+
+### Does Azure Cosmos DB offer more consistency levels than standard tables?
 Yes, for information about how to benefit from the distributed nature of Azure Cosmos DB, see [Consistency levels](consistency-levels.md). Because guarantees are provided for the consistency levels, you can use them with confidence. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
 
 ### When global distribution is enabled, how long does it take to replicate the data?
 We commit the data durably in the local region and push the data to other regions immediately in a matter of milliseconds. This replication is dependent only on the round-trip time (RTT) of the datacenter. To learn more about the global-distribution capability of Azure Cosmos DB, see [Azure Cosmos DB: A globally distributed database service on Azure](distribute-data-globally.md).
 
 ### Can the read request consistency level be changed?
-With Azure Cosmos DB, you can set the consistency level at the container level (on the Table). By using the SDK, you can change the level by providing the value for TableConsistencyLevel key in the app.config file. The possible values are: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. For more information, see [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md). The key idea is that you cannot set the request consistency level at more than the setting for the Table. For example, you cannot set the consistency level for the Table at Eventual and the request consistency level at Strong. 
+With Azure Cosmos DB, you can set the consistency level at the container level (on the table). By using the SDK, you can change the level by providing the value for TableConsistencyLevel key in the app.config file. The possible values are: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. For more information, see [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md). The key idea is that you cannot set the request consistency level at more than the setting for the table. For example, you cannot set the consistency level for the table at Eventual and the request consistency level at Strong. 
 
 ### How does the premium Table API (Preview) account handle failover if a region goes down? 
 The premium Table API (Preview) borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
 
-You can add as many regions as you want for the account and control where it can failover to by providing a priority. Of course, to use the database, you need to provide an application there too. When you do so, your customers will not experience downtime. The client SDK is auto homing. That is, it can detect the region that's down and automatically failover to the new region.
+You can add as many regions as you want for the account and control where it can failover to by providing a failover priority. Of course, to use the database, you need to provide an application there too. When you do so, your customers will not experience downtime. The client SDK is auto homing. That is, it can detect the region that's down and automatically failover to the new region.
 
 ### Is the premium Table API (Preview) enabled for backups?
 Yes, the premium Table API (Preview) borrows from the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
@@ -310,21 +308,21 @@ In string json format in the app.config file:
 ```
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API? 
-In preview, Azure Cosmos DB supports the same query functionality as Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We will provide additional functionality in the Table API in a future service update. For more information, see [Azure Cosmos DB query](../documentdb/documentdb-sql-query.md).
+In preview, the Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We will provide additional functionality in the Table API in a future service update. For more information, see [Azure Cosmos DB query](../documentdb/documentdb-sql-query.md).
  
 ### When should I change TableThroughput for the Table API (Preview)?
 You should change TableThroughput when either of the following conditions applies:
 * You're performing an extract, transform, and load (ETL) of data, or you want to upload a lot of data in short amount of time. 
 * You need more throughput from the container at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you are getting throttled. For more information, see [Set throughput](set-throughput.md).
 
-### Can I scale up or scale down the throughput of my Table API (Preview) Table? 
+### Can I scale up or scale down the throughput of my Table API (Preview) table? 
 Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
 
 ### Can the premium Table API (Preview) take advantage of the RU-per-minute offering? 
-Yes, the premium Table (Preview) borrows from the capabilities of Azure Cosmos DB to provide SLAs for performance, latency, availability, and consistency. This capability ensures that the Table can use the RU-per-minute offering. For more information, see [Request Units in Azure Cosmos DB](request-units.md). With this capability, customers can avoid provisioning for the peak and smooth out the spikes in the workload.
+Yes, the premium Table API (Preview) borrows from the capabilities of Azure Cosmos DB to provide SLAs for performance, latency, availability, and consistency. This capability ensures that the table can use the RU-per-minute offering. For more information, see [Request Units in Azure Cosmos DB](request-units.md). With this capability, customers can avoid provisioning for the peak and smooth out the spikes in the workload.
 
-### Is a default TableThroughput set for newly provisioned Tables?
-Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a Table with throughput of 400.
+### Is a default TableThroughput set for newly provisioned tables?
+Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
  
 ### Is there any change of pricing for existing customers of the standard Table API?
 None. There is no change in price for existing standard Table API customers. 
@@ -332,10 +330,10 @@ None. There is no change in price for existing standard Table API customers.
 ### How is the price calculated for the Table API (Preview)? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the Tables in Table API (Preview) offering? 
+### How do I handle any throttling on the tables in Table API (Preview) offering? 
 If the request rate exceeds the capacity of the provisioned throughput for the underlying container, you will get an error, and the SDK will retry the call by applying the retry policy.
 
-### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the premium Table (Preview) offering of Azure Cosmos DB?
+### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the premium Table API (Preview) offering of Azure Cosmos DB?
 Azure Cosmos DB sets a default throughput for your container if you do not provide one in the app.config file. 
 
 Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operation. This guarantee is possible when the engine can enforce governance on the tenant's operations. Setting TableThroughput ensures that you get the guaranteed throughput and latency, because the platform reserves this capacity and guarantees operational success. 
@@ -351,17 +349,17 @@ Azure Cosmos DB is designed to be a globally distributed, SLA-based system with 
 Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 10-GB limit on the number of entities or items per partition key is to ensure that we provide great lookup and query performance. To ensure that your application scales well even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. 
 
 ### So PartitionKey and RowKey are still required with the new Table API (Preview)? 
-Yes. Because the surface area of the Table API (Preview) is similar to that of the Table storage SDK, the partition key provides an efficient way to distribute the data. The row key is unique within that partition. The row key needs to be present and can't be null as in the standard SDK. As of the build preview, the length of RowKey is 255 bytes and the length of PartitionKey is 100 bytes (soon to be increased to 1 KB). 
+Yes. Because the surface area of the Table API (Preview) is similar to that of the Table storage SDK, the partition key provides an efficient way to distribute the data. The row key is unique within that partition. The row key needs to be present and can't be null as in the standard SDK. The length of RowKey is 255 bytes and the length of PartitionKey is 100 bytes (soon to be increased to 1 KB). 
 
 ### What are the error messages for the Table API (Preview)?
-Because this preview is compatible with the standard Table, most of the errors will map to the errors from the standard Table. 
+Because this preview is compatible with the standard table, most of the errors will map to the errors from the standard table. 
 
-### Why do I get throttled when I try to create lot of tables one after another in the Tables API (Preview)?
-Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of Tables is detected and throttled. We recommend that you look at the rate of creation of Tables and lower it to less than 5 per minute. Remember that the Table API (Preview) is a provisioned system. The moment you provision it, you will begin to pay for it. 
+### Why do I get throttled when I try to create lot of tables one after another in the Table API (Preview)?
+Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API (Preview) is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
 ## Develop against the Graph API (Preview)
 ### How can I apply the functionality of Graph API (Preview) to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API (Preview). This library is called Microsoft Azure Graphs, and it is available at NuGet. 
+You can use an extension library to apply the functionality of Graph API (Preview). This library is called Microsoft Azure Graphs, and it is available on NuGet. 
 
 ### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
 Yes, we plan to add other mechanisms for query in the future. 
