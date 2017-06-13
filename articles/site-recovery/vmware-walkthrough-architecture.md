@@ -86,4 +86,4 @@ There are a few failback requirements:
 
 ## Next steps
 
-Go to [Step 2: Verify prerequisites and limitations](site-recovery-vmware-walkthrough-prerequisites.md)
+Go to [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
