@@ -3,6 +3,6 @@ An [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-
 App Service plans define:
 
 * Region (for example: North Europe, East US, or Southeast Asia)
-* Instance Size (Small, Medium, or Large)
-* Scale Count (1 to 20 instances)
+* Instance size (small, medium, or large)
+* Scale count (1 to 20 instances)
 * SKU (Free, Shared, Basic, Standard, or Premium)
