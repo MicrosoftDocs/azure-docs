@@ -1,6 +1,6 @@
 ---
 title: Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine | Microsoft Docs
-description: Learn how to back up and recover an Oracle Database 12c in your Azure environment.
+description: Learn how to back up and recover an Oracle Database 12c database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
@@ -74,7 +74,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     The command completed successfully
     ```
 
-2.  Make sure the database is in archive log mode (Optional step):
+2.  Make sure the database is in archive log mode (optional step):
 
     ```bash
     $ sqlplus / as sysdba
@@ -90,7 +90,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3.  Create a table to test the commit (Optional step):
+3.  Create a table to test the commit (optional step):
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
@@ -185,7 +185,7 @@ Later in this article you learn how to test the recovery process. Before you can
     $ rm -rf *
     ```
     
-2.  Shut down the Oracle instance (Optional step):
+2.  Shut down the Oracle instance (optional step):
 
     ```bash
     $ sqlplus / as sysdba
@@ -356,7 +356,7 @@ search for and select **myVMip**, and then click **Associate**.
 
     ![Select resource type and NIC values](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Search for and open the myVM instance that is ported from the portal. The IP address, that is associated with the VM, appears in the upper-right corner.
+5.  Search for and open the myVM instance that is ported from the portal. The IP address that is associated with the VM appears in the upper-right corner.
 
     ![IP address value](./media/oracle-backup-recovery/create_ip_04.png)
 
@@ -380,7 +380,7 @@ SQL> startup
 > [!IMPORTANT]
 > If the database **startup** command generates an error, to recover the database, see "Step 6: Use RMAN to recover the database."
 
-### Step 6: Use RMAN to recover the database (Optional step)
+### Step 6: Use RMAN to recover the database (optional step)
 *   Use the following script to recover the database:
 
 ```bash
