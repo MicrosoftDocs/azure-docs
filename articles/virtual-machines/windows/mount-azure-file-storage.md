@@ -12,7 +12,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/13/2017
 ms.author: cynthn
 
 ---
@@ -42,60 +42,55 @@ The [Azure portal](https://portal.azure.com) provides a user interface for custo
 1. Sign in to the Azure portal.
 2. On the navigation menu, click **Storage accounts** or **Storage accounts (classic)**.
    
-    ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
+    ![Screenshot that shows how to create file share in the portal](../../storage/media/storage-dotnet-how-to-use-files/files-create-share-0.png)
 3. Choose your storage account.
    
-    ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-1.png)
+    ![Screenshot that shows how to create file share in the portal](../../storage/media/storage-dotnet-how-to-use-files/files-create-share-1.png)
 4. Choose "Files" service.
    
-    ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
+    ![Screenshot that shows how to create file share in the portal](../../storage/media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 5. Click "File shares" and follow the link to create your first file share.
    
-    ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
+    ![Screenshot that shows how to create file share in the portal](../../storage/media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0.
    
-    ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
+    ![Screenshot that shows how to create file share in the portal](../../storage/media/storage-dotnet-how-to-use-files/files-create-share-4.png)
 
 ### Upload and download files
 1. Choose one file share your already created.
    
-    ![Screenshot that shows how to upload and download files from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
+    ![Screenshot that shows how to upload and download files from the portal](../../storage/media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
 2. Click **Upload** to open the user interface for files uploading.
    
-    ![Screenshot that shows how to upload files from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
+    ![Screenshot that shows how to upload files from the portal](../../storage/media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
 3. Right click on one file and choose **Download** to download it into local.
    
-    ![Screenshot that shows how to download file from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
+    ![Screenshot that shows how to download file from the portal](../../storage/media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
 
 ### Manage file share
 1. Click **Quota** to change the size of the file share (up to 5120 GB).
    
-    ![Screenshot that shows how to configure the quota of the file share](./media/storage-dotnet-how-to-use-files/files-manage-1.png)
+    ![Screenshot that shows how to configure the quota of the file share](../../storage/media/storage-dotnet-how-to-use-files/files-manage-1.png)
 2. Click **Connect** to get the command line for mounting the file share from Windows.
    
-    ![Screenshot that shows how to mount the file share](./media/storage-dotnet-how-to-use-files/files-manage-2.png)
+    ![Screenshot that shows how to mount the file share](../../storage/media/storage-dotnet-how-to-use-files/files-manage-2.png)
    
-    ![Screenshot that shows how to mount the file share](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
+    ![Screenshot that shows how to mount the file share](../../storage/media/storage-dotnet-how-to-use-files/files-manage-3.png)
    
    > [!TIP]
    > To find the storage account access key for mounting, click **Settings** of your storage account, and then click **Access keys**.
    > 
    > 
    
-    ![Screenshot that shows how to find the storage account access key](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
+    ![Screenshot that shows how to find the storage account access key](../../storage/media/storage-dotnet-how-to-use-files/files-manage-4.png)
    
-    ![Screenshot that shows how to find the storage account access key](./media/storage-dotnet-how-to-use-files/files-manage-5.png)
+    ![Screenshot that shows how to find the storage account access key](../../storage/media/storage-dotnet-how-to-use-files/files-manage-5.png)
 
 ## Use PowerShell to manage a file share
 Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for the install point and installation instructions.
-
-> [!NOTE]
-> It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
-> 
-> 
 
 Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**. The PowerShell window loads the Azure Powershell module for you.
 
@@ -242,4 +237,6 @@ example :
 net use z: /delete
 ```
 
+## Next steps
 
+- 
