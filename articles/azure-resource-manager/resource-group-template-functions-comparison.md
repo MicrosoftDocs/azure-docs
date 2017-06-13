@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: tomfitz
 
 ---
@@ -103,6 +103,23 @@ The example template checks different types of values for equality. All the defa
             "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
         }
     }
+}
+```
+
+The equals function is often used with the `condition` element to test whether a resource is deployed.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
 }
 ```
 

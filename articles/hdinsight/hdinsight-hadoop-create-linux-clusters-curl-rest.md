@@ -1,5 +1,5 @@
 ---
-title: Create HDInsight (Hadoop) using Azure REST API | Microsoft Docs
+title: Create Hadoop clusters using Azure REST API - Azure | Microsoft Docs
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
 documentationcenter: ''

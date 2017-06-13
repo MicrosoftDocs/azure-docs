@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/17/2015
+ms.date: 05/31/2017
 ms.author: huvalo
 
 ---
@@ -53,7 +53,7 @@ A screenshot of the completed application is below:
 The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 
 1. Launch a new **Terminal** window.
-2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure classic portal.
+2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure  portal.
    
        $ ssh yourusername@yourVmUrl
 3. Enter the following commands to install django:

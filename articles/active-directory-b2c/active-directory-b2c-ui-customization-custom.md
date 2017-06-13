@@ -50,6 +50,9 @@ Let's create HTML content with your product's brand name in the title.
    </html>
    ```
 
+   >[!NOTE]
+   >For security reasons, the use of JavaScript is currently blocked for customization.
+
 1. Paste in a text editor and save the file as `customize-ui.html`
 
 ## Create a blob storage account
@@ -140,8 +143,41 @@ Let's validate that we are ready.
 
 1. Open the **Azure AD B2C Blade** and navigate to **All polices**.
 1. Select the custom policy that you uploaded, and click the **Run now** button.
-1. You should be able to sign up using an email address.
+1. You should be able to sign-up using an email address.
+
+## Reference
+
+You can find sample templates for UI customization here:
+
+```
+git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
+```
+
+The `sample_templates/wingtip` folder contains the following html files:
+
+| HTML5 template | Description |
+|----------------|-------------|
+| *phonefactor.html* | This page can be used as a template for a multi-factor authentication page. |
+| *resetpassword.html* | This page can be used as a template for a forgot password page. |
+| *selfasserted.html* | This page can be used as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
+| *unified.html* | This page can be used as a template for a unified sign-up or sign-in page. |
+| *updateprofile.html* | This page can be used as a template for a profile update page. |
+
+In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-up-or-sign-in-custom-policy), we configured the content definition for `api.idpselections`.  The full set of content definition IDs recognized by the Azure AD B2C identity experience framework and how each page is used is described in the following table:
+
+| Content definition id | Description | 
+|-----------------------|-------------|
+| *api.error* | **Error page**. This page is displayed when an exception or an error is encountered. |
+| *api.idpselections* | **Identity provider selection page**. This page contains a list of identity providers that the user can choose from during sign-in. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
+| *api.idpselections.signup* | **Identity provider selection for sign-up**. This page contains a list of identity providers that the user can choose from during sign-up. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
+| *api.localaccountpasswordreset* | **Forgot password page**. This page contains a form that the user has to fill to initiate their password reset.  |
+| *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form for signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
+| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form for signing up for a local account that is based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
+| *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
+| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the above social account sign-up page except for the password entry fields. |
+| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the social account sign-up page except for the password entry fields. |
+| *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
 
 ## Next steps
 
-This [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md) contains additional information about what UI elements can be customized.  There is no difference of UI customization between built-in policies and custom policies.
+This [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md) contains additional information about what UI elements can be customized.

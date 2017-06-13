@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
-ms.author: mikhegn@microsoft.com
+ms.author: mikhegn
 
 ---
 # Set up a Service Fabric cluster by using Visual Studio
