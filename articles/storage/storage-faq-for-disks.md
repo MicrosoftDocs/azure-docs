@@ -248,7 +248,7 @@ The partition type Azure supports for OS Disks is MBR(Master Boot Record). The M
 
 The largest page blob size Azure supports is 8TB (8191GB). We don't support attaching any page blobs larger than 4TB (4095GB) to a VM as Data or OS disks.
 
-**Do I need to use a new Azure tools to create, attach, resize and upload disks larger than 1TB?**
+**Do I need to use a new version of Azure tools to create, attach, resize and upload disks larger than 1TB?**
 
 You do not need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1TB. If you would like to directly upload your vhd file from on-premises to Azure as a page blob/unManaged Disks. You would need to pick up the latest toolsets listed below.
 
