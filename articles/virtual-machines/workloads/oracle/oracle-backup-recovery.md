@@ -128,9 +128,130 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
     RMAN> backup database plus archivelog;
     ```
 
-### Step 4: Use Azure Recovery Services vaults to back up the VM
+### Step 4: Application consistent backup for Linux VMs
+
+This is a new feature in Azure backup which allow users to specify the scripts (pre and post) to be execute before and after the VM snapshot.
+
+1. Download VMSnapshotScriptPluginConfig.json from https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Content should be similar to below.
+
+```azurecli
+{
+    "pluginName" : "ScriptRunner",
+    "preScriptLocation" : "",
+    "postScriptLocation" : "",
+    "preScriptParams" : ["", ""],
+    "postScriptParams" : ["", ""],
+    "preScriptNoOfRetries" : 0,
+    "postScriptNoOfRetries" : 0,
+    "timeoutInSeconds" : 30,
+    "continueBackupOnFailure" : true,
+    "fsFreezeEnabled" : true
+}
+```
+
+2. Create /etc/azure folder on VM
+
+```bash
+$ sudo su -
+# mkdir /etc/azure
+# cd /etc/azure
+```
+
+3. Copy VMSnapshotScriptPluginConfig.json file to /etc/azure folder
+
+4. Edit the VMSnapshotScriptPluginConfig.json to included the PreScriptLocation and PostScriptlocation. For example:
+```azurecli
+{
+    "pluginName" : "ScriptRunner",
+    "preScriptLocation" : "/etc/azure/pre_script.sh",
+    "postScriptLocation" : "/etc/azure/post_script.sh",
+    "preScriptParams" : ["", ""],
+    "postScriptParams" : ["", ""],
+    "preScriptNoOfRetries" : 0,
+    "postScriptNoOfRetries" : 0,
+    "timeoutInSeconds" : 30,
+    "continueBackupOnFailure" : true,
+    "fsFreezeEnabled" : true
+}
+```
+5. Create the pre and post script files
+
+Here is an example of pre and post script for a cold backup (shutdown and restart)
+
+For /etc/azure/pre_script.sh
+
+```bash
+v_date=`date +%Y%m%d%H%M`
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" > /etc/azure/pre_script_$v_date.log
+```
+
+For /etc/azure/post_script.sh
+
+```bash
+v_date=`date +%Y%m%d%H%M`
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
+```
+
+Here is an example of pre and post script for a hot backup
+
+```bash
+v_date=`date +%Y%m%d%H%M`
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/pre_script.sql" > /etc/azure/pre_script_$v_date.log
+```
+
+For /etc/azure/post_script.sh
+
+```bash
+v_date=`date +%Y%m%d%H%M`
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
+```
+
+For /etc/azure/pre_script.sql, you must modify the content of the file per your requirements
+
+```bash
+alter tablespace SYSTEM begin backup;
+...
+...
+alter system switch logfile;
+alter system archive log stop;
+```
+
+For /etc/azure/post_script.sql, you must modify the content of the file per your requirements
+
+```bash
+alter tablespace SYSTEM end backup;
+...
+...
+alter system archive log start;
+```
+
+6. Change file permissions
+
+```bash
+# chmod 600 /etc/azure/VMSnapshotScriptPluginConfig.json
+# chmod 700 /etc/azure/pre_script.sh
+# chmod 700 /etc/azure/post_script.sh
+```
+
+7. Test the scripts (sign in as root), make sure no errors
+
+```bash
+# /etc/azure/pre_script.sh
+# /etc/azure/post_script.sh
+```
+
+For more information, see [Application consistent backup for Linux VMs](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
+### Step 5: Use Azure Recovery Services vaults to back up the VM
 
 1.  Sign in to the Azure portal, and then search for a Recovery Services vaults instance.
 ![Recovery Services vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
@@ -172,7 +293,9 @@ To view the status of the back up job, click **Jobs**.
 
     ![Recovery Services vaults job page with status](./media/oracle-backup-recovery/recovery_service_11.png)
 
-### Step 5: Remove the database files 
+11. For application consistent backup. Address any errors in log file /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
+
+### Step 6: Remove the database files 
 Later in this article you learn how to test the recovery process. Before you can test the recovery process, you have to remove the database files.
 
 1.  Remove the tablespace and backup files:
@@ -323,6 +446,7 @@ Instead of restoring the deleted files from Recovery Services vaults, you can re
 
 5.  Select the item that you want to restore, and then click **OK**.
 ![Select the restore point](./media/oracle-backup-recovery/recover_vm_06.png)
+You should see a veritcal bar in 'Blue' if you have enabled application consistence back up.
 
 6.  Select the **Virtual machine name**, select the **Resource group**, and then click **OK**.
 ![Restore configuration values](./media/oracle-backup-recovery/recover_vm_07.png)
