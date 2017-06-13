@@ -18,6 +18,10 @@ ms.author: renash
 ---
 
 # Develop for Azure File Storage with .NET 
+> [!NOTE]
+> This article shows how to manage Azure File Storage with .NET code. To learn more about Azure File Storage, please see the [Introduction to Azure File Storage](storage-files-introduction.md).
+>
+
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
