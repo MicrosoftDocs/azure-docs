@@ -254,7 +254,9 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Freshservice tile in the Access Panel, you should get automatically signed-on to your Freshservice application.
 
 ## Additional resources
 
