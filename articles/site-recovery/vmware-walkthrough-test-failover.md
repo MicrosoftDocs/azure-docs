@@ -17,7 +17,7 @@ ms.date: 06/13/2017
 ms.author: raynew
 
 ---
-# Step 12: un a test failover to Azure for VMware VMs
+# Step 12: Run a test failover to Azure for VMware VMs
 
 This article describes how to run a test failover from  on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
