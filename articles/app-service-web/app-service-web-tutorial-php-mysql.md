@@ -91,7 +91,8 @@ Run the following commands to clone the sample repository.
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd` to your cloned directory and install the required packages.
+`cd` to your cloned directory. 
+Install the required packages.
 
 ```bash
 cd laravel-tasks
@@ -200,7 +201,7 @@ az mysql server firewall-rule create \
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) doesn't yet enable connections only from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service is in preview, better methods for securing your database will be enabled soon.
+> Azure Database for MySQL (Preview) doesn't currently enable connections only from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
 >
 >
 
@@ -239,7 +240,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 <a name="devconfig"></a>
 ### Configure the connection 
 
-In the repository root, create a _.env.production_ file and copy the following variables into it. Replace the placeholders _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholders _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
 
 ```
 APP_ENV=production
@@ -285,9 +286,9 @@ To stop PHP, type `Ctrl`+`C` in the terminal.
 
 ### Secure sensitive data
 
-You need to make sure that the sensitive data in _.env.production_ is not committed into Git.
+Make sure that the sensitive data in _.env.production_ is not committed into Git.
 
-To do this, open _.gitignore_ from the repository root and add the filename in a new line:
+Open *.gitignore* from the repository root and add the filename:
 
 ```
 .env.production
@@ -300,7 +301,7 @@ git add .gitignore
 git commit -m "keep sensitive data out of git"
 ```
 
-Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview), so you don't need the `.env` file in App Service. 
+Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
 
 ## Deploy the PHP app to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
@@ -339,7 +340,7 @@ az appservice web config appsettings update \
     --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="<phpapp_user>@<mysql_server_name>" DB_PASSWORD="<phpapp_password>"
 ```
 
-You can use the PHP [getenv()](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env()](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv()`. For example, the MySQL configuration in _config/database.php_ looks like this:
+You can use the PHP [getenv()](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env()](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv()`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [
@@ -371,7 +372,7 @@ az appservice web config appsettings update \
     --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` tells Laravel to return debugging information if the deployed web app encounters errors. When running a production application, set it to `false`, which is more secure.
+`APP_DEBUG="true"` tells Laravel to return debugging information when the deployed web app encounters errors. When running a production application, set it to `false`, which is more secure.
 
 ### Set the virtual application path
 
@@ -404,7 +405,7 @@ Add an Azure remote to your local Git repository.
 git remote add azure <paste_copied_url_here> 
 ```
 
-Push to the Azure remote to deploy the PHP application. You will be prompted for the password you supplied earlier as part of the creation of the deployment user. 
+Push to the Azure remote to deploy the PHP application. You are prompted for the password you supplied earlier as part of the creation of the deployment user. 
 
 ```bash
 git push azure master
@@ -429,7 +430,7 @@ remote: Running deployment command...
 
 The deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment. The sample repository has three additional files in its root directory used to enable the app: 
 
-- *.deployment* - This file tells App Service to run *bash deploy.sh* as the custom deployment script.
+- *.deployment* - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 - *deploy.sh* - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`. 
 - *composer.phar* - The Composer package manager.
 
@@ -446,7 +447,7 @@ Congratulations, you're running a data-driven PHP app in Azure App Service.
 
 ## Update data model and redeploy
 
-In this step, you make some changes to the `task` data model and publish the changes to Azure.
+In this step, you make changes to the `task` data model and publish the changes to Azure.
 
 For the tasks scenario, you modify the application so that you can mark a task as complete. 
 
@@ -558,7 +559,7 @@ From the root directory of the Git repository, run the development server.
 php artisan serve
 ```
 
-Navigate to `http://localhost:8000` and click the checkbox to see the task status change.
+To see the task status change, navigate to `http://localhost:8000` and select the checkbox.
 
 ![Added check box to task](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
@@ -582,7 +583,7 @@ Once the `git push` is complete, navigate to the Azure web app and test the new 
 
 ![Model and database changes published to Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-If you added any tasks earlier, you still can see them. Your updates to the data schema leaves the existing data intact.
+If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
 ## Stream diagnostic logs 
 
