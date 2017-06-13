@@ -149,7 +149,7 @@
       href: sql-database-advisor.md
     - name: Automatic tuning
       href: sql-database-automatic-tuning.md
-    - name: Manual tuning
+    - name: Perf guidance
       href: sql-database-performance-guidance.md
     - name: Operate query store
       href: sql-database-operate-query-store.md
