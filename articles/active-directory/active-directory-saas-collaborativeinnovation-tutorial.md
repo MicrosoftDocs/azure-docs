@@ -128,7 +128,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| emailaddress | user.userprincipalname |
 	| name | user.userprincipalname |
 
-
 	a. Click the attribute to open the **Edit Attribute** window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/url_update.png)
