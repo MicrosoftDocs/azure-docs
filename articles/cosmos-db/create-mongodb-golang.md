@@ -2,21 +2,22 @@
 title: Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: durgaprasad
 manager: jhubbard
 editor: mimig1
+documentationcenter: ''
 
 ms.assetid: 
 ms.service: cosmos-db
+ms.workload: data-services
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 06/13/2017
 ms.author: mimig
 
 ---
+
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
@@ -193,18 +194,19 @@ Azure Cosmos DB supports deleting JSON documents.
 
 ```go
 // Delete a document
-// query := bson.M{"_id": result.Id}
-// err = collection.Remove(query)
-// if err != nil {
-//    log.Fatal("Error deleting record: ", err)
-//    return
-// }
+query := bson.M{"_id": result.Id}
+err = collection.Remove(query)
+if err != nil {
+   log.Fatal("Error deleting record: ", err)
+   return
+}
 ```
     
 ## Run the app
 
 1. In Goglang, ensure that your GOPATH (available under **File**, **Settings**, **Go**, **GOPATH**) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
-2. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
+2. Comment out the lines that delete the document, lines 91-96, so that you can see the document after running the app.
+3. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
     The app finishes and displays the description of the document created in [Create a document](#create-document).
     
