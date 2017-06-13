@@ -1,6 +1,6 @@
 ---
 title: Configure and access server logs for PostgreSQL using Azure CLI | Microsoft Docs
-description: Describes how to configure and access the server logs in  Azure Database for PostgreSQL.
+description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL using Azure CLI command line.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -9,10 +9,9 @@ editor: jasonwhowell
 ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.custom: mvc
-ms.date: 05/31/2017
+ms.date: 06/13/2017
 ---
 # Configure and access server logs using Azure CLI
 You can list and download Azure PostgreSQL server error logs using the Command Line Interface (Azure CLI). However, access to transaction logs is not supported. 
@@ -20,15 +19,15 @@ You can list and download Azure PostgreSQL server error logs using the Command L
 ## Prerequisites
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](quickstart-create-server-database-azure-cli.md)
-- Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command line utility or use the Azure Cloud Shell in the browser.
+- Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## Configure logging for Azure Database for PostgreSQL
-You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection and checkpoints information.
+You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection and, checkpoints information.
 1. Turn on logging
 2. Update log\_statement and log\_min\_duration\_statement to enable query logging
 3. Update retention period
 
-See [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md) for more information.
+For more information, see [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
 
 ## List logs for Azure PostgreSQL server
 To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs#list) command.
