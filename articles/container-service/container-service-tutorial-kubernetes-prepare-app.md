@@ -23,7 +23,7 @@ ms.author: nepeters
 
 Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, the sample application will be prepared and tested in your own development environment. The outcome will be Docker container images that will be used throughout the remainder of this tutorial set. Steps completed include:
 
-> [!div class="checklist"]docker-compose rm --force
+> [!div class="checklist"]
 > * Clone an existing applications code repository
 > * Create container images from the application
 > * Test the application locally
@@ -105,7 +105,7 @@ Output:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 azure-vote-front             latest              08f036033a2f        39 seconds ago       716 MB
-azure-vote-backend           latest              93cdf071f8c3        About a minute ago   407 MB
+azure-vote-back              latest              93cdf071f8c3        About a minute ago   407 MB
 mysql                        latest              e799c7f9ae9c        4 weeks ago          407 MB
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
