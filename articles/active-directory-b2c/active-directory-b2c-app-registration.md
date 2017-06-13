@@ -22,28 +22,17 @@ ms.author: parakhj
 
 This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure B2C tenant.
 
-> [!IMPORTANT]
-> Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same management tool. If you edit the B2C applications using PowerShell or another tool, they become unsupported and may not work with Azure AD B2C.
-> 
-> 
-
 ## Prerequisites
 
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same management tool. If you edit the B2C applications using PowerShell or another tool, they become unsupported and may not work with Azure AD B2C. 
 
 ## Navigate to B2C settings
 
 Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
 
 [!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
-
-
-> [!IMPORTANT]
-> You need to be a Global Administrator of the B2C tenant to be able to access the B2C settings blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.  You can switch to your B2C tenant by using the tenant switcher in the top right corner of the Azure portal.
-> 
-> 
 
 Choose next steps based on the application type you are registering:
 
