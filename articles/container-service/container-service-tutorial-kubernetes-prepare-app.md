@@ -23,7 +23,7 @@ ms.author: nepeters
 
 Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, a sample application will be prepared on your local system for use throughout the remaining tutorials. Steps completed are:
 
-> [!div class="checklist"]
+> [!div class="checklist"]docker-compose rm --force
 > * Clone an existing application code repository
 > * Create container images from application
 > * Test the application locally
@@ -56,7 +56,8 @@ docker images
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              89b80fd07677        About a minute ago   716 MB
+azure-vote-front             latest              08f036033a2f        39 seconds ago       716 MB
+azure-vote-backend           latest              93cdf071f8c3        About a minute ago   407 MB
 mysql                        latest              e799c7f9ae9c        4 weeks ago          407 MB
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
@@ -70,11 +71,11 @@ Output:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                           NAMES
-0d1803945105        azure-vote-front    "/usr/bin/supervisord"   2 minutes ago       Up 2 minutes        443/tcp, 0.0.0.0:8000->80/tcp   flaskmysqlvote_azure-vote-front_1
-8dea28f4cb9f        mysql:latest        "docker-entrypoint..."   2 minutes ago       Up 2 minutes        0.0.0.0:3306->3306/tcp          azure-vote-back
+3aa02e8ae965        azure-vote-front     "/usr/bin/supervisord"   59 seconds ago      Up 57 seconds       443/tcp, 0.0.0.0:8080->80/tcp   flaskmysqlvote_azure-vote-front_1
+5ae60b3ba181        azure-vote-backend   "docker-entrypoint..."   59 seconds ago      Up 58 seconds       0.0.0.0:3306->3306/tcp          azure-vote-back
 ```
 
-Browse to `http://localhost:8000` to see the running application. 
+Browse to `http://localhost:8080` to see the running application. 
 
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
@@ -82,11 +83,11 @@ Browse to `http://localhost:8000` to see the running application.
 ## Delete Resources
 
 ```bash
-docker rm -f azure-vote-front
+docker-compose stop
 ```
 
 ```bash
-docker rm -f azure-vote-back
+docker-compose rm --force
 ```
 
 ## Next steps
