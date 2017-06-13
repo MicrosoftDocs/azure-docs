@@ -1,5 +1,5 @@
 ---
-title: How to configure notifications and email templates in Azure API Management
+title: Configure notifications and email templates in Azure API Management | Microsoft Docs
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to configure notifications and email templates in Azure API Management
 API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.

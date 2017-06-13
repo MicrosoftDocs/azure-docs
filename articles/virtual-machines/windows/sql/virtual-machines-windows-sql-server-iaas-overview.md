@@ -9,11 +9,11 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 
@@ -63,10 +63,13 @@ SQL Server running on Azure VMs is one option for storing your relational data i
 ## Create a new SQL VM
 The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images. Depending on the image you select, you can either pay for SQL Server licensing costs on a per-minute basis, or you can bring your own license (BYOL).
 
-Find step-by-step guidance for this process in the tutorial, [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
+Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
 
 ## Option 1: Create a SQL VM with per-minute licensing
 The following table provides a matrix of the latest SQL Server images in the virtual machine gallery. Click on any link to begin creating a new SQL VM with your specified version, edition, and operating system. 
+
+> [!TIP]
+> To understand the VM and SQL pricing for these images, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 | Version | Operating System | Edition |
 | --- | --- | --- |
@@ -80,6 +83,9 @@ In addition to this list, other combinations of SQL Server versions and operatin
 ## <a id="BYOL"></a> Option 2: Create a SQL VM with an existing license
 You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing. To use your own license, use the matrix of SQL Server versions, editions, and operating systems below. In the portal, these image names are prefixed with **{BYOL}**.
 
+> [!TIP]
+> Bringing your own license can save you money over time for continuous production workloads. For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+
 | Version | Operating system | Edition |
 | --- | --- | --- |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
@@ -89,8 +95,7 @@ You can also bring your own license (BYOL). In this scenario, you only pay for t
 In addition to this list, other combinations of SQL Server versions and operating systems are available. Find other images through a marketplace search in the Azure portal (search for "{BYOL} SQL Server").
 
 > [!IMPORTANT]
-> To use BYOL VM images, you must have an Enterprise Agreement with [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). You also need a valid license for the version/edition of SQL Server you want to use. You must [provide the necessary BYOL information to Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) within **10** days of provisioning your VM.
-> 
+> To use BYOL VM images, you must have an Enterprise Agreement with [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). You also need a valid license for the version/edition of SQL Server you want to use. You must [provide the necessary BYOL information to Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) within **10** days of provisioning your VM. 
 
 > [!NOTE]
 > It is not possible to change the licensing model of a pay-per-minute SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
@@ -123,7 +128,7 @@ For more information, see the CEIP section of the [Accept License Terms](https:/
 ## Next steps
 [Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
 
-For questions about pricing, see [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Select your target edition of SQL Server in the **OS/Software** list. Then view the prices for differently sized virtual machines. 
+For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and the [Azure pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Select your target edition of SQL Server in the **OS/Software** list. Then view the prices for differently sized virtual machines.
 
 More question? First, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md). But also add your questions or comments to the bottom of any SQL VM topics to interact with Microsoft and the community.
 

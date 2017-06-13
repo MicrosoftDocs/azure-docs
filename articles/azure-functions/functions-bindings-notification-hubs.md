@@ -3,7 +3,7 @@ title: Azure Functions Notification Hub binding | Microsoft Docs
 description: Understand how to use Azure Notification Hub binding in Azure Functions.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 
 ---
 # Azure Functions Notification Hub output binding
@@ -73,8 +73,8 @@ You can also manually add a connection string for an existing hub by adding a co
 
 1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 2. In the **Settings** blade, click **Application Settings**.
-3. Scroll down to the **Connection strings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub. Change the type to **Custom**.
-4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
+3. Scroll down to the **App settings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub.
+4. Reference your App setting string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
 ## APNS native notifications with C# queue triggers
 This example shows how to use types defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) to send a native APNS notification. 

@@ -17,8 +17,6 @@ ms.author: joroja
 
 ---
 # Linking an Azure Subscription to an Azure B2C tenant to pay for usage charges
-> [!IMPORTANT]
-> Coming soon. This feature is not available for all B2C tenants.
 
 Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure AD "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
 
@@ -28,16 +26,16 @@ Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are bille
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## Step 1 - Create an Azure AD B2C Tenant
-
-B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## Step 2 - Open Azure portal in the Azure AD Tenant that shows your Azure subscription
-Navigate to portal.azure.com. Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant. An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
+Navigate to the [Azure portal](https://portal.azure.com). Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant. An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## Step 3 - Create a B2C Tenant resource in Azure Marketplace
 Open Marketplace by clicking the Marketplace icon, or selecting the green "+" in the upper left corner of the dashboard.  Search for and select Azure Active Directory B2C. Select Create.
+
 ![Select Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Search AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
@@ -68,15 +66,11 @@ By clicking the B2C tenant resource, you are able to
 
 ![B2C Resource settings](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## Known Issues
+- B2C Tenant deletion. If a B2C Tenant is created, deleted, and re-created with the same domain name, please also delete and re-create the "Linking" resource with the same domain name.  You will find this "Linking" resource under "All resources" in the subscription tenant via the Azure portal.
+- Self-imposed restrictions on regional resource location.  In rare cases, a user may have established a regional restriction for Azure resource creation.  This restriction may prevent the creation of the Link between an Azure subscription and a B2C Tenant. To mitigate, please relax this restriction.
 
 ## Next steps
 Once these steps are complete for each of your B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
-- Review usage and billing within you selected Azure subscription
-- Review detailed day-by-day usage reports using the Usage Reporting API (TBD)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Review usage and billing within your selected Azure subscription
+- Review detailed day-by-day usage reports using the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md)

@@ -1,20 +1,19 @@
 ---
 title: Azure Government Storage | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/13/2016
+ms.date: 12/22/2016
 ms.author: ryansoc
 
 ---
@@ -22,7 +21,23 @@ ms.author: ryansoc
 ## Azure Storage
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
-### Storage Service Availability by Azure Government Region
+### Storage pairing in Azure Government
+The map below shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
+
+![alt text](./media/documentation-government-services-storage.PNG)
+
+> [!NOTE]
+> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region.
+>
+>
+
+### Checking secondary region for RA-GRS and GRS storage accounts
+To view the current secondary region of your storage account through the Azure Portal, click the storage account blade then click on the name of the storage account. This will bring up the storage account overview blade which lists the primary and secondary regions.
+
+![alt text](./media/documentation-government-services-storage-accountoverview.png)
+
+
+### Storage service availability by Azure Government region
 
 | Service | USGov Virginia | USGov Iowa | Notes
 | --- | --- | --- | --- |
@@ -33,8 +48,13 @@ For details on this service and how to use it, see [Azure Storage public documen
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported currently. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
+
+> [!NOTE]
+> Zone Redundant Storage (ZRS) is not available in US Gov Virginia and US Gov Iowa.
+>
+>
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -47,19 +67,13 @@ The URLs for storage accounts in Azure Government are different:
 | File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
 >
 >
 
-For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+For more information on APIs, see the <a href="https://msdn.microsoft.com/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
-
-> [!NOTE]
-> [Microsoft Azure Storage Explorer] (../vs-azure-tools-storage-manage-with-storage-explorer.md) currently doesn't support [Connecting to an Azure Subscription] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-an-azure-subscription) by adding an account in Azure Government. Use other methods of [Connecting to a storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
-When [Attaching to an external storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-to-an-external-storage-account), at **step 3**, select **Other (specify below)** as Storage endpoint domain and specify **core.usgovcloudapi.net** for Azure Government.
->
->
 
 > [!NOTE]
 > If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
@@ -67,7 +81,7 @@ When [Attaching to an external storage account] (../vs-azure-tools-storage-manag
 >
 
 > [!NOTE]
-> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For general StorSimple documentation, see [What is StorSimple?] (../storsimple/index.md).
+> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For more information on StorSimple, please see the [StorSimple Documentation] (../storsimple/index.md).
 >
 >
 

@@ -9,21 +9,21 @@ editor: ''
 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
-# Load data from CSV into Azure SQL Data Warehouse (flat files)
+# Load data from CSV into Azure SQL Database (flat files)
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
 
 ## Before you begin
 ### Prerequisites
-To step through this tutorial, you need:
+To complete the steps in this article, you need:
 
 * An Azure SQL Database logical server and database
 * The bcp command-line utility installed
@@ -72,20 +72,20 @@ Open Notepad and copy the following lines of data into a new text file and then 
 
 (Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## 3. Load the data
 To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Use this command to verify the data was loaded properly
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

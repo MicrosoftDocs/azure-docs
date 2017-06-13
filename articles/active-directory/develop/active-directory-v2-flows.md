@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # App types for the Azure Active Directory v2.0 endpoint
@@ -29,7 +30,7 @@ The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for 
 You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com). The app registration process collects and assigns these values for your app:
 
 * An **Application ID** that uniquely identifies your app
-* A **redirect URI** that you can use to direct responses back to your app
+* A **Redirect URI** that you can use to direct responses back to your app
 * A few other scenario-specific values
 
 For details, learn how to [register an app](active-directory-v2-app-registration.md).
@@ -89,9 +90,9 @@ A Web API can receive access tokens from all types of apps, including web server
 
 ![Web API authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-To learn more about authorization codes, refresh tokens, and the detailed steps of getting access tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols-oauth-code.md).
-
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+
+In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory.  To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests.  The v2.0 endpoint's On Behalf Of flow is described in [detail here](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## Mobile and native apps
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md).
@@ -109,7 +110,7 @@ In this flow, the app receives tokens directly from the v2.0 authorize endpoint,
 
 To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-### Daemons and server-side apps
+## Daemons and server-side apps
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
@@ -117,12 +118,3 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 ![Daemon app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
-## Current limitations
-Currently, the types of apps in this section are not supported by the v2.0 endpoint, but they are on the roadmap for future development. For additional limitations and restrictions for the v2.0 endpoint, see [Should I use the v2.0 endpoint?](active-directory-v2-limitations.md).
-
-### Chained Web APIs (on-behalf-of)
-Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 endpoint. This scenario is common in native clients that have a Web API back end, which in turn calls an instance of Microsoft Online Services like Office 365, or the Graph API.
-
-This chained Web API scenario can be supported by using the OAuth 2.0 JSON Web Token (JWT) bearer credentials grant, also known as the [on-behalf-of flow](active-directory-v2-protocols.md). Currently, the on-behalf-of flow is not implemented in the v2.0 endpoint. To see how this flow works in the generally available Azure AD service, check out the [on-behalf-of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-

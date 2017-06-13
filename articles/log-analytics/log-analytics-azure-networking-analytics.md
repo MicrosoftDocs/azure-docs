@@ -4,7 +4,7 @@ description: You can use the Azure Networking Analytics solution in Log Analytic
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: ''
 
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
@@ -13,24 +13,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/1/2016
+ms.date: 02/09/2017
 ms.author: richrund
 
 ---
-# Azure Networking Analytics (Preview) solution in Log Analytics
+# Azure networking monitoring solutions in Log Analytics
 
-You can use the Azure Networking Analytics solution in Log Analytics to review:
+Log Analytics offers the following solutions for monitoring your networks:
+* Network Performance Monitor (NPM) to
+ * Monitor the health of your network
+* Azure Application Gateway analytics to review
+ * Azure Application Gateway logs
+ * Azure Application Gateway metrics
+* Azure Network Security Group analytics to review
+ * Azure Network Security Group logs
 
-* Azure Application Gateway logs
-* Azure Application Gateway metrics, and 
-* Azure network security group logs.
+## Network Performance Monitor (NPM)
+
+The [Network Performance Monitor](log-analytics-network-performance-monitor.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+
+* Public cloud and on-premises
+* Data centers and user locations (branch offices)
+* Subnets hosting various tiers of a multi-tiered application.
+
+For more information, see [Network Performance Monitor](log-analytics-network-performance-monitor.md).
+
+## Azure Application Gateway and Network Security Group analytics
+To use the solutions:
+1. Add the management solution to Log Analytics, and
+2. Enable diagnostics to direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
+
+You can enable diagnostics and the corresponding solution for either one or both of Application Gateway and Networking Security Groups.
+
+If you do not enable diagnostic logging for a particular resource type, but install the solution, the dashboard blades for that resource are blank and display an error message.
 
 > [!NOTE]
-> Azure Networking Analytics is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
+> In January 2017, the supported way of sending logs from Application Gateways and Network Security Groups to Log Analytics changed. If you see the **Azure Networking Analytics (deprecated)** solution, refer to [migrating from the old Networking Analytics solution](#migrating-from-the-old-networking-analytics-solution) for steps you need to follow.
+>
+>
 
-To use the solution, enable diagnostics for Azure Application Gateway logs and Azure network security groups and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
+## Review Azure networking data collection details
+The Azure Application Gateway analytics and the Network Security Group analytics management solutions collect diagnostics logs directly from Azure Application Gateways and Network Security Groups. It is not necessary to write the logs to Azure Blob storage and no agent is required for data collection.
+
+The following table shows data collection methods and other details about how data is collected for Azure Application Gateway analytics and the Network Security Group analytics.
+
+| Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
+| --- | --- | --- | --- | --- | --- | --- |
+| Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |when logged |
+
+
+## Azure Application Gateway analytics solution in Log Analytics
+
+![Azure Application Gateway Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
 
 The following logs are supported for Application Gateways:
 
@@ -42,51 +76,43 @@ The following metrics are supported for Application Gateways:
 
 * 5 minute throughput
 
-The following logs are supported for network security groups:
+### Install and configure the solution
+Use the following instructions to install and configure the Azure Application Gateway analytics solution:
 
-* NetworkSecurityGroupEvent
-* NetworkSecurityGroupRuleCounter
-* NetworkSecurityGroupFlowEvent
+1. Enable the Azure Application Gateway analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+2. Enable diagnostics logging for the [Application Gateways](../application-gateway/application-gateway-diagnostics.md) you want to monitor.
 
-## Install and configure the solution
-Use the following instructions to install and configure the Azure Networking Analytics solution:
+#### Enable Azure Application Gateway diagnostics in the portal
 
-1. Enable diagnostics logging for the resources you want to monitor:
-   * [Application gateway](../application-gateway/application-gateway-diagnostics.md)
-   * [Network security group](../virtual-network/virtual-network-nsg-manage-log.md)
-2. Enable the Azure Networking Analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+1. In the Azure portal, navigate to the Application Gateway resource to monitor
+2. Select *Diagnostics logs* to open the following page
 
-The following PowerShell script provides an example of how to enable diagnostic logging for application gateways and network security groups 
-```
+   ![image of Azure Application Gateway resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+3. Click *Turn on diagnostics* to open the following page
+
+   ![image of Azure Application Gateway resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+4. To turn on diagnostics, click *On* under *Status*
+5. Click the checkbox for *Send to Log Analytics*
+6. Select an existing Log Analytics workspace, or create a workspace
+7. Click the checkbox under **Log** for each of the log types to collect
+8. Click *Save* to enable the logging of diagnostics to Log Analytics
+
+#### Enable Azure network diagnostics using PowerShell
+
+The following PowerShell script provides an example of how to enable diagnostic logging for application gateways.
+
+```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
 
 Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
-
-$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
-
-Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
+### Use Azure Application Gateway analytics
+![image of Azure Application Gateway analytics tile](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
 
-If you do not enable diagnostic logging for a particular resource type, the dashboard blades for that resource are blank.
-
-## Review Azure Networking Analytics data collection details
-Azure Networking Analytics management solution collects diagnostics logs directly from Azure Application Gateways and network security groups. It is not necessary to write the logs to Azure Blob storage and no agent is required for data collection.
-
-The following table shows data collection methods and other details about how data is collected for Azure Networking Analytics.
-
-| Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
-| --- | --- | --- | --- | --- | --- | --- |
-| Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 minutes |
-
-## Use Azure Networking Analytics
-After you install the solution, you can view the summary of client and server errors for your monitored Application Gateways by using the **Azure Networking Analytics** tile on the **Overview** page in Log Analytics.
-
-![image of Azure Networking Analytics tile](./media/log-analytics-azure-networking/log-analytics-azurenetworking-tile.png)
-
-After you click the **Overview** tile, you can view summaries of your logs and then drill in to details for the following categories:
+After you click the **Azure Application Gateway analytics** tile on the Overview, you can view summaries of your logs and then drill in to details for the following categories:
 
 * Application Gateway Access logs
   * Client and server errors for Application Gateway access logs
@@ -96,6 +122,60 @@ After you click the **Overview** tile, you can view summaries of your logs and t
 * Application Gateway performance
   * Host health for Application Gateway
   * Maximum and 95th percentile for Application Gateway failed requests
+
+![image of Azure Application Gateway analytics dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+
+![image of Azure Application Gateway analytics dashboard](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+
+On the **Azure Application Gateway analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information on the log search page.
+
+On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
+
+
+## Azure Network Security Group analytics solution in Log Analytics
+
+![Azure Network Security Group Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+The following logs are supported for network security groups:
+
+* NetworkSecurityGroupEvent
+* NetworkSecurityGroupRuleCounter
+
+### Install and configure the solution
+Use the following instructions to install and configure the Azure Networking Analytics solution:
+
+1. Enable the Azure Network Security Group analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+2. Enable diagnostics logging for the [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) resources you want to monitor.
+
+### Enable Azure network security group diagnostics in the portal
+
+1. In the Azure portal, navigate to the Network Security Group resource to monitor
+2. Select *Diagnostics logs* to open the following page
+
+   ![image of Azure Network Security Group resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+3. Click *Turn on diagnostics* to open the following page
+
+   ![image of Azure Network Security Group resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+4. To turn on diagnostics, click *On* under *Status*
+5. Click the checkbox for *Send to Log Analytics*
+6. Select an existing Log Analytics workspace, or create a workspace
+7. Click the checkbox under **Log** for each of the log types to collect
+8. Click *Save* to enable the logging of diagnostics to Log Analytics
+
+### Enable Azure network diagnostics using PowerShell
+
+The following PowerShell script provides an example of how to enable diagnostic logging for network security groups
+```powershell
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+
+Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
+### Use Azure Network Security Group analytics
+After you click the **Azure Network Security Group analytics** tile on the Overview, you can view summaries of your logs and then drill in to details for the following categories:
+
 * Network security group blocked flows
   * Network security group rules with blocked flows
   * MAC addresses with blocked flows
@@ -103,20 +183,44 @@ After you click the **Overview** tile, you can view summaries of your logs and t
   * Network security group rules with allowed flows
   * MAC addresses with allowed flows
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking01.png)
+![image of Azure Network Security Group analytics dashboard](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking02.png)
+![image of Azure Network Security Group analytics dashboard](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking03.png)
+On the **Azure Network Security Group analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information on the log search page.
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking04.png)
+On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
-### To view details for any log summary
-1. On the **Overview** page, click the **Azure Networking Analytics** tile.
-2. On the **Azure Networking Analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information about it in the log search page.
-   
-    On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
+## Migrating from the old Networking Analytics solution
+In January 2017, the supported way of sending logs from Azure Application Gateways and Azure Network Security Groups to Log Analytics changed. These changes provide the following advantages:
++ Logs are written directly to Log Analytics without the need to use a storage account
++ Less latency from the time when logs are generated to them being available in Log Analytics
++ Fewer configuration steps
++ A common format for all types of Azure diagnostics
+
+To use the updated solutions:
+
+1. [Configure diagnostics to be sent directly to Log Analytics from Azure Application Gateways](#enable-azure-application-gateway-diagnostics-in-the-portal)
+2. [Configure diagnostics to be sent directly to Log Analytics from Azure Network Security Groups](#enable-azure-network-security-group-diagnostics-in-the-portal)
+2. Enable the *Azure Application Gateway Analytics* and the *Azure Network Security Group Analytics* solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
+3. Update any saved queries, dashboards, or alerts to use the new data type
+  + Type is to AzureDiagnostics. You can use the ResourceType to filter to Azure networking logs.
+
+    | Instead of: | Use: |
+    | --- | --- |
+    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
+    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
+    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+
+   + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
+   + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
+4. Remove the *Azure Networking Analytics (Deprecated)* solution.
+  + If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+
+Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
+
+## Troubleshooting
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Networking Analytics data.
-
+* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure diagnostics data.

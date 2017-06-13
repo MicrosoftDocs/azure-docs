@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure virtual machine backup | Microsoft Docs
-description: Troubleshoot backup and restore of Azure virtual machines
+title: Troubleshoot Azure backup errors in classic portal | Microsoft Docs
+description: Troubleshoot Azure Backup and restore of Azure virtual machines in the classic portal.
 services: backup
 documentationcenter: ''
 author: trinadhk
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: trinadhk;jimpark;
+ms.date: 1/23/2017
+ms.author: trinadhk;markgal;
 
 ---
 # Troubleshoot Azure virtual machine backup
@@ -104,7 +104,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:

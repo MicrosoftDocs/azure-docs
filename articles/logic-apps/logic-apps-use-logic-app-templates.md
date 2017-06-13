@@ -14,10 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: klam
+ms.author: LADocs; klam
+
+ms.custom: H1Hack27Feb2017 
 
 ---
-# Logic App templates
+# Configure a workflow using a pre-built template or pattern to get started quickly
+
 ## What are logic app templates
 A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow. 
 

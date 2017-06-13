@@ -73,7 +73,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 #### Create a new project
 1. In Xamarin Studio, create a new iOS project and select the **Unified API** > **Single View Application** template.
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Xamarin Studio - Select Application Type][31]
 2. Add a reference to the Azure Messaging component. In the Solution view, right-click the **Components** folder for your project and choose **Get More Components**. Search for the **Azure Messaging** component and add the component to your project.
 3. In **AppDelegate.cs**, add the following using statement:
    

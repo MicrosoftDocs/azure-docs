@@ -1,10 +1,10 @@
 
 ---
 title: Using certificates with Enterprise Integration Pack | Microsoft Docs
-description: Learn how to use certificates with the Enterprise Integration Pack and Logic Apps
+description: Learn how to use certificates with the Enterprise Integration Pack | Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 
@@ -14,8 +14,8 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: deonhe
+ms.date: 02/03/2016
+ms.author: LADocs; padmavc
 
 ---
 # Learn about certificates and Enterprise Integration Pack
@@ -34,9 +34,9 @@ Sometimes B2B communications must be kept confidential. Enterprise integration u
 * By encrypting the contents of messages
 * By digitally signing messages  
 
-## How do you upload certificates?
-### Public certificates
-To use a *public certificate* in your logic apps with B2B capabilities, you first need to upload the certificate into your integration account. To use a *self-signed certificate*, on the other hand, you must first upload it to [Azure Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault").
+## Upload a public certificate
+
+To use a *public certificate* in your logic apps with B2B capabilities, you first need to upload the certificate into your integration account.  
 
 After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in the [agreements](logic-apps-enterprise-integration-agreements.md) that you create.  
 
@@ -58,8 +58,9 @@ Here are the detailed steps for uploading your public certificates into your int
 9. Select the **Certificates** tile. You should see the newly added certificate.  
 ![See the new certificate](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
 
-### Private certificates
-You can upload private certificates into your integration account by taking the following steps:  
+## Upload a private certificate
+
+To use a *private certificate* in your logic apps with B2B capabilities, You can upload a private certificate to your integration account by taking the following steps
 
 1. [Upload your private key to Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault") and provide a **Key Name** 
    

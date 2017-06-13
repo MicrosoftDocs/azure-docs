@@ -1,6 +1,6 @@
 ---
-title: Overview of Enterprise Integration Pack | Microsoft Docs
-description: Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service
+title: Convert XML data with transforms - Azure Logic Apps | Microsoft Docs
+description: Create transforms or mapps to convert XML data between formats in logic apps by using the Enterprise Integration SDK
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: LADocs; padmavc
 
 ---
 # Enterprise integration with XML transforms

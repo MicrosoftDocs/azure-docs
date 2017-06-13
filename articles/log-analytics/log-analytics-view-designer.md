@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Use View Designer to create custom views in Log Analytics
-The View Designer in [Log Analytics]() allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+The View Designer in [Log Analytics](log-analytics-overview.md) allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 
 Other articles available for View Designer are:
 

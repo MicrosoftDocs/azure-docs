@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
-ms.author: andkjell;markvi
+ms.date: 02/08/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync service features
@@ -36,7 +36,6 @@ The following settings can be configured by `Set-MsolDirSyncFeature`:
 
 | DirSyncFeature | Comment |
 | --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Allows objects to join on userPrincipalName in addition to primary SMTP address. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Allows the sync engine to update the userPrincipalName attribute for managed/licensed (non-federated) users. |
 
@@ -53,12 +52,13 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
+| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Not currently supported. |
 
 ## Duplicate attribute resiliency
-Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned. When the conflict is resolved, the temporary UPN is changed to the proper value automatically. This behavior can be enabled for UPN and proxyAddress separately. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
+Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned. When the conflict is resolved, the temporary UPN is changed to the proper value automatically. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
 ## UserPrincipalName soft match
 When this feature is enabled, soft-match is enabled for UPN in addition to the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Azure AD with on-premises users.

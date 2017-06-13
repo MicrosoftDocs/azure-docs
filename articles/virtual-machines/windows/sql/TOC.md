@@ -1,6 +1,6 @@
-# Overview
+﻿# Overview
 ## [What is SQL Server on Azure VMs?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Pricing](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Get Started
@@ -12,13 +12,15 @@
 # How to
 ## Configure High Availability
 ### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configure Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automatic - with template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manual - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Load balancer - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Load balancer - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Failover Cluster Instance
+#### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)
@@ -34,7 +36,7 @@
 ## [Application patterns](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)

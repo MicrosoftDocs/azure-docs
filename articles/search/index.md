@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Search Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to add robust search capabilities, including activity monitoring, to custom web or mobile applications. API references and other documentation.
+services: search
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: search
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Azure Search Documentation
 
@@ -127,8 +138,8 @@ Learn how to add search capabilities to your custom web or mobile apps using Azu
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Management)</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Management)</a></p>
                    </div>
                 </div>

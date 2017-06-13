@@ -1,0 +1,37 @@
+- name: Bing Image Search Documentation
+  href: ../index.md
+- name: Overview
+  items:
+    - name: Search the web for images
+      href: search-the-web.md
+    - name: Upgrade from v5 to v7 Preview
+      href: bing-image-upgrade-guide-v5-to-v7.md
+    - name: Use and display requirements
+      href: UseAndDisplayRequirements.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Get started
+    href: quick-start.md
+- name: How to
+  items:
+  - name: Get image insights
+    href: image-insights.md
+  - name: Get trending images
+    href: trending-images.md
+  - name: Page images
+    href: paging-images.md
+  - name: Resize and crop thumbnails
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  items:
+  - name: REST v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+  - name: REST v7 Preview
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+- name: Resources
+  items:
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f

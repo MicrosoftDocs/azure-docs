@@ -1,9 +1,8 @@
-
 ---
 title: Managing Assets and Related Entities with Media Services .NET SDK
 description: Learn how to manage assets and related entities with the Media Services SDK for .NET.
 author: juliako
-manager: dwrede
+manager: erikre
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/12/2017
 ms.author: juliako
 
 ---
@@ -25,18 +24,10 @@ ms.author: juliako
 > 
 > 
 
-This topic shows how to accomplish the following Media Services management tasks:
+This topic shows how to manage Azure Media Services entities with .NET. 
 
-* Get an asset reference 
-* Get a job reference 
-* List all assets 
-* List jobs and assets 
-* List all access policies 
-* List All Locators
-* Enumerating through large collections of entities
-* Delete an asset 
-* Delete a job 
-* Delete an access policy 
+>[!NOTE]
+> Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
 
 ## Prerequisites
 See [Set up your environment](media-services-set-up-computer.md)
@@ -56,25 +47,6 @@ The following code example uses a Linq query to get a reference to an existing I
         IAsset asset = assetInstance.FirstOrDefault();
 
         return asset;
-    }
-
-## Get a Job Reference
-When you work with processing tasks in Media Services code, you often need to get a reference to an existing job based on an Id. The following code example shows how to get a reference to an IJob object from the Jobs collection.
-WarningWarning
-You may need to get a job reference when starting a long-running encoding job, and need to check the job status on a thread. In cases like this, when the method returns from a thread, you need to retrieve a refreshed reference to a job.
-
-    static IJob GetJob(string jobId)
-    {
-        // Use a Linq select query to get an updated 
-        // reference by Id. 
-        var jobInstance =
-            from j in _context.Jobs
-            where j.Id == jobId
-            select j;
-        // Return the job reference as an Ijob. 
-        IJob job = jobInstance.FirstOrDefault();
-
-        return job;
     }
 
 ## List All Assets
@@ -114,6 +86,26 @@ As the number of assets you have in storage grows, it is helpful to list your as
 
         // Display output in console.
         Console.Write(builder.ToString());
+    }
+
+## Get a Job Reference
+
+When you work with processing tasks in Media Services code, you often need to get a reference to an existing job based on an Id. The following code example shows how to get a reference to an IJob object from the Jobs collection.
+
+You may need to get a job reference when starting a long-running encoding job, and need to check the job status on a thread. In cases like this, when the method returns from a thread, you need to retrieve a refreshed reference to a job.
+
+    static IJob GetJob(string jobId)
+    {
+        // Use a Linq select query to get an updated 
+        // reference by Id. 
+        var jobInstance =
+            from j in _context.Jobs
+            where j.Id == jobId
+            select j;
+        // Return the job reference as an Ijob. 
+        IJob job = jobInstance.FirstOrDefault();
+
+        return job;
     }
 
 ## List Jobs and Assets
@@ -196,7 +188,7 @@ For more information on options for delivering assets, see [Deliver Assets with 
         Console.Write(builder.ToString());
     }
 
-## List All Access Policies
+## List all Access Policies
 In Media Services, you can define an access policy on an asset or its files. An access policy defines the permissions for a file or an asset (what type of access, and the duration). In your Media Services code, you typically define an access policy by creating an IAccessPolicy object and then associating it with an existing asset. Then you create a ILocator object, which lets you provide direct access to assets in Media Services. The Visual Studio project that accompanies this documentation series contains several code examples that show how to create and assign access policies and locators to assets.
 
 The following code example shows how to list all access policies on the server, and shows the type of permissions associated with each. Another useful way to view access policies is to list all ILocator objects on the server, and then for each locator, you can list its associated access policy by using its AccessPolicy property.
@@ -213,6 +205,45 @@ The following code example shows how to list all access policies on the server, 
 
         }
     }
+    
+## Limit Access Policies 
+
+>[!NOTE]
+> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). 
+
+For example, you can create a generic set of policies with the following code that would only run one time in your application. You can log IDs to a log file for later use:
+
+    double year = 365.25;
+    double week = 7;
+    IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
+    IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
+    IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
+
+    Console.WriteLine("One year policy ID is: " + policyYear.Id);
+    Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
+    Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+
+Then, you can use the existing IDs in your code like this:
+
+    const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+
+
+    // Get the standard policy for 1 year read only
+    var tempPolicyId = from b in _context.AccessPolicies
+                       where b.Id == policy1YearId
+                       select b;
+    IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
+
+    // Get the existing asset
+    var tempAsset = from a in _context.Assets
+                where a.Id == assetID
+                select a;
+    IAsset asset = tempAsset.SingleOrDefault();
+
+    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+        policy1Year,
+        DateTime.UtcNow.AddMinutes(-5));
+    Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 
 ## List All Locators
 A locator is a URL that provides a direct path to access an asset, along with permissions to the asset as defined by the locator's associated access policy. Each asset can have a collection of ILocator objects associated with it on its Locators property. The server context also has a Locators collection that contains all locators.
@@ -296,6 +327,7 @@ The following example deletes an asset.
 
 ## Delete a Job
 To delete a job, you must check the state of the job as indicated in the State property. Jobs that are finished or canceled can be deleted, while jobs that are in certain other states, such as queued, scheduled, or processing, must be canceled first, and then they can be deleted.
+
 The following code example shows a method for deleting a job by checking job states and then deleting when the state is finished or canceled. This code depends on the previous section in this topic for getting a reference to a job: Get a job reference.
 
     static void DeleteJob(string jobId)

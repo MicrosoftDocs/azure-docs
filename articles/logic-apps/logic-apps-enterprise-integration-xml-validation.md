@@ -1,6 +1,6 @@
 ---
-title: Overview of XML validation in the Enterprise Integration Pack | Microsoft Docs
-description: Learn how validation works in the Enterprise Integration Pack and Logic apps
+title: Validate XML - Azure Logic Apps | Microsoft Docs
+description: Validate XML with schemas for Azure Logic Apps and B2B scenarios by using the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,33 +14,58 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: LADocs; padmavc
 
 ---
-# Enterprise integration with XML validation
-## Overview
-Often, in B2B scenarios, the partners to an agreement need to validate that messages they exchange among each other are valid before processing of the data can begin. In the Enterprise Integration Pack, you can use the XML Validation connector to validate documents against a predefined schema.  
+# Validate XML for enterprise integration
 
-## How to validate a document with the XML Validation connector
-1. Create a Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the schema you will use to validate the XML data.
-2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
-   ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)    
-3. Add the **XML Validation** action by first selecting **Add an action**  
-4. Enter *xml* in the search box in order to filter all the actions to the one that you want to use 
-5. Select **XML Validation**     
-   ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)   
-6. Select the **CONTENT** text box  
-   ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
-7. Select the body tag as the content that will be validated.   
-   ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)  
-8. Select the **SCHEMA NAME** list box and chose the schema you want to use to validate the input *content* above     
-   ![](./media/logic-apps-enterprise-integration-xml/xml-4.png) 
-9. Save your work  
-   ![](./media/logic-apps-enterprise-integration-xml/xml-5.png) 
+Often in B2B scenarios, the partners in an agreement must make sure that 
+the messages they exchange are valid before data processing can start. 
+You can validate documents against a predefined schema by using the 
+use the XML Validation connector in the Enterprise Integration Pack.
 
-At this point, you are finished setting up your validation connector. In a real world application, you may want to store the validated data in an LOB application such as SalesForce. You can easily add an action to send the output of the validation to Salesforce. 
+## Validate a document with the XML Validation connector
 
-You can now test your validation action by making a request to the HTTP endpoint.  
+1. Create a logic app, and 
+[link the app to the integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") 
+that has the schema you want to use for validating XML data.
+
+2. Add a **Request - When an HTTP request is received** 
+trigger to your logic app.
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+
+3. To add the **XML Validation** action, choose **Add an action**.
+
+4. To filter all the actions to the one that you want, 
+enter *xml* in the search box. Choose **XML Validation**.
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+
+5. To specify the XML content that you want to validate, 
+select **CONTENT**.
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+
+6. Select the body tag as the content that you want to validate.
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+
+7. To specify the schema you want to use for validating 
+the previous *content* input, choose **SCHEMA NAME**.
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+
+8. Save your work  
+
+	![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+
+You are now done with setting up your validation connector. 
+In a real world application, you might want to store the 
+validated data in a line-of-business (LOB) app like SalesForce. 
+To send the validated output to Salesforce, add an action.
+
+To test your validation action, make a request to the HTTP endpoint.
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
-ms.author: darrmi
+ms.author: apimpm
 
 ---
 # Using external services from the Azure API Management service

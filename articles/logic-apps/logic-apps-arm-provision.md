@@ -1,9 +1,9 @@
 ---
-title: Create a Logic App using Azure Resource Manager templates | Microsoft Docs
-description: Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows.
+title: Create a logic app using a template in Azure | Microsoft Docs
+description: Use an Azure Resource Manager template to deploy a logic app for defining workflows.
 services: logic-apps
 documentationcenter: ''
-author: MSFTMan
+author: MandiOhlinger
 manager: anneta
 editor: ''
 
@@ -13,12 +13,12 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
-ms.author: deonhe
+ms.date: 01/27/2016
+ms.author: LADocs; mandia
 
 ---
 # Create a Logic App using a template
-Use an Azure Resource Manager template to create an empty logic app that can be used to define workflows. You can define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+Templates provide a quick way to use different connectors within a logic app. Logic apps includes Azure Resource Manager templates for you to create a logic app that can be used to define business workflows. You can define which resources are deployed, and how to define parameters when you deploy your logic app. You can use this template for your own business scenarios, or customize it to meet your requirements.
 
 For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
@@ -28,7 +28,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For the complete template, see [Logic App template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
-## What you will deploy
+## What you deploy
 With this template, you deploy a logic app.
 
 To run the deployment automatically, select the following button:  

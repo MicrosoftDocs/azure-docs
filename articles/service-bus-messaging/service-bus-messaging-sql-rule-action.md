@@ -1,5 +1,5 @@
 ---
-title: SQLRuleAction syntax reference | Microsoft Docs
+title: SQLRuleAction syntax reference in Azure | Microsoft Docs
 description: Details about SQLRuleAction grammar.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 
 ---

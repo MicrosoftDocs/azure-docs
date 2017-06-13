@@ -29,7 +29,7 @@ Before answering the planning questions below, consider the following:
 * Everything you create in Azure is composed of one or more resources. A virtual machine (VM) is a resource, the network adapter interface (NIC) used by a VM is a resource, the public IP address used by a NIC is a resource, the VNet the NIC is connected to is a resource.
 * You create resources within an [Azure region](https://azure.microsoft.com/regions/#services) and subscription. And resources can only be connected to a VNet that exists in the same region and subscription they are in.
 * You can connect VNets to each other by using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). You can also connect VNets across regions and subscriptions this way.
-* You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure.
+* You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) available in Azure.
 * Different resources can be grouped together in [resource groups](../azure-resource-manager/resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
 
 ### Define requirements
@@ -117,7 +117,7 @@ You should consider multiple subnets in a VNet in the following scenarios:
 
 * **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes).
 * **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
-* **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
+* **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
 * **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
 
 ### Subnet and NSG design patterns
@@ -170,7 +170,7 @@ You should start your design planning by answering the question in the [Define r
     Yes. Since users connected to the on-premises data centers must be able to access the applications through an encrypted tunnel.
 4. How many IaaS VMs do you need for your solution?
 
-    200 IaaS VMs. App1, App2 and App3 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
+    200 IaaS VMs. App1, App2, App3, and App4 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
 
     You will also need to provide DNS servers in each VNet, or in your on-premises data centers to resolve name between your Azure IaaS VMs and your on-premises network.
 5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
@@ -246,4 +246,4 @@ Based on those requirements, you could add users from the networking team to the
 * [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
 * Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
-* Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site).
+* Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel).

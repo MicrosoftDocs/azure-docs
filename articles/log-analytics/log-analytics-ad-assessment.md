@@ -1,5 +1,5 @@
 ---
-title: Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your Active Directory environment with Azure Log Analytics | Microsoft Docs
 description: You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
@@ -12,11 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 06/07/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Optimize your environment with the Active Directory Assessment solution in Log Analytics
+# Optimize your Active Directory environment with the Active Directory Assessment solution in Log Analytics
+
+![AD Assessment symbol](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+
 You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas which help you quickly understand the risk and take action.
@@ -35,8 +39,8 @@ After you've added the solution and an assessment is completed, summary informat
 Use the following information to install and configure the solutions.
 
 * Agents must be installed on domain controllers that are members of the domain to be evaluated.
-* The Active Directory Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
-* Add the Active Directory Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+* The Active Directory Assessment solution requires a supported version of .NET Framework 4 (4.5.2 or above) installed on each computer that has an OMS agent.
+* Add the Active Directory Assessment solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.

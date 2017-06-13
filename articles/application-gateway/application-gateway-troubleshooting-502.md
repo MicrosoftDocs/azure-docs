@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Application Gateway Bad Gateway (502) errors | Microsoft Docs
+title: Troubleshoot Azure Application Gateway Bad Gateway (502) errors | Microsoft Docs
 description: Learn how to troubleshoot Application Gateway 502 errors
 services: application-gateway
 documentationcenter: na
@@ -14,22 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
 
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway
 
+Learn how to troubleshoot bad gateway (502) errors received when using application gateway.
+
 ## Overview
 
-After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
+After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
-* Azure Application Gateway's back-end pool is not configured or empty.
-* None of the VMs or instances in VM Scale Set are healthy.
-* Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
-* Invalid or improper configuration of custom health probes.
-* Request time out or connectivity issues with user requests.
+* Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
+* None of the VMs or instances in [VM Scale Set are healthy](#unhealthy-instances-in-backendaddresspool).
+* Back-end VMs or instances of VM Scale Set are [not responding to the default health probe](#problems-with-default-health-probe.md).
+* Invalid or improper [configuration of custom health probes](#problems-with-custom-health-probe.md).
+* [Request time out or connectivity issues](#request-time-out) with user requests.
 
 ## Empty BackendAddressPool
 
@@ -102,7 +104,7 @@ Ensure that the instances are healthy and the application is properly configured
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
 * Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
+* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
@@ -128,6 +130,8 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
+* Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
+* If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
 * Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
 
 ## Request time out

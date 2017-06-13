@@ -1,28 +1,36 @@
 ---
 title: Azure Diagnostics 1.2 Configuration Schema | Microsoft Docs
-description: Schema version 1.2 for Azure diagnostics shipped as part of the Microsoft Azure SDK.
-services: multiple
+description: ONLY relevant if you are using Azure SDK 2.5 with Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric, or Cloud Services.
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: ''
 
 ms.assetid:
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 05/15/2017
 ms.author: robb
 
 ---
-# Azure Diagnostics 1.2 Configuration Schema
-The Azure Diagnostics 1.2 configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics monitor starts.  
+# Azure Diagnostics 1.2 configuration schema
+> [!NOTE]
+> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
+> Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
+>
+
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+
+This schema defines the possible values you can use to initialize diagnostic configuration settings when the diagnostics monitor starts.  
+
 
  Download the public configuration file schema definition by executing the following PowerShell command:  
 
-```  
+```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 

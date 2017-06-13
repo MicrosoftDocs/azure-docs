@@ -4,7 +4,7 @@ description: Create a connection between a web app in Azure App Service and an o
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: a46ed26b-df8e-4fc3-8e05-2d002a6ee508

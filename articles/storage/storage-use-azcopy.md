@@ -1,9 +1,9 @@
 ---
-title: Copy or move data to Storage with AzCopy | Microsoft Docs
-description: Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
+title: Copy or move data to Azure Storage with AzCopy on Windows| Microsoft Docs
+description: Use the AzCopy on Windows utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,25 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: micurd
+ms.date: 05/14/2017
+ms.author: seguler
 
 ---
-# Transfer data with the AzCopy Command-Line Utility
-## Overview
-AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+# Transfer data with the AzCopy on Windows
+AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-> [!NOTE]
-> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
-> 
-> 
+There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy
-### Windows
-Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
+### AzCopy on Windows
+Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
 
-### Mac/Linux
-AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
+#### Installation on Windows
+After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
@@ -39,8 +35,6 @@ The basic syntax for AzCopy commands is:
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
-
-Open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
@@ -305,23 +299,25 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file across file shares, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Copy from file share to blob
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file from file share to blob, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
-Note that asynchronous copying from File Storage to Page Blob is not supported.
 
 ### Copy from blob to file share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
+When you copy a file from blob to file share, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Synchronously copy files
-You can specify the `/SyncCopy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously, AzCopy does this by downloading the source data to local memory and upload it again to destination.
+You can specify the `/SyncCopy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously, AzCopy does this by downloading the source data to local memory and upload it again to destination. Standard egress cost will apply.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -396,7 +392,7 @@ AzCopy will generate a JSON data file into the blob container with following nam
 
 The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Note that when exporting tables to blobs, AzCopy will download the Table entities to local temporary data files and then upload those entities to the blob. These temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
+Note that when exporting tables to blobs, AzCopy will download the Table entities to local temporary data files and then upload those entities to the blob. These temporary data files are put into the journal file folder with the default path "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files' size is decided by your table entities' size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the blob, please make sure you have enough local disk space to store these temporary data files before they are deleted.
 
 ## Table: Import
 ### Import table
@@ -877,7 +873,7 @@ You can create an app.config file `AzCopy.exe.config` with property `AzureStorag
       </appSettings>
     </configuration>
 
-For property “AzureStorageUseV1MD5”
+For property "AzureStorageUseV1MD5"
 • True - The default value, AzCopy will use .NET MD5 implementation.
 • False – AzCopy will use FIPS compliant MD5 algorithm.
 
@@ -892,6 +888,7 @@ For more information about Azure Storage and AzCopy, refer to the following reso
 * [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
 * [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
+* [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
 
 ### Azure Storage blog posts:
 * [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

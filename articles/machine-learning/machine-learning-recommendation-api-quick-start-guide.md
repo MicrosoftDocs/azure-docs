@@ -1,5 +1,5 @@
 ---
-title: 'Quick start guide: Machine Learning Recommendations API | Microsoft Docs'
+title: 'Quick start: Azure Machine Learning Recommendations API (ver. 1)| Microsoft Docs'
 description: Azure Machine Learning Recommendations - Quick Start Guide
 services: machine-learning
 documentationcenter: ''
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 03/31/2017
 ms.author: luisca
 
+ROBOTS: NOINDEX
+redirect_url: machine-learning-datamarket-deprecation
+redirect_document_id: TRUE 
+
 ---
-# Quick start guide for the Machine Learning Recommendations API
+# Quick start guide for the Machine Learning Recommendations API (version 1)
+
 > [!NOTE]
-> You should start using the Recommendations API Cognitive Service instead of this
+> You should start using the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/recommendations-api) instead of this
 > version. The Recommendations Cognitive Service will be replacing this service, and all the new 
 > features will be developed there. It has new capabilities like batching support, a better API Explorer,
 > a cleaner API surface, more consistent signup/billing experience, etc.
-> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+>
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate).
 > 
 > 
 
-This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [gallery](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

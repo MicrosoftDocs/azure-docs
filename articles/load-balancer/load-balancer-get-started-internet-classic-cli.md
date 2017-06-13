@@ -36,7 +36,7 @@ ms.author: kumud
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli

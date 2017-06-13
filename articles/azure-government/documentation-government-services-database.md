@@ -1,26 +1,25 @@
 ---
 title: Azure Government Databases | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: ryansoc
 manager: zakramer
-editor: ''
 
 ms.assetid: a1e173a9-996a-4091-a2e3-6b1e36da9ae1
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 
 ---
 # Azure Government Databases
 ## SQL Database
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database/index.md) for additional guidance on metadata visibility configuration, and protection best practices.
+Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database Public Documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.
@@ -50,9 +49,9 @@ The URLs for accessing and managing Azure Redis Cache in Azure Government are di
 | Azure portal |https://portal.azure.com |https://portal.azure.us |
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to Azure Government Cloud](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
-> 
-> 
+> All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+>
+>
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Redis Cache:
@@ -64,4 +63,3 @@ The following information identifies the Azure Government boundary for Azure Red
 ## Next Steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
-

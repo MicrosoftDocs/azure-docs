@@ -1,6 +1,6 @@
 ---
-title: Compatibility level, how to assess | Microsoft Docs
-description: Steps and tools for determining which compatibility level is best for your database on Azure SQL Database or Microsoft SQL Server
+title: Database compatibility level 130 - Azure SQL Database | Microsoft Docs
+description: In this article, we explore the benefits of running your Azure SQL Database at compatibility level 130, and leveraging the benefits of the new query optimizer and query processor features. We also address the possible side-effects on the query performance for the existing SQL applications.
 services: sql-database
 documentationcenter: ''
 author: alainlissoir
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 8619f90b-7516-46dc-9885-98429add0053
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -21,7 +21,9 @@ ms.author: alainl
 # Improved query performance with compatibility Level 130 in Azure SQL Database
 Azure SQL Database is running transparently hundreds of thousands of databases at many different compatibility levels, preserving and guaranteeing the backward compatibility to the corresponding version of Microsoft SQL Server for all its customers!
 
-Therefore, nothing prevents customers who alter any existing databases to the latest compatibility level from benefiting from the new query optimizer and query processor features. As a reminder of history, the alignment of SQL versions to default compatibility levels are as follows:
+In this article, we explore the benefits of running your Azure SQL Databse at compatibility level 130, and leveraging the benefits of the new query optimizer and query processor features. We also address the possible side-effects on the query performance for the existing SQL applications.
+
+As a reminder of history, the alignment of SQL versions to default compatibility levels are as follows:
 
 * 100: in SQL Server 2008 and Azure SQL Database V11.
 * 110: in SQL Server 2012 and Azure SQL Database V11.
@@ -31,11 +33,8 @@ Therefore, nothing prevents customers who alter any existing databases to the la
 > [!IMPORTANT]
 > Starting in **mid-June 2016**, in Azure SQL Database, the default compatibility level will be 130 instead of 120 for **newly created** databases.
 > 
-> Databases created before mid-June 2016 will *not* be affected, and will maintain their current compatibility level (100, 110, or 120). Databases that migrate from Azure SQL Database version V11 to V12 will not have their compatibility level changed either.
+> Databases created before mid-June 2016 will *not* be affected, and will maintain their current compatibility level (100, 110, or 120). Databases that migrated from Azure SQL Database version V11 to V12 will have a compatibility level of either 100 or 110. 
 > 
-> 
-
-In this article we explore the benefits of compatibility level 130, and how to leverage those benefits. We address the possible side-effects on the query performance for the existing SQL applications.
 
 ## About compatibility level 130
 First, if you want to know the current compatibility level of your database, execute the following Transact-SQL statement.

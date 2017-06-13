@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 
 ---
 # Row level security with Power BI Embedded
+
 Row level security (RLS) can be used to restrict user access to particular data within a report or dataset, allowing for multiple different users to use the same report while all seeing different data. Power BI Embedded now supports datasets configured with RLS.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -32,6 +33,7 @@ In order to take advantage of RLS, it’s important you understand three main co
 **Rules** – Roles have rules, and those rules are the actual filters that are going to be applied to the data. This could be as simple as “Country = USA” or something much more dynamic.
 
 ### Example
+
 For the rest of this article, we’ll provide an example of authoring RLS, and then consuming that within an embedded application. Our example uses the [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX file.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -78,7 +80,8 @@ Now, filters can also flow from the Sales table to the **Item** table:
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Note** If you're using DirectQuery mode for your data, you will need to enable bidirectional-cross filtering by selecting these two options:
+> [!NOTE]
+> If you're using DirectQuery mode for your data, you will need to enable bidirectional-cross filtering by selecting these two options:
 
 1. **File** -> **Options and Settings** -> **Preview Features** -> **Enable cross filtering in both directions for DirectQuery**.
 2. **File** -> **Options and Settings** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode**.
@@ -109,5 +112,10 @@ Now, with all the pieces together, when someone logs into our application to vie
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## See also
-[Row-level security (RLS) with Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
+
+[Row-level security (RLS) with Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+More questions? [Try the Power BI Community](http://community.powerbi.com/)
 

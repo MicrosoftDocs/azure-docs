@@ -1,25 +1,25 @@
 ---
-title: (deprecated) Machine learning web services examples built with R - Azure | Microsoft Docs
-description: (deprecated) Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace.
-keywords: csharp,r code,web services examples
-services: machine-learning
-documentationcenter: ''
-author: jaymathe
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: (deprecated) Machine learning web services examples built with R - Azure | Microsoft Docs 
+description: (deprecated) Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace. 
+keywords: csharp,r code,web services examples 
+services: machine-learning 
+documentationcenter: '' 
+author: jaymathe 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: jaymathe
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 
 ---
 # (deprecated) Web services examples using R code on Azure Machine Learning and published to Microsoft Azure Marketplace

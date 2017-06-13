@@ -1,20 +1,19 @@
 ---
 title: Azure Marketplace for Azure Government partners | Microsoft Docs
 description: This article provides a comparison of features and guidance on developing applications for Azure Government.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: tsingh
 manager: asimm
-editor: ''
 
 ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
+ms.date: 11/14/2016
 ms.author: zakramer;tsingh;divacc
 
 ---
@@ -46,7 +45,7 @@ RPs in Azure & API version
     Identify availability Azure Government using Resource Explorer in the portal:
 
   1.	Log into Azure Government Portal
-  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#supported-regions
+  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal
 
   Most commonly used extensions; Availability in Fairfax  
 

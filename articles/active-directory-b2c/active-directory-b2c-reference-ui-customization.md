@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -40,7 +40,7 @@ Unlike other services where UI options are limited or are only available via API
 Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer. All you need to do is:
 
 1. Create well-formed HTML5 content with a `<div id="api"></div>` element (needs to be an empty element) located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
-2. Host your content on an HTTPS endpoint (with CORS allowed).
+2. Host your content on an HTTPS endpoint (with CORS allowed). Note that you will need to enable both GET and OPTIONS request methods when configuring CORS.
 3. Style the UI elements that Azure AD B2C inserts in.
 
 ## Test out the UI customization feature
@@ -332,19 +332,17 @@ On this page, users can verify their phone numbers (using text or voice) during 
 
 ```
 
+## Localizing your HTML content
+You can localze your HTML content by turning on ['Language customization'](active-directory-b2c-reference-language-customization.md).  Enabling this will allow Azure AD B2C to forward the OIDC parameter, `ui-locales`, to your endpoint.  You can use this to provide language-specific custom UI pages.  
+
 ## Things to remember when building your own content
 If you are planning to use the page UI customization feature, review the following best practices:
 
 * Don't copy the Azure AD B2C's default content and attempt to modify it. It is best to build your HTML5 content from scratch and to use default content as reference.
 * In all the pages (except the Error pages) served by the Sign-in, Sign-up and Profile-editing policies, style sheets that you provide will have to override the default style sheets that we add into these pages in the <head> fragments. In all the pages served by the Sign-up or Sign-in and Password reset policies, and the Error pages on all policies, you will have to provide all the styling yourself.
-* For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
+* For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) to request new functionality.
 * Supported browser versions:
-  * Internet Explorer 11
-  * Internet Explorer 10
-  * Internet Explorer 9 (limited)
-  * Internet Explorer 8 (limited)
-  * Google Chrome 43.0
-  * Google Chrome 42.0
-  * Mozilla Firefox 38.0
-  * Mozilla Firefox 37.0
-
+  * Internet Explorer 11, 10, Edge
+  * Limited support for Internet Explorer 9, 8
+  * Google Chrome 42.0 and above
+  * Mozilla Firefox 38.0 and above

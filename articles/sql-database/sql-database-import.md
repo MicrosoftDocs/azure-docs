@@ -1,94 +1,123 @@
----
+﻿---
 title: Import a BACPAC file to create an Azure SQL database | Microsoft Docs
-description: Create an Azure SQL database by importing an existing BACPAC file.
+description: Create a newAzure SQL database by importing a BACPAC file.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.date: 08/31/2016
-ms.author: sstein
+ms.date: 04/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Import a BACPAC file to create an Azure SQL database
+# Import a BACPAC file to a new Azure SQL Database
 
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
+This article discusses importing a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file to a new Azure SQL database. This article discusses using the following methods:
+- The [Azure portal](https://portal.azure.com)
+- the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
+- the [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet
 
-This article provides directions for creating an Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
+## Overview
 
-A BACPAC is a .bacpac file that contains a database schema and data. The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export.md).
+When you need to import a database from an archive or when migrating from another platform, you can import the database schema and data from a BACPAC file. A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be imported from Azure blob storage (standard storage only) or from local storage in an on-premises location. To maximize the import speed, we recommend that you specify a higher service tier and performance level, such as a P6, and then scale to down as appropriate after the import is successful. Also, the database compatibility level after the import is based on the compatibility level of the source database. 
+
+> [!IMPORTANT] 
+> After you migrate your database to Azure SQL Database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.   >
 
 > [!NOTE]
-> Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
-> 
-> 
+> To import a BACPAC to a new database, you must first create an Azure SQL Database logical server. For a tutorial showing you how to migrate a SQL Server database to Azure SQL Database using SQLPackage, see [Migrate a SQL Server Database](sql-database-migrate-your-sql-server-database.md)
+>
 
-To import a SQL database from a .bacpac you need the following:
+## Azure portal
 
-* An Azure subscription. 
-* An Azure SQL Database V12 server. If you do not have a V12 server, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-* A .bacpac file of the database you want to import in an [Azure Storage account (standard)](../storage/storage-create-storage-account.md) blob container.
+This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.com). Import using the Azure portal only supports importing a BACPAC file from Azure blob storage.
 
-> [!IMPORTANT]
-> When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from 
-> premium storage is not supported.
-> 
-> 
+To import a database using the Azure portal, open the page for your database and click **Import** on the toolbar. Specify the storage account and container, and select the *.bacpac file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
 
-## Select the server to host the database
-Open the SQL Server blade:
+   ![Database import](./media/sql-database-import/import.png)
 
-1. Go to the [Azure portal](https://portal.azure.com).
-2. Click **SQL servers**.
-3. Click the server to restore the database into.
-4. In the SQL Server blade click **Import database** to open the **Import database** blade:
-   
-   ![import database][1]
-5. Click **Storage** and select your storage account, blob container, and .bacpac file and click **OK**.
-   
-   ![configure storage options][2]
-6. Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import as a standalone database and then move the database into a pool.
-   
-   ![select pricing tier][3]
-7. Enter a **DATABASE NAME** for the database you are creating from the BACPAC file.
-8. Choose the authentication type and then provide the authentication information for the server. 
-9. Click **Create** to create the database from the BACPAC.
-   
-   ![create database][4]
+To monitor the progress of the import operation, open the page for the logical server containing the database being imported. Scroll down to **Operations** and then click **Import/Export** history.
 
-Clicking **Create** submits an import database request to the service. Depending on the size of your database, the import operation may take some time to complete.
-
-## Monitor the progress of the import operation
+### Monitor the progress of the import operation
 1. Click **SQL servers**.
 2. Click the server you are restoring to.
 3. In the SQL server blade, in the Operations area, click **Import/Export history**:
    
-   ![import export history][5]
-   ![import export history][6]
+   ![import](./media/sql-database-import/import.png)
+   ![import status](./media/sql-database-import/import-status.png)
 
 4. To verify the database is live on the server, click **SQL databases** and verify the new database is **Online**.
 
-## Next steps
-* To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+## SQLPackage
 
-<!--Image references-->
-[1]: ./media/sql-database-import/import-database.png
-[2]: ./media/sql-database-import/storage-options.png
-[3]: ./media/sql-database-import/pricing-tier.png
-[4]: ./media/sql-database-import/create.png
-[5]: ./media/sql-database-import/import-history.png
-[6]: ./media/sql-database-import/import-status.png
+To import a SQL database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility, see [Import parameters and properties](https://msdn.microsoft.com/library/hh550080.aspx#Import Parameters and Properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
+
+We recommend the use of the SQLPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+
+See the following SQLPackage command for a sample script for how to import the **AdventureWorks2008R2** database from local storage to an Azure SQL Database logical server, called **mynewserver20170403** in this example. This script shows the creation of a new database called **myMigratedDatabase**, with a service tier of **Premium**, and a Service Objective of **P6**. Change these values as appropriate to your environment.
+
+```cmd
+SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+```
+
+   ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
+
+> [!IMPORTANT]
+> An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
+>
+
+This example shows how to import a database using SqlPackage.exe with Active Directory Universal Authentication:
+
+```cmd
+SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
+```
+
+## PowerShell
+
+Use the [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet to submit an import database request to the Azure SQL Database service. Depending on the size of your database, the import operation may take some time to complete.
+
+ ```powershell
+ $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -DatabaseName "MyImportSample" `
+    -DatabaseMaxSizeBytes "262144000" `
+    -StorageKeyType "StorageAccessKey" `
+    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName $storageaccountname).Value[0] `
+    -StorageUri "http://$storageaccountname.blob.core.windows.net/importsample/sample.bacpac" `
+    -Edition "Standard" `
+    -ServiceObjectiveName "P6" `
+    -AdministratorLogin "ServerAdmin" `
+    -AdministratorLoginPassword $(ConvertTo-SecureString -String "ASecureP@assw0rd" -AsPlainText -Force)
+
+ ```
+
+To check the status of the import request, use the [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the import is complete.
+
+```powershell
+$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+[Console]::Write("Importing")
+while ($importStatus.Status -eq "InProgress")
+{
+    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    [Console]::Write(".")
+    Start-Sleep -s 10
+}
+[Console]::WriteLine("")
+$importStatus
+```
+
+## Next steps
+* To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
+* For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+
+
+

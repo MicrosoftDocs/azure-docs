@@ -1,6 +1,6 @@
 ---
-title: Assess Azure Service Fabric applications and micro-services | Microsoft Docs
-description: You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
+title: Assess Service Fabric applications with Azure Log Analytics using PowerShell | Microsoft Docs
+description: You can use the Service Fabric solution in Log Analytics using PowerShell to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
 services: log-analytics
 documentationcenter: ''
 author: niniikhena
@@ -17,12 +17,15 @@ ms.date: 09/21/2016
 ms.author: nini
 
 ---
-# Service Fabric Solution in Log Analytics
+# Assess Azure Service Fabric applications and micro-services with PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
 >
 >
+
+
+![Service Fabric symbol](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster, by getting visibility into how your Service Fabric nodes are performing, and how your applications and micro-services are running.
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/23/2017
 ms.author: kgremban
 ---
 
 
-# Publish applications using Azure AD Application Proxy - Public Preview
+# Publish applications using Azure AD Application Proxy
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-proxy-publish-azure-portal.md)
@@ -38,21 +38,17 @@ If you're new to Application Proxy, learn more about this feature with the artic
 > If this is your first time using Application Proxy, choose an application that's already set up for password-based authentication. Application Proxy supports other types of authentication, but password-based apps are the easiest to get up and running quickly. 
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Active Directory** > **Enterprise applications** > **Add**.
+2. Select **Azure Active Directory** > **Enterprise applications** > **New application**.
 
   ![Add an enterprise application](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. On the Categories page, select **Or add your own**.  
+3. On the Categories page, select **On-premises application**.  
 
   ![Add your own application](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. Choose **Deploying an existing application** from the dropdown menu.
-5. Provide a name for your app, then select **Add**. A loading window pops up, and once your app is added the Quick start blade opens.
-6. On the Quick start blade, select **Enable remote access for your on-premises application**.
+4. Provide the following information about your application:
 
-  ![Enable remote access for your on-premises application](./media/application-proxy-publish-azure-portal/enable-remote-access.png)
-
-7. Provide the following information about your application:
+   - **Name**: The name of the application that will appear on the access panel. 
 
    - **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.
 
@@ -69,9 +65,8 @@ If you're new to Application Proxy, learn more about this feature with the artic
 
    ![Configure your application](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-8. Select **Save**.
+8. Select **Add**.
 
-   ![Save your Application Proxy settings](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
 
 ## Add a test user 
 

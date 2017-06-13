@@ -1,5 +1,5 @@
 ---
-title: Use Interactive Hive in HDInsight | Microsoft Docs
+title: Use Interactive Hive in HDInsight - Azure | Microsoft Docs
 description: Learn how to use Interactive Hive (Hive on LLAP) in HDInsight.
 keywords: ''
 services: hdinsight
@@ -11,16 +11,17 @@ editor: cgronlun
 
 ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
 # Use Interactive Hive in HDInsight (Preview)
-Interactive Hive (A.K.A. [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is a new HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Interactive Hive allows in memory caching that makes Hive queries much more interactive and faster. This new feature makes HDInsight one of the world’s most performant, flexible, and open Big Data solution on the cloud with in-memory caches (using Hive and Spark) and advanced analytics through deep integration with R Services. 
+Interactive Hive (A.K.A. [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is a new HDInsight [cluster type](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).  Interactive Hive allows in memory caching that makes Hive queries much more interactive and faster. This new feature makes HDInsight one of the world’s most performant, flexible, and open Big Data solutions on the cloud with in-memory caches (using Hive and Spark) and advanced analytics through deep integration with R Services. 
 
 The Interactive Hive cluster is different from the Hadoop cluster. It only contains the Hive service. 
 

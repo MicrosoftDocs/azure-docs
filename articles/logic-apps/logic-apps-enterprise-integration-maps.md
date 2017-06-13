@@ -1,6 +1,6 @@
 ---
-title: Overview of maps Enterprise Integration Pack | Microsoft Docs
-description: Learn how to use maps with the Enterprise Integration Pack and Logic apps
+title: Transform XML with XSLT maps - Azure Logic Apps | Microsoft Docs
+description: Add XSLT maps to transform XML data with Azure Logic Apps and the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,60 +14,97 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: LADocs; padmavc
 
 ---
-# Learn about maps and the Enterprise Integration Pack
-## Overview
-Enterprise integration uses maps to transform XML data from one format to another format. 
+# Add maps for XML data transform
 
-## What is a map?
-A map is an XML document that defines which data in a document should be transformed into another format. 
+Enterprise integration uses maps to transform XML data between formats. 
+A map is an XML document that defines the data in a document that 
+should be transformed into another format. 
 
 ## Why use maps?
-Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
 
-## How do i create a map?
-The [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015 allows Biztalk Integration projects to be created.  Creating an Integration Map file will allow you to visually map items between two XML schema files.  After building this project, an XSLT document is output.
+Suppose that you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
 
-## How to upload a map?
-From the Azure portal:  
+## How do I create a map?
 
-1. Select **Browse**  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
-   ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** into which you will add the map  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Select the **Maps** tile  
-   ![](./media/logic-apps-enterprise-integration-maps/map-1.png)  
-5. Select the **Add** button in the Maps blade that opens  
-   ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
-6. Enter a **Name** for your map then, to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
-   ![](./media/logic-apps-enterprise-integration-maps/map-3.png)  
-7. The map is now being added into your integration account. You will receive an onscreen notification that indicates the success or failure of adding the map file. After you receive the notification, select the **Maps** tile, you will then see your newly added map in the Maps blade:    
-   ![](./media/logic-apps-enterprise-integration-maps/map-4.png)  
+You can create BizTalk Integration projects with the 
+[Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015. 
+You can then create an Integration Map file that lets you 
+visually map items between two XML schema files. 
+After you build this project, you will have an XSLT document.
 
-## How to edit a map?
-To edit a map, you must upload a new map file with the changes you desire. You can first download the map and edit it. 
+## How do I add a map?
 
-Follow these steps to upload a new map that replaces an existing map:  
+1. In the Azure portal, select **Browse**.
 
-1. Select the **Maps** tile  
-2. Select the map you wish to edit when the Maps blade opens up  
-3. On the **Maps** blade, select the **Update** link  
-   ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)   
-4. Select the map file you wish to upload by using the file picker dialog that opens up then select **Open** in the file picker   
-   ![](./media/logic-apps-enterprise-integration-maps/edit-2.png)   
-5. You will receive a notification popup after the map is uploaded.    
+	![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+
+2. In the filter search box, enter **integration**, 
+then select **Integration Accounts** from the results list.
+
+	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+
+3. Select the integration account where you want to add the map.
+
+	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+
+4. Select the **Maps** tile.
+
+	![](./media/logic-apps-enterprise-integration-maps/map-1.png)
+
+5. After the Maps blade opens, choose **Add**.
+
+	![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
+
+6. Enter a **Name** for your map. To upload the map file, 
+choose the folder icon on the right side of the **Map** text box. 
+After the upload process completes, choose **OK**.
+
+	![](./media/logic-apps-enterprise-integration-maps/map-3.png)
+
+7. After Azure adds the map to your integration account, 
+you get an onscreen message that shows whether your map file 
+was added or not. After you get this message, 
+choose the **Maps** tile so you can view the newly added map.
+
+	![](./media/logic-apps-enterprise-integration-maps/map-4.png)
+
+## How do I edit a map?
+
+You must upload a new map file with the changes that you want. 
+You can first download the map for editing.
+
+To upload a new map that replaces the existing map, 
+follow these steps.
+
+1. Choose the **Maps** tile.
+
+2. After the Maps blade opens, select the map that you want to edit.
+
+3. On the **Maps** blade, choose **Update**.
+
+	![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
+
+4. In the file picker, select the map file that you want to upload, 
+then select **Open**.
+
+	![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
 
 ## How to delete a map?
-1. Select the **Maps** tile  
-2. Select the map you wish to delete when the Maps blade opens up  
-3. Select the **Delete** link    
-   ![](./media/logic-apps-enterprise-integration-maps/delete.png)   
-4. Confirm you that you really intend to delete the map.  
-   ![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)   
+
+1. Choose the **Maps** tile.
+
+2. After the Maps blade opens, select the map you want to delete.
+
+3. Choose **Delete**.
+
+	![](./media/logic-apps-enterprise-integration-maps/delete.png)
+
+4. Confirm that you want to delete the map.
+
+	![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
 
 ## Next Steps
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

@@ -5,7 +5,7 @@ tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: adf7a472-ae00-45a8-aec4-06247e21318b
@@ -455,7 +455,7 @@ For more information on developing C# applications against MongoDB, see [CSharp 
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-windows-classic-install-mongodb.md
+[InstallMongoOnWindowsVM]:../virtual-machines/windows/classic/install-mongodb.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 

@@ -1,15 +1,14 @@
 ---
-title: Azure Governmenmt Networking | Microsoft Docs
+title: Azure Government Networking | Microsoft Docs
 description: This provides a comparison of features and guidance for private connectivity to e Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: jawalte
 manager: zakramer
-editor: ''
 
 ms.assetid: 3da70579-ecda-421a-8ebf-d52906334e9b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -51,6 +50,13 @@ For network services to support Azure Government customer applications and solut
 
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premise environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
+### Data Considerations
+The following information identifies the Azure Government boundary for Azure ExpressRoute:
+
+| **Regulated/controlled data permitted**| **Regulated/controlled data not permitted** |
+| --- | --- |
+| Data entered, transmitted, and processed within ExpressRoute dedicated connections can contain export controlled data. | Azure ExpressRoute metadata is not permitted to contain export controlled data. This metadata includes configuration data entered when creating and maintaining your ExpressRoute circuit. Do not enter regulated/controlled data into the Circuit name field when configuring the initial ExpressRoute circuit. |
+
 ## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute in AzureGov. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
@@ -58,11 +64,11 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you will have access to all Microsoft cloud services hosted in AzureGov.
 
-Refer to the [ExpressRoute partners and peering locations](/expressroute/expressroute-locations.md) page for a detailed list of ExpressRoute for AzureGov peering locations.
+Refer to the "Overview" tab on [ExpressRoute public documentation](../expressroute/index.md) for details on locations and partners, and a detailed list of ExpressRoute for AzureGov peering locations.
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](/expressroute/expressroute-optimize-routing.md).
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |

@@ -4,7 +4,7 @@ description: Provides answers to some questions IT administrators might have abo
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: femila
+author: tanning
 manager: swadhwa
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 
 ---
 # Settings and data roaming FAQ

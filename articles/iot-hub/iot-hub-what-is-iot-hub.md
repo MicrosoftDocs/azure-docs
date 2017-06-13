@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 05/02/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 
 ---
-# What is Azure IoT Hub?
+# Overview of the Azure IoT Hub service
 Welcome to Azure IoT Hub. This article provides an overview of Azure IoT Hub and describes why you should use this service to implement an Internet of Things (IoT) solution. Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. Azure IoT Hub:
 
 * Provides multiple device-to-cloud and cloud-to-device communication options, including one-way messaging, file transfer, and request-reply methods.
@@ -56,17 +57,17 @@ In addition to a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-d
 
 * **Device twins**. Using [Device twins][lnk-twins], you can store, synchronize, and query device metadata and state information. Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. 
 * **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can add individual devices to allow or deny lists to enable complete control over device access.
-* **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on message rules to control where your hub sends device-to-cloud messages. Message rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
+* **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on routing rules to control where your hub sends device-to-cloud messages. Routing rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
 * **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 * **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 * **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
   
-  * Creating a field gateway with the [Azure IoT Gateway SDK][lnk-gateway-sdk] that converts your custom protocol to one of the three protocols understood by IoT Hub. 
+  * Creating a field gateway with [Azure IoT Edge][lnk-iot-edge] that converts your custom protocol to one of the three protocols understood by IoT Hub.
   * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.
 * **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
 
 ## Gateways
-A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] that is deployed in the cloud or a [field gateway][lnk-field-gateway] that is deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway can run analytics on the edge, make time-sensitive decisions to reduce latency, provide device management services, enforce security and privacy constraints, and also perform protocol translation. Both gateway types act as intermediaries between your devices and your IoT hub.
+A gateway in an IoT solution is typically either a [protocol gateway][lnk-iotedge] that is deployed in the cloud or a [field gateway][lnk-field-gateway] that is deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway can run analytics on the edge, make time-sensitive decisions to reduce latency, provide device management services, enforce security and privacy constraints, and also perform protocol translation. Both gateway types act as intermediaries between your devices and your IoT hub.
 
 A field gateway differs from a simple traffic routing device (such as a network address translation device or firewall) because it typically performs an active role in managing access and information flow in your solution.
 
@@ -88,7 +89,7 @@ The mobile industry has used the service-assisted communication pattern at enorm
 IoT Hub is supported over ExpressRoute's public peering path.
 
 ## Next steps
-To learn how to send messages from a device and receive them from IoT Hub, as well as how to configure message routes for your IoT hub, see [Send and receive messages with IoT Hub][lnk-send-messages].
+To learn how to send messages from a device and receive them from IoT Hub, as well as how to configure message routes, see [Send and receive messages with IoT Hub][lnk-send-messages].
 
 To learn how IoT Hub enables standards-based device management for you to remotely manage, configure, and update your devices, see [Overview of device management with IoT Hub][lnk-device-management].
 
@@ -103,7 +104,7 @@ To get started writing some code and running some samples, see the [Get started 
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Service Assisted Communication, blog post by Clemens Vasters"
 [lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-gateway]: iot-hub-protocol-gateway.md
+[lnk-iotedge]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
 [lnk-devguide-security]: iot-hub-devguide-security.md
@@ -112,7 +113,7 @@ To get started writing some code and running some samples, see the [Get started 
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

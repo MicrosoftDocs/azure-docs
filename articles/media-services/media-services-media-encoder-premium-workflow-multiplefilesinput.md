@@ -1,5 +1,5 @@
 ---
-title: Using multiple input files and component properties with Premium Encoder | Microsoft Docs
+title: Multiple input files and component properties with Premium Encoder - Azure | Microsoft Docs
 description: This topic explains how to use setRuntimeProperties to use multiple input files and pass custom data to the Media Encoder Premium Workflow media processor.
 services: media-services
 documentationcenter: ''

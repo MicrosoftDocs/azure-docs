@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 
 ---
@@ -36,12 +36,12 @@ Before you begin this article, you must have the following:
 ## Do you learn fast with videos?
 [Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Store using DistCp.
 
-## Use Distcp from Remote Desktop (Windows cluster) or SSH (Linux cluster)
+## Use Distcp from an HDInsight Linux cluster
+
 An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Store account as well. In this section we look at how to use the Distcp utility.
 
-1. If you have a Windows cluster, remote into an HDInsight cluster that has access to a Data Lake Store account. For instructions, see [Connect to clusters using RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). From the cluster Desktop, open the Hadoop command line.
+1. From your desktop, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Run the commands from the SSH prompt.
 
-    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Run the commands from the SSH prompt.
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
