@@ -364,18 +364,18 @@ search for and select **myVMip**, and then click **Associate**.
 
 *   Use the following script to connect:
 
-```bash 
-ssh <publicIpAddress>
-```
+    ```bash 
+    ssh <publicIpAddress>
+    ```
 
 ### Step 5: Test whether the database is accessible
 *   Use the following script to test the accessibility:
 
-```bash 
-$ sudo su - oracle
-$ sqlplus / as sysdba
-SQL> startup
-```
+    ```bash 
+    $ sudo su - oracle
+    $ sqlplus / as sysdba
+    SQL> startup
+    ```
 
 > [!IMPORTANT]
 > If the database **startup** command generates an error, to recover the database, see "Step 6: Use RMAN to recover the database."
@@ -383,15 +383,15 @@ SQL> startup
 ### Step 6: Use RMAN to recover the database (optional step)
 *   Use the following script to recover the database:
 
-```bash
-# sudo su - oracle
-$ rman target /
-RMAN> startup mount;
-RMAN> restore database;
-RMAN> recover database;
-RMAN> alter database open resetlogs;
-RMAN> SELECT * FROM scott.scott_table;
-```
+    ```bash
+    # sudo su - oracle
+    $ rman target /
+    RMAN> startup mount;
+    RMAN> restore database;
+    RMAN> recover database;
+    RMAN> alter database open resetlogs;
+    RMAN> SELECT * FROM scott.scott_table;
+    ```
 
 The back up and recovery of the Oracle 12c database on an Azure Linux virtual machine is now complete.
 ## Delete the VM
