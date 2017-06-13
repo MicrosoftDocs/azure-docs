@@ -56,7 +56,7 @@ Choose next steps based on the application type you are registering:
 
 ## Register a mobile or native application
 
-[!INCLUDE [active-directory-b2c-register-mobile-or-native-app](../../includes/active-directory-b2c-register-mobile-or-native-app.md)]
+[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
 ## Next steps
 

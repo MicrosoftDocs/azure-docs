@@ -1,6 +1,5 @@
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
-
 To register your web application, use the settings specified in the table.
 
 ![Example registration settings for new web app](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)

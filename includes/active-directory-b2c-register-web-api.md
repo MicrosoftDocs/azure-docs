@@ -14,7 +14,7 @@ To register your web API, use the settings specified in the table.
 
 Click **Create** to register your application.
 
-Your newly registered application is displayed in the applications list for the B2C tenant. Select your web app from the list. The web application's property pane is displayed.
+Your newly registered application is displayed in the applications list for the B2C tenant. Select your web API from the list. The API's property pane is displayed.
 
 ![Web API properties](./media/active-directory-b2c-register-web-api/b2c-web-api-properties.png)
 
