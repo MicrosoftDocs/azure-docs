@@ -3,7 +3,7 @@ title: Use ScaleR and SparkR with Azure HDInsight | Microsoft Docs
 description: Use ScaleR and SparkR with R Server and HDInsight
 services: hdinsight
 documentationcenter: ''
-author: jeffstokes72
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: jeffstok
+ms.date: 06/13/2017
+ms.author: bradsev
 
 ---
 

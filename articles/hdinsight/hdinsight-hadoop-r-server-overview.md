@@ -1,9 +1,9 @@
 ---
 title: Introduction to R Server on Azure HDInsight | Microsoft Docs
-description: Get an introduction to R Server on HDInsight. Learn how to use R Server for creating applications for big data analysis.
+description: Learn how to use R Server on HDInsight to create applications for big data analysis.
 services: hdinsight
 documentationcenter: ''
-author: jeffstokes72
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 
@@ -14,40 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
-ms.author: jeffstok
+ms.date: 06/13/2017
+ms.author: bradsev
 
 ---
 #Introduction to R Server and open-source R capabilities on HDInsight
 
-With Microsoft Azure HDInsight, Microsoft R Server is now available as an option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
+Microsoft R Server is available as a deployment option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
-Clusters can be sized to the projects and tasks at hand and torn down when they're no longer needed. Since they're part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, an SLA of 99.9% uptime, and the flexibility to integrate with other components in the Azure ecosystem.
+Clusters can be sized appropriately to the projects and tasks at hand and then torn down when they're no longer needed. Since they're part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, an SLA of 99.9% up-time, and the ability to integrate with other components in the Azure ecosystem.
 
-R Server on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size loaded to either Azure Blob or Data Lake storage. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in ScaleR, Microsoft’s big data analytics package that's included with R Server.
+R Server on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages as well as the routines in ScaleR, Microsoft’s big data analytics package included with R Server.
 
-The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
-The models or predictions that result from analyses can be downloaded for use on-premises. They can also be operationalized elsewhere in Azure, such as through an [Azure Machine Learning Studio](http://studio.azureml.net) [web service](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md).
+The models or predictions that result from analyses can be downloaded for use on-premises. They can also be operationalized elsewhere in Azure, such as through [Azure Machine Learning Studio](http://studio.azureml.net) [web service](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Get started with R on HDInsight
-To include R Server in an HDInsight cluster, you must select the R Server cluster type when creating an HDInsight cluster using the Azure portal. The R Server cluster type includes R Server on the data nodes of the cluster, and on an edge node as a landing zone for R Server-based analytics. See [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) for an in-depth walk-through on creating a cluster.
+To include R Server in an HDInsight cluster, you must select the R Server cluster type when creating an HDInsight cluster using the Azure portal. The R Server cluster type includes R Server on the data nodes of the cluster and on an edge node which serves as a landing zone for R Server-based analytics. See [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) for a walkthrough on how to create the cluster.
 
 ## Learn about data storage options
-Default storage for the HDFS file system of HDInsight clusters can be associated with either an Azure Storage account or a Azure Data Lake store. This ensures that whatever data is uploaded to the cluster storage during analysis is made persistent. There are various tools for data transfer to the storage option you select including the storage account's portal-based upload facility and the [AzCopy](../storage/storage-use-azcopy.md) utility.
+Default storage for the HDFS file system of HDInsight clusters can be associated with either an Azure Storage account or an Azure Data Lake store. This association ensures that whatever data is uploaded to the cluster storage during analysis is made persistent. There are various tools for handling the data transfer to the storage option that you select, including the portal-based upload facility of the storage account and the [AzCopy](../storage/storage-use-azcopy.md) utility.
 
-Regardless of whether you choose Azure Blob or Data Lake as primary storage for your cluster, you have the option of adding access to additional Blob and Data lake stores during the cluster provisioning process. See [Getting started with R Server on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-get-started) for information on adding access to additional accounts, and the supplementary [Azure Storage options for R Server on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-storage) article to learn about using multiple
-storage accounts.
+Regardless of whether you choose Azure Blob or Data Lake as the primary storage for your cluster, you have the option of adding access to additional Blob and Data lake stores during the cluster provisioning process. See [Getting started with R Server on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-get-started) for information on adding access to additional accounts, and the supplementary [Azure Storage options for R Server on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-storage) article to learn more about using multiple storage accounts.
 
-You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about data storage options for R Server on HDInsight cluster, see [Azure Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).
+You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about these data storage options for R Server on HDInsight cluster, see [Azure Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).
 
 ## Access R Server on the cluster
-After you've created a cluster with R Server,you can connect to R Server on the edge node using a browser if you’ve chosen to include RStudio Server during the provisioning process, or have added it later, or by using SSH/PuTTY to access the R console. For more information about installing RStudio Server after a cluster is created, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
+You can connect to R Server on the edge node using a browser after you've created a cluster with R Server, provided you’ve chosen to include RStudio Server during the provisioning process (or have added it later). You can also connect to the R Server by using SSH/PuTTY to access the R console. For information about installing RStudio Server after a cluster is created, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
 
 ## Develop and run R scripts
-The R scripts you create and run can use any of the 8000+ open source R packages in addition to the parallelized and distributed routines in the ScaleR library. In general, script that's run with R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a ScaleR function with a compute context that's set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark).
-
-In those cases, the function runs in a distributed fashion across those data (task) nodes of the cluster that are associated with the referenced data. For more information about the different compute context options, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
+The R scripts you create and run can use any of the 8000+ open source R packages in addition to the parallelized and distributed routines available in the ScaleR library. In general, a script that is run with R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that need to call a ScaleR function with a compute context that is set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark). In this case, the function runs in a distributed fashion across those data (task) nodes of the cluster that are associated with the data referenced. For more information about the different compute context options, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ## Operationalize a model
 When your data modeling is complete, you can operationalize the model to make predictions for new data both in Azure and on-premises. This process is known as scoring. Here are a few examples.

@@ -1,9 +1,9 @@
 ---
 title: Get started with R Server on HDInsight - Azure | Microsoft Docs
-description: Learn how to create a Apache Spark on HDInsight cluster that includes R Server, and then submit an R script on the cluster.
+description: Learn how to create an Apache Spark on HDInsight cluster that includes R Server and submit an R script on the cluster.
 services: HDInsight
 documentationcenter: ''
-author: jeffstokes72
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 
@@ -14,8 +14,8 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/13/2017
-ms.author: jeffstok
+ms.date: 06/13/2017
+ms.author: bradsev
 
 ---
 # Get started using R Server on HDInsight
@@ -56,8 +56,8 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 4. Select **Cluster type** to open the **Cluster configuration** blade. On the **Cluster Configuration** blade, select the following options:
 
    * **Cluster Type**: R Server
-   * **Version**: select the version of R Server to install on the cluster. Select the newest version for the latest capabilities. Other versions are available if needed for compatibility. Release notes for each of the available versions are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
-   * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
+   * **Version**: select the version of R Server to install on the cluster. The version currently available is ***R Sever 9.1 (HDI 3.6)***. Release notes for the available versions of R Server are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
+   * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node. If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed, then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
 
    Leave the other options at the default values and use the **Select** button to save the cluster type.
 
