@@ -121,11 +121,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 5. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
 
+	| Attribute Name | Attribute Value |
+	| ---------------| --------------- |    
+	| givenname | user.givenname |
+	| surname | user.surname |
+	| emailaddress | user.userprincipalname |
+	| name | user.userprincipalname |
+
+
 	a. Click the attribute to open the **Edit Attribute** window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/url_update.png)
 
-	b. Delete the URL value from the **namespace**.
+	b. Delete the URL value from the **Namespace**.
 	
 	c. Click **Ok** to save the setting.
 
