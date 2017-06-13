@@ -368,15 +368,6 @@ Released: November 2015
   * Selecting a new OU to include in sync does not require a full password sync.
   * When a disabled user is enabled the password does not sync.
   * The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-<<<<<<< HEAD
-<<<<<<< HEAD
-  * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
-=======
-  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
->>>>>>> 487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
-=======
-  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
->>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 * Not able to change the group that is used for group filtering after the initial installation.
 * No longer creates a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.

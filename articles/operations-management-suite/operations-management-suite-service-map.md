@@ -19,6 +19,9 @@ ms.author: daseidma;bwren;dairwin
 ---
 
 # Use the Service Map solution in Operations Management Suite
+
+![Service Map symbol](./media/oms-service-map/service-map-symbol.png)
+
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 This article describes the details of using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite](operations-management-suite-service-map-configure.md).
@@ -187,7 +190,7 @@ The **Machine Updates** pane displays data from the Operations Management Suite 
 ## Log Analytics records
 Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
-One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
+One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource.
 
 >[!NOTE]
 >As Service Map features grow, these fields are subject to change.
@@ -195,7 +198,7 @@ One record is generated per hour for each unique computer and process, in additi
 There are internally generated properties you can use to identify unique processes and computers:
 
 - Computer: Use ResourceId or ResourceName_s to uniquely identify a computer within an Operations Management Suite workspace.
-- Process: Use ResourceId to uniquely identify a process within an Operations Management Suite workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
+- Process: Use ResourceId to uniquely identify a process within an Operations Management Suite workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s)
 
 Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
 

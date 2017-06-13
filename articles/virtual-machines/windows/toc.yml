@@ -139,6 +139,8 @@
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
+    - name: Create VM with Python
+      href: python.md
     - name: Create VM running popular application frameworks
       href: app-frameworks.md
     - name: Move a VM between subscriptions

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:
-ms.date: 02/13/2017
+ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
@@ -101,6 +101,10 @@ Click the following links to read about how to install a master target server:
 * [How to install Windows master target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
+
+### What datastore types are supported on the on-premises ESXi host during failback?
+
+Currently ASR only supports failing back to a VMFS datastore. A vSAN or NFS datastore is not supported. Note that you can protect virtual machines running on a vSAN or NFS datastore. Due to this limitation, the datastore selection input in the reprotect screen will be empty in case of NFS datastores or show the vSAN datastore but fail during the job. If you intend to failback, then you can create a VMFS datastore on-premises and failback to it. This failback will be cause a full download of the VMDK. We are adding support for NFS and vSAN datastores in the upcoming releases.
 
 #### Common things to check after completing installation of the master target server
 

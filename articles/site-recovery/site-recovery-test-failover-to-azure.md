@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 
 ---
@@ -54,7 +54,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 
 
 > [!TIP]
-> Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet. 
+> Site Recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover, then test virtual machine is created in the first subnet alphabetically. If the target IP is part of the chosen subnet, then site recovery tries to create the test failover virtual machine using the target IP. If the target IP is not part of the chosen subnet then test failover virtual machine gets created using any available IP in the chosen subnet.
 >
 >
 

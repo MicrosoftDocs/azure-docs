@@ -1,6 +1,6 @@
 ---
-title: Replicate Azure VMs between Azure sites | Microsoft Docs
-description: Summarizes the steps you need for replicating Azure VMs between Azure regions with the Site Recovery service
+title: Replicate Azure VMs between Azure regions Disaster Recovery (DR) needs - Azure to Azure| Microsoft Docs
+description: Summarizes the steps you need for replicating Azure VMs between Azure regions (Azure to Azure DR) with Azure Site Recovery service for Disaster recovery (DR) needs.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 06/10/2017
 ms.author: raynew
 
 ---
@@ -93,14 +93,14 @@ In **Recovery Services vaults**, click the vault name. In the vault, click **+Re
 
     ![Source](./media/site-recovery-azure-to-azure/source.png)
 
-## Step 2 - Select virtual machines
+### Step 2 - Select virtual machines
 
 1. Site Recovery retrieves VMs in the resource group or cloud service.
 2. Select the VMs you want to replicate, and then click **OK**.
 
     ![Select VMs](./media/site-recovery-azure-to-azure/vms.png)
 
-## Step 3 - Configure settings
+### Step 3 - Configure settings
 
 1. By default, Site Recovery automatically creates settings in the target location using settings that are configured in the source location, including a target resource group, storage accounts, virtual network, and availability sets (all are created with the suffix **asr**).
 

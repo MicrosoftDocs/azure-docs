@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 06/02/2017
+ms.date: 06/06/2017
 ms.author: mimig
 ---
 
