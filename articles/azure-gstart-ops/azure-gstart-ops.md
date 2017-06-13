@@ -47,7 +47,7 @@ Microsoft has deployed many Azure datacenters around the globe, with more planne
 
 For small businesses, Azure allows for a low-cost entry point, with the ability to scale rapidly as demand for compute increases. This prevents a large up-front capital investment in infrastructure, and it provides the flexibility to architect and re-architect systems as needed. The use of cloud computing fits well with the scale-fast and fail-fast model of startup growth.
 
-For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/en-us/regions/).
+For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
 ## Types of cloud computing
 
@@ -135,21 +135,21 @@ Services for networking both within Azure and between Azure and on-premises data
 
 -   Azure Content Delivery Network
 
-For detailed documentation on Azure services, see [Azure service documentation](https://docs.microsoft.com/en-us/azure).
+For detailed documentation on Azure services, see [Azure service documentation](https://docs.microsoft.com/azure).
 
 ## Azure key concepts
 
 ### Datacenters and regions
 
 
-Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/en-us/regions/).
+Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
 One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
 
 ### Azure portal
 
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/en-us/azure/azure-portal/resource-group-portal).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### Resources
 
