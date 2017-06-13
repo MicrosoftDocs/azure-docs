@@ -63,9 +63,9 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 ## <a id="GitClone"></a>Step 2: Clone the GitHub project
 You can get started by cloning the GitHub repository for [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
-    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
-    cd documentdb-java-getting-started
+    cd azure-cosmos-db-documentdb-java-getting-started
 
 The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure DocumentDB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
@@ -172,7 +172,7 @@ Deleting the created database removes the database and all children resources (c
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Step 11: Run your Java console application all together!
-To run the application from the console, first compile using Maven:
+To run the application from the console, navigate to the project folder and compile using Maven:
     
     mvn package
 

@@ -37,7 +37,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 * **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
-* **ExpressRoute gateway must be configured first.** You must create the ExpressRoute gateway first, before you add the Site-to-Site VPN gateway.
+* **ExpressRoute gateway must be configured first and linked to a circuit.** You must create the ExpressRoute gateway first and link it to a circuit before you add the Site-to-Site VPN gateway.
 
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute

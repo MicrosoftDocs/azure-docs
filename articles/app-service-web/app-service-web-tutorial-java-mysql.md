@@ -41,9 +41,9 @@ In this tutorial, you learn how to:
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL 
 
@@ -84,7 +84,7 @@ In this step, you clone sample Spring boot app, configure it to use the local My
 From the command prompt, navigate to a working directory and clone the sample repository. 
 
 ```bash
-git clone https://github.com/Azure-Samples/spring-boot-appservice-mysql.git
+git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
 ### Configure the app to use the MySQL database

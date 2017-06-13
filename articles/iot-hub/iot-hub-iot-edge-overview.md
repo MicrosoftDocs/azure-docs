@@ -22,7 +22,7 @@ Before you examine any sample code or create your own field gateway using IoT Ed
 
 ## IoT Edge modules
 
-You build a gateway with the Azure IoT Edge by creating and assembling *IoT Edge modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
+You build a gateway with Azure IoT Edge by creating and assembling *IoT Edge modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
 
 ![A chain of modules in gateway built with Azure IoT Edge][1]
 

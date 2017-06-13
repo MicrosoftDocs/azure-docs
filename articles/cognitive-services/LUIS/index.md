@@ -2,11 +2,11 @@
 redirect_url: /azure/cognitive-services/LUIS/Home
 title: Azure Cognitive Services, Language Understanding Intelligent Services (LUIS) Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and manage a LUIS app.
-services: 
+services: cognitive-services
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.service: 
+ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
