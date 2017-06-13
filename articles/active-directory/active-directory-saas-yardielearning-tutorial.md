@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 06/13/2017
 ms.author: jeedes
 
 ---
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.yardielearning.com/login`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.yardielearning.com/login`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.yardielearning.com/trust`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.yardielearning.com/trust`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Yardi eLearning Client support team](mailto:elearning@yardi.com) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Yardi eLearning Client support team](mailto:elearning@yardi.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -164,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Yardi eLearning. Yardi eLearning supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access Yardi eLearning if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user is created during an attempt to access Yardi eLearning if it doesn't exist yet. 
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the [Yardi eLearning support team](mailto:elearning@yardi.com).
