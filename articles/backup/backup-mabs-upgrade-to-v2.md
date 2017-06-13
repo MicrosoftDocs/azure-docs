@@ -1,6 +1,6 @@
 ---
-title: Install Azure Backup Server version 2 | Microsoft Docs
-description: Azure Backup Server version 2 gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server version 2.
+title: Install Azure Backup Server v2 | Microsoft Docs
+description: Azure Backup Server v2 gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server v2.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -17,21 +17,21 @@ ms.date: 05/15/2017
 ms.author: masaran;markgal
 ---
 
-# Install Azure Backup Server version 2
+# Install Azure Backup Server v2
 
-Azure Backup Server protects your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server version 2 builds on Azure Backup Server version 1, and gives you new features that are not available in version 1. For a comparison of features between version 1 and version 2, see [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). 
+Azure Backup Server protects your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server v2 builds on Azure Backup Server v1, and gives you new features that are not available in v1. For a comparison of features between v1 and v2, see [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). 
 
-The additional features in Backup Server version 2 are an upgrade from Backup Server version 1. However, Backup Server version 1 is not a prerequisite for installing Backup Server version 2. If you want to upgrade from Backup Server version 1 to Backup Server version 2, install Backup Server version 2 on the Backup Server protection server. Your existing Backup Server settings remain intact.
+The additional features in Backup Server v2 are an upgrade from Backup Server v1. However, Backup Server v1 is not a prerequisite for installing Backup Server v2. If you want to upgrade from Backup Server v1 to Backup Server v2, install Backup Server v2 on the Backup Server protection server. Your existing Backup Server settings remain intact.
 
-You can install Backup Server version 2 on Windows Server 2012 R2 or Windows Server 2016. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server version 2 on Windows Server 2016. Before you upgrade to or install Backup Server version 2, read about the [installation prerequisites](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
+You can install Backup Server v2 on Windows Server 2012 R2 or Windows Server 2016. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server v2 on Windows Server 2016. Before you upgrade to or install Backup Server v2, read about the [installation prerequisites](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
-> Azure Backup Server has the same code base as System Center Data Protection Manager. Backup Server version 1 is equivalent to Data Protection Manager 2012 R2, and Backup Server version 2 is equivalent to Data Protection Manager 2016. This article occasionally references the Data Protection Manager documentation.
+> Azure Backup Server has the same code base as System Center Data Protection Manager. Backup Server v1 is equivalent to Data Protection Manager 2012 R2, and Backup Server v2 is equivalent to Data Protection Manager 2016. This article occasionally references the Data Protection Manager documentation.
 >
 >
 
-## Upgrade Backup Server to version 2
-To upgrade from Backup Server version 1 to Backup Server version 2, make sure your installation has the required updates:
+## Upgrade Backup Server to v2
+To upgrade from Backup Server v1 to Backup Server v2, make sure your installation has the required updates:
 
 - [Update the protection agents](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) on the protected servers.
 - Upgrade Windows Server 2012 R2 to Windows Server 2016.
@@ -39,7 +39,7 @@ To upgrade from Backup Server version 1 to Backup Server version 2, make sure yo
 - Ensure that backups are set to continue without restarting your production server.
 
 
-### Upgrade steps for Backup Server version 2
+### Upgrade steps for Backup Server v2
 
 1. In the Download Center, [download the upgrade installer](https://go.microsoft.com/fwlink/?LinkId=626082).
 
@@ -83,10 +83,10 @@ To upgrade from Backup Server version 1 to Backup Server version 2, make sure yo
 
 ## Add storage for Modern Backup Storage
 
-To improve backup storage efficiency, Backup Server version 2 adds support for volumes. Like Backup Server version 1, Backup Server version 2 supports disks.
+To improve backup storage efficiency, Backup Server v2 adds support for volumes. Like Backup Server v1, Backup Server v2 supports disks.
 
 ### Add volumes and disks
-If you run Backup Server version 2 on Windows Server 2016, you can use volumes to store backup data. Volumes offer storage savings and faster backups. Because volumes are new to Backup Server, you must add them. 
+If you run Backup Server v2 on Windows Server 2016, you can use volumes to store backup data. Volumes offer storage savings and faster backups. Because volumes are new to Backup Server, you must add them. 
 
 When you add a volume to Backup Server, you can give the volume a friendly name. Click the **Friendly Name** column of the volume you want to name. You can change the name later, if necessary. You also can use PowerShell to add or change friendly names for volumes.
 
@@ -170,7 +170,7 @@ To create a protection group:
    To finish creating your protection group, complete the wizard.
 
 ## Migrate legacy storage to Modern Backup Storage
-After you upgrade to or install Backup Server version 2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed. They continue to function as they were initially set up. 
+After you upgrade to or install Backup Server v2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed. They continue to function as they were initially set up. 
 
 Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources by using the retain data option. Then, add the data sources to a new protection group.
 
@@ -237,9 +237,9 @@ The following sections describe how to update protection agents for client compu
 
   After a client computer is connected to the network, the **Agent Updates** column for the client computer shows a status of **Updating**.
 
-## New PowerShell cmdlets in version 2
+## New PowerShell cmdlets in v2
 
-When you install Azure Backup Server version 2, two new cmdlets are available: 
+When you install Azure Backup Server v2, two new cmdlets are available: 
 * [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
 * [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
