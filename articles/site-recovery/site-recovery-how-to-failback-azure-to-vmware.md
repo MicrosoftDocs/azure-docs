@@ -19,11 +19,6 @@ ms.author: ruturajd
 ---
 # Fail back from Azure to an on-premises site
 
-> [!div class="op_single_selector"]
-> * [VMware/physical machines from Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
-
 This article describes how to fail back virtual machines from Azure Virtual Machines to the on-premises site. Follow the instructions in this article to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using the [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md) tutorial.
 
 > [!WARNING]
@@ -107,7 +102,7 @@ Note that application-consistent recovery points can be behind in time, and ther
 
 ### What happens to VMware tools post failback?
 
-During failover to Azure, the VMware tools cannot be running on the Azure virtual machine. In case of a Windows virtual machine, ASR disables the VMware tools during failover. In case of Linux virtual machine, ASR uninstalls the VMware tools during failover. 
+During failover to Azure, the VMware tools cannot be running on the Azure virtual machine. In case of a Windows virtual machine, ASR disables the VMware tools during failover. In case of Linux virtual machine, ASR uninstalls the VMware tools during failover.
 
 During failback of the Windows virtual machine, the VMware tools are re-enabled upon failback. Similarly, for a linux virtual machine, the VMware tools are reinstalled on the machine during failback.
 

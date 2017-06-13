@@ -1,5 +1,5 @@
 ---
-title: How does VMware replication to Azure work in Azure Site Recovery? | Microsoft Docs
+title: Step 1: Understand VMware to Azure replication architecture with Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs and physical servers to Azure with the Azure Site Recovery service
 services: site-recovery
 documentationcenter: ''
@@ -13,20 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.date: 06/07/2017
 ms.author: raynew
 ---
 
 
 
-# How does VMware replication to Azure work in Site Recovery?
+# Step 1: Understand VMware to Azure architecture
 
-This article describes the components and processes involved when replicating on-premises VMware virtual machines, and Windows/Linux physical servers, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
-
-When you replicate physical on-premises servers to Azure, replication uses also the same components and processes as VMware VM replication, with these differences:
-
-- You can use a physical server for the configuration server, instead of a VMware VM.
-- You will need an on-premises VMware infrastructure for failback. You can't fail back to a physical machine.
+Read this article to understand components and processes involved when replicating on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](si te-recovery-overview.md) service.
 
 Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -80,13 +75,9 @@ There are a few failback requirements:
 - **VPN connection**: For failback you'll need a VPN connection (or Azure ExpressRoute) set up from the Azure network to the on-premises site.
 - **Separate on-premises master target server**: The on-premises master target server handles failback. The master target server is installed by default on the management server, but if you're failing back larger volumes of traffic you should set up a separate on-premises master target server for this purpose.
 - **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This is automatically created when you created your replication policy.
-- **VMware infrastructure**: You must fail back to an on-premises VMware VM. This means you need an on-premises VMware infrastructure, even if you're replicating on-premises physical servers to Azure.
-
-**Figure 3: VMware/physical failback**
-
-![Failback](./media/site-recovery-components/enhanced-failback.png)
+- **VMware infrastructure**: You must fail back to an on-premises VMware VM.
 
 
 ## Next steps
 
-Review the [support matrix](site-recovery-support-matrix-to-azure.md)
+Step 2:

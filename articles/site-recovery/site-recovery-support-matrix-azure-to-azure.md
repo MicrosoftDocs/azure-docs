@@ -19,10 +19,6 @@ ms.author: sujayt
 ---
 # Azure Site Recovery support matrix for replicating from Azure to Azure
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
-> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 >[!NOTE]
 >

@@ -19,11 +19,6 @@ ms.author: rajanaki
 ---
 # Azure Site Recovery support matrix for replicating from on-premises to Azure
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
-> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
-
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
@@ -75,7 +70,7 @@ The following table summarizes replicated operating system support in various de
 >
 > On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery mobility service.<br/><br/>
 > Customers on the 3.10.0-514 kernel with a version of the mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.
-  
+
 
 ### Supported Ubuntu kernel versions for VMware/physical servers
 
@@ -94,7 +89,7 @@ Physical servers with the HP CCISS storage controller aren't supported.
 
 >[!Note]
 > On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
-> XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used. 
+> XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.
 >
 
 
