@@ -58,7 +58,7 @@ Go to [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
 
 You need to do some network planning to ensure that Azure VMs are connected to networks after failover occurs, and  that that they have the right IP addresses.
 
-Go to [Step 4: Plan networking](site-recovery-network-design.md).
+Go to [Step 4: Plan networking](site-recovery-network-design.md)
 
 ##  Step 5: Prepare Azure resources
 
@@ -74,7 +74,7 @@ You need to set up accounts that Site Recovery will use to:
 - Access VMware virtualization servers to automatically detect VMs.
 - Access VMs to install the Mobility service. Each VM you want to replicate must have the Mobility service agent installed before you can enable replication for it.
 
-Go to [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware)
+Go to [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
 
 ## Step 7: Set up a vault
 
