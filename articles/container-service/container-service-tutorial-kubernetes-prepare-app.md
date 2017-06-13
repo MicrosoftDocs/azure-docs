@@ -67,11 +67,11 @@ docker network create azure-vote
 Note, in this example the MySQL database file is hosted inside of the container. In a subsequent tutorial, the database file will be moved to a mounted volume which will provide data integrity in the event of container restart / regeneration.
 
 ```bash
-docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote --name azure-vote-back -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote mysql:latest
+docker run -p 3306:3306 -d --network azure-vote --name azure-vote-back -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote mysql:latest
 ```
 
 ```bash
-docker run -p 8000:8000 -d --network=azure-vote --name azure-vote-front -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
+docker run -p 8000:80 -d --network=azure-vote --name azure-vote-front -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
 ```
 
 ```bash
