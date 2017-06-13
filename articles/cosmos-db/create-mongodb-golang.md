@@ -29,7 +29,7 @@ In other words, your Golang application only knows that it’s connecting to a d
 
 1.  [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 2.  An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-3.  An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, we're using Goglang.
+3.  An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
 <a id="create-account"></a>
 ## Create a database account
@@ -37,9 +37,6 @@ In other words, your Golang application only knows that it’s connecting to a d
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Set up your application
-
-It’s time to play with the code. Open your favorite editor (Gogland, Visual Studio Code,
-or Atom). In this article, I use Gogland editor.
 
 1. Create a folder named CosmosDBAccess inside the GOROOT\src folder, which is C:\Go\ by default.
 2. Run the following command using a git terminal window such as git bash, to clone the sample repository into the CosmosDBAccess folder. 
@@ -212,7 +209,7 @@ Azure Cosmos DB supports deleting JSON documents.
     Process finished with exit code 0`.
     ```
 
-    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/goglang-cosmos-db.png)
+    ![Goglang showing the output of the app](./media/create-mongodb-golang/goglang-cosmos-db.png)
     
 ## Review your document in Data Explorer
 
