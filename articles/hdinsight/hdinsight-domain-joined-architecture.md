@@ -1,5 +1,5 @@
 ---
-title: Domain-joined Azure HDInsight architecture| Microsoft Docs
+title: Domain-joined Azure HDInsight architecture | Microsoft Docs
 description: Learn how to plan domain-joined HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -54,7 +54,7 @@ Prerequisites for Azure AD:
 
 **HDInsight integrated with cloud-only Azure AD**
 
-For cloud-only Azure AD, configure a domain controller so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Dervices](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS creates domain controller machines on the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
+For cloud-only Azure AD, configure a domain controller so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS creates domain controller machines on the cloud and provides IP addresses for them. It creates two domain controllers for high availability.
 
 Currently, Azure AD DS exists only in classic virtual networks. It is only accessible by using the Azure classic portal. The HDInsight virtual network exists in the Azure portal, which needs to be peered with the classic virtual network by using VNet-to-VNet peering.
 

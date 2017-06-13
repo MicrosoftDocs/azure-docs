@@ -8,6 +8,7 @@ The standard Azure metadata section looks like this:
   description: <article description that is displayed in search results>
   services: <service slug assigned to your service by ACOM>
   cloud: <optional; cloud value assigned by ACOM for sovereign clouds such as Azure Government and Azure Stack>
+  suite: <optional; suite value assigned by ACOM for suites>
   author: <your GitHub user alias, with correct capitalization>
   manager: <alias of the content publishing manager responsible for the service area>
 
@@ -23,6 +24,14 @@ The standard Azure metadata section looks like this:
 
 - The element name and attribute names are case sensitive.
 
+- Historically, the upper section of metadata in Azure articles was used to enable functionality on the ACOM site, the lower section was for content team metrics. With the move to docs.microsoft.com, we need to continue to use the upper section of metadata because several of the values are used to enable the azure.microsoft.com chrome that is currently applied to Azure content on docs.microsoft.com. The values that are passed to ACOM under this arrangement are:
+
+    - Keywords from "tags" and "ms.search.keywords"
+    - Products from "services"
+    - Suites from "suite"
+    - Clouds from "cloud”
+
+
 ## Attributes and values
 
 ![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces. Note that the site identifier *| Microsoft Docs* will automatically be added to your title value in the OPS build process. 
@@ -35,6 +44,8 @@ The standard Azure metadata section looks like this:
 ![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. This value is usually referred to as the "service slug". This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable services, separated by commas.
 
 ![](./media/article-metadata/checkmark-small.png)**cloud**: Required only for sovereign clouds such as Azure Government and Azure Stack. This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable clouds, separated by commas.
+
+![](./media/article-metadata/checkmark-small.png)**suite**: Required only for suites; only current service using this value is iot-suite.
 
 ![](./media/article-metadata/checkmark-small.png)**author**: Required, one value only. List the GitHub account for the primary author or article SME. Get the capitalization right, it matters!
 

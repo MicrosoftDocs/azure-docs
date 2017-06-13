@@ -349,6 +349,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:

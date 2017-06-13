@@ -91,7 +91,7 @@ Read this article about [external identities](../active-directory/active-directo
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities.  
 * The signin reports provide a record of each signin with reduced details.  
-* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY-Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
+* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY: Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
 * A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?

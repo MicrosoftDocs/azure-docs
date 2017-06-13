@@ -1,5 +1,5 @@
 ---
-title: Debug and analyze Hadoop services with heap dumps | Microsoft Docs
+title: Debug and analyze Hadoop services with heap dumps - Azure | Microsoft Docs
 description: Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.
 services: hdinsight
 documentationcenter: ''
