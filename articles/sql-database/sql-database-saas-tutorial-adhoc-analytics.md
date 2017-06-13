@@ -1,5 +1,5 @@
 ---
-title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs 
+title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs
 description: "Run ad-hoc analytics queries across multiple SQL databases in the Wingtip SaaS multi-tenant app."
 keywords: sql database tutorial
 services: sql-database
@@ -8,7 +8,7 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -51,7 +51,11 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip application scripts
 
+<<<<<<< HEAD
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+=======
 The Wingtip SaaS scripts and application source code are available in the WingtipSaaS github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+>>>>>>> 4369c0cd9b6629caa8d3a80287e34e4696dfebeb
 
 
 ## Explore the global views
