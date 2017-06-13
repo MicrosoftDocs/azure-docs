@@ -9,16 +9,16 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: Barclayn
-ms.custom: azlog
+ms.custom: AzLog
 
 
 ---
 
 # Azure Log integration tutorial - Processing KeyVault events using Eventhubs
 
-Azure log integration (Azlog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking KeyVault activity logged to an event hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
+Azure log integration (AzLog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking KeyVault activity logged to an event hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
 
 >[!NOTE]
 Most of the steps involved in this tutorial involve configuring KeyVault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
@@ -38,30 +38,17 @@ Before you can complete the steps in this article you will need the following:
 
 - A system with access to the internet that meets the requirements for installing Azure Log Integration
 - [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed
+  - Use remote desktop to connect to the system that you will be using to go through this tutorial and install Azure Log Integration. For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event forwarding](security-azure-log-integration-get-started.md) Steps 1 to 3 of that article are applicable to this scenario and the article also provides additional general information about Azure Log integration.
 - You will also need the latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0)
-- Access to an [Azure subscription](https://azure.microsoft.com/free)
+  - You could [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) by either using the web installer or using the ```Install-Module``` CmdLet available in PowerShell 5.0
+  - Access to an [Azure subscription](https://azure.microsoft.com/free)
 - An account with subscription administrator rights
-
-### Install Azure Log Integration
-
-Use remote desktop to connect to the system that you will be using to go through this tutorial and install Azure Log Integration. For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event forwarding](security-azure-log-integration-get-started.md) Steps 1 to 3 are applicable to this scenario and the article also provides additional general information about Azure Log integration.
-
-### Install the latest Azure PowerShell
-
-There are two ways to get Azure PowerShell installed.
-
-- Using the web platform installer
-- Using the ```Install-Module``` CmdLet available in PowerShell 5.0
-
-We recommend that you use the install-module CmdLet if at all possible because it will allow you to also use update-module at a later time. Update-module will install the latest version of the Azure module when you run ```Update-Module Azure```
-
-For additional information on installing Azure PowerShell you should review the article titled [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
 
 
 ## Creating supporting infrastructure elements
 
 1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
-2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script LoadAzlogModule.ps1 (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press ENTER.
+2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script LoadAzLogModule.ps1 (notice the “.\” in the following command). Type **.\LoadAzLogModule.ps1** and press ENTER.
 You should see something like what appears in the figure below. </br>
 
     ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
@@ -79,7 +66,7 @@ You should see something like what appears in the figure below. </br>
         - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name may be different and you could see it as part of the output of the previous command)
         - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this to be any other location of your choosing)
         - ```$random = Get-Random```
-        - ``` $name = 'Azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
+        - ``` $name = 'AzLogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
         - ``` $storageName = $name``` (This will be used for the storage account name)
         - ```$rgname = $name ``` (This will be used for the resource group name)
         - ``` $eventHubNameSpaceName = $name``` (This is the event hub name space name)
@@ -137,12 +124,12 @@ Now that you have configured all of the required elements to have KeyVault loggi
 3. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 4. ``` $storagekey = $storagekeys[0].Value```
 
-You will run the Azlog command for each event hub:
+You will run the AzLog command for each event hub:
 
 1.  ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
 2.  ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
-After a minute or so of running the last few commands you should see json files being generated. You can confirm that by monitoring the directory **c:\users\azlog\EventHubJson**
+After a minute or so of running the last few commands you should see json files being generated. You can confirm that by monitoring the directory **c:\users\AzLog\EventHubJson**
 
 ## Next Steps
 
