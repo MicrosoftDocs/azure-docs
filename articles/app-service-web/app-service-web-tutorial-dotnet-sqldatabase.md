@@ -48,8 +48,9 @@ To complete this tutorial:
 
 ## Download the sample
 
-* [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-* Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
+[Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+
+Extract (unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
 
 The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
