@@ -118,7 +118,7 @@ On a Windows computer, you can review the following to verify agent connectivity
 If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agents.md#network) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md#network).
 
 > [!NOTE]
-> If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:
+> If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
