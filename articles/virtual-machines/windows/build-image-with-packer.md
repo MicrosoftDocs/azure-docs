@@ -37,9 +37,9 @@ Next, create a storage account with [New-AzureRmStorageAccount](/powershell/modu
 ```powershell
 $storageAccountName = "mystorageaccount"
 New-AzureRmStorageAccount -ResourceGroupName $rgName `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName Standard_LRS
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName Standard_LRS
 ```
 
 
