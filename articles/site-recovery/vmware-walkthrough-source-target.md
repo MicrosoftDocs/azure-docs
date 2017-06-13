@@ -71,13 +71,16 @@ To allow Azure Site Recovery to discover virtual machines running in your on-pre
 
 ### Set up a connection
 
-1. Connect to servers as follows:
+Connect to servers as follows:
 
-Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
+1. Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
+2. In **Add vCenter**, specify a friendly name for the vSphere host or vCenter server, and then specify the IP address or FQDN of the server.
+3. Leave the port as 443 unless your VMware servers are configured to listen for requests on a different port. Select the account that is to connect to the VMware vCenter or vSphere ESXi server. Click **OK**.
+4. Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
-[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+> [!NOTE]
+> If you're adding a server or host with an account that doesn't have administrator privileges on the vCenter or host server, make sure that the account has these privileges enabled: Datacenter, Datastore, Folder, Host, Network, Resource, Virtual machine, and vSphere Distributed Switch. In addition, the VMware vCenter server needs the Storage Views privilege enabled.
 
-2. Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
 ## Set up the target environment
 
