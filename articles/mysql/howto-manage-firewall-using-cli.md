@@ -8,10 +8,9 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid:
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/13/2017
 ---
 
 # Create and manage Azure Database for MySQL firewall rules using Azure CLI
@@ -37,7 +36,7 @@ Commands:
 Securely connect Azure CLI with your Azure account. Use the **az login** command to do this.
 
 1. Run the following command from the command line.
-```azurecli-interactive
+```azurecli
 az login
 ```
 This command will output a code to use in the next step.

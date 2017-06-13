@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to Azure
 If you are using the Azure Cloud Shell or Try It button, follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
+```azurecli
 az login
 ```
 
