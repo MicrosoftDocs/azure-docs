@@ -71,7 +71,7 @@ To build images, you create a template as a JSON file. In the template, you defi
 Create a file named *windows.json* and paste the following content. Enter your own values for the following:
 
 - client_id
-    - View your service principal ID with `$app.applicationId`
+    - View your service principal ID with `$sp.applicationId`
 - client_secret
     - The password you specified in `$securePassword`
 - tenant_id 
@@ -217,6 +217,8 @@ TemplateUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Mi
 3us64gGvvlw%3D&sp=r&sr=b&sv=2015-02-21
 ```
 
+It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
+
 
 ## Create Azure Image
 The output from the Packer build process is a virtual hard disk (VHD) in the specified storage account. Create an Azure Image from this VHD with [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage) and specify the `OSDiskUri` path noted at the end of the Packer build output. The following example creates an Image named `myImage`:
@@ -295,7 +297,7 @@ $nic = New-AzureRmNetworkInterface `
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
 Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $myImage.Id | `
+Set-AzureRmVMSourceImage -Id $image.Id | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
