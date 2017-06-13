@@ -19,3 +19,12 @@ If your native application is calling a web API secured by Azure AD B2C, you wan
 > [!NOTE]
 > An **Application Secret** is an important security credential, and should be secured appropriately.
 > 
+
+### Choosing a redirect URI
+
+There are two important considerations when choosing a redirect URI for mobile/native applications:
+
+* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
+* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
+
+Ensure there are no special characters like underscores in the redirect uri.

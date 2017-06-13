@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: ''
 author: sama
 manager: mbaldwin
-editor: bryanla
+editor: PatAltimore
 
 ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
 ms.service: active-directory-b2c
@@ -64,24 +64,10 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
+
 This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  It is recommened that you use this policy over a sign-up policy and sign-in policy.  
 
-1. [Follow these steps to navigate to the B2C settings in the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-settings-blade).
-2. Click **Sign-up or sign-in policies**.
-3. Click **+Add** at the top of the blade.
-4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUpIn".
-5. Click **Identity providers** and select "Email signup". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
-7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up or sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
-8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUpIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
-9. Open the policy by clicking "**B2C_1_SiUpIn**".
-10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
-11. Click **Run now**. A new browser tab opens, and you can run through the sign-up or sign-in consumer experience as configured.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
 ## Create a sign-up policy
 To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.

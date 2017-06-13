@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
 manager: krassk
-editor: parakhj
+editor: PatAltimore
 
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
@@ -66,17 +66,6 @@ Choose next steps based on the application type you are registering:
 ## Register a mobile or native application
 
 [!INCLUDE [active-directory-b2c-register-mobile-or-native-app](../../includes/active-directory-b2c-register-mobile-or-native-app.md)]
-
-[Jump to **Next steps**](#next-steps)
-
-### Choosing a redirect URI
-
-There are two important considerations when choosing a redirect URI for mobile/native applications:
-
-* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
-* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
-
-Ensure there are no special characters like underscores in the redirect uri.
 
 ## Next steps
 
