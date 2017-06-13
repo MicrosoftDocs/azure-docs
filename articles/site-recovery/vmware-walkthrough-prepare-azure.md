@@ -26,7 +26,7 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 
 ## Before you start
 
-Make sure you've read the [prerequisites](site-recovery-vmware-to-azure-prereqs.md)
+Make sure you've read the [prerequisites](vmware-walkthrough-prerequisites.md)
 
 ## Set up an Azure account
 
