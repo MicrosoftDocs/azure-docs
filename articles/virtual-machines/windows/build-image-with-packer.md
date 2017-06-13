@@ -301,7 +301,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-It takes a few minutes to create the VM. Once the VM has been created.
+It takes a few minutes to create the VM.
 
 
 ## Test VM and IIS
