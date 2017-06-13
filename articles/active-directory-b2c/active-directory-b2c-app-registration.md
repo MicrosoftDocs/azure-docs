@@ -96,6 +96,7 @@ You can also access the blade by clicking **More services** and then searching *
 Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
 
 `https://login-east.contoso.com`
+
 `https://login-west.contoso.com`
 
 The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:
@@ -118,7 +119,9 @@ In this case, the DNS name matches exactly. Or, you can do this:
 In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
 
 `https://contoso.com`
+
 `https://login-east.contoso.com`
+
 `https://login-west.contoso.com`
 
 You can add the latter two because they are subdomains of the first reply URL, contoso.com.
