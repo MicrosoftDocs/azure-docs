@@ -8,9 +8,9 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid: 
 ms.service: mysql-database
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 06/06/2017
+ms.date: 06/13/2017
 ms.custom: mvc
 ---
 
