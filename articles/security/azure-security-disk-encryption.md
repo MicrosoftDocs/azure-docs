@@ -213,14 +213,23 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
   * To install Azure CLI and associate it with your Azure subscription, see [How to install and configure Azure CLI](../cli-install-nodejs.md).
   * To use Azure CLI for Mac, Linux, and Windows with Azure Resource Manager, see [Azure CLI commands in Resource Manager mode](../virtual-machines/azure-cli-arm-commands.md).
 
-* You must use -skipVmBackup parameter when using Azure disk encryption PS cmdlet Set-AzureRmVMDiskEncryptionExtension or CLI command to enable encryption on Azure Managed Disk VM.
+* When encrypting a managed disk, it is mandatory prerequisite to take a snapshot of the managed disk or a backup of the disk outside of Azure Disk Encryption prior to enabling encryption.  Without a backup in place, any unexpected failure during encryption may render the disk and VM inaccessible without a recovery option.  Set-AzureRmVMDiskEncryptionExtension does not currently back up managed disks and will error if used against a managed disk unless the -skipVmBackup parameter has been specified.  This parameter is unsafe to use unless a backup has already been made outside of Azure Disk Encryption.   When the -skipVmBackup parameter is specified, the cmdlet will not make a backup of the managed disk prior to encryption.  For this reason, it is considered a mandatory prerequisite to make sure a backup of the managed disk VM is in place prior to enabling Azure Disk Encryption in case recovery is later needed.  
 > [!NOTE]
- > If you do not specify -skipVmBackup parameter, the enable encryption step will fail.
+ > The -skipVmBackup parameter should never be used unless a snapshot or backup has already been made outside of Azure Disk Encryption. 
 
 * The Azure Disk Encryption solution uses the BitLocker external key protector for Windows IaaS VMs. For domain joined VMs, DO NOT push any group policies that enforce TPM protectors. For information about the group policy for “Allow BitLocker without a compatible TPM,” see [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521).
+* Bitlocker policy on domain joined virtual machines with custom group policy must include the following setting: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key`  Azure Disk Encryption will fail when custom group policy settings for Bitlocker are incompatible. On machines that did not have the correct policy setting, applying the new policy, forcing the new policy to update (gpupdate.exe /force), and then restarting may be required.  
 * To create an Azure AD application, create a key vault, or set up an existing key vault and enable encryption, see the [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * To configure disk-encryption prerequisites using the Azure CLI, see [this Bash script](https://github.com/ejarvi/ade-cli-getting-started).
 * To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using KEK configuration only. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+
+* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
+
+* Azure Disk Encryption for Linux requires data disks to have a mounted file system in Linux prior to encryption
+
+* Recursively mounted data disks are not supported by the Azure Disk Encryption for Linux. For example, if the target system has mounted a disk on /foo/bar and then another on /foo/bar/baz, the encryption of /foo/bar/baz will succeed, but encryption of /foo/bar will fail. 
+
+* Azure Disk Encryption is only supported on gallery images that meet the aforementioned prerequisites.  Custom images are not supported due to custom partition schemes and process behaviors that may exist on these images.  Further, even gallery image based VM's that initially met prerequisites but have been modified after creation may be incompatible.  For that reason, the suggested procedure for encrypting a Linux VM is to start from a clean gallery image, encrypt the VM, and then add custom software or data to the VM as needed.  
 
 > [!NOTE]
 > Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM.
@@ -735,10 +744,8 @@ Use the Azure Managed Disk ARM template to create a new encrypted Linux IaaS VM 
   (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
-  >You must use -skipVmBackup parameter when using Azure disk encryption PS cmdlet Set-AzureRmVMDiskEncryptionExtension or CLI command to enable encryption on Azure Managed Disk VM.
-  >
-  >It is advisable to backup your running VM instance before you enable encryption using the PS cmdlet Set-AzureRmVMDiskEncryptionExtension on your Linux Managed Disk VM.
-
+  >It is mandatory to snapshot and/or backup a managed disk based VM instance outside of and prior to enabling Azure Disk Encryption.  A snapshot of the managed disk can be taken from the portal, or Azure Backup can be used.  Backups ensure that a recovery option is possible in the case of any unexpected failure during encryption.  Once a backup is made, the Set-AzureRmVMDiskEncryptionExtension cmdlet can be used to encrypt managed disks by specifying the -skipVmBackup parameter.  This command will fail against managed disk based VM's until a backup has been made and this parameter has been specified.    
+ 
 ### Update encryption settings of an existing encrypted non-premium VM
   Use the existing Azure disk encryption supported interfaces for running VM [PS cmdlets, CLI or ARM templates] to update the encryption settings like AAD client ID/secret, Key encryption key [KEK], BitLocker encryption key for Windows VM or Passphrase for Linux VM etc. The update encryption setting is supported only for VMs backed by non-premium storage. It is NNOT supported for VMs backed by premium storage.
 
