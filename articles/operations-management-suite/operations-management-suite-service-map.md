@@ -74,6 +74,9 @@ There, you can choose **Create new** and give the group a name.
 
 ![Name Group](media/oms-service-map/machine-groups-name.png)
 
+>[!NOTE]
+>Machine groups are currently limited to 10 servers, but we plan to increase this limit soon.
+
 ### Viewing a Group
 Once you’ve created some groups, you can view them by choosing the Groups tab.
 
