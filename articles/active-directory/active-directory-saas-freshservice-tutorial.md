@@ -115,8 +115,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Freshservice Client support team](https://support.freshservice.com/) to get these values. 
  
-
-
 4. On the **SAML Signing Certificate** section, copy **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_certificate.png) 
@@ -125,17 +123,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/tutorial_general_400.png)
 
-6. In a different web browser window, log in to your Freshservice company site as an administrator.
+6. On the **Freshservice Configuration** section, click **Configure Freshservice** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-7. In the menu on the top, click **Admin**.
+	![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_configure.png) 
+
+7. In a different web browser window, log in to your Freshservice company site as an administrator.
+
+8. In the menu on the top, click **Admin**.
    
     ![Admin](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Admin")
 
-8. In the **Customer Portal**, click **Security**.
+9. In the **Customer Portal**, click **Security**.
    
     ![Security](./media/active-directory-saas-freshservice-tutorial/IC790815.png "Security")
 
-9. In the **Security** section, perform the following steps:
+10. In the **Security** section, perform the following steps:
    
     ![Single Sign On](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Single Sign On")
    
@@ -143,9 +145,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. Select **SAML SSO**.
 
-    c. Paste the **Remote Login URL** value into the **SAML Login URL** textbox from Azure portal.
+    c. Paste the **Remote Login URL** value into the **SAML Login URL** textbox which you have copied from the Azure portal.
 
-    d. Paste the **Remote Logout URL** value into the **Logout URL** textbox from Azure portal.
+    d. Paste the **Remote Logout URL** value into the **Logout URL** textbox which you have copied from the Azure portal.
 
     e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate which you have copied from Azure portal.
    
@@ -222,9 +224,9 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
     >The Azure Active Directory account holder gets an email including a link to confirm the account before it becomes active
     >  
 
-    >[!NOTE]
-    >You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
-    >  
+>[!NOTE]
+>You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
+>  
 
 ![Assign User][200] 
 
