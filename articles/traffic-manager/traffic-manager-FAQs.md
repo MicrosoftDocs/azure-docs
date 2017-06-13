@@ -78,7 +78,7 @@ When a DNS query lands on Traffic Manager, it sets a value in the response calle
 
 ### How high or low can I set the TTL for Traffic Manager responses?
 
-You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with RFC-1035). Having a TTL of 0 means that downstream DNS resolvers does not be cache query responses and all queries are expected to reach the Traffic Manager DNS servers for resolution.
+You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). A TTL of 0 means that downstream DNS resolvers do not cache query responses and all queries are expected to reach the Traffic Manager DNS servers for resolution.
 
 ## Traffic Manager Geographic traffic routing method
 
@@ -110,7 +110,7 @@ Yes, if the routing method of a profile is not geographic, you can use the [Azur
 
 ### Why am I getting an error when I try to change the routing method of an existing profile to Geographic?
 
-All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, have to first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping. 
+All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping. 
 
 
 ###  Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled? 
@@ -199,7 +199,7 @@ By using these settings, Traffic Manager can provide failovers under 10 seconds 
 
 ### How can I specify different monitoring settings for different endpoints in a profile?
 
-Traffic Manager monitoring settings are at a per profile level. If you need to use a different monitoring setting for only one endpoint, it can be done by having that endpoint as a nested profile whose monitoring settings are different from the parent profile.
+Traffic Manager monitoring settings are at a per profile level. If you need to use a different monitoring setting for only one endpoint, it can be done by having that endpoint as a [nested profile](traffic-manager-nested-profiles.md) whose monitoring settings are different from the parent profile.
 
 ### What host header do endpoint health checks use?
 
@@ -237,8 +237,8 @@ The following list contains the IP addresses from which Traffic Manager health c
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
 The number of Traffic Manager health checks reaching your endpoint depends on the following:
-- how often you have set the monitoring interval to be (smaller interval means more requests landing on your endpoint in any given time period).
-- the number of locations from where the health checks originate (the IP addresses from where you can expect these checks is listed above).
+- the value that you have set for the monitoring interval (smaller interval means more requests landing on your endpoint in any given time period).
+- the number of locations from where the health checks originate (the IP addresses from where you can expect these checks is listed in the preceding FAQ).
 
 ## Traffic Manager nested profiles
 
