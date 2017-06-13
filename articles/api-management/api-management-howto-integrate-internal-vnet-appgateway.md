@@ -255,7 +255,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 
 ### Step 10
 
-Now we will create settings for dummy backend, which does not exist. Requests to api paths which we do not want to expose from API Management via Application Gateway will hit this backend and return 404.
+Now we create settings for dummy backend, which does not exist. Requests to api paths that we do not want to expose from API Management via Application Gateway will hit this backend and return 404.
 
 Configure HTTP settings for dummy backend.
 
@@ -263,13 +263,13 @@ Configure HTTP settings for dummy backend.
 $dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Configure a dummy backend **dummyBackendPool** which points to a Fqdn address **dummybackend.com**. This Fqdn address does not exist in the virtual network.
+Configure a dummy backend **dummyBackendPool**, which points to a Fqdn address **dummybackend.com**. This Fqdn address does not exist in the virtual network.
 
 ```powershell
 $dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
 ```
 
-Create a rule setting for the Application Gateway to use by default which points to the nonexistent backend **dummybackend.com** in the virtual Network
+Create a rule setting for the Application Gateway to use by default that points to the nonexistent backend **dummybackend.com** in the virtual Network
 
 ```powershell
 $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
@@ -277,7 +277,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### Step 11
 
-Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (e.g. if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
+Configure URL rule paths for the back-end pools. This enables selecting only some of the APIs from API Management for being exposed to the public. (for example, if there are `Echo API` (/echo/), `Calculator API` (/calc/) etc. make only `Echo API` accessible from Internet). 
 
 The following example creates a simple rule for the "/echo/" path routing traffic to the back-end "apimProxyBackendPool".
 
@@ -285,7 +285,7 @@ The following example creates a simple rule for the "/echo/" path routing traffi
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-If the path doesn't match the path rules we want to enable from API Management, the rule path map configuration also configures a default back-end address pool **dummyBackendPool**. For example, http://api.contoso.net/calc/* will go to **dummyBackendPool** as it is defined as the default pool for un-matched traffic.
+If the path doesn't match the path rules we want to enable from API Management, the rule path map configuration also configures a default back-end address pool **dummyBackendPool**. For example, http://api.contoso.net/calc/* goes to **dummyBackendPool** as it is defined as the default pool for un-matched traffic.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
