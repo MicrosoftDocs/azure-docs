@@ -29,9 +29,11 @@ Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect a
 Create an empty database on the target Azure Database for MySQL server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
 To get connected, locate the connection information on the Properties page in your Azure Database for MySQL.
+
 ![Find the connection information in the Azure portal](./media/concepts-migrate-import-export/1_server-properties-name-login.png)
 
 Add the connection information into your MySQL Workbench.
+
 ![MySQL Workbench Connection String](./media/concepts-migrate-import-export/2_setup-new-connection.png)
 
 ## When to use Import and Export techniques instead of a Dump and Restore
@@ -69,14 +71,14 @@ The following example exports the table to a CSV file.
 - Right-click the Table of the Database to be exported. 
 - Select **Table Data Export Wizard**. Select the Columns to be exported, Row Offset (if any), Count (if any). 
 - Click **Next** on 'select data for export' window. Select the File Path, CSV or JSON file type, Line separator, Enclose Strings in and Field Separator. 
-- Select **Next** on 'Select output file location' window and Select **Next** on 'Export Data' window.
+- Click **Next** on 'Select output file location' window and click **Next** on 'Export Data' window.
 
 #### Table Data Import Wizard
 The following example imports the table from a CSV file.
 - Right-click the Table of the Database to be imported. 
-- Browse and select the CSV file to be imported and then **Next** button. 
-- Select the Destination Table (new or existing) and select or deselect the check box 'Truncate table before import' and click the **Next** button.
-- Select encoding and the columns to be imported and select **Next** button. 
+- Browse and select the CSV file to be imported and then click **Next**. 
+- Select the Destination Table (new or existing) and select or deselect the check box 'Truncate table before import' and click **Next**.
+- Select encoding and the columns to be imported and then click  **Next**. 
 - Select **Next** on Import data Window and it imports the data accordingly.
 
 ### SQL Data Export and Import Wizard from Management Navigator
