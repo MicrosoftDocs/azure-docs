@@ -87,4 +87,4 @@ VMs might be temporarily shut down when I/O requests are consistently throttled 
 Higher IOPS limits are available via Azure Premium Storage with up to 80,000 IOPs. For more information, See [High-Performance Premium Storage](../articles/storage/storage-premium-storage.md).
 
 ### Other incidents
-In rare circumstances, a wide spread issue can impact multiple servers in an Azure data center.  If this occurs, the Azure team sends email notifications to affected subscriptions. You can check the [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal for the status of on going outages and past incidents.
+In rare circumstances, a wide spread issue can impact multiple servers in an Azure data center.  If this occurs, the Azure team sends email notifications to affected subscriptions. You can check the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) and Azure portal for the status of on going outages and past incidents.
