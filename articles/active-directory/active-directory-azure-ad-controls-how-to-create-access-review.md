@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: billmath
 
 # How to create an access review for members of a group or access to an application
@@ -33,7 +33,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 ## Managing the access review
 
-By default, Azure AD sends an email to the reviewers when the review starts.  If you choose not to have Azure AD send the email, be sure to let  the reviewers know that there's an access review waiting for them to complete.  You can show them the instructions for [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md), or if your review is for guests to review their own access, the instructions for [how to review your own access](active-directory-azure-ad-controls-how-to-review-your-access.md).
+By default, Azure AD sends an email to the reviewers when the review starts.  If you choose not to have Azure AD send the email, be sure to let  the reviewers know that there's an access review waiting for them to complete.  You can show them the instructions for [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md), or if your review is for guests to review their own access, the instructions for [how to review your own access](active-directory-azure-ad-controls-how-to-perform-access-review.md).
 
 If the user does not receive an email, see Reviewers aren't getting an email from Azure AD notifying them of a new access review for troubleshooting tips.  If the user can't find the access review on the access panel, see Reviewers can't find access reviews in the access panel.
 
