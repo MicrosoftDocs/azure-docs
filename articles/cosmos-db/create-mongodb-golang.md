@@ -5,20 +5,18 @@ services: cosmos-db
 documentationcenter: ''
 author: durgaprasad
 manager: jhubbard
-editor: ''
+editor: mimig1
 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: golang
+ms.service: cosmos-db
+ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/12/2017
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 06/13/2017
 ms.author: mimig
 
 ---
-
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
