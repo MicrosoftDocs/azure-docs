@@ -53,97 +53,19 @@ Choose next steps based on the application type you are registering:
  
 ## Register a web application
 
-In the B2C settings blade, click **Applications**.
-
-![Applications button in the settings blade](./media/active-directory-b2c-app-registration/b2c-settings.png)
-
-Click **+ Add** in the applications blade.
-
-![+ Add button in the applications blade](./media/active-directory-b2c-app-registration/b2c-applications-add.png)
-
-Enter a **Name** for the application that describes your application to consumers. For example, you could enter `Contoso B2C app`.
-
-Toggle the **Web app / Web API** switch to **Yes**.
-
-If your application needs to use [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md), toggle the **Allow implicit flow** toggle to **Yes**.
-
-The **Reply URLs** are endpoints where Azure AD B2C returns any tokens that your application requests. For example, enter `https://contoso.com/b2capp`.
-
-![Example settings in the new application blade](./media/active-directory-b2c-app-registration/b2c-new-app-settings.png)
-
-Click **Create** to register your application. Your application is now registered and will be listed in the applications list for the B2C tenant.
-
-In the applications blade, find and select your newly registered application. The application's property page will be displayed.
-
-Make note of the  globally unique **Application Client ID** that you include in your application's code.
-
-If your web application calls a web API secured by Azure AD B2C, you want to:
-   1. Create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
-   2. Click **API Access**, click **Add**, and select your web API and scopes (permissions).
-
-> [!NOTE]
-> An **Application Secret** is an important security credential, and should be secured appropriately.
-> 
+[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
 [Jump to **Next steps**](#next-steps)
 
 ## Register a web API
 
-On the B2C settings blade on the Azure portal, click **Applications**.
-
-![Applications button in the settings blade](./media/active-directory-b2c-app-registration/b2c-settings.png)
-
-Click **+ Add** at the top of the blade.
-
-![+ Add button in the applications blade](./media/active-directory-b2c-app-registration/b2c-applications-add.png)
-
-Enter a **Name** for the application that describes your application to consumers. For example, you could enter "Contoso B2C api".
-
-Toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C returns any tokens that your application requests. For example, if your web API is local and listening on port 44316, you could enter `https://localhost:44316/`.
-
-Enter an **App ID URI**. The App ID URI is the identifier used for your web API. For example, enter 'notes'. The full identifier URI is generated for you.
-
-Click **Create** to register your application. Your application is now registered and will be listed in the applications list for the B2C tenant.
-
-Click the application that you created and copy down the globally unique **Application Client ID** that you use later in your code.
-
-Click **Published scopes**. The published scopes are where you define the permissions (scopes) that can be granted to other applications.
-
-Add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.
-
-Click **Save**.
+[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
 [Jump to **Next steps**](#next-steps)
 
 ## Register a mobile or native application
 
-On the B2C settings blade on the Azure portal, click **Applications**.
-
-![Applications button in the settings blade](./media/active-directory-b2c-app-registration/b2c-settings.png)
-
-Click **+ Add** at the top of the blade.
-
-![+ Add button in the applications blade](./media/active-directory-b2c-app-registration/b2c-applications-add.png)
-
-Enter a **Name** for the application that describes your application to consumers. For example, you could enter "Contoso B2C app".
-
-![+ Add button in the applications blade](./media/active-directory-b2c-app-registration/b2c-applications-add.png)
-
-Toggle the **Include native client** switch to **Yes**.
-
-Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri) and do not include special characters such as underscores.
-
-Click **Save** to register your application.
-
-Click the application that you created and copy down the globally unique **Application Client ID** that you use later in your code.
-
-If your native application is calling a web API secured by Azure AD B2C, you want to:
-   1. Create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
-   2. Click **API Access**, click **Add**, and select your web API and scopes (permissions).
-
-> [!NOTE]
-> An **Application Secret** is an important security credential, and should be secured appropriately.
-> 
+[!INCLUDE [active-directory-b2c-register-mobile-or-native-app](../../includes/active-directory-b2c-register-mobile-or-native-app.md)]
 
 [Jump to **Next steps**](#next-steps)
 
