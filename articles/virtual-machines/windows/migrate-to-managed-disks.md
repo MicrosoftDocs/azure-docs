@@ -32,12 +32,10 @@ You can migrate to Managed Disks in following scenarios:
 
 | Migrate...                                            | Documentation link                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| VMs in an availability set that use unmanaged disks to managed disks   | [Convert VMs in an availability set to use managed disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks)                                                                        |
-| Premium unmanaged disks to Premium managed disks   | [Convert existing Azure VMs to managed disks of the same storage type](convert-unmanaged-to-managed-disks.md)                                                                         |
-| Standard unmanaged disks to Standard managed disks | [Convert existing Azure VMs to managed disks of the same storage type](convert-unmanaged-to-managed-disks.md)                                                                         |
-| Standard unmanaged disks to Premium managed disks  | [Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vms-using-standard-managed-disks-to-premium-managed-disks)                            |
-| A single VM from classic to Resource Manager on managed disks     | [Migrate a single VM](migrate-single-classic-to-resource-manager.md)  |
-| All the VMs in a vNet from classic to Resource Manager on managed disks     | [Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md) |
+| Convert stand alone VMs and VMs in an availability set to managed disks   | [Convert VMs to use managed disks](convert-unmanaged-to-managed-disks.md) |
+| A single VM from classic to Resource Manager on managed disks     | [Migrate a single VM](migrate-single-classic-to-resource-manager.md)  | 
+| All the VMs in a vNet from classic to Resource Manager on managed disks     | [Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md) | 
+
 
 
 
