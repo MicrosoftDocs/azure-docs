@@ -78,17 +78,17 @@ Example:
 
 1. Pre-create and scale your collections
         
-    * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using Mongoimport, Mongorestore, or Mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc. If your collection is greater than 10GB, make sure to create a [sharded / partitioned collection](partition-data.md) with an appropriate shard key.
+    * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using mongoimport, mongorestore, or mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc. If your collection is greater than 10GB, make sure to create a [sharded / partitioned collection](partition-data.md) with an appropriate shard key.
 
     * From the [Azure Portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs for a single partition collection / 2,500 RUs for a sharded collection just for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration to save costs.
 
 2. Calculate the approximate RU charge for a single document write
 
-    * Connect to your Azure Cosmos DB mongodb database from the MongoDB Shell. Instructions can be found [here](connect-mongodb-account.md).
+    * Connect to your Azure Cosmos DB MongoDB database from the MongoDB Shell. Instructions can be found [here](connect-mongodb-account.md).
     
-    * Run a sample insert command using a sample document from the Mongo Shell
+    * Run a sample insert command using one of your sample documents from the MongoDB Shell
     
-        Ex. ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+        ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
     * Following the insert, run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response as such
         ```
@@ -106,7 +106,7 @@ Example:
     
 3. Determine the latency from your machine to the Azure Cosmos DB cloud service.
     
-    * Enable verbosing logging from the MongoDB Shell with the command: ```setVerboseShell(true)```
+    * Enable verbose logging from the MongoDB Shell with the command: ```setVerboseShell(true)```
     
     * Run a simple query against the database: ```db.coll.find().limit(1)``` and you will receive a response as such
         ```
@@ -121,7 +121,7 @@ Example:
     
     * If the calculated *batchSize* <= 24, you use that number as your *batchSize*
     
-    * If the calculated *batchSize* > 24, you shoud set the *batchSize* to 24.
+    * If the calculated *batchSize* > 24, you should set the *batchSize* to 24.
     
     * For the *numInsertionWorkers*, use this equation:
         *numInsertionWorkers =  (provisioned throughput * latency in seconds) / (batch size * consumed RUs for a single write)*
