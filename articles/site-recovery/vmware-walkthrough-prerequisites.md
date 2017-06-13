@@ -44,5 +44,5 @@ ms.author: raynew
 
 ## Next steps
 
-- If you're doing a full deployment, go to [Step 3: Plan capacity](site-recovery-vmware-walkthrough-capacity.md)
+- If you're doing a full deployment, go to [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
 - If you're doing a simple test deployment, go to [Step 4: Plan networking](site-recovery-network-design.md).
