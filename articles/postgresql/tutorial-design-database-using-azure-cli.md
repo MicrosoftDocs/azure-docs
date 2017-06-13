@@ -9,10 +9,9 @@ editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
 ms.custom: mvc
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 05/31/2017
+ms.date: 06/13/2017
 
 ---
 # Design your first Azure Database for PostgreSQL using Azure CLI 
@@ -31,8 +30,8 @@ You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /c
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## Log in to Azure
-If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
+If you are using the Azure Cloud Shell, follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
+```azurecli
 az login
 ```
 
@@ -71,7 +70,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
+> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure SQL Database server.
 >
 
 ## Get the connection information
@@ -176,7 +175,7 @@ SELECT * FROM inventory;
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time "2017-04-01T13:10:00-08:00" --source-server mypgserver-20170401
+az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
 
 The `az postgres server restore` command needs the following parameters:
@@ -184,7 +183,7 @@ The `az postgres server restore` command needs the following parameters:
 | --- | --- | --- |
 | --resource-group |  myResourceGroup |  The resource group in which the source server exists.  |
 | --name | mypgserver-restored | The name of the new server that is created by the restore command. |
-| --restore-point-in-time | 2017-04-01T13:10:00-08:00 | Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source server's oldest backup value. Use ISO8601 format. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's backup retention period. Use ISO8601 date and time format. For example, you may use your own local timezone, such as `2017-04-13T05:59:00-08:00`, or use UTC Zulu format `2017-04-13T13:59:00Z`. |
 | --source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
 Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
