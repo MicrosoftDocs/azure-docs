@@ -1,61 +1,71 @@
 ---
-title: Run Azure Batch workloads on cost-effective low-priority VMs (Preview) | Microsoft Docs
-description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
+title: Persist job and task output to Azure Storage with the Azure Batch service API | Microsoft Docs
+description: Learn how to use Batch service API to persist Batch task and job output to Azure Storage.
 services: batch
-author: mscurrell
+author: tamram
 manager: timlt
+editor: ''
 
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.workload: na
-ms.date: 05/05/2017
-ms.author: markscu
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 06/13/2017
+ms.author: tamram
 
 ---
 
 
----
-# Use the Batch service API to persist job and task data
----
+# Use the Batch service API to persist task data to Azure Storage
 
-Task output considerations
-==========================
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. While you can persist data to the file system of a Batch compute node, nodes are ephemeral, and all data on a node is lost when it is reimaged. Therefore it's important to persist task data that you'll need later to a data store such as Azure Storage.
 
-When you design your Batch solution, you must consider several factors related
-to job and task outputs.
+Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. When you add a task or job manager task, you can specify a container in Azure Storage as the destination for the task's output. The Batch service then writes any output data to that container when the task is complete.
 
--   **Compute node lifetime**: Compute nodes are often transient, especially in
-    autoscale-enabled pools. The outputs of the tasks that run on a node are
-    available only while the node exists, and only within the file retention
-    time you've set for the task. To ensure that the task output is preserved,
-    your tasks must therefore upload their output files to a durable store, for
-    example, Azure Storage. The same holds true for any log files for the tasks.
+A key advantage to using the Batch service API to persist task data to Azure Storage is that you do not need to modify the application that the task is running in order to persist the task's output. Instead, with a few simple modifications to your client application, you can persist the task's output from within the code that creates the task.   
 
--   **Output storage:** To persist task output data to durable storage, you can
-    use the Azure Storage SDK in your task code to upload the task output to a
-    Blob storage container. We recommend that you use a naming convention which
-    helps you identify files and the job/task which they came from. You can
-    learn more about the conventions we suggest here:
-    <https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions>
+For more information on other options for persisting output data in Azure Batch, see [Persist job and task output to Azure Storage](batch-task-output.md). 
 
--   **Output retrieval:** You can retrieve task output directly from the compute
-    nodes in your pool, or from Azure Storage if your tasks persist their
-    output. To retrieve a task's output directly from a compute node, you need
-    the file name and its output location on the node. If you persist output to
-    Azure Storage, downstream tasks or your client application must have the
-    full path to the file in Azure Storage to download it by using the Azure
-    Storage SDK.
+## Link an Azure Storage account to your Batch account
 
--   **Viewing output:** When you navigate to a Batch task in the Azure portal
-    and select Files on node, you are presented with all files associated with
-    the task, not just the output files you're interested in. Again, files on
-    compute nodes are available only while the node exists and only within the
-    file retention time you've set for the task. To view task output that you've
-    persisted to Azure Storage in the portal or an application like the Azure
-    Storage Explorer, you must know its location and navigate to the file
-    directly.
+To persist output data to Azure Storage using the File Conventions library, you must first [link an Azure Storage account](batch-application-packages.md#link-a-storage-account) to your Batch account. If you haven't done so already, link a Storage account to your Batch account by using the Azure portal:
+
+**Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
+
+## Create a container in Azure Storage
+
+The container that is the destination for your output files needs to be created before the task runs, preferably before you submit your job. To create the container, use the appropriate Azure Storage client library or SDK. See the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/) for more information about Azure Storage APIs.
+
+For example, if you are writing your application in C#, use the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). The following example shows how to create a container:
+
+```csharp
+CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+await conainer.CreateIfNotExists();
+```
+
+## Get a shared access signature for the container
+
+After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container with a specified set of permissions and over a specified time interval. The Batch service needs a SAS with write permissions in order to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+When you get a SAS using the Azure Storage APIs, the API returns a SAS token string. This token string includes all of the parameters of the SAS, including the permissions and the interval over which the SAS is valid. To use the SAS to access a container in Azure Storage, you need to append the SAS token string to the resource URI. The resource URI with the SAS token appended provides authenticated access to Azure Storage.
+
+The following example shows how to get a write-only SAS token string for the container, then appends the SAS to the container URI:
+
+```csharp
+string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBlobPolicy()
+{
+    SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddDays(1),
+    Permissions = SharedAccessBlobPermissions.Write
+});
+
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+```
+
+## Specify output files for task output
+
+To 
+
 
 
 Built in support for persisting files to Azure Storage
