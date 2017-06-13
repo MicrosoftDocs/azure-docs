@@ -108,7 +108,7 @@ To change the version of the Node.js application, you can use one of the followi
     1. Moves content to the Azure web app.
     2. Creates a default deployment script, if there isn’t one (deploy.cmd, .deployment files) in the web app root folder.
     3. Runs a deployment script in which it creates an iisnode.yml file if you mention the Node.js version in the package.json file > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    The iisnode.yml file has the following line of code:
+    4. The iisnode.yml file has the following line of code:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
@@ -188,10 +188,11 @@ To resolve the error:
 
 If you try to copy live log files for a Java app (for example, Tomcat), you might see this FTP error:
 
-    ```
-    Error transferring file [filename] Copying files from remote side failed.
-    The process cannot access the file because it is being used by another process.
-    ```
+```
+Error transferring file [filename] Copying files from remote side failed.
+    
+The process cannot access the file because it is being used by another process.
+```
 
 The error message might vary, depending on the FTP client.
 
