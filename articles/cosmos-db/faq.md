@@ -178,13 +178,13 @@ The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNam
 ### How do I override the config settings for the request options in the new Table API (Preview)?
 For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appSettings section in the client application.
 
-<appSettings>
-	<add key="TableConsistencyLevel" value="Eventual|Strong|Session|BoundedStaleness|ConsistentPrefix"/>
-	<add key="TableThroughput" value="<PositiveIntegerValue"/>
-	<add key="TableIndexingPolicy" value="<jsonindexdefn>"/>
-	<add key="TableUseGatewayMode" value="True|False"/>
-	<add key="TablePreferredLocations" value="Location1|Location2|Location3|Location4>"/>....
-</appSettings>
+    <appSettings>
+	    <add key="TableConsistencyLevel" value="Eventual|Strong|Session|BoundedStaleness|ConsistentPrefix"/>
+	    <add key="TableThroughput" value="<PositiveIntegerValue"/>
+	    <add key="TableIndexingPolicy" value="<jsonindexdefn>"/>
+	    <add key="TableUseGatewayMode" value="True|False"/>
+	    <add key="TablePreferredLocations" value="Location1|Location2|Location3|Location4>"/>....
+    </appSettings>
 
 
 ### Are there any changes for customers who are using the existing standard table SDK?
