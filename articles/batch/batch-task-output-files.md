@@ -17,7 +17,7 @@ ms.author: markscu
 
 
 ---
-title: Persist files from tasks to Azure Storage
+# Use the Batch service API to persist job and task data
 ---
 
 Task output considerations
