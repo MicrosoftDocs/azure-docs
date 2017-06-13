@@ -183,10 +183,6 @@ This error can also occur if you try to access a **local address** from your app
 
 A blog post in this regard is http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/.
 
-## I am unable to remote debug my web app in Visual Studio. How can I address this?
-
-There may be many reasons that could prevent you from attaching a Visual Studio debugger to your Azure App Serfice Web App. This quick [blog article](https://blogs.msdn.microsoft.com/jpsanders/2016/02/09/manually-attach-a-debugger-to-azure-web-apps/) provides a workaround that may unblock you so you can debug your app.
-
 ## How do I remote debug my Azure App Service Web App using Visual Studio?
 
 Please find a detailed step-by-step walkthrough showing how to debug your web app using Visual Studio via [Remote debug your Azure App Service Web App](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
