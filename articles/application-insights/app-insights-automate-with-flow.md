@@ -45,7 +45,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 ![Run Analytics query screen](./media/app-insights-automate-with-flow/flow2.png)
 
 ### Step 4: Connect to an Application Insights resource
->![Note]
+>[!Note]
 >You need an Application ID and an API Key for your resource to complete this step. You can retrieve them from the Azure Portal as demonstrated in the following diagram:
 
 ![Application ID in the Azure portal](./media/app-insights-automate-with-flow/appid.png) 
