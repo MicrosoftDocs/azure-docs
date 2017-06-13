@@ -176,7 +176,7 @@ SELECT * FROM inventory;
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time "2017-04-13T13:10:00-08:00" --source-server mypgserver-20170401
+az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time "2017-04-01T13:10:00-08:00" --source-server mypgserver-20170401
 ```
 
 The `az postgres server restore` command needs the following parameters:
@@ -184,7 +184,7 @@ The `az postgres server restore` command needs the following parameters:
 | --- | --- | --- |
 | --resource-group |  myResourceGroup |  The resource group in which the source server exists.  |
 | --name | mypgserver-restored | The name of the new server that is created by the restore command. |
-| --restore-point-in-time | 2017-04-26T13:10:00-08:00 | Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source server's oldest backup value. Use ISO8601 format. |
+| --restore-point-in-time | 2017-04-01T13:10:00-08:00 | Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source server's oldest backup value. Use ISO8601 format. |
 | --source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
 Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
