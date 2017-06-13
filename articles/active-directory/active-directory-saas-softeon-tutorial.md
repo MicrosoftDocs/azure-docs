@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05-31-2017
+ms.date: 05-15-2017
 ms.author: jeedes
 
 ---
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.softeon.com/upscrp/samllogin`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.softeon.com/<instancename>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<sub-domain>-ups.softeon.com/sp`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.softeon.com/sp`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Softeon WMS Client support team](mailto:contact@softeon.com) to get these values. 
