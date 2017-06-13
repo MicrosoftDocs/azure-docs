@@ -177,6 +177,7 @@ The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNam
 
 ### How do I override the config settings for the request options in the new Table API (Preview)?
 For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appSettings section in the client application.
+
 <appSettings>
 	<add key="TableConsistencyLevel" value="Eventual|Strong|Session|BoundedStaleness|ConsistentPrefix"/>
 	<add key="TableThroughput" value="<PositiveIntegerValue"/>
@@ -237,7 +238,7 @@ No, you can create and use existing standard table assets without interruption o
 You can use the Azure Cosmos DB portal’s [global replication settings](tutorial-global-distribution-documentdb.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
 
 ### How do I change the primary write region for the account in the premium Table API (Preview)?
-You can use the Azure Cosmos DB global replication portal pane to add a region and then failover to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
+You can use the Azure Cosmos DB global replication portal pane to add a region and then fail over to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
 
 ### How do I configure my preferred read regions for low latency when I distribute my data? 
 To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API (Preview) throws an error if LocationMode is set. Remove that code, because the premium Table API (Preview) picks up this information from the app.config file. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
@@ -261,7 +262,7 @@ With Azure Cosmos DB, you can set the consistency level at the container level (
 ### How does the premium Table API (Preview) account handle failover if a region goes down? 
 The premium Table API (Preview) borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
 
-You can add as many regions as you want for the account and control where it can failover to by providing a failover priority. Of course, to use the database, you need to provide an application there too. When you do so, your customers will not experience downtime. The client SDK is auto homing. That is, it can detect the region that's down and automatically failover to the new region.
+You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. Of course, to use the database, you need to provide an application there too. When you do so, your customers will not experience downtime. The client SDK is auto homing. That is, it can detect the region that's down and automatically fail over to the new region.
 
 ### Is the premium Table API (Preview) enabled for backups?
 Yes, the premium Table API (Preview) borrows from the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
