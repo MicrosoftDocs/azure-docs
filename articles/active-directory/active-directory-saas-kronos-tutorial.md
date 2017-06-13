@@ -115,11 +115,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Kronos support team](https://www.kronos.in/contact/en-in/form) to get these values.
  
- 4. Your Kronos application expects the SAML assertions in a specific format. Work with [Kronos support team](https://www.kronos.in/contact/en-in/form) first to identify the correct user identifier, which is mapped into the application. 
-
-	Also please take the guidance from [Kronos support team](https://www.kronos.in/contact/en-in/form) about the attribute, which they want to use for this mapping. Microsoft recommends using the **"NameIdentifier"** attribute as user identifier. You can manage the values of these attributes from the **"User Attributes"** section on application integration page.
-
-	The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute along with the **ExtractMailPrefix** function, which provides unique user ID, which is sent to the Kronos application in every successful SAML Response.
+4. Your Kronos application expects the SAML assertions in a specific format. Work with [Kronos support team](https://www.kronos.in/contact/en-in/form) first to identify the correct user identifier, which is mapped into the application. Also please take the guidance about the attribute, which they want to use for this mapping.
+ 
+     Microsoft recommends using the **"NameIdentifier"** attribute as user identifier. You can manage the values of these attributes from the **"User Attributes"** section on application integration page.
+	 
+	 The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute along with the **ExtractMailPrefix** function, which provides unique user ID, which is sent to the Kronos application in every successful SAML Response.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_attribute.png)
 
