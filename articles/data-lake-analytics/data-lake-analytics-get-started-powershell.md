@@ -58,7 +58,7 @@ CurrentStorageAccount :
 
 ## Preparing for the tutorial
 
-The PowerShell snippets in this tutorial use these variables to store this information
+The PowerShell snippets in this tutorial use these variables to store this information:
 
 ```
 $rg = "<ResourceGroupName>"
@@ -75,7 +75,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## Submit a U-SQL job
 
-Create a variable to folde the script
+Create a PowerShell variable to hold the U-SQL script.
 
 ```
 $script = @"
