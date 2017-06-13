@@ -1,5 +1,5 @@
 ---
-title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs 
+title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs
 description: "Run ad-hoc analytics queries across multiple SQL databases in the Wingtip SaaS multi-tenant app."
 keywords: sql database tutorial
 services: sql-database
@@ -8,7 +8,7 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -50,7 +50,7 @@ Accessing this data in a single multi-tenant database is easy, but not so easy w
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## Explore the global views
