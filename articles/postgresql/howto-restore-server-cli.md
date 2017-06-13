@@ -63,4 +63,4 @@ Restoring a server to a point-in-time creates a new server, copying as the origi
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
 ## Next steps
-- [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
+[Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
