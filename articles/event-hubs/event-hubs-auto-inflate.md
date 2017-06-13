@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 06/12/2017
 ms.author: shvija;sethm
 
 ---
@@ -39,7 +39,7 @@ Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB pe
 
 You can enable or disable Auto-inflate on a namespace using either of the following methods:
 
-1. The [Azure portal](https://portal.azure.com) (available starting June 12, 2017).
+1. The [Azure portal](https://portal.azure.com).
 2. An Azure Resource Manager template.
 
 ### Enable Auto-inflate through the portal
