@@ -1,17 +1,23 @@
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
-Enter a **Name** for the application that describes your application to consumers. For example, you could enter "Contoso B2C API".
+To register your web API, use the settings specified in the table.
 
-Toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C returns any tokens that your application requests. For example, if your web API is local and listening on port 44316, you could enter `https://localhost:44316/`.
+![Example registration settings for new web api](./media/active-directory-b2c-register-web-api/b2c-new-web-api-settings.png)
 
-Enter an **App ID URI**. The App ID URI is the identifier used for your web API. For example, enter 'notes'. The full identifier URI is generated for you.
+| Setting      | Sample value  | Description                                        |
+| ------------ | ------- | -------------------------------------------------- |
+| **Name** | Contoso B2C API | Enter a **Name** for the application that describes your API to consumers. | 
+| **Include web app / web API** | Yes | Select **Yes** for a web API. |
+| **Allow implicit flow** | Yes | Select **Yes** if your application uses [OpenID Connect sign-in](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
+| **Reply URL** | `https://localhost:44316/` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your application requests. In this example, your web API is local and listening on port 44316. |
+| **App ID URI** | api | The App ID URI is the identifier used for your web API. The full identifier URI including the domain is generated for you. |
 
-Click **Create** to register your application. Your application is now registered and will be listed in the applications list for the B2C tenant.
+Click **Create** to register your application.
 
-Click the application that you created and copy down the globally unique **Application Client ID** that you use later in your code.
+Your newly registered application is displayed in the applications list for the B2C tenant. Select your web app from the list. The web application's property pane is displayed.
 
-Click **Published scopes**. The published scopes are where you define the permissions (scopes) that can be granted to other applications.
+![Web API properties](./media/active-directory-b2c-register-web-api/b2c-web-api-properties.png)
 
-Add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.
+Make note of the globally unique **Application Client ID**. You use the ID in your application's code.
 
-Click **Save**.
+Click **Published scopes** to add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.

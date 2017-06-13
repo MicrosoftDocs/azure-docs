@@ -12,9 +12,9 @@ To register your web application, use the settings specified in the table.
 | **Allow implicit flow** | Yes | Select **Yes** if your application uses [OpenID Connect sign-in](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
 | **Reply URL** | `https://contoso.com/b2capp` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your application requests. |
 
-Click **Create** to register your application. Your application is now registered and is listed in the applications list for the B2C tenant.
+Click **Create** to register your application.
 
-Your newly registered application is displayed in the applications list. Select your web app from the list. The web application's property pane is displayed.
+Your newly registered application is displayed in the applications list for the B2C tenant. Select your web app from the list. The web application's property pane is displayed.
 
 ![Web app properties](./media/active-directory-b2c-register-web-app/b2c-web-app-properties.png)
 
