@@ -17,7 +17,7 @@ ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 
 ---
-# Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
+# Develop U-SQL scripts using Data Lake Tools for Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
@@ -83,12 +83,12 @@ OUTPUT @a
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   * Job Summary. Show the summary information of current job: State, Progress, Execution Time, Runtime Name, Submitter etc.   
-   * Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-   * Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-   * Metadata Operations. It shows all the metadata operations.
-   * State History.
-   * Diagnostics. ADLToolsForVS diagnoses job execution automatically. Alerts appear when there are some errors or performance issues in their jobs.
+   * The **Job Summary** shows the summary information of the job   
+   * **Job Details** shows more specific information about the job. This includes the script, resources, and vertices.
+   * The **Job Graph** visualizes the job's progress.
+   * The **Metadata Operations** tab shows all the actions taken on the U-SQL catalog.
+   * **Data** shows all the inputs and outputs.
+   * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
 **To check job state**
 

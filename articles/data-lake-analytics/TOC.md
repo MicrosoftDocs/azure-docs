@@ -12,21 +12,20 @@
 ## [Python](data-lake-analytics-get-started-python.md)
 
 # How to
-## Develop
+
+## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL language reference](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL catalog](data-lake-analytics-u-sql-catalog.md)
 ### [U-SQL joins](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL parameters](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
-
-## Create solutions
+### [U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
-### [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
-
+### [Use the U-SQL Interactive tutorial](data-lake-analytics-use-interactive-tutorials.md)
 
 ## Manage
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
@@ -34,11 +33,10 @@
 ### [PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
-### [U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
-
-## Troubleshoot
-### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
+
+## Debug U-SQL programs
+### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -48,7 +46,6 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
