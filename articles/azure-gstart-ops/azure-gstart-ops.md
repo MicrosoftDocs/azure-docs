@@ -355,13 +355,13 @@ In addition to deploying a virtual machine from the Azure portal, you can deploy
 
 Deploying an Azure virtual machine by using PowerShell allows for complete deployment automation of all related virtual machine resources, including storage and networking. For more information, see [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines/windows/quick-create-powershell.md).
 
-In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure compute resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 **Command-line interface (CLI)**
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you’re using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../virtual-machines/linux/quick-create-cli.md).
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
 ### Access and security for virtual machines
 
@@ -437,17 +437,17 @@ In addition to deploying a storage account from the Azure portal, you can deploy
 
 Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
 
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 **Command-line interface (CLI)**
 
 As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../storage/storage-azure-cli.md)
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../resource-group-template-deploy-cli.md).
 
 ### Access and security for Azure Storage
 
-Azure Storage is accessed in a variety of ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. This section will detail a few of these.
+Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. 
 
 **Virtual machine disks**
 
@@ -455,15 +455,15 @@ When you’re deploying a virtual machine, you also need to create a storage acc
 
 **Storage tools**
 
-Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools provide the ability to browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../storage/storage-explorers.md).
+Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../storage/storage-explorers.md).
 
 **Storage API**
 
-Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, and operational behavior. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management and automatic retries. For more information, see [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 **Storage access keys**
 
-Each storage account has two authentication keys, a primary and a secondary. Either of these can be used for storage access operations. These storage keys are used to help secure a storage account and are required for programmatically accessing data. There are two keys to allow occasional rollover of the keys to enhance security. It is critical to keep these secure because their possession, along with the account name, allows unlimited access to any data in the storage account.
+Each storage account has two authentication keys, a primary and a secondary. Either can be used for storage access operations. These storage keys are used to help secure a storage account and are required for programmatically accessing data. There are two keys to allow occasional rollover of the keys to enhance security. It is critical to keep the keys secure because their possession, along with the account name, allows unlimited access to any data in the storage account.
 
 **Shared access signatures**
 
@@ -502,13 +502,13 @@ In addition to deploying an Azure virtual network from the Azure portal, you can
 
 Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
 
-In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 **Command-line interface (CLI)**
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md).
 
-Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
 ### Access and security for virtual networks
 
