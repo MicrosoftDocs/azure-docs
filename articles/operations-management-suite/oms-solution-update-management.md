@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2017
+ms.date: 06/13/2017
 ms.author: magoedte
 
 ---
@@ -23,8 +23,8 @@ ms.author: magoedte
 
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers.
 
-## Solution components
 
+## Solution overview
 Computers managed by OMS use the following for performing assessment and update deployments:
 
 * OMS agent for Windows or Linux
@@ -115,7 +115,13 @@ On a Windows computer, you can review the following to verify agent connectivity
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
 
-If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Configure proxy and firewall settings in Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
+If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agents.md#network) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md#network).
+
+> [!NOTE]
+> If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours.
 
