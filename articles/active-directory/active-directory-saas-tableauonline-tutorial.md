@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 06/13/2017
 ms.author: jeedes
 
 ---
@@ -107,11 +107,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 3. On the **Tableau Online Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
+	
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.online.tableau.com`
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.online.tableau.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.online.tableau.com/public/sp/<instancename>`
 	
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Tableau Online Client support team](https://www.tableau.com/support) to get this value. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Tableau Online Client support team](https://www.tableau.com/support) to get these values. 
  
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
@@ -134,35 +136,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
    ![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_13.png)
 
-9. In the **Match assertions** section, insert the corresponding Identity Provider assertion name for email address, first name, and last name. To get this information from Azure AD: 
+9. In the **Match assertions** section, insert the corresponding Identity Provider assertion name for **email address**, **first name**, and **last name**. To get this information from Azure AD: 
   
  	a. In the Azure portal, go on the **Tableau Online** application integration page.
   	
 	b. In the attributes section, Select the **"view and edit all other user attributes"** checkbox. 
   	
-	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/attributesection.png)
+   ![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/attributesection.png)
 	  
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:
 
-	![Azure AD Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Azure AD Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_10.png)
 	
 	d. Click **user.givenname** value 
     
     e. Copy the value from the **namespace** textbox.
 
-	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/attributesection2.png)
+   ![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/attributesection2.png)
 
     f. To copy the namesapce values for the email and surname follow the preceding steps.
 
-	g. Switch to the Tableau Online application, then set the **Tableau Online Attributes** section as follows:
-
-	* Email: **mail** or **userprincipalname**
-		
-	* First name: **givenname**
-		
-	* Last name: **surname**
+  	g. Switch to the Tableau Online application, then set the **Tableau Online Attributes** section as follows:
+     * Email: **mail** or **userprincipalname**
+     * First name: **givenname**
+     * Last name: **surname**
    
-	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
+   ![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -251,8 +250,6 @@ When you click the Tableau Online tile in the Access Panel, you should get autom
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
