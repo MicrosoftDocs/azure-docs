@@ -101,7 +101,7 @@ composer install
 
 ### Configure MySQL connection
 
-In the repository root, create a _.env_ file and copy the following variables into it. Replace the _&lt;root_password>_ placeholder with the root user's password.
+In the repository root, create a *.env* file and copy the following variables into it. Replace the _&lt;root_password>_ placeholder with the root user's password.
 
 ```
 APP_ENV=local
@@ -145,7 +145,7 @@ To stop PHP at any time, type `Ctrl`+`C` in the terminal.
 
 ## Create production MySQL in Azure
 
-In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you'll configure the PHP application to connect to this database.
+In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
 ### Log in to Azure
 
@@ -497,7 +497,7 @@ Based on the [Laravel naming convention](https://laravel.com/docs/5.4/eloquent#d
 
 ### Update application logic
 
-Open _routes/web.php_. The application defines its routes and business logic here.
+Open *routes/web.php*. The application defines its routes and business logic here.
 
 At the end of the file, add a route with the following code:
 
@@ -520,7 +520,7 @@ The preceding code makes a simple update to the data model by toggling the value
 
 ### Update the view
 
-Open _resources/views/tasks.blade.php_. Find the `<tr>` opening tag and replace it with:
+Open *resources/views/tasks.blade.php*. Find the `<tr>` opening tag and replace it with:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
