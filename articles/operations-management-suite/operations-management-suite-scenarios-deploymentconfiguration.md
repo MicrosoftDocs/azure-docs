@@ -19,7 +19,9 @@ ms.author: bwren
 ---
 # Deploying and configuring virtual machines using Azure management tools
 
-## Resource Manager templates
+## Deploying Azure resources
+
+### Resource Manager templates
 [Resource Manager]() templates should be the primary technology leveraged to deploy and configure Azure resources.  While you can create and configure most resources using more direct methods such as the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/azure/overview), or [CLI](https://docs.microsoft.com/cli/azure/overview), templates have multiple attributes that make them ideal for the basis of a managed scalable deployment process.
 
 - ARM templates are idempotent meaning that you define the end state of your desired configuration.  It can be installed multiple times without duplicating the install and will respect 
@@ -28,26 +30,19 @@ ms.author: bwren
 - ARM templates separate your required configuration from the process of applying that configuration.  You can have one script or runbook for VM deployment that leverages multiple ARM templates depending on the configuration being deployed. 
 
 
-### Virtual machine extensions
+#### Virtual machine extensions
 When deploying virtual machines in Azure, you should leverage ARM templates ability to install extensions that add the VM to other management services.
 
 - **PowerShell DSC VM extension**. adds the VM to [PowerShell DSC in Azure Automation](#powershell-dsc).  This is used to configure the operating system inside the VM.  As soon as the machine comes online, it will download the PowerShell DSC configuration.
 - **Microsoft Monitoring Agent extension**.  This adds the OMS agent to the VM which connects it to a Log Analytics workspace.  As soon as the VM comes online, it will install the agent in the operating system, connect to the workspace, and download any management solutions in the workspace. 
 
-### Questions
+#### Questions
 - Where would we keep a library of templates?
 - Non-Azure resources
 	- AWS
 	- VMWare
 	- Hyper-V
 	- VMM
-
-## PowerShell DSC
-[PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/overview) allows you to configure the operating system inside of your VM once it's been created.  Instead of a script, you define DSC configurations which define the end state of the operating system and applications to be installed on the VM.  Like ARM templates, this has the advantage of being idempotent so that a configuration can be applied multiple times to ensure that the VM configuration is maintains its configuration even if it's accidentally modified by an administrator.  You can centrally manage configurations and apply them to multiple VMs.
-
-### Azure Automation DSC
-
-Configurations for PowerShell DSC are centrally located on pull servers.  Clients connect to a pull server to load configurations.  Azure Automation manages DSC configurations and delivers them to agents precluding the requirement to maintain pull servers.  PowerShell DSC can be used without Azure Automation, but you would need to maintain configurations and pull servers on your own.
 
 
 ## Automating the deployment
@@ -57,7 +52,6 @@ You can deploy an ARM template using the Azure portal or one of multiple methods
 - Look up configuration values from other systems.
 - Log the deployment to a management system.
 
-
 ### PowerShell
 PowerShell has cmdlets for all Azure services and many other systems.  You can use the [New-AzureRmResourceGroupDeployment]() to deploy an ARM template from a PowerShell script.   
 
@@ -65,7 +59,25 @@ PowerShell has cmdlets for all Azure services and many other systems.  You can u
 The Azure CLI lets you deploy and configure Azure resources from a Windows or Linux command line.  You can also launch a CLI command line from the Azure portal making it available from any browser.  Using the CLI, you can include commands in a batch or a bash script.
 
 
-## Azure Automation
+
+
+## Configuring virtual machines
+
+## PowerShell DSC
+[PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/overview) allows you to configure the operating system inside of your VM once it's been created.  Instead of a script, you define DSC configurations which define the end state of the operating system and applications to be installed on the VM.  Like ARM templates, this has the advantage of being idempotent so that a configuration can be applied multiple times to ensure that the VM configuration is maintains its configuration even if it's accidentally modified by an administrator.  You can centrally manage configurations and apply them to multiple VMs.
+
+### Azure Automation DSC
+
+Configurations for PowerShell DSC are centrally located on pull servers.  Clients connect to a pull server to load configurations.  Azure Automation manages DSC configurations and delivers them to agents precluding the requirement to maintain pull servers.  PowerShell DSC can be used without Azure Automation, but you would need to maintain configurations and pull servers on your own.
+
+
+## IaaS patch management
+
+### Update management solution
+The [Update Management Solution](oms-solution-update-management.md) helps you manage updates for Windows and Linux computers.  It requires the OMS agent and [hybrid runbook worker]() on the computers being managed.  
+
+
+
 
 
 ## Integrating with existing monitoring
