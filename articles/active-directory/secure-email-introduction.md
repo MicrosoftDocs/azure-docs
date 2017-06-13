@@ -37,6 +37,10 @@ Your organization may be subject to regulatory or other compliance requirements,
 
 We have done our best to account for a wide variety of organizational protection requirements. But, we cannot account for all possible requirements or for all the unique aspects of your organization. Use this document as a guide for how Microsoft and the secure productive enterprise team is thinking about how to correctly apply policy in your organization. 
 
+>[!NOTE]
+>For an overview of the core concepts necessary to understand the protection capabilities described in these recommendations, see [EMS and Office 365 Service Descriptions](secure-email-ems-office365-service-descriptions.md).
+>
+
 ## Core concepts
 
 All the security measures in the world do not matter when users who experience unnecessary friction when trying to get their work done bypass your organizational security policies. Azure AD single-sign on (SSO) attempts to minimize the burden on users. This way users can remain productive while still conforming to the access control policies of the organization. 

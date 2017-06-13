@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.date: 06/06/2016
 ms.author: ninarn
