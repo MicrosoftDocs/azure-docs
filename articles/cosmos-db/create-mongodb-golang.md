@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs
-description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
-services: cosmos-db
-author: durgaprasad
-manager: jhubbard
-editor: mimig1
-documentationcenter: ''
+title: Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs  
+description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB  
+services: cosmos-db  
+author: durgaprasad  
+manager: jhubbard  
+editor: mimig1  
+documentationcenter: ''  
 
-ms.assetid: 
-ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 06/13/2017
-ms.author: mimig
-
+ms.assetid:  
+ms.service: cosmos-db  
+ms.workload: data-services  
+ms.tgt_pltfrm: na  
+ms.devlang: na  
+ms.topic: hero-article  
+ms.date: 06/13/2017  
+ms.author: mimig  
+  
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
@@ -124,7 +124,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-   collection := session.DB(“golang-couch”).C(“package”)
+collection := session.DB(“golang-couch”).C(“package”)
 ```
 
 <a id="create-document"></a>
