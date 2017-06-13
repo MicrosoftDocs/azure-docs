@@ -52,8 +52,8 @@ When your data modeling is complete, you can operationalize the model to make pr
 ### Score in HDInsight
 To score in HDInsight, write an R function that calls your model to make predictions for a new data file that you've loaded to your storage account. Then save the predictions back to the storage account. You can run the routine on-demand on the edge node of your cluster or by using a scheduled job.  
 
-### Score in Azure Machine Learning
-To score by using an Azure Machine Learning web service, use the open source Azure Machine Learning R package known as [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) to publish your model as an Azure web service. For convenience, this package is pre-installed on the edge node. Next, use the facilities in Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
+### Score in Azure Machine Learning (AML)
+To score using an AML web service, use the open source Azure Machine Learning R package known as [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) to publish your model as an Azure web service. For convenience, this package is pre-installed on the edge node. Next, use the facilities in Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
 
 If you choose this option, you need to convert any ScaleR model objects to equivalent open-source model objects for use with the web service. Use ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models, for this conversion.
 
@@ -64,7 +64,7 @@ To score on-premises after creating your model, you can serialize the model in R
 ### Install and maintain R packages
 Most of the R packages that you use are required on the edge node since most steps of your R scripts run there. To install additional R packages on the edge node, you can use the usual `install.packages()` method in R.
 
-You do not usually need to install additional R packages on the data nodes if you are just using routines from the ScaleR library across the cluster. However, you might need additional packages to support the use of **rxExec** or **RxDataStep** execution on the data nodes.
+If you are just using routines from the ScaleR library across the cluster, you do not usually need to install additional R packages on the data nodes. However, you might need additional packages to support the use of **rxExec** or **RxDataStep** execution on the data nodes.
 
 In these cases, the additional packages can be installed with a script action after you create the cluster. For more information, see [Creating an HDInsight cluster with R Server](hdinsight-hadoop-r-server-get-started.md).   
 
@@ -94,7 +94,7 @@ Lastly, you can access the R Server console on the edge node by typing **R** at 
 The fees that are associated with an HDInsight cluster with R Server are structured similarly to the fees for the standard HDInsight clusters. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift. For more information about HDInsight pricing, and the availability of a 30-day free trial, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Next steps
-To learn more about how to use R Server with HDInsight clusters, see the following topics.
+To learn more about how to use R Server with HDInsight clusters, see the following topics:
 
 * [Getting started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md)
 * [Add RStudio Server to HDInsight (if not installed during cluster creation)](hdinsight-hadoop-r-server-install-r-studio.md)
