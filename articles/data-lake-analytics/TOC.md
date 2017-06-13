@@ -18,19 +18,14 @@
 ### [U-SQL language reference](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL catalog](data-lake-analytics-u-sql-catalog.md)
 ### [U-SQL joins](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL parameters](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 ### [U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
-
-
-## Create solutions
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
-### [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
-
+### [Use the U-SQL Interactive tutorial](data-lake-analytics-use-interactive-tutorials.md)
 
 ## Manage
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
