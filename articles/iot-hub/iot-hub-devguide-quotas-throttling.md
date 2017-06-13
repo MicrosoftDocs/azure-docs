@@ -61,7 +61,7 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 
 ## Other limits
 
-IoT Hub enforces other limits on its different functionalities.
+IoT Hub enforces other operational limits:
 
 | Operation | Limit |
 | --------- | ----- |
@@ -69,6 +69,9 @@ IoT Hub enforces other limits on its different functionalities.
 | Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
+| Device-to-cloud messaging | Maximum message size 256 KB |
+| Cloud-to-device messaging | Maximum message size 64 KB |
+| Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
 
 > [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
@@ -84,7 +87,7 @@ In case of unexpected increases in operation latency, contact [Microsoft Support
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:
-ms.date: 02/13/2017
+ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
@@ -71,7 +71,7 @@ If the on-premises virtual machine does not exist before reprotecting the virtua
 
 A physical machine, when failed over to Azure, can be failed back only as a VMware virtual machine (also referred to as P2A2V). This flow falls under the alternate location recovery.
 
-* A Windows Server 2008 R2 SP1 server, if protected and failed over to Azure, cannot be failed back.
+* A Windows Server 2008 R2 SP1 physical server, if protected and failed over to Azure, cannot be failed back.
 * Ensure that you discover at least one master target server and the necessary ESX/ESXi hosts to which you need to fail back.
 
 ## Have you completed reprotection?

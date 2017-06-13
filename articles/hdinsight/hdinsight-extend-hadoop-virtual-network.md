@@ -1,5 +1,5 @@
 ﻿---
-title: Extend HDInsight with Virtual Network | Microsoft Docs
+title: Extend HDInsight with Virtual Network - Azure | Microsoft Docs
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
@@ -115,6 +115,8 @@ The IP addresses that should be allowed are specific to the region that the HDIn
 | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
 | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
+| Japan | Japan East | 13.78.125.90</br>13.78.89.60 | 443 |
+| &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 |
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
 | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
@@ -129,6 +131,9 @@ __If your region is not listed in the table__, allow traffic to port __443__ on 
 
 > [!IMPORTANT]
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, __only use inbound rules__.
+
+> [!NOTE]
+> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ### Working with HDInsight in secured virtual networks
 

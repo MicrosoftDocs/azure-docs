@@ -29,7 +29,7 @@ You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Thi
 
 These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the tutorials you can choose to use either simulated or real IoT devices. In addition, you can learn how to use a gateway to enable devices to connect to your IoT hub.
 
-## Device setup scenario: Connect IoT device or gateway to Azure IoT Hub
+## Setup your device: Connect IoT device or gateway to Azure IoT Hub
 
 You can choose your real or simulated device to get started.
 
@@ -49,22 +49,7 @@ In addition, you can use an IoT Edge gateway to enable devices to connect to you
 | Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
 | Simulated gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-## Extended IoT scenarios: Use other Azure services and tools
-
-When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
-
-| Scenario                                    | Azure service or tool              |
-|---------------------------------------------|------------------------------------|
-| [Manage IoT Hub messages][Mg_IoT_Hub_Msg]                    | iothub-explorer tool               |
-| [Manage your IoT device][Mg_IoT_Dv]               | iothub-explorer tool               |
-| [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]                      | Azure table storage               |
-| [Visualize sensor data][Vis_Data]             | Microsoft Power BI, Azure Web Apps |
-| [Forecast weather with sensor data][Weather_Forecast] | Azure Machine Learning             |
-| [Automatic anomaly detection and reaction][Anomaly_Detect]    | Azure Logic Apps                   |
-
-## Next steps
-
-When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide][lnk-dev-guide]. You can find additional tutorials in the [How To][lnk-how-to] section.
+[!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
@@ -81,11 +66,3 @@ When you have completed these tutorials, you can further explore the capabilitie
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
 [Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: iot-hub-windows-iot-edge-get-started.md
-[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
-[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
-[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
-[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-dev-guide]: iot-hub-devguide.md
-[lnk-how-to]: iot-hub-how-to.md

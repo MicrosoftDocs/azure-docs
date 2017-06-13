@@ -16,7 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-
+ms.custom: mvc
 ---
 # Choose between Flow, Logic Apps, Functions, and WebJobs
 This article compares and contrasts the following services in the Microsoft cloud, which can all solve integration 

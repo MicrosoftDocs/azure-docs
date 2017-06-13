@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Reference - Trust Frameworks  | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+description: A topic on Azure Active Directory B2C custom policies and the Identity Experience Framework
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja

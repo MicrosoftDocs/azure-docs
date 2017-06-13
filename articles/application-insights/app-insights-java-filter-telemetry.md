@@ -3,7 +3,7 @@ title: Filter Azure Application Insights telemetry in your Java web app | Micros
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 
