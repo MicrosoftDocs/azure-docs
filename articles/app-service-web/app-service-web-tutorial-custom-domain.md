@@ -92,7 +92,7 @@ When you see the following notification, the scale operation is complete.
 
 ## Map a CNAME record
 
-In the tutorial example, you add a CNAME record for the `www` subdomain (`www.contoso.com`).
+In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).
 
 ### Access DNS records with domain provider
 
