@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: anhoh
 
 ---
@@ -72,11 +72,10 @@ Where the values of this string are available in the Connection String blade sho
 * Database (optional)
   * The default database used by the connection (if no database is provided, the default database is "test")
 * ssl=true (required)
-* replicaSet=globaldb (required)
 
 For example, consider the account shown in the Connection String Information above.  A valid connection string is:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true&replicaSet=globaldb
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10255/mydatabase?ssl=true
 
 ## Next steps
 * Learn how to [use MongoChef](mongodb-mongochef.md) with an Azure Cosmos DB: API for MongoDB account.
