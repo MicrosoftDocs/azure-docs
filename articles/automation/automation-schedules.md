@@ -1,4 +1,4 @@
-﻿---
+---
 title: Schedules in Azure Automation | Microsoft Docs
 description: Automation schedules are used to schedule runbooks in Azure Automation to start automatically. Describes how to create and manage a schedule in so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 06/13/2016
 ms.author: magoedte
 
 ---
@@ -51,9 +51,9 @@ The cmdlets in the following table are used to create and manage schedules with 
 You can create a new schedule for runbooks in the Azure portal, in the classic portal, or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure classic or Azure portal.
 
 > [!NOTE]
-> When you associate a schedule with a runbook, Automation stores the current versions of the modules in your account and links them to that schedule.  This means that if you had a module with version 1.0 in your account when you created a schedule and then update the module to version 2.0, the schedule will continue to use 1.0.  In order to use the updated module version, you must create a new schedule. 
-> 
-> 
+> Azure Automation will use the latest modules in your Automation account when a new scheduled job is run.  To avoid impacting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing.  This will validate your scheduled runbooks continue to work correctly and if not, you can further troubleshoot and apply any changes required before migrating the updated runbook version to production.  
+>  Your Automation account will not automatically get any new versions of modules unless you have updated them manually by selecting the [Update Azure Modules](automation-update-azure-modules.md) option from the **Modules** blade. 
+>  
 
 ### To create a new schedule in the Azure portal
 1. In the Azure portal, from your automation account, click the **Assets** tile to open the **Assets** blade.
