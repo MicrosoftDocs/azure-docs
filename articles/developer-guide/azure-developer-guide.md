@@ -206,7 +206,7 @@ published on the [Azure regions](https://azure.microsoft.com/regions/) page.
 
 ### Choose the best region for your application and data
 
-One of the benefits of using Azure is that you can deploy your applications to various datacenters around the globe. The region that you choose can affect the performance of your application. For example, it's better to choose a region that’s closer to a majority of your customers to reduce latency in network requests. You might also
+One of the benefits of using Azure is that you can deploy your applications to various datacenters around the globe. The region that you choose can affect the performance of your application. For example, it's better to choose a region that’s closer to most of your customers to reduce latency in network requests. You might also
 want to select your region to meet the legal requirements for distributing your app in certain countries. It's always a best practice to store application data in the same datacenter or in a datacenter as near as possible to the datacenter that is hosting your application.
 
 ### Multi-region apps
@@ -273,7 +273,7 @@ To be able to create or work with an Azure subscription, you must have an Azure 
 
 Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription is by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 
@@ -320,7 +320,7 @@ Azure Resource Manager lets you assign custom tags to individual resources. Tags
 
 ### Billing
 
-In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis.You also need to be able to project how the billing looks for a given month based on the current spending.
+In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis. You also need to be able to project how the billing looks for a given month based on the current spending.
 
 #### Get resource usage data
 
