@@ -12,7 +12,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 06/09/2017
 ms.author: sstein
 
 ---
@@ -29,10 +29,10 @@ After deploying the app, explore the following tutorials that build upon the ini
 
 | Tutorial | Description |
 |:--|:--|
-|[Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)| **START HERE!** Deploy the Wingtip SaaS application to your Azure subscription. |
+|[Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)| **START HERE!** Deploy and explore the Wingtip SaaS application to your Azure subscription. |
 |[Provision and catalog tenants](sql-database-saas-tutorial-provision-and-catalog.md)| Learn how the application connects to tenants using a catalog database, and how the catalog maps tenants to their data. |
-|[Monitor with Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) | Learn about using [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources, across multiple pools. |
 |[Monitor and manage performance](sql-database-saas-tutorial-performance-monitoring.md)| Learn how to use monitoring features of SQL Database, and how to set alerts when performance thresholds are exceeded. |
+|[Monitor with Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) | Learn about using [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources, across multiple pools. |
 |[Restore a single tenant](sql-database-saas-tutorial-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Steps to restore to a parallel database, leaving the existing tenant database online, are also included. |
 |[Manage tenant schema](sql-database-saas-tutorial-schema-management.md)| Learn how to update schema, and update reference data, across all Wingtip SaaS tenants. |
 |[Run ad-hoc analytics](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run real-time distributed queries across all tenants.  |
