@@ -187,7 +187,7 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-### Multi-value Properties
+## Multi-value properties
 Allowed operators
 
 * -any (satisfied when at least one item in the collection matches the condition)
