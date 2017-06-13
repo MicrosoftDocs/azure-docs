@@ -1,5 +1,5 @@
 ---
-title: Configure Domain-joined HDInsight clusters| Microsoft Docs
+title: Configure Domain-joined HDInsight clusters - Azure | Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters
 services: hdinsight
 documentationcenter: ''

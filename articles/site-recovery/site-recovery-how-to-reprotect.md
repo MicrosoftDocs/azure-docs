@@ -102,6 +102,10 @@ Click the following links to read about how to install a master target server:
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
 
+### What datastore types are supported on the on-premises ESXi host during failback?
+
+Currently ASR only supports failing back to a VMFS datastore. A vSAN or NFS datastore is not supported. Note that you can protect virtual machines running on a vSAN or NFS datastore. Due to this limitation, the datastore selection input in the reprotect screen will be empty in case of NFS datastores or show the vSAN datastore but fail during the job. If you intend to failback, then you can create a VMFS datastore on-premises and failback to it. This failback will be cause a full download of the VMDK. We are adding support for NFS and vSAN datastores in the upcoming releases.
+
 #### Common things to check after completing installation of the master target server
 
 * If the virtual machine is present on premises on the vCenter server, the master target server needs access to the on-premises virtual machine's VMDK. Access is needed to write the replicated data to the virtual machine's disks. Ensure that the on-premises virtual machine's datastore is mounted on the master target's host with read/write access.
