@@ -90,7 +90,8 @@ To switch from using a custom image to using a built-in image:
 ## Troubleshooting ##
 
 When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site or via FTP.
-You need to enable **Web server logging** under **Diagnostics Logs**
+You need to enable **Web server logging** under **Diagnostics Logs** to have log the `stdout` and `stderr` from your container.
+
 ![Enabling Logging][8]
 
 ![Using Kudu to view Docker logs][7]
