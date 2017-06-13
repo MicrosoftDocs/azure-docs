@@ -29,9 +29,36 @@ Before you begin this tutorial, you must have the following information:
 * **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
+## Log in to Azure
+
+This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) if you need help.
+
+To log in with a subscription name:
+
+'''
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+'''
+
+Instead of the subscription name, you can also use a subscription id to log in:
+
+'''
+Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+'''
+
+If  successful, the output of this command looks like the following text:
+
+```
+Environment           : AzureCloud
+Account               : joe@contoso.com
+TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionName      : ContosoSubscription
+CurrentStorageAccount :
+```
+
 ## Preparing for the tutorial
 
-The PowerShell snippets in this tutorial use these variables to store this information
+The PowerShell snippets in this tutorial use these variables to store this information:
 
 ```
 $rg = "<ResourceGroupName>"
@@ -48,7 +75,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## Submit a U-SQL job
 
-Create a variable to folde the script
+Create a PowerShell variable to hold the U-SQL script.
 
 ```
 $script = @"
