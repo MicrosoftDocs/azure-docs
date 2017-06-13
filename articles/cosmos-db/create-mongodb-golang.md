@@ -201,12 +201,12 @@ Azure Cosmos DB supports deleting JSON documents.
 1. In Goglang, ensure that your GOPATH (available under File, Settings, Go, GOPATH) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
 2. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
-    You'll see that the app finishes and exits with the following output. The Description is the from the document that was created in [Create a document](#create-document).
+    You'll see that the app finishes and exits with the following output. The Description is from the document that was created in [Create a document](#create-document).
     
     ```
     Description: A framework for building native apps with React.
     
-    Process finished with exit code 0`.
+    Process finished with exit code 0
     ```
 
     ![Goglang showing the output of the app](./media/create-mongodb-golang/goglang-cosmos-db.png)
@@ -215,11 +215,11 @@ Azure Cosmos DB supports deleting JSON documents.
 
 Go back to the Azure portal to see your document Data Explorer.
 
-1. Click **Data Explorer (Preview)** in the left navigation menu, expand golang-coach, package, and then click **Documents**. In the Documents tab, click the `_id` for the new document to display the document in the right pane. 
+1. Click **Data Explorer (Preview)** in the left navigation menu, expand **golang-coach**, **package**, and then click **Documents**. In the **Documents** tab, click the \_id to display the document in the right pane. 
 
-    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+    ![Data Explorer showing the newly created document](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
     
-2. You can then work with the document inline and click Update to save it. You can also delete the document, or create new documents or queries.
+2. You can then work with the document inline and click **Update** to save it. You can also delete the document, or create new documents or queries.
 
 ## Review SLAs in the Azure portal
 
