@@ -588,9 +588,9 @@ From the left menu, click **App Services**, then click the name of your Azure we
 
 ![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
+By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service page in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
