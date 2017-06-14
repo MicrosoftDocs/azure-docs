@@ -43,19 +43,19 @@ To configure your Azure Stack environment, do the following:
 
    * **Administrative environment**
 
-   ```PowerShell
-   Add-AzureStackAzureRmEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
-   ```
+       ```PowerShell
+       Add-AzureStackAzureRmEnvironment `
+         -Name "AzureStackAdmin" `
+         -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+       ```
 
    * **User environment**
 
-   ```PowerShell
-   Add-AzureStackAzureRmEnvironment `
-     -Name "AzureStackUser" `
-     -ArmEndpoint "https://management.local.azurestack.external" 
-   ```
+       ```PowerShell
+       Add-AzureStackAzureRmEnvironment `
+         -Name "AzureStackUser" `
+         -ArmEndpoint "https://management.local.azurestack.external" 
+       ```
    After you've registered the AzureRM environment, you can use all the AzureRM cmdlets in your Azure Stack environment. The output of the previous cmdlet is shown in the following screenshot:
 
    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
