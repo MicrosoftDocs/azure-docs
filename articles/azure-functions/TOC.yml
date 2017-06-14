@@ -43,8 +43,6 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Performance considerations
-    href: functions-best-practices.md 
   - name: Consumption and App Service plans
     href: functions-scale.md
   - name: Triggers and bindings
@@ -59,6 +57,8 @@
       href: functions-reference-fsharp.md
     - name: JavaScript
       href: functions-reference-node.md    
+  - name: Performance considerations
+    href: functions-best-practices.md 
   - name: Functions Runtime
     href: functions-runtime-overview.md
 - name: How-to guides
