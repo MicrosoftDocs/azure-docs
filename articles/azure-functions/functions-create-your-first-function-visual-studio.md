@@ -62,6 +62,9 @@ Select **HttpTrigger** and provide the following information in the next dialog 
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+>[!NOTE]
+>If you use triggers other than HTTP, you need to specify a value for the Azure Storage connection string `AzureWebJobsStorage` in the file `local.settings.json`. To get a connection string, go to **Cloud Explorer** -> **Storage Account** -> **Your Storage Account**. In the **Properties** view, copy **Primary Connection String** and paste it in `local.settings.json`.
+
 ## Test the function locally
 
 Like other Visual Studio Projects, Azure Functions projects support the use of the built-in debugging tools to test your function.
