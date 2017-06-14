@@ -19,9 +19,13 @@ ms.author: LADocs; padmavc
 ---
 # Track B2B messages in the Operations Management Suite portal
 
-![Log Apps B2B symbol](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+![Logic Apps B2B symbol](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
 
-B2B communication involves the exchange of messages between two running business processes or applications. Use the following web-based tracking features in the Operations Management Suite portal to confirm whether messages are processed correctly:
+When you set up B2B communication between running business processes 
+or applications, those entities can exchange messages with each other. 
+To check whether these messages are processed correctly, 
+the Operations Management Suite portal provides these web-based 
+tracking that you can use:
 
 * Message count and status
 * Acknowledgments status
@@ -29,47 +33,90 @@ B2B communication involves the exchange of messages between two running business
 * Detailed error descriptions for failures
 * Search capabilities
 
-## Prerequisites
-* An Azure account. You can create a [free account](https://azure.microsoft.com/free).
-* An integration account. You can create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and set up logging. To set up logging, see [Monitor B2B messages](logic-apps-monitor-b2b-message.md).
-* A logic app. You can create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) and set up logging. To set up logging, see [Azure Diagnostics and alerts](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+## Requirements
 
-## Add Logic Apps B2B solution to the Operations Management Suite portal
+* An Azure account, if you don't have this already. You can [create a free account here](https://azure.microsoft.com/free).
 
-1. In the Azure portal, select **More Services**, search for log analytics and then select **Log Analytics**.   
-![Search log analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
+* An integration account with diagnostics and logging already set up. 
+Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+and [how to set up logging for that account](logic-apps-monitor-b2b-message.md).
 
-2. Select your **Log Analytics**.  
-![Select log analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+* A logic app with diagnostics and logging already set up. 
+Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
+and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-3. Select **OMS Portal**. The Operations Management Suite portal home page appears.   
-![Browse Operations Management Suite portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+## Add your Logic Apps B2B solution to the Operations Management Suite portal
 
-4. Select **Solutions Gallery**.    
-![Select Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
+1. Sign in to the [Azure portal](https://portal.azure.com), and choose **More Services**. 
+Search for "log analytics", and then choose **Log Analytics** as shown here:
 
-5. Select **Logic Apps B2B**.     
-![Select Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
+   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-6. Select **Add** to add **Logic Apps B2B** messages to the home page.  
-![Select Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+2. From the **Log Analytics** list, select your analytics log.
 
-7. **Logic Apps B2B Messages** appear on the home page.   
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Select log analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-## Track data in the Operations Management Suite portal
+3. Choose **OMS Portal**.
 
-1. After the messages are processed, the updated message count appears.   
-![Updated messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-2. Select **Logic Apps B2B Messages** on the home page to view the AS2 and X12 message status.  The data is based on a single day.
-![Select Logic Apps B2B Messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
+4. After the Microsoft Operations Management Suite portal home page appears, 
+choose **Solutions Gallery**.    
 
-3. Select an AS2 or X12 or EDIFACT message by status to go to the message list. The next screenshot shows the AS2 message status. The AS2 and X12 message status property descriptions appear later in "Message list property descriptions."  
-![Select AS2 message status](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![Choose Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-4. Select a row in the AS2 or X12 or EDIFACT message list to go to the log search.  Log search lists all of the actions that have the same run ID.
-![Select message status](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+5. Choose **Logic Apps B2B**.     
+
+   ![Choose Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
+
+6. Under **Logic Apps B2B**, choose **Add**.
+
+   ![Choose Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+
+   On the OMS home page, a new tile for **Logic Apps B2B Messages** now appears.
+
+7. Choose the **Logic Apps B2B Messages** tile.
+
+   ![On the OMS home page, choose Logic Apps B2B Messages tile](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+
+<a name="message-status-details"></a>
+
+## Track message status and details in the Operations Management Suite portal
+
+1. After your B2B messages are processed, the updated message count appears. 
+To view message status and details, choose the **Logic Apps B2B Messages** tile.
+
+   ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+
+   The status for AS2, X12, and EDIFACT messages between partners appear here. 
+   This data is based on a single day.
+
+   ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
+
+3. To view more details for a message status, 
+choose the tile for **AS2**, **X12**, or **EDIFACT**. 
+
+   The message status list appears for the tile that you chose, for example: 
+
+   ![View message status list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+
+   To find property descriptions for a message status list, 
+   see [Message list property descriptions](#message-list-property-descriptions).
+
+4. To view all the actions that have the same run ID, 
+   select a row in the message status list.
+
+5. On the **Log Search** page, you can now filter these actions by column or 
+create queries manually or [build them by adding filters](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md):
+
+   1. To create queries manually on the **Log Search** page, 
+   in the search box, enter `Type="AzureDiagnostics"` plus the 
+   columns and values that you want to use as query filters.
+
+      ![Log Search page](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+   
+
+<a name="message-list-property-descriptions"></a>
 
 ## Message list property descriptions
 
@@ -103,7 +150,6 @@ B2B communication involves the exchange of messages between two running business
 | TSCN | Transactional Set Control Number of the X12 message. |
 | Timestamp | Time at which X12 action processes the message. |
 
-
 #### EDIFACT message list property descriptions
 
 | Property | Description |
@@ -120,31 +166,9 @@ B2B communication involves the exchange of messages between two running business
 | TSCN | Transactional Set Control Number of the EDIFACT message. |
 | Timestamp | Time at which EDIFACT action processes the message. |
 
-
-## Queries in the Operations Management Suite portal
-
-On the search page, you can create a query. When you search, you can filter the results by using facet controls.
-
-### Create a query
-
-1. In the log search, write a query and select **Save**. **Save Search** appears. To write a query, see [Track B2B messages in the Operations Management Suite portal by using a query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
-
-2. In **Save Search** add a **name** and **category**, and then select **Save**.   
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
-
-3. To view the query, select **favorites**.    
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
-
-    ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
-
-### Use a saved query
-
-* In the log search, select **favorites** to view saved queries.  To view query results, select a query.
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
-
-
 ## Next steps
+
+[Track B2B messages with queries in Operations Management Suite](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 [Custom Tracking Schema](logic-apps-track-integration-account-custom-tracking-schema.md "Learn about Custom Tracking Schema")   
 [AS2 Tracking Schema](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [X12 Tracking Schema](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  

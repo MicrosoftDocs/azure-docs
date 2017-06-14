@@ -1,6 +1,6 @@
 ---
-title: Track AS2, X12, EDIFACT messages using a query - Azure logic apps  | Microsoft Docs
-description: Use queries to track business-to-business messages in the Operations Management Suite portal 
+title: Track AS2, X12, EDIFACT messages with queries in OMS - Azure Logic Apps  | Microsoft Docs
+description: Create queries to track business-to-business (B2B) messages in the Operations Management Suite portal 
 author: padmavc
 manager: anneta
 editor: ''
@@ -15,19 +15,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-
 ---
-# Track B2B messages in the Operations Management Suite portal by using a query
-To track business-to-business (B2B) messages in the Operations Management Suite portal, you can create a query that filters data for a specific interchange control number.
 
-## Prereqs
+# Query for B2B messages in the Operations Management Suite portal
 
-For debugging and for more detailed diagnostics information, turn on diagnostics in your [integration account](logic-apps-monitor-b2b-message.md) for your [logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, do the steps to [publish diagnostic data](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
+To track business-to-business (B2B) messages in the Operations Management Suite portal, 
+you can create queries that filter actions based on specific criteria, for example, 
+an interchange control number.
+
+## Requirements
+
+* An integration account where diagnostics and logging for debugging are already set up. 
+Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+and [how to set up logging for that account](logic-apps-monitor-b2b-message.md).
+
+* A logic app where diagnostics and logging for debugging are already set up. 
+Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in the Microsoft Operations Management Suite (OMS) portal. 
+
+## Create a query in the Operations Management Suite portal
+
+You can either create a query on the Log Search page after
+
+* [Follow the steps for tracking and viewing message status and details](logic-apps-track-b2b-messages-omsportal.md#message-status-details) in the OMS portal 
+until you've opened the **Log Search** page for the actions that you want to filter.
+
+1. On the **Log Search** page, create a query. 
+
+    a. In the search box, enter `Type="AzureDiagnostics"`, 
+    then choose **+ Add** so you can add a filter.
+    
+   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
+
+When you're ready, choose **Save**.
+
+2. On the **Save Search** pane, add a name and category for your query. 
+When you're done, choose **Save**.
+
+   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
+
+3. To view the query, choose **Favorites**.
+
+   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
+
+   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
+
+## Run a saved query in the Operations Management Suite portal
+
+* In the log search, select **favorites** to view saved queries.  To view query results, select a query.
+![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 ## Search for an interchange control number
 
-1. On the start page, select **Log Search**.  
-![Select log search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+1. On the OMS home page, choose **Log Search**.
+
+   ![Choose Log Search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
 2. In the search box, type **Type="AzureDiagnostics"**. To filter data, select **Add**.  
 ![Select query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
