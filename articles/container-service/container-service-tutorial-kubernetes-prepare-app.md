@@ -21,7 +21,9 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Prepare App
 
-Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, the sample application will be prepared and tested in your own development environment. The outcome will be Docker container images that will be used throughout the remainder of the tutorial set. Steps completed include:
+Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, an application will be taken from source, into a Kubernetes cluster, where it will be scaled, upgraded, and monitored. Throughout these steps, a Kubernetes cluster and an Azure Container Registry will be deployed, and the underlying Azure components explained. 
+
+In this first tutorial, a sample application will be tested and packed up into portable Docker container images. Steps completed include:
 
 > [!div class="checklist"]
 > * Clone an existing applications code repository
@@ -30,9 +32,9 @@ Throughout the Azure Container Service tutorial set, a sample application will b
 
 ## Prerequisites
 
-This tutorial set assume a basic understanding of core Docker concepts such being familiar with containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
 
-To complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker development environment on any Mac or Windows system.
+To complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
 
 [Docker for Mac]( https://docs.docker.com/docker-for-mac/)
 
@@ -40,15 +42,15 @@ To complete this tutorial, you also need a Docker development environment. Docke
 
 ## Create container images
 
-The sample application that will be used in this tutorial is a basic voting system. The application consists of a front-end web component built with Python Flask, and a back-end MySQL database. 
+The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end database. 
 
-Use git to download a copy to your development environment.
+Use git to download a copy of the appliction to your development environment.
 
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Inside of the application directory are pre-created Docker and Kubernetes configuration files. These are used to create assets throughout the tutorial set. 
+Inside of the cloned directory are pre-created Docker and Kubernetes configuration files. These are used to create assets throughout the tutorial set. 
 
 Change directories so that you are in the cloned directory.
 
@@ -56,11 +58,7 @@ Change directories so that you are in the cloned directory.
 cd ./azure-kubernetes-samples/flask-mysql-vote/
 ```
 
-Inside of the cloned repo are two directories, *azure-vote* which contains the Azure Vote application, and *azure-vote-mysql*, which contains a schema file for the Azure Vote database. In each of these directories is a Dockerfile that automates the creation of the Azure Vote container images.
-
-At the root of the cloned repo is a docker-compose.yaml file. Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. This file is configured to use both Azure Vote Dockerfiles to create two container images, and then to start the Azure Vote application from these container images.
-
-The following shows the docker-compose.yaml file. Note here that MySQL credentials are provided in the file. These cans be changed in the yaml file. Later in this tutorial set, these credentials will be secured in a Kubernetes secret resource.
+At the root of the cloned directory is a docker-compose.yaml file. Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. When run, compose will create two container images as indicated by the `build` argument. These build instructions for these images are detailed in Dockerfiles which are also found in the cloned repository. The remining settings indicate environment variables to be created, and communication ports to be exposed. Because the application at this point is running in a development environment, a non-standard port (8080) is being used to expose the applications front-end.
 
 ```yaml
 version: '3'
@@ -92,7 +90,7 @@ services:
         - "8080:80"
 ```
 
-Run the docker-compose.yaml file to create the container images and start the application in you development environment. 
+Run the docker-compose.yaml file to create the container images and start the application. 
 
 ```bash
 docker-compose up -d
@@ -136,7 +134,7 @@ Browse to `http://localhost:8080` to see the running application.
 
 ## Delete Resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed.
+Now that application functionality has been validated, the running containers can be stopped and removed. The container images will not be deleted, these will be uploaded to an Azure Container Registry instance in the next tutorial.
 
 Run the following to stop the running containers.
 
@@ -150,11 +148,11 @@ And delete the container with the following command.
 docker-compose rm --force
 ```
 
-At completion, you have two container images that make up the Azure Vote application. In subsequent tutorials, these images will be uploaded into an Azure Container Registry, and run in an Azure Container Service Kubernetes cluster.
+At completion, you have two container images that make up the Azure Vote application.
 
 ## Next steps
 
-A sample application was prepared and tested in a Docker development environment. Tasks covered included:
+In this tutorial, an application was tested and container images created for the application. The following steps were covered. 
 
 > [!div class="checklist"]docker-compose rm --force
 > * Clone an existing applications code repository
