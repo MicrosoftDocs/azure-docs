@@ -52,14 +52,49 @@ TBD - numbered screenshot here
 
 ## Adding Usage Data Visualization Sections
 
-TBD - link to the docs for each of the other visualizations
+Workbooks offer four types of built-in usage analytics visualizations. Each answers a common question about the usage of your app. To add tables and charts other than these four sections, add Analytics query sections (see below).
+
+To add a Users, Sessions, Events, or Retention section to your workbook, use the **Add Users** or other corresponding button at the bottom of the workbook, or at the bottom of any section.
+
+TBD - Users screenshot
+
+**Users** sections answer "How many users viewed some page or used some feature of my site?"
+
+**Sessions** sections answer "How many sessions did users spend viewing some page or using some feature of my site?"
+
+**Events** sections answer "How many times did users view some page or use some feature of my site?"
+
+Each of these three section types offers the same sets of controls and visualizations:
+
+* [Learn more about editing Users, Sessions, and Events sections](app-insights-usage-segmentation.md)
+* Toggle the main chart, histogram grids, automatic insights, and sample users visualizations using the **Show Chart**, **Show Grid**, **Show Insights**, and **Sample of These Users** checkboxes at the top of each section.
+
+TBD - Retention screenshot
+
+**Retention** sections answer "Of people who viewed some page or used some feature on one day or week, how many came back in a subsequent day or week?"
+
+* [Learn more about editing Retention sections](app-insights-usage-retention.md)
+* Toggle the optional Overall Retention chart using the **Show overall retention chart** checkbox at the top of the section.
 
 ## Adding Application Insights Analytics Sections
 
-TBD - link to the reference for the Analytics query language
+TBD - screenshot
+
+To add an Application Insights Analytics query section to your workbook, use the **Add Analytics query** button at the bottom of the workbook, or at the bottom of any section.
+
+Analytics query sections let you add arbitrary queries over your Application Insights data into Workbooks. This flexibility means Analytics query sections should be your go-to for answering any questions about your site other than the four listed above for Users, Sessions, Events, and Retention, like:
+
+* How many exceptions did your site throw during the same time period as a decline in usage?
+* What was the distribution of page load times for users viewing some page?
+* How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the Analytics query language).
+
+Use the [Analytics query language reference](app-insights-analytics-reference.md) to learn more about writing queries.
 
 ## Adding Text and Markdown Sections
 
+Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Workbooks support
+
+To add a 
 TBD - link to explaining Markdown
 
 ## Saving and Sharing Workbooks with Your Team
