@@ -26,9 +26,9 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 * **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* **Required Nuget Packages**
+* **Required NuGet Packages**
 
-### Install Nuget packages
+### Install NuGet packages
    
 Install the following NuGet packages:
 
@@ -87,7 +87,7 @@ var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId,
 var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantId, clientAssertionCertificate).Result;
 ```
 
-## Create the Client management objects
+## Create the client management objects
 
 ```
 var adlsClient = new DataLakeStoreAccountManagementClient(creds);
