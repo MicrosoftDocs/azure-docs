@@ -217,19 +217,36 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 
 The following U-SQL code demonstrates how to call an assembly. In the sample, the assemly name is *test*.
 
-    REFERENCE ASSEMBLY [test];
-    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
-    FROM @"Sample/SearchLog.txt" USING Extractors.Tsv();
-    
-    @d=SELECT DISTINCT Region FROM @a;
-    
-    @d1=PROCESS @d
-        PRODUCE Region string,
-                Mkt string
-                USING new USQLApplication_codebehind.MyProcessor();
-    
-    OUTPUT @d1 TO @"Sample/SearchLogtest.txt" USING Outputters.Tsv();
+```
+REFERENCE ASSEMBLY [test];
 
+@a = 
+    EXTRACT 
+        Iid int,
+	Starts DateTime,
+	Region string,
+	Query string,
+	DwellTime int,
+	Results string,
+	ClickedUrls string 
+    FROM @"Sample/SearchLog.txt" 
+    USING Extractors.Tsv();
+
+@d =
+    SELECT DISTINCT Region 
+    FROM @a;
+
+@d1 = 
+    PROCESS @d
+    PRODUCE 
+        Region string,
+	Mkt string
+    USING new USQLApplication_codebehind.MyProcessor();
+
+OUTPUT @d1 
+    TO @"Sample/SearchLogtest.txt" 
+    USING Outputters.Tsv();
+```
 
 
 ## Access Data Lake Analytics catalog

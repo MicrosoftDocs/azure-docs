@@ -13,6 +13,14 @@
 
 # How to
 
+## Manage Data Lake Analytics accounts
+### [Azure portal](data-lake-analytics-manage-use-portal.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
+
 ## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL language reference](https://msdn.microsoft.com/library/azure/mt591959)
@@ -26,14 +34,6 @@
 ### [U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
 ### [Use the U-SQL Interactive tutorial](data-lake-analytics-use-interactive-tutorials.md)
-
-## Manage
-### [Azure portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
-### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

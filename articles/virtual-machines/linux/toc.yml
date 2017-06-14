@@ -201,6 +201,8 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
     - name: Create Azure images
       items:
       - name: Ubuntu

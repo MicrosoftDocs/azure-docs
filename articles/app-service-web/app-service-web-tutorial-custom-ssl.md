@@ -230,7 +230,7 @@ You can automate SSL bindings for your web app with scripts, using the [Azure CL
 The following command uploads an exported PFX file and gets the thumbprint.
 
 ```bash
-thumprint=$(az appservice web config ssl upload \
+thumbprint=$(az appservice web config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
