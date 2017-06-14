@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -137,11 +137,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. In the **API Name** textbox, type the name of API.
    
-    C. Click **Choose File** button to upload the metadata file which you downloaded in **Step 4**.
+    C. Click **Choose File** button to upload the metadata file which you downloaded from Azure portal.
    
-    d. As **SAML Identity Location**, select "Identity is in the NameIdentifier element of the Subject statement".
+    d. As **SAML Identity Location**, select Identity is in the NameIdentifier element of the Subject statement.
    
-    e. Copy SAML SSO URL from Azure AD to **Identity Provider Login URL** in Everbridge.
+    e. In the **Identity Provider Login URL** textbox, paste the value of SAML SSO URL from Azure AD.
    
     ![Configure Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_003.png)
    
