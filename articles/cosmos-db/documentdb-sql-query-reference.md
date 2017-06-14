@@ -675,7 +675,7 @@ ORDER BY <sort_specification>
     |"string"|Quoted string. Allows any valid string. See description of a string_literal.|  
     |'symbol'|Literal symbol which is part of the syntax.|  
     |&#124; (vertical bar)|Alternatives for syntax items. You can use only one of the items specified.|  
-    |[ ] (brackets)|Brackets enclose one or more optional items.|  
+    |[ ] /(brackets)|Brackets enclose one or more optional items.|  
     |[ ,...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by commas.|  
     |[ ...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by blanks.|  
   
