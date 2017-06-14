@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 06/13/2017
 ---
 # Configure and access server logs using Azure CLI
-You can list and download Azure PostgreSQL server error logs using the Command Line Interface (Azure CLI). However, access to transaction logs is not supported. 
+You can download the PostgreSQL server error logs using the Command Line Interface (Azure CLI). However, access to transaction logs is not supported. 
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -22,14 +22,14 @@ To step through this how-to guide, you need:
 - Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## Configure logging for Azure Database for PostgreSQL
-You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection and, checkpoints information.
+You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection, and checkpoints information.
 1. Turn on logging
 2. Update log\_statement and log\_min\_duration\_statement to enable query logging
 3. Update retention period
 
 For more information, see [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
 
-## List logs for Azure PostgreSQL server
+## List logs for Azure Database for PostgreSQL server
 To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs#list) command.
 
 You can list the log files for server **mypgserver-20170401.postgres.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
