@@ -107,7 +107,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 2. In Visual Studio, on the **File** menu, click **New**, and then
    click **Project**.
 3. From **Installed Templates**, under **Visual C#**, click **Console
-   Application (.NET Framework)**. In the **Name** box, type the name
+   App (.NET Framework)**. In the **Name** box, type the name
    **ProductsServer**:
 
    ![][11]
@@ -115,7 +115,8 @@ This project is a Visual Studio console application, and uses the [Azure Service
 5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click
    **Manage NuGet Packages**.
-7. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+7. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package.
+8. Click **Install**, and accept the terms of use.
 
    ![][13]
 
@@ -260,14 +261,17 @@ In this section you will build a simple ASP.NET application that displays data r
 3. From **Installed Templates**, under **Visual C#**, click **ASP.NET Web Application (.NET Framework)**. Name the project **ProductsPortal**. Then click **OK**.
 
    ![][15]
-4. From the **Select a template** list, click **MVC**.
+4. From the **ASP.NET Templates** list in the **New ASP.NET Web Application** dialog, click **MVC**.
 
    ![][16]
 
 6. Click the **Change Authentication** button. In the **Change Authentication** dialog box, ensure that **No Authentication** is selected, and then click **OK**. For this tutorial, you're deploying an app that does not need a user login.
 
     ![][18]
-9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create an ASP.NET web app](../app-service-web/app-service-web-get-started-dotnet.md#create-an-aspnet-web-app). Then, return to this tutorial and proceed to the next step.
+
+7. Back in the **New ASP.NET Web Application** dialog, click **OK** to create the MVC app.
+
+9. Now you must configure Azure resources for a new web app. Follow all the steps in [Publish to Azure](../app-service-web/app-service-web-get-started-dotnet.md#publish-to-azure). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -442,18 +446,20 @@ Close both applications before proceeding to the next step.
 
 ## Deploy the ProductsPortal project to an Azure web app
 
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Publish to Azure](../app-service-web/app-service-web-get-started-dotnet.md#publish-to-azure). After deployment is complete, return to this tutorial and proceed to the next step.
+The next step is to republish the Azure Web app **ProductsPortal** frontend. Do the following:
 
-The next step is to republish the Azure Web app **ProductsPortal** frontend. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
+1. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
 
-> [!NOTE]
-> You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
+  > [!NOTE]
+  > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 >
 >
 
-Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
+2. Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
-![][9]
+  ![][9]
+
+3. Close the browser window to stop the running application.
 
 ### Set ProductsPortal as web app
 Before running the application in the cloud, you must ensure that **ProductsPortal** is launched from within Visual Studio as a web app.
