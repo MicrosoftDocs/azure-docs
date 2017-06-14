@@ -222,7 +222,7 @@ A Recovery Services vault is an online storage entity in Azure used to hold data
 Backup vaults, which are based on Azure Service Manager, were the first version of the vault. Recovery Services vaults, which add the Azure Resource Manager model features, are the second version of the vault. See the [Recovery Services vault overview article](backup-azure-recovery-services-vault-overview.md) for a full description of the feature differences. You can no longer create Backup vaults in the Azure portal, but Backup vaults are still supported.
 
 > [!IMPORTANT]
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults. **Starting November 1, 2017**:
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
 >- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >

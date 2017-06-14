@@ -44,7 +44,7 @@ A backup vault is an entity that stores all the backups and recovery points that
 
 > [!IMPORTANT]
 > Starting March 2017, you can no longer use the classic portal to create Backup vaults.
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults. **Starting November 1, 2017**:
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
 >- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >
