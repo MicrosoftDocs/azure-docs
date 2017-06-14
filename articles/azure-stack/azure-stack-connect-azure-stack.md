@@ -47,8 +47,8 @@ The following sections describe the steps that are required to establish VPN con
 
 ### Prerequisites
 
-* [Install Azure Stack compatible Azure PowerShell on your local computer.](azure-stack-powershell-install.md)  
-* [Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)  
+* Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
+* [Download the tools required to work with Azure Stack](azure-stack-powershell-download.md) to your local computer.  
 
 ### Import the Connect PowerShell module
 
