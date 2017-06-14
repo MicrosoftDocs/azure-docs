@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
 manager: krassk
-editor: ''
+editor: barbaraselden
 
 ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
 ms.service: active-directory-b2c
@@ -17,6 +17,8 @@ ms.date: 03/17/2017
 ms.author: parakhj
 
 ---
+# Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
+
 This tutorial shows you how to add the powerful Azure AD B2C identity features to your web app. When you finish, you’ll have an ASP.NET app that includes user sign-up/sign-in, profile edit, and password reset.
 
 ## Prerequisites
