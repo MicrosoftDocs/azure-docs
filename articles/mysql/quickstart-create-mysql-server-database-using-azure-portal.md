@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: hero-article
-ms.date: 06/07/2017
+ms.date: 06/14/2017
 ms.custom: mvc
 ---
 
