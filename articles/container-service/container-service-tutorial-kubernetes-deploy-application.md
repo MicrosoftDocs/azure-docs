@@ -87,15 +87,33 @@ Events:		<none>
 
 ## Deploy Azure Vote App
 
-A pre-configured YAML file has been created for the Azure Voting application. The file can be seen in its entirety on GitHub – [Azure Voting App](https://github.com/neilpeterson/azure-kubernetes-samples/blob/master/flask-mysql-vote/azure-vote-kubernetes.yaml).
-
-For this tutorial, deploy the Kubernetes configuration, and then some of the created objects will be detailed. Note that in the following example, the specified configuration file is stored in a remote code repository. A copy is also available in the Azure Vote application repo that was cloned in an earlier tutorial.
+A pre-configured YAML file has been created for the Azure Voting application. The file can be found in the Azure Voting app repository. If you cloned the repository in an earlier tutorial, find the *azure-vote-kubernetes.yaml* files at the root of the repo. If you need to clone the repo, run the following.
 
 ```bash
-kubectl create -f https://raw.githubusercontent.com/neilpeterson/azure-kubernetes-samples/master/flask-mysql-vote/azure-vote-kubernetes.yaml
+git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-One run, kubectl will return a list of created objects. 
+The Kubernetes manifest file is ready to go as is, however is configured to pull container images from a public registry. To configure it such that the Azure Vote app images are pulled from your Azure Container Registry instance, update the image names with the `loginServer` name for the ACR instance.
+
+To get the ACR login server name, run the following.
+
+```azurecli-interactive
+
+```
+
+Update line 46 and 104 of the *azure-vote-kubernetes.yaml* to reflect your ACR instance.
+
+```yaml
+
+```
+
+When ready, start the app deployment with the `kubectl create` command.
+
+```bash
+kubectl create -f azure-vote-kubernetes.yaml
+```
+
+Once run, kubectl will return a list of created objects. 
 
 ```bash
 storageclass "slow" created
@@ -107,6 +125,14 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
+To determine when the application is ready to be accessed, return a list of services.
+
+```bash
+kubectl get service
+```
+
+## Understand the created objects
+
 Each of these objects types is detailed in the following table.
 
 | Kubernetes Object | Description |
@@ -116,14 +142,6 @@ Each of these objects types is detailed in the following table.
 | secret | A secure storage environment for sensitive information. In this example, the Azure Vote database credentials are stored in a secret and used in the application deployment. |
 | deployment | The application management object. A deployment creates and maintains pods. Pods are the compute processes that run the application containers. It is in the deployment that a container image is selected, resource allocation is configured, and replica counts are defined.   |
 | service | Defines how a pod is accessed over a network. In this example, the MySQL pod is only accessible internally to the cluster. The front-end application is exposed externally using a service type of *LoadBalancer*. |
-
-To determine when the application is ready to be accessed, return a list of services.
-
-```bash
-kubectl get service
-```
-
-
 
 ## Next steps
 
