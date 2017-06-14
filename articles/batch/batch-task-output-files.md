@@ -19,7 +19,7 @@ ms.author: tamram
 
 # Persist task data to Azure Storage with the Batch service API
 
-A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks also have a file retention period, after which output files are deleted. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks may also have a file retention period, after which output files are deleted. For these reasons, it's important to persist task output that you'll need later to a data store such as Azure Storage.
 
 Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. When you add a task, you can specify a container in Azure Storage as the destination for the task's output. The Batch service then writes any output data to that container when the task is complete.
 
@@ -38,16 +38,16 @@ If your scenario differs from those listed above, you may need to consider a dif
 
 ## Link an Azure Storage account to your Batch account
 
-To persist task output to Azure Storage using the Batch service API, you must first [link an Azure Storage account](batch-application-packages.md#link-a-storage-account) to your Batch account. If you haven't done so already, link a Storage account to your Batch account by using the [Azure portal](https://portal.azure.com):
+To persist task output to Azure Storage using the Batch service API, you must first link an Azure Storage account to your Batch account. If you haven't done so already, link a Storage account to your Batch account by using the [Azure portal](https://portal.azure.com):
 
 1. Navigate to your Batch account in the Azure portal. 
 2. Under **Settings**, select **Storage Account**.
-3. If you do not already have a Storage account associated with your Batch account, click **Storage Account** (None).
+3. If you do not already have a Storage account associated with your Batch account, click **Storage Account (None)**.
 4. Select a Storage account from the list for your subscription. For best performance, use an Azure Storage account that is in the same region as the Batch account where your tasks are running.
 
 ## Create a container in Azure Storage
 
-All task output is persisted to blobs in a container in Azure Storage. The container that is the destination for your output files needs to be created before the task runs, preferably before you submit your job. To create the container, use the appropriate Azure Storage client library or SDK. For more information about Azure Storage APIs, see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/).
+To persist task output to Azure Storage, you'll need to create a container that serves as the destination for your output files. Create the container before you run your task, preferably before you submit your job. To create the container, use the appropriate Azure Storage client library or SDK. For more information about Azure Storage APIs, see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/).
 
 For example, if you are writing your application in C#, use the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). The following example shows how to create a container:
 
