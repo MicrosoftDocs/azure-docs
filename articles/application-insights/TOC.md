@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Previews](app-insights-previews.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)
@@ -116,7 +117,7 @@
 ### [Sampling](app-insights-sampling.md)
 
 ## Manage
-### [Manage pricing and quota](app-insights-pricing.md)
+### [Manage pricing and data volume](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
 ## Export

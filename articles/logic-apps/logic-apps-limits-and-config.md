@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Logic App limits and configuration
@@ -96,6 +96,8 @@ These are limits for a single logic app definition.
 |Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
 |Workflows per region per subscription|1000||
 |Triggers per workflow|10||
+|Switch scope cases limit|25||
+|Number of variables per workflow|250||
 |Max characters per expression|8,192||
 |Max `trackedProperties` size in characters|16,000|
 |`action`/`trigger` name limit|80||

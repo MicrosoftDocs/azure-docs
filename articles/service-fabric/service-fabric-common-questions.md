@@ -72,9 +72,14 @@ In general, no. Service Fabric stores state on local, ephemeral disks, meaning t
 
 If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-set-up-continuous-integration.md).
 
+
+### How do I upgrade my Operating System (for example from Windows Server 2012 to Windows Server 2016)?
+
+While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
+
 ## Container Support
 
-### Why are my containers that are deployed to SF are unable to resolve DNS addresses?
+### Why are my containers that are deployed to SF unable to resolve DNS addresses?
 
 This issue has been reported on clusters that are on 5.6.204.9494 version 
 

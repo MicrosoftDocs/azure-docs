@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
+editor: gahug
 
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # How to get operational insights with password management reports

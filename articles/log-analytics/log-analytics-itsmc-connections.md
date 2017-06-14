@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
@@ -35,7 +35,7 @@ Ensure you have the following prerequisites met:
 - IT Service Management connector installed.
 More information:  [Configuration](log-analytics-itsmc-overview.md#configuration).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
-- Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connector-role).
+- Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](https://technet.microsoft.com/library/ff461054.aspx).
 
@@ -104,7 +104,7 @@ Save the values, you use them when you create a connection with IT Service Manag
 
 ### Configure the hybrid connection
 
-Use the following procedure to connect the hybrid connector role that connects the Service Manager instance with the IT Service Management connector in OMS.
+Use the following procedure to configure the hybrid connection that connects the Service Manager instance with the IT Service Management connector in OMS.
 
 1. Find the Service Manager Web app, under **Azure Resources**.
 2. Click **Settings** > **Networking**.
@@ -171,10 +171,12 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure you have the following prerequisites met:
 
 - IT Service Management connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
-- Client ID and client secret for ServiceNow product are generated and available.  For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
 - ServiceNow supported versions – Fuji, Geneva, Helsinki.
-- User App for Microsoft OMS integration (ServiceNow app) installed and the integration user role is configured. [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
-- User role: Integration user role. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
+
+ServiceNow Admins must do the following in their ServiceNow instance:
+- Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
+- Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+- Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 
 ### **Connection procedure**

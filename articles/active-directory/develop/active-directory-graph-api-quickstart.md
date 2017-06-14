@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: patricka
+ms.custom: aaddev
 
 ---
 # Quickstart for the Azure AD Graph API

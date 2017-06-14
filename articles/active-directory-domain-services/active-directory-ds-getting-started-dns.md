@@ -43,7 +43,7 @@ To update the DNS server setting for the virtual network in which you have enabl
    ![Update the DNS server settings for the virtual network](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> After you update the DNS server settings for the virtual network, it might take a while for the virtual machines on the network to get the updated DNS configuration. If a virtual machine is unable to connect to the domain, you can flush the DNS cache ('ipconfig /flushdns') on the virtual machine. This command forces a refresh of the DNS settings on the virtual machine.
+> Virtual machines in the network will only get the new DNS settings on a restart. If you need them to get the updated DNS settings right away, trigger a restart either by the portal, PowerShell, or the CLI.
 >
 >
 

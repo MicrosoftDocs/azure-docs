@@ -1,6 +1,6 @@
 ## Create a device identity
 
-In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explorer] to create a device identity for this tutorial.
+In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explorer] to create a device identity for this tutorial. Device IDs are case sensitive.
 
 1. Run the following in your command-line environment:
 

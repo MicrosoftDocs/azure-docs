@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.custom: sample
+ms.custom: sample, mvc
 ms.date: 05/10/2017
 ---
 # Azure CLI samples for Azure Database for MySQL 
@@ -20,7 +20,7 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 | |  |
 |---|---|
 |**Create a server**||
-| [Create a server and firewall rule](./scripts/sample-create-server-and-firewall-rule.md) | Azure CLI script that creates a single Azure Database for MySQL server and configures a server-level firewall rule. |
+| [Create a server and firewall rule](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that creates a single Azure Database for MySQL server and configures a server-level firewall rule. |
 |**Scale a server**||
-| [Scale a server](./scripts/sample-scale-server.md) | Azure CLI script that scales a single Azure Database for MySQL server up or down to allow for changing performance needs. |
+| [Scale a server](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that scales a single Azure Database for MySQL server up or down to allow for changing performance needs. |
 |||

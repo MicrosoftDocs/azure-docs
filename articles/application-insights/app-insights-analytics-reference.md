@@ -3310,7 +3310,7 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![NOTE]
+> [!NOTE]
 > Double-quote characters must be used to enclose labels and string values in JSON. 
 >
 

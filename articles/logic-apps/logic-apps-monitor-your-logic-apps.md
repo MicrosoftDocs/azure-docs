@@ -13,12 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: jehollan
-
-ms.custom: H1Hack27Feb2017 
-
+ms.author: LADocs; jehollan
 ---
+
 # Check the performance, and start diagnostic logging and alerts of your workflows in logic apps
 After you [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), you can see the full history of its execution in the Azure portal.  You can also set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events like "when more than 5 runs fail within an hour."
 

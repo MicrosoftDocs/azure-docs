@@ -15,6 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Using Java Command Line App To Access An API with Azure AD
