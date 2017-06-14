@@ -63,32 +63,32 @@ To configure your Azure Stack environment, do the following:
 
 2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed, use:  
 
-   * **Azure Active Directory (Azure AD)**:
+   * **Azure Active Directory (Azure AD)**
    
-      * To access the **administrative environment**
+      * To access the **administrative environment**, use:
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **user environment**
+      * To access the **user environment**, use:
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
           -EnvironmentName AzureStackUser
         ```
 
-   * **Active Directory Federation Services**:
+   * **Active Directory Federation Services**
    
-      * To access the **administrative environment**
+      * To access the **administrative environment**, use:
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -ADFS `
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **user environment**
+      * To access the **user environment**, use:
         ```PowerShell 
         $TenantID = Get-DirectoryTenantID `
           -ADFS `
@@ -97,7 +97,7 @@ To configure your Azure Stack environment, do the following:
 
 ## Sign in to Azure Stack
 
-To sign in your Azure Stack environment, do the following:
+To sign in to your Azure Stack environment, do the following:
 
 1. Store the Azure AD service administrator or user account credentials in a variable:
 
@@ -110,7 +110,7 @@ To sign in your Azure Stack environment, do the following:
 
 2. Sign in to the Azure Stack environment by using one of the following two cmdlets:
 
-   * To sign in to the **administrative portal**
+   * To sign in to the **administrative portal**, use:
     
        ```PowerShell
        Login-AzureRmAccount `
@@ -119,7 +119,7 @@ To sign in your Azure Stack environment, do the following:
          -Credential $Credential
        ```
 
-   * To sign in to the **user portal**
+   * To sign in to the **user portal**, use:
 
        ```PowerShell
        Login-AzureRmAccount `
