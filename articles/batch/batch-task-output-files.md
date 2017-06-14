@@ -29,7 +29,7 @@ An advantage to using the Batch service API to persist task output is that you d
 
 Azure Batch provides more than one way to persist task output. Using the Batch service API is a convenient approach that's best suited to these scenarios:
 
-- You want to persist output from your client application, without modifying the application that your task is running.
+- You want to write code to persist task output from within your client application, without modifying the application that your task is running.
 - You want to persist output from Batch tasks and job manager tasks in pools created with the virtual machine configuration.
 - You want to persist output to an Azure Storage container with an arbitrary name.
 - You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
