@@ -24,7 +24,7 @@
 
 # Assign licenses to users by group membership in Azure Active Directory
 
-This article walks through assigning product licenses to a group of users in Azure Active Directory (Azure AD), and then verifying that they're licensed correctly.
+This article walks you through assigning product licenses to a group of users in Azure Active Directory (Azure AD) and then verifying that they're licensed correctly.
 
 In this example, the tenant contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
