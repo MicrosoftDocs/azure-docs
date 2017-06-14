@@ -57,8 +57,9 @@ Change directories so that you are in the cloned directory.
 ```bash
 cd ./azure-kubernetes-samples/flask-mysql-vote/
 ```
+Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
-At the root of the cloned directory is a docker-compose.yaml file. Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. When run, compose will create two container images as indicated by the `build` argument. These build instructions for these images are detailed in Dockerfiles which are also found in the cloned repository. The remining settings indicate environment variables to be created, and communication ports to be exposed. Because the application at this point is running in a development environment, a non-standard port (8080) is being used to expose the applications front-end.
+At the root of the cloned directory is a *docker-compose.yaml* file. This file, depicted below, instructs Docker compose to create two container images (azure-vote-front and azure-vote-back), configures environment variables, exposes container ports.
 
 ```yaml
 version: '3'
@@ -90,7 +91,7 @@ services:
         - "8080:80"
 ```
 
-Run the docker-compose.yaml file to create the container images and start the application. 
+Run the docker-compose.yaml file to create the container images, and start the application. 
 
 ```bash
 docker-compose up -d

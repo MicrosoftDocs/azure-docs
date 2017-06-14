@@ -15,13 +15,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2017
+ms.date: 06/13/2017
 ms.author: nepeters
 ---
 
 # Azure Container Service tutorial - Deploy Application
 
-If you have been following along in this tutorial set, at this point an application was tested in a development environment, container images created and up loaded to an Azure Container registry, and finally an Azure Container Service Kubernetes cluster deployed. In this tutorial, the Azure Voting app will be deployed onto the cluster. In subsequent tutorials, this application will be scaled out, updated, and the deployment process simplified using Helm.
+If you have been following along, at this point, an application was tested, container images created and up loaded to an Azure Container registry, and finally an Azure Container Service Kubernetes cluster deployed. In this tutorial, the Azure Voting app will be deployed into the Kubernetes cluster. In subsequent tutorials, this application will be scaled out, updated, and the deployment process simplified using Helm.
 
 Tasks completed in this tutorial include:
 
@@ -48,7 +48,7 @@ parameters:
  location: eastus
 ```
 
-To create an object in Kubernetes, the `kubectl create` command is used. For instance, if the pervious storage class object definition was saved in a file named *storage-class.yaml*, it would be deployed using the following command.
+To create an object in Kubernetes, the `kubectl create` command is used. For instance, if the pervious storage class object definition was saved in a file named *storage-class.yaml*, it could be deployed using the following command.
 
 ```bash
 kubectl create -f storage-class.yaml
@@ -87,9 +87,15 @@ Events:		<none>
 
 ## Deploy Azure Vote App
 
+A pre-configured YAML file has been created for the Azure Voting application. The file can be seen in its entirety on GitHub – [Azure Voting App](https://github.com/neilpeterson/azure-kubernetes-samples/blob/master/flask-mysql-vote/azure-vote-kubernetes.yaml).
+
+For this tutorial, deploy the Kubernetes configuration, and then some of the created objects will be detailed. Note that in the following example, the specified configuration file is stored in a remote code repository. A copy is also available in the Azure Vote application repo that was cloned in an earlier tutorial.
+
 ```bash
 kubectl create -f https://raw.githubusercontent.com/neilpeterson/azure-kubernetes-samples/master/flask-mysql-vote/azure-vote-kubernetes.yaml
 ```
+
+One run, kubectl will return a list of created objects. 
 
 ```bash
 storageclass "slow" created
@@ -100,6 +106,24 @@ service "azure-vote-back" created
 deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
+
+Each of these objects types is detailed in the following table.
+
+| Kubernetes Object | Description |
+|---|---|
+| storageclass | Defines types of available storage. Many volume plug-ins are valuable including [Azure Disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk), which is used here.  |
+| persistentvolumeclaim | A request for storage including the size needed and access configuration (read-only, read-write). |
+| secret | A secure storage environment for sensitive information. In this example, the Azure Vote database credentials are stored in a secret and used in the application deployment. |
+| deployment | The application management object. A deployment creates and maintains pods. Pods are the compute processes that run the application containers. It is in the deployment that a container image is selected, resource allocation is configured, and replica counts are defined.   |
+| service | Defines how a pod is accessed over a network. In this example, the MySQL pod is only accessible internally to the cluster. The front-end application is exposed externally using a service type of *LoadBalancer*. |
+
+To determine when the application is ready to be accessed, return a list of services.
+
+```bash
+kubectl get service
+```
+
+
 
 ## Next steps
 

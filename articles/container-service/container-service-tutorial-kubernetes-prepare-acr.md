@@ -30,7 +30,9 @@ Azure Container Registry (ACR) is an Azure based, private registry, for Docker c
 
 For detailed information on Azure Container Registry, see [Introduction to private Docker container registries](../container-registry/container-registry-intro.md). 
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). Alternately, [Azure Cloud Shell](https://review.docs.microsoft.com/en-us/azure/cloud-shell/quickstart?branch=pr-en-us-14901) can be accessed from each code block in this tutorial, giving you access to an in bowser CLI. 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy Azure Container Registry
 

@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 06/13/2017
 ms.author: nepeters
 ---
 
@@ -36,7 +36,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and two Linux agent nodes. This example creates SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option.
+The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. The `--generate-ssh-kets` instructs the CLI to create SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option.
+
+Note, this step assume that you have a resource group named *myResourceGroup*. If you do not, it will need to be created. 
 
 ```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
@@ -50,16 +52,13 @@ To connect to the Kubernetes cluster from your client computer, use [`kubectl`](
 
 If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-The following Azure CLI example installs `kubectl` to your system.
-
 ```azurecli-interactive 
 sudo az acs kubernetes install-cli 
 ```
 
 ## Connect with kubectl
 
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
-downloads the cluster configuration for your Kubernetes cluster.
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
