@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -161,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Condeco. Condeco supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access Condeco if it doesn't exist yet
+There is no action item for you in this section. A new user is created during an attempt to access Condeco if it doesn't exist yet.
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the [Condeco support team](mailTo:supportna@condecosoftware.com).
@@ -200,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Condeco tile in the Access Panel, you should get login page of Condeco application.
+When you click the Condeco tile in the Access Panel, you should get automatically signed-on to your Condeco application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
