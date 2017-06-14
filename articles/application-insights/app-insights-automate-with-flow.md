@@ -1,5 +1,5 @@
 ---
-title: Automate Application Insights processes with Microsoft Flow
+title: Automate Application Insights processes with Microsoft Flow or 
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes using the Application Insights connector for Flow.
 services: application-insights
 documentationcenter: ''
@@ -42,7 +42,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 ### Step 3: Add an Azure Application Insights action
 1. Click *New step* and then on *Add an action*.
 2. Search for Azure Application Insights.
-3. Click Azure Application Insights – Run Analytics query and visualize results.
+3. Click Azure Application Insights – Visualize Analytics query Preview.
 
 ![Run Analytics query screen](./media/app-insights-automate-with-flow/flow2.png)
 
