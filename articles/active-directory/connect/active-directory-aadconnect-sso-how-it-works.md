@@ -28,17 +28,17 @@ Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-
 - In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
 >[!NOTE]
-> The computer account and the Kerberos SPNs are created in each AD forest that you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACCT` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+> The computer account and the Kerberos SPNs are created in each AD forest you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACCT` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
 
 ### How does sign-in with Seamless SSO work?
 
-Once the set up is complete, Seamless SSO works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The flow is as follows:
+Once the set-up is complete, Seamless SSO works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The flow is as follows:
 
 1. The user tries to access an application (for example, the Outlook Web App - https://outlook.office365.com/owa/) from a domain-joined corporate device inside your corporate network.
 2. If the user is not already signed in, the user is redirected to the Azure AD sign-in page.
 
 >[!NOTE]
->If the Azure AD sign-in request includes a `domain_hint` (identifying your tenant; for example, contoso.onmicrosoft.com) or `login_hint` (identifying the user; for example, user@contoso.onmicrosoft.com or user@contoso.com) parameter, then step 2 is skipped.
+>If the Azure AD sign-in request includes a `domain_hint` (identifying your tenant- for example, contoso.onmicrosoft.com) or `login_hint` (identifying the user - for example, user@contoso.onmicrosoft.com or user@contoso.com) parameter, then step 2 is skipped.
 
 3. The user types in their user name into the Azure AD sign-in page.
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
@@ -53,7 +53,7 @@ The following diagram illustrates all the components and the steps involved.
 
 ![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso2.png)
 
-Seamless SSO is opportunistic, which means that if it fails for any reason, the sign-in experience falls back to its regular behavior - i.e, the user needs to enter their password to sign in.
+Seamless SSO is opportunistic, which means if it fails, the sign-in experience falls back to its regular behavior - i.e, the user needs to enter their password to sign in.
 
 ## Next steps
 

@@ -30,7 +30,7 @@ Seamless SSO is a free feature and you don't need any paid editions of Azure AD 
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that are interested in, let us know in the the comments section.
+We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that are interested in, let us know in the comments section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 

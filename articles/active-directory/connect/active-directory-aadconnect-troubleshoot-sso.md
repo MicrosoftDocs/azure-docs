@@ -30,7 +30,7 @@ This article helps you find troubleshooting information about common issues rega
 
 A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/sso9.png)
+![Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
@@ -58,14 +58,14 @@ Use the following checklist to troubleshoot Seamless SSO issues:
 5. Ensure that the user's account is from an AD forest where Seamless SSO has been set up.
 6. Ensure the device is connected on the corporate network.
 7. Ensure that the device's time is synchronized with the Active Directory's and the Domain Controllers' time and is within five minutes of each other.
-8. List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. Note that you may have set it up differently in your Active Directory.
+8. List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You may have  different settings in your Active Directory.
 8. Purge existing Kerberos tickets from the device using the **klist purge** command. 
 9. Review the console logs of the browser (under "Developer Tools") to help determine JavaScript-related or other potential issues.
 10. Review the [Domain Controller logs](#domain-controller-logs) as well.
 
 ### Domain Controller logs
 
-If success auditing is enabled on your Domain Controller, then every time a user signs in using Seamless SSO a security entry is recorded in the Event log. You can find these security events using the following query. Look for event **4769** associated with the computer account **AzureADSSOAcc$**.
+If success auditing is enabled on your Domain Controller, then every time a user signs in using Seamless SSO a security entry is recorded in the Event log. You can find these security events using the following query (look for event **4769** associated with the computer account **AzureADSSOAcc$**):
 
 ```
 	<QueryList>
@@ -99,8 +99,8 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 4. Enable Seamless SSO for each AD forest
 
-- Call `Enable-AzureADSSOForest`. This should give you a popup to enter domain administrator credentials for the intended AD forest.
-- Repeat the above steps for each AD forest that you want to set up the feature on.
+- Call `Enable-AzureADSSOForest`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+- Repeat the preceding steps for each AD forest that you want to set up the feature on.
 
 5. Enable the feature on your tenant
 
