@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: yurid
 
 ---
@@ -55,10 +55,9 @@ There are three installation scenarios that can produce different results when i
 * **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
 .
 * **Agent manually installed on a VM located in Azure**: in this scenario, if you are using agents downloaded and installed manually prior to February 2017, you will be able to view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. In case you filter on the subscription the resource belongs to, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
-* **Agent manually installed on a computer or VM located on-premises or in another cloud provider**: the expected behavior here is the same as explained in the previous scenario.
 
 >[!NOTE]
-> To avoid the behavior explained in the second and third scenario, make sure you download the latest version of the agent.
+> To avoid the behavior explained in the second, make sure you download the latest version of the agent.
 > 
 
 ## Troubleshooting monitoring agent network requirements
