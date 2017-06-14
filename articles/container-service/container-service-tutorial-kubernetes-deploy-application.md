@@ -82,11 +82,11 @@ Browse to the returned external IP address to see the application.
 
 Because the Azure Vote application includes a MySQL database, we will want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file will remain in-tact. 
 
-The following manifest file creates a Storage Class object which defines how and where a persistent volume will be created. Several volume plug-ins are available for Kubernetes. In this case the [Azure disk]()https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk plug in is used.
+The following manifest file creates a **storage class** object which defines how and where a persistent volume will be created. Several volume plug-ins are available for Kubernetes. In this case the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug in is used.
 
-A persistent volume claim is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
+A **persistent volume claim* is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
 
-When deployed, the combination of these objects will create a VHD in an Azure storage account, and attach that to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernete cluster and of the same configuration as the storage class object (Standard_LRS).
+When deployed, the combination of these objects will create a VHD in an Azure storage account, and attach that to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernete cluster, and of the same configuration as the storage class object (Standard_LRS).
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -116,7 +116,7 @@ Create the storage objects with the following command.
 kubectl create -f storage-resources.yaml
 ```
 
-## Create Kubernetes secret
+## Secure sensitive values
 
 Kubernetes secrets provide a secure storage environment for sensitive information. These secrets can then be used inside of pods, when deploying application in a Kubernetes cluster.
 
@@ -169,7 +169,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: mycontainerregistry3433.azurecr.io/azure-vote-back:latest
+        image: neilpeterson/azure-vote-back:latest
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306
@@ -213,7 +213,9 @@ kubectl create -f backend-deployment
 
 ## Create front-end deployment
 
-The front-end deployment is like the back-end. Again, if using ACR, update the image names to reference the ACR loginServer name. 
+The front-end deployment is like the back-end. 
+
+Again, if using ACR, update the image names to reference the ACR loginServer name. 
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -229,7 +231,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: mycontainerregistry3433.azurecr.io/azure-vote-front:latest
+        image: neilpeterson/azure-vote-front:latest
         ports:
         - containerPort: 80
         imagePullPolicy: Always
@@ -262,9 +264,11 @@ Create the deployment with the following command.
 kubectl create -f frontend-deployment
 ```
 
-## Create services
+## Expose application
 
-A Kubernetes services define how a pod will be accessed. In the case of the Azure Vote app, the front-end pod must be accessible from the internet, and the back-end pod front the front-end pod.
+A Kubernetes services define how a pod will be accessed. In the case of the Azure Vote app, the back-end pod(s) must be internal accessible by name. 
+
+The font-end pod(s) must accessible over the internet. Giving the service a type of *LoadBalancer* crates an externally accessible IP address over which the application can be accessed.
 
 ```yaml
 apiVersion: v1
@@ -295,7 +299,9 @@ Create the services with the following command.
 kubectl create -f services.yaml
 ```
 
-Once deployed, run the following command to monitor deployment status. This will return a list of services. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
+## Test application
+
+Once all resources have been created, the application can be accessed over the external IP address for the azure-vote-front service. This service can take a few minutes to create. To monitor the service creation process, run the following command. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
 
 ```bash
 kubectl get service -w
