@@ -18,9 +18,9 @@ ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
 ---
-# Use the Batch File Conventions for .NET to persist job and task data to Azure Storage
+# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist 
 
-A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks also have a file retention period, after which output files are deleted. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
 
 One way to persist task data is to use the [Azure Batch File Conventions library for .NET][nuget_package]. The Batch File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario. 
 
@@ -31,7 +31,7 @@ If you are developing with a language other than .NET, you can implement the Fil
 Files persisted with the File Conventions library are automatically available for viewing in the Azure portal. 
 
 > [!TIP]
-> Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. The Batch service API provides a simple way to persist output data from the code that creates a task. For more information, see [Use the Batch service API to persist job and task data](batch-task-output-files.md).
+> Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. The Batch service API provides a simple way to persist output data from the code that creates a task. For more information, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
 > 
 > 
 
@@ -224,7 +224,7 @@ The [source code][github_file_conventions] for the File Conventions library is a
 ### Explore other approaches for persisting output data
 
 - See [Persist job and task output to Azure Storage](batch-task-output.md) for an overview of persisting task and job data.
-- See [Use the Batch service API to persist job and task data](batch-task-output-files.md) to learn how to use the Batch service API to persist output data.
+- See [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md) to learn how to use the Batch service API to persist output data.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions

@@ -17,9 +17,9 @@ ms.author: tamram
 ---
 
 
-# Use the Batch service API to persist task data to Azure Storage
+# Persist task data to Azure Storage with the Batch service API
 
-A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks also have a file retention period, after which output files are deleted. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
 
 Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. When you add a task, you can specify a container in Azure Storage as the destination for the task's output. The Batch service then writes any output data to that container when the task is complete.
 
@@ -185,6 +185,6 @@ If you are developing in a language other than C#, you will need to implement th
 ## Next steps
 
 - See the XXX code example to view and run code that shows how to write task output to Azure Storage.
-- For more information on persisting task output with the File Conventions library for .NET, see [Use the Batch File Conventions standard to persist job and task data](batch-task-output-file-conventions.md).
+- For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md).
 - For information on other approaches for persisting output data in Azure Batch, see [Persist job and task output to Azure Storage](batch-task-output.md).
 
