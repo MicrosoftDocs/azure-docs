@@ -43,7 +43,7 @@ Open Visual Studio and launch the **New Project** dialog. You'll find the Azure 
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
-Visual Studio creates a project containing a `local.settings.json` and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
+Visual Studio creates a project containing a [`local.settings.json`](functions-run-local#local-settings-file) and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
 Now that you have created a function project, which represents a function app, create an HTTP triggered function.
 
