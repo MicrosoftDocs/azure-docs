@@ -82,7 +82,7 @@ The following table summarizes replicated operating system support in various de
 
 The following file systems and storage configuration software is supported on Linux servers running on VMware or Physical servers:
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
-* Volume manger : LVM2
+* Volume manager : LVM2
 * Multipath software : Device Mapper
 
 Physical servers with the HP CCISS storage controller aren't supported.
