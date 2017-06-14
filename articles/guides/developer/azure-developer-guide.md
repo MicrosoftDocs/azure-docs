@@ -30,7 +30,7 @@ By hosting your applications in Azure, you can start small and easily scale your
 
 ## Where do I start?
 
-With all the services that Azure offers, it can be a daunting task to figure out which services you need to support your solution architecture. This section highlights the Azure services that developers commonly use. For a list of all Azure services, see the [Azure documentation](../index.md).
+With all the services that Azure offers, it can be a daunting task to figure out which services you need to support your solution architecture. This section highlights the Azure services that developers commonly use. For a list of all Azure services, see the [Azure documentation](../../index.md).
 
 First, you must decide on how to host your application in Azure. Do you need to manage your entire infrastructure as a virtual machine (VM). Can you use the platform management facilities that Azure provides? Maybe you need a serverless framework to host code execution only?
 
@@ -53,16 +53,16 @@ When you want the quickest path to publish your web-based projects, consider Azu
 
 When you create an app in App Service, you select one of the following types:
 
-- [Web Apps](../app-service-web/app-service-web-overview.md):
+- [Web Apps](../../app-service-web/app-service-web-overview.md):
     Lets you host websites and web applications that are written in .NET, Java, PHP, Node.js, and Python.
 
-- [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md):
-    Extends Web Apps to support access from mobile devices. It enables authentication with social providers and Azure Active Directory (Azure AD), provides backend storage, and integrates with [Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md) for push notifications.
+- [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md):
+    Extends Web Apps to support access from mobile devices. It enables authentication with social providers and Azure Active Directory (Azure AD), provides backend storage, and integrates with [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) for push notifications.
 
-- [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md):
+- [API Apps](../../app-service-api/app-service-api-apps-why-best-platform.md):
     Lets you more securely expose your APIs in the cloud with Swagger metadata so that clients can easily consume them.
 
-Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [How App Service Works](../app-service/app-service-how-works-readme.md).
+Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [How App Service Works](../../app-service/app-service-how-works-readme.md).
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity, and others.
 
@@ -70,7 +70,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 >**When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 
->**Get started**: App Service makes it easy to create and deploy your first [web app](../app-service-web/web-sites-dotnet-get-started.md), [mobile app](../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../app-service-api/app-service-api-dotnet-get-started.md).
+>**Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service-web/web-sites-dotnet-get-started.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service-api/app-service-api-dotnet-get-started.md).
 
 >**Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
@@ -82,15 +82,15 @@ Because of the level of control that you have with VMs, you can run a wide range
 
 >**When to use**: Use Virtual Machines when you want full control over your application infrastructure or to migrate on-premises application workloads to Azure without having to make changes.
 
->**Get started**: Create a [Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) or [Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) from the Azure portal.
+>**Get started**: Create a [Linux VM](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) or [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) from the Azure portal.
 
 #### Azure Functions (serverless)
 
-Rather than of worrying about building out and managing a whole application or the infrastructure to run your code. What if you could just write your code and have it run in response to events or on a schedule?  [Azure Functions](../azure-functions/functions-overview.md) is a "serverless"-style offering that lets you write just the code you need. With Functions, code execution is triggered by HTTP requests, webhooks, cloud service events, or on a schedule. You can code in your development language of choice, such as C\#, F\#, Node.js, Python, or PHP. With consumption-based billing, you pay only for the time that your code executes, and Azure scales as needed.
+Rather than of worrying about building out and managing a whole application or the infrastructure to run your code. What if you could just write your code and have it run in response to events or on a schedule?  [Azure Functions](../../azure-functions/functions-overview.md) is a "serverless"-style offering that lets you write just the code you need. With Functions, code execution is triggered by HTTP requests, webhooks, cloud service events, or on a schedule. You can code in your development language of choice, such as C\#, F\#, Node.js, Python, or PHP. With consumption-based billing, you pay only for the time that your code executes, and Azure scales as needed.
 
->**When to use**: Use Azure Functions when you have code that is triggered by other Azure services, by web-based events, or on a schedule. You can also use Functions when you don't need the overhead of a complete hosted project or when you only want to pay for the time that your code runs. To learn more, see [Azure Functions Overview](../azure-functions/functions-overview.md).
+>**When to use**: Use Azure Functions when you have code that is triggered by other Azure services, by web-based events, or on a schedule. You can also use Functions when you don't need the overhead of a complete hosted project or when you only want to pay for the time that your code runs. To learn more, see [Azure Functions Overview](../../azure-functions/functions-overview.md).
 
->**Get started**: Follow the Functions quickstart tutorial to [create your first function](../azure-functions/functions-create-first-azure-function.md) from the portal.
+>**Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-create-first-azure-function.md) from the portal.
 
 >**Try it now**: Azure Functions lets you run your code without having to sign up for an Azure account. Try it now at and [create your first Azure Function](https://tryappservice.azure.com/).
 
@@ -102,7 +102,7 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 
 >**When to use:** Service Fabric is a good choice when you’re creating an application or rewriting an existing application to use a microservice architecture. Use Service Fabric when you need more control over, or direct access to, the underlying infrastructure.
 
->**Get started:** [Create your first Azure Service Fabric application](../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Get started:** [Create your first Azure Service Fabric application](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### Enhance your applications with Azure services
 
@@ -116,21 +116,21 @@ Most applications must store data, so regardless of how you decide to host your 
 
 	>**When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
 
-    >**Get started**: [Create a SQL database in minutes by using the Azure portal](../sql-database/sql-database-get-started.md).
+    >**Get started**: [Create a SQL database in minutes by using the Azure portal](../../sql-database/sql-database-get-started.md).
 
 -   **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
 
 	>**When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
 
-    >**Get started**: Choose from one of these types storage: [blobs](../storage/storage-dotnet-how-to-use-blobs.md), [tables](../storage/storage-dotnet-how-to-use-tables.md),     [queues](../storage/storage-dotnet-how-to-use-queues.md), or [files](../storage/storage-dotnet-how-to-use-files.md).
+    >**Get started**: Choose from one of these types storage: [blobs](../../storage/storage-dotnet-how-to-use-blobs.md), [tables](../../storage/storage-dotnet-how-to-use-tables.md),     [queues](../../storage/storage-dotnet-how-to-use-queues.md), or [files](../../storage/storage-dotnet-how-to-use-files.md).
 
 -   **Azure DocumentDB**: A fully managed and scalable NoSQL database service, which features SQL queries over object data. You can access DocumentDB by using existing MongoDB drivers.
 	>**When to use:** When your application needs to be able to execute SQL queries over JSON documents, or if you’re using MongoDB.
 
-    >**Get started**: [Build a DocumentDB C# console application](../documentdb/documentdb-get-started.md). If you’re a MongoDB developer, see [DocumentDB protocol support for
-    MongoDB](../documentdb/documentdb-protocol-mongodb.md).
+    >**Get started**: [Build a DocumentDB C# console application](../../documentdb/documentdb-get-started.md). If you’re a MongoDB developer, see [DocumentDB protocol support for
+    MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
 
-You can use [Azure Data Factory](../data-factory/data-factory-introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
+You can use [Azure Data Factory](../../data-factory/data-factory-introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
 #### Docker support
 
@@ -142,13 +142,13 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When you want to generate consistent container deployments for your applications on a VM, or when you want to use [Docker Compose](https://docs.docker.com/compose/overview/).
 
-    >**Get started**: [Create a Docker environment in Azure by using the Docker VM extension](../virtual-machines/virtual-machines-linux-dockerextension.md).
+    >**Get started**: [Create a Docker environment in Azure by using the Docker VM extension](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Azure Container Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn     more about Container Service, see [Azure Container Service introduction](../container-service/container-service-intro.md).
+-   **Azure Container Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn     more about Container Service, see [Azure Container Service introduction](../../container-service/container-service-intro.md).
 
 	>**When to use**: When you need to build production-ready, scalable environments that provide additional scheduling and management tools, or when you’re deploying a Docker Swarm cluster.
 
-    >**Get started**: [Deploy a Container Service cluster](../container-service/container-service-deployment.md).
+    >**Get started**: [Deploy a Container Service cluster](../../container-service/container-service-deployment.md).
 
 -   **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
 
@@ -158,7 +158,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md).
 
 ### Authentication
 
@@ -168,15 +168,15 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to provide an SSO experience, work with Graph-based data, or authenticate domain-based users.
 
-    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../active-directory/active-directory-developers-guide.md).
+    >**Get started**: To learn more, see the [Azure Active Directory developer's guide](../../active-directory/active-directory-developers-guide.md).
 
 -   **App Service Authentication**: When you choose App Service to host your app, you also get built-in    authentication support for Azure AD, along with social identity providers—including Facebook, Google, Microsoft, and Twitter.
 
 	>**When to use**: When you want to enable authentication in an App Service app by using Azure AD, social identity providers, or both.
 
-    >**Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
+    >**Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../../app-service/app-service-authentication-overview.md).
 
-To learn more about security best practices in Azure, see [Azure security best practices and patterns](../security/security-best-practices-and-patterns.md).
+To learn more about security best practices in Azure, see [Azure security best practices and patterns](../../security/security-best-practices-and-patterns.md).
 
 ### Monitoring
 
@@ -184,11 +184,11 @@ With your application up and running in Azure, you need to be able to monitor pe
 
 -   **Visual Studio Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to continuously improve the performance and usability of your apps, whether they’re hosted on Azure or not.
 
-	>**Get started**: Follow the [Application Insights tutorial](../application-insights/app-insights-overview.md).
+	>**Get started**: Follow the [Application Insights tutorial](../../application-insights/app-insights-overview.md).
 
 -	**Azure Monitor**: A service that helps you to visualize, query, route, archive, and act on the metrics and logs that are generated by your Azure infrastructure and resources. Monitor provides the data views that you see in the Azure portal and is a single source for monitoring Azure resources.
  
-	>**Get started**: [Get started with Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md).
+	>**Get started**: [Get started with Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
 ### DevOps integration
 
@@ -196,7 +196,7 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 
 >**Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 
->**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md).
+>**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service-web/app-service-continuous-deployment.md).
 
 
 ## Azure regions
@@ -213,7 +213,7 @@ want to select your region to meet the legal requirements for distributing your 
 
 Although unlikely, it’s not impossible for an entire datacenter to go offline because of an event such as a natural disaster or Internet failure. It’s a best practice to host vital business applications in more than one datacenter to provide maximum availability. Using multiple regions can also reduce latency for global users and provide additional opportunities for flexibility when updating applications.
 
-Some services, such as Virtual Machine and App Services, use [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) to enable multi-region support with failover between regions to support high-availability enterprise applications. For an example, see [Azure reference architecture: Web application with high availability](../guidance/guidance-web-apps-multi-region.md).
+Some services, such as Virtual Machine and App Services, use [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) to enable multi-region support with failover between regions to support high-availability enterprise applications. For an example, see [Azure reference architecture: Web application with high availability](../../guidance/guidance-web-apps-multi-region.md).
 
 >**When to use**: When you have enterprise and high-availability applications that benefit from failover and replication.
 
@@ -225,13 +225,13 @@ Azure provides a rich set of experiences for you to create and manage your Azure
 
 Azure provides two ways to manage your applications and services from the command line by using Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can perform the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
 
--   [Azure Command-Line Interface (CLI)](../xplat-cli-install.md): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
+-   [Azure Command-Line Interface (CLI)](../../xplat-cli-install.md): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
 
--   [Azure PowerShell](../powershell-install-configure.md): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
+-   [Azure PowerShell](../../powershell-install-configure.md): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
 
 ### Azure portal
 
-The Azure portal is a web-based application that you can use to create, manage, and remove Azure resources and services. The Azure portal is located at <https://portal.azure.com>. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information. For more information, see the [Azure portal overview](../azure-portal-overview.md).
+The Azure portal is a web-based application that you can use to create, manage, and remove Azure resources and services. The Azure portal is located at <https://portal.azure.com>. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information. For more information, see the [Azure portal overview](../../azure-portal-overview.md).
 
 ### REST APIs
 
@@ -248,12 +248,12 @@ In addition to REST APIs, many Azure services also let you programmatically mana
 -   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 
-Services such as [Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)
-and [Azure Media Services](../media-services/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+Services such as [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)
+and [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager 
  	
-Running your app on Azure likely involves working with multiple Azure services, all of which follow the same life cycle and can be thought of as a logical unit. For example, a web app might use Web Apps, SQL Database, Storage, Azure Redis Cache, and Azure Content Delivery Network services. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) lets you work with the resources in your application as a group. You can deploy, update, or delete all the resources in a single, coordinated operation.
+Running your app on Azure likely involves working with multiple Azure services, all of which follow the same life cycle and can be thought of as a logical unit. For example, a web app might use Web Apps, SQL Database, Storage, Azure Redis Cache, and Azure Content Delivery Network services. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) lets you work with the resources in your application as a group. You can deploy, update, or delete all the resources in a single, coordinated operation.
 
 In addition to logically grouping and managing related resources, Azure Resource Manager includes deployment capabilities that let you customize the deployment and configuration of related resources. For example, by using Resource Manager, you can deploy and configure an application that consists of multiple virtual machines, a load balancer, and an Azure SQL database as a single unit.
 
@@ -261,7 +261,7 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 >**When to use**: Use Resource Manager templates when you want a template-based deployment for your app that you can manage programmatically by using REST APIs, the Azure CLI, and Azure PowerShell.
 
->**Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+>**Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
 
 ## Understanding accounts, subscriptions, and billing
 
@@ -269,11 +269,11 @@ As developers, we like to dive right into the code and try to get started as fas
 
 ### What is an Azure account?
 
-To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md).
+To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 
@@ -290,13 +290,13 @@ you can assign at any time.
 
 -   **Co-administrator**: This role has the same access as the Service Administrator, except that it can’t change the association of the subscription to an Azure directory.
 
-To learn more about administrator roles, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+To learn more about administrator roles, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
 
 #### Resource groups
 
-When you provision new Azure services, you do so in a given subscription. Individual Azure services, which are also called resources, are created in the context of a resource group. Resource groups make it easier to deploy and manage your application's resources. A resource group should contain all the resources for your application that you want to work with as a unit. You can move resources between resource groups and even to different subscriptions. To learn about moving resources, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
+When you provision new Azure services, you do so in a given subscription. Individual Azure services, which are also called resources, are created in the context of a resource group. Resource groups make it easier to deploy and manage your application's resources. A resource group should contain all the resources for your application that you want to work with as a unit. You can move resources between resource groups and even to different subscriptions. To learn about moving resources, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).
 
-The Azure Resource Explorer is a great tool for visualizing the resources that you've already created in your subscription. To learn more, see [Use Azure Resource Explorer to view and modify resources](../resource-manager-resource-explorer.md).
+The Azure Resource Explorer is a great tool for visualizing the resources that you've already created in your subscription. To learn more, see [Use Azure Resource Explorer to view and modify resources](../../resource-manager-resource-explorer.md).
 
 #### Grant access to resources
 
@@ -308,15 +308,15 @@ given task.
 
 	>**When to use**: When you need fine-grained access management for users and groups.
 
-    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../active-directory/role-based-access-control-what-is.md).
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../../resource-group-create-service-principal-portal.md).
 
 #### Tags
 
-Azure Resource Manager lets you assign custom tags to individual resources. Tags, which are key-value pairs, can be helpful when you need to organize resources for billing or monitoring. Tags provide you a way to track resources across multiple resource groups. You can assign tags in the portal, in the Azure Resource Manager template, or programmatically, by using the REST API, the Azure CLI, or PowerShell. You can assign multiple tags to each resource. To learn more, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+Azure Resource Manager lets you assign custom tags to individual resources. Tags, which are key-value pairs, can be helpful when you need to organize resources for billing or monitoring. Tags provide you a way to track resources across multiple resource groups. You can assign tags in the portal, in the Azure Resource Manager template, or programmatically, by using the REST API, the Azure CLI, or PowerShell. You can assign multiple tags to each resource. To learn more, see [Using tags to organize your Azure resources](../../resource-group-using-tags.md).
 
 ### Billing
 
@@ -326,16 +326,16 @@ In the move from on-premises computing to cloud-hosted services, tracking and es
 
 Azure provides a set of Billing REST APIs that give access to resource consumption and metadata information for Azure subscriptions. These Billing APIs give you the ability to better predict and manage Azure costs. You can track and analyze spending in hourly increments, create spending alerts, and predict future billing based on current usage trends.
 
->**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../billing-usage-rate-card-overview.md).
+>**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
 
 #### Predict future costs
 
 Although it's challenging to estimate costs ahead of time, Azure has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) that you can use when you estimate the cost of deployed resources. You can also use the Billing blade in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
->**Get started**: See [Azure Billing Usage and RateCard APIs overview](../billing-usage-rate-card-overview.md).
+>**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
 
 #### Set up billing alerts
 
 After you’ve deployed your application or solution on Azure, you can create alerts that send you email when you approach the spending limits that are defined in the alert.
 
->**Get started**: To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](../billing-set-up-alerts.md).
+>**Get started**: To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing-set-up-alerts.md).
