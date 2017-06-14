@@ -31,6 +31,32 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.552.0
+Status: Not released yet
+
+> [!IMPORTANT]
+> There are schema and sync rule changes introduced in this build. Azure AD Connect Synchronization Service will trigger Full Import and Full Sync steps after upgrade. Details of the changes are described below.
+>
+>
+
+### Azure AD Connect Sync
+
+#### Fixed issues
+
+* Fixed an issue related to the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature where Azure AD Connect does not writeback to on-premises AD msDS-ConsistencyGuid attribute. The issue occurs when there are multiple on-premises AD forests added to Azure AD Connect and the *User identities exist across multiple directories option* is selected. When such configuration is used, the resultant synchronization rules do not populate the sourceAnchorBinary attribute in the Metaverse. The sourceAnchorBinary attribute is used as the source attribute for msDS-ConsistencyGuid attribute. As a result, writeback to the ms-DSConsistencyGuid attribute does not occur. To fix the issue, following sync rules have been updated to ensure that the sourceAnchorBinary attribute in the Metaverse is always populated:
+  * In from AD - InetOrgPerson AccountEnabled.xml
+  * In from AD - InetOrgPerson Common.xml
+  * In from AD - User AccountEnabled.xml
+  * In from AD - User Common.xml
+  * In from AD - User Join SOAInAAD.xml
+
+* Previously, even if the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature isn’t enabled, the “Out to AD – User ImmutableId” synchronization rule is still added to Azure AD Connect. The effect is benign and does not cause writeback of msDS-ConsistencyGuid attribute to occur. To avoid confusion, logic has been added to ensure that the sync rule is only added when the feature is enabled.
+
+* Fixed an issue that caused password hash synchronization to fail with error event 611. This issue occurs after one or more domain controllers have been removed from on-premises AD. At the end of each password synchronization cycle, the synchronization cookie issued by on-premises AD contains Invocation IDs of the removed domain controllers with USN (Update Sequence Number) value of 0. The Password Synchronization Manager is unable to persist synchronization cookie containing USN value of 0 and fails with error event 611. During the next synchronization cycle, the Password Synchronization Manager reuses the last persisted synchronization cookie which does not contain USN value of 0. This causes the same password changes to be resynchronized. With this fix, the Password Synchronization Manager persist the synchronization cookie correctly.
+
+* Previously, even if Automatic Upgrade has been disabled using the Set-ADSyncAutoUpgrade cmdlet, the Automatic Upgrade process continues to check for upgrade periodically, and relies on the downloaded installer to honor disablement. With this fix, the Automatic Upgrade process no longer checks for upgrade periodically. The fix is automatically applied when upgrade installer for this Azure AD Connect version is executed once.
+
+
 ## 1.1.524.0
 Released: May 2017
 
