@@ -238,7 +238,7 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 
 There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
 
-## New Disk Sizes - both Managed and unManaged
+## New Disk Sizes - both managed and unmanaged
 
 **What is the largest disk size supported for OS and Data Disks?**
 
