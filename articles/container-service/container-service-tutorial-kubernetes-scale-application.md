@@ -145,6 +145,6 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 Advance to the next tutorial to learn about updating the application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Update Kubernetes application](./container-service-tutorial-kubernetes-add-application.md)
+> Update Kubernetes application
 
 [TODO: Link to the next article]
