@@ -1,6 +1,6 @@
 ---
 title: Create Java MapReduce for Hadoop - Azure HDInsight | Microsoft Docs
-description: Learn how to develop Java MapReduce programs and deploy them to Hadoop on HDInsight.
+description: Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -10,7 +10,7 @@ tags: azure-portal
 
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -252,7 +252,7 @@ Use the following command to upload the jar file to the HDInsight headnode:
 
 This command copies the files from the local system to the head node. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run"></a>Run the MapReduce job
+## <a name="run"></a>Run the MapReduce job on Hadoop
 
 1. Connect to HDInsight using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

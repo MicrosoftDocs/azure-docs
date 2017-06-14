@@ -1,5 +1,5 @@
 ---
-title: Provision new tenants in a multi-tenant app that uses Azure SQL Database | Microsoft Docs 
+title: Provision new tenants in a multi-tenant app that uses Azure SQL Database | Microsoft Docs
 description: "Learn how to provision and catalog new tenants in the Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
@@ -8,9 +8,9 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: develop apps
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +45,7 @@ In a database-backed multi-tenant SaaS application, it's important to know where
 
 Each tenant is assigned a key that distinguishes their data in the catalog. In the Wingtip SaaS application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
 
-The catalog in the app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed *catalog* where a *shard map* is maintained. The catalog contains the mapping between keys (tenants) and their shards (databases). 
+The catalog in the app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed *catalog* where a *shard map* is maintained. The catalog contains the mapping between keys (tenants) and their shards (databases).
 
 > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it*! Edit mapping data using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and is not supported.
@@ -54,7 +54,7 @@ The catalog in the app is implemented using Shard Management technology in the [
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Provision one new tenant
 
