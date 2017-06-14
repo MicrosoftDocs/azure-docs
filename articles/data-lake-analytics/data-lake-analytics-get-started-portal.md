@@ -42,10 +42,11 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 4. Optionally, select a pricing tier for your Data Lake Analytics account.
 5. Click **Create**. 
 
-## Submit a U-SQL job
 
-1. From the Data Lake Analytics account, click **New Job**.
-2. Paste in the following U-SQL script:
+## Your first U-SQL script
+
+The following text is a very simply U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+
 ```
 @a  = 
     SELECT * FROM 
@@ -58,6 +59,11 @@ OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
 ```
+
+## Submit a U-SQL job
+
+1. From the Data Lake Analytics account, click **New Job**.
+2. Paste in the text of the U-SQL script shown above. 
 3. Click **Submit Job**.   
 4. Wait until the job status is changed to **Succeeded**.
 5. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
