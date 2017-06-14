@@ -2,14 +2,14 @@
 title: Modeling document data for a NoSQL database | Microsoft Docs
 description: Learn about modeling data for NoSQL databases
 keywords: modeling data
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: ''
 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

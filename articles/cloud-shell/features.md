@@ -29,13 +29,13 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
-|Azure tools            |Azure CLI 2.0 and 1.0     |
+|Azure tools            |Azure CLI 2.0 and 1.0<br> AzCopy     |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |Docker<br> Kubectl<br> DC/OS CLI         |
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
-|Other                  |iPython Client |
+|Other                  |iPython Client<br> |
 
 ## Language support
 |Language   |Version   |

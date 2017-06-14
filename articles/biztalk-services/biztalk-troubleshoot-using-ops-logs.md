@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # BizTalk Services: Troubleshoot using operation logs
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## What are the Operation Logs
 Operation Logs is a Management Services feature available in the Azure classic portal that allows you to view historical logs of operations performed on your Azure services, including BizTalk Services. This enables you to view historical data related to management operations on your BizTalk Service subscription as far back as 180 days.
 

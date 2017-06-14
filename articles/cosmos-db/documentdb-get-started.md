@@ -2,14 +2,14 @@
 title: 'Azure Cosmos DB: DocumentDB API getting started tutorial | Microsoft Docs'
 description: A tutorial that creates an online database and C# console application using the DocumentDB API.
 keywords: nosql tutorial, online database, c# console application
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -187,7 +187,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 5: Create a collection
 > [!WARNING]
-> **CreateDocumentCollectionIfNotExistsAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionIfNotExistsAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 

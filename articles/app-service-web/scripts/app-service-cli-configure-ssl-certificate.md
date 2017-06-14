@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/10/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Bind a custom SSL certificate to a web app
@@ -26,6 +27,10 @@ This sample script creates a web app in App Service with its related resources, 
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

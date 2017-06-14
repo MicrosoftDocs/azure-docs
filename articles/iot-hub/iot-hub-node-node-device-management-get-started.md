@@ -25,7 +25,7 @@ This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
 * Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
-* Create a .NET console app that calls the reboot direct method in the simulated device app through your IoT hub.
+* Create a Node.js console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
 At the end of this tutorial, you have two Node.js console apps:
 

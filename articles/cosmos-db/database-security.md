@@ -2,14 +2,14 @@
 title: Database security - Azure Cosmos DB | Microsoft Docs
 description: Learn how Azure Cosmos DB provides database protection and data security for your data.
 keywords: nosql database security, information security, data security, database encryption, database protection, security policies, security testing
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
 
 ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

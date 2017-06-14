@@ -49,8 +49,7 @@ Azure Data Lake Analytics is an on-demand analytics job service to simplify big 
 
 * Management
   
-  * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
-  * [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+  * Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 * Let us know what you think

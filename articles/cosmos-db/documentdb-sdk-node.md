@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB Node.js API, SDK & Resources | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs

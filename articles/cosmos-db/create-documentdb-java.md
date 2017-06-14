@@ -1,15 +1,15 @@
 ---
 title: 'Azure Cosmos DB: Build an app with Java and the DocumentDB API | Microsoft Docs'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java

@@ -15,7 +15,7 @@ Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. Af
    
     ![Click the regions in the map to add or remove them][1]
     
-Once you add a second region, the **Manual Failover** option is enabled on the **Replicate data locally** blade in the portal. You can use this option to test the failover process or change the primary write region. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
+Once you add a second region, the **Manual Failover** option is enabled on the **Replicate data globally** blade in the portal. You can use this option to test the failover process or change the primary write region. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
 
 ### Selecting global database regions
 There are two common scenarios for configuring two or more regions:

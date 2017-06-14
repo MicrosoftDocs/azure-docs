@@ -1,7 +1,7 @@
 ---
 title: 'Azure Cosmos DB: Develop with the DocumentDB API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
@@ -9,14 +9,14 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: mimig
-
+ms.custom: mvc
 ---
 
 # Azure CosmosDB: Develop with the DocumentDB API in .NET

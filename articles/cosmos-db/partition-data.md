@@ -1,14 +1,14 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 # How to partition and scale in Azure Cosmos DB
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
 Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota.
 
@@ -99,7 +99,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### MongoDB API
-With the MongoDB API, you can create a sharded collection is through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
+With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
 
 In the Mongo Shell:
 

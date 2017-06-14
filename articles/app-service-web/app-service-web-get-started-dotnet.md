@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Create your first ASP.NET web app in Azure in five minutes
 

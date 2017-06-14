@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
 # Create a Function App for serverless execution
@@ -23,6 +24,10 @@ ms.author: cfowler
 This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

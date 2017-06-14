@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Create a virtual machine using an existing managed OS disk with CLI
@@ -39,7 +40,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: java
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java

@@ -1,5 +1,5 @@
 ---
-title: Publish HDInsight applications | Microsoft Docs
+title: Publish HDInsight applications - Azure | Microsoft Docs
 description: Learn how to create and publish HDInsight applications.
 services: hdinsight
 documentationcenter: ''

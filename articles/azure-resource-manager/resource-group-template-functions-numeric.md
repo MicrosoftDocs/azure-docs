@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -46,7 +46,11 @@ Returns the sum of the two provided integers.
 |operand1 |Yes |int |First number to add. |
 |operand2 |Yes |int |Second number to add. |
 
-### Examples
+### Return value
+
+An integer that contains the sum of the parameters.
+
+### Example
 
 The following example adds two parameters.
 
@@ -57,12 +61,14 @@ The following example adds two parameters.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -79,9 +85,11 @@ The following example adds two parameters.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer that contains the sum of the parameters.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| addResult | Int | 8 |
 
 <a id="copyindex" />
 
@@ -105,7 +113,7 @@ The **loopName** property enables you to specify whether copyIndex is referring 
  
 For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-### Examples
+### Example
 
 The following example shows a copy loop and the index value included in the name. 
 
@@ -141,7 +149,11 @@ Returns the integer division of the two provided integers.
 | operand1 |Yes |int |The number being divided. |
 | operand2 |Yes |int |The number that is used to divide. Cannot be 0. |
 
-### Examples
+### Return value
+
+An integer representing the division.
+
+### Example
 
 The following example divides one parameter by another parameter.
 
@@ -152,12 +164,14 @@ The following example divides one parameter by another parameter.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -174,9 +188,11 @@ The following example divides one parameter by another parameter.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer representing the division.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| divResult | Int | 2 |
 
 <a id="float" />
 
@@ -191,7 +207,10 @@ Converts the value to a floating point number. You only use this function when p
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or int |The value to convert to a floating point number. |
 
-### Examples
+### Return value
+A floating point number.
+
+### Example
 
 The following example shows how to use float to pass parameters to a Logic App:
 
@@ -209,9 +228,6 @@ The following example shows how to use float to pass parameters to a Logic App:
         },
 ```
 
-### Return value
-A floating point number.
-
 <a id="int" />
 
 ## int
@@ -225,7 +241,11 @@ Converts the specified value to an integer.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Yes |string or int |The value to convert to an integer. |
 
-### Examples
+### Return value
+
+An integer of the converted value.
+
+### Example
 
 The following example converts the user-provided parameter value to integer.
 
@@ -234,25 +254,28 @@ The following example converts the user-provided parameter value to integer.
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| intResult | Int | 4 |
+
 
 <a id="min" />
 
@@ -267,7 +290,11 @@ Returns the minimum value from an array of integers or a comma-separated list of
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the minimum value. |
 
-### Examples
+### Return value
+
+An integer representing minimum value from the collection.
+
+### Example
 
 The following example shows how to use min with an array and a list of integers:
 
@@ -295,9 +322,12 @@ The following example shows how to use min with an array and a list of integers:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer representing minimum value from the collection.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 <a id="max" />
 
@@ -312,7 +342,11 @@ Returns the maximum value from an array of integers or a comma-separated list of
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the maximum value. |
 
-### Examples
+### Return value
+
+An integer representing the maximum value from the collection.
+
+### Example
 
 The following example shows how to use max with an array and a list of integers:
 
@@ -340,9 +374,12 @@ The following example shows how to use max with an array and a list of integers:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer representing the maximum value from the collection.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 <a id="mod" />
 
@@ -358,7 +395,10 @@ Returns the remainder of the integer division using the two provided integers.
 | operand1 |Yes |int |The number being divided. |
 | operand2 |Yes |int |The number that is used to divide, Cannot be 0. |
 
-### Examples
+### Return value
+An integer representing the remainder.
+
+### Example
 
 The following example returns the remainder of dividing one parameter by another parameter.
 
@@ -369,12 +409,14 @@ The following example returns the remainder of dividing one parameter by another
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -391,8 +433,11 @@ The following example returns the remainder of dividing one parameter by another
 }
 ```
 
-### Return value
-An integer representing the remainder.
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| modResult | Int | 1 |
 
 <a id="mul" />
 
@@ -408,7 +453,11 @@ Returns the multiplication of the two provided integers.
 | operand1 |Yes |int |First number to multiply. |
 | operand2 |Yes |int |Second number to multiply. |
 
-### Examples
+### Return value
+
+An integer representing the multiplication.
+
+### Example
 
 The following example multiplies one parameter by another parameter.
 
@@ -419,12 +468,14 @@ The following example multiplies one parameter by another parameter.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -441,9 +492,11 @@ The following example multiplies one parameter by another parameter.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer representing the multiplication.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mulResult | Int | 15 |
 
 <a id="sub" />
 
@@ -459,7 +512,10 @@ Returns the subtraction of the two provided integers.
 | operand1 |Yes |int |The number that is subtracted from. |
 | operand2 |Yes |int |The number that is subtracted. |
 
-### Examples
+### Return value
+An integer representing the subtraction.
+
+### Example
 
 The following example subtracts one parameter from another parameter.
 
@@ -470,12 +526,14 @@ The following example subtracts one parameter from another parameter.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -492,8 +550,11 @@ The following example subtracts one parameter from another parameter.
 }
 ```
 
-### Return value
-An integer representing the subtraction.
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| subResult | Int | 4 |
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

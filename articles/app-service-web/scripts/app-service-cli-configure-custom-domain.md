@@ -16,12 +16,17 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/09/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 # Map a custom domain to a web app
 
 This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

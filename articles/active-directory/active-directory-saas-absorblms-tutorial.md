@@ -237,7 +237,7 @@ For Absorb LMS, provisioning is a manual task.
 
 	d. In the **Password** textbox, type the password of Britta Simon.
 
-	e. In the **Confirm Password** dropdown, select the confirm password of Britta Simon.
+	e. In the **Confirm Password** textbox, type the same password.
 	
 	f. Make it as **ACTIVE**.	
 
