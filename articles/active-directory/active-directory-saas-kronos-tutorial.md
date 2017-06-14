@@ -119,8 +119,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
      Microsoft recommends using the **"NameIdentifier"** attribute as user identifier. You can manage the values of these attributes from the **"User Attributes"** section on application integration page.
 	 
-	 The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute along with the **ExtractMailPrefix** function, which provides unique user ID, which is sent to the Kronos application in every successful SAML Response.
-
+	 The following screenshot shows an example for this. Here we have mapped the **User Identifier (nameid)** with **ExtractMailPrefix()** function of **user.userprincipalname**. This will give the prefix value of email of the user which is the unique User ID. This is sent to the Kronos application in every successful response 
+	 
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
