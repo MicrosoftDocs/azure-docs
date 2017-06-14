@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
 ---
 # Track software changes in your environment with the Change Tracking solution
+
+![Change Tracking symbol](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 This article helps you use the Change Tracking solution in Log Analytics to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows files and registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
@@ -50,11 +52,11 @@ Use the following steps to configure registry keys to track on Windows computers
 ### Limitations
 The Change Tracking solution does not currently support the following:
 
-* folders (directories)
-* recursion
-* wild cards
-* path variables
-* network file systems
+* Folders (directories)
+* Recursion
+* Wild cards
+* Path variables
+* Network file systems
 
 Other limitations:
 

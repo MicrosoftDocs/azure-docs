@@ -18,6 +18,8 @@ ms.author: v-jysur
 ---
 # Centrally manage ITSM work items using IT Service Management Connector (Preview)
 
+![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
+
 You can use the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
 The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.

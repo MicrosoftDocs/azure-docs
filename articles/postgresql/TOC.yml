@@ -75,6 +75,8 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrate your database
     items:
     - name: Dump & restore

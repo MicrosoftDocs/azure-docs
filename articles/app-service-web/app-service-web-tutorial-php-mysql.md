@@ -742,13 +742,13 @@ From the left menu, click **App Service**, then click the name of your Azure web
 
 ![Portal navigation to Azure web app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-You have landed in your web app's _blade_ (a portal page that opens horizontally).
+You have landed in your web app's page.
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
+By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
+![App Service page in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
-These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
+These tabs in the page show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
 * Map a custom DNS name
 * Bind a custom SSL certificate
