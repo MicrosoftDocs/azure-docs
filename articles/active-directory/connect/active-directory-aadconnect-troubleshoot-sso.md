@@ -79,36 +79,29 @@ If success auditing is enabled on your Domain Controller, then every time a user
 
 If troubleshooting didn't help, use the following steps to manually reset the feature on your tenant:
 
-1. Import the Seamless SSO PowerShell module:
+### Step 1: Import the Seamless SSO PowerShell module
 
-a. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 
-b. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+### Step 2: Get the list of AD forests on which Seamless SSO has been enabled
 
-c. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+1. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
+2. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
-d. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+### Step 3: Disable Seamless SSO for each AD forest that it was set it up on
 
-2. Get the list of AD forests on which Seamless SSO has been enabled:
+1. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+2. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACCT` computer account from the on-premises Domain Controller for this specific AD forest.
+3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
-a. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
+### Step 4: Enable Seamless SSO for each AD forest
 
-b. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+1. Call `Enable-AzureADSSOForest`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+2. Repeat the preceding steps for each AD forest that you want to set up the feature on.
 
-3. Disable Seamless SSO for each AD forest that it was set it up on:
+### Step 5. Enable the feature on your tenant
 
-a. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-
-b. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACCT` computer account from the on-premises Domain Controller for this specific AD forest.
-
-c. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
-
-4. Enable Seamless SSO for each AD forest:
-
-a. Call `Enable-AzureADSSOForest`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-
-b. Repeat the preceding steps for each AD forest that you want to set up the feature on.
-
-5. Enable the feature on your tenant:
-
-a. Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
+1. Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
