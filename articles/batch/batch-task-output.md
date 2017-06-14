@@ -32,7 +32,7 @@ This article describes different options for persisting task output and the scen
 
 Batch defines an optional set of conventions for naming task output files in Azure Storage. The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) describes these conventions. The File Conventions standard determines the names of the destination container and blob in Azure Storage for a given output file based on the names of the job and task.
 
-It's up to you whether you decide to use the File Conventions standard for naming your output data files. You can also name the destination container and blob however you wish. If you do use the File Conventions standard for naming output files, then your output files will be available for viewing in the [Azure portal][portal].
+It's up to you whether you decide to use the File Conventions standard for naming your output data files. You can also name the destination container and blob however you wish. If you do use the File Conventions standard for naming output files, then your output files are available for viewing in the [Azure portal][portal].
 
 There are a few different ways that you can use the File Conventions standard:
 
