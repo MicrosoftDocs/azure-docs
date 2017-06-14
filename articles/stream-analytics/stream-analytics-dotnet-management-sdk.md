@@ -53,8 +53,8 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 1. Create a Visual Studio C# .NET console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Active Directory client that will be used for authentication.
    
-        Install-Package Microsoft.Azure.Management.StreamAnalytics
-        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
+        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 3. Add the following **appSettings** section to the App.config file:
    
         <appSettings>
@@ -71,6 +71,10 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
     Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs. You can get these values by running the following Azure PowerShell cmdlet:
 
         Get-AzureAccount
+
+4. Add the following reference in your .csproj file:
+
+        <Reference Include="System.Configuration" />
 
 1. Add the following **using** statements to the source file (Program.cs) in the project:
    
