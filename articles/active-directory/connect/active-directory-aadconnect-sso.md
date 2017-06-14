@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: billmath
 ---
 
@@ -20,14 +20,14 @@ ms.author: billmath
 
 ## What is Azure Active Directory Seamless Single Sign-On?
 
-Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users won't need to type in their passwords to sign in to Azure AD, and in most cases, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
+Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
-Seamless SSO can can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
+
+![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!NOTE]
 >This feature is NOT applicable to Active Directory Federation Services (ADFS), which already provides this capability.
-
-![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 ## Key benefits of using Azure AD Seamless SSO
 
@@ -37,26 +37,27 @@ Seamless SSO can can be combined with either the [Password Hash Synchronization]
 - *Easy to deploy & administer*
   - No additional components needed on-premises to make this work.
   - Works with any method of managed authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
-  - Can be rolled out to some or all of your users using Group Policy.
+  - Can be rolled out to some or all your users using Group Policy.
+  - Register non-Windows 10 devices with Azure AD. This needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## Feature highlights
 
 - Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (`Alternate ID`).
-- Seamless SSO is an opportunistic feature, which means that if it fails for any reason, the user sign-in experience goes back to its regular behavior - i.e, the user will need to enter their password on the sign-in page.
-- If an application forwards either a `domain_hint` (your tenant) or a `login_hint` (the user) parameter in its Azure AD sign-in request, users will be automatically signed in without entering their usernames or passwords.
+- Seamless SSO is an opportunistic feature. If it fails for any reason, the user sign-in experience goes back to its regular behavior - i.e, the user needs to enter their password on the sign-in page.
+- If an application forwards either a `domain_hint` (identifying your tenant) or a `login_hint` (identifying the user) parameter in its Azure AD sign-in request, users are automatically signed in without entering usernames or passwords.
 - It can be enabled via Azure AD Connect.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
 - It is supported on web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on platforms and browsers capable of Kerberos authentication:
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
-| --- | --- |--- | --- | --- |
-|Windows 10|Yes|Yes|Yes|Yes\*|N/A
-|Windows 8.1|Yes|Yes|Yes|Yes\*|N/A
-|Windows 8|Yes|Yes|Yes|Yes\*|N/A
-|Windows 7|Yes|Yes|Yes|Yes\*|N/A
-|Mac OS X|N/A|N/A|Yes\*|Yes\*|Yes\*
+| --- | --- |--- | --- | --- | -- 
+|Windows 10|Yes|Not supported|Yes|Yes\*|N/A
+|Windows 8.1|Yes|Not supported|Yes|Yes\*|N/A
+|Windows 8|Yes|Not supported|Yes|Yes\*|N/A
+|Windows 7|Yes|Not supported|Yes|Yes\*|N/A
+|Mac OS X|N/A|N/A|Yes\*|Yes\*|Not supported
 
-\*Requires additional configuration.
+\*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.

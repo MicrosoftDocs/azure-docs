@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 06/13/2017
 ms.author: billmath
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication
 
-This article helps you find troubleshooting information about common issues regarding Pass-through Authentication.
+This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
+
+>[!IMPORTANT]
+>If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
 
@@ -36,11 +39,11 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 ### Sign-in failure reasons on the Azure portal
 
-A good place to start troubleshooting user sign-in issues is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the Azure portal.
+A good place to start troubleshooting user sign-in issues with Pass-through Authentication is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---

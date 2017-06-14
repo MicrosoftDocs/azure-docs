@@ -20,30 +20,36 @@ ms.author: billmath
 
 ## How does Azure Active Directory Seamless Single Sign-On work?
 
-You can enable Seamless SSO in Azure AD Connect as shown [below](#how-to-enable-azure-ad-seamless-sso?). Once enabled, a computer account named AZUREADSSOACCT is created in your on-premises Active Directory (AD) and its Kerberos decryption key is shared securely with Azure AD. In addition, two Kerberos service principal names (SPNs) are created to represent two service URLs that are used during Azure AD sign-in.
+### How does set up work?
+
+Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-aadconnect-sso-quick-start.md). While enabling the feature, the following steps occur:
+- A computer account named `AZUREADSSOACCT` (which represents Azure AD) is created in your on-premises Active Directory (AD).
+- The computer account's Kerberos decryption key is shared securely with Azure AD.
+- In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
 >[!NOTE]
-> The computer account and the Kerberos SPNs need to be created in each AD forest that you synchronize to Azure AD (via Azure AD Connect) and for whose users you want to enable Seamless SSO. If your AD forest has organizational units (OUs) for computer accounts, after enabling the Seamless SSO feature, move the AZUREADSSOACCT computer account to an OU to ensure that it is not deleted and is managed in the same way as other computer accounts.
+> The computer account and the Kerberos SPNs are created in each AD forest that you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACCT` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
 
-Once this setup is complete, Azure AD sign-in works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The Seamless SSO process works as follows:
+Once the set up is complete, Seamless SSO works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The flow is as follows:
 
-Let's say that your user attempts to access a cloud-based resource that is secured by Azure AD, such as SharePoint Online. SharePoint Online redirects the user's browser to Azure AD for sign-in.
+1. The user tries to access an application (for example, the Outlook Web App - https://outlook.office365.com/owa/) from a domain-joined corporate device inside your corporate network.
+2. If the user is not already signed in, the user is redirected to the Azure AD sign-in page.
+>[!NOTE]
+>If the Azure AD sign-in request includes a `domain_hint` (identifying your tenant; for example, contoso.onmicrosoft.com) or `login_hint` (identifying the user; for example, user@contoso.onmicrosoft.com or user@contoso.com) parameter, then step 2 is skipped.
+3. The user types in his or her user name into the Azure AD sign-in page.
+4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
+5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACCT` computer account (which represents Azure AD).
+6. Active Directory locates the computer account and returns a Kerberos ticket to the browser encrypted with the computer account's secret.
+7. The browser forwards the Kerberos ticket it acquired from Active Directory to Azure AD (on one of the [Azure AD URLs previously added to the browser's Intranet zone settings](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+8. Azure AD decrypts the Kerberos ticket, which includes the identity of the user signed into the corporate device, using the previously shared key.
+9. After evaluation, Azure AD either returns a token back to the application or asks the user to perform additional proofs, such as Multi-Factor Authentication.
+10. If the user sign-in is successful, the user is able to access the application.
 
-If the sign-in request to Azure AD includes a `domain_hint` (identifies your Azure AD tenant; for example, contoso.onmicrosoft.com) or a `login_hint` (identifies the user's username; for example, user@contoso.onmicrosoft.com or user@contoso.com) parameter, then steps 1-5 occur.
-
-If either of those two parameters are not included in the request, the user will be asked to provide their username on the Azure AD sign-in page. Steps 1-5 occur only after the user tabs out of the username field or clicks the "Continue" button.
-
-1. Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
-2. The client requests a ticket from Active Directory for Azure AD (represented by the computer account which was setup earlier).
-3. Active Directory locates the computer account and returns a Kerberos ticket to the client encrypted with the computer account's secret. The ticket includes the identity of the user currently signed in to the desktop.
-4. The client sends the Kerberos ticket it acquired from Active Directory to Azure AD.
-5. Azure AD decrypts the Kerberos ticket using the previously shared key. If successful, Azure AD either returns a token or asks the user to perform additional proofs such as multi-factor authentication as required by the resource.
-
-Seamless SSO is an opportunistic feature, which means that if it fails for any reason, the user sign-in experience falls back to its regular behavior - i.e, the user will need to enter their password on the sign-in page.
-
-The process is also illustrated in the diagram below:
+The following diagram illustrates all the components and the steps involved.
 
 ![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso2.png)
+
+Seamless SSO is an opportunistic feature, which means that if it fails for any reason, the user sign-in experience falls back to its regular behavior - i.e, the user needs to enter their password to sign in.
 
 ## Next steps
 

@@ -12,28 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/13/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Frequently asked questions
 
-In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO). Keep checking back for new content.
+In this article, we address frequently asked questions about Azure AD Seamless SSO. Keep checking back for new content.
 
-## How do you disable Seamless SSO?
+## What sign-in methods do Seamless SSO work with?
 
-Azure AD Seamless SSO can be disabled via Azure AD Connect.
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods, but not with Active Directory Federation Services (ADFS).
 
-Run Azure AD Connect, choose "Change user sign-in page" and click "Next". Then uncheck the "Enable single sign on" option. Continue through the wizard. After completion of the wizard Seamless SSO is disabled on your tenant. However, you'll see a message on screen that reads as follows:
+## Is Seamless SSO a free feature?
+
+Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
+
+## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
+
+We are in the process of compiling the list of applications that send these parameters out-of-the-box and which ones don't. If you have specific applications that are most interesting to you, you can use the comments section below to let us know.
+
+## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
+
+Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](active-directory-aadconnect-get-started-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
+
+## I want to register non-Windows 10 devices with Azure AD, without using AD FS. Can I use Seamless SSO for that?
+
+Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
+
+## How can I disable Seamless SSO?
+
+Seamless SSO can be disabled using Azure AD Connect.
+
+Run Azure AD Connect, choose "Change user sign-in page" and click "Next". Then uncheck the "Enable single sign on" option. Continue through the wizard. After completion of the wizard, Seamless SSO is disabled on your tenant.
+
+However, you see a message on screen that reads as follows:
 
 "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
 
-These are the manual steps that you need:
+The manual steps that you need are as follows:
 
-- Get the list of AD forests on which Seamless SSO has been enabled
-  - In PowerShell, call `New-AzureADSSOAuthenticationContext`. This should give you a popup to enter your Azure AD tenant administrator credentials.
-  - Call `Get-AzureADSSOStatus`. This will provide you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
-- Manually delete the AZUREADSSOACCT computer account from each AD forest that you find listed above.
+1. Get list of AD forests where Seamless SSO has been enabled
+- First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+- Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+- Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+- Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+  - In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your Azure AD tenant administrator credentials.
+  - Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+2. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
 
 ## Next steps
 
