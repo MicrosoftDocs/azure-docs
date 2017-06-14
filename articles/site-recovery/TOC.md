@@ -22,21 +22,6 @@
 ## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
 ## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
-# Tutorials
-## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
-### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
-### [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
-### [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
-### [Step 4: Plan networking](site-recovery-network-design.md)
-### [Step 5: Prepare Azure](vmware-walkthrough-prepare-azure.md)
-### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
-### [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
-### [Step 8: Set up the source and target](vmware-walkthrough-source-target.md)
-### [Step 9: Set up a replication policy](vmware-walkthrough-replication.md)
-### [Step 10: Install the Mobility service](vmware-walkthrough-install-mobility.md)
-### [Step 11: Enable replication](vmware-walkthrough-enable-replication.md)
-### [Step 12: Run a test failover](vmware-walkthrough-test-failover.md)
-
 # How To
 ## Plan
 ### [Prerequisites for Azure replication](site-recovery-azure-to-azure-prereq.md)
@@ -50,7 +35,20 @@
 #### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 #### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 ### [Plan role-based access for VM replication](site-recovery-role-based-linked-access-control.md)
-
+## Deploy
+## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
+### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
+### [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
+### [Step 4: Plan networking](site-recovery-network-design.md)
+### [Step 5: Prepare Azure](vmware-walkthrough-prepare-azure.md)
+### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
+### [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](vmware-walkthrough-source-target.md)
+### [Step 9: Set up a replication policy](vmware-walkthrough-replication.md)
+### [Step 10: Install the Mobility service](vmware-walkthrough-install-mobility.md)
+### [Step 11: Enable replication](vmware-walkthrough-enable-replication.md)
+### [Step 12: Run a test failover](vmware-walkthrough-test-failover.md)
 ## Configure
 ### Set up the source environment
 #### [Source environment for VMware to Azure](site-recovery-set-up-vmware-to-azure.md)
