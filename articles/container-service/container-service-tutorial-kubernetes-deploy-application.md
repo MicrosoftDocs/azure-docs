@@ -65,10 +65,6 @@ Because the Azure Vote application includes a MySQL database, we want to store t
 
 The following manifest file creates a **storage class** object, which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug-in is used.
 
-A *persistent volume claim* is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
-
-When deployed, the combination of these objects creates a VHD in an Azure storage account, and attach that to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
-
 ```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -81,9 +77,9 @@ parameters:
 
 ```
 
-A **persistent volume claim* is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
+A *persistent volume claim* is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

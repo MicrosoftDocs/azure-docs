@@ -36,7 +36,7 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 **Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created, and an Azure Container Registry instance deployed into it. If you need to create the resource group, run the following command:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -72,13 +72,13 @@ az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SC
 
 To verify the connection to your cluster from your machine, try running:
 
-```azurecli-interactive
+```bash
 kubectl get nodes
 ```
 
 Output:
 
-```azurecli-interactive
+```bash
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
