@@ -52,10 +52,99 @@ Status: Not released yet
 
 * Previously, even if the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature isn’t enabled, the “Out to AD – User ImmutableId” synchronization rule is still added to Azure AD Connect. The effect is benign and does not cause writeback of msDS-ConsistencyGuid attribute to occur. To avoid confusion, logic has been added to ensure that the sync rule is only added when the feature is enabled.
 
-* Fixed an issue that caused password hash synchronization to fail with error event 611. This issue occurs after one or more domain controllers have been removed from on-premises AD. At the end of each password synchronization cycle, the synchronization cookie issued by on-premises AD contains Invocation IDs of the removed domain controllers with USN (Update Sequence Number) value of 0. The Password Synchronization Manager is unable to persist synchronization cookie containing USN value of 0 and fails with error event 611. During the next synchronization cycle, the Password Synchronization Manager reuses the last persisted synchronization cookie which does not contain USN value of 0. This causes the same password changes to be resynchronized. With this fix, the Password Synchronization Manager persist the synchronization cookie correctly.
+* Fixed an issue that caused password hash synchronization to fail with error event 611. This issue occurs after one or more domain controllers have been removed from on-premises AD. At the end of each password synchronization cycle, the synchronization cookie issued by on-premises AD contains Invocation IDs of the removed domain controllers with USN (Update Sequence Number) value of 0. The Password Synchronization Manager is unable to persist synchronization cookie containing USN value of 0 and fails with error event 611. During the next synchronization cycle, the Password Synchronization Manager reuses the last persisted synchronization cookie which does not contain USN value of 0. This causes the same password changes to be resynchronized. With this fix, the Password Synchronization Manager persists the synchronization cookie correctly.
 
 * Previously, even if Automatic Upgrade has been disabled using the Set-ADSyncAutoUpgrade cmdlet, the Automatic Upgrade process continues to check for upgrade periodically, and relies on the downloaded installer to honor disablement. With this fix, the Automatic Upgrade process no longer checks for upgrade periodically. The fix is automatically applied when upgrade installer for this Azure AD Connect version is executed once.
 
+#### New features and improvements
+
+* Previously, the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature was available to new deployments only. Now, it is available to existing deployments. More specifically:
+  * To access the feature, start the Azure AD Connect wizard and choose the *Update Source Anchor* option.
+  * This option is only visible to existing deployments which are using objectGuid as sourceAnchor attribute.
+  * When configuring the option, the wizard validates the state of the msDS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any user object in the directory, the wizard uses the msDS-ConsistencyGuid as the sourceAnchor attribute. If the attribute is configured on one or more user objects in the directory, the wizard concludes the attribute is being used by other applications and is not suitable as sourceAnchor attribute and does not permit the Source Anchor change to proceed. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
+
+* Specific to **userCertificate** attribute on Device objects, Azure AD Connect now looks for certificates values required for [Connecting domain-joined devices to Azure AD for Windows 10 experience](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) and filters out the rest before synchronizing to Azure AD. To enable this behavior, the out-of-box sync rule “Out to AAD - Device Join SOAInAD” has been updated.
+
+* Azure AD Connect now supports writeback of Exchange Online **cloudPublicDelegates** attribute to on-premises AD **publicDelegates** attribute. This enables the scenario where an Exchange Online mailbox can be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. To support this feature, a new out-of-box sync rule “Out to AD – User Exchange Hybrid PublicDelegates writeback” has been added. This sync rule is only added to Azure AD Connect when Exchange Hybrid feature is enabled.
+
+*	Azure AD Connect now supports synchronizing the **altRecipient** attribute from Azure AD. To support this change, following out-of-box sync rules have been updated to include the required attribute flow:
+  * In from AD – User Exchange
+  * Out to AAD – User ExchangeOnline
+  
+* The **cloudSOAExchMailbox** attribute in the Metaverse indicates whether a given user has Exchange Online mailbox or not. Its definition has been updated to include additional Exchange Online RecipientDisplayTypes as such Equipment and Conference Room mailboxes. To enable this change, the definition of the cloudSOAExchMailbox attribute, which is found under out-of-box sync rule “In from AAD – User Exchange Hybrid”, has been updated from:
+
+```
+CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
+```
+
+... to the following:
+
+```
+CBool(
+  IIF(IsPresent([cloudMSExchRecipientDisplayType]),(
+    IIF([cloudMSExchRecipientDisplayType]=0,True,(
+      IIF([cloudMSExchRecipientDisplayType]=2,True,(
+        IIF([cloudMSExchRecipientDisplayType]=7,True,(
+          IIF([cloudMSExchRecipientDisplayType]=8,True,(
+            IIF([cloudMSExchRecipientDisplayType]=10,True,(
+              IIF([cloudMSExchRecipientDisplayType]=16,True,(
+                IIF([cloudMSExchRecipientDisplayType]=17,True,(
+                  IIF([cloudMSExchRecipientDisplayType]=18,True,(
+                    IIF([cloudMSExchRecipientDisplayType]=1073741824,True,(
+                       IF([cloudMSExchRecipientDisplayType]=1073741840,True,False)))))))))))))))))))),False))
+
+```
+
+* Added the following set of X509Certificate2-compatible functions for creating synchronization rule expressions to handle certificate values in the userCertificate attribute:
+
+    ||||
+    | --- | --- | --- |
+    |CertSubject|CertIssuer|CertKeyAlgorithm|
+    |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
+    |CertSubjectNameOid|CertIssuerDN|IsCert|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
+    |CertFormat|CertNotAfter|CertPublicKeyOid|
+    |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
+    |CertVersion|CertSignatureAlgorithmOid|Select|
+    |CertKeyAlgorithmParams|CertHashString|Where|
+    |||With|
+
+* Following schema changes have been introduced to allow customers to create custom synchronization rules to flow sAMAccountName, domainNetBios and domainFQDN for Group objects, as well as distinguishedName for User objects:
+
+  * Following attributes have been added to MV schema:
+    * Group: AccountName
+    * Group: domainNetBios
+    * Group: domainFQDN
+    * Person: distinguishedName
+
+  * Following attributes have been added to Azure AD Connector schema:
+    * Group: OnPremisesSamAccountName
+    * Group: NetBiosName
+    * Group: DnsDomainName
+    * User: OnPremisesDistinguishedName
+
+* The ADSyncDomainJoinedComputerSync cmdlet script now has a new optional parameter named AzureEnvironment. The parameter is used to specify which region the corresponding Azure Active Directory tenant is hosted in. Valid values include:
+  * AzureCloud (default)
+  * AzureChinaCloud
+  * AzureGermanyCloud
+  * USGovernment
+ 
+* Updated Sync Rule Editor to use Join (instead of Provision) as the default value of link type during sync rule creation.
+
+### AD FS management
+
+#### Issues fixed
+
+* Following URLs are new WS-Federation endpoints introduced by Azure AD to improve resiliency against authentication outage and will be added to on-premises AD FS replying party trust configuration:
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
+  
+* Fixed an issue that caused AD FS to generate incorrect claim value for IssuerID. The issue occurs if there are multiple verified domains in the Azure AD tenant and the domain suffix of the userPrincipalName attribute used to generate the IssuerID claim is at least 3-levels deep (e.g., johndoe@us.contoso.com). The issue is resolved by updating the regex used by the claim rules.
+
+#### New features and improvements
+* Previously, the ADFS Certificate Management feature provided by Azure AD Connect can only be used with ADFS farms managed through Azure AD Connect. Now, you can use the feature with ADFS farms that are not managed using Azure AD Connect.
 
 ## 1.1.524.0
 Released: May 2017
