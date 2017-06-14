@@ -4,7 +4,7 @@ The [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) (in public previe
 
 ![Cloud Shell](./media/cloud-shell-try-it/cloud-shell.png)
 
-If you choose to install and use the CLI locally, you will need to log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+If you choose to install and use the CLI locally, you need to log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 
 
