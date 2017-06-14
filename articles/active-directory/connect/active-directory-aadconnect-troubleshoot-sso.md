@@ -26,7 +26,7 @@ This article helps you find troubleshooting information about common issues rega
 - Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone blocks users from signing in.
 - Seamless SSO doesn't work in private browsing mode on Firefox.
 
-## Sign-in failure reasons on the Azure portal
+## Sign-in failure reasons on the Azure Active Directory admin center
 
 A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
