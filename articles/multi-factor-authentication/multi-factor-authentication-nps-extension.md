@@ -155,6 +155,8 @@ This section includes design considerations and suggestions for successful NPS e
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users will have to perform proof-up again to populate their MFA details in the cloud.  
 - The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
+- If text message or authentication app verification codes are used for the secondary authentication method, then the password encryption protocol between NPS and NAS servers must be PAP. The NPS extension does not support other password encryption protocols for those two authentication methods at this point.
+EAP is not supported by NPS extension for any secondary authentication method.
 
 ### Control RADIUS clients that require MFA
 
@@ -216,12 +218,6 @@ Verify that AD Connect is running, and that the user is present in both Windows 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
 Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
-
-### Why are some attributes lost in the RADIUS message from NPS to NAS, causing MS-CHAP and MS-CHAPv2 authentications to fail?
-
-If text message or authentication app verification codes are used for the secondary authentication method, then the password encryption protocol between NPS and NAS servers must be PAP. The NPS extension does not support other password encryption protocols for those two authentication methods at this point. 
-
-EAP is not supported by NPS extension yet for any secondary authentication method
 
 
 ## Next steps
