@@ -100,18 +100,20 @@ We recommend that you verify the properties of the source machine. Remember that
     * Only availability sets belonging to the specified resource group will be listed  
     * Machines with different virtual networks cannot be a part of same availability set
     * Only virtual machines of same size can be a part of same availability set
-5. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
+5. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM.
+6. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
-   * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
-   * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
+### Network adapters and IP addressing 
 
-     * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
-     * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
-     * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
-   * If the virtual machine has multiple network adapters they will all connect to the same network.
-   * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
+- You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
+- The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
+    - If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
+    - If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
+    - For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.
+    - If the virtual machine has multiple network adapters they will all connect to the same network.
+    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
+   
 
-6 . In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
 
 ## Common issues
