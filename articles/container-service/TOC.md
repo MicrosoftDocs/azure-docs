@@ -14,7 +14,7 @@
 ### [2 - Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md)
 ### [3 - Deploy Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
 ### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
-### [5 - Scale application](container-service-tutorial-kubernetes-scale-application.md)
+### [5 - Scale application](container-service-tutorial-kubernetes-scale.md)
 
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
