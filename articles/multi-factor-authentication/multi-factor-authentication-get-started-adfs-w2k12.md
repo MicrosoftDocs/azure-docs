@@ -13,10 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2017
+ms.date: 06/09/2017
 ms.author: kgremban
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,it-pro
 ---
 # Configure Azure Multi-Factor Authentication Server to work with AD FS in Windows Server
 If you use Active Directory Federation Services (AD FS) and want to secure cloud or on-premises resources, you can configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
@@ -36,13 +36,14 @@ Before you begin, be aware of the following information:
 * The account that you use to sign in must have user rights to create security groups in your Active Directory service.
 * The Multi-Factor Authentication AD FS adapter installation wizard creates a security group called PhoneFactor Admins in your instance of Active Directory. It then adds the AD FS service account of your federation service to this group. Verify on your domain controller that the PhoneFactor Admins group is indeed created and that the AD FS service account is a member of this group. If necessary, manually add the AD FS service account to the PhoneFactor Admins group on your domain controller.
 * For information about installing the Web Service SDK with the user portal, read about [deploying the user portal for Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
+* If SMS or Oath tokens are used for the secondary authentication method, then the password encryption protocol between NPS and NAS servers must be PAP. The NPS extension does not support other password encryption methods for those two authentication methods at this point. EAP is not supported by NPS extension yet for any secondary authentication method
 
 ### Install Azure Multi-Factor Authentication Server locally on the AD FS server
 1. Download and install Azure Multi-Factor Authentication Server on your AD FS server. For installation information, read about [getting started with Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md).
 2. In the Azure Multi-Factor Authentication Server management console, click the **AD FS** icon. Select the options **Allow user enrollment** and **Allow users to select method**.
 3. Select any additional options you'd like to specify for your organization.
 4. Click **Install AD FS Adapter**.
-   
+
    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
 
 5. If the Active Directory window is displayed, that means two things. Your computer is joined to a domain, and the Active Directory configuration for securing communication between the AD FS adapter and the Multi-Factor Authentication service is incomplete. Click **Next** to automatically complete this configuration, or select the **Skip automatic Active Directory configuration and configure settings manually** check box. Click **Next**.
