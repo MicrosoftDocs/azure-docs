@@ -147,7 +147,7 @@ To stop PHP, type `Ctrl + C` in the terminal.
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
-## Log in to Azure
+### Log in to Azure
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
