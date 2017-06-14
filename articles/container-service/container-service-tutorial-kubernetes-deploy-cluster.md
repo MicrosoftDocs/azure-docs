@@ -28,17 +28,23 @@ Kubernetes provides a distributed platform for running modern and containerized 
 > * Installation of the Kubernees CLI (kubectl)
 > * Configuration of kubectl
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Prerequisites
+
+This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+
+Resource group - In the previous tutorial, a resource group named *myResourceGroup* was created, and an Azure Container Registry instance deployed into it. If you need to create the resource group, run the following command.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
 
 ## Create Kubernetes cluster
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. The `--generate-ssh-kets` instructs the CLI to create SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option.
-
-Note, this step assume that you have a resource group named *myResourceGroup*. If you do not, it will need to be created. 
+The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. SSH keys will be created if they don't already exist. To use a specific set of keys in a non-default location, use the `--ssh-key-value` option.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 

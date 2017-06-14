@@ -55,7 +55,7 @@ Inside of the cloned directory are pre-created Docker and Kubernetes configurati
 Change directories so that you are in the cloned directory.
 
 ```bash
-cd ./azure-kubernetes-samples/flask-mysql-vote/
+cd ./azure-kubernetes-samples/
 ```
 Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
@@ -129,7 +129,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Test application
 
-Browse to `http://localhost:8080` to see the running application. 
+Browse to `http://localhost:8080` to see the running application. It does take a few seconds to initialize, if an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 

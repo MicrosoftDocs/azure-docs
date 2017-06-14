@@ -49,35 +49,6 @@ When deploying a containerized application into a Kubernetes cluster, many diffe
 
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
-## Deploye the Vote app
-
-This document will individual detail all objects included with the Azure Vote app deployment. If you would rather just deploy the app, without examining the details, a completed manifest has been pre-created. When deploying the complete manifest, the Azure Vote images are pulled from a public registry using default values.
-
-To deploy the Azure Vote app, run the following command. 
-
-```bash
-kubectl create -f https://raw.githubusercontent.com/neilpeterson/azure-kubernetes-samples/master/kubernetes-manifests/azure-vote-all-in-one.yaml
-```
-
-Once deployed, run the following command to monitor deployment status. This will return a list of services. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
-
-```bash
-kubectl get service -w
-```
-
-Output:
-
-```bash
-NAME               CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-azure-vote-back    10.0.77.30    <none>          3306/TCP       4m
-azure-vote-front   10.0.120.96   40.71.227.124   80:31482/TCP   4m
-kubernetes         10.0.0.1      <none>          443/TCP        7m
-```
-
-Browse to the returned external IP address to see the application.
-
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
-
 ## Create storage resources
 
 Because the Azure Vote application includes a MySQL database, we will want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file will remain in-tact. 
