@@ -86,32 +86,21 @@ When replicating VMware virtual machines, note that:
 >
 
 ## View and manage VM properties
+
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
-![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+    ![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+ 
+4.  You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over. Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
+5. You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over. While selecting availability set, please keep in mind that:
 
-*Resource Group*
-
-  * You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over.
-
-> [!NOTE]
-> Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
-
-*Availability Sets*
-
-You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over.
-While selecting availability set, please keep in mind that:
-
-* Only availability sets belonging to the specified resource group will be listed  
-* Machines with different virtual networks cannot be a part of same availability set
-* Only virtual machines of same size can be a part of same availability set
-
-*Network Properties*
-
-You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
+    * Only availability sets belonging to the specified resource group will be listed  
+    * Machines with different virtual networks cannot be a part of same availability set
+    * Only virtual machines of same size can be a part of same availability set
+5. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
    * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
@@ -122,7 +111,7 @@ You can also view and add information about the target network, subnet, and IP a
    * If the virtual machine has multiple network adapters they will all connect to the same network.
    * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
-4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
+6 . In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
 
 ## Common issues
