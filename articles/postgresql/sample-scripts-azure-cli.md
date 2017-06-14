@@ -6,9 +6,8 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
 ms.custom: sample, mvc
 ms.date: 05/25/2017

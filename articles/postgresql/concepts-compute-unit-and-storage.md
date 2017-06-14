@@ -6,7 +6,6 @@ author: kamathsun
 ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/23/2017

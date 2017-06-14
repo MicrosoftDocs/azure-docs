@@ -6,7 +6,6 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/10/2017

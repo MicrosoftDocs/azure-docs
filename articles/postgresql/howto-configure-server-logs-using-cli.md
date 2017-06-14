@@ -6,7 +6,6 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
 ms.devlang: azure-cli
 ms.topic: article

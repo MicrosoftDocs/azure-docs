@@ -7,7 +7,6 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 06/14/2017

@@ -6,7 +6,6 @@ author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: postgresql-database
 ms.custom: 
 ms.topic: article
