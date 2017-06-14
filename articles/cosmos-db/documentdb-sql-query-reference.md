@@ -22,7 +22,7 @@ ms.author: mimig
 
 The Azure Cosmos DB DocumentDB API supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the DocumentDB API SQL query language.
 
-For a walkthrough of the DocumentDB API SQL query language, see [Query DocumentDB](documentdb-sql-query.md).  
+For a walkthrough of the DocumentDB API SQL query language, see [SQL queries for Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
   
 We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   

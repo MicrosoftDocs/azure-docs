@@ -133,7 +133,7 @@
       items:
       - name: Resources
         href: documentdb-resources.md
-      - name: SQL query
+      - name: SQL queries
         href: documentdb-sql-query.md
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
