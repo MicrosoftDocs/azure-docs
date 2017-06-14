@@ -156,7 +156,8 @@ FROM 	dbo.T1
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-> [AZURE.NOTE] It is not possible to use `CREATE TABLE AS SELECT` currently when loading into a table with an IDENTITY column
+> [!NOTE] It is not possible to use `CREATE TABLE AS SELECT` currently when loading into a table with an IDENTITY column
+> 
 
 For more information on data loading with bcp, see the following articles:
 
@@ -216,7 +217,8 @@ The following related functions are not supported in SQL Data Warehouse:
 
 This section provides some sample code for performing common tasks when working with IDENTITY columns.
 
-> [AZURE.NOTE] Column C1 is the IDENTITY in all the following tasks.
+> [!NOTE] Column C1 is the IDENTITY in all the following tasks.
+> 
  
 ### Find the highest allocated value for a table
 Use the `MAX()` function to determine the highest value allocated for a distributed table:
