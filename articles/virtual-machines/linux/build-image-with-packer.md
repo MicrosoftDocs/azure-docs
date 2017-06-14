@@ -72,14 +72,14 @@ To build images, you create a template as a JSON file. In the template, you defi
 
 Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following:
 
-- client_id
-    - The first line of output from the previous `az ad sp` create command - *appId*
-- client_secret
-    - The second line of output from the previous `az ad sp` create command - *password*
-- tenant_id 
-    - The third line of output from the previous `az ad sp` create command - *tenant*
-- subscription_id
-- storage_account
+| Parameter       | Where to obtain |
+|-----------------|----------------------------------------------------|
+| *client_id*      | First line of output from `az ad sp` create command - *appId* |
+| *client_secret*  | Second line of output from `az ad sp` create command - *password* |
+| *tenant_id*      | Third line of output from `az ad sp` create command - *tenant* |
+| *subscription_id* | Output from `az account show` command |
+| *storage_account* | Name you specified in `az storage account create` |
+
 
 ```json
 {
