@@ -114,7 +114,7 @@ The output is similar to the following text:
 
 Save this information, as it is used in the following sections of this document.
 
-## Get the code
+## Get the notebooks
 
 The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 

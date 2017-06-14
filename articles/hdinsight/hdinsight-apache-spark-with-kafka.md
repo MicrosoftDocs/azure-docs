@@ -20,9 +20,7 @@ ms.author: larryfr
 ---
 # Apache Spark streaming (DStream) example with Kafka (preview) on HDInsight
 
-Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. In this example, you stream data using a Scala app in a Jupyter notebook from Spark.
-
-
+Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 >
@@ -74,35 +72,9 @@ Once the resources have been created, you are redirected to a blade for the reso
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
-## Get the code
-
-The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
-
-## Understand the code
-
-This example uses a Scala application in a Jupyter notebook. The code in the notebook relies on the following pieces of data:
-
-* __Kafka brokers__: The broker process runs on each workernode on the Kafka cluster. The list of brokers is required by the producer component, which writes data to Kafka.
-
-* __Zookeeper hosts__: The Zookeeper hosts for the Kafka cluster are used when consuming (reading) data from Kafka.
-
-* __Topic name__: The name of the topic that data is written to and read from. This example expects a topic named `sparktest`.
-
-See the [Kafka host information](#kafkahosts) section for information on how to obtain the Kafka broker and Zookeeper host information.
-
-The code in the notebook performs the following tasks:
-
-* Creates a consumer that reads data from a Kafka topic named `sparktest`, counts each word in the data, and stores the word and count into a temporary table named `wordcounts`.
-
-* Creates a producer that writes random sentences to the Kafka topic named `sparktest`.
-
-* Selects data from the `wordcounts` table to display the counts.
-
-Each cell in the project contains comments or a text section that explains what the code does.
-
 ## <a id="kafkahosts"></a>Kafka host information
 
-The first thing you should do when creating an application that works with Kafka on HDInsight is to get the Kafka broker and Zookeeper host information for the Kafka cluster. This is used by client applications to communicate with Kafka.
+The code in this example connects to the Kafka broker and Zookeeper hosts in the Kafka cluster. To find the host information, use the following PowerShell or Bash example:
 
 > [!NOTE]
 > The Kafka broker and Zookeeper hosts are not directly accessible over the Internet. Any application that uses Kafka must either run on the Kafka cluster or within the same Azure Virtual Network as the Kafka cluster. In this case, the example runs on a Spark on HDInsight cluster in the same virtual network.
@@ -154,7 +126,11 @@ Both commands return information similar to the following text:
 > [!IMPORTANT]
 > Save this information as it is used in several steps in this document.
 
-## Use the Jupyter notebook
+## Get the notebook
+
+The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+
+## Upload the notebook
 
 To use the example Jupyter notebook, you must upload it to the Jupyter Notebook server on the Spark cluster. Use the following steps to upload the notebook:
 
@@ -174,7 +150,9 @@ To use the example Jupyter notebook, you must upload it to the Jupyter Notebook 
 
     ![Use the upload button beside the KafkaStreaming.ipynb entry to upload it to the notebook server](./media/hdinsight-apache-spark-with-kafka/upload-notebook.png)
 
-4. Once the file has uploaded, select the __KafkaStreaming.ipynb__ entry to open the notebook. To complete this example, follow the instructions in the notebook.
+## Load tweets into Kafka
+
+Once the files have been uploaded, select the __Stream-Tweets-To_Kafka.ipynb__ entry to open the notebook. Follow the steps in the notebook to load tweets into Kafka.
 
 ## Delete the cluster
 
