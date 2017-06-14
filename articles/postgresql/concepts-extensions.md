@@ -7,9 +7,7 @@ ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
 ms.assetid:
-ms.custom: mvc
-ms.service: postgresql - database
-ms.tgt_pltfrm: portal
+ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/31/2017
 ---

@@ -8,7 +8,6 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid:
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
