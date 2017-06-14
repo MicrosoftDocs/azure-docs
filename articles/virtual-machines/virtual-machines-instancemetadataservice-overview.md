@@ -17,11 +17,8 @@ ms.date: 03/27/2017
 ms.author: harijay
 ---
 
-# Azure Instance Metadata Service (Preview)
+# Azure Instance Metadata Service 
 
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
 This includes information such as SKU, network configuration, and upcoming maintenance events. For additional information on what type of information is available, see [metadata categories](#instance-metadata-data-categories).
@@ -31,31 +28,31 @@ The endpoint is available at a well-known non-routable IP address (`169.254.169.
 
 ### Important information
 
-This service is currently in **preview** and regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+This service is currently **generally available** in Global Azure Regions and is in Public preview for Government , China and German Azure Cloud.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service Availability
-The current preview is available in all generally-available Azure regions globally. The service is not yet available in the Government, China, or Germany regions.
+The current is available in all generally-available Azure regions globally. The service is in public preview  in the Government, China, or Germany regions.
 
-Regions                                        | Preview Available?
+Regions                                        | Availability?
 -----------------------------------------------|-----------------------------------------------
-[All Generally-Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Yes
-[Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | No
-[Azure China](https://www.azure.cn/)                                                           | No
-[Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | No
+[All Generally-Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Generally Available 
+[Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | In Preview 
+[Azure China](https://www.azure.cn/)                                                           | In Preview
+[Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | In Preview
 
-This table will be updated when the service preview becomes available in other regions.
+This table will be updated when the service becomes available in other regions.
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
 
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-03-01`.
+The Instance Metadata Service is versioned. Versions are mandatory and the current version is `2017-04-02`.
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, please note that the current preview version may not be available once the service is generally available.
+As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, please note that the current preview version(2017-03-01) may not be available once the service is generally available.
 
 ### Using Headers
 When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
@@ -66,8 +63,9 @@ Instance metadata is available for running VMs created/managed using [Azure Reso
 Access all data categories for a virtual machine instance using the following request:
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-03-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
+Please note all instance metadata queries are case sensitive.
 
 ### Data output
 By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs can return data in different formats if requested.
@@ -81,7 +79,7 @@ API | Default Data Format | Other Formats
 To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-03-01&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### Security
@@ -109,7 +107,7 @@ HTTP Status Code | Reason
 **Request**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-03-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
 ```
 
 **Response**
@@ -122,40 +120,33 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
   "interface": [
     {
       "ipv4": {
-        "ipaddress": [
+        "ipAddress": [
           {
-            "ipaddress": "10.0.0.4",
-            "publicip": "<>.<>.<>.<>"
+            "privateIpAddress": "10.1.0.4",
+            "publicIpAddress": "X.X.X.X"
           }
         ],
         "subnet": [
           {
-            "address": "10.0.0.0",
-            "dnsservers": [
-              {
-                "ipaddress": "10.0.0.2"
-              },
-              {
-                "ipaddress": "10.0.0.3"
-              }
-            ],
+            "address": "10.1.0.0",
             "prefix": "24"
           }
         ]
       },
       "ipv6": {
-        "ipaddress": []
+        "ipAddress": []
       },
-      "mac": "000D3A00FA89"
+      "macAddress": "000D3AF806EC"
     }
   ]
 }
+
 ```
 
 #### Retrieving public IP address
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipaddress/0/publicip?api-version=2017-03-01&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
 #### Retrieving all metadata for an instance
@@ -163,7 +154,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Request**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-03-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
 **Response**
@@ -174,47 +165,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "CentralUS",
-    "name": "IMDSCanary",
-    "offer": "RHEL",
+    "location": "westcentralus",
+    "name": "IMDSSample",
+    "offer": "UbuntuServer",
     "osType": "Linux",
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "RedHat",
-    "sku": "7.2",
-    "version": "7.2.20161026",
-    "vmId": "5c08b38e-4d57-4c23-ac45-aca61037f084",
-    "vmSize": "Standard_DS2"
+    "publisher": "Canonical",
+    "sku": "16.04.0-LTS",
+    "version": "16.04.201610200",
+    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
+    "vmSize": "Standard_A1"
   },
   "network": {
     "interface": [
       {
         "ipv4": {
-          "ipaddress": [
+          "ipAddress": [
             {
-              "ipaddress": "10.0.0.4",
-              "publicip": "X.X.X.X"
+              "privateIpAddress": "10.1.0.4",
+              "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.0.0.0",
-              "dnsservers": [
-                {
-                  "ipaddress": "10.0.0.2"
-                },
-                {
-                  "ipaddress": "10.0.0.3"
-                }
-              ],
+              "address": "10.1.0.0",
               "prefix": "24"
             }
           ]
         },
         "ipv6": {
-          "ipaddress": []
+          "ipAddress": []
         },
-        "mac": "000D3A00FA89"
+        "macAddress": "000D3AF806EC"
       }
     ]
   }
@@ -228,13 +211,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
 
 ```
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-03-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Or through the `Invoke-RestMethod` cmdlet:
     
 ```
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-03-01 -Method get | select -ExpandProperty Content
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
 **Response**
@@ -245,7 +228,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 {
   "compute": {
-    "location": "CentralUSEUAP",
+    "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
     "osType": "Windows",
@@ -259,7 +242,28 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
   },
   "network": {
     "interface": [
-      "@{ipv4=; ipv6=; mac=002248020E1E}"
+      {
+        "ipv4": {
+          "ipAddress": [
+            {
+              "privateIpAddress": "10.0.1.4",
+              "publicIpAddress": "X.X.X.X"
+            }
+          ],
+          "subnet": [
+            {
+              "address": "10.0.1.0",
+              "prefix": "24"
+            }
+          ]
+        },
+        "ipv6": {
+          "ipAddress": [
+            
+          ]
+        },
+        "macAddress": "002248020E1E"
+      }
     ]
   }
 }
@@ -281,15 +285,13 @@ platformUpdateDomain |  [Update domain](virtual-machines-windows-manage-availabi
 platformFaultDomain | [Fault domain](virtual-machines-windows-manage-availability.md) the VM is running in
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 vmSize | [VM size](virtual-machines-windows-sizes.md)
-ipv4/ipaddress | Local IPv4 address of the VM 
-ipv4/publicip | Public IPv4 address of the VM
+ipv4/privateIpAddress | Local IPv4 address of the VM 
+ipv4/publicIpAddress | Public IPv4 address of the VM
 subnet/address | Subnet address of the VM
-subnet/dnsservers/ipaddress1 | Primary DNS server
-subnet/dnsservers/ipaddress2 | Secondary DNS server
 subnet/prefix | Subnet prefix, example 24
-ipv6/ipaddress | Local IPv6 address of the VM
-mac | VM mac address 
-scheduledevents | See [scheduledevents](virtual-machines-scheduled-events.md)
+ipv6/ipAddress | Local IPv6 address of the VM
+macAddress | VM mac address 
+scheduledevents | Currently in Public Preview See [scheduledevents](virtual-machines-scheduled-events.md)
 
 ## Example Scenarios for usage  
 
@@ -300,7 +302,7 @@ As a service provider, you may require to track the number of VMs running your s
 **Request**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-03-01&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
 **Response**
@@ -318,7 +320,7 @@ You can query this data directly via the Instance Metadata Service.
 **Request**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-03-01&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
 **Response**
@@ -334,7 +336,7 @@ As a service provider, you may get a support call where you would like to know m
 **Request**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-03-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
 **Response**
@@ -360,6 +362,22 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+### Examples of calling metadata service using different languages inside the VM 
+
+Language | Example 
+---------|----------------
+Ruby     | 
+Go       |             
+python   | 
+C++      |
+C#       |
+PHP      |
+Javascript |
+Java       |
+Powershell |
+Bash       |
+    
+
 ## FAQ
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service. 
@@ -368,9 +386,15 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. Why am I getting the error `500 Internal Server Error`?
-   * Currently the Instance Metadata Service preview is available only in generally-available Azure regions and not in the Government, China, or Germany regions. Deploy your VMs in a supported region. If the issue persists contact azureimds@microsoft.com.
-4. Where do I share additional questions/comments?
+   * On regions were the service is available please retry your request based on exponential back off system. Currently the Instance Metadata Service  is available only in global Azure regions and not in the Government, China, or Germany regions. Deploy your VMs in a supported region.  If the issue persists contact azureimds@microsoft.com or Azure support.
+5. Where do I share additional questions/comments?
    * Send your comments on http://feedback.azure.com.
+7. Would this work for Virtual Machine Scale Set Instance?
+   * Yes Metadata service is available for Scale Set Instances. 
+6. How do I get support for the service ?
+   * You can get support for the service by creating a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
+
+   ![Instance Metadata Support](./media/virtual-machines-instancemetadataservice-overview/InstanceMetadata-support.png)
     
 ## Next Steps
 
