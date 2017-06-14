@@ -123,7 +123,7 @@ FROM	dbo.T1
 
 ## Loading data into a table with IDENTITY
 
-The presence of the IDENTITY property does have some implications to your data loading code. This next section highlights these
+The presence of the IDENTITY property does have some implications to your data loading code. This next section highlights some basic patterns for loading data into tables using IDENTITY. 
 
 ### Loading with PolyBase
 To load data into a table and generate a surrogate key using IDENTITY, you must first create the table and then use INSERT..SELECT or INSERT..VALUES to perform the load.
@@ -156,18 +156,18 @@ FROM 	dbo.T1
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-> [AZURE.NOTE] It is not possible to use `CREATE TABLE AS SELECT` at this time when loading into a table with an IDENTITY column
+> [AZURE.NOTE] It is not possible to use `CREATE TABLE AS SELECT` currently when loading into a table with an IDENTITY column
 
-For more details on data loading with bcp, see the following articles:
+For more information on data loading with bcp, see the following articles:
 - [Load with PolyBase][]
 - [PolyBase best practices][]
 
 ### Loading with bcp
 Bulk Copy Program (bcp) is a command-line utility that you can use for loading data into SQL Data Warehouse. One of its parameters (-E) controls the behavior of bcp when loading into a table with an IDENTITY column. 
 
-When -E is specified the values held in the input file for the column with IDENTITY are retained. If -E is *not* specified then the values in this column are ignored. If the identity column is not included then data is loaded as normal. The values will be generated according to the increment and seed policy of the property.
+When -E is specified the values held in the input file for the column with IDENTITY are retained. If -E is *not* specified then the values in this column are ignored. If the identity column is not included then data is loaded as normal. The values are generated according to the increment and seed policy of the property.
 
-For more details on data loading with bcp refer to the following articles:
+For more information on data loading with bcp refer to the following articles:
 - [Loading with bcp][]
 - [bcp in MSDN][]
 
