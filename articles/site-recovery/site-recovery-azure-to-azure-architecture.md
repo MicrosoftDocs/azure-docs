@@ -20,12 +20,6 @@ ms.author: sujayt
 
 # How does Azure VM replication work in Site Recovery?
 
-> [!div class="op_single_selector"]
-> * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
-> * [VMware VM and physical server to Azure replication](site-recovery-architecture-vmware-to-azure.md)
-> * [Hyper-V VM to Azure replication](site-recovery-architecture-hyper-v-to-azure.md)
-> * [VMs and physical servers to secondary site replication](site-recovery-architecture-to-secondary-site.md)
-
 
 This article describes the components and processes involved in replicating and recovering Azure virtual machines (VMs) from one region to another by using the [Azure Site Recovery](site-recovery-overview.md) service.
 

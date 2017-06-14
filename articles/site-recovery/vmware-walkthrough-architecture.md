@@ -12,33 +12,30 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.topic: article
+ms.date: 06/13/2017
 ms.author: raynew
 ---
 
+# Step 1: Review the architecture for VMware replication to Azure
 
+This article describes the components and processes used when replicating on-premises VMware virtual machines, and Windows/Linux physical servers, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
-# How does VMware replication to Azure work in Site Recovery?
+The replication requirements for replication of on-premises VMware VMs and physical Windows/Linux servers to Azure are almost identical, but note that:
 
-This article describes the components and processes involved when replicating on-premises VMware virtual machines, and Windows/Linux physical servers, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
-
-When you replicate physical on-premises servers to Azure, replication uses also the same components and processes as VMware VM replication, with these differences:
-
-- You can use a physical server for the configuration server, instead of a VMware VM.
-- You will need an on-premises VMware infrastructure for failback. You can't fail back to a physical machine.
+- When you replicate physical on-premises server, you can use a physical server for the on-premises Site Recovery configuration server, instead of a VMware VM.
+- You do need an on-premises VMware infrastructure for failback, even if you replicate  physical machines. You can't fail back to a physical machine.
 
 Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Architectural components
 
-There are a number of components involved when replicating VMware VMs and physical servers to Azure.
 
 **Component** | **Location** | **Details**
 --- | --- | ---
 **Azure** | In Azure you need an Azure account, an Azure storage account, and an Azure network. | Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover from your on-premises site occurs. The Azure VMs connect to the Azure virtual network when they're created.
-**Configuration server** | A single on-premises management server (VMWare VM) that runs all the on-premises components that are needed for the deployment, including the configuration server, process server, master target server | The configuration server component coordinates communications between on-premises and Azure, and manages data replication.
+**Configuration server** | A single on-premises management server (VMWare VM) that runs all the on-premises Site Recovery components that are needed for the deployment. These include a configuration server, process server, master target server. | The configuration server component coordinates communications between on-premises and Azure, and manages data replication.
  **Process server**:  | Installed by default on the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs.<br/><br/> As your deployment grows you can add additional separate dedicated process servers to handle increasing volumes of replication traffic.
  **Master target server** | Installed by default on the on-premises configuration server. | Handles replication data during failback from Azure.<br/><br/> If volumes of failback traffic are high, you can deploy a separate master target server for failback.
 **VMware servers** | VMware VMs are hosted on vSphere ESXi servers, and we recommend a vCenter server to manage the hosts. | You add VMware servers to your Recovery Services vault.
@@ -48,7 +45,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 
 **Figure 1: VMware to Azure components**
 
-![Components](./media/site-recovery-components/arch-enhanced.png)
+![Components](./media/vmware-walkthrough-architecture/arch-enhanced.png)
 
 ## Replication process
 
@@ -64,7 +61,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 
 **Figure 2: VMware to Azure replication**
 
-![Enhanced](./media/site-recovery-components/v2a-architecture-henry.png)
+![Enhanced](./media/vmware-walkthrough-architecture/v2a-architecture-henry.png)
 
 ## Failover and failback process
 
@@ -84,9 +81,9 @@ There are a few failback requirements:
 
 **Figure 3: VMware/physical failback**
 
-![Failback](./media/site-recovery-components/enhanced-failback.png)
+![Failback](./media/vmware-walkthrough-architecture/enhanced-failback.png)
 
 
 ## Next steps
 
-Review the [support matrix](site-recovery-support-matrix-to-azure.md)
+Go to [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
