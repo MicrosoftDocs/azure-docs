@@ -41,7 +41,7 @@ Kafka provides the following features:
 
     Managed disks are enabled by default for Kafka on HDInsight, and the number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
 
-    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-managed-disk.md).
+    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
 
 ## Use cases
 
