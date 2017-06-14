@@ -83,6 +83,7 @@ status
    > For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 3. Create an empty database by typing the `CREATE DATABASE` command at the mysql> prompt.
+
 ```sql
 CREATE DATABASE quickstartdb;
 ```
@@ -90,6 +91,7 @@ CREATE DATABASE quickstartdb;
    Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
 
 4. List the databases by typing `SHOW DATABASES` command at the mysql> prompt.
+
 ```sql
 SHOW DATABASES;
 ```
