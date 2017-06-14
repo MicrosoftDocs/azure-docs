@@ -5,13 +5,11 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid: 
 ms.service: mysql
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 06/07/2017
+ms.date: 06/14/2017
 ms.custom: mvc
 ---
 
@@ -74,9 +72,9 @@ Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
-2. View server status to ensure the connection is functional.
+2. View server status to ensure the connection is functional. Type `status` at the mysql> prompt once it is connected.
 ```sql
- mysql> status
+status
 ```
 
    ![Command prompt - mysql command-line example](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
@@ -84,7 +82,17 @@ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 > [!TIP]
 > For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
-You can create multiple databases within a MySQL server. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
+3. Create an empty database by typing the `CREATE DATABASE` command at the mysql> prompt.
+```sql
+CREATE DATABASE quickstartdb;
+```
+
+Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
+
+4. List the databases by typing `SHOW DATABASES` command at the mysql> prompt.
+```sql
+SHOW DATABASES;
+```
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
