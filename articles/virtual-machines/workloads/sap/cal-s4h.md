@@ -46,7 +46,7 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
     > [!NOTE]
-    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to be assigned to deploy in the Resource Manager model.
+    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
 2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
@@ -86,7 +86,7 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
 You successfully created an SAP CAL account that is able to:
 
-- Leverage the Resource Manager deployment model.
+- Use the Resource Manager deployment model.
 - Deploy SAP systems into your Azure subscription.
 
 Now you can start to deploy S/4HANA into your user subscription in Azure.
@@ -95,7 +95,7 @@ Now you can start to deploy S/4HANA into your user subscription in Azure.
 Before you continue, determine whether you have Azure core quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series core quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series cores.
 
 > [!NOTE]
-When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than those initially suggested by the SAP CAL.
+When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
 
 ### Deploy a solution
 
@@ -108,7 +108,7 @@ We demonstrate the basic path to deployment here.
 
 1. On the **Account Details** page, you need to:
 
-    a. Select a SAP CAL account. (Use an account that is associated to deploy with the Resource Manager deployment model.)
+    a. Select an SAP CAL account. (Use an account that is associated to deploy with the Resource Manager deployment model.)
 
     b. Enter an instance **Name**.
 

@@ -43,7 +43,7 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
     > [!NOTE]
-    The next steps show how to create and SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to be assigned to deploy in the Resource Manager model.
+    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
 2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
@@ -83,7 +83,7 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
 
 You successfully created an SAP CAL account that is able to:
 
-- Leverage the Resource Manager deployment model.
+- Use the Resource Manager deployment model.
 - Deploy SAP systems into your Azure subscription.
 
 > [!NOTE]
