@@ -35,7 +35,7 @@ In addition to the inbuilt Azure infrastructure capabilities and features that c
 - Your compliance guidelines for specific apps and workloads require a Business continuity and Disaster Recovery (BCDR) strategy.
 - You want the ability to protect and recover Azure VMs based on your business decisions, and not only based on inbuilt Azure functionality.
 - You need to be able to test failover and recovery in accordance with your business and compliance needs, with no impact on production.
-- You need to be able to failover to the recovery region in the event of a disaster and fail back to the orinal source region seamlessly.
+- You need to be able to failover to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
 
 Azure to Azure VM replication using Site Recovery helps you to do all the above.
 
@@ -45,7 +45,7 @@ Azure to Azure VM replication using Site Recovery helps you to do all the above.
 Site Recovery provides a simple way to replicate Azure VMs between regions:
 
 - **Automatic deployment**. Unlike an active-active replication model, there's no need for an expensive and complex infrastructure in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on source region settings.
-- **Control regions**. With Site Recovery you can replicate from any region to any region within a contenent. Compare this with RA-GRS (read-access geo-redundant storage), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only, and provides read-only access to the data in the target region.
+- **Control regions**. With Site Recovery you can replicate from any region to any region within a continent. Compare this with RA-GRS (read-access geo-redundant storage), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only, and provides read-only access to the data in the target region.
 - **Automated replication**. Site Recovery provides automated continuous replication. Failover and failback can be triggered with just a single click.
 - **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions, to keep RTO and RPO very low.
 - **Testing**. You can run disaster recovery drills with on-demand test failovers, as and when needed, without impacting your production workloads or ongoing replication.
