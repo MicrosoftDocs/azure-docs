@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: nepeters
 ---
 
-# Azure Container Service tutorial - Prepare App
+# Create container images to be used with Azure Container Service
 
-Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, an application will be taken from source, into a Kubernetes cluster, where it will be scaled, upgraded, and monitored. Throughout these steps, a Kubernetes cluster and an Azure Container Registry will be deployed, and the underlying Azure components explained. 
+Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, an application is taken from source, into a Kubernetes cluster, where it is then scaled, upgraded, and monitored. Throughout these steps, a Kubernetes cluster and an Azure Container Registry are deployed, and the underlying Azure components explained. 
 
-In this first tutorial, a sample application will be tested and packed up into portable Docker container images. Steps completed include:
+In this first tutorial, a sample application is tested and packed up into portable Docker container images. Steps completed include:
 
 > [!div class="checklist"]
 > * Clone an existing applications code repository
@@ -34,7 +34,7 @@ In this first tutorial, a sample application will be tested and packed up into p
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
 
-To complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
+**Docker environment** - to complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
 
 [Docker for Mac]( https://docs.docker.com/docker-for-mac/)
 
@@ -50,7 +50,7 @@ Use git to download a copy of the appliction to your development environment.
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Inside of the cloned directory are pre-created Docker and Kubernetes configuration files. These are used to create assets throughout the tutorial set. 
+Inside the cloned directory is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
 
 Change directories so that you are in the cloned directory.
 
@@ -59,7 +59,7 @@ cd ./azure-kubernetes-samples/
 ```
 Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
-At the root of the cloned directory is a *docker-compose.yaml* file. This file, depicted below, instructs Docker compose to create two container images (azure-vote-front and azure-vote-back), configures environment variables, exposes container ports.
+At the root of the cloned directory, is a *docker-compose.yaml* file. This file, shown below, results in two container images (azure-vote-front and azure-vote-back), configured environment variables, and exposed container ports.
 
 ```yaml
 version: '3'
@@ -129,13 +129,13 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Test application
 
-Browse to `http://localhost:8080` to see the running application. It does take a few seconds to initialize, if an error is encountered, try again.
+Browse to `http://localhost:8080` to see the running application. The application take a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
 ## Delete Resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. The container images will not be deleted, these will be uploaded to an Azure Container Registry instance in the next tutorial.
+Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
 
 Run the following to stop the running containers.
 
@@ -143,7 +143,7 @@ Run the following to stop the running containers.
 docker-compose stop
 ```
 
-And delete the container with the following command.
+And delete the container with the following command:
 
 ```bash
 docker-compose rm --force

@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: nepeters
 ---
 
-# Azure Container Service tutorial - Prepare ACR
+# Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azure based, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance will be integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
+Azure Container Registry (ACR) is an Azurebased, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
@@ -36,7 +36,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-**Container Images** - in the previous tutorial, two container images were created. These images will be stored in an Azure Container Registry. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
+**Container Images** - in the previous tutorial, two container images were created. These images are stored in an Azure Container Registry. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
 
 ## Deploy Azure Container Registry
 
@@ -58,7 +58,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 ## Get ACR information 
 
-Once the ACR instance has been created, the name, login server name, and authentication password will be needed. These values are use throughout this tutorial. To keep things simple, these values will be stored in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
+Once the ACR instance has been created, the name, login server name, and authentication password is needed. These values are use throughout this tutorial. To keep things simple, these values are stored in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
 
 ACR Name:
 
@@ -80,7 +80,7 @@ acrPassword = $(az acr credential show --name $acrName --query passwords[0].valu
 
 ## Container registry login
 
-You must login to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation.
+You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation.
 
 The following example uses the previously created variables.
 
@@ -88,7 +88,7 @@ The following example uses the previously created variables.
 docker login --username=$acrName --password=$acrPassword $acrLoginServer
 ```
 
-The command will return a 'Login Succeeded’ message once completed.
+The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container images
 
@@ -110,7 +110,7 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This indicates the image version number.
+Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This tag indicates the image version number.
 
 ```bash
 docker tag azure-vote-front $acrLoginServer/azure-vote-front:v1

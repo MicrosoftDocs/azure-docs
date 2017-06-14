@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: nepeters
 ---
 
-# Azure Container Service tutorial - Deploy Cluster
+# Deploy a Kubernetes cluster in Azure Container Service
 
 Kubernetes provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. This quick start details basic steps needed to deploy a Kubernetes cluster. This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Deploy a Kubernetes ACS cluster
-> * Installation of the Kubernees CLI (kubectl)
+> * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -34,7 +34,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-Resource group - In the previous tutorial, a resource group named *myResourceGroup* was created, and an Azure Container Registry instance deployed into it. If you need to create the resource group, run the following command.
+**Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created, and an Azure Container Registry instance deployed into it. If you need to create the resource group, run the following command:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. SSH keys will be created if they don't already exist. To use a specific set of keys in a non-default location, use the `--ssh-key-value` option.
+The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes. If they do not already exist, SSH keys are created. To use a specific set of keys in a non-default location, use the `--ssh-key-value` option.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
