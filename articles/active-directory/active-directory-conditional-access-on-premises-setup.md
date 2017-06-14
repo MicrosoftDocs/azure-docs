@@ -4,7 +4,7 @@ description: A step-by-step guide to enable conditional access to on-premises ap
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Setting up on-premises conditional access using Azure Active Directory Device Registration
@@ -174,9 +174,6 @@ There are many different ways to communicate this URL to your users. One recomme
 
 ### Join a Windows 7 device using Azure Active Directory Device Registration
 To register Windows 7 domain joined devices you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). Instructions how to use the package are available at [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md).
-
-### Join an Android device using Azure Active Directory Device Registration
-The [Azure Authenticator for Android topic](active-directory-conditional-access-azure-authenticator-app.md) has instructions on how to install Azure authenticator app on your Android device and add a work account. When a work account is created successfully on an Android device, that device is workplace joined to the organization.
 
 ## Verify registered devices are written-back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory using LDP.exe or ADSI Edit. Both are available with the Active Directory Administrator tools.

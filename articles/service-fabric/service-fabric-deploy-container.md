@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/6/2017
+ms.date: 2/17/2017
 ms.author: msfussell
 
 ---
@@ -301,4 +301,4 @@ An example service manifest (specified in the preceding application manifest) fo
 Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
 * [Overview of Service Fabric and containers](service-fabric-containers-overview.md)
-
+* For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

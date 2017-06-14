@@ -4,7 +4,7 @@ description: Learn how to deploy an ASP.NET web project to a new web app in Azur
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74

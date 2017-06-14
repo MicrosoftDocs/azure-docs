@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
 
-# Publish applications on separate networks and locations using connector groups
+# Publish applications on separate networks and locations using connector groups - Public preview
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)

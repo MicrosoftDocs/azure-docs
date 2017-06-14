@@ -4,7 +4,7 @@ description: Learn how to use Azure queue storage with the WebJobs SDK. Create a
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463

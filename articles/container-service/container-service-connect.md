@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect to an Azure Container Service cluster
+# Make a remote connection to a Kuburnetes, DC/OS, or Docker Swarm cluster
 After creating an Azure Container Service cluster, you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the master VM of the cluster from a remote computer. 
 
 The Kubernetes, DC/OS, and Docker Swarm clusters provide HTTP endpoints locally. For Kubernetes,
@@ -28,14 +29,11 @@ this endpoint is securely exposed on the internet, and you can access it by runn
 For DC/OS 
 and Docker Swarm, you must create a secure shell (SSH) tunnel to an internal system. After the tunnel is established, you can run commands which use the HTTP endpoints and view the cluster's web interface from your local system. 
 
-> [!NOTE]
-> Kubernetes support in Azure Container Service is currently in preview.
->
 
 ## Prerequisites
 
 * A Kubernetes, DC/OS, or Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
-* SSH private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
+* SSH RSA private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
 instructions for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
 for more information. If the SSH connection isn't working, you may need to 
@@ -51,7 +49,7 @@ Follow these steps to install and configure `kubectl` on your computer.
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install-cli` Azure CLI 2.0 (Preview) command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 (Preview) and logged in to an Azure account (`az login`).
+tool is to use the `az acs kubernetes install-cli` Azure CLI 2.0 command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an Azure account (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -61,7 +59,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Alternatively, you can download the client directly from the [releases page](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Alternatively, you can download the latest client directly from the [Kubernetes releases page](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). For more information, see [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
@@ -133,7 +131,7 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
     **PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key that corresponds to the public key you provided when you created the cluster. Use this option with the `-i` flag.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > The SSH connection port is 2200 and not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
@@ -208,7 +206,7 @@ There are multiple options for creating SSH tunnels on Windows. This section des
 
     ![PuTTY event log](media/putty4.png)
 
-After you've configured the tunnel for DC/OS, you can access the related endpoint at:
+After you've configured the tunnel for DC/OS, you can access the related endpoints at:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`

@@ -13,19 +13,12 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
 ms.author: rickbyh
 
 ---
 # Create and manage Azure SQL Database server-level firewall rules using the Azure portal
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure portal](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Server-level firewall rules enable administrators to access a SQL Database server from a specified IP address or range of IP addresses. You can also use server-level firewall rules for users when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually. Microsoft recommends using database-level firewall rules whenever possible, to enhance security and to make your database more portable. For an overview of SQL Database firewalls, see [Overview of SQL Database firewall rules](sql-database-firewall-configure.md).
 

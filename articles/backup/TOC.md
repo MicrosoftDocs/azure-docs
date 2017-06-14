@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 # Get started
@@ -32,6 +33,7 @@
 ### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
 ### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
 ### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
+### [Recover files from Azure VM backups](backup-azure-restore-files-from-vm.md)
 ### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
 ### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
 ### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
@@ -49,6 +51,7 @@
 ### [Recover files to a Windows Server using Resource Manager deployment model](backup-azure-restore-windows-server.md)
 ### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
+## [Use Role-Based Access Control for backup management](backup-rbac-rs-vault.md)
 ## [Enable security features for hybrid backups](backup-azure-security-feature.md)
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)

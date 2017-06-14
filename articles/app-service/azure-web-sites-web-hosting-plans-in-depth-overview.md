@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 services: app-service
 documentationcenter: ''
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
@@ -32,7 +32,7 @@ Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http:/
 
 All applications assigned to an **App Service plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
-Your **App Service plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. 
+Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. 
 
 If your App Service plan is set to **Basic** SKU or higher you can control the **size** and scale count of the VMs.
 

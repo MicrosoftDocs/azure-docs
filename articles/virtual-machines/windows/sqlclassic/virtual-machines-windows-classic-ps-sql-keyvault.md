@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2016
+ms.date: 02/17/2017
 ms.author: jroth
 
 ---
@@ -68,9 +68,9 @@ The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configurat
         $serviceName = "mycloudservicename"
 2. Then use the following script to configure and enable AKV Integration.
    
-     $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-     $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-     Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
 
 The SQL IaaS Agent Extension will update the SQL VM with this new configuration.
 

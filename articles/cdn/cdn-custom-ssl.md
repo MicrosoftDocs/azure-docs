@@ -56,7 +56,14 @@ Some of the key attributes of HTTPS feature are:
 >[!IMPORTANT] 
 >You must complete domain validation before HTTPS will be active on your custom domain. You have 6 business days to approve the domain. Request will be canceled with no approval within 6 business days.  
 
-After enabling HTTPS on your custom domain, our HTTPS certificate provider DigiCert will validate ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. If WHOIS registrant information is private, DigiCert will send the verification email to **admin@*<your-domain-name.com>***.
+After enabling HTTPS on your custom domain, our HTTPS certificate provider DigiCert will validate ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. DigiCert will also send the verification email to the below addresses. If WHOIS registrant information is private, make sure you can approve directly from one of these addresses.
+
+>admin@<your-domain-name.com>
+>administrator@<your-domain-name.com>  
+>webmaster@<your-domain-name.com>  
+>hostmaster@<your-domain-name.com>  
+>postmaster@<your-domain-name.com>
+
 
 Upon receiving the email, you have two verification options:
 

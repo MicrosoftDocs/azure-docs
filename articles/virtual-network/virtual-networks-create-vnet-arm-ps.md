@@ -1,6 +1,6 @@
 ---
-title: Create a virtual network using PowerShell | Microsoft Docs
-description: Learn how to create a virtual network using PowerShell | Resource Manager.
+title: Create a virtual network - Azure PowerShell | Microsoft Docs
+description: Learn how to create a virtual network using PowerShell.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017 
 
 ---
 # Create a virtual network using PowerShell

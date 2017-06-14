@@ -1,5 +1,5 @@
 ---
-title: Creating an Export Job for the Azure Import/Export service | Microsoft Docs
+title: Create an Export Job for Azure Import/Export | Microsoft Docs
 description: Learn how to create an export job for the Microsoft Azure Import/Export service
 author: muralikk
 manager: syadav
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
 
-# Creating an Export Job
+# Creating an export job for the Azure Import/Export service
 Creating an export job for the Microsoft Azure Import/Export service using the REST API involves the following steps:
 
 -   Selecting the blobs to export.

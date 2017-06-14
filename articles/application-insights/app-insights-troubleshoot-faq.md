@@ -21,7 +21,7 @@ ms.author: awills
 *I'm having trouble setting up my:*
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 * [Other platforms](app-insights-platforms.md)

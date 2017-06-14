@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure availability sets guidelines
+# Azure availability sets guidelines for Windows VMs
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.

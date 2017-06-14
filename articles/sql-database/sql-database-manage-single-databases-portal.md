@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: single databases
+
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
@@ -46,6 +47,7 @@ You can create and manage single Azure SQL databases with the [Azure portal](htt
     ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## Change the service tier and performance level of a single database
+
 Open the SQL Database blade for the database you want to scale up or down:
 
 1. In the [Azure portal](https://portal.azure.com), click **More services** > **SQL databases**.
@@ -56,12 +58,11 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 4. Choose a new tier and click **Select**:
    
-   Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database, the scale operation can take some time to complete (see the info at the top of this article).
+   Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database, the scale operation can take some time to complete (see [Service tiers](sql-database-service-tiers.md).
    
    > [!NOTE]
    > Changing your database pricing tier does not change the max database size. To change your database max size, use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) or [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-   > 
-   > 
+   >  
    
    ![select pricing tier](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. Click the notification icon (bell), in the upper right:

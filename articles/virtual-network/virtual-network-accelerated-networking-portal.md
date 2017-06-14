@@ -4,7 +4,7 @@ description: Learn how to configure Accelerated Networking for an Azure virtual 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Accelerated networking for a virtual machine
+# Accelerated networking for a virtual machine using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-accelerated-networking-portal.md)
 > * [PowerShell](virtual-network-accelerated-networking-powershell.md)

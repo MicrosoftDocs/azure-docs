@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: asaxton
 
 ---
@@ -24,7 +24,7 @@ With **Microsoft Power BI Embedded**, you can integrate Power BI reports right i
 
 Before we go any further, you'll probably want to save the following resources. They'll help you when integrating Power BI reports into the sample app and your own apps too.
 
-* [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Sample workspace web app](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Embedded API reference](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
@@ -54,7 +54,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 
 You should see a response like:
 
-````
+```
 Checking import state... Publishing
 Checking import state... Succeeded
 ```
@@ -65,7 +65,7 @@ Checking import state... Succeeded
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
 ## Run the sample web app
-The web app sample is a sample dashboard that renders reports imported into your **Workspace**. Here's how to configure the web app sample.
+The web app sample is a sample application that renders reports imported into your **Workspace**. Here's how to configure the web app sample.
 
 1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
@@ -90,7 +90,7 @@ After you click a report, the **EmbedSample** web application should look someth
 
 ## Explore the sample code
 
-The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
+The **Microsoft Power BI Embedded** sample is an example web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
@@ -238,7 +238,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
 
 ## See also
-* [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
-* [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
+[Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)  
+[Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

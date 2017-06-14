@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/17/2017
 ms.author: ryanwi
 
 ---
@@ -41,15 +41,17 @@ This longer Microsoft Virtual Academy video describes the Service Fabric core co
 </a></center>
 
 ## Get started and create your first app 
-Using the Service Fabric SDKs and tools, you can develop apps in Windows, Linux, or MacOS environments and deploy those apps to clusters running on Windows or Linux.  The following guides will have you deploying an app within minutes.  After you've run your first application, download and run some of our [sample apps](http://aka.ms/servicefabricsamples).
+Using the Service Fabric SDKs and tools, you can develop apps in Windows, Linux, or MacOS environments and deploy those apps to clusters running on Windows or Linux.  The following guides will have you deploying an app within minutes.  After you've run your first application, download and run some of our [sample apps](http://aka.ms/servicefabricsamples). In particular start with the [Getting Started Samples](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
 ### On Windows
 The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. These topics walk you through the process of creating your first application in Visual Studio and running it on your development computer.
 
 [Set up your dev environment](service-fabric-get-started.md)
-[Create your first app(C#)](service-fabric-create-your-first-application-in-visual-studio.md)
+[Create your first app (C#)](service-fabric-create-your-first-application-in-visual-studio.md)
 
-Try this extensive [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric.  Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. 
+#### Practical hands on labs
+Try this extensive [hands-on-lab Part 1](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric.  Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. After this do the [hands-on-lab Part 2](http://aka.ms/sflab2) which takes you through stateful services.
+
 
 The following Channel9 video walks you through the process of creating a C# app in Visual Studio:  
 <center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
@@ -73,7 +75,7 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## Core concepts
-[Service Fabric terminology](service-fabric-technical-overview.md), [Appliacation model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
+[Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 <table><tr><th>Core concepts</th><th>Design time</th><th>Run time</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">

@@ -1,17 +1,24 @@
 # Overview
+
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [What's the Studio?](machine-learning-what-is-ml-studio.md)
-### [Studio capabilities](machine-learning-studio-overview-diagram.md)
-### [Infographic: ML basics](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Team Data Science Process
 ### [Overview](http://aka.ms/datascienceprocess)
 ### [Lifecycle](data-science-process-overview.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [What's the Studio?](machine-learning-what-is-ml-studio.md)
+### [Studio capabilities](machine-learning-studio-overview-diagram.md)
+### [Infographic: ML basics](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Frequently asked questions](machine-learning-faq.md)
 ## [What's new?](machine-learning-whats-new.md)
+
 # Get Started
+
 ## [Create your first experiment](machine-learning-create-experiment.md)
+
 ## Example walkthrough
 ### [Create a predictive solution](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Create a workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Train and evaluate](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Deploy web service](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Access web service](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Data Science for Beginners
 ### [1: Five questions](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Is your data ready?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [R quick start](machine-learning-r-quickstart.md)
 
-
 # How To
+
 ## Set up tools and utilities
 ### [Set up environments](machine-learning-data-science-environment-setup.md)
 ### [Set up virtual machines](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Troubleshoot](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Deploy using ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Create in another region](machine-learning-multi-geo.md)
+
 ## Analyze business needs
 ### [Technical needs](machine-learning-data-science-plan-your-environment.md)
 ### [Identify your scenario](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Acquire and understand data
 ### Load data into storage
 #### [Overview](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Score models](machine-learning-data-science-spark-model-consumption.md)
 ##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Develop models
 ### Engineer and select features
 #### [Overview](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
 #### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Experiment lifecycle management](machine-learning-version-control.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Select algorithms
@@ -120,11 +132,11 @@
 ##### [Execute R scripts](machine-learning-extend-your-experiment-with-r.md)
 ##### [Author custom R modules](machine-learning-custom-r-modules.md)
 ##### [Execute Python scripts](machine-learning-execute-python-scripts.md)
+
 ## Deploy and consume models
 ### [Overview](machine-learning-deploy-consume-web-service-guide.md)
 ### Deploy models
 #### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
 #### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Examples
 ### [Sample experiments](machine-learning-sample-experiments.md)
 ### [Sample datasets](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Reference
+
 ## [PowerShell module (New)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [REST API reference](/rest/api/machinelearning)
+## [Web service error codes](machine-learning-web-service-error-codes.md)
 
 # Related
 
@@ -176,6 +191,7 @@
 ### [Tutorials](machine-learning-gallery-tutorials.md)
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resources
-## [Machine Learning REST Error Codes](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)

@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -51,7 +51,7 @@ Before you begin this tutorial, you must have the following:
     <tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
     </table>
 
-* **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **A workstation** with Visual Studio 2013/2015/2017 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Create a Twitter application ID and secrets
 The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests. The first step to use OAuth is to create a new application on the Twitter developer site.
@@ -60,7 +60,7 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 
 1. Sign in to [Twitter Apps](https://apps.twitter.com/). Click the **Sign up now** link if you don't have a Twitter account.
 2. Click **Create New App**.
-3. Enter a **Name**, **Description**, and **Website**. The Twitter application name must be an unique name. The Website field is not really used. It doesn't have to be a valid URL. 
+3. Enter a **Name**, **Description**, and **Website**. The Twitter application name must be a unique name. The Website field is not really used. It doesn't have to be a valid URL. 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
 6. Click the **Keys and Access Tokens** tab.

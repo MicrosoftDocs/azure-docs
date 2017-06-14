@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016| Microsoft Docs
 description: Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016.
 services: active-directory
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 
 ---
-# Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016
+# Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016
 
 This topic is applicable to the following clients:
 
 -	Windows 10
 -	Windows Server 2016
 
-For other Windows clients, see [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
+For other Windows clients, see [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
 
 This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md) to spport the following scenarios:
 

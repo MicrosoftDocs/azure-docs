@@ -4,7 +4,7 @@ description: Learn how to create a new WordPress web app from the Azure Marketpl
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223

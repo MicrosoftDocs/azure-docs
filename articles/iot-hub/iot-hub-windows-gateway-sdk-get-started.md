@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with the Azure IoT Gateway SDK (Windows)
+# Explore the IoT Gateway SDK architecture on Windows
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample

@@ -113,7 +113,7 @@ Find unsuccessful requests:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
+`resultCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
 
 ## Time range
 
@@ -448,7 +448,7 @@ To find the exceptions related to a request that returned a failure response, we
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```

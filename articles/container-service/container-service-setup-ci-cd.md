@@ -26,7 +26,7 @@ In this tutorial, we cover how to fully automate building and deploying a multi-
 ## Get started
 You can run this walkthrough on OS X, Windows, or Linux.
 - You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
-- Install the [Azure Command-line tools](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Install the [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## What we'll create
 Let's touch on some key aspects of the app and its deployment flow that we are setting up:

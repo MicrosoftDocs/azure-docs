@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Set up GPU drivers for N-series VMs
+# Set up GPU drivers for N-series Windows VMs
 To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA graphics drivers on each VM after deployment. This article is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

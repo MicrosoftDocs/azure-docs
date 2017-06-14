@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: markvi
 
 ---
@@ -25,8 +25,9 @@ Certificate-based authentication (CBA) enables you to be authenticated by Azure 
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS device for users of tenants in Office 365 Enterprise, Business, Education, and US Government Federal plans. This does not include Office 365 Defense. 
+This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
 
+This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
 
 
@@ -40,7 +41,7 @@ This topic provides you with the requirements and the supported scenarios for co
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
-| Skype for Business |Coming soon |
+| Skype for Business |![Check][1] |
 
 ## Requirements 
 

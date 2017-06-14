@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 
 ---
@@ -91,7 +91,7 @@ To configure and test Azure AD single sign-on with Infor Retail – Information 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Infor Retail – Information Management test user](#creating-an-infor-retail---information-management-user)** - to have a counterpart of Britta Simon in Infor Retail – Information Management that is linked to the Azure AD representation of her.
+3. **[Creating an Infor Retail – Information Management test user](#creating-an-infor-retail---information-management-test-user)** - to have a counterpart of Britta Simon in Infor Retail – Information Management that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -113,9 +113,9 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. In the **Identifier** textbox, type the URL using the following pattern: `http://<company name>.mingle.infor.com`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.mingle.infor.com`
 	
-	b. In the **Reply URL** textbox, type the URL using the following pattern: `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
 	
 4. If you wish to configure the application in **SP initiated mode**, on the **Infor Retail – Information Management Domain and URLs** section perform the following steps:
 	
@@ -123,10 +123,10 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	a. Click on the **Show advanced URL settings** option
 
-	b. In the **Sign On URL** textbox, type the URL using the following pattern: `https://<company name>.mingle.infor.com/<company code>`
+	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.mingle.infor.com/<company code>`
 
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [Infor Retail – Information Management support team](http://www.infor.com/contact/) to get these values.
+	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. Contact [Infor Retail – Information Management support team](mailto:innovate@infor.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
@@ -144,11 +144,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. On the **SAML Signing Certificate** section, click **Download** and then save the metadata file on your computer.
+9. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. To get SSO configured for your application, contact [Infor Retail – Information Management support team](http://www.infor.com/contact/) and provide them with the downloaded **metadata**.
+10. To get SSO configured for your application, contact [Infor Retail – Information Management support team](mailto:innovate@infor.com) and provide them with the downloaded **metadata**.
   
 
 ### Creating an Azure AD test user
@@ -186,7 +186,7 @@ The objective of this section is to create a test user in the Azure Management p
 
 ### Creating an Infor Retail – Information Management test user
 
-In this section, you create a user called Britta Simon in Infor Retail – Information Management. Please work with [Infor Retail – Information Management support team](http://www.infor.com/contact/) to add the users in the Infor Retail – Information Management platform.
+In this section, you create a user called Britta Simon in Infor Retail – Information Management. Please work with [Infor Retail – Information Management support team](mailto:innovate@infor.com) to add the users in the Infor Retail – Information Management platform.
 
 
 ### Assigning the Azure AD test user

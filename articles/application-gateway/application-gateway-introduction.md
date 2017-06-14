@@ -12,12 +12,13 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 
 ---
-# Application Gateway overview
+# Overview of Application Gateway
 
 ## What is Application Gateway
 

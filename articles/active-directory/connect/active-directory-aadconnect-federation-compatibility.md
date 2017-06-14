@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 
 ---
@@ -54,7 +54,8 @@ For information on how you can get your third-party identity provider listed her
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > Since these are third-party products, Microsoft does not provide support for the deployment, configuration, troubleshooting, best practices, etc. issues and questions regarding these identity providers. For support and questions regarding these identity providers, contact the supported third-parties directly.
@@ -341,4 +342,16 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information, see [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
 
+## NetIQ Access Manager 4.x
+NetIQ Access Manager implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+
+The following is the scenario support matrix for this single sign-on experience:
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |Supported |None |
+
+For more information, see [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
 

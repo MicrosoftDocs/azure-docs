@@ -88,7 +88,10 @@ Load Server Map will navigate to a new map with the selected server as the new F
 ### Show/Hide Self Links
 Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will change to Hide Self Links, allowing users to toggle the drawing of self links.
 
+## Computer summary
+The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
 
+![Machine summary](media/oms-service-map/machine-summary.png)
 
 ## Computer and process properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
@@ -103,10 +106,22 @@ The Process Summary panel provides additional information about that process’s
 
 ![Process summary](media/oms-service-map/process-summary.png)
 
-## Computer summary
-The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
+## OMS Alerts integration
+Service Map integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
 
-![Machine summary](media/oms-service-map/machine-summary.png)
+![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
+
+Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
+- Include a clause to group by computer: "by Computer interval 1minute"
+- Choose to alert based on Metric measurement
+
+![Alert configuration](media/oms-service-map/alert-configuration.png)
+
+
+## OMS Log Events integration
+Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range.  You can click on any row in the list of event counts to jump to Log Search and see the individual log events.
+
+![Log events](media/oms-service-map/log-events.png)
 
 ## OMS Change Tracking integration
 Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
@@ -119,7 +134,7 @@ Following is a drill-down view of Configuration Change event after selecting **S
 
 
 ## OMS Performance integration
-The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.  Note that to get the network performance data, you must also have enabled the Wire Data 2.0 solution in OMS.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 
@@ -135,19 +150,6 @@ Service Map's integration with Update Management is automatic when both solution
 
 The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
-
-
-## OMS Alerts integration
-Service Map's integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
-
-![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
-
-Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
-- Include a clause to group by computer: "by Computer interval 1minute"
-- Choose to alert based on Metric measurement
-
-![Alert configuration](media/oms-service-map/alert-configuration.png)
-
 
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
@@ -248,10 +250,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## REST API
+All of the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
-For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## Next steps

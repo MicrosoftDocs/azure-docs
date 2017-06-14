@@ -59,7 +59,7 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 
 ### Machines (replicate to Azure)
 
-Virtual machines must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requirement** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
@@ -160,17 +160,17 @@ Disk > 1 TB | No | No | No
 Volume with striped disk > 1 TB<br/><br/> LVM | Yes | Yes | Yes
 Storage Spaces | No | Yes | Yes
 Hot add/remove disk | No | No | No
-Exclude disk | Yes | No | No
+Exclude disk | Yes | Yes | Yes
 Multi-path (MPIO) | NA | Yes | Yes
 
 **Azure storage** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
 LRS | Yes | Yes | Yes
-GRS | Yes | Yes | Yes
+GRS (only for standard storage) | Yes | Yes | Yes
 Cool storage | No | No | No
 Hot storage| No | No | No
 Encryption at rest | Yes | Yes | Yes
-Premium storage | Yes | No | No
+Premium storage | Yes | Yes | Yes
 Import/export service | No | No | No
 
 
@@ -238,7 +238,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
-**Data disk count** | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
+**Data disk count** | 64 or less if you are replicating **VMware VMs to Azure**; 16 or less if you are replicating **Hyper-V VMs to Azure** | Prerequisites check will fail if unsupported
 **Data disk VHD size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Network adapters** | Multiple adapters are supported |
 **Static IP address** | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure.<br/><br/> Static IP address for a **Linux VM running on Hyper-V** isn't supported.
@@ -258,4 +258,4 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 
 
 ## Next steps
-[Prepare for deployment](site-recovery-best-practices.md)
+Check [prerequisites](site-recovery-prereq.md)

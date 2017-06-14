@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 
 ---
@@ -32,23 +32,23 @@ You can download the module containing the cmdlets used for these operations fro
 These steps create settings at directory level, which apply to all Office groups in the directory.
 
 1. If you do not know which SettingTemplate to use, this cmdlet returns the list of settings templates:
-   
+
     `Get-MsolAllSettingTemplate`
-   
+
     ![List of settings templates](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
-   
+
     `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 3. Next, create a new settings object based on that template:
-   
+
     `$setting = $template.CreateSettingsObject()`
 4. Then update the usage guideline value:
-   
+
     `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 5. Finally, apply the settings:
-   
+
     `New-MsolSettings –SettingsObject $setting`
-   
+
     ![Add a usage guideline URL](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Here are the settings defined in the Group.Unified SettingsTemplate.
@@ -64,31 +64,31 @@ Here are the settings defined in the Group.Unified SettingsTemplate.
 These steps read settings at directory level, which apply to all Office groups in the directory.
 
 1. Read all existing directory settings:
-   
+
     `Get-MsolAllSettings`
 2. Read all settings for a specific group:
-   
+
     `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 3. Read specific directory settings, using SettingId GUID:
-   
+
     `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
-   
+
     ![Settings ID GUID](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
 ## Update settings at the directory level
 These steps update settings at directory level, which apply to all Office groups in the directory.
 
 1. Get the existing Settings object:
-   
+
     `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 2. Get the value you want to update:
-   
+
     `$value = $Setting.GetSettingsValue()`
 3. Update the value:
-   
+
     `$value["AllowToAddGuests"] = "false"`
 4. Update the setting:
-   
+
     `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
 ## Remove settings at the directory level
@@ -119,4 +119,3 @@ Additional instruction from Microsoft program manager Rob de Jong is available a
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

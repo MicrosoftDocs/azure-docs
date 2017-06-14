@@ -6,7 +6,6 @@ documentationcenter: ''
 author: richrundmsft
 manager: jochan
 editor: ''
-
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
 ms.workload: na
@@ -15,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect Azure virtual machines to Log Analytics
+# Connect Azure virtual machines to Log Analytics with a Log Analytics agent
+
 For Windows and Linux computers, the recommended method for collecting logs and metrics is by installing the Log Analytics agent.
 
 The easiest way to install the Log Analytics agent on Azure virtual machines is through the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
@@ -31,8 +32,8 @@ When you use agent-based collection for log data, you must configure [data sourc
 
 > [!IMPORTANT]
 > If you configure Log Analytics to index log data by using [Azure diagnostics](log-analytics-azure-storage.md), and you configure the agent to collect the same logs, then the logs are collected twice. You are charged for both data sources. If you have the agent installed, then you should collect log data by using the agent alone - don't configure Log Analytics to collect log data from Azure diagnostics.
-> 
-> 
+>
+>
 
 There are three easy ways to enable the Log Analytics virtual machine extension:
 
@@ -397,4 +398,3 @@ For computers that are not in Azure, you can install the Log Analytics agent by 
 
 * [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md)
 * [Connect Linux computers to Log Analytics](log-analytics-linux-agents.md)
-

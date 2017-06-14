@@ -17,9 +17,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
+ms.custom: H1Hack27Feb2017
+
 ---
 
-# Azure Virtual Machines high availability for SAP NetWeaver
+# High availability for SAP NetWeaver on Azure VMs
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

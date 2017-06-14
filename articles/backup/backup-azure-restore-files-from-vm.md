@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2017
-ms.author: pvrk;markgal
+ms.author: pullabhk;markgal
 
 ---
 # Recover files from Azure virtual machine backup (Preview)

@@ -17,9 +17,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
-
+ms.custom: H1Hack27Feb2017
 ---
-# Create an availability set
+# Increase VM availability by creating an Azure availability set 
 Availiability sets provide redundancy to your application. We recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
@@ -61,6 +61,14 @@ For each additional VM that you create that should belong in the set, make sure 
 
 ## Use PowerShell to create an availability set
 This example creates an availability set named **myAvailabilitySet** in the **myResourceGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
+
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
 
 If you are using managed disks for your VMs, type:
 

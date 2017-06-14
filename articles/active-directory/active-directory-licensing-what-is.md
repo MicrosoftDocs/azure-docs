@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Azure Active Directory licensing? | Microsoft Docs
+title: License Azure Active Directory users in the Azure classic portal | Microsoft Docs
 description: Description of Microsoft Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
 services: active-directory
 keywords: Azure AD licensing
@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# What is Microsoft Azure Active Directory licensing?
+# What is Microsoft Azure Active Directory licensing in the Azure classic portal?
 
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-licensing-get-started-azure-portal.md)

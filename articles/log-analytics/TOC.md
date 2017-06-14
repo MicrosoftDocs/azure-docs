@@ -16,7 +16,7 @@
 #### [Windows agents](log-analytics-windows-agents.md)
 #### [Linux agents](log-analytics-linux-agents.md)
 #### [Azure virtual machines](log-analytics-azure-vm-extension.md)
-#### [Azure resources](log-analytics-azure-storage.md)
+#### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
+#### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Computer groups](log-analytics-computer-groups.md)
-### [Alerts](log-analytics-alerts.md)
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [AD Assessment](log-analytics-ad-assessment.md)
 #### [AD Replication Status](log-analytics-ad-replication-status.md)
 #### [Alert management](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [Capacity Management](log-analytics-capacity.md)
 #### [Change Tracking](log-analytics-change-tracking.md)
 #### [Containers](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 #### [SCOM Assessment](log-analytics-scom-assessment.md)
+## Create alerts
+### [Understanding alerts](log-analytics-alerts.md)
+### [Alert actions](log-analytics-alerts-actions.md)
+### Create alert rules
+#### [OMS portal](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Webhook action sample](log-analytics-alerts-webhooks.md)
+### [Alert Management solution](log-analytics-solution-alert-management.md)
 ## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
@@ -69,6 +79,7 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)

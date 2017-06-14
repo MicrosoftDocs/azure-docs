@@ -45,7 +45,7 @@ To integrate your application with Azure AD, following the [developer instructio
 > 
 > Application Technical Support Website or Contact Info:
 > 
-> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+> Application  ID of the application, as shown in the application details at https://portal.azure.com:
 > 
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 > 

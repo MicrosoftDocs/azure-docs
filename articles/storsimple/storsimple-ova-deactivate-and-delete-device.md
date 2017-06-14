@@ -4,7 +4,7 @@ description: Describes how to remove StorSimple device from service by  first de
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: bf5ddb32-da4b-446f-ab91-215e9020e1c8
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deactivate and delete a StorSimple Virtual Array
+# Deactivate and delete a StorSimple Virtual Array via StorSimple Manager
 ## Overview
 When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again.
 

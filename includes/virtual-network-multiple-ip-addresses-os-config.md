@@ -54,13 +54,7 @@ ping -S 10.0.0.5 hotmail.com
 		```
 
 	You should see a .cfg file.
-4. Open the file:
-
-	```bash
-	vi eth0.cfg
-	```
-
-	You should see the following lines at the end of the file:
+4. Open the file. You should see the following lines at the end of the file:
 
 	```bash
 	auto eth0
@@ -72,6 +66,7 @@ ping -S 10.0.0.5 hotmail.com
 	```bash
 	iface eth0 inet static
 	address <your private IP address here>
+	netmask <your subnet mask>
 	```
 
 6. Save the file by using the following command:

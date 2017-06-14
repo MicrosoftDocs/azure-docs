@@ -41,7 +41,7 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 ## Compiling a DSC Configuration with the Azure portal
 
-1. From your Automation account, click **Configurations**.
+1. From your Automation account, click **DSC Configurations**.
 2. Click a configuration to open its blade.
 3. Click **Compile**.
 4. If the configuration has no parameters, you will be prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade will open so you can provide parameter values. See the [**Basic Parameters**](#basic-parameters) section below for further details on parameters.
@@ -236,3 +236,41 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+## Importing node configurations
+
+You can also import node configuratons (MOFs) that you have compiled outside of Azure. One advantage of this is that node confiturations can be signed.
+A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comes from an
+authorized source.
+
+> [!NOTE]
+> You can use import signed configurations into your Azure Automation account, but Azure Automation does not currently support compiling signed configurations.
+
+> [!NOTE]
+> A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
+
+You can learn how to sign node configurations at https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+
+### Importing a node configuration in the Azure portal
+
+1. From your Automation account, click **DSC node configurations**.
+
+    ![DSC node configurations](./media/automation-dsc-compile/node-config.png)
+2. In the **DSC node configurations** blade, click **Add a NodeConfiguration**.
+3. In the **Import** blade, click the folder icon next to the **Node Configuration File** textbox to browse for a node configuration file (MOF) on your local computer.
+
+    ![Browse for local file](./media/automation-dsc-compile/import-browse.png)
+4. Enter a name in the **Configuration Name** textbox. This name must match the name of the configuration from which the node configuration was compiled.
+5. Click **OK**.
+
+### Importing a node configuration with PowerShell
+
+You can use the [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.automation/v1.0.12/import-azurermautomationdscnodeconfiguration)
+cmdlet to import a node configuration into your automation account.
+
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```
+
+
+

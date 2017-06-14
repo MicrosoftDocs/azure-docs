@@ -4,7 +4,7 @@ description: Learn how easy it is to run web apps in App Service by deploying a 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 21acd587-b772-4d89-be06-9a7429c33c7a
@@ -18,16 +18,7 @@ ms.author: cephalin
 
 ---
 # Deploy your first PHP web app to Azure in five minutes
-
-> [!div class="op_single_selector"]
-> * [First HTML site](app-service-web-get-started-html-cli-nodejs.md)
-> * [First .NET app](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [First PHP app](app-service-web-get-started-php-cli-nodejs.md)
-> * [First Node.js app](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [First Python app](app-service-web-get-started-python-cli-nodejs.md)
-> * [First Java app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
@@ -47,7 +38,7 @@ You will:
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started-php.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](app-service-web-get-started-php.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).

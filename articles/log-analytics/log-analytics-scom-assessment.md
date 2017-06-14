@@ -1,5 +1,5 @@
 ---
-title: Optimize your environment with the System Center Operations Manager Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
 description: You can use the System Center Operations Manager Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution in Log Analytics
+# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution
 
 You can use the System Center Operations Manager Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Common errors during Classic to Azure Resource Manager migration

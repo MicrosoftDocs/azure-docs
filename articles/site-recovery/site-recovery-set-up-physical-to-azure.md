@@ -32,7 +32,7 @@ The article assumes that you already have:
 
 ### Configuration server minimum requirements
 The following table lists the minimum hardware, software, and network requirements for a configuration server.
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
 > HTTPS-based proxy servers are not supported by the configuration server.
@@ -76,4 +76,6 @@ The following table lists the minimum hardware, software, and network requiremen
 
 
 ## Next steps
-Next steps involve [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
+
+Next step involves [setting up your target environment](./site-recovery-prepare-target-physical-to-azure.md) in Azure.
+

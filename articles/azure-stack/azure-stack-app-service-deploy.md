@@ -13,12 +13,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 3/1/2017
 ms.author: anwestg
 
 ---
 
 # Add an App Service resource provider to Azure Stack
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>  
 
 Adding an App Service Resource Provider to Azure Stack has eight steps:
 

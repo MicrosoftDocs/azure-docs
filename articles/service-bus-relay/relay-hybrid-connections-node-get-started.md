@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 
 ---
 # Get started with Relay Hybrid Connections

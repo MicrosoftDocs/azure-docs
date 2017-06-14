@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 
 ---
@@ -27,9 +27,7 @@ Information workers can use the [Application Access Panel](http://myapps.microso
 ## Information workers adding B2B collaboration users to an application
 Assign B2B collaboration users to a app as an information worker in a partner organization, as shown in the following video:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## Information workers adding B2B collaboration users to a group
 
@@ -37,15 +35,10 @@ Information workers can similarly add B2B collaboration users to an assigned gro
 > [!NOTE]
 You cannot add B2B collaboration users to a dynamic group or to a group that is synced with on-premises Active Directory.
 
-## Add without invitation
 
-If the inviter belongs to a role that has enumeration privileges in the directory of the partner organization, from which he or she is adding users, the invited users are added into the inviting organization without needing invitations.
+## Next steps
 
-This is the scenario in which this is most useful:
-1. A user in the host organization (for example, WoodGrove) invites one user from the partner organization (for example, Sam@litware.com) as Guest.
-2. The admin in the host organization sets up policies that allow Sam to identify and add other users from the partner organization (Litware).
-4. Now Sam can add other users from Litware to the WoodGrove directory, groups or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, this happens automatically.
-
+Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
@@ -56,4 +49,5 @@ This is the scenario in which this is most useful:
 * [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
+* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

@@ -1,6 +1,6 @@
 ---
 title: Replicate Hyper-V VMs to Azure in the classic portal | Microsoft Docs
-description: This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds.
+description: This article describes how to replicate Hyper-V virtual machines to Azure when machines aren't managed in VMM clouds.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 
 ---
@@ -25,16 +25,9 @@ ms.author: raynew
 >
 >
 
-Welcome to the Azure Site Recovery service!
-
-Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
-
-This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using Azure Site Recovery in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds.
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service, in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds.
 
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## Site Recovery in the Azure portal
@@ -65,7 +58,7 @@ Organizations need a BCDR strategy that determines how apps and data stay runnin
 * Be running the fixes described in KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## Virtual machine prerequisites
-Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Virtual machines you want to protect should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## Provider and agent prerequisites
 As part of Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider and the Azure Recovery Services Agent on each Hyper-V server. Note that:
@@ -246,7 +239,7 @@ There are two ways to run a test failover to Azure.
 
 If you want to run a test failover without specifying an Azure network you don’t need to prepare anything.
 
-To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details.
+To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Read [run a test failover](site-recovery-failover.md) for more details.
 
 To fully test your replication and network deployment you'll need to set up the infrastructure so that the replicated virtual machine to work as expected. One way of doing this to to set up a virtual machine as a domain controller with DNS and replicate it to Azure using Site Recovery to create it in the test network by running a test failover.  [Read more](site-recovery-active-directory.md#test-failover-considerations) about test failover considerations for Active Directory.
 

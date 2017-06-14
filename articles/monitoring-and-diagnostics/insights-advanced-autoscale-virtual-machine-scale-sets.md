@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 
 ---
@@ -238,6 +238,8 @@ You have updated an autoscale setting on a VM Scale set to include multiple scal
 
 ## Next Steps
 Use these links to learn more about autoscaling.
+
+[TroubleShoot Autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
 [Common Metrics for Autoscale](insights-autoscale-common-metrics.md)
 

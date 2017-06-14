@@ -1,6 +1,6 @@
 ---
-title: Connect Windows computers to Log Analytics | Microsoft Docs
-description: This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA).
+title: Connect Windows computers to Azure Log Analytics | Microsoft Docs
+description: This article shows the steps to connect the Windows computers in your on-premises infrastructure to the Log Analytics service by using a customized version of the Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Connect Windows computers to Log Analytics
+# Connect Windows computers to the Log Analytics service in Azure
 
-This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS workspaces by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to onboard to OMS in order for them to send data to OMS and to view and act on that data in the OMS portal. Each agent can report to multiple workspaces.
+This article shows the steps to connect Windows computers in your on-premises infrastructure to OMS workspaces by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to onboard in order for them to send data to the Log Analytics service and to view and act on that data. Each agent can report to multiple workspaces.
 
 You can install agents using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation.  
 

@@ -33,13 +33,15 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable names and IP address types as required for your implementation.
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
-2. Register for the preview by running both the following commands in PowerShell after you login and select the appropriate subscription:
+2. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 	```
 	Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+	
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 	```
-	Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+	Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 		
 	```powershell
 	FeatureName                            ProviderName      RegistrationState
@@ -84,7 +86,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	
 	```powershell
 	$IpConfigName2 = "IPConfig-2"
-	$IPAddress     = 10.0.0.5
+	$IPAddress     = "10.0.0.5"
 	$myPublicIp2   = New-AzureRmPublicIpAddress -Name "myPublicIp2" -ResourceGroupName $myResourceGroup `
 	-Location $location -AllocationMethod Static
 	$IpConfig2     = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName2 `
@@ -127,9 +129,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 You can add private and public IP addresses to a NIC by completing the steps that follow. The examples in the following sections assume that you already have a VM with the three IP configurations described in the [scenario](#Scenario) in this article, but it's not required that you do.
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
-2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
-	- Until you receive an e-mail notifying you that you've been accepted into the preview
-	- Without following the instructions in the email you receive
+2. Register for the public preview by following step 2 in the **Create a VM with multiple IP addresses** section.
 3. Change the "values" of the following $Variables to the name of the NIC you want to add IP address to and the resource group and location the NIC exists in:
 
 	```powershell

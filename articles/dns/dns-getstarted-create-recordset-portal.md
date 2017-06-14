@@ -23,7 +23,8 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Azure CLI](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 This article walks you through the process of creating records and records sets by using the Azure portal. To do this, you first need to understand DNS records and record sets.
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2017
-ms.author: trinadhk;jimpark;jpallavi;
+ms.author: trinadhk;markgal;jpallavi;
 
 ---
 # Troubleshoot Azure virtual machine backup

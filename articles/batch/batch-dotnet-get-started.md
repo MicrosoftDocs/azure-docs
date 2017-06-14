@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use the Azure Batch client library for .NET | Microsoft Docs
-description: Learn the basic concepts of Azure Batch and how to develop for the Batch service with an example scenario.
+description: Learn the basic concepts of Azure Batch and build a simple solution using .NET.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,11 +13,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with the Azure Batch library for .NET
+# Get started building solutions with the Batch client library for .NET
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)

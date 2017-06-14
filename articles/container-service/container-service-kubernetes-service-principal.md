@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 02/21/2017
 ms.author: danlep
 
 ---
@@ -29,17 +29,15 @@ resources such as
 user-defined routes
 and the Layer 4 Azure Load Balancer.
 
-This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
 
-> [!NOTE]
-> Kubernetes support in Azure Container Service is currently in preview.
 
 
 ## Requirements for the service principal
 
 Following are requirements for the Azure Active Directory service principal in a Kubernetes cluster in Azure Container Service. 
 
-* **Scope**: the Azure subscription in which the cluster is deployed
+* **Scope**: the resource group in which the cluster is deployed
 
 * **Role**: **Contributor**
 
@@ -54,15 +52,15 @@ Following are requirements for the Azure Active Directory service principal in a
 
 ### Option 1: Pass the service principal client ID and client secret
 
-Provide the **client ID** (often called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. If you are using an existing service principal, make sure it meets the requirements in the previous section. If you need to create a service principal, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
+Provide the **client ID** (also called the `appId`, for Application ID) and **client secret** (`password`) of an existing service principal as parameters when you create the Kubernetes cluster. If you are using an existing service principal, make sure it meets the requirements in the previous section. If you need to create a service principal, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
 
-You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI) 2.0 (Preview), Azure PowerShell, or other methods.
+You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI) 2.0, Azure PowerShell, or other methods.
 
 >[!TIP] 
 >When specifying the **client ID**, be sure to use the `appId`, not the `ObjectId`, of the service principal.
 >
 
-The following example shows one way to pass the parameters with the Azure CLI 2.0 Preview (see [installation and setup instructions](/cli/azure/install-az-cli2)). This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+The following example shows one way to pass the parameters with the Azure CLI 2.0 (see [installation and setup instructions](/cli/azure/install-az-cli2)). This example uses the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) the template parameters file `azuredeploy.parameters.json` from GitHub.
 
@@ -83,9 +81,9 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
     ```
 
 
-### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0 (Preview)
+### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0
 
-If you installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to [create the cluster](./container-service-create-acs-cluster-cli.md).
+If you installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to [create the cluster](./container-service-create-acs-cluster-cli.md).
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, Azure Container Service creates a service principal automatically. This takes place transparently during the deployment. 
 
@@ -99,7 +97,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 If you want to create a service principal in Azure Active Directory for use in your Kubernetes cluster, Azure provides several methods. 
 
-The following example commands show you how to do this with the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
 
 > [!IMPORTANT]
 > Make sure you review the requirements for the service principal earlier in this article.

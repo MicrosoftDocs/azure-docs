@@ -1,5 +1,5 @@
 ---
-title: Log Analytics search reference | Microsoft Docs
+title: Azure Log Analytics search reference | Microsoft Docs
 description: The Log Analytics search reference describes the search language and provides the general query syntax options you can use when searching for data and filtering expressions to help narrow your search.
 services: log-analytics
 documentationcenter: ''
@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
 # Log Analytics search reference
@@ -250,7 +251,7 @@ SampleValue:[0..2]
 ```
 
 ### Regular Expressions
-You can specify a search condition for a field with a regular expression by using the Regex keyword.
+You can specify a search condition for a field with a regular expression by using the Regex keyword.  Get a complete description of the syntax you can use in regular expressions in [Using regular expressions to filter log searches in Log Analytics](log-analytics-log-searches-regex.md).
 
 **Syntax**
 
@@ -577,7 +578,30 @@ Examples:
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### IN
-Syntax:
+The **IN** keyword allows you to select from a list of values.  Depending on the syntax you use, this can be a simple list of values you provide or a list of values from an aggregation.
+
+Syntax 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Description:
+This syntax allows you to include all values in a simple list.
+
+
+
+Examples:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Syntax 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  

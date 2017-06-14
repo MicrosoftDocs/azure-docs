@@ -132,6 +132,19 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Schemas</h3>
+                        <p><a href="/rest/api/logic/definition-language">Workflow definition language</a></p>
+                        <p><a href="/rest/api/logic/actions-and-triggers">Workflow actions and triggers</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Schema History</h3>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Preview</a></p>

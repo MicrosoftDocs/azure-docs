@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/09/2017
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ Data Factory service supports connecting to on-premises MongoDB sources using th
 Data Factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
 
 ## Supported versions
-This MongoDB connector support MongoDB version 2.4 and above.
+This MongoDB connector support MongoDB version 2.4, 2.6, 3.0, and 3.2.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises MongoDB database, you must install the following components:

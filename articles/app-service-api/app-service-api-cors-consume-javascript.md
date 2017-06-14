@@ -4,7 +4,7 @@ description: Learn how to use CORS support in Azure Azure App Service.
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c

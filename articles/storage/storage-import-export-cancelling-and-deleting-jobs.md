@@ -1,5 +1,5 @@
 ---
-title: Canceling and deleting Azure Import/Export service jobs | Microsoft Docs
+title: Cancel/delete an Azure Import/Export job | Microsoft Docs
 description: Learn how to cancel and delete jobs for the Microsoft Azure Import/Export service
 author: muralikk
 manager: syadav
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
 
-# Cancelling and Deleting Jobs
+# Canceling and deleting Azure Import/Export jobs
 You can request that a job be cancelled before it is in the `Packaging` state by calling the [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) operation and setting the `CancelRequested` element to `true`. The job will be cancelled on a best-effort basis. If drives are in the process of transferring data, data may continue to be transferred even after cancellation has been requested.
 
  A cancelled job will move to the `Completed` state and be kept for 90 days, at which point it will be deleted.

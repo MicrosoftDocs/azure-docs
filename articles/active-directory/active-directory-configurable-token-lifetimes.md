@@ -189,103 +189,135 @@ In the sample scenarios we'll be creating, updating, linking, and deleting polic
 
 1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
+
+    ```PowerShell
+    Connect-AzureAD -Confirm
+    ```
+
+3. Run the following command to see all policies that have been created in your organization.  This command should be used after most operations in the following scenarios.  It will also help you get the **ObjectId** of your policies. 
    
-     Connect-AzureAD -Confirm
-3. Run the following command to see all policies that have been created in your organization.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
-   
-     Get-AzureADPolicy
+    ```PowerShell
+    Get-AzureADPolicy
+    ```
 
 ### Sample: Managing a organization's default policy
 In this sample, we will create a policy that allows your users to sign in less frequently across your entire organization. 
 
 To do this, we create a token lifetime policy for Single-Factor Refresh Tokens that is applied across your organization. This policy will be applied to every application in your organization, and each service principal that doesn’t already have a policy set to it. 
 
-1. **Create a Token Lifetime Policy.** 
+#### 1. Create a Token Lifetime Policy
 
 Set the Single-Factor Refresh Token to "until-revoked" meaning it won't expire until access is revoked.  The policy definition below is what we will be creating:
 
-        @("{
-          `"TokenLifetimePolicy`":
-              {
-                 `"Version`":1, 
-                 `"MaxAgeSingleFactor`":`"until-revoked`"
-              }
-        }")
+```PowerShell
+@('{
+    "TokenLifetimePolicy":
+    {
+        "Version":1, 
+        "MaxAgeSingleFactor":"until-revoked"
+    }
+}')
+```
 
 Then run the following command to create this policy. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
-To see your new policy and get its ObjectID, run the following command.
+To see your new policy and get its ObjectId, run the following command.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Update the Policy**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### 2. Update the Policy
 
 You've decided that the first policy is not quite as strict as your service requires, and have decided you want your Single-Factor Refresh Tokens to expire in 2 days. Run the following command. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+```
 
-&nbsp;&nbsp;3. **You're done!** 
+#### 3. You're done! 
 
 ### Sample: Creating a policy for web sign-in
+
 In this sample, we will create a policy that will require your users to authenticate more frequently into your Web App. This policy will set the lifetime of the Access/Id Tokens and the Max Age of a Multi-Factor Session Token to the service principal of your web app.
 
-1. **Create a Token Lifetime Policy.**
+#### 1. Create a Token Lifetime Policy.
 
 This policy for Web Sign-in will set the Access/Id Token lifetime and the Max Single-Factor Session Token Age to 2 hours.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
-To see your new policy and get its ObjectID, run the following command.
+To see your new policy and get its ObjectId, run the following command.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Assign the policy to your service principal.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### 2. Assign the policy to your service principal.
 
 We're going to link this new policy with a service principal.  You'll also need a way to access the **ObjectId** of your service principal. You can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) or go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your organization's service principals. 
 
 Once you have the **ObjectId**, Run the following command.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.    **You're Done!** 
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
- 
+#### 3. You're Done! 
 
 ### Sample: Creating a policy for native apps calling a Web API
 In this sample, we will create a policy that requires users to authenticate less and will lengthen the amount of time they can be inactive without having to authenticate again. The policy will be applied to the Web API, that way when the Native App requests it as a resource this policy will be applied.
 
-1. **Create a Token Lifetime Policy.** 
+#### 1. Create a Token Lifetime Policy. 
 
 This command will create a strict policy for a Web API. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
-To see your new policy and get its ObjectID, run the following command.
+To see your new policy and get its ObjectId, run the following command.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Assign the policy to your Web API**.
+#### 2. Assign the policy to your Web API.
 
 We're going to link this new policy with an application.  You'll also need a way to access the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure Portal](https://portal.azure.com/). 
 
 Once you have the **ObjectId**, Run the following command.
 
-    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **You're Done!** 
+#### 3. You're Done! 
 
 ### Sample: Managing an advanced policy
 In this sample, we will create a few policies to demonstrate how the priority system works, and how you can manage multiple policies applied to several objects. This will give some insight into the priority of policies explained above, and will also help you manage more complicated scenarios. 
 
-1. **Create a Token Lifetime Policy**
+#### 1. Create a Token Lifetime Policy.
 
 So far pretty simple. We've created a organization default policy that sets the Single-Factor Refresh Token lifetime to 30 days. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
-To see your new policy and get it's ObjectID, run the following command.
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
-    Get-AzureADPolicy
+To see your new policy and get it's ObjectId, run the following command.
 
-&nbsp;&nbsp;2.    **Assign the Policy to a Service Principal**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### 2. Assign the Policy to a Service Principal.
 
 Now we have a policy on the entire organization.  Let's say we want to preserve this 30 day policy for a specific service principal, but change the organization default policy to be the upper limit of "until-revoked". 
 
@@ -293,84 +325,104 @@ First, We're going to link this new policy with our service principal.  You'll a
 
 Once you have the **ObjectId**, Run the following command.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Set the IsOrganizationDefault flag to false using the following command**. 
+#### 3. Set the IsOrganizationDefault flag to false.
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
-&nbsp;&nbsp;4.    **Create a new Organization Default Policy**
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+```
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
+#### 4. Create a new Organization Default Policy.
 
-&nbsp;&nbsp;5.     **You're Done!** 
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
+#### 5. You're Done! 
 
 You now have the original policy linked to your service principal and the new policy set as your organization default policy.  It's important to remember that policies applied to service principals have priority over organization default policies. 
 
 ## Cmdlet Reference
+
 ### Manage policies
-The following cmdlets can be used to manage policies.</br></br>
+
+The following cmdlets can be used to manage policies.
 
 #### New-AzureADPolicy
+
 Creates a new policy.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```PowerShell
+New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -Definition |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -IsOrganizationDefault |If true sets the policy as organization's default policy, if false does nothing |-IsOrganizationDefault $true |
-| -Type |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| <code>&#8209;Definition</code> |The array of stringified JSON that contains all the rules of the policy. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |String of the policy name |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |The type of policy, for token lifetimes always use "TokenLifetimePolicy" | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### Get-AzureADPolicy
 Gets all AzureAD Policies or specified policy 
 
-    Get-AzureADPolicy 
+```PowerShell
+Get-AzureADPolicy 
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId [Optional] |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> [Optional] |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### Get-AzureADPolicyAppliedObject
 Gets all apps and service principals linked to a policy
 
-    Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
+```PowerShell
+Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy> 
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### Set-AzureADPolicy
 Updates an existing policy
 
-    Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string> 
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
-| -DisplayName |String of the policy name |-DisplayName MyTokenPolicy |
-| -Definition [Optional] |The array of stringified JSON that contains all the rules of the policy. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsOrganizationDefault [Optional] |If true sets the policy as organization's default policy, if false does nothing |-IsOrganizationDefault $true |
-| -Type [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Sets an alternative id to the policy. |-AlternativeIdentifier myAltId |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |String of the policy name |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Optional] |The array of stringified JSON that contains all the rules of the policy. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Optional] |If true sets the policy as organization's default policy, if false does nothing |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Optional] |The type of policy, for token lifetimes always use "TokenLifetimePolicy" |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID to the policy. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### Remove-AzureADPolicy
 Deletes the specified policy
 
-     Remove-AzureADPolicy -ObjectId <object id of policy>
+```PowerShell
+ Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Policy you would like to get. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Policy you would like to get. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -380,35 +432,41 @@ The following cmdlets can be used for application policies.</br></br>
 #### Add-AzureADApplicationPolicy
 Links the specified policy to an application
 
-    Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### Get-AzureADApplicationPolicy
 Gets the policy assigned to an application
 
-    Get-AzureADApplicationPolicy -ObjectId <object id of application>
+```PowerShell
+Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### Remove-AzureADApplicationPolicy
 Removes a policy from an application
 
-    Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -418,33 +476,39 @@ The following cmdlets can be used for service principal policies.</br></br>
 #### Add-AzureADServicePrincipalPolicy
 Links the specified policy to a service principal
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |The object Id of the Policy. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |The ObjectId of the Policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### Get-AzureADServicePrincipalPolicy
 Gets any policy linked to the specified service principal
 
-    Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
+```PowerShell
+Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### Remove-AzureADServicePrincipalPolicy
 Removes the policy from specified service principal
 
-    Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+```
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| -ObjectId |The object Id of the Application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |The ObjectId of Policy. |-PolicyId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |The ObjectId of the Application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |The ObjectId of the Policy. | `-PolicyId <ObjectId of Policy>` |
 

@@ -9,7 +9,6 @@ The updates in the pull request must comply with the following criteria to be me
 | Prerequisites |The "ready-to-merge" label is assigned to the PR (use the #sign-off comment) and the validation status is "passed". |
 | Prerequisites |Any pull request to the Live branch should be closed. The user should be redirected to the master branch. |
 | Prerequisites |The pull request cannot be blocked by a merge conflict. If there is a merge conflict, refer the user to https://github.com/blog/2293-resolve-simple-merge-conflicts-on-github for instructions on how to use the GitHub UI to resolve merge conflicts. PR reviewers do not resolve conflicts. |
-| Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |
 | Repo integrity |No article-related files, images, or folders are being added to the root directory of the repo.|
 | Repo integrity|Pull requests that change a configuration file in the root folder must be reviewed and merged by the repo administrator. |

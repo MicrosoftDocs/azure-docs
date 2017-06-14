@@ -1,6 +1,6 @@
 ---
-title: Enterprise integration with EDIFACT | Microsoft Docs
-description: Learn how to use EDIFACT agreements to create Logic apps
+title: EDIFACT messages for enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Exchange EDIFACT messages for enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -13,20 +13,24 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: jonfan
 
 ---
-# Enterprise integration with EDIFACT
+# Exchange EDIFACT messages with logic apps
+
 > [!NOTE]
-> This page covers the EDIFACT features of Logic Apps. See [X12](logic-apps-enterprise-integration-x12.md) for more information.
-> 
-> 
+> This page covers the EDIFACT features of Azure Logic Apps. 
+> For more information, see [X12](logic-apps-enterprise-integration-x12.md).
 
 ## Create an EDIFACT agreement
 Before you can exchange EDIFACT messages, you need to create an EDIFACT agreement and store it in your integration account. The following steps will walk you through the process of creating an EDIFACT agreement.
 
-### Here's what you need before you get started
+### Before you get started
+
+You'll need these items:
+
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
 * At least two [partners](logic-apps-enterprise-integration-partners.md) already defined in your integration account  
 

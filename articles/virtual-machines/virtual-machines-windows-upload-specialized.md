@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Upload a specialized VHD to Azure to use for creating a new VM
+# How to upload a specialized VHD to create a VM in Azure
 
 A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses Managed Disks or an unmanaged storage account. We recommend that you use [Managed Disks](../storage/storage-managed-disks-overview.md) to take advantage of the simplified management and additional features that Managed Disks offer.
 
@@ -34,6 +35,14 @@ A specialized VHD maintains the user accounts, applications and other state data
 * For information on storage pricing, see [Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). 
 * For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+
+## Before you begin
+If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
 
 
 ## Prepare the VM

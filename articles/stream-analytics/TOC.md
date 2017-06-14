@@ -31,6 +31,7 @@
 ### [Window functions](stream-analytics-window-functions.md)
 
 ## Manage
+### [Job reliability](stream-analytics-job-reliability.md)
 ### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)

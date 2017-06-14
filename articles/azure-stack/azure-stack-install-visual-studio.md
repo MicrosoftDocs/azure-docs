@@ -19,6 +19,11 @@ ms.author: helaw
 ---
 
 # Install Visual Studio and connect to Azure Stack
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
+
 You can use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack.  Use the following steps to install the supported version for Azure Stack TP2.  
 
 ## Before you begin

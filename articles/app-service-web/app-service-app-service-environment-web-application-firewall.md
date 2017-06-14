@@ -4,7 +4,7 @@ description: Learn how to configure a web application firewall in front of your 
 services: app-service\web
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d

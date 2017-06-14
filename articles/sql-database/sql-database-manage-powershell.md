@@ -13,18 +13,12 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/08/2017
+ms.topic: article
+ms.date: 02/09/2017
 ms.author: sstein
 
 ---
 # Managing Azure SQL Database using PowerShell
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 This topic shows the PowerShell cmdlets that are used to perform many Azure SQL database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
@@ -169,7 +163,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## How do I create and manage elastic pools using PowerShell?
-For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](sql-database-elastic-pool-create-powershell.md).
+For details about creating elastic pools using PowerShell, see [Create a new elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 For details about managing elastic pools using PowerShell, see [Monitor and manage an elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 

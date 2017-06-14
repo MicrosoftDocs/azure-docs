@@ -170,7 +170,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Azure CLI 2.0 (Preview) - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## Parameters and variables
 
@@ -304,7 +304,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](virtual-machines-windows-about-disks-vhds.md). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -478,7 +478,7 @@ You can see the status of the installed extensions from the Extensions settings 
 
 ![Get extension status](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 (Preview) command, or the **Get extension information** REST API.
+You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 command, or the **Get extension information** REST API.
 
 ## Deployments
 

@@ -1,6 +1,6 @@
 ---
-title: Add and manage multiple Azure Active Directory directories | Microsoft Docs
-description: Instructions and best practices for adding and managing your Azure Active Directory directories, explaining directories as a fully independent resources
+title: Characteristics of Azure Active Directory directories | Microsoft Docs
+description: Manage your Azure Active Directory directories by understanding your directories as fully independent resources
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/27/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Add and manage multiple Azure Active Directory directories
+# Understand how multiple Azure Active Directory directories interact
 In Azure Active Directory (Azure AD), each directory is a fully independent resource: a peer, fully-featured, and logically independent of other directories that you manage. There is no parent-child relationship between directories. This independence between directories includes resource independence, administrative independence, and synchronization independence.
 
 ## Resource independence
@@ -44,4 +46,5 @@ To add an Azure AD directory in the Azure classic portal, select the Azure Activ
 >
 >
 
+## Next steps
 For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active Directory licensing?](active-directory-licensing-what-is.md).

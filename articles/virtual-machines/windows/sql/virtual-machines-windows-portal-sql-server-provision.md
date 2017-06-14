@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 
 ---
@@ -50,11 +50,15 @@ In this tutorial, you will:
 
    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Review the available SQL Server templates.
-6. Each template identifies a SQL Server version and an operating system. Select one of these images from the list. Then review the details blade that provides a description of the virtual machine image.
+5. Review the available SQL Server templates. Each template identifies a SQL Server version and an operating system. 
+6. Select the template for SQL Server 2016 SP1 Developer on Windows Server 2016.
+
+   > [!TIP]
+   > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM.
    
    > [!NOTE]
-   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create. There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create (excep for the Developer and Express editions). SQL Server Developer is free for development/testing (not production) and SQL Express is free for lightweight workloads (less than 1GB memory, less than 10 GB storage). 
+   > There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. Click **Create**.
@@ -241,14 +245,10 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 When you are finished configuring SQL Server settings, click **OK**.
 
 ### R services
-For SQL Server 2016 Enterprise edition, you have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
+You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
 
 ![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> For SQL Server images that are not 2016 Enterprise edition, the option to enable R Services is disabled.
-> 
-> 
 
 ## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.

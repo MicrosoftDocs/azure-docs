@@ -51,4 +51,4 @@ To resolve this error, either:
 * Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 ## Next steps
-Additional resources about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+For monitoring guidance, see [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md).

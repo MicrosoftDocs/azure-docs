@@ -40,7 +40,7 @@ There are some important steps to perform before moving a resource. By verifying
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  For Azure CLI 2.0 (Preview), use:
+  For Azure CLI 2.0, use:
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -78,7 +78,6 @@ For now, the services that enable moving to both a new resource group and subscr
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Service
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -125,6 +124,7 @@ The services that currently do not enable moving a resource are:
 * Application Gateway
 * Application Insights
 * BizTalk Services
+* Container Service
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
@@ -317,7 +317,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## Use Azure CLI 2.0 (Preview)
+## Use Azure CLI 2.0
 To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli

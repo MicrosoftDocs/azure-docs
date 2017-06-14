@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
@@ -38,9 +38,9 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
   
-  * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-  * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the clusters
 
@@ -131,9 +131,9 @@ The steps in this document demonstrate how to set these environment variables.
    
     For more information on using SSH with HDInsight, see the following documents:
    
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS and Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Kafka cluster, use the following commands to get the zookeeper nodes from Ambari:
 
@@ -203,9 +203,9 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
    
     For more information on using SSH with HDInsight, see the following documents:
    
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Storm cluster, use the following commands to run the `set-env-variables.sh` script:
 

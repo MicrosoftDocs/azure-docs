@@ -72,7 +72,7 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. In this example, UserA has administrative permissions to SubscriptionA, and UserB has administrative permissions to SubscriptionB.
+2. In this example, UserA has administrative permissions to SubscriptionA, and UserB has administrative permissions to SubscriptionB. Both subscriptions are associated to the same Azure Active Directory tenant. You cannot create a peering between subscriptions associated to different Azure Active Directory tenants.
 3. In the portal, click **Browse**, choose **Virtual networks**. Click the VNet you want to setup peering for.
 4. In the blade for the VNet you selected, click **Access control**, then click **Add**, as shown in the following picture:
 
@@ -117,7 +117,7 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 3. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
-	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` This step cannot be completed in the portal.
+	- Register the preview capability in your Azure subscription by entering the following commands from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` and `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network` This step cannot be completed in the portal.
 	- Complete steps 1-6 in the [Peering across subscriptions](#x-sub) section of this article.
 3. To establish VNET peering in this scenario, you need to create only one link, from the virtual network in Azure resource manager to the one in classic. That is, from **VNET1** to **VNET2**. On the portal, Click **Browse** > choose **Virtual Networks**
 4. In the Virtual networks blade, choose **VNET1**. Click **Peerings**, then click **Add**.

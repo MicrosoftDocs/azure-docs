@@ -1,6 +1,6 @@
 ---
 
-title: Import-Export Service Log File Format | Microsoft Docs
+title: Azure Import/Export log file format | Microsoft Docs
 description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
 author: muralikk
 manager: syadav
@@ -14,11 +14,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
-# Import-Export Service Log File Format
+# Azure Import/Export service log file format
 When the Microsoft Azure Import/Export service performs an action on a drive as part of an import job or an export job, logs are written to block blobs in the storage account associated with that job.  
   
 There are two logs that may be written by the Import/Export service:  

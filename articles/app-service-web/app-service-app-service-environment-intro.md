@@ -4,7 +4,7 @@ description: Learn about the App Service Environment feature that provides secur
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394

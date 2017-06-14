@@ -499,7 +499,7 @@ To read data from a blob on a linked Azure Storage account, you must use the ful
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-For example, if a source file (SearchLog.tsv) is stored in a blob container named "samples" in the "contso_33" storage account, the path for the FROM statement would be:
+For example, if a source file (SearchLog.tsv) is stored in a blob container named "samples" in the "contoso_33" storage account, the path for the FROM statement would be:
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 

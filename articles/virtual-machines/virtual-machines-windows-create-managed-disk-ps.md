@@ -23,6 +23,15 @@ ms.author: cynthn
 
 A managed disk can be created from an existing data disk or an OS disk that is currently in an Azure storage account. You can also crate an empty disk that can be used as a new data disk for a VM. 
 
+## Before you begin
+If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
+
 ## Create a managed disk from a VHD in an Azure storage account
 
 In the example we create a disk from a VHD as managed disk and assign it to the parameter **$disk1** to use later. 

@@ -4,7 +4,7 @@ description: Learn how to create high-scale complex applications with Azure App 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f

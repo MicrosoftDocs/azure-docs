@@ -1,9 +1,9 @@
 ---
-title: 'Learn More: Azure AD Password Management | Microsoft Docs'
-description: Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset.
+title: 'Learn more: Azure Active Directory password management | Microsoft Docs'
+description: Advanced topics on Azure AD password management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset.
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 
 ---
-# Learn more about Password Management
+# Learn more about password management
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 >
 >
 
-If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
+If you have already deployed password management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
 * [**Password writeback overview**](#password-writeback-overview)
   * [How pasword writeback works](#how-password-writeback-works)
@@ -118,7 +118,7 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
      * If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact his or her administrator to reset his or her password.
 4. If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
 
-Learn more about how to deploy password writeback at [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
+Learn more about how to deploy password writeback at [Getting Started: Azure AD password management](active-directory-passwords-getting-started.md).
 
 ### What data is used by password reset?
 The following table outlines where and how this data is used during password reset and is designed to help you decide which authentication options are appropriate for your organization. This table also shows any formatting requirements for cases where you are providing data on behalf of users from input paths that do not validate this data.
@@ -387,7 +387,7 @@ Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-## Links to password reset documentation
+## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).

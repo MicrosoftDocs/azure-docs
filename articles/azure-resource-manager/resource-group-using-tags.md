@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 
 ---
@@ -25,6 +25,10 @@ ms.author: tomfitz
 > 
 > 
 
+## Ensure tag consistency with policies
+
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values. For more information, see [Apply resource policies for tags](resource-manager-policy-tags.md).
+
 ## Templates
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -35,9 +39,9 @@ ms.author: tomfitz
 ## PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## Azure CLI 2.0 (Preview)
+## Azure CLI 2.0
 
-With Azure CLI 2.0 (Preview), you can add tags to resources and resource group, and query resources by tag values.
+With Azure CLI 2.0, you can add tags to resources and resource group, and query resources by tag values.
 
 Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
 

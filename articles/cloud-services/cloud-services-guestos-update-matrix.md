@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 
 ---
@@ -47,35 +47,6 @@ November Guest OS rollout is starting November 8 2016, and projected to be relea
 ###### **October 23 2016**
 Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NET 4.6 support.
 
-###### **September 13 2016**
-September Guest OS rollout is starting September 13 2016, and projected to be released on October 13 2016.
-
-###### **August 9 2016**
-August Guest OS rollout is starting August 9 2016, and projected to be released on September 8 2016. 
-
-###### **July 13 2016**
-July Guest OS rollout is starting July 13 2016, and projected to be released on August 12 2016. 
-
-###### **June 15 2016**
-June Guest OS rollout is starting June 15 2016, and projected to be released on July 14 2016. 
-
-###### **May 17 2016**
-May Guest OS rollout is starting May 17 2016, and projected to be released on June 10 2016. 
-
-###### **April 18 2016**
-April Guest OS rollout is starting April 18 2016, and projected to be released on May 12 2016. 
-
-###### **March 14 2016**
-March Guest OS rollout is starting March 14 2016, and projected to be released on April 8 2016. 
-
-###### **February 22 2016**
-February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
-
-###### **January 18 2016**
-January Guest OS rollout is starting January 18 2016, and projected to be released on February 12 2016.
-
-###### **January 4 2016**
-November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
 ## Releases
 ## Family 5 releases

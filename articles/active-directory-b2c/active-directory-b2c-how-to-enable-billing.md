@@ -72,8 +72,8 @@ By clicking the B2C tenant resource, you are able to
 
 ## Next steps
 Once these steps are complete for each of your B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
-- Review usage and billing within you selected Azure subscription
-- Review detailed day-by-day usage reports using the Usage Reporting API (TBD)
+- Review usage and billing within your selected Azure subscription
+- Review detailed day-by-day usage reports using the [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 

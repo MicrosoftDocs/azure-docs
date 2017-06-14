@@ -13,8 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: v-donglo
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-publish-a-machine-learning-web-service
 
 ---
 # Deploy a new web service

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
 
 ---
@@ -77,4 +77,3 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Sample code](https://github.com/Azure/servicefabric-samples)
-

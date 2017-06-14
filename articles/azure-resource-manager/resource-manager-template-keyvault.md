@@ -31,7 +31,7 @@ To create a key vault, add the following schema to the resources section of your
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -72,7 +72,7 @@ The following tables describe the values you need to set in the schema.
 | --- | --- |
 | enabledForDeployment |Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
 | enabledForTemplateDeployment |Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
+| enabledForDiskEncryption |Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
 | tenantId |String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
 | accessPolicies |Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
 | sku |Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
@@ -166,7 +166,7 @@ The following example deploys a key vault and secret.
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -198,7 +198,7 @@ The following example deploys a key vault and secret.
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {

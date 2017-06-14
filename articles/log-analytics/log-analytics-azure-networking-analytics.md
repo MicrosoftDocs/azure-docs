@@ -4,7 +4,7 @@ description: You can use the Azure Networking Analytics solution in Log Analytic
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: ''
 
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
@@ -123,7 +123,6 @@ The following logs are supported for network security groups:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
-* NetworkSecurityGroupFlowEvent
 
 ### Install and configure the solution
 Use the following instructions to install and configure the Azure Networking Analytics solution:

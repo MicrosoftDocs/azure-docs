@@ -1,10 +1,10 @@
 ---
-title: Application Map in Application Insights | Microsoft Docs
+title: Application Map in Azure Application Insights | Microsoft Docs
 description: A visual presentation of the dependencies between app components, labeled with KPIs and alerts.
 services: application-insights
 documentationcenter: ''
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/22/2017
 ms.author: awills
 
 ---
@@ -46,7 +46,7 @@ If you have many dependencies of one type (SQL, HTTP etc.), they may appear grou
 ## Spot problems
 Each node has relevant performance indicators, such as the load, performance, and failure rates for that component. 
 
-Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%.
+Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%. If you want to adjust these thresholds, open Options.
 
 ![failure icons](./media/app-insights-app-map/04.png)
 
@@ -102,3 +102,6 @@ Please [provide feedback through the portal feedback option](app-insights-get-de
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
 
+## Next steps
+
+* [Azure portal](https://portal.azure.com)

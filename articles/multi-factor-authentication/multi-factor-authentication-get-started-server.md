@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 ---
 
@@ -27,7 +27,7 @@ Now that we have determined to use on-premises Multi-Factor Authentication Serve
 There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite license.
 
 > [!Important]
-> These two options seem similar, but it is important to know which one to use. If your users have licenses that come with MFA, don't create a Multi-Factor Auth Provider to get to the server download. Instead, use option 2 to download the server from the service settings page. 
+> These two options seem similar, but it is important to know which one to use. If your users have licenses that come with MFA (Azure MFA, Azure AD Premium, or Enterprise Mobility + Security), don't create a Multi-Factor Auth Provider to get to the server download. Instead, use option 2 to download the server from the service settings page. 
 
 ### Option 1: Download Azure Multi-Factor Authentication Server from the Azure classic portal
 

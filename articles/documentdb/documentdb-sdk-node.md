@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/27/2017
 ms.author: rnagpal
 
 ---
@@ -51,6 +51,10 @@ ms.author: rnagpal
 </table></br>
 
 ## Release notes
+
+### <a name="1.10.2"/>1.10.2</a>
+* Fixed user-agent header to include the SDK version.
+* Minor code cleanup.
 
 ### <a name="1.10.1"/>1.10.1</a>
 * Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
@@ -142,6 +146,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.10.2](#1.10.2) |January 27, 2017 |--- |
 | [1.10.1](#1.10.1) |December 22, 2016 |--- |
 | [1.10.0](#1.10.0) |October 03, 2016 |--- |
 | [1.9.0](#1.9.0) |July 07, 2016 |--- |

@@ -1,3 +1,4 @@
+
 ---
 title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
@@ -13,18 +14,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+
+ms.custom: H1Hack27Feb2017
 ---
 
 
-# Troubleshoot Application Proxy
+# Troubleshoot Application Proxy problems and error messages
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
 * Open the Windows Services console and verify that the **Microsoft AAD Application Proxy Connector** service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:  
   ![Microsoft AAD Application Proxy Connector Properties window screenshot](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * If needed, more detailed logs are available by turning on analytics and debugging logs, and turning on the Application Proxy connector session log.
+
+For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites}(https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
 ## The page is not rendered correctly
 You may have problems with your application rendering or functioning incorrectly without receiving specific error messages. This can occur if you published the article path, but the application requires content that exists outside that path.
@@ -34,6 +39,8 @@ For example, if you publish the path https://yourapp/app but the application cal
 If you change your path to include referenced content, but still need users to land on a deeper link in the path, see the blog post [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 
 ## Connector errors
+
+Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, or run the following Windows PowerShell command.
 

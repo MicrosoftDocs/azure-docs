@@ -347,7 +347,7 @@ This topic describes the entity and type representations for common items used i
 |Email|string|Email address. Must not be empty and must be unique within the service instance. Maximum length is 254 characters.|  
 |FirstName|string|First name. Must not be empty. Maximum length is 100 characters.|  
 |LastName|string|Last name. Must not be empty. Maximum length is 100 characters.|  
-|UserData|string|Value used by the [sign-up](api-management-page-controls.md#sign-up)sign-up control.|  
+|UserData|string|Value used by the [sign-up](api-management-page-controls.md#sign-up) control.|  
 |NameIdentifier|string|Value used by the [sign-up](api-management-page-controls.md#sign-up)sign-up control.|  
 |ProviderName|string|Authentication provider name.|
 

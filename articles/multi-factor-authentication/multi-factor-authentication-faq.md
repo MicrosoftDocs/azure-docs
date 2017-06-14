@@ -1,6 +1,6 @@
 ---
 title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
-description: Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
+description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/26/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Azure Multi-Factor Authentication FAQ
+# Frequently asked questions about Azure Multi-Factor Authentication
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including questions about the billing model and usability.
 
 ## General
@@ -59,7 +60,7 @@ When you use the "per user" or "per authentication" model, Azure MFA is a consum
 
 When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
 
-Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)
+Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md)
 
 **Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
 

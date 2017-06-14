@@ -4,7 +4,7 @@ description: Learn how to use Azure blob storage with the WebJobs SDK. Trigger a
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c

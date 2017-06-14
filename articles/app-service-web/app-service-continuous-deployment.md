@@ -4,7 +4,7 @@ description: Learn how to enable continuous deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000

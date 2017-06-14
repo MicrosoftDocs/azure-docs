@@ -94,8 +94,8 @@ The following steps guide you through the process of creating a formula based on
 7. Select **OK** to create the formula.
 
 ## Use a formula to provision a VM
-Once you've created a formula, you can create a VM based on that formula. The section
-[Add a VM with artifacts](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) walks you through the process.
+Once you've created a formula, you can create a VM based on that formula. The article
+[Add a VM with artifacts](devtest-lab-add-vm-with-artifacts.md) walks you through the process.
 
 ## Modify a formula
 To modify a formula, follow these steps:

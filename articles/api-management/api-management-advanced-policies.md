@@ -333,7 +333,7 @@ This topic provides a reference for the following API Management policies. For i
 ```xml  
   
 <retry  
-    condition="@{context.Response.StatusCode == 500}"  
+    condition="@(context.Response.StatusCode == 500)"  
     count="10"  
     interval="10"  
     max-interval="100"  

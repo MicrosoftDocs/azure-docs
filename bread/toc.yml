@@ -47,8 +47,8 @@
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/advisor-overview
   - name: Logic Apps
-    tocHref: /azure/app-service-logic/
-    topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
+    tocHref: /azure/logic-apps/
+    topicHref: /azure/logic-apps/logic-apps-what-are-logic-apps
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
@@ -87,7 +87,7 @@
     topicHref: /azure/batch/batch-technical-overview
   - name: Billing
     tocHref: /azure/billing/
-    topicHref: /azure/billing/../billing-use-existing-office-365-account-azure-subscription
+    topicHref: /azure/billing/billing-getting-started
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/integration-hybrid-connection-overview
@@ -185,6 +185,9 @@
       - name: User Guide
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
+  - name: Network Watcher
+    tocHref: /azure/network-watcher/
+    topicHref: /azure/network-watcher/network-watcher-monitoring-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview

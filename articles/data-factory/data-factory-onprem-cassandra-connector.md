@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 
 ---
@@ -21,6 +21,9 @@ ms.author: jingwang
 This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises Cassandra database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from a Cassandra database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats), but not moving data from other data stores to a Cassandra database.
+
+## Supported versions
+This Cassandra connector support Cassandra version 2.X.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install the following:

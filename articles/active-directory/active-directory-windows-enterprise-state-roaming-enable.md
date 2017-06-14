@@ -6,7 +6,7 @@ services: active-directory
 keywords: enterprise state roaming, windows cloud, how to enable enterprise state roaming
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: curtand
 
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -15,8 +15,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 
 ---
 # Enable Enterprise State Roaming in Azure Active Directory

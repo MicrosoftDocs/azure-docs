@@ -1,10 +1,10 @@
 ---
-title: How to set a static private IP in ARM mode using the Azure portal| Microsoft Docs
-description: Understanding private IPs (DIPs) and how to manage them in ARM mode using the Azure portal
+title: Configure private IP addresses for VMs - Azure portal | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines using the Azure portal.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# How to set a static private IP address in the Azure portal
+# Configure private IP addresses for a virtual machine using the Azure portal
 
 > [!div class="op_single_selector"]
 - [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)

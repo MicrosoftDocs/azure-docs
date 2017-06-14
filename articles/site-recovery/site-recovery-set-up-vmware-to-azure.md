@@ -31,9 +31,9 @@ The article assumes that you have already created:
 - A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
 - A virtual machine on which to install the configuration server.
 
-### Configuration server minimum requirements
+## Configuration server minimum requirements
 The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
 > HTTPS-based proxy servers are not supported by the configuration server.
@@ -93,4 +93,4 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 
 ## Next steps
-[Set up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
+[Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.

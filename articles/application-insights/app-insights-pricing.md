@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 
 ---
@@ -97,7 +97,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
+* **Daily cap.** The maximum cap is 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day). When creating an Application Insights resource from the Azure portal this is set to its maximum. Use care when changing this, since hitting the cap will cause you to lose data for the remainder of the day. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade.
 * **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
 * **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
 
@@ -116,12 +116,14 @@ If throttling occurs, you'll see a notification warning that this has happened.
 ## To reduce your data rate
 Here are some things you can do to reduce your data volume:
 
-* Reduce the daily volume cap. The default is 500 GB/day.
 * Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. In server apps, it operates automatically.
 * [Limit the number of Ajax calls that can be reported](app-insights-javascript.md#detailed-configuration) in every page view, or switch off Ajax reporting.
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry to separate instrumentation keys. 
-* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Lastly, you can reduce the daily volume cap which will limit the data collected but will result is a loss of data for the remainder of the day. To change it, open **Features+pricing**, **Data management**.
+
+    ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
 ## Sampling
 [Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. 

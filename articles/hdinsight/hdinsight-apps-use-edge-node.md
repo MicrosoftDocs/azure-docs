@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/02/2017
 ms.author: jgao
 
 ---
 # Use empty edge nodes in HDInsight
+
 Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
@@ -54,6 +55,8 @@ You can add an empty edge node to an existing HDInsight cluster, to a new cluste
 
 As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node.
 
+The edge node virtual machine size must meet the HDInsight cluster worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+
 After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
 ## Add an edge node to an existing cluster
@@ -71,7 +74,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
    * **Resource group**: Select the resource group used for the existing HDInsight cluster.
    * **Location**: Select the location of the existing HDInsight cluster.
    * **Cluster Name**: Enter the name of an existing HDInsight cluster.
-   * **Edge Node Size**: Select one of the VM sizes.
+   * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the edge node.
 

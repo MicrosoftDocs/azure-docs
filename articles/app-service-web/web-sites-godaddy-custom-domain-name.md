@@ -4,7 +4,7 @@ description: Learn how to use a domain name from GoDaddy with Azure Web Apps
 services: app-service
 documentationcenter: ''
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564

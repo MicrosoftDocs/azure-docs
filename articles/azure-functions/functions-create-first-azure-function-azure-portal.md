@@ -42,7 +42,12 @@ A function app hosts the execution of your functions in Azure. If you don't alre
 
 3. Click **Create** to provision and deploy the new function app.  
 
-Now that the function app is provisioned, you can create your first function.
+### <a name="storage-account-requirements"></a>Storage account requirements
+
+When creating a Function App, you must create or link a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a new Function App.
+When using the Consumption hosting plan, Function App content (such as function code files and binding configuration) are stored on Azure Files shares on the main storage account. If you delete the main storage account, this content will be deleted and cannot be recovered.
+
+To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## Create a function
 These steps create a function from the Azure Functions quickstart.
@@ -52,6 +57,7 @@ These steps create a function from the Azure Functions quickstart.
     ![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
 
 2. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal.    After you have completed or skipped the tour, you can test your new function by using the HTTP trigger.
+
 
 ## Test the function
 [!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
