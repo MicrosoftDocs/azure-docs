@@ -118,9 +118,20 @@ Click **Test Connection** to test if all parameters are correctly configured. Cl
 > SSL is enforced by default on your server, and requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this quick start, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Clean up resources
-If you don't need these resources for another quickstart or tutorial, you can delete them by following these steps:
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresource**. 
-2. On your resource group page, click **Delete**, type **myresource** in the text box, and then click **Delete**.
+Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+
+> [!TIP]
+> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+
+1.	From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresourcegroup**.
+2.	On your resource group page, click **Delete**, type **myresourcegroup** in the text box, and then click Delete.
+
+If you would like to delete the newly created server:
+1.	From the left-hand menu in Azure portal, click PostgreSQL servers and then search for the server you just created
+2.	On the Overview page, click the Delete button on the top pane
+![Azure Database for MySQL - Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **myserver4demo** in the text box, and then click Delete.
+
 
 ## Next steps
 
