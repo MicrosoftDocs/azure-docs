@@ -184,14 +184,22 @@ Caase.com is the mastermind of the Azure Remote Workspace (mobile workplace) and
 Dutch translation ánd a supporting movie over here: http://caase.com/over-ons/
 
 > Operation region: Dutch based, global reach
-> Partner status: [Gold](https://partnercenter.microsoft.com/nl-nl/pcv/solution-providers/caasecom_4295593260/51159_3)
+> 
+> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/caasecom_4295593260/51159_3)
+> 
 > Microsoft Cloud Service Provider: Yes
+> 
 > Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
 > Azure RemoteApp migration solutions: Yes, [learn more](http://caase.com/diensten/microsoft-azure/).
 > 
+> 
 > Netherlands:
+> 
 > Rigtersbleek-Zandvoort 10 (De Spinnerij)
+> 
 > 7521 BE, Enschede
+> 
 > Phone: +31 (0) 88 4320 000
 
 
@@ -226,14 +234,22 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > Operation region: Worldwide
 > Partner status: [Gold](https://partnercenter.microsoft.com/en-us/pcv/solution-providers/adar-inc_341c9afa-f12c-46f5-8f7b-3f9ef59a66a5/785e494c-cab1-4dd4-864d-9301375be335)
 > Microsoft Cloud Service Provider: Yes
+> 
 > Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
 > Azure RemoteApp migration solutions: Yes
 > 
+> 
 > 8001 Lincoln Ave
+> 
 > Suite 212
+> 
 > Skokie, IL 60077
+> 
 > USA
+> 
 > (844) 4NERDIO ext. 6
+> 
 > [sayhello@getnerdio.com](mailto:sayhello@getnerdio.com)
 
 #### **SaaSplaza**
