@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: larryfr
 ---
 
-## Use Spark Structured Streaming with Kafka (preview) on HDInsight
+# Use Spark Structured Streaming with Kafka (preview) on HDInsight
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
 
