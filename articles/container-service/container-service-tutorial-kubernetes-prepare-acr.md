@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azurebased, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
+Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
@@ -42,7 +42,7 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az greoup create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the eastus region.
+Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the eastus region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

@@ -26,10 +26,10 @@ If you have been following along, at this point, an application was tested, cont
 Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
-> * Understand the Kubernetes resources that will be deployed
+> * Understand the Kubernetes objects
 > * Download Kubernetes manifest files
-> * Deploy Kubernetes resources
-> * Deploy and test the application
+> * Deploy application into Kubernetes cluster
+> * Test the application
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ Create the storage objects with the following command:
 kubectl create -f storage-resources.yaml
 ```
 
-Once complete, a VHD is created in an Azure storage account, and attach that to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
+Once completed, a VHD is created in an Azure storage account, and attached to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
 
 ## Secure sensitive values
 
@@ -259,7 +259,7 @@ kubectl create -f frontend-deployment
 
 ## Expose application
 
-A Kubernetes service define how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must accessible over the internet. Giving the service a type of *LoadBalancer* crates an externally accessible IP address over which the application can be accessed.
+A Kubernetes service defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. Giving the service a type of *LoadBalancer* crates an externally accessible IP address over which the application can be accessed.
 
 ```yaml
 apiVersion: v1
@@ -316,12 +316,12 @@ Browse to the returned external IP address to see the application.
 In this tutorial, the Azure vote application was deployed to an Azure Container Service Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * Understand the Kubernetes resources that will be deployed
+> * Understand the Kubernetes objects
 > * Download Kubernetes manifest files
-> * Deploy Kubernetes resources
-> * Deploy and test the application
+> * Deploy application into Kubernetes cluster
+> * Test the application
 
 Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
 
 > [!div class="nextstepaction"]
-> [Scale Kubernetes application and infrastructure](./container-service-tutorial-kubernetes-scale-application.md)
+> [Scale Kubernetes application and infrastructure](./container-service-tutorial-kubernetes-scale.md)

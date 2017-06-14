@@ -44,13 +44,13 @@ This tutorial assumes a basic understanding of core Docker concepts such as cont
 
 The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end database. 
 
-Use git to download a copy of the appliction to your development environment.
+Use git to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Inside the cloned directory is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
+Inside the cloned directory, is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
 
 Change directories so that you are in the cloned directory.
 
@@ -129,7 +129,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Test application
 
-Browse to `http://localhost:8080` to see the running application. The application take a few seconds to initialize. If an error is encountered, try again.
+Browse to `http://localhost:8080` to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
