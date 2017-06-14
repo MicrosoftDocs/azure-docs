@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions about Azure File storage | Microsoft Docs
+title: Frequently asked questions about Azure File Storage | Microsoft Docs
 description: Find answers to frequently asked questions about Azure File Storage.
 services: storage
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.date: 05/27/2017
 ms.author: renash
 ---
-# Frequently Asked Questions about Azure File storage
+# Frequently Asked Questions about Azure File Storage
 
 ## General
 * **Q. What is Azure File Storage?**  
@@ -24,7 +24,7 @@ ms.author: renash
 
 * **Q. Why is Azure File Storage useful?**  
    
-    Azure File Storage provides shared data access across multiple VMs and platforms. Refere to [Why is Azure File useful](storage-files-introduction#why-is-azure-file-storage-useful).
+    Azure File Storage provides shared data access across multiple VMs and platforms. Refer to [Why Azure File Storage is useful](storage-files-introduction.md#why-azure-file-storage-is-useful).
 
 * **Q. When should I use Azure File vs Azure Blob vs Azure Disk ?**  
    
@@ -36,7 +36,7 @@ ms.author: renash
    
     Azure Data Disks - Provides client libraries and a REST interface that allows data to be persistently stored and accessed from an attached virtual hard disk.  
    
-    Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](https://docs.microsoft.com/en-us/rest/api/storageservices/deciding-when-to-use-azure-blobs--azure-files--or-azure-data-disks)
+    Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](storage-decide-blobs-file-disks.md)
 
 * **Q. How do I get started using Azure FIle Storage?**  
    
@@ -46,13 +46,13 @@ ms.author: renash
     * [Learn how to create Azure File share using Powershell](storage-file-how-to-create-file-share.md#create-file-share-through-powershell)
     * [Learn how to create Azure File share using CLI](storage-file-how-to-create-file-share.md#create-file-share-through-command-line-interface-cli)
 
-* **Q. What replications are supported by Azure File storage?**  
+* **Q. What replications are supported by Azure File Storage?**  
    
     Azure File stroage only supports LRS or GRS right now. We plan to support RA-GRS but there is no timeline to share yet.
 
 ## Security, Authentication and Access Control
 
-* **Q. What are different ways to access files in Azure File storage?**
+* **Q. What are different ways to access files in Azure File Storage?**
     
     You can mount the file share on your local machine using SMB 3.0 protocol or use tools like [Storage Explorer](http://storageexplorer.com/) to access files in your file share. From your application, you can use storage client libraries, REST APIs or Powershell to access your files in Azure File share.
 
@@ -66,11 +66,11 @@ ms.author: renash
 
 * **Q. How can I enable Server Side encryption for Azure File Storage?**
 
-    [Server Side Encryption](storage-service-encryption.md) for Azure File Storage service is generally available in all regions and public and national clouds. You can enable SSE for File Storage Service using [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) or [Azure CLI](storage-azure-cli.md).
+    [Server Side Encryption](storage-service-encryption.md) for Azure File Storage is generally available in all regions and public and national clouds. You can enable SSE for Azure File Storage using [Azure portal](https://portal.azure.com/),[Microsoft Azure Storage Resource Provider API](/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/library/azure/mt607151.aspx) or [Azure CLI](storage-azure-cli.md).
     
-    After enabling SSE on Azure File Storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File Storage service](storage-service-encryption.md).
+    After enabling SSE on Azure File Storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File Storage](storage-service-encryption.md).
 
-* **Q. Is Active Directory-based authentication supported by File storage?**
+* **Q. Is Active Directory-based authentication supported by Azure File Storage?**
    
     We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid for a specified time interval. For example, you can generate a token with read-only access to a given file with 10 minutes expiry. Anyone who possesses this token while it is valid has read-only access to that file for those 10 minutes.
    
@@ -78,9 +78,9 @@ ms.author: renash
 
 ## On-Premises Access
 
-* **Q.Do I have to use Azure ExpressRoute to connect to Azure File storage from an on-premises VM?**
+* **Q.Do I have to use Azure ExpressRoute to connect to Azure File Storage from an on-premises VM?**
    
-    No. If you don't have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
+    No. If you don't have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with Azure File Storage if you like.
 
 * **Q. How can I mount an Azure File share on my local machine?** 
     
@@ -101,15 +101,15 @@ ms.author: renash
 ## Performance
 
 * **Q. What are the scale limits of Azure File Storage?**
-    For information on scalability and performance targets of File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
+    For information on scalability and performance targets of Azure File Storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
 
-* **Q. My performance was slow when trying to unzip files into File storage. What should I do?**
+* **Q. My performance was slow when trying to unzip files into Azure File Storage. What should I do?**
     
-    To transfer large numbers of files into File storage, we recommend that you use AzCopy(Windows, Preview for Linux/Unix), Azure Powershell as these tools have been optimized for network transfer.
+    To transfer large numbers of files into Azure File Storage, we recommend that you use AzCopy(Windows, Preview for Linux/Unix) or Azure Powershell as these tools have been optimized for network transfer.
 
 * **Q. What patches has been released to fix slow-performance issue with Azure File Storage?**
     
-    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure File Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure File Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure File Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure File Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025).
 
 ## Features and Interoperability with other services
 * **Q. Is a "File Share Witness" for a failover cluster one of the use cases for Azure File Storage?**
@@ -146,13 +146,13 @@ See these links for more information about Azure File storage.
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md)
-* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Troubleshooting Azure File Storage problems](storage-troubleshoot-file-connection-problems.md)
 
 ### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure File Storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Migrating data to Azure File ](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)
+* [Migrating data to Azure File Storage](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)

@@ -18,7 +18,7 @@ ms.author: renash
 ---
 
 # How to use File Storage from the Azure Portal
-The [Azure Portal](https://portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+The [Azure portal](https://portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
 
 * Create a File Share
 * Upload and download files to and from your file share.
