@@ -72,7 +72,7 @@ This privilege is expressed in the following values:
 * Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD and is available on all standard VMs of single core and above.
 * Bronze - No privileges. This is the default.
 
-###Recommendations on when to use Silver or Gold durability levels
+### Recommendations on when to use Silver or Gold durability levels
 
 The durability feature is biased towards data retention, So it will slow the deployment operations down. You get to choose durablity level for each of your node-types. You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. Maintain a minimum count of 5 nodes for any Node-type/VMSS that has a durability of Gold or silver.
 
@@ -80,18 +80,18 @@ The durability feature is biased towards data retention, So it will slow the dep
 
 For example: Use silver durability for all node types that hosts stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
 
-####Advantages of using Silver or Gold durability levels
+**Advantages of using Silver or Gold durability levels**
  
 1. Reduces the number of required steps in a scale-in operation (i.e. node deactivation and Remove-ServiceFabricNodeState is called automatically)
 2. Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
 	 
-####Disadvantages of using Silver or Gold durability levels
+**Disadvantages of using Silver or Gold durability levels**
  
 1. Deployments to your VMSS (and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or by concurrent upgrade and maintenance activity at the infrastructure level. 
 2. Reduces overall deployment performance.
 3. Increases the number of replica lifecycle events (e.g. primary swaps) due to automated node deactivations during Azure infrastructure operations
 
-###Operational Recommendations for the node type that has a silver or gold durability.
+### Operational Recommendations for the node type that has a silver or gold durability.
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all lifecycle events (like replica in build is stuck) in a timely fashion.
 2. Adopt safer ways to make a VM SKU change (Scale up/down):
