@@ -37,7 +37,7 @@ This represents smaller data sets that are used for prototyping a big data appli
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
+| Local computer |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)</li> <li>[AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp running on HDInsight cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### Streamed data

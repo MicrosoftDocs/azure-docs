@@ -35,7 +35,7 @@ Ensure you have the following prerequisites met:
 - IT Service Management connector installed.
 More information:  [Configuration](log-analytics-itsmc-overview.md#configuration).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
-- Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connector-role).
+- Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](https://technet.microsoft.com/library/ff461054.aspx).
 
@@ -104,7 +104,7 @@ Save the values, you use them when you create a connection with IT Service Manag
 
 ### Configure the hybrid connection
 
-Use the following procedure to connect the hybrid connector role that connects the Service Manager instance with the IT Service Management connector in OMS.
+Use the following procedure to configure the hybrid connection that connects the Service Manager instance with the IT Service Management connector in OMS.
 
 1. Find the Service Manager Web app, under **Azure Resources**.
 2. Click **Settings** > **Networking**.

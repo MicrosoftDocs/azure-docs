@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: scale out apps
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
