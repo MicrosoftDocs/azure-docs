@@ -97,8 +97,8 @@ kubectl get hpa
 Output:
 
 ```bash
-NAME               REFERENCE                     TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
-azure-vote-front   Deployment/azure-vote-front   0% / 50%   1         10        4          23s
+NAME               REFERENCE                     TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+azure-vote-front   Deployment/azure-vote-front   0% / 50%       1         10        4          23s
 ```
 
 After a few minutes with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 1.
