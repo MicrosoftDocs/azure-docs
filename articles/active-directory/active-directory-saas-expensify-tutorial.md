@@ -124,21 +124,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_general_400.png)
 
-6. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](http://help.expensify.com/domain-control). For additional support, Work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+6. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](http://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png) 
-
-  	a. Sign on to your Expensify application.
-
-  	b. In the toolbar on the top, click **Admin**.
-  
- 	c. In the left panel, click **Domain Control**.
-  
-  	d. Click your verified domain name.
-  
-  	e. In the left panel, click **SAML**, and then select **Enabled**.
-  
-  	f. Open the downloaded Federation Metadata from Azure AD, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
+    ![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png)
+	
+	a. Sign on to your Expensify application.
+	
+	b. In the toolbar on the top, click **Admin**.
+	
+	c. In the left panel, click **Domain**.
+	
+	d. Click your verified domain name.
+	
+	e. In the left panel, click **SAML**, and then select **Enabled**.
+	
+	f. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -219,8 +219,6 @@ When you click the Expensify tile in the Access Panel, you should get automatica
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
