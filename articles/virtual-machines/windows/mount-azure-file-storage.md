@@ -20,14 +20,11 @@ ms.author: cynthn
 
 # Use Azure File storage to store files from an Azure Windows VM
 
-
-For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
-
 * Use Azure portal or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 * Mount the file share, just as you would mount any SMB share.
 * Use Azure Storage Metrics for troubleshooting
 
-File storage is now supported for all storage accounts, so you can either use an existing storage account, or you can create a new storage account. See [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) for information on creating a new storage account.
+File storage is now supported for all storage accounts, so you can either use an existing storage account, or you can create a new storage account. 
 
 ## Use the Azure portal to manage a file share
 The [Azure portal](https://portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
@@ -95,7 +92,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**. The PowerShell window loads the Azure Powershell module for you.
 
 ### Create a context for your storage account and key
-Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com), see [View and copy storage access keys](../../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.
 
@@ -177,11 +174,12 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 ### Mount the file share from an Azure virtual machine running Windows
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share.
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Next, remote into the virtual machine by following the instructions in [Logon to a Windows virtual machine using the Azure portal](virtual-machines-windows-connect-logon.md).
-3. Open a PowerShell window on the virtual machine.
+1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure portal](quick-create-portal.md).
+2. Next, remote into the virtual machine by following the instructions in [Logon to a Windows virtual machine using the Azure portal](connect-logon.md).
+3. Open a PowerShell on the virtual machine.
 
 ### Persist your storage account credentials for the virtual machine
+
 Before mounting to the file share, first persist your storage account credentials on the virtual machine. This step allows Windows to automatically reconnect to the file share when the virtual machine reboots. To persist your account credentials, run the `cmdkey` command from the PowerShell window on the virtual machine. Replace `<storage-account-name>` with the name of your storage account, and `<storage-account-key>` with your storage account key. You have to explicitly specify domain "AZURE" as in sample below. 
 
 ```
