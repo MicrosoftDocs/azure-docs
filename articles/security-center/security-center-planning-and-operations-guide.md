@@ -93,22 +93,22 @@ Using the personas explained in the previous diagram, the following RBAC would b
 
 **David (IT Security)**
 
-* Subscription Owner/Collaborator
+* Subscription Owner/Collaborator or Security Admin
 
 **Judy (Security Operations)**
 
-* Subscription Reader to View Alerts
-* Subscription Owner/Collaborator Required to Dismiss Alerts
+* Subscription Reader or Security Reader to view Alerts
+* Subscription Owner/Collaborator or Security Admin required to dismiss Alerts
 
 **Sam (Security Analyst)**
 
-* Subscription Reader to View Alerts
-* Subscription Owner/Collaborator Required to Remediate or Dismiss Alerts
-* Access to Storage May Be Required
+* Subscription Reader to view Alerts
+* Subscription Owner/Collaborator required to dismiss Alerts
+* Access to the workspace may be required
 
 Some other important information to consider:
 
-* Only subscription Owners and Contributors can edit a security policy
+* Only subscription Owners/Contributors and Security Admins can edit a security policy
 * Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 
 When planning access control using RBAC for Security Center, be sure to understand who in your organization will be using Security Center. Also, what types of tasks they will be performing and then configure RBAC accordingly.
