@@ -69,12 +69,12 @@ The following table summarizes replicated operating system support in various de
 >(Applicable to VMware/Physical servers replicating to Azure)
 >
 > On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery Mobility service.<br/><br/>
-> Customers on the 3.10.0-514 kernel with a version of the Mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.
+> Customers on the 3.10.0-514 kernel with a version of the Mobility service lower than version 9.8 are required to disable replication, update the version of the Mobility service to version 9.8 and then enable replication again.
 
 
 ### Supported Ubuntu kernel versions for VMware/physical servers
 
-**Release  ** | **ASR Mobility service version** | **Kernel version** |
+**Release  ** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 
