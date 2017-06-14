@@ -4,7 +4,7 @@ description: Summarizes the supported operating systems and components for Azure
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid:
@@ -13,25 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
 
 ---
 # Support matrix for replication to a secondary site with Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to an on-premises location](site-recovery-support-matrix-to-sec-site.md)
-
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
 
 ## Deployment options
 
-**Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
+**Deployment** | **VMware/physical server** | **Hyper-V (with/without SCVMM)**
 --- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
-**Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only
-**PowerShell** | Not supported | Not supported | Supported
+**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM  <br/><br/> Standard Hyper-V Replication only. SAN not supported.
+**Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only<br></br> Not supported without SCVMM
+**PowerShell** | Not supported | Supported<br></br> Not supported without SCVMM
 
 ## On-premises servers
 
@@ -119,7 +115,7 @@ Disk > 1 TB | No | Yes
 Volume with striped disk > 1 TB<br/><br/> LVM | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No
-Exclude disk | No | No
+Exclude disk | No | Yes
 Multi-path (MPIO) | N/A | Yes
 
 ## Vaults
@@ -139,4 +135,5 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 ## Next steps
 
-Learn about [deployment prerequisites](site-recovery-prereq.md).
+- [Replicate Hyper-V VMs in VMM clouds to a secondary site](site-recovery-vmm-to-vmm.md)
+- [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)

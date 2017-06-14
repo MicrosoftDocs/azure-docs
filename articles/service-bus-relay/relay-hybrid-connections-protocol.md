@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 
 ---
@@ -231,10 +231,6 @@ establish the web socket for accepting or rejecting the sender socket.
 To accept, the listener establishes a web socket connection to the provided
 address.
 
-Note that for the preview period, the address URI may use a bare IP address and
-the TLS certificate supplied by the server will fail validation on that address.
-This will be rectified during the preview.
-
 If the "accept" message carries a "Sec-WebSocket-Protocol" header, it is
 expected that the listener will only accept the web socket if it supports that
 protocol and that it sets the header as the web socket is established.
@@ -302,9 +298,7 @@ and appends two query string parameters to it:
 | statusCode |Yes |Numeric HTTP status code. |
 | statusDescription |Yes |Human readable reason for the rejection. |
 
-The resulting URI is then used to establish a WebSocket connection; again, note
-that the TLS certificate may not match the address during the preview, so
-validation may have to be disabled.
+The resulting URI is then used to establish a WebSocket connection.
 
 When completing correctly, this handshake will intentionally fail with an HTTP
 error code 410, since no web socket has been established. If an error occurs,

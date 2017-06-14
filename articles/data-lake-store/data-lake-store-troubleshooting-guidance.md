@@ -10,10 +10,10 @@ editor: cgronlun
 ms.assetid: bf7fd555-3e30-43ce-b28c-c3ad0a241fdb
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---

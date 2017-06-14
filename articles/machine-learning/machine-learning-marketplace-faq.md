@@ -1,24 +1,24 @@
 ---
-title: (deprecated) FAQ - Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs
-description: (deprecated) Frequently asked questions about publishing Machine Learning apps in the Azure Marketplace
-services: machine-learning
-documentationcenter: ''
-author: bharaths
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: (deprecated) FAQ - Publish and use Machine Learning apps in Azure Marketplace | Microsoft Docs 
+description: (deprecated) Frequently asked questions about publishing Machine Learning apps in the Azure Marketplace 
+services: machine-learning 
+documentationcenter: '' 
+author: bharaths 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: bharaths
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE 
 
 ---
 # (deprecated) Publishing and using Machine Learning apps in the Azure Marketplace: FAQ

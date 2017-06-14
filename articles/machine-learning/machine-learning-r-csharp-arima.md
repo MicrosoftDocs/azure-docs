@@ -1,24 +1,24 @@
 ---
-title: (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA) - Azure | Microsoft Docs
-description: (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA)
-services: machine-learning
-documentationcenter: ''
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
+title: '(deprecated) Forecasting: Autoregressive Integrated Moving Average (ARIMA) - Azure | Microsoft Docs' 
+description: (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA) 
+services: machine-learning 
+documentationcenter: '' 
+author: yijichen 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
+ms.topic: article
+ms.date: 01/06/2017 
 ms.author: yijichen
 
-ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE 
 
 ---
 # (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA)

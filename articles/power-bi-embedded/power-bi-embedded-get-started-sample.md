@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/28/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 
 ---
@@ -40,17 +40,17 @@ Let's walk through setting up your Visual Studio development environment to acce
 2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 3. Build the solution.
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
-5. To provision a new **Workspace**, select option 5, **Provision a new workspace in an existing workspace collection**.
+5. To provision a new **Workspace**, select option 1, **Collection management**, and then select option 6, **Provision a new Workspace**
+6. To import a new **Report**, select option 2, **Report management**, and then select option 3, **Import PBIX Desktop file into a workspace**.
 
-    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
-6. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
+7. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-7. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure Portal**.
+8. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure Portal**.
 
     ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
-8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
-9. If prompted, enter a friendly name for your **Dataset**.
+9. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. If prompted, enter a friendly name for your **Dataset**.
 
 You should see a response like:
 
@@ -241,4 +241,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)  
 [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Embed a report](power-bi-embedded-embed-report.md)  
+[Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 More questions? [Try the Power BI Community](http://community.powerbi.com/)

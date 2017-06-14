@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
 ---
 
-# Publish applications on separate networks and locations using connector groups - Public preview
+# Publish applications on separate networks and locations using connector groups
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)
@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 
 ## Azure AD Application Proxy and connector groups
 
-Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups – a new capability to assign specific connectors to serve specific applications. This capability generates many use cases for Application Proxy that were not possible before. During the private preview phase, we witnessed large customers enabling connector groups to boost their live Application Proxy deployments. 
+Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups – a new capability to assign specific connectors to serve specific applications. This capability generates many use cases for Application Proxy that were not possible before. 
 
 The basic concept is that each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate group for high-availability and load balancing. By default, all connectors belong to a default group. The admin can create new groups and change these assignments in the Azure portal. 
 
@@ -77,7 +77,7 @@ In this case, the organization has number of virtual machines connected to their
 
 ![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-The can become an issue as many organizations use multiple cloud vendors, as their applications reside in numerous datacenters. With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
+This can become an issue as many organizations use multiple cloud vendors, as their applications reside in numerous datacenters. With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

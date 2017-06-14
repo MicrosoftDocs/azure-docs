@@ -45,6 +45,7 @@ Before any table operations can be performed, the local store must be initialize
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. In the **ToDoTableViewController.viewDidLoad** method:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!

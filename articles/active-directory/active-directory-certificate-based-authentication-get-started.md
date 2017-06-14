@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/17/2017
 ms.author: markvi
 
 ---
@@ -95,7 +95,7 @@ The schema for a certificate authority looks as follows:
         IntermediateAuthority = 1 
     } 
 
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/):  
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Start Windows PowerShell with administrator privileges. 
 2. Install the Azure AD module. You need to install Version [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.  
@@ -106,32 +106,33 @@ As a first configuration step, you need to establish a connection with your tena
 
 ### Connect
 
-To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread) cmdlet:
+To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet:
 
     Connect-AzureAD 
 
 
 ### Retrieve 
 
-To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority) cmdlet. 
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet. 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority) cmdlet: 
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet and set the **crlDistributionPoint** attribute to a correct value: 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
     $new_ca.AuthorityType=0 
     $new_ca.TrustedCertificate=$cert 
+    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
 
 ### Remove
 
-To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority) cmdlet:
+To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -139,7 +140,7 @@ To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertifi
 
 ### Modfiy
 
-To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority) cmdlet:
+To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet:
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 

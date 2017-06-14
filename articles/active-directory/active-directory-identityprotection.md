@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 05/02/2017
 ms.author: markvi
 
 ---
@@ -36,7 +36,7 @@ The vast majority of security breaches take place when attackers gain access to 
 
 As a consequence of this, you need to:
 
-- Protect all identities regardless of their privilege level 
+- Protect all identities regardless of their privilege level
 
 - Proactively prevent compromised identities from being abused
 
@@ -67,16 +67,35 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 * Policy to block or secure risky user accounts
 * Policy to require users to register for multi-factor authentication
 
+
+
+## Identity Protection roles
+
+To load balance the management activities around your Identity Protection implementation, you can assign several roles. Azure AD Identity Protection supports 3 directory roles:
+
+| Role                         | Can do                          | Cannot do
+| :--                          | ---                                |  ---   |
+| Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
+| Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
+| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configiger policies,  reset passwords |
+
+
+
+
+For more details, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
+
 ## Detection
 
 ### Vulnerabilities
 
-Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### Risk events
 
 Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events.  
-For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
+For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).
 
 
 ## Investigation
@@ -98,11 +117,11 @@ The following sections provide you with more details and the steps that are rela
 
 ## Risky sign-ins
 
-Aure Active Directory detects some [risk event types](active-directory-identity-protection-risk-events.md#risk-event-types) in real-time. All real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account. The lifecycle of a risky sign-in ends when a user signs out.
+Aure Active Directory detects some [risk event types](active-directory-reporting-risk-events.md#risk-event-types) in real-time. All real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account. The lifecycle of a risky sign-in ends when a user signs out.
 
 ### Sign-in risk level
 
-A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. 
+A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account.
 
 ### Mitigating sign-in risk events
 

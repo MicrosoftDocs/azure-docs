@@ -10,12 +10,12 @@ tags: ''
 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 05/10/2017
 ms.author: rickbyh
 
 ---
@@ -30,17 +30,19 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 * Azure AD authentication uses contained database users to authenticate identities at the database level.
 * Azure AD supports token-based authentication for applications connecting to SQL Database.
 * Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
-* Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+* Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
+
+>  [!NOTE]  
+>  Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.  
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
 1. Create and populate Azure AD.
-2. Ensure your database is in Azure SQL Database V12. (Not necessary for SQL Data Warehouse.)
-3. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-4. Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Configure your client computers.
-6. Create contained database users in your database mapped to Azure AD identities.
-7. Connect to your database by using Azure AD identities.
+2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
+3. Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configure your client computers.
+5. Create contained database users in your database mapped to Azure AD identities.
+6. Connect to your database by using Azure AD identities.
 
 > [!NOTE]
 > To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database and SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
@@ -95,7 +97,6 @@ Azure Active Directory authentication supports the following methods of connecti
 * SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase cannot authenticate by using Azure AD authentication.   
-* Some tools like BI and Excel are not supported.   
 * Azure AD authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.   
 
 ## Next steps
@@ -105,8 +106,6 @@ Azure Active Directory authentication supports the following methods of connecti
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).
-- For a tutorial using SQL Server authentication, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md).
-- For a tutorial using Azure Active Directory authentication, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 

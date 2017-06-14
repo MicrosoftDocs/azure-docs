@@ -4,7 +4,7 @@ description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK
 services: container-service
 documentationcenter: ''
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: ''
 tags: acs, azure-container-service
 keywords: Containers, DC/OS, Azure, monitoring, elk
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 
 ---
@@ -66,6 +66,9 @@ To access the Kibana dashboard, which is deployed on port 5601, you need to open
 
 ## Next steps
 
-To learn more about Elasticsearch, Logstash, and Kibarna, see the [Elastic Stack documentation](https://www.elastic.co/guide/index.html).
+* For system and application log forwarding and setup, see [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/).
+
+* To filter logs, see [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/). 
+
  
 

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
@@ -156,8 +156,11 @@ First we add a module that removes the **normalized-losses** column completely, 
 	<br/>
 	***The properties pane shows that the "normalized-losses" column is excluded***
 
-    > [!TIP]
-    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+	> [!TIP]
+	You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+	>
+	>
+
 
 	![Double-click a module to add a comment][add-comment]
 	<br/>

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
 
 ---
@@ -22,7 +22,7 @@ ms.author: heidist
 
 In the Azure portal, start with a predefined sample dataset to quickly generate an index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 
-This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, they are useful for these tasks:
+This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, tools are useful for these tasks:
 
 + Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
@@ -31,11 +31,13 @@ This code-free introduction gets you started with predefined data so that you ca
 
 **Time Estimate:** About 15 minutes, but longer if account or service sign-up is also required. 
 
-Alternatively, you can watch a 6-minute demonstration of the steps in this tutorial at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+Alternatively, ramp up using a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md).
 
 ## Prerequisites
 
 This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
+
+If you don't want to provision a service immediately, you can watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -193,7 +195,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
   To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl and infer an index from flat data structures in Azure Table storage, Blob storage, SQL Server on an Azure VM, and DocumentDB. All of these data sources are supported in the wizard. In code, you can populate an index easily using an *indexer*.
++ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl and infer an index from flat data structures in Azure Table storage, Blob storage, SQL Server on an Azure VM, and Azure Cosmos DB. All of these data sources are supported in the wizard. In code, you can populate an index easily using an *indexer*.
 
 + All other non-indexer data sources are supported via a push model, where your code pushes new and changed rowsets in JSON to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

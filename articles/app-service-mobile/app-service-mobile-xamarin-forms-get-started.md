@@ -4,7 +4,7 @@ description: Follow this tutorial to get started using Azure Mobile Apps for Xam
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5

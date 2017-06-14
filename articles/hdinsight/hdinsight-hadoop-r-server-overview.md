@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

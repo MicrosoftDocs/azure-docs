@@ -1,6 +1,6 @@
 ---
-title: Sample workflow to prep hard drives for an Azure Import job | Microsoft Docs
-description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service
+title: Sample workflow to prep hard drives for an Azure Import/Export import job | Microsoft Docs
+description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/07/2017
 ms.author: muralikk
 
 ---
@@ -28,10 +28,10 @@ This example imports the following data into an Azure storage account named `mys
 
 |Location|Description|Data size|
 |--------------|-----------------|-----|
-|H:\Video|A collection of videos|12 TB|
-|H:\Photo|A collection of photos|30 GB|
+|H:\Video\ |A collection of videos|12 TB|
+|H:\Photo\ |A collection of photos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image|25 GB|
-|\\\bigshare\john\music|A collection of music files on a network share|10 GB|
+|\\\bigshare\john\music\|A collection of music files on a network share|10 GB|
 
 ## Storage account destinations
 
@@ -39,10 +39,10 @@ The import job will import the data into the following destinations in the stora
 
 |Source|Destination virtual directory or blob|
 |------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
+|K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
+|\\\bigshare\john\music\ |music|
 
 With this mapping, the file `H:\Video\Drama\GreatMovie.mov` will be imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -52,31 +52,28 @@ Next, to determine how many hard drives are needed, compute the size of the data
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-For this example, two 8TB hard drives should be sufficient. However, since the source directory `H:\Video` has 12TB of data and your single hard drive's capacity is only 8TB, you will be able to specify this in the following way in the **dataset.csv** file:
-
-```
-BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-```
-
-## Attach drives and configure the job
-
-You will attach both disks to the machine and create volumes. Then author **driveset.csv** file:
+For this example, two 8TB hard drives should be sufficient. However, since the source directory `H:\Video` has 12TB of data and your single hard drive's capacity is only 8TB, you will be able to specify this in the following way in the **driveset.csv** file:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-
 The tool will distribute data across two hard drives in an optimized way.
+
+## Attach drives and configure the job
+You will attach both disks to the machine and create volumes. Then author **dataset.csv** file:
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 In addition, you can set the following metadata for all files:
 
-* **UploadMethod:** Windows Azure Import/Export Service
+* **UploadMethod:** Windows Azure Import/Export service
 * **DataSetName:** SampleData
 * **CreationDate:** 10/1/2013
 
@@ -85,7 +82,7 @@ To set metadata for the imported files, create a text file, `c:\WAImportExport\S
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Metadata>
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>
     <DataSetName>SampleData</DataSetName>
     <CreationDate>10/1/2013</CreationDate>
 </Metadata>
@@ -108,9 +105,9 @@ To set these properties, create a text file, `c:\WAImportExport\SampleProperties
 </Properties>
 ```
 
-## Run the Azure Import/Export tool (WAImportExport.exe)
+## Run the Azure Import/Export Tool (WAImportExport.exe)
 
-Now you are ready to run the Azure Import/Export tool to prepare the two hard drives.
+Now you are ready to run the Azure Import/Export Tool to prepare the two hard drives.
 
 **For the first session:**
 

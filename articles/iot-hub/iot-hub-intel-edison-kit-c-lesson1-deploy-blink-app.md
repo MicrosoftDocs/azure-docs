@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: b02dfd3f-28fd-4b52-8775-eb0eaf74d707
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

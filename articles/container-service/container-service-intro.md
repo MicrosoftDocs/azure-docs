@@ -83,6 +83,8 @@ on Azure Container Service.
 
 ![Azure Container Service configured to use Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Supported tools for managing containers on a Swarm cluster include, but are not limited
 to, the following:
 

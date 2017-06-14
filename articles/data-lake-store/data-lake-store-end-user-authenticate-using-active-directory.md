@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 
 ---
@@ -63,12 +63,12 @@ Your application can directly provide user credentials to Azure AD. This method 
 ### What do I need to use this approach?
 * Azure AD domain name. This is already listed in the prerequisite of this article.
 * Azure AD **native application**
-* Client ID for the Azure AD native application
-* Reply URI for the Azure AD native application
+* Application ID for the Azure AD native application
+* Redirect URI for the Azure AD native application
 * Set delegated permissions
 
 
-## Step 1: Create an Active Directory web application
+## Step 1: Create an Active Directory native application
 
 Create and configure an Azure AD native application for end-user authentication with Azure Data Lake Store using Azure Active Directory. For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
@@ -76,9 +76,9 @@ While following the instructions at the above link, make sure you select **Nativ
 
 ![Create web app](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Create native app")
 
-## Step 2: Get client id, reply URI, and set delegated permissions
+## Step 2: Get application id and redirect URI
 
-See [Get the client add](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the client id (also called the application id) of the Azure AD native application.
+See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application id (also called the client ID in the Azure classic portal) of the Azure AD native application.
 
 To retrieve the redirect URI, follow the steps below.
 
@@ -112,8 +112,9 @@ To retrieve the redirect URI, follow the steps below.
 5. Repeat the last two steps to grant permissions for **Windows Azure Service Management API** as well.
    
 ## Next steps
-In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
 
 * [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
+* [Get started with Azure Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
 

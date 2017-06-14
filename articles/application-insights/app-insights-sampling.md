@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
-ms.author: awills
+ms.date: 03/24/2017
+ms.author: cfreeman
 
 ---
 # Sampling in Application Insights

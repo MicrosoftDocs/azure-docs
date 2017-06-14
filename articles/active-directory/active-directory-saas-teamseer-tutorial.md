@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 3/09/2017
 ms.author: jeedes
 
 ---
@@ -28,16 +28,17 @@ After completing this tutorial, the Azure AD users you have assigned to TeamSeer
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for TeamSeer
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-teamseer-tutorial/IC789618.png "Scenario")
 
-## Enabling the application integration for TeamSeer
+## Enable the application integration for TeamSeer
 The objective of this section is to outline how to enable the application integration for TeamSeer.
 
-### To enable the application integration for TeamSeer, perform the following steps:
+**To enable the application integration for TeamSeer, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-teamseer-tutorial/IC700993.png "Active Directory")
@@ -64,13 +65,16 @@ The objective of this section is to outline how to enable the application integr
    
     ![TeamSeer](./media/active-directory-saas-teamseer-tutorial/IC789620.png "TeamSeer")
 
-## Configuring single sign-on
+## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to TeamSeer with their account in Azure AD using federation based on the SAML protocol.  
+
 As part of this procedure, you are required to create a base-64 encoded certificate file.  
+
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **TeamSeer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789621.png "Configure Single Sign-On")
 
@@ -102,67 +106,59 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 9. In the SAML provider details section, perform the following steps:
    
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")
-   
-    a. In the Azure classic portal, on the **Configure single sign-on at TeamSeer** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **URL** textbox.
-   
-    b. Create a **base-64 encoded** file from your downloaded certificate.  
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")   
+  1. In the Azure classic portal, on the **Configure single sign-on at TeamSeer** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **URL** textbox.
+  2. Create a **base-64 encoded** file from your downloaded certificate.  
       
-    > [!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-   
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Public Certificate** textbox.
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     >
+     
+  3. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Public Certificate** textbox.
 
 10. To complete the SAML provider configuration, perform the following steps:
     
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings")
-    
-    a. In the **Test Email Addresses**, type the test user’s email address.
-    
-    b. In the **Issuer** textbox, type the Issuer URL of the service provider.
-    
-    c. Click **Save**.
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings") 
+  1. In the **Test Email Addresses**, type the test user’s email address. 
+  2. In the **Issuer** textbox, type the Issuer URL of the service provider. 
+  3. Click **Save**.
 
 11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/IC789639.png "Configure Single Sign-On")
 
-## Configuring user provisioning
+## Configure user provisioning
 In order to enable Azure AD users to log into TeamSeer, they must be provisioned into ShiftPlanning.  
-In the case of TeamSeer, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of TeamSeer, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **TeamSeer** company site as an administrator.
 
 2. Perform the following steps:
    
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")
-   
-    a. Go to **HR Admin \> Users**.
-   
-    b. Click **Run the New User wizard**.
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")   
+  1. Go to **HR Admin \> Users**.
+  2. Click **Run the New User wizard**.
 
 3. In the **User Details** section, perform the following steps:
    
    ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.png "User Details")
-   
-    a. Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision into the related textboxes.
-  
-    b. Click **Next**.
+  1. Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision into the related textboxes.
+  2. Click **Next**.
 
 4. Follow the on screen instructions for adding a new user, and click **Finish**.
 
-> [!NOTE]
-> You can use any other TeamSeer user account creation tools or APIs provided by TeamSeer to provision Azure AD user accounts.
-> 
+>[!NOTE]
+>You can use any other TeamSeer user account creation tools or APIs provided by TeamSeer to provision Azure AD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to TeamSeer, perform the following steps:
+**To assign users to TeamSeer, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **TeamSeer **application integration page, click **Assign users**.

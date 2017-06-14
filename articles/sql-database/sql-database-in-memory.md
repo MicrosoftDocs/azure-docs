@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 05/10/2017
 ms.author: jodebrui
 ---
 
@@ -24,8 +24,8 @@ By using In-Memory technologies in Azure SQL Database, you can achieve performan
 
 Here are two examples of how In-Memory OLTP helped to significantly improve performance:
 
-- By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs (i.e., resource consumption) by 70%](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+- By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs (i.e., resource consumption) by 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). For more details, see the blog post: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 In-Memory technologies are available in all databases in the Premium tier, including databases in Premium elastic pools.
 
@@ -136,7 +136,7 @@ Before you downgrade the database to Standard/Basic, drop all clustered columnst
 
 ## 1. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and demonstrate performance benefits.
+You can create the AdventureWorksLT sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and demonstrate performance benefits.
 
 For a more simplistic, but more visually appealing performance demo for In-Memory OLTP, see:
 
@@ -145,7 +145,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 #### Installation steps
 
-1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started-portal.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -492,7 +492,9 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 #### Deeper information
 
-- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
+- [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 - [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 

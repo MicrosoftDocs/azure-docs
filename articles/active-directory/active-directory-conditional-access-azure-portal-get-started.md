@@ -1,5 +1,5 @@
 ---
-title: Get started with conditional access in Azure Active Directory - preview | Microsoft Docs
+title: Get started with conditional access in Azure Active Directory | Microsoft Docs
 description: Test conditional access using a location condition.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Get started with conditional access in Azure Active Directory - preview
-
-The behavior outlined in this topic is currently in [preview](active-directory-preview-explainer.md).
+# Get started with conditional access in Azure Active Directory
 
 Conditional access is a capability of Azure Active Directory that enables you to define conditions under which authorized users can access your apps. 
 

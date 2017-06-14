@@ -31,7 +31,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 ## Prerequisites
 Here's what you need for this deployment:
 
-* **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-components.md#vmware-replication-to-azure) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#prerequisites).
+* **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-components.md#vmware-to-azure) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#prerequisites).
 * **IaaS virtual machines**: The VMs you want to migrate. You migrate these VMs by treating them as physical machines.
 
 ## Deployment steps

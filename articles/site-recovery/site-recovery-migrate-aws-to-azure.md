@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 02/12/2017
+ms.date: 05/31/2017
 ms.author: bsiva
 
 ---
@@ -40,7 +40,7 @@ Site Recovery can be used to migrate EC2 instances running any of the following 
 
 Here's what you need for this deployment
 
-* **Configuration server**: An Amazon EC2 VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other Azure Site Recovery components (process server and master target server) are installed when you deploy the configuration server. This article describes the steps for migration in the Azure portal, and are based on the instructions for  [Learn more](site-recovery-components.md#vmware-replication-to-azure)
+* **Configuration server**: An Amazon EC2 VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other Azure Site Recovery components (process server and master target server) are installed when you deploy the configuration server. This article describes the steps for migration in the Azure portal, and are based on the instructions for  [Learn more](site-recovery-components.md#vmware-to-azure)
 
 * **EC2 instances**: The Amazon EC2 virtual machines instances that you want to migrate.
 
@@ -71,3 +71,8 @@ Here's what you need for this deployment
 9. Run a Failover from AWS to Azure for each VM. Optionally, you can create a recovery plan and run a Failover, to migrate multiple virtual machines from AWS to Azure. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 
 10. For migration, you don't need to commit a failover. Instead, you select the Complete Migration option for each machine you want to migrate. The Complete Migration action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.![Migrate](./media/site-recovery-migrate-aws-to-azure/migration_pic6.png)
+
+## Next steps
+
+- [Prepare migrated machines to enable replication](site-recovery-azure-to-azure-after-migration.md) to another region for disaster recovery needs.
+- Start protecting your workloads by [replicating Azure virtual machines.](site-recovery-azure-to-azure.md)

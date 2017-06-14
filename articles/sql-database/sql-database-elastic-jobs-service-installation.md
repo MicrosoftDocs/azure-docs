@@ -1,4 +1,4 @@
----
+﻿---
 title: Installing elastic database jobs | Microsoft Docs
 description: Walk through installation of the elastic job feature.
 services: sql-database
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ If you have already installed **Elastic Database jobs** through the Portal from 
 
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Install the latest version using the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell. Install the latest version using the [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Download and import the Elastic Database jobs PowerShell package

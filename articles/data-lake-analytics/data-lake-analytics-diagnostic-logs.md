@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
@@ -26,14 +26,6 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 * A list of users that accessed the data.
 * How frequently the data is accessed.
 * How much data is stored in the account.
-
-## Prerequisites
-
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md).
-
-* **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Enable logging
 

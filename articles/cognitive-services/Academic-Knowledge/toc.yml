@@ -1,0 +1,49 @@
+- name: Academic Knowledge Documentation
+  href: ../index.md
+- name: Overview
+  items:
+  - name: Learn about the Academic Knowledge KPI
+    href: Home.md
+- name: How to Guides
+  items:
+  - name: Entity attributes
+    href: EntityAttributes.md
+    items: 
+      - name: Paper
+        href: PaperEntityAttributes.md
+      - name: Author
+        href: AuthorEntityAttributes.md
+      - name: Affiliation
+        href: AffiliationEntityAttributes.md
+      - name: Field of study
+        href: FieldsOfStudyEntityAttributes.md
+      - name: Conference series
+        href: ConferenceSeriesEntityAttributes.md
+      - name: Conference instance
+        href: ConferenceInstanceEntityAttributes.md
+      - name: Journal
+        href: JournalEntityAttributes.md
+  - name: Methods
+    items:
+      - name: CalcHistogram
+        href: CalcHistogramMethod.md
+      - name: Evaluate
+        href: EvaluateMethod.md
+      - name: Interpret
+        href: InterpretMethod.md
+      - name: Similarity
+        href: SimilarityMethod.md
+  - name: Query expression syntax
+    href: QueryExpressionSyntax.md
+  - name: Graph traversal
+    items:
+      - name: Lambda search syntax
+        href: LambdaSearchSyntax.md
+      - name: Graph search method
+        href: GraphSearchMethod.md
+      - name: JSON Search Syntax
+        href: JSONSearchSyntax.md
+- name: Reference
+  items:
+    - name: API Reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97

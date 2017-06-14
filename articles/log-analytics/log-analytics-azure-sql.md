@@ -12,13 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
 
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview) in Log Analytics
+
+![Azure SQL Analytics symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
 The Azure SQL Monitoring solution in Azure Log Analytics collects and visualizes important SQL Azure performance metrics. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts. And, you can monitor Azure SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and visualize them. The solution also helps you to identify issues at each layer of your application stack.  It uses [Azure Diagnostic metrics](log-analytics-azure-storage.md) together with Log Analytics views to present data about all your Azure SQL databases and elastic pools in a single Log Analytics workspace.
 
@@ -28,7 +30,7 @@ The Azure SQL Monitoring solution, like others available for Log Analytics, help
 
 ## Connected sources
 
-Unlike most other Log Analytics solutions, the Azure SQL Monitoring solution doesn't use agents to connect to the Log Analytics service.
+The Azure SQL Monitoring solution doesn't use agents to connect to the Log Analytics service.
 
 The following table describes the connected sources that are supported by this solution.
 
@@ -37,19 +39,20 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](log-analytics-windows-agents.md) | No | Direct Windows agents are not used by the solution. |
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
-| [Azure storage account](log-analytics-azure-storage.md) | Yes | Azure metric data is sent to Log Analytics using the storage account. |
+| [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
+| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric data is sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
-1. An Azure Subscription. If you don't have one, you can create one for [free](https://azure.microsoft.com/free/).
-2. A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-get-started.md) before you start using this solution.
-3. Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- An Azure Subscription. If you don't have one, you can create one for [free](https://azure.microsoft.com/free/).
+- A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-get-started.md) before you start using this solution.
+- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
 ## Configuration
 
 Perform the following steps to add the Azure SQL Monitoring solution to your workspace.
 
-1. Add the Azure SQL Monitoring solution to your workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. In the Azure portal, click **New** (the + symbol), then in the list of resources, select **Monitoring + Management**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In the **Monitoring + Management** list click **See all**.

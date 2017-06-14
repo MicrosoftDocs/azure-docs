@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: mihauss
 
 ---
@@ -205,7 +205,7 @@ For more details, please see [About Storage Analytics Metrics](https://msdn.micr
 > 
 
 To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+With this enabled, capacity data is recorded daily for a storage account's Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
 To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
 With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
@@ -264,7 +264,8 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ### Migrating existing data
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+
+You can use the following methods to migrate existing data into Blob storage accounts from on-premises storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
 
 #### AzCopy
 AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.

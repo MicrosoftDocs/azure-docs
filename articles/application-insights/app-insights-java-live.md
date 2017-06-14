@@ -4,7 +4,7 @@ description: Start monitoring a web application that is already running on your 
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights for Java web apps that are already live
@@ -129,7 +129,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 [Learn more about metrics.](app-insights-metrics-explorer.md)
 
 ## Next steps
-* [Add telemetry to your web pages](app-insights-web-track-usage.md) to monitor page views and user metrics.
+* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page views and user metrics.
 * [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
 * [Capture log traces](app-insights-java-trace-logs.md)
 * [Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.

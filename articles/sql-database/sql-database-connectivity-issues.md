@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
-ms.custom: troubleshoot
+ms.custom: develop apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 
 ---
@@ -153,18 +153,18 @@ Suppose your application has robust custom retry logic. It might retry the conne
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### Connection: Connection string
-The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](https://portal.azure.com/).
+The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### Connection: IP address
-You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure Portal](https://portal.azure.com/).
+You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure portal](https://portal.azure.com/).
 
 If you forget to configure the IP address, your program will fail with a handy error message that states the necessary IP address.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 For more information, see:
 [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
@@ -184,7 +184,7 @@ For example, when your client program is hosted on a Windows computer, the Windo
 6. &gt; Actions
 7. &gt; New Rule
 
-If your client program is hosted on an Azure virtual machine (VM), you should read:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+If your client program is hosted on an Azure virtual machine (VM), you should read:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 For background information about cofiguration of ports and IP address, see:
 [Azure SQL Database firewall](sql-database-firewall-configure.md)

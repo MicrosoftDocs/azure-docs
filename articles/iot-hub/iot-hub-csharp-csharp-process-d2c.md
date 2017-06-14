@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 
 ---
@@ -39,7 +39,7 @@ At the end of this tutorial, you run three .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
@@ -51,41 +51,44 @@ In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToC
 
 ```
 private static async void SendDeviceToCloudMessagesAsync()
+{
+    double minTemperature = 20;
+    double minHumidity = 60;
+    Random rand = new Random();
+
+    while (true)
     {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
+        double currentTemperature = minTemperature + rand.NextDouble() * 15;
+        double currentHumidity = minHumidity + rand.NextDouble() * 20;
 
-        while (true)
+        var telemetryDataPoint = new
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+            deviceId = "myFirstDevice",
+            temperature = currentTemperature,
+            humidity = currentHumidity
+        };
+        var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+        string levelValue;
 
-            var telemetryDataPoint = new
-            {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            string levelValue;
-
-            if (rand.NextDouble() > 0.7)
-            {
-                messageString = "This is a critical message";
-                levelValue = "critical";
-            }
-            else
-            {
-                levelValue = "normal";
-            }
-            
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-            message.Properties.Add("level", levelValue);
-            
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-            await Task.Delay(1000);
+        if (rand.NextDouble() > 0.7)
+        {
+            messageString = "This is a critical message";
+            levelValue = "critical";
         }
+        else
+        {
+            levelValue = "normal";
+        }
+        
+        var message = new Message(Encoding.ASCII.GetBytes(messageString));
+        message.Properties.Add("level", levelValue);
+        
+        await deviceClient.SendEventAsync(message);
+        Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+        await Task.Delay(1000);
     }
+}
 ```
 
 This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
@@ -107,6 +110,9 @@ For more information about how to process messages from Service Bus queues, see 
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
     
     ![Endpoints in IoT hub][30]
@@ -126,7 +132,7 @@ For more information about how to process messages from Service Bus queues, see 
 ## Read from the queue endpoint
 In this section, you read the messages from the queue endpoint.
 
-1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ReadCriticalQueue**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console App (.NET Framework)** project template. Name the project **ReadCriticalQueue**.
 
 2. In Solution Explorer, right-click the **ReadCriticalQueue** project, and then click **Manage NuGet Packages**. This operation displays the **NuGet Package Manager** window.
 

@@ -48,10 +48,10 @@ Perform the following steps to use .NET to launch a data transformation job.
 
 
 2. This script outputs the following values:
-        - Client ID
-        - Tenant ID
-        - Active Directory key (same as the one entered above)
-        - Subscription ID
+    * Client ID
+    * Tenant ID
+    * Active Directory key (same as the one entered above)
+    * Subscription ID
 
 3. Using Visual Studio 2012, 2013 or 2015, create a C# .NET console application.
 
