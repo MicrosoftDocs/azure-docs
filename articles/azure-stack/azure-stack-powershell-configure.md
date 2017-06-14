@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Configure PowerShell for use with Azure Stack 
 
-This article describes the steps required to connect to an Azure Stack proof-of-concept (POC) instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the Azure Stack POC computer or, if you are connected through VPN, from a Windows-based external client.
+This article describes the steps required to connect to an Azure Stack proof-of-concept (POC) instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
 
 ## Prerequisites
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
@@ -60,9 +60,9 @@ To configure your Azure Stack environment, do the following:
 
    ![Get environment details](media/azure-stack-powershell-configure/getenvdetails.png)
 
-2. Get the GUID value of the Azure Active Directory (Azure AD) tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed, use:  
+2. Get the GUID value of the Active Directory tenant that is used to deploy Azure Stack. If your Azure Stack environment is deployed, use:  
 
-   * **Azure Active Directory**:
+   * **Azure Active Directory (Azure AD)**:
    
       * To access the **administrative environment**
         ```PowerShell
