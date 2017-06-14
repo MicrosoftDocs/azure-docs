@@ -166,7 +166,5 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 [loganalytics-nozzle]: https://github.com/Azure/oms-log-analytics-firehose-nozzle
 
 <!-- IMAGES -->
-[cf-cli-login]: ./media/cloudfoundry-deploy-your-first-app/cloudfoundry-cli-login.png
-[cf-apps-system]: ./media/cloudfoundry-deploy-your-first-app/cf-apps-system.png
 [cf-push-output]: ./media/cloudfoundry-deploy-your-first-app/cf-push-output.png
 [hello-spring-cloud-basic]: ./media/cloudfoundry-deploy-your-first-app/hello-spring-cloud-basic.png
