@@ -21,7 +21,7 @@ Workbooks combine [Azure Application Insights](app-insights-overview.md) data vi
 
 Workbooks are helpful for scenarios like:
 
-* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, converstion rates, etc.
+* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, converstion rates, etc. Unlike other usage analytics tools in Application Insights, Workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.
 * Explaining to your team how a newly released feature is performing, by showing user counts for key interactions and other metrics.
 * Sharing the results of an A/B experiment in your app with other members of your team by explaining the goals for the experiment with text, then showing each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your app, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
@@ -38,27 +38,31 @@ TBD - provided you have [instrumented it](app-insights-javascript.md).
 
 ## Editing, Rearranging, Cloning, and Deleting Workbook Sections
 
-To edit the contents of a workbook section, click the ** Edit ** button below the workbook section 
+To edit the contents of a workbook section, click the **Edit** button below and to the right of the workbook section.
 
-TBD - Clone
+TBD - numbered screenshot here
 
-TBD - Rearrange
+1. When you're done editing a section, click **Done Editing** in the bottom left corner of the section.
 
-TBD - Delete
+2. To create a duplicate of a section, click the **Clone this section** icon. Creating duplicate sections is a great to way to iterate on a query without losing previous iterations.
+
+3. To move a section up in a workbook, click the **Move up** or **Move down** icon.
+
+4. To remove a section permanently, click the **Remove** icon.
 
 ## Adding Usage Data Visualization Sections
 
-TBD
+TBD - link to the docs for each of the other visualizations
 
 ## Adding Application Insights Analytics Sections
 
-TBD
+TBD - link to the reference for the Analytics query language
 
 ## Adding Text and Markdown Sections
 
 TBD - link to explaining Markdown
 
-## Sharing Workbooks with Your Team
+## Saving and Sharing Workbooks with Your Team
 
 TBD. 
 
