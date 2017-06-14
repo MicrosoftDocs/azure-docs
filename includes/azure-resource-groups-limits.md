@@ -22,4 +22,4 @@
 | Template size |1 MB |1 MB |
 | Parameter file size |64 KB |64 KB |
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several value into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
