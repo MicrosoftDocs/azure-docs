@@ -1,6 +1,6 @@
 ---
 title: Install the Mobility service for VMware to Azure replication | Microsoft Docs
-description: This article describes how to install the Mobility Service agent for VMware to Azure replication with the Azure Site Recovery service.
+description: This article describes how to install the Mobility service agent for VMware to Azure replication with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -22,7 +22,7 @@ ms.author: raynew
 
 This article describes how to configure source and target settings when replicating on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
-The Mobility Service captures data writes on a machine, and forwards them to the process server. It should be installed on each machine that you want to replicate to Azure.
+The Mobility service captures data writes on a machine, and forwards them to the process server. It should be installed on each machine that you want to replicate to Azure.
 
 You can install the Mobility service manual, using a push installation from the Site Recovery process server when replication is enabled, or use a tool System Center Configuration Manager. If you use push installation, the service is installed on the VM when replication is enabled.
 
