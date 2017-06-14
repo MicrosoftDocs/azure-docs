@@ -247,7 +247,7 @@ For more information, see
 
 **Example template**
 
-Save the following text as a `.json` file, and then use thepreceding PowerShell script to use the template. 
+Save the following text as a `.json` file, and then use the preceding PowerShell script to use the template. 
 
 ```
 {
