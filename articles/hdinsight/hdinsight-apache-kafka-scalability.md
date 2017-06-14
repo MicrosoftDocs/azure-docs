@@ -25,7 +25,7 @@ Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight 
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
-![Diagram showing Kafka on HDInsight using a single vhd per vm vs. multiple managed disks per vm](./media/hdinsight-apache-kafka-managed-disk/kafka-with-managed-disks-architecture.png)
+![Diagram showing Kafka on HDInsight using a single vhd per vm vs. multiple managed disks per vm](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## Configure managed disks: Azure portal
 
@@ -34,11 +34,11 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
 2. From the __Cluster size__ blade, use the __Disks per worker node__ field to configure the number of disks.
 
     > [!NOTE]
-    > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium managed disks are used with DS and GS series VMs. All other VM types use standard.
+    > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![Image of the cluster size blade with the disks per worker node highlighted](./media/hdinsight-apache-kafka-managed-disk/set-managed-disks-portal.png)
+    ![Image of the cluster size blade with the disks per worker node highlighted](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-## Configure managed disks: resource manager template
+## Configure managed disks: Resource Manager template
 
 To control the number of disks used by the worker nodes in a Kafka cluster, use the following section of the template:
 
@@ -50,11 +50,11 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
     ],
 ```
 
-You can find a complete template that demonstrates how to use this at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
+You can find a complete template that demonstrates how to configure managed disks at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
 ## Next steps
 
-See the following documents for more information on working with Kafka on HDInsight:
+For more information on working with Kafka on HDInsight, see the following documents:
 
 * [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
