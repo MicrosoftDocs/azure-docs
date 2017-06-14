@@ -1,11 +1,11 @@
-Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, with no evidence of a user initiating the reboot operation. This article lists the acitons and events that can cause VMs to reboot and provides insight into how to avoid unexpected reboot issues or reduce the impact of the issue.
+Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, with no evidence of a user initiating the reboot operation. This article lists the actions and events that can cause VMs to reboot and provides insight into how to avoid unexpected reboot issues or reduce the impact of the issue.
 
 ## Configure the VMs for high availability
 The best way to protect your application running on Azure against any type of VM reboots and downtime is to configure the VMs for high availability.
 
 To provide this level of redundancy to your application, we recommend that you group two or more VMs in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one VM is available and meets the 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-For more informaiton abot availability set, see the following articles:
+For more information about availability set, see the following articles:
 
 - [Manage the availability of VMs](../articles/virtual-machines/windows/manage-availability.md)
 - [Configure availability of VMs](../articles/virtual-machines/windows/classic/configure-availability.md)
@@ -43,10 +43,10 @@ If a reboot is performed from the Azure portal, Azure PowerShell, Command-Line i
 
 If the action is performed from the VM's operation system, the event can be found in system logs.
 
-Other scenario that ususally causes the VM to reboot include multiple configuration change actions. Typically, the user sees a warning message indicating that executing a particular action will result in a reboot of the VM. Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
+Other scenario that usually causes the VM to reboot include multiple configuration change actions. Typically, the user sees a warning message indicating that executing a particular action will result in a reboot of the VM. Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
 
 ### Azure Security center and Windows Updates
-Azure Security Center monitors daily Windows and Linux VMs for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates for Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Applicaiton of these system updates is controlled through the Security Center in Azure portal. After applying some updates, VM reboots may be required. For more information, see [Apply system updates in Azure Security Center](../articles/security-center/security-center-apply-system-updates.md).
+Azure Security Center monitors daily Windows and Linux VMs for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates for Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Application of these system updates is controlled through the Security Center in Azure portal. After applying some updates, VM reboots may be required. For more information, see [Apply system updates in Azure Security Center](../articles/security-center/security-center-apply-system-updates.md).
 
 Like on-premises servers, Azure does not push Windows Updates to Windows Azure VMs since these machines are intended to be managed by the user.  Customers are, however encouraged to leave the automatic Windows Update setting enabled. Automatic installation of Windows Updates can also cause reboots to occur after updates are applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
