@@ -62,27 +62,27 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
 3. Enter the Azure **Subscription ID** that can be found on the Azure portal.
 
-    ![SAP CAL Accounts](./media/cal-s4h/s4h-pic3c.png)
+   ![SAP CAL Accounts](./media/cal-s4h/s4h-pic3c.png)
 
 4. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
 
-    ![Internet Explorer cloud services sign-in](./media/cal-s4h/s4h-pic4c.png)
+   ![Internet Explorer cloud services sign-in](./media/cal-s4h/s4h-pic4c.png)
 
 5. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
 
-    ![Internet Explorer cloud services confirmation](./media/cal-s4h/s4h-pic5a.png)
+   ![Internet Explorer cloud services confirmation](./media/cal-s4h/s4h-pic5a.png)
 
 6. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
 
 7. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
 
-    ![Account to user association](./media/cal-s4h/s4h-pic8a.png)
+   ![Account to user association](./media/cal-s4h/s4h-pic8a.png)
 
 8. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
  
 9. To create the association between your user and the newly created SAP CAL account, click **Create**.
 
-    ![User to SAP CAL account association](./media/cal-s4h/s4h-pic9b.png)
+   ![User to SAP CAL account association](./media/cal-s4h/s4h-pic9b.png)
 
 You successfully created an SAP CAL account that is able to:
 
@@ -116,43 +116,43 @@ We demonstrate the basic path to deployment here.
 
     d. Enter a master **Password** for the solution of eight or nine characters. The password is used for the administrators of the different components.
 
-    ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
+   ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
 
 2. Click **Create**, and in the message box that appears, click **OK**.
 
-    ![SAP CAL Supported VM Sizes](./media/cal-s4h/s4h-pic10b.png)
+   ![SAP CAL Supported VM Sizes](./media/cal-s4h/s4h-pic10b.png)
 
 3. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
 
-    ![SAP CAL Private Key](./media/cal-s4h/s4h-pic10c.png)
+   ![SAP CAL Private Key](./media/cal-s4h/s4h-pic10c.png)
 
 4. Read the SAP CAL **Warning** message, and click **OK**.
 
-    ![SAP CAL Warning](./media/cal-s4h/s4h-pic10d.png)
+   ![SAP CAL Warning](./media/cal-s4h/s4h-pic10d.png)
 
     Now the deployment takes place. After some time, depending on the size and complexity of the solution (the SAP CAL provides an estimate), the status is shown as active and ready for use.
 
 5. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
 
-    ![SAP CAL objects deployed in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
+   ![SAP CAL objects deployed in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
 6. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
 
-    ![SAP CAL Instances](./media/cal-s4h/active_solution.png)
+   ![SAP CAL Instances](./media/cal-s4h/active_solution.png)
 
 7. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
 
-    ![Connect to the Instance](./media/cal-s4h/connect_to_solution.png)
+   ![Connect to the Instance](./media/cal-s4h/connect_to_solution.png)
 
     The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords, which you can use to sign in to the deployed system. 
 
     a. For example, if you use the SAP GUI that's preinstalled on the Windows Remote Desktop machine, the S/4 system might look like this:
 
-    ![SM50 in the preinstalled SAP GUI](./media/cal-s4h/gui_sm50.png)
+   ![SM50 in the preinstalled SAP GUI](./media/cal-s4h/gui_sm50.png)
 
     b. Or if you use the DBACockpit, the instance might look like this:
 
-    ![SM50 in the DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
+   ![SM50 in the DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
 
 Within a few hours, a healthy SAP S/4 appliance is deployed in Azure.
 
