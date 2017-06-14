@@ -47,16 +47,16 @@ You can also access the blade by clicking **More services** and then searching *
 1. Click **+Add** at the top of the blade.
 1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
 1. Toggle the **Include web app / web API** switch to **Yes**.
-1. Enter [a proper](#choosing-a-web-app/api-reply-url) for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
+1. Enter [a proper](#choosing-a-web-app/api-reply-url) value for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
 1. Click **Create** to register your application.
 1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 1. If your web application will also be calling a web API secured by Azure AD B2C, you'll want to:
     1. Create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
     1. Click on **API Access**, click on **Add** and select your web API and scopes (permissions).
 
-    > [!NOTE]
-    > An **Application Secret** is an important security credential, and should be secured appropriately.
-    >
+> [!NOTE]
+> An **Application Secret** is an important security credential, and should be secured appropriately.
+>
 
 ## Register a web api
 
@@ -64,7 +64,7 @@ You can also access the blade by clicking **More services** and then searching *
 1. Click **+Add** at the top of the blade.
 1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C api".
 1. Toggle the **Include web app / web API** switch to **Yes**.
-1. Enter [a proper](#choosing-a-web-app/api-reply-url) for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
+1. Enter [a proper](#choosing-a-web-app/api-reply-url) value for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
 1. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes'. It will generate the full identifier URI underneath.
 1. Click **Create** to register your application.
 1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
@@ -146,6 +146,6 @@ If you edit the B2C application as described above and try to edit it again in 
 
 To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
 
-## Next Steps
+## Next steps
 
 Now that you have an application registered with Azure AD B2C, you can complete one of [our quick-start tutorials](active-directory-b2c-overview.md#get-started) to get up and running.
