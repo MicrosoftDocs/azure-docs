@@ -18,25 +18,25 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB DocumentDB API: SQL Syntax
+# Azure Cosmos DB DocumentDB API: SQL syntax reference
 
-  The Azure Cosmos DB DocumentDB API supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the DocumentDB SQL query language. If you'd like a walkthrough of the DocumentDB API SQL query language, please see [Query DocumentDB](documentdb-sql-query.md).  
+The Azure Cosmos DB DocumentDB API supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the DocumentDB API SQL query language.
+
+For a walkthrough of the DocumentDB API SQL query language, see [Query DocumentDB](documentdb-sql-query.md).  
   
- We also invite you to visit our [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
+We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   
 ## SELECT query  
- Retrieves JSON documents from the database. Supports expression evaluation, projections, filtering and joins.  The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section.  
+Retrieves JSON documents from the database. Supports expression evaluation, projections, filtering and joins.  The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section.  
   
- **Syntax**  
+**Syntax**  
   
-```  
-  
+```
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
     [ ORDER BY <sort_specification> ]  
-  
 ```  
   
  **Remarks**  
@@ -51,40 +51,36 @@ SELECT <select_specification>
   
 -   [ORDER BY clause](#bk_orderby_clause)  
   
- The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
+The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
   
- **Logical Processing Order of the SELECT statement**  
+**Logical Processing Order of the SELECT statement**  
   
- The order in which clauses are processed is:  
-  
+The order in which clauses are processed is:  
+
 1.  [FROM clause](#bk_from_clause)  
-  
 2.  [WHERE clause](#bk_where_clause)  
-  
 3.  [ORDER BY clause](#bk_orderby_clause)  
-  
 4.  [SELECT clause](#bk_select_query)  
-  
- Note that this is different from the order in which they appear in the syntax. The ordering is such that all new symbols introduced by a processed clause are visible and can be used in clauses processed later. For instance, aliases declared in a FROM clause are accessible in WHERE and SELECT clauses.  
-  
- **Whitespace characters and comments**  
-  
- All white space characters which are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
-  
- The query language supports T-SQL style comments like  
-  
+
+Note that this is different from the order in which they appear in the syntax. The ordering is such that all new symbols introduced by a processed clause are visible and can be used in clauses processed later. For instance, aliases declared in a FROM clause are accessible in WHERE and SELECT clauses.  
+
+**Whitespace characters and comments**  
+
+All white space characters which are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
+
+The query language supports T-SQL style comments like  
+
 -   SQL Statement `-- comment text [newline]`  
-  
- While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
-  
+
+While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
+
 ##  <a name="bk_select_query"></a> SELECT clause  
- The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
-  
- **Syntax**  
-  
+The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
+
+**Syntax**  
 ```  
 SELECT <select_specification>  
-  
+
 <select_specification> ::=   
       '*'   
       | <object_property_list>   
@@ -103,25 +99,25 @@ SELECT <select_specification>
   
  `'*'`  
   
- Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
+Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
   
  `<object_property_list>`  
   
- Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
+Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
   
- `VALUE`  
+`VALUE`  
   
- Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
+Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
   
- `<scalar_expression>`  
+`<scalar_expression>`  
   
- Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
+Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
   
- **Remarks**  
+**Remarks**  
   
- The `SELECT *` syntax is only valid if FROM clause has declared exactly one alias. `SELECT *` provides an identity projection, which can be useful if no projection is needed. SELECT * is only valid if FROM clause is specified and introduced only a single input source.  
+The `SELECT *` syntax is only valid if FROM clause has declared exactly one alias. `SELECT *` provides an identity projection, which can be useful if no projection is needed. SELECT * is only valid if FROM clause is specified and introduced only a single input source.  
   
- Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
+Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
   
 1.  `SELECT * FROM ... AS from_alias ...`  
   
@@ -135,16 +131,15 @@ SELECT <select_specification>
   
      `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
- **See Also**  
+**See Also**  
   
- [Scalar expressions](#bk_scalar_expressions)  
-  
- [SELECT clause](#bk_select_query)  
+[Scalar expressions](#bk_scalar_expressions)  
+[SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM clause  
- Specifies the source or joined sources. The FROM clause is optional. If not specified, other clauses will still be executed as if FROM clause provided a single document.  
+Specifies the source or joined sources. The FROM clause is optional. If not specified, other clauses will still be executed as if FROM clause provided a single document.  
   
- **Syntax**  
+**Syntax**  
   
 ```  
 FROM <from_specification>  
@@ -164,69 +159,69 @@ FROM <from_specification>
      | <collection_expression> '[' "property_name" | array_index ']'  
 ```  
   
- **Arguments**  
+**Arguments**  
   
- `<from_source>`  
+`<from_source>`  
   
- Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
+Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
   
 -   If the expression is a collection_name, then collection_name will be used as an alias.  
   
 -   If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
   
- AS `input_alias`  
+AS `input_alias`  
   
- Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
+Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
+ 
+`input_alias` IN  
   
- `input_alias` IN  
+Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
   
- Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
+`<collection_expression>`  
   
- `<collection_expression>`  
+Specifies the collection expression to be used to retrieve the documents.  
   
- Specifies the collection expression to be used to retrieve the documents.  
+`ROOT`  
   
- `ROOT`  
+Specifies that document should be retrieved from the default, currently connected collection.  
   
- Specifies that document should be retrieved from the default, currently connected collection.  
+`collection_name`  
   
- `collection_name`  
+Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
   
- Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
+`input_alias`  
   
- `input_alias`  
+Specifies that document should be retrieved from the other source defined by the provided alias.  
   
- Specifies that document should be retrieved from the other source defined by the provided alias.  
+`<collection_expression> '.' property_`  
   
- `<collection_expression> '.' property_`  
+Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
- Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+`<collection_expression> '[' "property_name" | array_index ']'`  
   
- `<collection_expression> '[' "property_name" | array_index ']'`  
+Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
- Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+**Remarks**  
   
- **Remarks**  
+All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<collection_expression>.`property_name is the same as `<collection_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier characters.  
   
- All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<collection_expression>.`property_name is the same as `<collection_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier characters.  
+**Missing properties, missing array elements, undefined values handling**  
   
- **Missing properties, missing array elements, undefined values handling**  
+If a collection expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
   
- If a collection expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
+**Collection expression context scoping**  
   
- **Collection expression context scoping**  
-  
- A collection expression may be collection-scoped or document-scoped:  
+A collection expression may be collection-scoped or document-scoped:  
   
 -   An expression is collection-scoped, if the underlying source of the collection expression is either ROOT or `collection_name`. Such an expression represents a set of documents retrieved from the collection directly, and is not dependent on the processing of other collection expressions.  
   
 -   An expression is document-scoped, if the underlying source of the collection expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the collection expression in the scope of each document belonging to the set associated with the aliased collection.  The resulting set will be a union of sets obtained by evaluating the collection expression for each of the documents in the underlying set.  
   
- **Joins**  
+**Joins**  
   
- In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming. Inner join results in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.  
+In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming. Inner join results in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.  
   
- The evaluation of join depends on the context scoping of the participating sets:  
+The evaluation of join depends on the context scoping of the participating sets:  
   
 -   Join between collection-set A and collection-scoped set B, will result in a cross product of all elements in sets A and B.  
   

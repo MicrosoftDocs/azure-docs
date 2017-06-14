@@ -297,7 +297,7 @@
       href: /rest/api/documentdb/
     - name: REST Resource Provider
       href: /rest/api/documentdbresourceprovider/
-    - name: SQL syntax
+    - name: SQL
       href: documentdb-sql-query-reference.md
   - name: Table APIs
     items:
