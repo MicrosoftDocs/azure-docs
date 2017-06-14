@@ -27,7 +27,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!NOTE]
->This feature is NOT applicable to Active Directory Federation Services (ADFS), which already provides this capability.
+>This feature is _not_ applicable to Active Directory Federation Services (ADFS), which already includes this capability.
 
 ## Key benefits of using Azure AD Seamless SSO
 

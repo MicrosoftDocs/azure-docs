@@ -62,7 +62,7 @@ After completion of the wizard, Seamless SSO is enabled on your tenant.
 To roll out the feature to your users, you need to add two Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) to users' Intranet zone settings via Group Policy in Active Directory.
 
 >[!NOTE]
-> The following instructions only works for Internet Explorer and Google Chrome (if it shares the same set of trusted site URLs as Internet Explorer). Read the next section for instructions to set up Mozilla Firefox and Google Chrome on Mac.
+> The following instructions only work for Internet Explorer and Google Chrome on Windows  (if it shares set of trusted site URLs with Internet Explorer). Read the next section for instructions to set up Mozilla Firefox and Google Chrome on Mac.
 
 ### Why do you need to modify users' Intranet zone settings?
 
@@ -81,11 +81,9 @@ By default, the browser automatically calculates the right zone (Internet or Int
 		Value: https://aadg.windows.net.nsatc.net
 		Data: 1
 >[!NOTE]
-> If you want to disallow some users from using Seamless SSO - for instance, if these users are signing in on shared kiosks - set the preceding values to *4*. This action adds the Azure AD URLs to the Restricted Zone, and will fail Seamless SSO all the time.
+> If you want to disallow some users from using Seamless SSO - for instance, if these users are signing in on shared kiosks - set the preceding values to *4*. This action adds the Azure AD URLs to the Restricted Zone, and fails Seamless SSO all the time.
 
 5. Click **OK** and **OK** again.
-
-It should look like this:
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
@@ -93,12 +91,12 @@ It should look like this:
 
 #### Mozilla Firefox
 
-Mozilla Firefox doesn't automatically do Kerberos Authentication. Each user will have to manually add the Azure AD URLs to their Firefox settings using the following steps.
+Mozilla Firefox doesn't automatically do Kerberos Authentication. Each user has to manually add the Azure AD URLs to their Firefox settings using the following steps:
 - Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 - Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
-- Right click and select "Modify".
+- Right-click and select "Modify".
 - Enter "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" in the field.
-- Click "OK" and re-open the browser.
+- Click "OK" and reopen the browser.
 
 >[!NOTE]
 >Seamless SSO doesn't work in private browsing mode on Firefox.
@@ -121,8 +119,8 @@ To test the scenario where the user enters only the username, but not the passwo
 - Sign into *https://myapps.microsoft.com/* in a new private browser session.
 
 To test the scenario where the user doesn't have to enter the username or the password: 
-- Sign into *https://myapps.microsoft.com/contoso.onmicrosoft.com* in a new private browser session. Replace *contoso* with your tenant's name.
-- Or sign into *https://myapps.microsoft.com/contoso.com* in a new private browser session. Replace *contoso.com* with a verified domain (not a federated domain) in your tenant.
+- Sign into *https://myapps.microsoft.com/contoso.onmicrosoft.com* in a new private browser session. Replace "*contoso*" with your tenant's name.
+- Or sign into *https://myapps.microsoft.com/contoso.com* in a new private browser session. Replace "*contoso.com*" with a verified domain (not a federated domain) in your tenant.
 
 ## Next steps
 

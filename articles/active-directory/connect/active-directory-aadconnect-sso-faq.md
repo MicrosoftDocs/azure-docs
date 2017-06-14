@@ -30,13 +30,13 @@ Seamless SSO is a free feature and you don't need any paid editions of Azure AD 
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-We are in the process of compiling the list of applications that send these parameters out-of-the-box and which ones don't. If you have specific applications that are most interesting to you, you can use the comments section below to let us know.
+We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that are interested in, let us know in the the comments section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 
 Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](active-directory-aadconnect-get-started-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
-## I want to register non-Windows 10 devices with Azure AD, without using AD FS. Can I use Seamless SSO for that?
+## I want to register non-Windows 10 devices with Azure AD, without using AD FS. Can I use Seamless SSO instead?
 
 Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -53,7 +53,7 @@ However, you see a message on screen that reads as follows:
 The manual steps that you need are as follows:
 
 1. Get list of AD forests where Seamless SSO has been enabled
-- First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+- First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
 - Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 - Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 - Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
