@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_samlbase.png)
 
-3. On the **{CN} Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
+3. On the **Direct Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url.png)
 
@@ -112,11 +112,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. Check **Show advanced URL settings**, If you wish to configure the application in **SP** initiated mode:
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://direct4b.com/sso`
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url1.png)
 
-	b. Input `subdomain` and press '次へ (Next)'.
-	
-	c. Login with your Microsoft account. 
+	 In the **Sign-on URL** textbox, type a URL using the following pattern: `https://direct4b.com/sso` 
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [Direct support team](https://direct4b.com/ja/support.html#inquiry) to get these values. 
@@ -204,7 +202,16 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Direct tile in the Access Panel, you should get automatically signed-on to your Direct application.
+1. If you wish to test in **IDP Initiated Mode**:
+
+	When you click the **Direct** tile in the Access Panel, you should get automatically signed-on to your **Direct** application.
+
+2. If you wish to test in **SP Initiated Mode**:
+	
+	a. Click on the **Direct** tile in the Access Panel and you will be redirected to the application sign-on page.
+
+	b. Input your `subdomain` in the textbox displayed and press '次へ (Next)' and you should get automatically signed-on to your **Direct** application .
+	
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
