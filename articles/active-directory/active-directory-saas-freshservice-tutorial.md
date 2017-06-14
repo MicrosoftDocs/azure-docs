@@ -131,31 +131,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the menu on the top, click **Admin**.
    
-    ![Admin](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Admin")
+    ![Admin](./media/active-directory-saas-freshservice-tutorial/ic790814.png "Admin")
 
 9. In the **Customer Portal**, click **Security**.
    
-    ![Security](./media/active-directory-saas-freshservice-tutorial/IC790815.png "Security")
+    ![Security](./media/active-directory-saas-freshservice-tutorial/ic790815.png "Security")
 
 10. In the **Security** section, perform the following steps:
    
-    ![Single Sign On](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Single Sign On")
+    ![Single Sign On](./media/active-directory-saas-freshservice-tutorial/ic790816.png "Single Sign On")
    
     a. Switch **Single Sign On**.
 
     b. Select **SAML SSO**.
 
-    c. Paste the **Remote Login URL** value into the **SAML Login URL** textbox which you have copied from the Azure portal.
+    c. In the **SAML Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-    d. Paste the **Remote Logout URL** value into the **Logout URL** textbox which you have copied from the Azure portal.
+    d. In the **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
     e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate which you have copied from Azure portal.
-   
-      >[!TIP]
-      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      >
 
-	f.Click **Save**
+	f. Click **Save**
    
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -202,19 +198,19 @@ To enable Azure AD users to log in to FreshService, they must be provisioned int
 
 2. In the menu on the top, click **Admin**.
    
-    ![Admin](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Admin")
+    ![Admin](./media/active-directory-saas-freshservice-tutorial/ic790814.png "Admin")
 
 3. In the **User Management** section, click **Requesters**.
    
-    ![Requesters](./media/active-directory-saas-freshservice-tutorial/IC790818.png "Requesters")
+    ![Requesters](./media/active-directory-saas-freshservice-tutorial/ic790818.png "Requesters")
 
 4. Click **New Requester**.
    
-    ![New Requesters](./media/active-directory-saas-freshservice-tutorial/IC790819.png "New Requesters")
+    ![New Requesters](./media/active-directory-saas-freshservice-tutorial/ic790819.png "New Requesters")
 
 5. In the **New Requester** section, perform the following steps:
    
-    ![New Requester](./media/active-directory-saas-freshservice-tutorial/IC790820.png "New Requester")   
+    ![New Requester](./media/active-directory-saas-freshservice-tutorial/ic790820.png "New Requester")   
 
     a. Enter the **First Name** and **Email** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
 
