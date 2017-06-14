@@ -148,7 +148,7 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 
 ### Connecting to server using the MySQL Workbench over SSL
 Configure MySQL Workbench to connect securely over SSL. Navigate to the **SSL** tab in the MySQL Workbench on the Setup New Connection dialogue. Enter the file location of the **MyServerCACert.pem** in the **SSL CA File:** field.
-![save customized tile](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
+![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 ## Next steps
 Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
