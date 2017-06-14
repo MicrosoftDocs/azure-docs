@@ -104,7 +104,15 @@ To get the ACR login server name, run the following.
 Update line 46 and 104 of the *azure-vote-kubernetes.yaml* to reflect your ACR instance.
 
 ```yaml
+containers:
+      - name: azure-vote-back
+        image: mycontainerregistry3433.azurecr.io/azure-vote-back:latest
+```
 
+```yaml
+containers:
+      - name: azure-vote-front
+        image: mycontainerregistry3433.azurecr.io/azure-vote-front:latest
 ```
 
 When ready, start the app deployment with the `kubectl create` command.
@@ -130,6 +138,28 @@ To determine when the application is ready to be accessed, return a list of serv
 ```bash
 kubectl get service
 ```
+
+Output:
+
+```bash
+NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+azure-vote-back    10.0.77.30    <none>        3306/TCP       6s
+azure-vote-front   10.0.120.96   <pending>     80:31482/TCP   5s
+kubernetes         10.0.0.1      <none>        443/TCP        3m
+```
+
+When the EXTERNAL_IP of *azure-vote-front* service changes from *<pending>* to an IP address, the application is ready.
+
+```bash
+NAME               CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+azure-vote-back    10.0.77.30    <none>          3306/TCP       4m
+azure-vote-front   10.0.120.96   40.71.227.124   80:31482/TCP   4m
+kubernetes         10.0.0.1      <none>          443/TCP        7m
+```
+
+Browse to the returned external IP address to see the application.
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
 ## Understand the created objects
 
