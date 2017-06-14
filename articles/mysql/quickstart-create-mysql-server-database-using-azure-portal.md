@@ -41,10 +41,11 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 | *Pricing Tier* | Basic, 50 Compute Units, 50 Storage (GB)  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
 | *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
 
-Click **Pricing Tier** to specify the pricing tier and performance level for your new database. For this quick start, select Basic Tier, 50 Compute Units and 50 GB of included storage. Then click **OK** to save the pricing tier.
+   Click **Pricing Tier** to specify the pricing tier and performance level for your new database. For this quick start, select Basic Tier, 50 Compute Units and 50 GB of included storage. Then click **OK** to save the pricing tier.
+   
    ![Azure portal - create MySQL by providing the required form input](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. Click **Notifications** (bell icon) button on the toolbar to monitor the deployment process.
+   Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. Click **Notifications** (bell icon) button on the toolbar to monitor the deployment process.
 
 ## Configure the firewall
 Before connecting to Azure Database for MySQL for the first time, configure the firewall and add the client's public network IP address (or a range) to the whitelist.
