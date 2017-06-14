@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
@@ -686,7 +686,7 @@ Returns the following records from MyBackup_CL with any matching fields from Hea
 
 
 ### Extend
-Allows you to create run-time fields in queries. You can also use the measure command after the extend command if you want to perform aggregation.
+Allows you to create run-time fields in queries. Note that run-time fields cannot be used with the measure command to perform aggregation.
 
 **Example 1**
 
