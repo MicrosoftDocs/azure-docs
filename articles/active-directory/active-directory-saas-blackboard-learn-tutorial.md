@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/13/2017
 ms.author: jeedes
 
 ---
@@ -119,7 +119,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_certificate.png) 
 
-5. Blackboard Learn application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"Attribute"** tab of the application. The following screenshot shows an example about it.
+5. Blackboard Learn application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
+ The following screenshot shows an example about it.
 
 	![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_attribute.png)
 
