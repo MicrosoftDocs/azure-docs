@@ -34,7 +34,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Manually scale pods
 
-The previous tutorial deployed the Azure Vote front end and back each in a single pod. To verify, run the following command:
+The previous tutorial deployed the Azure Vote front end and back end each in a single pod. To verify, run the following command:
 
 ```bash
 kubectl get pods
