@@ -31,13 +31,15 @@ If you already created an SAP CAL account that uses the classic model, *you need
 
 After you sign in to the SAP CAL, the first page usually leads you to the **Solutions** page. The solutions offered on the SAP CAL are steadily increasing, so you might need to scroll quite a bit to find the solution you want. The highlighted Windows-based SAP IDES solution that is available exclusively on Azure demonstrates the deployment process:
 
-    ![SAP CAL Solutions](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
+![SAP CAL Solutions](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
-###Create an account in the SAP CAL
+### Create an account in the SAP CAL
 1. To sign in to the SAP CAL for the first time, use your SAP S-User or other user registered with SAP. Then define an SAP CAL account that is used by the SAP CAL to deploy appliances on Azure. In the account definition, you need to:
 
     a. Select the deployment model on Azure (Resource Manager or classic).
+
     b. Enter your Azure subscription. An SAP CAL account can be assigned to one subscription only. If you need more than one subscription, you need to create another SAP CAL account.
+    
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
     > [!NOTE]
@@ -46,7 +48,9 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
 2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
     a. **Microsoft Azure (classic)** is the classic deployment model and is no longer preferred.
+
     b. **Microsoft Azure** is the new Resource Manager deployment model.
+
     c. **Windows Azure operated by 21Vianet** is an option in China that uses the classic deployment model.
 
     To deploy in the Resource Manager model, select **Microsoft Azure**.
@@ -85,13 +89,15 @@ You successfully created an SAP CAL account that is able to:
 > [!NOTE]
 Before you can deploy the SAP IDES solution based on Windows and SQL Server, you might need to sign up for an SAP CAL subscription. Otherwise, the solution might show up as **Locked** on the overview page.
 
-###Deploy a solution
+### Deploy a solution
 1. After you set up an SAP CAL account, select **The SAP IDES solution on Windows and SQL Server** solution. Click **Create Instance**, and confirm the usage and terms conditions. 
 
 2. On the **Basic Mode: Create Instance** page, you need to:
 
     a. Enter an instance **Name**.
+
     b. Select an Azure **Region**. You might need an SAP CAL subscription to get multiple Azure regions offered.
+
     c.  Enter the master **Password** for the solution, as shown:
 
     ![SAP CAL Basic Mode: Create Instance](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
@@ -104,7 +110,7 @@ Before you can deploy the SAP IDES solution based on Windows and SQL Server, you
 
     ![Resource group objects](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
-5. In the SAP CAL, go to the deployed instances and click **Connect**. The following pop-up window appears: 
+5. On the SAP CAL portal, go to the deployed instances and click **Connect**. The following pop-up window appears: 
 
     ![Connect to the Instance](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
