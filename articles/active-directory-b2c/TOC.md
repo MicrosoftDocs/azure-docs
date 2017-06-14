@@ -7,8 +7,7 @@
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
-## Web apps
-### [ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+## [ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 
 # Concepts
 ## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
