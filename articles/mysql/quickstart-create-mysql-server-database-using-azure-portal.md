@@ -84,17 +84,17 @@ status
 
 3. Create an empty database by typing the `CREATE DATABASE` command at the mysql> prompt.
 
-```sql
-CREATE DATABASE quickstartdb;
-```
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
 
    Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. There is no limit to the number of databases that can be created, but multiple databases share the same server resources.  
 
 4. List the databases by typing `SHOW DATABASES` command at the mysql> prompt.
 
-```sql
-SHOW DATABASES;
-```
+   ```sql
+   SHOW DATABASES;
+   ```
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
