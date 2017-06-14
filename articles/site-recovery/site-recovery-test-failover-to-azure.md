@@ -70,7 +70,7 @@ When a test failover is triggered, it involves following steps:
 
 In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
 
-* VMware virtual machines using mobility service of version older than 9.8
+* VMware virtual machines using a version of the Mobility service older than 9.8
 * Physical servers
 * VMware Linux virtual machines
 * Hyper-V virtual machines protected as physical servers
