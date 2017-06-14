@@ -39,7 +39,7 @@ $storageAccountName = "mystorageaccount"
 New-AzureRmStorageAccount -ResourceGroupName $rgName `
     -Name $storageAccountName `
     -Location $location `
-    -SkuName Standard_LRS
+    -SkuName "Standard_LRS"
 ```
 
 
@@ -70,18 +70,14 @@ To build images, you create a template as a JSON file. In the template, you defi
 
 Create a file named *windows.json* and paste the following content. Enter your own values for the following:
 
-- client_id
-    - View your service principal ID with `$sp.applicationId`
-- client_secret
-    - The password you specified in `$securePassword`
-- tenant_id 
-    - The output from the `$sub.TenantId` command
-- subscription_id
-    - The output from the `$sub.SubscriptionId` command
-- object_id
-    - View your service principal object ID with `$sp.Id`
-- storage_account
-    - The name you specified in `$storageAccountName`
+| Parameter       | Where to obtain |
+|-----------------|----------------------------------------------------|
+| *client_id*      | View service principal ID with `$sp.applicationId` |
+| *client_secret*  | Password you specified in `$securePassword` |
+| *tenant_id*      | Output from `$sub.TenantId` command |
+| *subscription_id* | Output from `$sub.SubscriptionId` command |
+| *object_id*       | View service principal object ID with `$sp.Id` |
+| *storage_account* | Name you specified in `$storageAccountName` |
 
 ```json
 {
@@ -228,8 +224,13 @@ $osVhdUri = "https://mystorageaccount.blob.core.windows.net/system/Microsoft.Com
 $imageName = "myImage"
 
 $imageConfig = New-AzureRmImageConfig -Location $location
-$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig `
+    -OsType "Windows" `
+    -OsState "Generalized" `
+    -BlobUri $osVhdUri
+$image = New-AzureRmImage -ImageName $imageName `
+    -ResourceGroupName $rgName `
+    -Image $imageConfig
 ```
 
 This Image can be used to create VMs across your Azure subscription. You are not limited to creating a VM in the same resource group as your source Image.
@@ -262,7 +263,7 @@ $vnet = New-AzureRmVirtualNetwork `
 $publicIP = New-AzureRmPublicIpAddress `
     -ResourceGroupName $rgName `
     -Location $location `
-    -AllocationMethod Static `
+    -AllocationMethod "Static" `
     -IdleTimeoutInMinutes 4 `
     -Name "myPublicIP"
 
@@ -312,7 +313,7 @@ Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](/power
 ```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
-    -Name myPublicIP | select IpAddress
+    -Name "myPublicIP" | select "IpAddress"
 ```
 
 You can then enter the public IP address in to a web browser.
