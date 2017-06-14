@@ -35,7 +35,7 @@ In addition to the inbuilt Azure infrastructure capabilities and features that c
 - Your compliance guidelines for specific apps and workloads require a Business continuity and Disaster Recovery (BCDR) strategy.
 - You want the ability to protect and recover Azure VMs based on your business decisions, and not only based on inbuilt Azure functionality.
 - You need to be able to test failover and recovery in accordance with your business and compliance needs, with no impact on production.
-- You need to be able to failover to the recovery region in the event of a disaster and fail back to the orinal source region seamlessly.
+- You need to be able to failover to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
 
 Azure to Azure VM replication using Site Recovery helps you to do all the above.
 
