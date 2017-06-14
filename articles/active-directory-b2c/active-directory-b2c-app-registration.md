@@ -46,11 +46,21 @@ Choose next steps based on the application type you are registering:
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
+If your web application calls a web API secured by Azure AD B2C, perform these steps:
+   1. Create an application secret by going to the **Keys** blade and clicking the **Generate Key** button. Make note of the **App key** value. You use the value as the application secret in your application's code.
+   2. Click **API Access**, click **Add**, and select your web API and scopes (permissions).
+
+> [!NOTE]
+> An **Application Secret** is an important security credential, and should be secured appropriately.
+> 
+
 [Jump to **Next steps**](#next-steps)
 
 ## Register a web API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
+
+Click **Published scopes** to add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.
 
 [Jump to **Next steps**](#next-steps)
 

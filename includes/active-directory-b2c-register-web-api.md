@@ -19,5 +19,3 @@ Your newly registered application is displayed in the applications list for the 
 ![Web API properties](./media/active-directory-b2c-register-web-api/b2c-web-api-properties.png)
 
 Make note of the globally unique **Application Client ID**. You use the ID in your application's code.
-
-Click **Published scopes** to add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.

@@ -18,11 +18,3 @@ Your newly registered application is displayed in the applications list for the 
 ![Web app properties](./media/active-directory-b2c-register-web-app/b2c-web-app-properties.png)
 
 Make note of the globally unique **Application Client ID**. You use the ID in your application's code.
-
-If your web application calls a web API secured by Azure AD B2C, perform these steps:
-   1. Create an application secret by going to the **Keys** blade and clicking the **Generate Key** button. Make note of the **App key** value. You use the value as the application secret in your application's code.
-   2. Click **API Access**, click **Add**, and select your web API and scopes (permissions).
-
-> [!NOTE]
-> An **Application Secret** is an important security credential, and should be secured appropriately.
-> 
