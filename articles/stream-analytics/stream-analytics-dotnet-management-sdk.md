@@ -19,7 +19,7 @@ ms.author: jeffstok
 
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
-Learn how to set up an run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
+Learn how to set up a run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
 
 See the [management reference documentation for the Stream Analytics API for .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Set up an input source and output target to use. For futher instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to setup a sample output.
+* Set up an input source and output target to use. For further instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to set up a sample output.
 
 ## Set up a project
 To create an analytics job use the Stream Analytics API for .NET, first set up your project.
@@ -266,7 +266,7 @@ The following code creates a Stream Analytics transformation with the query "sel
     var transformationCreateResp =
         client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
-Like input and output, a transformations is also tied to the specific Stream Analytics job it was created under.
+Like input and output, a transformation is also tied to the specific Stream Analytics job it was created under.
 
 ## Start a Stream Analytics job
 After creating a Stream Analytics job and its input(s), output(s), and transformation, you can start the job by calling the **Start** method.
