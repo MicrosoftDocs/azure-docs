@@ -106,7 +106,7 @@
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
-### [Improve performance of Kafka by configuring managed disks](hdinsight-apache-kafka-managed-disk.md)
+### [Increase scalability of Kafka by configuring managed disks](hdinsight-apache-kafka-managed-disk.md)
 ### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Use with Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Use with Spark (DStream)](hdinsight-apache-spark-with-kafka.md)

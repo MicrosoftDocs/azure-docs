@@ -1,6 +1,6 @@
 ---
-title: Apache Kafka storage and performance - Azure HDInsight | Microsoft Docs
-description: 'Learn how to configure managed disks for Apache Kafka cluster on Azure HDInsight. Learn how to create topics, subscribers, and consumers.'
+title: Apache Kafka increase scale - Azure HDInsight | Microsoft Docs
+description: 'Learn how to configure managed disks for Apache Kafka cluster on Azure HDInsight to increase scalability.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -13,11 +13,11 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 06/14/2017
 ms.author: larryfr
 ---
 
-# Configure storage and performance for Apache Kafka on HDInsight
+# Configure storage and scalability for Apache Kafka on HDInsight
 
 Learn how to configure the number of managed disks used by Apache Kafka on HDInsight.
 
@@ -55,3 +55,10 @@ You can find a complete template that demonstrates how to use this at [https://h
 ## Next steps
 
 See the following documents for more information on working with Kafka on HDInsight:
+
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+
+* [HDInsight blog on managed disks with Kafka](https://azure.microsoft.com/blog/announcing-hdinsight-kafka-public-preview-with-azure-managed-disks)
