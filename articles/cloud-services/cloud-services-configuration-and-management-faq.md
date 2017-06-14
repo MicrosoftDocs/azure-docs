@@ -24,7 +24,7 @@ This article includes frequently asked questions about configuration and managem
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Add **nosniff** to your website
+## How do I add "nosniff" to my website?
 To prevent clients from sniffing the MIME types, add a setting in your *web.config* file.
 
 ```xml
@@ -45,14 +45,14 @@ You can also add this as a setting in IIS. Use the following command with the [c
 %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
 ```
 
-## Customize IIS for a web role
+## How do I customize IIS for a web role?
 Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
 
 ## I cannot scale beyond X instances
 Your Azure Subscription has a limit on the number of cores you can use. Scaling will not work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your cloud service, or 50 A2 sized virtual machine instances.
 
 ## How can I implement Role-Based Access for Cloud Services?
-Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an ARM-based service.
+Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
 
 See [Azure RBAC vs. classic subscription administrators](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
 
@@ -75,7 +75,7 @@ You can specify the timeout in your service definition (csdef) file like this:
     </Endpoints>
   </WorkerRole>
 ```
-[New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)
+See [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) for more information.
 
 ## Can Microsoft internal engineers RDP to cloud service instances without permission?
 Microsoft follows a strict process that will not allow internal engineers to RDP into your cloud service without written permission (email or other written communication) from the owner or their designee.
@@ -112,9 +112,9 @@ Microsoft continuously monitors servers, networks, and applications to detect th
 
 ## Why does IIS stop writing to the log directory?
 You have exhausted the local storage quota for writing to the log directory. To correct this, you can do one of three things:
-1. Enable diagnostics for IIS and have the diagnostics periodically moved to blob storage.
-2. Manually remove log files from the logging directory.
-3. Increase quota limit for local resources.
+* Enable diagnostics for IIS and have the diagnostics periodically moved to blob storage.
+* Manually remove log files from the logging directory.
+* Increase quota limit for local resources.
 
 For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
@@ -130,4 +130,4 @@ See the following guidance document:
 
 >[Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-Please not that a CSR is just a text file. It does NOT have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+Please note that a CSR is just a text file. It does NOT have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
