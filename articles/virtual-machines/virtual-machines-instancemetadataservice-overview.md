@@ -21,26 +21,26 @@ ms.author: harijay
 
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
-This includes information such as SKU, network configuration, and upcoming maintenance events. For additional information on what type of information is available, see [metadata categories](#instance-metadata-data-categories).
+This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata categories](#instance-metadata-data-categories).
 
 Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 ### Important information
 
-This service is currently **generally available** in Global Azure Regions and is in Public preview for Government , China and German Azure Cloud.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+This service is currently **generally available** in Global Azure Regions and is in Public preview for Government, China, and German Azure Cloud.It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service Availability
-The current is available in all generally-available Azure regions globally. The service is in public preview  in the Government, China, or Germany regions.
+The service is available in all generally available Global Azure regions. The service is in public preview  in the Government, China, or Germany regions.
 
 Regions                                        | Availability?
 -----------------------------------------------|-----------------------------------------------
-[All Generally-Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Generally Available 
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Generally Available 
 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | In Preview 
 [Azure China](https://www.azure.cn/)                                                           | In Preview
 [Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | In Preview
 
-This table will be updated when the service becomes available in other regions.
+This table is updated when the service becomes available in other regions.
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
 
@@ -52,7 +52,7 @@ The Instance Metadata Service is versioned. Versions are mandatory and the curre
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, please note that the current preview version(2017-03-01) may not be available once the service is generally available.
+As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However,note that the current preview version(2017-03-01) may not be available once the service is generally available.
 
 ### Using Headers
 When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
@@ -65,7 +65,7 @@ Access all data categories for a virtual machine instance using the following re
 ```
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
-Please note all instance metadata queries are case sensitive.
+Note that  all instance metadata queries are case-sensitive.
 
 ### Data output
 By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs can return data in different formats if requested.
@@ -87,7 +87,7 @@ The Instance Metadata Service endpoint is accessible only from within the runnin
 We also require requests to contain a `Metadata: true` header to ensure that the actual request was directly intended and not a part of unintentional redirection. 
 
 ### Error
-If there is a data element not found or a malformed request, the Instance Metadata Service will return standard HTTP errors. For example:
+If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
 
 HTTP Status Code | Reason
 ----------------|-------
@@ -96,11 +96,12 @@ HTTP Status Code | Reason
 404 Not Found | The requested element does't exist 
 405 Method Not Allowed | Only `GET` and `POST` requests are supported
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
+500 Service Error     | Retry after some time
 
 ### Examples
 
 > [!NOTE] 
-> All API responses are JSON strings. All example responses below are pretty-printed for readability.
+> All API responses are JSON strings. All following example responses  are pretty-printed for readability.
 
 #### Retrieving network information
 
@@ -113,7 +114,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Response**
 
 > [!NOTE] 
-> The response is a JSON string. The example response below is pretty-printed for readability.
+> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```
 {
@@ -160,7 +161,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Response**
 
 > [!NOTE] 
-> The response is a JSON string. The example response below is pretty-printed for readability.
+> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```
 {
@@ -223,7 +224,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Response**
 
 > [!NOTE] 
-> The response is a JSON string. The example response below is pretty-printed for readability.
+> The response is a JSON string. The following example response  is pretty-printed for readability.
 
 ```
 {
@@ -342,7 +343,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Response**
 
 > [!NOTE] 
-> The response is a JSON string. The example response below is pretty-printed for readability.
+> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```
 {
@@ -386,13 +387,13 @@ Bash       |
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. Why am I getting the error `500 Internal Server Error`?
-   * On regions were the service is available please retry your request based on exponential back off system. Currently the Instance Metadata Service  is available only in global Azure regions and not in the Government, China, or Germany regions. Deploy your VMs in a supported region.  If the issue persists contact azureimds@microsoft.com or Azure support.
+   * Pease retry your request based on exponential back off system.If the issue persists contact  Azure support.
 5. Where do I share additional questions/comments?
    * Send your comments on http://feedback.azure.com.
 7. Would this work for Virtual Machine Scale Set Instance?
    * Yes Metadata service is available for Scale Set Instances. 
-6. How do I get support for the service ?
-   * You can get support for the service by creating a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
+6. How do I get support for the service?
+   * To get support for the service create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
 
    ![Instance Metadata Support](./media/virtual-machines-instancemetadataservice-overview/InstanceMetadata-support.png)
     
