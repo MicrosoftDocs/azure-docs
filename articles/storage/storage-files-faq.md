@@ -36,7 +36,7 @@ ms.author: renash
    
     Azure Data Disks - Provides client libraries and a REST interface that allows data to be persistently stored and accessed from an attached virtual hard disk.  
    
-    Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](storage-decide-blobs-file-disks.md)
+    Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](storage-decide-blobs-files-disks.md)
 
 * **Q. How do I get started using Azure FIle Storage?**  
    
