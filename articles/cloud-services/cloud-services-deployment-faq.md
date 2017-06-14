@@ -51,7 +51,7 @@ To check the sizes available in your region, see [Microsoft Azure: Products avai
 ## Why does deploying a cloud service sometime fail due to limits/quotas/constraints on my subscription or service?
 Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. For more information, see [Cloud Services limits](../azure-subscription-service-limits.md#cloud-services-limits).
 
-You could also track the current usage/quota for your subscription at the portal: Azure Portal => Subscriptions => <appropriate subscription> => “Usage + quota”.
+You could also track the current usage/quota for your subscription at the portal: Azure Portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
 
 Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure Resource Usage API (Preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
