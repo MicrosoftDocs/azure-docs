@@ -42,7 +42,7 @@ To complete this tutorial:
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
-
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 * [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -71,6 +71,10 @@ CREATE DATABASE sampledb;
 ```
 
 Exit your server connection by typing `quit`.
+
+```sql
+quit
+```
 
 <a name="step2"></a>
 
@@ -139,7 +143,7 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal. 
 
-## Create production MySQL in Azure
+### Create production MySQL in Azure
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
@@ -153,7 +157,7 @@ az login
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-## Create a MySQL server
+### Create a MySQL server
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
 
@@ -228,6 +232,9 @@ GRANT ALL PRIVILEGES ON sampledb.* TO '<phpapp_user>';
 
 Exit the server connection by typing `quit`.
 
+```sql
+quit
+```
 
 ## Connect app to production MySQL
 
@@ -299,7 +306,7 @@ git commit -m "keep sensitive data out of git"
 
 Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
 
-## Deploy the PHP app to Azure
+## Deploy to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
@@ -451,13 +458,16 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ``` 
 
-The deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment. The sample repository has three additional files in its root directory used to enable the app: 
-
-- *.deployment* - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
-- *deploy.sh* - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`. 
-- *composer.phar* - The Composer package manager.
-
-You can use this approach to add any step to the Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> [!NOTE]
+> You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it: 
+>
+> - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
+> - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`. 
+> - `composer.phar` - The Composer package manager.
+>
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+>
+>
 
 
 ### Browse to the Azure web app
@@ -624,8 +634,12 @@ Once log streaming has started, refresh the Azure web app in the browser to get 
 
 To stop log streaming at anytime, type `Ctrl`+`C`. 
 
-A PHP application can use the standard [error_log](http://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
-As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> [!TIP]
+> A PHP application can use the standard [error_log()](http://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
+>
+> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+>
+>
 
 ## Manage the Azure web app
 
