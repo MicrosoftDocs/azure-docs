@@ -185,8 +185,6 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Cloud Management Portal for Microsoft Azure. Please work with [Cloud Management Portal for Microsoft Azure support team](mailto:jczernuszka@newsignature.com) to add the users in the Cloud Management Portal for Microsoft Azure account.
 
-> [!Note]
-> If you need to create a user manually, you need to contact the Cloud Management Portal for Microsoft Azure support team.
 
 ### Assigning the Azure AD test user
 
