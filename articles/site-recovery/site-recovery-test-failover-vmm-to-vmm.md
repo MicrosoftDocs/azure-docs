@@ -18,9 +18,6 @@ ms.author: pratshar
 
 ---
 # Test Failover (VMM to VMM) in Site Recovery
-> [!div class="op_single_selector"]
-> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
-> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site.
