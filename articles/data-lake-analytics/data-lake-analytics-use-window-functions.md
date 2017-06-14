@@ -13,19 +13,19 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data`
+ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Using U-SQL window functions for Azure Data Lake Analytics jobs
+# Use U-SQL window functions for Azure Data Lake Analytics jobs
 Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 
 Window functions are used to do computation within sets of rows called *windows*. Windows are defined by the OVER clause. Window functions solve some key scenarios in a highly efficient manner.
 
 The window functions are categorized into: 
 
-* [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM or AVG
+* [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM and AVG
 * [Ranking functions](#ranking-functions), such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
 * [Analytic functions](#analytic-functions), such as cumulative distribution or percentiles, access data from a previous row (in the same result set) without using a self-join
 
@@ -91,7 +91,7 @@ The following query uses an aggregation to calculate the total salary for all em
             SUM(Salary) AS TotalSalary
         FROM @employees;
 
-The result is a single row with a single column. The $165000 is the sum of the Salary value from the whole table. 
+The result is a single row with a single column. The $165000 is the sum of the Salary values from the whole table. 
 
 | TotalSalary |
 | --- |
@@ -114,7 +114,7 @@ The results are:
 | Executive |50000 |
 | Marketing |25000 |
 
-The sum of the SalaryByDept column is $165000, which matches the amount in the last script.
+The sum of the SalaryByDept column is $165000, which matches the amount in the previous script.
 
 In both these cases the number of there are fewer output rows than input rows:
 
@@ -122,7 +122,7 @@ In both these cases the number of there are fewer output rows than input rows:
 * With GROUP BY, there are N output rows where N is the number of distinct values that appear in the data.  In this case, four rows are output.
 
 ### Use a window function
-The OVER clause in the following sample is empty, so the window includes all rows. The SUM in this example is applied to the OVER clause that it precedes.
+The OVER clause in the following sample is empty, so the window includes all rows. The SUM in this example is applied to the OVER clause.
 
 You could read this query as: “The sum of Salary over a window of all rows.”
 
