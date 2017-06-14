@@ -43,6 +43,8 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
+  - name: Performance considerations
+    href: functions-best-practices.md 
   - name: Consumption and App Service plans
     href: functions-scale.md
   - name: Triggers and bindings
@@ -125,8 +127,6 @@
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Best practices
-    href: functions-best-practices.md 
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
