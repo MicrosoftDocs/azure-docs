@@ -122,7 +122,7 @@ When using Standard Storage, the following billing considerations apply:
 * Outbound data transfers
 * Transactions
 
-**Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you will be billed for 10 GB of space. We support Standard page blob up to 8191 GB, and Standard unmanaged disks up to 4095 GB. 
+**Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you will be billed for 10 GB of space. We support Standard storage up to 8191 GB, and Standard unmanaged disks up to 4095 GB. 
 
 **Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you will still be charged for the provision size of 10 GB.
 
