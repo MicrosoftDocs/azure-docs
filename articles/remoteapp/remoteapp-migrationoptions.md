@@ -46,11 +46,14 @@ Check out the step-by-step deployment guide, [Citrix XA 7.6 on Azure](http://www
 ## Fully managed (PaaS/SaaS) offerings
 
 ### Citrix XenApp Essentials (released April 2017)
-Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp.  
+Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp. 
 
 Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/products/citrix-cloud/form/xenapp-essentials-msft-trial/).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
 
-Learn more about [Citrix XenApp Essentials](https://www.citrix.com/global-partners/microsoft/remote-app.html), or watch a [presentation on its featured](https://www.youtube.com/watch?v=91Z7CCfQ-9k).
+Learn More:
+- [Migrate from Azure RemoteApp to Citrix XenApp Essentials](https://docs.microsoft.com/en-us/azure/remoteapp/remoteapp-migrate-citrix)
+- [Citrix and Microsoft](https://www.citrix.com/global-partners/microsoft/remote-app.html)
+- [Citrix XenApp Essentials presentation](https://www.youtube.com/watch?v=91Z7CCfQ-9k).  
 
 ### Citrix Cloud XenApp Service and XenDesktop Service 
 

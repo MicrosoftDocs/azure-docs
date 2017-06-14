@@ -1,4 +1,3 @@
-# [Azure RemoteApp Retirement](remoteapp-retirement.md)
 # Overview
 ## [What is RemoteApp?](remoteapp-whatis.md)
 ## [How does licensing work?](remoteapp-licensing.md)
