@@ -82,7 +82,7 @@ You need to set up a Recovery Services vault to orchestrate and manage replicati
 
 Go to [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
 
-# Step 8: Configure source and target settings
+## Step 8: Configure source and target settings
 
 Set up the source and target that's used for replication. Setting up source settings includes running Unified Setup to install the on-premises Site Recovery components.
 
