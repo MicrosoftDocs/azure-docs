@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -314,7 +314,7 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) 
 
 #### evaluate autocluster
      T | evaluate autocluster()
@@ -499,39 +499,7 @@ Note that the patterns are not distinct: they may be overlapping, and usually do
   
     `requests | evaluate autocluster("weight_column=itemCount")`
 
-#### evaluate extractcolumns
-     exceptions | take 1000 | evaluate extractcolumns("details=json") 
 
-Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
-
-* `max_columns=` *int* (default: 10) 
-  
-    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
-  
-    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
-* `min_percent=` *double* (default: 10.0) 
-  
-    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
-  
-    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
-* `add_prefix=` *bool* (default: true) 
-  
-    If true the name of the complex column will be added as a prefix to the extracted columns names.
-* `prefix_delimiter=` *string* (default: "_") 
-  
-    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
-  
-    `T | evaluate extractcolumns("json_column_name=json",` <br/>
-    `"add_prefix=true", "prefix_delimiter=@")`
-* `keep_original=` *bool* (default: false) 
-  
-    If true the original (json) columns will be kept in the output table.
-* `output=query | table` 
-  
-    The format of the results. 
-  
-  * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
-  * `query` - The output is a string representing the query you would make to get the result as table. 
 
 ### extend operator
      T | extend duration = stopTime - startTime
