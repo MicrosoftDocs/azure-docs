@@ -26,17 +26,14 @@ Workbooks are helpful for scenarios like:
 * Sharing the results of an A/B experiment in your app with other members of your team by explaining the goals for the experiment with text, then showing each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your app, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-## Getting Started
-
-TBD
-
-TBD - link to [learn how to get started with the usage tools](app-insights-usage-overview.md).
-
-TBD - provided you have [instrumented it](app-insights-javascript.md). 
-
-    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
+> [!NOTE]
+> Your Application Insights resource must contain page views or custom events to use Workbooks. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
+> 
+> 
 
 ## Editing, Rearranging, Cloning, and Deleting Workbook Sections
+
+A workbook is a made of sections: independently editable usage visualizations, charts, tables, text, or Analytics query results.
 
 To edit the contents of a workbook section, click the **Edit** button below and to the right of the workbook section.
 
@@ -92,16 +89,27 @@ Use the [Analytics query language reference](app-insights-analytics-reference.md
 
 ## Adding Text and Markdown Sections
 
-Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Workbooks support
+Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Text sections in Workbooks support the [Markdown syntax](https://daringfireball.net/projects/markdown/) for text formatting, like headings, bold, italics, and bulleted lists.
 
-To add a 
-TBD - link to explaining Markdown
+To add a text section to your workbook, use the **Add text** button at the bottom of the workbook, or at the bottom of any section.
 
 ## Saving and Sharing Workbooks with Your Team
 
-TBD. 
+Workbooks are saved within an Application Insights resource, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the Application Insights resource. To view all of the workbooks in the resource, click the **Open** button in the action bar.
 
-TBD - mention Pin to Dashbaord
+To share a workbook that's currently in **My Reports**:
+
+1. Click **Open** in the action bar
+2. Click the "..." button beside the workbook you want to share
+3. Click **Move to Shared Reports**.
+
+To share a workbook with a link or via email, click **Share** in the action bar. Keep in mind that recipients of the link will need access to this resource in the Azure Portal to view the workbook. To make edits, recipients will need at least Contributor permissions for the resource.
+
+To pin a link to a workbook to an Azure Dashboard:
+
+1. Click **Open** in the action bar
+2. Clik the "..." button beside the workbook you want to pin
+3. Click **Pin to dashboard**.
 
 ![TBD - photo](./media/app-insights-usage-workbooks/tbd.png)
 
@@ -110,5 +118,5 @@ TBD - mention Pin to Dashbaord
 * [Usage overview](app-insights-usage-overview.md)
 * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
 * [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)
+* [Adding custom events to your app](app-insights-api-custom-events-metrics.md)
 
