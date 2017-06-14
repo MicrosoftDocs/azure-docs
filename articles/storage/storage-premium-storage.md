@@ -79,11 +79,11 @@ Here are some of the features of Premium Storage:
     Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, GS-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
 
 ## Supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-These are some of the features of the DS-series, DSv2-series, GS-series, Ls-series and Fs-series VMs:
+These are some of the features of the DS-series, DSv2-series, GS-series, Ls-series, and Fs-series VMs:
 
 * **Cloud service**
 
