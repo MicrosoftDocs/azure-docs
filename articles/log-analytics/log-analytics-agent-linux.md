@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2017
+ms.date: 06/13/2017
 ms.author: magoedte
 ---
 
@@ -42,6 +42,16 @@ The following Linux distributions are officially supported.  However, the OMS Ag
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+
+### Network
+The information below list the proxy and firewall configuration information required for the Linux agent to communicate with OMS. Traffic is outbound from your network to the OMS service. 
+
+|Agent Resource| Ports |  
+|------|---------|  
+|*.ods.opinsights.azure.com | Port 443|   
+|*.oms.opinsights.azure.com | Port 443|   
+|ods.systemcenteradvisor.com | Port 443|   
+|*.blob.core.windows.net/ | Port 443|   
 
 ### Package requirements
 
@@ -301,8 +311,8 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 #### Resolution
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
-New! The latest version of the OMS Agent for Linux now notifies you if the time skew is causing the onboarding failure
-Re-onboard using correct Workspace ID and Workspace Key instructions
+2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if the time skew is causing the onboarding failure.
+3. Re-onboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
 
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue an occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
