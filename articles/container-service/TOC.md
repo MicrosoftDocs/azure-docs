@@ -8,15 +8,13 @@
 
 # Tutorials
 ## Kubernetes
-### [1 - Prepare Application for ACS](container-service-tutorial-kubernetes-prepare-app.md)
-### [2 - Prepare Container Registry](container-service-tutorial-kubernetes-prepare-acr.md)
+### [1 - Create and test Docker images](container-service-tutorial-kubernetes-prepare-app.md)
+### [2 - Deploy Azure Container Registry](container-service-tutorial-kubernetes-prepare-acr.md)
 ### [3 - Deploy Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
-### [4 - Run application on cluster](container-service-tutorial-kubernetes-deploy-application.md)
-### [5 - Expose app to internet](container-service-tutorial-kubernetes-expose-application.md)
-### [6 - Scale application](container-service-tutorial-kubernetes-scale-application.md)
-### [7 - Update application](container-service-tutorial-kubernetes-update-application.md)
-### [8 - Scale Kubernetes](container-service-tutorial-kubernetes-scale-cluster.md)
-### [9 - Monitor Kubernetes](container-service-tutorial-kubernetes-monitor-cluster.md)
+### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
+### [5 - Scale application](container-service-tutorial-kubernetes-scale-application.md)
+### [6 - Update application](container-service-tutorial-kubernetes-update-application.md)
+### [7 - Monitor Kubernetes](container-service-tutorial-kubernetes-monitor-cluster.md)
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
 ### [Load balance applications](container-service-load-balancing.md)
