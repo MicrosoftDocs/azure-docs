@@ -61,7 +61,7 @@ Review the performance characteristics of virtual machines that work with Premiu
 
 **Premium Managed Disks**
 
-There are seven types of Premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
+There are seven types of premium managed disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
 
 | Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -71,7 +71,7 @@ There are seven types of Premium Managed disks that can be used with your VM and
 
 **Standard Managed Disks**
 
-There are seven types of Standard Managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
+There are seven types of standard managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
 
 | Standard Disk Type  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
