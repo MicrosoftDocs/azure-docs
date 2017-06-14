@@ -13,12 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/16/2017
+ms.date: 06/14/2017
 ms.author: sethm
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay
 ## Introduction
+
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. The tutorial assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Azure resources up and running in the cloud.
 
@@ -32,6 +33,7 @@ You will learn:
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## How Azure Relay helps with hybrid solutions
+
 Business solutions are typically composed of a combination of custom
 code written to tackle new and unique business requirements and existing
 functionality provided by solutions and systems that are already in
@@ -74,10 +76,11 @@ The following is a screen shot of the start page of the completed web applicatio
 ![][1]
 
 ## Set up the development environment
+
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015, but they also work with Visual Studio 2017.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
@@ -85,9 +88,11 @@ Before you can begin developing Azure applications, download the tools and set u
    easily develop Azure applications in Visual Studio.
 
 ## Create a namespace
+
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
 
 ## Create an on-premises server
+
 First, you will build a (mock) on-premises product catalog system. It
 will be fairly simple; you can see this as representing an actual
 on-premises product catalog system with a complete service surface that
@@ -96,12 +101,13 @@ we're trying to integrate.
 This project is a Visual Studio console application, and uses the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) to include the Service Bus libraries and configuration settings.
 
 ### Create the project
+
 1. Using administrator privileges, start Microsoft Visual
    Studio. To do so, right-click the Visual Studio program icon, and then click **Run as administrator**.
 2. In Visual Studio, on the **File** menu, click **New**, and then
    click **Project**.
 3. From **Installed Templates**, under **Visual C#**, click **Console
-   Application**. In the **Name** box, type the name
+   Application (.NET Framework)**. In the **Name** box, type the name
    **ProductsServer**:
 
    ![][11]
@@ -251,21 +257,17 @@ In this section you will build a simple ASP.NET application that displays data r
 1. Ensure that Visual Studio is running with administrator privileges.
 2. In Visual Studio, on the **File** menu, click **New**, and then
    click **Project**.
-3. From **Installed Templates**, under **Visual C#**, click **ASP.NET Web Application**. Name the project **ProductsPortal**. Then click **OK**.
+3. From **Installed Templates**, under **Visual C#**, click **ASP.NET Web Application (.NET Framework)**. Name the project **ProductsPortal**. Then click **OK**.
 
    ![][15]
 4. From the **Select a template** list, click **MVC**.
-5. Check the box for **Host in the cloud**.
 
    ![][16]
-6. Click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+
+6. Click the **Change Authentication** button. In the **Change Authentication** dialog box, ensure that **No Authentication** is selected, and then click **OK**. For this tutorial, you're deploying an app that does not need a user login.
 
     ![][18]
-7. In the **Microsoft Azure** section of the **New ASP.NET Project** dialog box, make sure that **Host in the cloud** is selected and that **App Service** is selected in the drop-down list.
-
-   ![][19]
-8. Click **OK**.
-9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create a web application](../app-service-web/app-service-web-get-started-dotnet.md) and [Create the Azure resources](../app-service-web/app-service-web-get-started-dotnet.md). Then, return to this tutorial and proceed to the next step.
+9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create an ASP.NET web app](../app-service-web/app-service-web-get-started-dotnet.md#create-an-aspnet-web-app). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -368,7 +370,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 1. If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 2. Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project references. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
-3. Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Then complete the installation and close this dialog box.
+3. Search for "Service Bus" and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 4. In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 5. Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
@@ -421,7 +423,9 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
       ![][25]
 11. Still in the **Properties** dialog box, click **Project Dependencies** on the left side.
-12. In the **Projects** list, click **ProductsServer**. Ensure that **ProductsPortal** is **not** selected.
+
+12. In the **Projects** list, click **ProductsServer**. Ensure that **ProductsPortal** is not selected.
+
 13. In the **Projects** list, click **ProductsPortal**. Ensure that **ProductsServer** is selected.
 
     ![][26]
@@ -437,7 +441,10 @@ Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page
 Close both applications before proceeding to the next step.
 
 ## Deploy the ProductsPortal project to an Azure web app
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to Azure](../app-service-web/app-service-web-get-started-dotnet.md). After deployment is complete, return to this tutorial and proceed to the next step.
+
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Publish to Azure](../app-service-web/app-service-web-get-started-dotnet.md#publish-to-azure). After deployment is complete, return to this tutorial and proceed to the next step.
+
+The next step is to republish the Azure Web app **ProductsPortal** frontend. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
 
 > [!NOTE]
 > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
@@ -451,7 +458,7 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 ### Set ProductsPortal as web app
 Before running the application in the cloud, you must ensure that **ProductsPortal** is launched from within Visual Studio as a web app.
 
-1. In Visual Studio, right-click the **ProjectsPortal** project and then click **Properties**.
+1. In Visual Studio, right-click the **ProductsPortal** project and then click **Properties**.
 2. In the left-hand column, click **Web**.
 3. In the **Start Action** section, click the **Start URL** button, and in the text box enter the URL for your previously deployed web app; for example, `http://productsportal1234567890.azurewebsites.net/`.
 
@@ -490,7 +497,6 @@ To learn more about Azure Relay, see the following resources:
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
 [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
-[19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
 [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
 [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 
