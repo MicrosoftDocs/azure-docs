@@ -59,7 +59,7 @@ The Billing Reader role has read-only access to subscription billing information
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> The Billing Reader feature is in preview, and is only available for Azure global cloud.
+> The Billing Reader feature is in preview, and does not yet support enterprise (EA) subscriptions or non-global clouds.
 
 ## Adding users to other roles
 

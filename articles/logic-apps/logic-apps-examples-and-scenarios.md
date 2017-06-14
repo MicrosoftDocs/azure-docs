@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/14/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Examples and common scenarios for Azure Logic Apps

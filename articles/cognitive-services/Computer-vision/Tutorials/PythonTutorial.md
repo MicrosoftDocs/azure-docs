@@ -31,7 +31,7 @@ To use this notebook, you will need a subscription key for the Computer Vision A
 ```python
 # Variables
 
-_url = 'https://westus.api.cognitive.microsoft.com/vision/v1/analyses'
+_url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1/analyses'
 _key = None #Here you have to paste your primary key
 _maxNumRetries = 10
 ```

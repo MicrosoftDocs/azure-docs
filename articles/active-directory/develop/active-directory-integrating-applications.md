@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
+ms.custom: aaddev
 
 ---
 # Integrating applications with Azure Active Directory

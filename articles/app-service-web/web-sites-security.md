@@ -59,7 +59,7 @@ If you prefer to perform your own penetration tests or want to use another scann
 obtain prior approval to perform the desired penetration tests.
 
 ## <a name="https"></a> Secure communication with customers
-If you use the **\*.azurewebsites.net** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.azurewebsites.net** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
+If you use the **\*.azurewebsites.net** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.azurewebsites.net** domain names. If your site uses a [custom domain name](app-service-web-tutorial-custom-domain.md), you can upload an SSL certificate to [enable HTTPS](app-service-web-tutorial-custom-ssl.md) for the custom domain.
 
 Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against MITM attacks on the communication between your app and its users.
 

@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # How to get an Azure Active Directory tenant

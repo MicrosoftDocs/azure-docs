@@ -89,7 +89,6 @@ The supported fault domain count is 2 or 3 for Availability Sets using Managed D
 You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
 
 **What kind of RBAC support do we have for Managed Disks?**
-
 Managed Disks supports three key default roles:
 
 1.  Owner: Can manage everything, including access.
@@ -110,6 +109,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, we support both managed and unmanaged disks. However, we recommend you start using managed disks for new workloads and migrate your current workloads to Managed Disks.
 
+
 **If I create a disk of size 128 GB and then increase the size to 130 GB will I be charged for the next disk size (512 GB)?**
 
 Yes.
@@ -128,10 +128,52 @@ No. You cannot update computer name property. New VM will inherit it from the pa
 * https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
 * https://github.com/chagarw/MDPP
 
+## Managed Disks and Storage service encryption (SSE)
+
+**Is SSE enabled by default when I create a Managed Disk?**
+
+Yes
+
+**Who manages the encryption keys?**
+
+Keys are managed by Microsoft.
+
+**Can I disable SSE for my Managed Disks?**
+
+No
+
+**Is SSE available in only specific regions?**
+
+No. It is available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany regions.
+
+**How can I find if my Managed Disk is encrypted?**
+
+You can find created time of Managed Disks from Azure portal, CLI and PowerShell. If created time is greater than June 9th, 2017 then your disks are encrypted. 
+
+**How can I encrypt my existing disks created before June 10th, 2017?**
+
+Starting June 10th 2017, new data written to existing Managed Disks will be automatically encrypted. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
+
+[Copy Managed Disks using CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+[Copy Managed Disks using PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+**Are managed snapshots and images encrypted?**
+
+Yes. All managed snapshots and images created after June 9th, 2017 are automatically encrypted. 
+
+**Can I convert VMs with unmanaged disks that are located on storage accounts that are or have previously been encrypted to managed disks?
+
+No. This feature is not supported yet. It is expected to come out by end of July. 
+
+**Will an exported VHD from a Managed Disk or a snapshot also be encrypted?**
+
+No. But if you export a VHD to an encrypted storage account from an encrypted Managed Disk or snapshot then it will be encrypted. 
+
+
 ## Managed Disks and port 8443
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
-
 The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
 
 **What happens if a VM is deployed with extensions and the port is not unblocked?**
@@ -168,7 +210,7 @@ No.
 
 **Is there an estimated date for this issue to be fixed so I no longer have to unblock port 8443?**
 
-Yes, by the end of May 2017.
+Yes, by the end of June 2017.
 
 ## Premium Disks – both managed and unmanaged
 

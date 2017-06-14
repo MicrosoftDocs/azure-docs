@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 05/30/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 
@@ -156,7 +156,7 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish (for example, by [monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish. You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **Q.** Do scale sets work with Azure availability sets?
 
