@@ -28,7 +28,7 @@ It depends on your on-premises environment and organizational requirements. Revi
 
 Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
 
-## Do [Conditional Access policies](../active-directory-conditional-access.md) work with Pass-through Authentication?
+## Does [Conditional Access](../active-directory-conditional-access.md) work with Pass-through Authentication?
 
 Yes, all Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 
@@ -70,7 +70,7 @@ Yes. If WPAD (Web Proxy Auto-Discovery) is enabled in your on-premises environme
 
 No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in this [article](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) instead.
 
-## I already use Active Directory Federation Services (AD FS) for Azure AD sign-in? How do I switch it to Pass-through Authentication?
+## I already use Active Directory Federation Services (AD FS) for Azure AD sign-in. How do I switch it to Pass-through Authentication?
 
 If you have configured AD FS as your sign-in method using the Azure AD Connect wizard, change the user sign-in method to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and converts _all_ your Federated domains into Managed domains. All subsequent sign-in requests in your tenant are handled by Pass-through Authentication. Currently, there is no supported way within Azure AD Connect to use a combination of AD FS and Pass-through Authentication across different domains.
 

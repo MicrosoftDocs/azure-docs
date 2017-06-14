@@ -92,11 +92,11 @@ By default, the browser automatically calculates the right zone (Internet or Int
 #### Mozilla Firefox
 
 Mozilla Firefox doesn't automatically do Kerberos Authentication. Each user has to manually add the Azure AD URLs to their Firefox settings using the following steps:
-- Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
-- Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
-- Right-click and select "Modify".
-- Enter "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" in the field.
-- Click "OK" and reopen the browser.
+1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
+2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
+3. Right-click and select "Modify".
+4. Enter "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" in the field.
+5. Click "OK" and reopen the browser.
 
 >[!NOTE]
 >Seamless SSO doesn't work in private browsing mode on Firefox.

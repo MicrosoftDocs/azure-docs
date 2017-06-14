@@ -51,17 +51,17 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 
 Use the following checklist to troubleshoot Seamless SSO issues:
 
-1. Check if the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [pre-requisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites) in place.
-2. Both these Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are part of the user's Intranet zone settings.
-3. Ensure the corporate device is joined to the AD domain.
-4. Ensure the user is logged on to the device using an AD domain account.
-5. Ensure that the user's account is from an AD forest where Seamless SSO has been set up.
-6. Ensure the device is connected on the corporate network.
-7. Ensure that the device's time is synchronized with the Active Directory's and the Domain Controllers' time and is within five minutes of each other.
-8. List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You may have  different settings in your Active Directory.
-8. Purge existing Kerberos tickets from the device using the **klist purge** command. 
-9. Review the console logs of the browser (under "Developer Tools") to help determine JavaScript-related or other potential issues.
-10. Review the [Domain Controller logs](#domain-controller-logs) as well.
+- Check if the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [pre-requisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites) in place.
+- Check if both these Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are part of the user's Intranet zone settings.
+- Ensure the corporate device is joined to the AD domain.
+- Ensure the user is logged on to the device using an AD domain account.
+- Ensure that the user's account is from an AD forest where Seamless SSO has been set up.
+- Ensure the device is connected on the corporate network.
+- Ensure that the device's time is synchronized with the Active Directory's and the Domain Controllers' time and is within five minutes of each other.
+- List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You may have  different settings in your Active Directory.
+- Purge existing Kerberos tickets from the device using the **klist purge** command, and try again.
+- Review the console logs of the browser (under "Developer Tools") to help determine JavaScript-related or other potential issues.
+- Review the [Domain Controller logs](#domain-controller-logs) as well.
 
 ### Domain Controller logs
 
@@ -79,29 +79,29 @@ If success auditing is enabled on your Domain Controller, then every time a user
 
 If troubleshooting didn't help, use the following steps to manually reset the feature on your tenant:
 
-1. Import the Seamless SSO PowerShell module
+1. Import the Seamless SSO PowerShell module:
 
-- First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-- Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-- Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-- Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+a. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
+b. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+c. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+d. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 
-2. Get the list of AD forests on which Seamless SSO has been enabled
+2. Get the list of AD forests on which Seamless SSO has been enabled:
 
-- In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
-- Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+a. In PowerShell, call `New-AzureADSSOAuthenticationContext`. When prompted, enter your Azure AD tenant administrator credentials.
+b. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
-3. Disable Seamless SSO for each AD forest that it was set it up on
+3. Disable Seamless SSO for each AD forest that it was set it up on:
 
-- Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-- Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACCT` computer account from the on-premises Domain Controller for this specific AD forest.
-- Repeat the preceding steps for each AD forest that you’ve set up the feature on.
+a. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+b. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACCT` computer account from the on-premises Domain Controller for this specific AD forest.
+c. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
-4. Enable Seamless SSO for each AD forest
+4. Enable Seamless SSO for each AD forest:
 
-- Call `Enable-AzureADSSOForest`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-- Repeat the preceding steps for each AD forest that you want to set up the feature on.
+a. Call `Enable-AzureADSSOForest`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+b. Repeat the preceding steps for each AD forest that you want to set up the feature on.
 
-5. Enable the feature on your tenant
+5. Enable the feature on your tenant:
 
-- Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
+a. Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
