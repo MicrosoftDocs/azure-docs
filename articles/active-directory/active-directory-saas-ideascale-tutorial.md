@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -149,11 +149,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/ic790850.png "Single Signon Settings")
    
-    a. Paste the **SAML Entity ID** value into the **SAML IdP Entity ID** textbox which you have copied from the Azure portal.
+    a. In **SAML IdP Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
-    b. Copy the content of your downloaded metadata file, and then paste it into the **SAML IdP Metadata** textbox which you have copied from the Azure portal.
+    b. Copy the content of your downloaded metadata file from Azure portal, and paste it into the **SAML IdP Metadata** textbox.
 
-    c. Paste the **Sign-Out URL** value into the **Logout Success URL** textbox which you have copied from the Azure portal.
+    c. In **Logout Success URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
     d. Click **Save Changes**.
 
