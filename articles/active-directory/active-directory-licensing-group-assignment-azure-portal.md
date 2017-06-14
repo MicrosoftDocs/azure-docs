@@ -36,7 +36,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 3. On the **Azure Active Directory** blade, select **Licenses**. This opens a blade where you can see and manage all licensable products in the tenant.
 
-4. Under **All products**, select both Office 365 Enterprise E3 and Enterprise Mobility + Security by selecting the product names. Select **Assign** at the top of the blade to start the assignment.
+4. Under **All products**, select both Office 365 Enterprise E3 and Enterprise Mobility + Security by selecting the product names. To start the assignment, select **Assign** at the top of the blade.
 
    ![All products, assign license](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
@@ -48,11 +48,11 @@ In this example, the tenant contains a security group called **HR Department**. 
 
    ![Assignment options](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Finally, on the **Assign license** blade, click **Assign** at the bottom of the blade to complete the assignment.
+7. To complete the assignment, on the **Assign license** blade, click **Assign** at the bottom of the blade.
 
-8. A notification is displayed in the upper right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
+8. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
 
-We've now specified a license template for the HR Department group. A background process in Azure AD has been started to process all existing members of that group. This initial operation might take some time, depending on the current size of the group. In the next step, we'll describe how to verify that the process has completed and if further attention is required to resolve problems.
+We've now specified a license template for the HR Department group. A background process in Azure AD has been started to process all existing members of that group. This initial operation might take some time, depending on the current size of the group. In the next step, we'll describe how to verify that the process has completed and determine if further attention is required to resolve problems.
 
 > [!NOTE]
 > You can start the same assignment from an alternative location: **Users and groups** in Azure AD. Go to **Azure Active Directory** > **Users and groups** > **All groups**. Then find the group, select it, and go to the **Licenses** tab. The **Assign** button on top of the blade opens the license assignment blade.
@@ -61,7 +61,7 @@ We've now specified a license template for the HR Department group. A background
 
 1. Go to **Azure Active Directory** > **Users and groups** > **All groups**. Then find the **HR Department** group that licenses were assigned to.
 
-2. On the **HR Department** group blade, select **Licenses** to quickly confirm if licenses have been fully assigned to users, and if there are any errors that you need to look into. The following information is available:
+2. On the **HR Department** group blade, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
    - List of product licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
@@ -85,17 +85,17 @@ We've now specified a license template for the HR Department group. A background
 
    ![Failed assignments](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Select a user to open the **Licenses** blade. This blade shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group have been assigned to the user.
+4. Select a user to open the **Licenses** blade. This blade shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
 
    ![View licenses for a user](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
-5. To solve this conflict, we remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
+5. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
 
    ![License correctly assigned](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
 ## Next steps
 
-To learn more about the feature set for license management through groups, see the following:
+To learn more about the feature set for license management through groups, see the following articles:
 
 * [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
