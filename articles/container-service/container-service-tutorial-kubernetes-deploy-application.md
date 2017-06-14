@@ -35,15 +35,58 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 Azure Container Service Kubernetes cluster – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
+Azure Container Registry – if you would like to integrate Azure Container registry (optional), an ACR instance will be needed. See, [Deploy container registry]() for information on the deployment steps.
+
+Kubernetes manifest files – the Azure Vote application will be deployed using Kubernetes YAML manifest files. These can either be copied from the text of this tutorial or pre-created files are included in the Azure Vote repo. To clone the repo, run:
+
+```bash
+git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+```
+
 ## Understand Kubernetes Objects
 
 When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the application deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim which is a request to use a persistent volume, and a deployment which manages the state of the application. 
 
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
+## Deploye the Vote app
+
+This document will individual detail all objects included with the Azure Vote app deployment. If you would rather just deploy the app, without examining the details, a completed manifest has been pre-created. When deploying the complete manifest, the Azure Vote images are pulled from a public registry using default values.
+
+To deploy the Azure Vote app, run the following command. 
+
+```bash
+kubectl create -f https://raw.githubusercontent.com/neilpeterson/azure-kubernetes-samples/master/kubernetes-manifests/azure-vote-all-in-one.yaml
+```
+
+Once deployed, run the following command to monitor deployment status. This will return a list of services. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
+
+```bash
+kubectl get service -w
+```
+
+Output:
+
+```bash
+NAME               CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+azure-vote-back    10.0.77.30    <none>          3306/TCP       4m
+azure-vote-front   10.0.120.96   40.71.227.124   80:31482/TCP   4m
+kubernetes         10.0.0.1      <none>          443/TCP        7m
+```
+
+Browse to the returned external IP address to see the application.
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
+
 ## Create storage resources
 
 Because the Azure Vote application includes a MySQL database, we will want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file will remain in-tact. 
+
+The following manifest file creates a Storage Class object which defines how and where a persistent volume will be created. Several volume plug-ins are available for Kubernetes. In this case the [Azure disk]()https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk plug in is used.
+
+A persistent volume claim is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
+
+When deployed, the combination of these objects will create a VHD in an Azure storage account, and attach that to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernete cluster and of the same configuration as the storage class object (Standard_LRS).
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -66,6 +109,8 @@ spec:
     requests:
       storage: 1Gi
 ```
+
+Create the storage objects with the following command.
 
 ```bash
 kubectl create -f storage-resources.yaml
@@ -96,11 +141,19 @@ data:
   MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
 ```
 
+Create the secreat objects with the following command.
+
 ```bash
 kubectl create -f pod-secrets.yaml
 ```
 
 ## Create back-end deployment
+
+A Kubernetes deployment controller manages the state of an applications pods. This includes things like ensuring that the desired replica counts are running, that volumes are mounted, and the proper container images are being used.
+
+The following example creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
+
+Note, if using Azure Container Registry, update the image name with the loginServer of the ACR instance.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -152,7 +205,15 @@ spec:
           claimName: mysql-pv-claim
 ```
 
+Create the deployment with the following command.
+
+```bash
+kubectl create -f backend-deployment
+```
+
 ## Create front-end deployment
+
+The front-end deployment is like the back-end. Again, if using ACR, update the image names to reference the ACR loginServer name. 
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -193,9 +254,17 @@ spec:
             secretKeyRef:
               name: azure-vote
               key: MYSQL_HOST
-``
+```
+
+Create the deployment with the following command.
+
+```bash
+kubectl create -f frontend-deployment
+```
 
 ## Create services
+
+A Kubernetes services define how a pod will be accessed. In the case of the Azure Vote app, the front-end pod must be accessible from the internet, and the back-end pod front the front-end pod.
 
 ```yaml
 apiVersion: v1
@@ -220,26 +289,19 @@ spec:
     app: azure-vote-front
 ```
 
+Create the services with the following command.
+
 ```bash
 kubectl create -f services.yaml
 ```
 
-To determine when the application is ready to be accessed, return a list of services.
+Once deployed, run the following command to monitor deployment status. This will return a list of services. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
 
 ```bash
-kubectl get service
+kubectl get service -w
 ```
 
 Output:
-
-```bash
-NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-back    10.0.77.30    <none>        3306/TCP       6s
-azure-vote-front   10.0.120.96   <pending>     80:31482/TCP   5s
-kubernetes         10.0.0.1      <none>        443/TCP        3m
-```
-
-When the EXTERNAL_IP of *azure-vote-front* service changes from *<pending>* to an IP address, the application is ready.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
@@ -251,7 +313,6 @@ kubernetes         10.0.0.1      <none>          443/TCP        7m
 Browse to the returned external IP address to see the application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
-
 
 ## Next steps
 
