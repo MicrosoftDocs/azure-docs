@@ -8,7 +8,6 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
@@ -21,7 +20,7 @@ To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md)
 - Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in your web browser.
 
-## Backup happens Automatically
+## Backup happens automatically
 When using Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
 
 The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md)
