@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Azure .NET SDK | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics jobs, data sources, users. '
 services: data-lake-analytics
 documentationcenter: ''
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
@@ -30,62 +30,26 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 ### Install Nuget packages
    
-   1. In Visual Studio, right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
-   2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
+Install the following NuGet packages:
 
-   3. Search for and install the following NuGet packages:
+* **Microsoft.Rest.ClientRuntime.Azure.Authentication** - This tutorial uses V2.2.12
+* **Microsoft.Azure.Management.DataLake.Analytics** - This tutorial uses V2.1.0 preview
+* **Microsoft.Azure.Management.DataLake.Store** - This tutorial uses V2.1.0 preview
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication - This tutorial uses V2.2.12
-    - Microsoft.Azure.Management.DataLake.Analytics - This tutorial uses V2.1.0 preview
-    - Microsoft.Azure.Management.DataLake.Store - This tutorial uses V2.1.0 preview
+## Create the Client management objects
 
-   4. Close the **Nuget Package Manager**.
+```
+adlsClient = new DataLakeStoreAccountManagementClient(creds);
+adlsClient.SubscriptionId = <Subscription-ID>;
 
-## Client management objects
-The Azure Data Lake Analytics and Azure Data Lake Store APIs include sets of client management objects from which you do most of your programming. These objects are in these two namespaces:
-* Microsoft.Azure.Management.DataLake.Analytics
-* Microsoft.Azure.Management.DataLake.Store
+adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
+adlaClient.SubscriptionId = <Subscription-ID>;
 
-The following table shows the client management objects, with variables that used for their code examples throughout this article.
+adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(creds);
+adlaJobClient = new DataLakeAnalyticsJobManagementClient(creds);
+```
 
-| Client Management Object                  | Code Variable        |
-| ----------------------------------------- | -------------------- |
-| DataLakeStoreAccountManagementClient      | adlsClient           |
-| DataLakeAnalyticsAccountManagementClient  | adlaClient           |
-| DataLakeStoreFileSystemManagementClient   | adlsFileSystemClient |
-| DataLakeAnalyticsCatalogManagementClient  | adlaCatalogClient    |
-| DataLakeAnalyticsJobManagementClient      | adlaJobClient        |
-
-### Data Lake Store management client objects:
-* DataLakeStoreAccountManagementClient - Use to create and manage Data Lake Store accounts.
-* DataLakeFileSystemAccountManagementClient - Use for file system tasks such as to create folders and files, upload files, list files, access ACL's and credentials, and add links to Azure Storage blobs.
-
-Although you can create links to Azure Storage from Data Lake, you cannot access its content. To do so, you must use the Azure Storage SDK APIs. You can, however, run U-SQL scripts on Azure Storage blobs.
-
-### Data Lake Analytics management client objects:
-* DataLakeAnalyticsAccountManagementClient - Use to create and manage Data Lake Analytics accounts.
-* DataLakeAnalyticsCatalogManagementClient - Use to explore the catalog items in Data Lake Analytics.
-* DataLakeAnalyticsJobManagementClient - Submit and manage jobs in Data Lake Analytics.
-
-### Example
-
-Initialize client management objects using your credentials (creds) as obtained by your preferred authentication method, described next in this article. 
-
-    // Only the Data Lake Analytics and Data Lake Store  
-    // objects need a subscription ID.
-    adlsClient = new DataLakeStoreAccountManagementClient(creds);
-    adlsClient.SubscriptionId = <Subscription-ID>;
-
-    adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-    adlaClient.SubscriptionId = <Subscription-ID>;
-
-    adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
-    adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(creds);
-    adlaJobClient = new DataLakeAnalyticsJobManagementClient(creds);
-
-
-    // Methods to create and manage Data Lake Analytics
-    . . .
 
 ## Authenticate and connect to Azure Data Lake Analytics
 You have multiple options for logging on to Azure Data Lake Analytics.
