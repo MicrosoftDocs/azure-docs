@@ -70,7 +70,7 @@ Access reviews can be used to ensure users who have been invited for a particula
 
 1. Start an access review for the application, selecting the review to include guests only, and that users review their own access. Read more at
  [how to create an access review](active-directory-azure-ad-controls-create-an-access-review.md).
-2. Ask each guest to review their own access to the application.  By default, each guest that has accepted an invite will receive an email from Azure AD with a link to the access review in your organization's access panel.  Azure AD has instructions for guests on [how to review their access](active-directory-azure-ad-controls-perform--an-access-review.md).
+2. Ask each guest to review their own access to the application.  By default, each guest that has accepted an invite will receive an email from Azure AD with a link to the access review in your organization's access panel.  Azure AD has instructions for guests on [how to review their access](active-directory-azure-ad-controls-perform-an-access-review.md).
 3. Once the reviewers have given input, stop the access review and apply the changes. Read more at [how to complete an access review](active-directory-azure-ad-controls-complete-an-access-review.md).
 4. In addition to users who denied their own need for continued access, you may wish to also remove the guest users who did not respond, as the non-responding users are potentially no longer receiving email.  You may also wish to remove the guest users who were not selected to participate, especially if the guest had not been recently invited, as those users had not accepted their invite and so would not have access to the application. 
 
@@ -80,7 +80,7 @@ Access reviews can be used to ensure users who have been invited for a particula
 You can ask a sponsor, such as the owners of an application, to review guest's need for continued access to the application.
 
 1. Start an access review for the application, selecting the review to include guests only, and specifying one or more users as reviewers. Read more at [how to create an access review](active-directory-azure-ad-controls-create-an-access-review.md).
-2. Ask the reviewers to give input. By default, they will each receive an email from Azure AD with a link to the access panel, where they will [perform their access review](active-directory-azure-ad-controls-how-perform-an-access-review.md).
+2. Ask the reviewers to give input. By default, they will each receive an email from Azure AD with a link to the access panel, where they will [perform their access review](active-directory-azure-ad-controls-perform-an-access-review.md).
 3. Once the reviewers have given input, stop the access review and apply the changes. Read more at [how to complete an access review](active-directory-azure-ad-controls-complete-an-access-review.md).
 
 ### Asking guests to review their need for access, in general
