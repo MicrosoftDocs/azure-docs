@@ -154,8 +154,9 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli 
 az login 
 ```
+### Create a resource group
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### Create a MySQL server
 
