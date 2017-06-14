@@ -22,7 +22,8 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight storage options](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # How To
 ## Use Hadoop for batch queries
@@ -113,6 +114,7 @@
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Use HDInsight Tools to debug Spark apps remotely](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Use empty edge nodes](hdinsight-apps-use-edge-node.md)
 ### [Develop Python streaming programs](hdinsight-hadoop-streaming-python.md)
 ### [Process and analyze JSON documents](hdinsight-using-json-in-hive.md)
@@ -141,7 +143,7 @@
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Use Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
-### [Use Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Use Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Build HDInsight applications
 #### [Install HDInsight apps](hdinsight-apps-install-applications.md)
 #### [Install custom apps](hdinsight-apps-install-custom-applications.md)

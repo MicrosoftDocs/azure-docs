@@ -1,5 +1,5 @@
 ---
-title: Use Apache Kafka with Storm on HDInsight | Microsoft Docs
+title: Use Apache Kafka with Storm on HDInsight - Azure | Microsoft Docs
 description: Apache Kafka is installed with Apache Storm on HDInsight. Learn how to write to Kafka, and then read from it, using the KafkaBolt and KafkaSpout components provided with Storm. Also learn how to use the Flux framework to define and submit Storm topologies.
 services: hdinsight
 documentationcenter: ''

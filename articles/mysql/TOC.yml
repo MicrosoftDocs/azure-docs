@@ -83,13 +83,13 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
-  - name: Connect Applications
+  - name: Connect applications
     items:
-    - name: Connection Strings
+    - name: Connection strings
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
-    - name: Web App
+    - name: Web apps
       href: howto-connect-webapp.md
 - name: Reference
   items:
@@ -103,6 +103,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Videos
+    href: videos.md
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability

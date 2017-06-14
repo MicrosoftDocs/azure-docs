@@ -61,7 +61,7 @@ sudo apt-get install dotnet-dev-1.0.1
 ```
 
 ## Install Npgsql references into your Visual Studio solution
-In order to connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
+To connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
 
 1. Create a new C# solution, or open an existing one: 
    - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
@@ -71,7 +71,7 @@ In order to connect from the C# application to PostgreSQL, use the open source A
 2. Use the Nuget Package Manager to install Npgsql:
    - Click the **Tools** menu > **NuGet Package Manager** > **Package Manager Console**.
    - In the **Package Manager Console**, type `Install-Package Npgsql`
-   - The install command downloads the Npgsql.dll and related assemblies and add them as dependencies in the solution.
+   - The install command downloads the Npgsql.dll and related assemblies and adds them as dependencies in the solution.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
