@@ -205,6 +205,11 @@ spec:
         image: neilpeterson/azure-vote-front:latest
         ports:
         - containerPort: 80
+        resource:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
         imagePullPolicy: Always
         env:
         - name: MYSQL_USER
