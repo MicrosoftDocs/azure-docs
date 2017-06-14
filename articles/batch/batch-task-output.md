@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Persist job and task output to Azure Storage
 
-A task running in Azure Batch frequently produces output data when it runs. Task output data often needs to be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. While you can persist data to the file system of a Batch compute node, nodes are ephemeral, and all data on a node is lost when it is reimaged. Therefore it's important to persist task data that you'll need later to a data store such as Azure Storage.
+A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Therefore it's important to persist task output that you'll need later to a data store such as Azure Storage.
 
 Some common examples of task output include:
 
@@ -71,7 +71,7 @@ The Batch service API supports persisting task data to an Azure Storage account 
 
 Use the Batch service API to persist task output when:
 
-- You want to persist data from Batch tasks and job manager tasks from pools running the virtual machine configuration.
+- You want to persist data from Batch tasks and job manager tasks in pools created with the virtual machine configuration.
 - You want to persist data to an Azure Storage container with an arbitrary name.
 - You want to persist data to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
