@@ -18,7 +18,7 @@ ms.date: 04/26/2017
 ms.author: rclaus
 ---
 
-# Create an Oracle Database 12c database in an Azure virtual machine
+# Create an Oracle Database 12c database in an Azure virtual machine 
 
 You can use Azure CLI to create and manage Azure resources at a command prompt or in scripts. In this article, we use scripts in Azure CLI to deploy an Oracle Database 12c database from an Azure Marketplace gallery image.
 

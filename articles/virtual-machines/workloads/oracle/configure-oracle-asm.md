@@ -18,7 +18,7 @@ ms.date: 05/2/2017
 ms.author: v-shiuma
 ---
 
-# Set up Oracle ASM on an Azure Linux virtual machine 
+# Set up Oracle ASM on an Azure Linux virtual machine  
 
 In this article, learn how to install and set up Oracle Automatic Storage Management (Oracle ASM) on an Oracle Linux virtual machine (VM) in Azure.
 
