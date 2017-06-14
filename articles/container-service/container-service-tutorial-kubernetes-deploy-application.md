@@ -33,15 +33,9 @@ Tasks completed in this tutorial include:
 
 This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-Azure Container Service Kubernetes cluster – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
+**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
-Azure Container Registry – if you would like to integrate Azure Container registry (optional), an ACR instance will be needed. See, [Deploy container registry]() for information on the deployment steps.
-
-Kubernetes manifest files – the Azure Vote application will be deployed using Kubernetes YAML manifest files. These can either be copied from the text of this tutorial or pre-created files are included in the Azure Vote repo. To clone the repo, run:
-
-```bash
-git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
-```
+**Azure Container Registry** – if you would like to integrate Azure Container registry (optional), an ACR instance will be needed. See, [Deploy container registry]() for information on the deployment steps.
 
 ## Understand Kubernetes Objects
 
@@ -50,6 +44,12 @@ When deploying a containerized application into a Kubernetes cluster, many diffe
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
 ## Create storage resources
+
+The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command. Alternatively, each file can be created by copying the YAML found in this document. 
+
+```bash
+git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+```
 
 Because the Azure Vote application includes a MySQL database, we will want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file will remain in-tact. 
 
@@ -303,4 +303,3 @@ Advance to the next tutorial to learn about scaling both a Kubernetes applicatio
 
 > [!div class="nextstepaction"]
 > [Scale Kubernetes application and infrastructure](./container-service-tutorial-kubernetes-scale-application.md)
-

@@ -30,7 +30,13 @@ Azure Container Registry (ACR) is an Azure based, private registry, for Docker c
 
 For detailed information on Azure Container Registry, see [Introduction to private Docker container registries](../container-registry/container-registry-intro.md). 
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+## Prerequisites
+
+This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+
+**Container Images** - in the previous tutorial, two container images were created. These images will be stored in an Azure Container Registry. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
 
 ## Deploy Azure Container Registry
 
@@ -44,11 +50,15 @@ az group create --name myResourceGroup --location eastus
 
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. 
 
-The following example creates a registry with a randomly generate name. The registry is also configured with an admin account using the `--admin-enabled` argument.
+The following example creates a registry with a randomly generate name.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
 ```
+
+# Get ACR information 
+
+Once the ACR instance has been created, the name, login server name, and authentication password will be needed. These values are use throughout this tutorial. To keep things simple, these values will be stored in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
 
 ACR Name:
 
@@ -82,7 +92,7 @@ The command will return a 'Login Succeeded’ message once completed.
 
 ## Tag container images
 
-Each container image needs to be tagged with the `loginServer` name of the registry. 
+Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing the container image.
 
 To see a list of current images, use the `docker images` command.
 
@@ -100,16 +110,16 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the container registry. The following example uses a variable that contains the login server name.
+Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This indicates the image version number.
 
 ```bash
-docker tag azure-vote-front $acrLoginServer/azure-vote-front
+docker tag azure-vote-front $acrLoginServer/azure-vote-front:v1
 ```
 
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker tag azure-vote-front $acrLoginServer/azure-vote-back
+docker tag azure-vote-front $acrLoginServer/azure-vote-back:v1
 ```
 
 Once tagged, run `docker images` to verify the operation.
@@ -121,13 +131,13 @@ docker images
 Output:
 
 ```bash
-REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
-mycontainerregistry8781.azurecr.io/azure-vote-front   latest              a3d423cf3260        About an hour ago   716 MB
-azure-vote-front                                      latest              a3d423cf3260        About an hour ago   716 MB
-azure-vote-back                                       latest              ad6b280678eb        About an hour ago   407 MB
-mycontainerregistry8781.azurecr.io/azure-vote-back    latest              ad6b280678eb        About an hour ago   407 MB
-mysql                                                 latest              e799c7f9ae9c        5 weeks ago         407 MB
-tiangolo/uwsgi-nginx-flask                            flask               788ca94b2313        8 months ago        694 MB
+REPOSITORY                                               TAG                 IMAGE ID            CREATED             SIZE
+mycontainerregistry8781.azurecr.io/azure-vote-front:v1   latest              a3d423cf3260        About an hour ago   716 MB
+azure-vote-front                                         latest              a3d423cf3260        About an hour ago   716 MB
+azure-vote-back                                          latest              ad6b280678eb        About an hour ago   407 MB
+mycontainerregistry8781.azurecr.io/azure-vote-back:v1    latest              ad6b280678eb        About an hour ago   407 MB
+mysql                                                    latest              e799c7f9ae9c        5 weeks ago         407 MB
+tiangolo/uwsgi-nginx-flask                               flask               788ca94b2313        8 months ago        694 MB
 ```
 
 ## Push images to ACR
@@ -137,13 +147,13 @@ Push the *azure-vote-front* image to the registry.
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
 ```bash
-docker push $acrLoginServer//azure-vote-front 
+docker push $acrLoginServer/azure-vote-front:v1
 ```
 
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker push $acrLoginServer//azure-vote-back
+docker push $acrLoginServer/azure-vote-back:v1
 ```
 
 At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance.  
