@@ -90,9 +90,9 @@ Learn more about [Awingu on as alternative to Azure RemoteApp](http://alternativ
 ### Citrix XenApp Essentials (released April 2017)
 Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Citrix.XenAppEssentials), Citrix XenApp Essentials is the new application virtualization service, combining the power and flexibility of the Citrix Cloud platform with the simple, prescriptive, and easy-to-consume vision of Microsoft Azure RemoteApp.  
 
-Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/global-partners/microsoft/remote-app.html).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
+Existing Azure RemoteApp customers can [register for a free trial](be https://www.citrix.com/products/citrix-cloud/form/xenapp-essentials-msft-trial.html).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
 
-Learn more about [Citrix XenApp Essentials](https://www.citrix.com/global-partners/microsoft/remote-app.html).
+Learn more about [Citrix XenApp Essentials](https://www.citrix.com/global-partners/microsoft/remote-app.html), or watch a [presentation on its featured](https://www.youtube.com/watch?v=91Z7CCfQ-9k).
 
 ### Citrix Cloud XenApp Service and XenDesktop Service 
 
@@ -117,50 +117,6 @@ Learn more about [Frame on Azure](https://www.fra.me/ara).
 
 ### Microsoft Hosted Service Provider
 Hosting partners typically offer a fully managed hosted Windows desktop and application service, which may include managing the Azure resources, operating systems, applications, and helpdesk using the partner's licensing agreements with Microsoft and other software providers along with being a Service Provider License Agreement to allow reselling of Subscriber Access License (SAL). The following information provides details and contact information for some of the hosters that specialize in assisting customers with their Azure RemoteApp migration. Check out [the current list of Hosted Service Providers](http://aka.ms/rdsonazurecertified) that have completed the RDS on IaaS learning path and assessment.  
-
-#### ASPEX
-[ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
-
-> Primary location: Antwerp, Belgium
-> 
-> Operation region: Western Europe
-> 
-> Partner status: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff)
-> 
-> Microsoft Cloud Service Provider: Yes
-> 
-> Offer session-based RemoteApp and Desktop solutions: Yes, both
-> 
-> Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/azure-remote-apps)
-> 
-> Phone: +3232202198
-> 
-> Mail: [info@aspex.be](mailto:info@aspex.be)
-> 
-> Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
-
-#### Conexlink (Platform name: MyCloudIT)
-[MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
-
-The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client's entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
-
-> Primary location: Dallas, TX, USA
-> 
-> Operation region: Worldwide
-> 
-> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink)
-> 
-> Microsoft Cloud Service Provider: Yes
-> 
-> Offer session-based RemoteApp and Desktop solutions: Yes, both
-> 
-> Azure RemoteApp migration solutions: Yes, [learn more](https://mycloudit.com/remote-app-microsoft/)
-> 
-> Brian Garoutte, VP of Business Development
-> 
-> Phone: 972-218-0741
->   
-> Email: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
 
 #### Acuutech
 [Acuutech](http://www.acuutech.com) specializes in providing hosted desktop solutions, delivering full desktop and ISV applications experiences built on Microsoft technology to a global client base from Azure and their own datacenters.
@@ -200,6 +156,85 @@ The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and mo
 > Suite 200, Houston, TX 77098
 >   
 > Phone: +1 713 691 0800
+
+#### ASPEX
+[ASPEX](http://www.aspex.be/en) specializes in ISVs transitioning to the Cloud and ISV‘ looking to optimize their current cloud setups. ASPEX offers a wide range of managed services, devops, and consulting services.  
+
+> Primary location: Antwerp, Belgium
+> 
+> Operation region: Western Europe
+> 
+> Partner status: [Silver](https://partnercenter.microsoft.com/pcv/solution-providers/aspex_9397f5dd-ebdd-405b-b926-19a5bda61f7a/cfe00bac-ea36-4591-a60b-ec001c4c3dff)
+> 
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes, [learn more](https://www.aspex.be/en/azure-remote-apps)
+> 
+> Phone: +3232202198
+> 
+> Mail: [info@aspex.be](mailto:info@aspex.be)
+> 
+> Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
+
+#### Caase.com
+[Caase.com](http://www.caase.com/) helps businesses, local governments, non-governmental bodies and healthcare institutions with their journey towards a smarter way of work in the Microsoft Cloud. Being productive and secure at any place, with any device and at low IT cost. Caase.com is a true specialist for Microsoft Office365, Azure, Enterprise Mobility and Security and Windows. With our consultancy, migration services, adoption programs, training, management and support Caase.com creates an optimized and secure platform for collaboration for both customers’ employees, partners and suppliers.
+Caase.com is the mastermind of the Azure Remote Workspace (mobile workplace) and the Digital Workplace (Social Intranet). Both solutions – accomplished with adoption – are the foundation which ensures that the users of these solutions have the most pleasant, successful and effective experience in their route to the Microsoft Cloud.
+Dutch translation ánd a supporting movie over here: http://caase.com/over-ons/
+
+> Operation region: Dutch based, global reach
+> Partner status: [Gold](https://partnercenter.microsoft.com/nl-nl/pcv/solution-providers/caasecom_4295593260/51159_3)
+> Microsoft Cloud Service Provider: Yes
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> Azure RemoteApp migration solutions: Yes, [learn more](http://caase.com/diensten/microsoft-azure/).
+> 
+> Netherlands:
+> Rigtersbleek-Zandvoort 10 (De Spinnerij)
+> 7521 BE, Enschede
+> Phone: +31 (0) 88 4320 000
+
+
+#### Conexlink (Platform name: MyCloudIT)
+[MyCloudIT](https://mycloudit.com) is an automation platform for IT companies to simplify, optimize, and scale the migration and delivery of remote desktops, remote applications, and infrastructure in the Microsoft Azure Cloud. 
+
+The MyCloudIT platform reduces deployment time by 95%, Azure cost by 30%, and moves their client's entire IT infrastructure into the cloud in a matter of a few key strokes. Partners can now manage customers from one global dashboard, service end users around the world like never before, and grow revenues without adding additional overhead or extensive Azure training.  
+
+> Primary location: Dallas, TX, USA
+> 
+> Operation region: Worldwide
+> 
+> Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/conexlink_4298787366/843036_1?k=Conexlink)
+> 
+> Microsoft Cloud Service Provider: Yes
+> 
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> 
+> Azure RemoteApp migration solutions: Yes, [learn more](https://mycloudit.com/remote-app-microsoft/)
+> 
+> Brian Garoutte, VP of Business Development
+> 
+> Phone: 972-218-0741
+>   
+> Email: [brian.garoutte@conexlink.com](mailto:brian.garoutte@conexlink.com)
+
+
+#### Nerdio
+[Nerdio for Azure](http://getnerdio.com/nfa/) is an IT automation platform that delivers ridiculously simple provisioning, management and optimization of complete IT environments in the Microsoft cloud. Stand up virtual desktops, remote apps and servers in a couple of hours. Administer the environment in three clicks or less with Nerdio Admin Portal. Use intelligent auto-scaling and save 40 to 60% in Azure IaaS resources.
+
+> Primary location: Chicago, IL
+> Operation region: Worldwide
+> Partner status: [Gold](https://partnercenter.microsoft.com/en-us/pcv/solution-providers/adar-inc_341c9afa-f12c-46f5-8f7b-3f9ef59a66a5/785e494c-cab1-4dd4-864d-9301375be335)
+> Microsoft Cloud Service Provider: Yes
+> Offer session-based RemoteApp and Desktop solutions: Yes, both
+> Azure RemoteApp migration solutions: Yes
+> 
+> 8001 Lincoln Ave
+> Suite 212
+> Skokie, IL 60077
+> USA
+> (844) 4NERDIO ext. 6
+> [sayhello@getnerdio.com](mailto:sayhello@getnerdio.com)
 
 #### **SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) offers complete Microsoft Dynamics portfolio (NAV, AX, GP, SL, CRM) private and public cloud (Azure).
