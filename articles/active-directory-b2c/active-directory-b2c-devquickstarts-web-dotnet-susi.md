@@ -28,19 +28,19 @@ This tutorial shows you how to add the powerful Azure AD B2C identity features t
 
 ## Create an Azure AD B2C directory
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C directory before you continue in this guide.
+
+[!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> You need to connect the B2C Tenant to your Azure subscription. To do so, follow the directions for [creating a B2C directory](active-directory-b2c-get-started.md). After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
+> You need to connect the B2C Tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
 
 ## Create and register an application
 
-Next, you need to create a web app in your B2C directory. This provides information that Azure AD B2C needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+Next, you need to create and register the app in your B2C directory. This provides information that Azure AD B2C needs to securely communicate with your app. 
 
-* Include a **web app/web API** in the application.
-* Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
-* Copy down the **Application ID** that is assigned to your app.  You will need it later.
+[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -50,12 +50,21 @@ When you are done, you will have both an API and a native application in your ap
 
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit**, and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). For each policy, be sure to select the Display name attribute or claim, and to copy down the name of your policy for later use.
 
-1. **Add your identity providers**:  From your settings, select **Identity Providers** and choose User ID Sign up or Email signup.
-2. **Create a Sign-up and sign-in policy**: Follow [these](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy) directions. 
-3. **Create a Profile editing policy**: Follow [these](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-profile-editing-policy) directions. 
-4. **Create a password reset policy**: Follow [these](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-profile-editing-policy) directions. 
+### Add your identity providers
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+From your settings, select **Identity Providers** and choose User ID Sign up or Email signup.
+
+### Create a Sign-up and sign-in policy
+
+[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+
+### Create a Profile editing policy
+
+[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
+
+### Create a password reset policy
+
+[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
 After you create your policies, you're ready to build your app.
 
