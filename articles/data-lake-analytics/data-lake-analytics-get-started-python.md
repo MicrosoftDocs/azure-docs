@@ -18,7 +18,7 @@ ms.author: jgao
 ---
 
 
-# Tutorial: get started with Azure Data Lake Analytics using Python
+# Get started with Azure Data Lake Analytics using Python
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use Python to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytic accounts. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
@@ -121,7 +121,6 @@ rg = '<Azure Resource Group Name>'
 location = '<Location>' # i.e. 'eastus2'
 adls = '<Azure Data Lake Store Account Name>'
 adls = '<Azure Data Lake Analytics Account Name>'
-
 ```
 
 ## Create the clients
@@ -172,7 +171,6 @@ script = """
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
-
 """
 
 jobId = str(uuid.uuid4())
