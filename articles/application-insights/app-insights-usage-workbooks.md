@@ -37,7 +37,7 @@ A workbook is a made of sections: independently editable usage visualizations, c
 
 To edit the contents of a workbook section, click the **Edit** button below and to the right of the workbook section.
 
-TBD - numbered screenshot here
+![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/editing-controls.png)
 
 1. When you're done editing a section, click **Done Editing** in the bottom left corner of the section.
 
@@ -53,7 +53,7 @@ Workbooks offer four types of built-in usage analytics visualizations. Each answ
 
 To add a Users, Sessions, Events, or Retention section to your workbook, use the **Add Users** or other corresponding button at the bottom of the workbook, or at the bottom of any section.
 
-TBD - Users screenshot
+![Users section in Workbooks](./media/app-insights-usage-workbooks/users-section.png)
 
 **Users** sections answer "How many users viewed some page or used some feature of my site?"
 
@@ -66,7 +66,7 @@ Each of these three section types offers the same sets of controls and visualiza
 * [Learn more about editing Users, Sessions, and Events sections](app-insights-usage-segmentation.md)
 * Toggle the main chart, histogram grids, automatic insights, and sample users visualizations using the **Show Chart**, **Show Grid**, **Show Insights**, and **Sample of These Users** checkboxes at the top of each section.
 
-TBD - Retention screenshot
+![Retention section in Workbooks](./media/app-insights-usage-workbooks/retention-section.png)
 
 **Retention** sections answer "Of people who viewed some page or used some feature on one day or week, how many came back in a subsequent day or week?"
 
@@ -75,7 +75,7 @@ TBD - Retention screenshot
 
 ## Adding Application Insights Analytics Sections
 
-TBD - screenshot
+![Analytics section in Workbooks](./media/app-insights-usage-workbooks/analytics-section.png)
 
 To add an Application Insights Analytics query section to your workbook, use the **Add Analytics query** button at the bottom of the workbook, or at the bottom of any section.
 
@@ -110,8 +110,6 @@ To pin a link to a workbook to an Azure Dashboard:
 1. Click **Open** in the action bar
 2. Clik the "..." button beside the workbook you want to pin
 3. Click **Pin to dashboard**.
-
-![TBD - photo](./media/app-insights-usage-workbooks/tbd.png)
 
 ## Next steps
 
