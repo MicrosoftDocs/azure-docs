@@ -18,9 +18,9 @@
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 ## Azure AD Controls
-### [Complete access review](active-directory-azure-ad-controls-how-to-complete-access-review.md)
-### [Create access review](active-directory-azure-ad-controls-how-to-create-access-review.md)
-### [How to perform access review](active-directory-azure-ad-controls-how-to-perform-access-review.md)
+### [Complete access review](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Create access review](active-directory-azure-ad-controls-create-an-access-review.md)
+### [How to perform access review](active-directory-azure-ad-controls-perform-an-access-review.md)
 
 
 # How to
@@ -53,8 +53,8 @@
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
 ### Azure AD Controls
-#### [Guest access with access reviews](active-directory-azure-ad-controls-managing-guest-access-with-access-reviews.md)
-#### [Managing user access with reviews](active-directory-azure-ad-controls-managing-user-access-with-access-reviews.md)
+#### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
@@ -178,7 +178,7 @@
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 ### Azure AD Controls
-####[Manage programs and their controls with Azure AD Controls](active-directory-azure-ad-controls-managing-programs-and-controls.md)
+####[Manage programs and their controls](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started

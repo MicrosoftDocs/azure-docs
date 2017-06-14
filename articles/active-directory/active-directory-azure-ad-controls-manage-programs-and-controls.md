@@ -1,5 +1,5 @@
 ---
-title: How to manage programs and controls | Microsoft Docs
+title: Manage programs and controls with Azure AD Controls| Microsoft Docs
 description: You can create additional programs for each governance, risk management and compliance initiative in your organization to collect and organize Azure Active Directory access reviews as controls.
 services: active-directory
 documentationcenter: ''
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/14/2017
 ms.author: billmath
 ---
 
-# Manage programs and their controls
+# Manage programs and their controls with Azure AD Controls
 
 Azure AD access reviews for group members and application access are examples of controls, which enable organizations to efficiently address the governance, risk management and compliance requirements.  
 
@@ -28,8 +28,9 @@ There is one program, "Default Program", always present.  If you are in a global
 
 If you no longer need a program, and it does not have any controls linked to it, you can delete it.
 
-## Next Steps
+## Next steps
 
-- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
-- [How to complete an access review of members of a group or access to an application](active-directory-azure-ad-controls-how-to-complete-access-review.md)
-- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)
+- [Perform an access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+- [Complete an access review of members of a group or access to an application](active-directory-azure-ad-controls-complete-an-access-review.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
+

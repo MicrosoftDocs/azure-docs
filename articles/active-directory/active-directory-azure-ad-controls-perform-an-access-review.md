@@ -1,6 +1,6 @@
 ---
-title: How to review access | Microsoft Docs
-description: How to review access with an Azure Active Directory access review
+title: Perform an access review with Azure AD Controls | Microsoft Docs
+description: How to review access with using Azure AD Controls.
 services: active-directory
 author: mwahl
 manager: femila
@@ -10,10 +10,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/14/2017
 ms.author: billmath
+---
 
-# How to review access
+# Perform an access review with Azure AD Controls
 
 Azure Active Directory simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services, with a feature called access reviews.  You may have received an email from Microsoft asking you to review access - members of a group, or users with access to an application. 
 
@@ -36,6 +37,10 @@ The reviewer may require that you supply a justification for approving continued
 ## Next steps
 
 Please note that user's denied access is not removed immediately, it can be removed when the review completes or an administrator stops the review. So, if you wish to change your answer and approve a previously denied user, or deny a previously approved user,  then click on the row, reset the response and pick a new response.  You can do this until the access review completes.
+
+- [Complete an access review for members of a group or access to an application](active-directory-azure-ad-controls-complete-an-access-review.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
+
 
 
 

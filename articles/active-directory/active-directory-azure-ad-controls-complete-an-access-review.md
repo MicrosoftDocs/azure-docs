@@ -1,6 +1,6 @@
 ---
-title: How to complete an access review of members of a group or users with access to an application| Microsoft Docs
-description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
+title: Complete an access review of members of a group or users access to an application with Azure AD Controls| Microsoft Docs
+description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory using Azure AD Controls. 
 services: active-directory
 documentationcenter: ''
 author: mwahl
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: billmath
+---
 
-
-# How to complete an access review of members of a group or access to an application in Azure AD
+# Complete an access review of members of a group or users access to an application in Azure AD
 
 Administrators can ask for a review of group members or users assigned to an application by [creating an access review](active-directory-azure-ad-controls-how-to-create-access-review.md). Azure AD will automatically send the reviewers an email prompting them to review  access. If a user did not get an email, you can send them the instructions
 in [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md).  After the access review period is over, or the administrator has stopped the access review, follow the steps in this article to see and apply the results.
@@ -25,7 +25,7 @@ in [how to review access](active-directory-azure-ad-controls-how-to-perform-acce
 1. Go to the [Azure AD controls page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), change to the **Programs** tab and select the program which will contains the access review control.
 2. Click on manage and select the access review control.  If there are many controls in the program, you can filter to just controls of a specific type, sort by their status, or search by the name of the access review control or the display name of the owner who created it. 
 
-## Stopping a review which has not yet completed
+## Stopping a review that has not yet completed
 
 If the review has not yet reached the scheduled end date, then an administrator can stop the review by clicking the **Stop** button to finish it early.  If any users haven't been reviewed by this time, they won't be able to after you stop the review. You cannot restart a review after it's been stopped.
 
@@ -34,8 +34,6 @@ If the review has not yet reached the scheduled end date, then an administrator 
 After an access review is completed, either because it reached the end date or an administrator stopped it manually, the **Apply** button implements the outcome of the review, by updating the group or application. If a user's access was denied in the review, then when an administrator clicks this button, Azure AD will remove their membership or application assignment. 
 
 Note that clicking the Apply button will not have an effect for a group which originates in an on-premises directory, or a dynamic group.  If you wish to change a group that originates on-premises, then download the results and apply those changes to the representation of the group in that directory.
-
-If you're having difficulty in applying an access review, see Can't apply changes from an access review for troubleshooting tips.
 
 ## Downloading the results of the review
 
@@ -51,8 +49,8 @@ If you are not interested in the review any further, delete it. The **Delete** b
 
 
 
-## Next Steps
-- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
-- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)
+## Next steps
+- [Perform an access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-an-access-review.md)
 
 

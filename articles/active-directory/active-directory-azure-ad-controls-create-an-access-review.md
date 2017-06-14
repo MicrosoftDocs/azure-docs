@@ -1,5 +1,5 @@
 ---
-title: How to create an access review for members of a group or users with access to an application | Microsoft Docs
+title: Create an access review for members of a group or users with access to an application with Azure AD Controls| Microsoft Docs
 description: Learn how to create an access review for members of a group or users with access to an application. 
 services: active-directory
 author: mwahl
@@ -10,10 +10,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: billmath
+---
 
-# How to create an access review for members of a group or access to an application
+# Create an access review with Azure AD Controls
 
 Access assignments become "stale" when users have access they don't need any more.  In order to reduce the risk associated with state access assignments, administrators can ask for a review of group members or users assigned to an application by creating an access review. The guides to 
 [managing user access](active-directory-azure-ad-controls-managing-user-access-with-access-reviews.md) and [managing guest access](active-directory-azure-ad-controls-managing-guest-access-with-access-reviews.md) provide more information on these scenarios.  
@@ -35,7 +36,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 By default, Azure AD sends an email to the reviewers when the review starts.  If you choose not to have Azure AD send the email, be sure to let  the reviewers know that there's an access review waiting for them to complete.  You can show them the instructions for [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md), or if your review is for guests to review their own access, the instructions for [how to review your own access](active-directory-azure-ad-controls-how-to-perform-access-review.md).
 
-If the user does not receive an email, see Reviewers aren't getting an email from Azure AD notifying them of a new access review for troubleshooting tips.  If the user can't find the access review on the access panel, see Reviewers can't find access reviews in the access panel.
+
 
 
 You can track the progress as the reviewers complete their reviews in the Azure AD  dashboard, in the access reviews section. No access rights will be changed in the directory until [the review completes](active-directory-azure-ad-controls-how-to-complete-access-review.md).
@@ -43,7 +44,7 @@ You can track the progress as the reviewers complete their reviews in the Azure 
 ## Next steps
 
 When an access review has started, Azure AD will automatically send the reviewers an email prompting them to review access. If a user did not get an email, you can send them the instructions
-in [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md).  
+in [Perfrom an access review](active-directory-azure-ad-controls-perform-an-access-review.md).  
 
 After the access review period is over, or the administrator has stopped the access review, follow the steps in [completing an access review](active-directory-azure-ad-controls-how-to-complete-access-review.md) to see and apply the results.
 
