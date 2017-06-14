@@ -168,7 +168,7 @@ Bulk Copy Program (bcp) is a command-line utility that you can use for loading d
 When -E is specified the values held in the input file for the column with IDENTITY are retained. If -E is *not* specified then the values in this column are ignored. If the identity column is not included, then the data is loaded as normal. The values are generated according to the increment and seed policy of the property.
 
 For more information on data loading with bcp, see the following articles:
-- [Loading with bcp][]
+- [Load with bcp][]
 - [bcp in MSDN][]
 
 ## Catalog Views
@@ -267,7 +267,7 @@ To learn more about developing tables, see the articles on [Table Overview][Over
 <!--MSDN references-->
 [Identity property]: https://msdn.microsoft.com/en-us/library/ms186775.aspx
 [sys.identity_columns]: https://msdn.microsoft.com/en-us/library/ms187334.aspx
-[Identity function]: https://msdn.microsoft.com/en-us/library/ms189838.aspx
+[IDENTITY()]: https://msdn.microsoft.com/en-us/library/ms189838.aspx
 [@@IDENTITY]: https://msdn.microsoft.com/en-us/library/ms187342.aspx
 [SCOPE_IDENTITY]: https://msdn.microsoft.com/en-us/library/ms190315.aspx
 [IDENT_CURRENT]: https://msdn.microsoft.com/en-us/library/ms175098.aspx
