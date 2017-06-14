@@ -159,6 +159,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > [AZURE.NOTE] It is not possible to use `CREATE TABLE AS SELECT` currently when loading into a table with an IDENTITY column
 
 For more information on data loading with bcp, see the following articles:
+
 - [Load with PolyBase][]
 - [PolyBase best practices][]
 
@@ -168,6 +169,7 @@ Bulk Copy Program (bcp) is a command-line utility that you can use for loading d
 When -E is specified the values held in the input file for the column with IDENTITY are retained. If -E is *not* specified then the values in this column are ignored. If the identity column is not included, then the data is loaded as normal. The values are generated according to the increment and seed policy of the property.
 
 For more information on data loading with bcp, see the following articles:
+
 - [Load with bcp][]
 - [bcp in MSDN][]
 
@@ -201,6 +203,7 @@ The IDENTITY property cannot be used in the following scenarios:
 - where the table is an external table 
 
 The following related functions are not supported in SQL Data Warehouse:
+
 - [IDENTITY()][]
 - [@@IDENTITY][]
 - [SCOPE_IDENTITY][]
