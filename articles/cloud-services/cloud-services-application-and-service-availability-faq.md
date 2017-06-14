@@ -24,13 +24,6 @@ This article includes frequently asked questions about application and service a
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## My service was unavailable for some time. Was there any Azure outage during that period?
-Roughly once a month, Microsoft releases a new Guest OS version for Windows Azure PaaS VMs. The Guest OS is only one such update in the pipeline. A release can be affected by many other factors. In addition, Azure runs on hundreds of thousands of machines. Therefore, it's impossible to predict the exact date and time when your roles will reboot. We update the Guest OS Update RSS Feed with the latest information that we have, but you should consider that reported time to be an approximate value. We are aware that this is problematic for customers and are working on a plan to limit or precisely time reboots.
-
-For complete details about recent Guest OS updates, see [Azure Guest OS releases and SDK compatibility matrix](cloud-services-guestos-update-matrix.md).
-
-For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
-
 ## My role got recycled. Was there any update rolled out for my cloud service?
 Roughly once a month, Microsoft releases a new Guest OS version for Windows Azure PaaS VMs. The Guest OS is only one such update in the pipeline. A release can be affected by many other factors. In addition, Azure runs on hundreds of thousands of machines. Therefore, it's impossible to predict the exact date and time when your roles will reboot. We update the Guest OS Update RSS Feed with the latest information that we have, but you should consider that reported time to be an approximate value. We are aware that this is problematic for customers and are working on a plan to limit or precisely time reboots.
 
