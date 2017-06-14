@@ -1,5 +1,5 @@
 ---
-title: Azure Governmenmt Networking | Microsoft Docs
+title: Azure Government Networking | Microsoft Docs
 description: This provides a comparison of features and guidance for private connectivity to e Government
 services: azure-government
 cloud: gov

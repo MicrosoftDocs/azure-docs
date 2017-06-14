@@ -13,7 +13,7 @@ ms.date: 01/12/2017
 ms.author: scottwhi
 ---
 
-# Search the Web
+# Search the web
 
 The Web Search API provides a similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
 
@@ -24,11 +24,11 @@ If Bing didn't find content from one of the content-specific APIs relevant enoug
 If you don't need webpages but you do need answers from more than one of the other APIs, such as images and news, you'd still call this API. For example, if you only wanted Images and News, you'd call this API and set [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#responsefilter) query parameter to limit the results to only Images and News. For more information, see [Filtering Answers](./filter-answers.md).
 
 
-## Search Query Term
+## Search query term
 
-Your user experience must provide a search box where the user enters a search query term. You can determine the maximum length of the term that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query) query parameter. For example, if the user entered *sailing lessons near me*, you would set `q` to *sailing+lessons+near+me* or *sailing%20lessons%20near%20me*.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
 
 If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
@@ -44,7 +44,7 @@ You can use this information to let the user know that you modified their query 
 
 ![Query context UX example](./media/cognitive-services-bing-web-api/bing-query-context.PNG)
 
-## The Search Response
+## The search response
 
 When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
 
@@ -461,13 +461,13 @@ The following shows how Bing uses the spelling suggestion.
 ![Bing spelling suggestion example](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)
 
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Query](./quick-start.md).
 

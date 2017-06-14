@@ -21,7 +21,7 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, mobile back end, and API app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
@@ -116,6 +116,9 @@ Swap with preview, or multi-phase swap, simplify validation of slot-specific con
 For mission-critical workloads, you want to validate that the app behaves as expected when the production slot's configuration 
 is applied, and you must perform such validation *before* the app is swapped into production. Swap with preview is what you need.
 
+> [!NOTE]
+> Swap with preview is not supported in web apps on Linux.
+
 When you use the **Swap with preview** option (see [Swap deployment slots](#Swap)), App Service does the following:
 
 - Keeps the destination slot unchanged so existing workload on that slot (e.g. production) is not impacted.
@@ -141,6 +144,9 @@ Auto Swap streamlines DevOps scenarios where you want to continuously deploy you
 > When you enable Auto Swap for a slot, make sure the slot configuration is exactly the configuration intended for the target slot (usually the production slot).
 > 
 > 
+
+> [!NOTE]
+> Auto swap is not supported in web apps on Linux.
 
 Configuring Auto Swap for a slot is easy. Follow the steps below:
 
@@ -281,7 +287,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 ## Next Steps
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
+[Introduction to App Service on Linux](./app-service-linux-intro.md)
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 05/15/2017
 ms.author: dobett
 
 ---
@@ -139,7 +139,7 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
         // Complete the response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -156,7 +156,7 @@ Ensure that Node.js version 0.11.5 or later is installed on your development mac
         // Complete the response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }

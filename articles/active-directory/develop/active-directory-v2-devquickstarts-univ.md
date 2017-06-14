@@ -15,6 +15,7 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Add sign-in to a Windows Universal app using the v2.0 endpoint

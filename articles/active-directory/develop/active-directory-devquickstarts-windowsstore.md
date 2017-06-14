@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD with Windows Store apps

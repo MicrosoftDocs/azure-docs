@@ -103,7 +103,11 @@ Once you've [registered your application](#register-your-application-with-an-azu
 
 3. Open the **Settings** blade for your application. In the **API Access** section, select **Required permissions**.
 4. In the **Required permissions** blade, click the **Add** button.
-5. In step 1, search for **MicrosoftAzureBatch**, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
+5. In step 1, search for the Batch API. Search for each of these strings until you find the API:
+    a. **MicrosoftAzureBatch**.
+    b. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    c. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+6. Once you find the Batch API, select **Microsoft Azure Batch (MicrosoftAzureBatch)**, and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure Batch Service** and click the **Select** button.
 7. Click the **Done** button.
 

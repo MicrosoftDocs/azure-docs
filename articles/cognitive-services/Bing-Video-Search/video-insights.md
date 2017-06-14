@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Get Insights about a Video
+# Get insights about a video
 
 Each video includes a video ID that you can use to get more information about the video, such as related videos.  
   
@@ -39,13 +39,13 @@ GET https://api.cognitive.microsoft.com/bing/v5.0/videos/details?q=sailiing+ding
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > To get all video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to All.
 >
@@ -53,12 +53,12 @@ Host: api.cognitive.microsoft.com
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-## Getting Related Videos Insights  
+## Getting related videos insights  
 
 To get videos that are related to the specified video, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#modulesrequested) query parameter to RelatedVideos.
   
@@ -67,7 +67,7 @@ GET https://api.cognitive.microsoft.com/bing/v5.0/videos/details?q=sailiing+ding
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
@@ -105,7 +105,7 @@ The following is the response to the previous request. The top-level object is a
 ```
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > To get related video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to RelatedVideos.
 >
@@ -113,7 +113,7 @@ The following is the response to the previous request. The top-level object is a
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  

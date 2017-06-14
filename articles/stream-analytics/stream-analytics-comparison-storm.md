@@ -331,7 +331,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL and HBase. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -570,7 +570,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
+                    No limits on data size. Connectors available for HBase, Azure Cosmos DB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
                 </p>
                 <p>
                     Refreshing of reference data must be handled by custom code.

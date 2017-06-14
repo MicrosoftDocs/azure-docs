@@ -43,7 +43,7 @@
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB indexer](search-howto-index-documentdb.md)
+### [Azure Cosmos DB indexer](search-howto-index-documentdb.md)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -78,6 +78,7 @@
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
+### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
 ## Courseware & tutorials

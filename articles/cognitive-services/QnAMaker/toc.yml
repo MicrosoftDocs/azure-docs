@@ -4,7 +4,8 @@
   items:
   - name: Learn about QnAMaker
     href: Home.md
-- name: Quickstart
+- name: Quickstarts
+  expanded: true
   items: 
   - name: Get started with QnAMaker
     href: Quickstart.md

@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Making Your First Autosuggest Query
+# Making your first Autosuggest query
 
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
@@ -24,13 +24,15 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```  
 
 > [!NOTE]
-> Version 7 Preview endpoint:
+> V7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 > ```  
 
-The request must use the HTTPS protocol, and all requests must be made from a server (calls may not be made from a client).  
+The request must use the HTTPS protocol.
+
+We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
   
 The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) query parameter, which contains the user's partial search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
   
@@ -45,7 +47,7 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
-## The Request
+## The request
 
 The request should include all the suggested query parameters and headers. You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant that the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
 
@@ -55,19 +57,19 @@ The following example shows a request that returns the suggested query strings f
 GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
@@ -145,7 +147,7 @@ BingAPIs-Market: en-US
 }  
 ```
 
-## Next Steps
+## Next steps
 
 Try out the API. Go to [Autosuggest API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2). 
 

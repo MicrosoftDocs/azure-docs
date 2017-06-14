@@ -184,13 +184,19 @@ The storage tiering process occurs as follows:
 6. Microsoft Azure creates multiple replicas of the data in its datacenter and in a remote datacenter, ensuring that the data can be recovered if a disaster occurs. 
 7. When the file server requests data stored in the cloud, StorSimple returns it seamlessly and stores a copy on the SSD tier of the StorSimple device.
 
+#### How StorSimple manages cloud data
+
+StorSimple deduplicates customer data across all the snapshots and the primary data (data written by hosts). While deduplication is great for storage efficiency, it makes the question of “what is in the cloud” complicated. The tiered primary data and the snapshot data overlap with each other. A single chunk of data in the cloud could be used as tiered primary data and also be referenced by several snapshots. Every cloud snapshot ensures that a copy of all the point-in-time data is locked into the cloud until that snapshot is deleted.
+
+Data is only deleted from the cloud when there are no references to that data. For example, if we take a cloud snapshot of all the data that is in the StorSimple device and then delete some primary data, we would see the _primary data_ drop immediately. The _cloud data_ which includes the tiered data and the backups, stays the same. This is because there is a snapshot still referencing the cloud data. After the cloud snapshot is deleted (and any other snapshot that referenced the same data), cloud consumption drops. Before we remove cloud data, we check that no snapshots still reference that data. This process is called _garbage collection_ and is a background service running on the device. Removal of cloud data is not immediate as the garbage collection service checks for other references to that data before the deletion. The speed of garbage collection depends on the total number of snapshots and the total data. Typically, the cloud data is cleaned up in less than a week.
+
+
 ### Thin provisioning
-Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance,  StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because  StorSimple can increase or decrease cloud storage to meet changing demands. 
+Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance,  StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because  StorSimple can increase or decrease cloud storage to meet changing demands.
 
 > [!NOTE]
 > Locally pinned volumes are not thinly provisioned. Storage allocated to a local-only volume is provisioned in its entirety when the volume is created.
-> 
-> 
+
 
 ### Deduplication and compression
 Microsoft Azure StorSimple uses deduplication and data compression to further reduce storage requirements.
@@ -199,8 +205,7 @@ Deduplication reduces the overall amount of data stored by eliminating redundanc
 
 > [!NOTE]
 > Data on locally pinned volumes is not deduplicated or compressed. However, backups of locally pinned volumes are deduplicated and compressed.
-> 
-> 
+
 
 ## StorSimple workload summary
 A summary of the supported StorSimple workloads is tabulated below.

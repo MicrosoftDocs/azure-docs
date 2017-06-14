@@ -4,7 +4,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
 
 1. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
    - Can receive and act on desired properties set in the device twin in IoT Hub.
    - Can respond to the **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through the solution portal. The device sends information about the direct methods it supports using reported properties.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ Now add code that implements the behavior defined in the model.
 
 1. Add the following functions that handle the desired properties set in the solution dashboard. These desired properties are defined in the model:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ Now add code that implements the behavior defined in the model.
 
 1. Add the following functions that handle the direct methods invoked through the IoT hub. These direct methods are defined in the model:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ Now add code that implements the behavior defined in the model.
 
 1. Add the following function that sends a message to the preconfigured solution:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ Now add code that implements the behavior defined in the model.
 
 1. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ Now add code that implements the behavior defined in the model.
     - Creates a loop to send telemetry every second.
     - Deinitializes all resources.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

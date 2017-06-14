@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory: Create tenant support topic | Microsoft Docs'
+title: 'Azure Active Directory B2C: Create tenant support topic | Microsoft Docs'
 description: 'Creating an Azure Active Directory tenant or an Azure Active Directory B2C tenant: Issues and resolutions'
 services: active-directory-b2c
 documentationcenter: ''

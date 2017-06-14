@@ -9,14 +9,13 @@ editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 06/06/2017
 ms.author: srinia
-
 ---
 
 # Create and manage an elastic pool with PowerShell
@@ -83,7 +82,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 Use the [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) cmdlet to set the _-StorageMB_ parameter. Provide the storage limit in MB (for example, 2097152 sets the storage limit to 2 TB). See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for possible values.
 
 > [!IMPORTANT]
-> The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher _max data storage size per pool_, the storage limit must be explicitly set. Premium pools with more than 750 GB of storage is currently in public preview in the following regions: East US 2, West US, West Europe, Southeast Asia, Japan East, Australia East, Canada Central, and Canada East.
+> The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher _max data storage size per pool_, the storage limit must be explicitly set. Premium pools with more than 750 GB of storage is currently in public preview in the following regions: East US 2, West US, US Gov Virginia, West Europe, Germany Central, Southeast Asia, Japan East, Australia East, Canada Central, and Canada East.
 
 ```PowerShell
 Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152
@@ -146,7 +145,7 @@ $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resour
 You can add alert rules to an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when the elastic pool hits a utilization threshold that you set up. Use the Add-AzureRmMetricAlertRule cmdlet.
 
 > [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
+> Resource utilization monitoring for elastic pools has a lag of at least 5 minutes. Setting alerts of less than 10 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 10 minutes or more.
 >
 >
 
@@ -173,12 +172,13 @@ $alertName = $poolName + "- DTU consumption rule"
 Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 ```
 
+For more information, see [create SQL Database alerts in Azure portal](/sql-database-insights-alerts-portal.md).
+
 ## Add alerts to all databases in an elastic pool
 You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert.
 
 > [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
->
+> Resource utilization monitoring for elastic pools has a lag of at least 5 minutes. Setting alerts of less than 10 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 10 minutes or more.
 >
 
 This example adds an alert to each of the databases in an elastic pool for getting notified when that database’s DTU consumption goes above certain threshold.

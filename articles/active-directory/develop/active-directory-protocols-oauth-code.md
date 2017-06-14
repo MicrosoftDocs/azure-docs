@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
+ms.custom: aaddev
 
 ---
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory

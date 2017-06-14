@@ -10,12 +10,12 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: overview-samples
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/19/2017
 ms.author: janeng
 ---
 
@@ -29,8 +29,9 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Create a single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a single Azure SQL database and configures a server-level firewall rule. |
 | [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates elastic pools, and moves pooled databases, and changes performance levels.|
 |**Configure geo-replication and failover**||
-| [Configure and failover a single database using Active Geo-Replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configures Active Geo-Replication for a single Azure SQL database and fails it over to the secondary replica. |
-| [Configure and failover a pooled database using Active Geo-Replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configures Active Geo-Replication for an Azure SQL database in an elastic pool and fails it over to the secondary replica. |
+| [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configures active geo-replication for a single Azure SQL database and fails it over to the secondary replica. |
+| [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Configures active geo-replication for an Azure SQL database in an elastic pool, and fails it over to the secondary replica. |
+| [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Configures a failover group for an Azure SQL server instance, adds a database to the failover group, and fails it over to the secondary server |
 |**Scale a single databases and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Monitors the performance metrics of an Azure SQL database, scales it to a higher performance level and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Monitors the performance metrics of an elastic pool, scales it to a higher performance level, and creates an alert rule on one of the performance metrics.  |

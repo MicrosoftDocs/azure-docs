@@ -1,6 +1,6 @@
 ---
-title: Threat Management for Azure B2C | Microsoft Docs
-description: DOS attacks and Password Attacks detection and mitigation techniques in Azure B2C.
+title: 'Azure Active Directory B2C: Threat Management | Microsoft Docs'
+description: DOS attacks and Password Attacks detection and mitigation techniques in Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: ''
 author: vigunase
@@ -18,11 +18,12 @@ ms.author:
 
 ---
 # Azure AD B2C: Threat Management
-Threat Management includes protection from attacks against the system and networks. Denial-of-service (DOS) can affect the availability and makes the resource unavailable to the intended users. Password attacks lead to unauthorized access to resources. Microsoft Azure Active Directory B2C has built-in features to protect your data against these threats in multiple ways. 
+
+Threat Management includes protection from attacks against the system and networks. Denial-of-service (DOS) can affect the availability and makes the resource unavailable to the intended users. Password attacks lead to unauthorized access to resources. Microsoft Azure Active Directory B2C has built-in features to protect your data against these threats in multiple ways.
 
 ## Denial of Service Attack
 
-Azure AD B2C uses Detection and Mitigation techniques such as SYN cookies, rate and connection limits, to protect the underlying resources against these attacks.  
+Azure AD B2C uses Detection and Mitigation techniques such as SYN cookies, rate and connection limits, to protect the underlying resources against these attacks.
 
 ## Password Attacks
 

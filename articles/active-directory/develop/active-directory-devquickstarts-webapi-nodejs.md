@@ -3,7 +3,7 @@ title: Azure AD Node.js Getting Started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -15,6 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
+ms.custom: aaddev
 
 ---
 # Get started with web APIs for Node.js

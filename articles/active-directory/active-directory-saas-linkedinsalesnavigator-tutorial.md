@@ -138,11 +138,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| --- | --- |    
 	| department| user.department |
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
 	a. Click on **Add Attribute** to open the attribute dialog
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
@@ -246,6 +246,7 @@ When you click the LinkedIn Sales Navigator tile in the Access Panel, you should
 
 ## Additional resources
 
+* [Tutorial: Configuring LinkedIn Sales Navigator for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinsalesnavigator-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

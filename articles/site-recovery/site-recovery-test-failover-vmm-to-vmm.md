@@ -13,17 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 
 ---
 # Test Failover (VMM to VMM) in Site Recovery
-> [!div class="op_single_selector"]
-> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
-> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
-This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site. 
+This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site.
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -45,7 +42,7 @@ Test failover is run to validate your replication strategy or perform a disaster
 If the virtual machines involved in test failover use DHCP, a test DHCP server should be created within the isolated network that is created for the purpose of test failover.
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details.
 
 ### Prepare DNS
 Prepare a DNS server for the test failover as follows:
@@ -72,9 +69,9 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
 1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. Look at [network options](#network-options-in-site-recovery) for more details.
-1. Track failover progress on the **Jobs** tab. 
+1. Track failover progress on the **Jobs** tab.
 1. After it's complete verify that the virtual machines start successfully.
-1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover. 
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover.
 
 
 ## Network options in Site Recovery
@@ -93,10 +90,10 @@ When you run a test failover you'll be asked to select network settings for test
 >
 
 
-## Test failover to a production network on recovery site 
+## Test failover to a production network on recovery site
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Network mapping**. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
-1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 
+1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences.
 1. Any changes that you make into the test failover virtual machines would be lost when you cleanup the test failover virtual machines. These changes will not be replicated back to the primary virtual machine.
 1. This way of doing testing leads to a downtime of your production application. Users of the application should be asked to not to use the application when the DR drill is in progress.  
 

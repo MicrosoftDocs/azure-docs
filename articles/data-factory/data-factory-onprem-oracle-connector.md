@@ -1,6 +1,6 @@
 ---
-title: Move data to/from Oracle using Data Factory | Microsoft Docs
-description: Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory.
+title: Copy data to/from Oracle using Data Factory | Microsoft Docs
+description: Learn how to copy data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
-# Move data to/from on-premises Oracle using Azure Data Factory
+# Copy data to/from on-premises Oracle using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises Oracle database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Supported scenarios
@@ -40,11 +40,16 @@ Gateway is required even if the Oracle is hosted in an Azure IaaS VM. You can in
 ## Supported versions and installation
 This Oracle connector support two versions of drivers:
 
-- **Microsoft driver for Oracle (recommended)**: starting from Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed along with the gateway, so you don't need to additionally handle the driver in order to establish connectivity to Oracle, and you can also experience better copy performance using this driver. Oracle Database version 10g Release 2 or later are supported.
+- **Microsoft driver for Oracle (recommended)**: starting from Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed along with the gateway, so you don't need to additionally handle the driver in order to establish connectivity to Oracle, and you can also experience better copy performance using this driver. Below versions of Oracle databases are supported:
+    - Oracle 12c R1 (12.1)
+    - Oracle 11g R1, R2 (11.1, 11.2)
+    - Oracle 10g R1, R2 (10.1, 10.2)
+    - Oracle 9i R1, R2 (9.0.1, 9.2)
+    - Oracle 8i R3 (8.1.7)
 
-    > [!IMPORTANT]
-    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
-    >
+> [!IMPORTANT]
+> Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
+>
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
 
@@ -546,7 +551,7 @@ You may need to adjust the query string in your copy activity based on how dates
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
-### Type mapping for Oracle
+## Type mapping for Oracle
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
@@ -561,15 +566,15 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, String (if precision > 28) |
+| INTEGER |Decimal, String (if precision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |TimeSpan |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal |
+| NUMBER |Decimal, String (if precision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

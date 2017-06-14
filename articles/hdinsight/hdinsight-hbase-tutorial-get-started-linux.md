@@ -1,7 +1,7 @@
 ---
-title: Get started with HBase on Azure HDInsight | Microsoft Docs
-description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
-keywords: apache hbase,hbase,hbase shell,hbase tutorial,beeline
+title: Get started with an HBase example on HDInsight - Azure | Microsoft Docs
+description: Follow this Apache HBase example to start using on HDInsight. Create tables from the HBase shell and query them using Hive.
+keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,23 +10,23 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 
 ---
-# HBase tutorial: Get started using Apache HBase in HDInsight
+# Get started with an Apache HBase example in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Prerequisites
-Before you begin this HBase tutorial, you must have the following items:
+Before you begin trying this HBase example, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -71,7 +71,7 @@ In HBase which is an implementation of BigTable, the same data looks like:
 
 **To use the HBase shell**
 
-1. From SSH, run the following command:
+1. From SSH, run the following HBase command:
    
         hbase shell
 2. Create an HBase with two-column families:
@@ -148,7 +148,7 @@ You can query data in HBase tables by using Hive. In this section, you create a 
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Run the following HiveQL script to query the data in the HBase table:
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 
@@ -177,7 +177,7 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    You must base64 encode the values specified in the -d switch.  In the exmaple:
+    You must base64 encode the values specified in the -d switch.  In the example:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name

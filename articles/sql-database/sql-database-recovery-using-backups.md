@@ -37,7 +37,7 @@ The recovery time to restore a database using automated database backups is impa
 * The network bandwidth if the restore is to a different region 
 * The number of concurrent restore requests being processed in the target region. 
   
-  For a very large, and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of Geo-Restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
+  For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
   
   There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
@@ -82,17 +82,17 @@ To recover a deleted database during its [retention period](sql-database-service
 
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
-## Geo-Restore
-You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. 
+## Geo-restore
+You can restore a SQL database on any server in any Azure region from the most recent geo-replicated full and differential backups. geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. 
 
-Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
+Geo-restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a database from the geo-replicated backups to a server in any other region. There is a delay between when a differential backup is taken and when it is geo-replicated to an Azure blob in a different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss. The following illustration shows restore of the database from the last available backup in another region.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
-For detailed information about using Geo-Restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
+For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore, provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For solutions using Basic databases, geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using larger Standard or Premium databases that require shorter recovery times, you should consider using [active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business contiuity choices, see [over of business continuity](sql-database-business-continuity.md).
 > 
 
 ### Azure portal
@@ -126,4 +126,4 @@ Automatic backups protect your databases from user and application errors, accid
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
 * To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md). 
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md)  

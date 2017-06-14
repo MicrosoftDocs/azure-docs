@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/11/2017
 ms.author: billmath
 
 ---
@@ -34,11 +34,35 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
+## 1.1.522.0
+
+### Enhancements:
+
+* Generic SQL:
+  * **Scenario: Reimplemeted:** "*" feature
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### Fixed issues:
+
+* Generic Web Services:
+  * Can’t import Server configuration if WebService Connector is present
+  * WebService Connector is not working with multiple  Web Services
+
+* Generic SQL:
+  * No object types are listed for single value referenced attribute
+  * Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
+  * OverflowException in GSQL connector with DB2 on AS/400
+
+Lotus:
+  * Added option to enable\disable searching OUs before opening GlobalParameters page
+
 ## 1.1.443.0
 
 Released: 2017 March
 
 ### Enhancements
+
 * Generic SQL:</br>
   **Scenario Symptoms:**  It is a well-known limitation with the SQL Connector where we only allow a reference to one object type and require cross reference with members. </br>
   **Solution description:** In the processing step for references where "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.

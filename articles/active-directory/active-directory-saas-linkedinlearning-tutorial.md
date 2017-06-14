@@ -134,13 +134,13 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	| --- | --- |    
 	| department| user.department |
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
 
-   a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+    a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
    
-   b. Click on **Ok** to save the attribute.
+    b. Click on **Ok** to save the attribute.
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -233,6 +233,7 @@ When you click the LinkedIn Learning tile in the Access Panel, you should get th
 
 ## Additional resources
 
+* [Tutorial: Configuring LinkedIn Learning for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

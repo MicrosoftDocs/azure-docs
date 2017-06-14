@@ -1,4 +1,4 @@
-﻿---
+---
 title: Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines | Microsoft Docs
 description: If you know how to deploy AD Domain Services and AD Federation Services on premises, learn how they work on Azure virtual machines.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 
 ---

@@ -39,7 +39,7 @@ Why is a microservices approach important? The two main reasons are:
 * You can scale different parts of your application depending on the needs of the application.
 * Development teams can be more agile as they roll out changes and thus provide features to customers faster and more frequently.
 
-Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype for Business, and many core Azure services.
+Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype for Business, and many core Azure services.
 
 Service Fabric is tailored to create cloud native services that can start small, as needed, and grow to massive scale with hundreds or thousands of machines.
 

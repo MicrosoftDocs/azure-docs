@@ -1,8 +1,8 @@
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Cosmos DB (DocumentDB API)](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/data-factory-azure-datalake-connector.md) |✓ |✓ |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Search Index](../articles/data-factory/data-factory-azure-search-connector.md) | |✓ |

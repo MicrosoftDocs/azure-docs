@@ -9,6 +9,7 @@
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Get started
     href: quick-start.md

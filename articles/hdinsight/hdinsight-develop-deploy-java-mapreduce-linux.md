@@ -1,6 +1,6 @@
 ---
-title: Develop Java MapReduce programs for Linux-based HDInsight | Microsoft Docs
-description: Learn how to develop Java MapReduce programs and deploy them to Linux-based HDInsight.
+title: Create Java MapReduce for Hadoop - Azure HDInsight | Microsoft Docs
+description: Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -10,18 +10,18 @@ tags: azure-portal
 
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
 
 ---
-# Develop Java MapReduce programs for Hadoop on HDInsight Linux
+# Develop Java MapReduce programs for Hadoop on HDInsight
 
-Learn how to use Apache Maven to create a Java-based MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
+Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -32,13 +32,8 @@ Learn how to use Apache Maven to create a Java-based MapReduce application, then
 
 * [Apache Maven](http://maven.apache.org/)
 
-* **An Azure subscription**
+## Configure development environment
 
-* **Azure CLI**
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
-## Configure environment variables
 The following environment variables may be set when you install Java and the JDK. However, you should check that they exist and that they contain the correct values for your system.
 
 * `JAVA_HOME` - should point to the directory where the Java runtime environment (JRE) is installed. For example, on an OS X, Unix or Linux system, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
@@ -57,17 +52,17 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the `mvn` command, which is installed with Maven, to generate the scaffolding for the project.
 
-   ```
+   ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    This command creates a directory with the name specified by the **artifactID** parameter (**wordcountjava** in this example.) This directory contains the following items:
+    This command creates a directory with the name specified by the `artifactID` parameter (**wordcountjava** in this example.) This directory contains the following items:
 
    * `pom.xml` - The [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) that contains information and configuration details used to build the project.
 
    * `src` - The directory that contains the application.
 
-3. Delete the `src/test/java/org/apache/hadoop/examples/apptest.java` file, as it is not used in this example.
+3. Delete the `src/test/java/org/apache/hadoop/examples/apptest.java` file. It is not used in this example.
 
 ## Add dependencies
 
@@ -77,19 +72,19 @@ The following environment variables may be set when you install Java and the JDK
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
    ```
@@ -97,6 +92,9 @@ The following environment variables may be set when you install Java and the JDK
     This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
    
     The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they are provided by the HDInsight cluster at run-time.
+
+    > [!IMPORTANT]
+    > The version used should match the version of Hadoop present on your cluster. For more information on versions, see the [HDInsight component versioning](hdinsight-component-versioning.md) document.
 
 2. Add the following to the `pom.xml` file. This text must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
 
@@ -125,9 +123,10 @@ The following environment variables may be set when you install Java and the JDK
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
             <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             </configuration>
         </plugin>
         </plugins>
@@ -251,13 +250,9 @@ Use the following command to upload the jar file to the HDInsight headnode:
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-This command copies the files from the local system to the head node.
+This command copies the files from the local system to the head node. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!NOTE]
-> If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
-
-
-## <a name="run"></a>Run the MapReduce job
+## <a name="run"></a>Run the MapReduce job on Hadoop
 
 1. Connect to HDInsight using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -267,7 +262,7 @@ This command copies the files from the local system to the head node.
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    This command starts the WordCount MapReduce application. The input file is **/example/data/gutenberg/davinci.txt**, and the output is stored in **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
+    This command starts the WordCount MapReduce application. The input file is `/example/data/gutenberg/davinci.txt`, and the output directory is `/example/data/wordcountout`. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following command to view the results:
    

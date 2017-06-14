@@ -13,6 +13,6 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Resizing and Cropping Thumbnail Images
+# Resizing and cropping thumbnail images
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

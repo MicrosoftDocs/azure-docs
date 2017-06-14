@@ -13,7 +13,7 @@ ms.date: 06/21/2016
 ms.author: scottwhi
 ---
 
-# Spell Check Text Strings
+# Spell check text strings
 
 The Spell Check API lets you perform contextual grammar and spell checking.  
 
@@ -31,7 +31,7 @@ This spell-checker can handle any word-processing scenario:
 *   Words that sound the same but differ in meaning and spelling, for example “see” and “sea.”
 
 
-## Spell Check Modes
+## Spell check modes
 
 The API supports two proofing modes, Proof and Spell. The default mode is Proof. The Proof spelling mode provides the most comprehensive checks, but it's available only in the en-US (English-United States) market. For all other markets, set the [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mode) query parameter to Spell. The Spell mode finds most spelling mistakes but doesn't find some of the grammar errors that Proof catches (for example, capitalization and repeated words).
 
@@ -47,7 +47,7 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 47  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
   
@@ -55,7 +55,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 ```  
 
 > [!NOTE]
-> Version 7 Preview request.
+> V7 Preview request.
 >
 > ```  
 > POST https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -63,7 +63,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 > Content-Length: 47  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 >  
@@ -121,12 +121,12 @@ The [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-s
 If the `type` field is RepeatedToken, you'd still replace the token with `suggestion` but you'd also likely need to remove the trailing space.
 
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
 
