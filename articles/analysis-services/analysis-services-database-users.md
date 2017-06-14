@@ -124,7 +124,7 @@ The [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module prov
 
 
 ## Next steps
-  [Manage server administrators](analysis-servies-server-admins.md)   
+  [Manage server administrators](analysis-services-server-admins.md)   
   [Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)  
   [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 

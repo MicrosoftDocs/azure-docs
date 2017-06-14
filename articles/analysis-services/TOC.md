@@ -1,7 +1,7 @@
 # Overview
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 ## [Supported data sources](analysis-services-datasource.md)
-## [Authentication and user permissions](aanalysis-services-manage-users.md)
+## [Authentication and user permissions](analysis-services-manage-users.md)
 
 # Quickstarts
 ## [Create a server - portal](analysis-services-create-server.md)
