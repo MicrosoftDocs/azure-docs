@@ -60,7 +60,7 @@ This machine learning algorithm that ignores obvious "*false positives*" contrib
 
 ### Sign-in from unfamiliar locations
 
-This risk event type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk even is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 14 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. 
+This risk event type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk event is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 30 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. 
 
 ### Sign-ins from infected devices
 
@@ -131,7 +131,7 @@ Impossible travel is usually a good indicator that a hacker was able to successf
 
 ### Sign-in from unfamiliar locations
 
-Unfamiliar locations can provide a strong indication that an attacker is able to use a stolen identity. False-positives may occur when a user is traveling, trying out a new device or uses a new VPN. As a result of these false positives, the risk level for this event type is **Medium**.
+Unfamiliar locations can provide a strong indication that an attacker is able to use a stolen identity. False-positives may occur when a user is traveling, is trying out a new device, or is using a new VPN. As a result of these false positives, the risk level for this event type is **Medium**.
 
 ### Sign-ins from infected devices
 
