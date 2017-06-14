@@ -154,7 +154,7 @@ At completion, you have two container images that make up the Azure Vote applica
 
 In this tutorial, an application was tested and container images created for the application. The following steps were covered. 
 
-> [!div class="checklist"]docker-compose rm --force
+> [!div class="checklist"]
 > * Clone an existing applications code repository
 > * Create container images from the application
 > * Test the application locally

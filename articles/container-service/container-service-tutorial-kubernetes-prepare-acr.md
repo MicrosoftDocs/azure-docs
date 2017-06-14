@@ -21,16 +21,16 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Prepare ACR
 
-Azure Container Registry (ACR) is a private container image registry, the you can deploy in Azure. This tutorial demonstrates how to deploy an ACR instance, and push container images to it. In subsequent tutorials, this ACR instance will be integrated with an Azure Container Service Kubernetes cluster for securely running container images. This tutorial covers the following tasks:
+Azure Container Registry (ACR) is an Azure based, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance will be integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
 
 > [!div class="checklist"]
-> * Deploy Azure Container Registry
+> * Deploying an Azure Container Registry instance
 > * Tagging container images for ACR
 > * Uploading images to ACR
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+For detailed information on Azure Container Registry, see [Introduction to private Docker container registries](../container-registry/container-registry-intro.md). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). Alternately, [Azure Cloud Shell](https://review.docs.microsoft.com/en-us/azure/cloud-shell/quickstart?branch=pr-en-us-14901) can be accessed from each code block in this tutorial, giving you access to an in bowser CLI. 
 
 ## Deploy Azure Container Registry
 
@@ -73,13 +73,11 @@ Once the registry has been created, the Azure CLI outputs data similar to the fo
 }
 ```
 
-Get the container registry credentials using the [az acr credential show](/cli/azure/acr/credential) command. Substitute the `--name` value with the one noted in the last step. Take note of one password, it is needed in a later step.
+Get the container registry credentials using the [az acr credential show](/cli/azure/acr/credential) command. Substitute the `--name` value with the one noted in the last step. Two passwords are returned, take note of one of these.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
-
-For more information on Azure Container Registry, see [Introduction to private Docker container registries](../container-registry/container-registry-intro.md). 
 
 ## Container registry login
 
@@ -95,7 +93,9 @@ The command will return a 'Login Succeeded’ message once completed.
 
 ## Tag container images
 
-Each container image needs to be tagged with the loginServer name of the registry. To see a list of current images, use the `docker images` command.
+Each container image needs to be tagged with the `loginServer` name of the registry. 
+
+To see a list of current images, use the `docker images` command.
 
 ```bash
 docker images
@@ -111,7 +111,9 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the container registry. Using the following example, replace the ACR login server, `mycontainerregistry1326.azurecr.io` with the loginServer from your ACR instance.
+Tag the *azure-vote-front* image with the loginServer of the container registry. 
+
+Using the following example, replace the ACR login server, `mycontainerregistry1326.azurecr.io` with the loginServer from your ACR instance.
 
 ```bash
 docker tag azure-vote-front mycontainerregistry1326.azurecr.io/azure-vote-front
@@ -141,7 +143,9 @@ mysql                                                 latest              e799c7
 
 ## Push images to ACR
 
-Push the *azure-vote-front* image to the registry. Using the following example, replace the ACR loginServer name with the loginServer from your environment.
+Push the *azure-vote-front* image to the registry. 
+
+Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
 ```bash
 docker push mycontainerregistry3433.azurecr.io/azure-vote-front 
@@ -153,12 +157,14 @@ Do the same to the *azure-vote-back* image.
 docker push mycontainerregistry3433.azurecr.io/azure-vote-back
 ```
 
+At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance.  
+
 ## Next steps
 
 In this tutorial, an Azure Container Registry was prepared for use in an ACS Kubernetes cluster. Task covered included:
 
 > [!div class="checklist"]
-> * Deploy Azure Container Registry
+> * Deploying an Azure Container Registry instance
 > * Tagging container images for ACR
 > * Uploading images to ACR
 
