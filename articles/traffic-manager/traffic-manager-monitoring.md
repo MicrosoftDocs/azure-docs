@@ -26,7 +26,9 @@ Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoi
 To configure endpoint monitoring, you must specify the following settings on your Traffic Manager profile:
 
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. 
-    >[!NOTE!] HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
+ 
+  >[!NOTE!]
+  >HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
 * **Port**. Choose the port used for the request.
 * **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For TCP protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 * **Probing Interval**. This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager) page to learn more about fast probing pricing.
