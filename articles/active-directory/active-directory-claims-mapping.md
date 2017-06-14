@@ -9,12 +9,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: billmath
 
 ---
 
-# Claims Mapping in Azure Active Directory (Public Preview)
+# Claims mapping in Azure Active Directory (Public preview)
 
 
 This feature is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. Claims mapping policies can be used to:
@@ -26,24 +26,24 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 >[!NOTE]
 >This capability currently is in Public Preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory subscription during Public Preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory Premium subscription.
 
-## Claims Mapping Policy Type
+## Claims mapping policy type
 In Azure AD, a Policy object represents a set of rules enforced on individual applications or all applications in an organization. Each type of policy has a unique structure with a set of properties that are then applied to objects to which they are assigned objects.
 
 A claims mapping policy is a type of Policy object that modify the claims emitted in tokens issued for specific applications.
 
-## Claim Sets
+## Claim sets
 There are certain sets of claims that define how and when they are used in tokens.
 
-## Core Claim Set
+## Core claim set
 Claims in the core claim set will be present in every token regardless of policy. These claims are also considered restricted and cannot be modified.
 
-## Basic Claim Set
+## Basic claim set
 The basic claim set includes the claims that are emitted by default for tokens (in addition to the core claim set). These claims can be omitted or modified using the claims mapping policies.
 
-## Restricted Claim Set
+## Restricted claim set
 Restricted claims cannot be modified using policy. The data source cannot be changed, and no transformation will be applied when generating these claims.
 
-### Table 1 - JWT Restricted Claim Set
+### Table 1 - JWT restricted claim set
 |Claim Type (Name)|
 | ----- |
 |_claim_names|
@@ -177,7 +177,7 @@ Restricted claims cannot be modified using policy. The data source cannot be cha
 |wids|
 |win_ver|
 
-### Table 2 - SAML Restricted Claim Set
+### Table 2 - SAML restricted claim set
 |Claim Type (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -227,10 +227,10 @@ Restricted claims cannot be modified using policy. The data source cannot be cha
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
 |http://schemas.microsoft.com/identity/claims/scope|
 
-## Claims Mapping Policy Properties
+## Claims mapping policy properties
 The properties of a claims mapping policy are used to control which claims are emitted and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set and any optional claims that the application has opted in to receive.
 
-### Include Basic Claim Set
+### Include basic claim set
 
 Property Overview
 
@@ -246,7 +246,7 @@ Property Overview
 >[!NOTE] 
 >Claims in the core claim set will be present in every token regardless of what this property is set to. 
 
-### Claims Schema
+### Claims schema
 Property Overview
 
 **String:** ClaimsSchema
@@ -256,7 +256,7 @@ Property Overview
 **Summary:** This property is used to define which claims will be present in the tokens affected by the policy in addition to the basic claim set (if IncludeBasicClaimSet is set to True) and the core claim set.
 For each claim schema entry defined in this property, 2 pieces of information must be established – where the data is coming from (Value or Source/ID pair) and which claim the data will be emitted as (Claim Type).
 
-### Claim Schema Entry Elements
+### Claim schema entry elements
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
@@ -276,7 +276,7 @@ If the source is transformation, the TransformationID element must be included i
 
 The ID element identifies which property on the source will provide the value for the claim. The table below lists the values of ID valid for each value of Source.
 
-### Table 3 - Valid ID values per Source
+### Table 3 - Valid ID values per source
 |Source|ID|Description|
 |-----|-----|-----|
 |User|surname|Family Name|
@@ -335,7 +335,7 @@ The ID element identifies which property on the source will provide the value fo
 >[!NOTE]
 >Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. See Exceptions and Restrictions section below.
 
-### Claims Transformation
+### Claims transformation
 Property Overview
 
 **String:** ClaimsTransformation
@@ -372,7 +372,7 @@ ID is used to give a unique name to this input. This name must match one of the 
 
 ClaimTypeReferenceId is joined with ID of the claim schema entry to find the appropriate output claim. TransformationClaimType is used to give a unique name to this output. This name must match one of the expected outputs for the transformation method.
 
-### Exceptions and Restrictions
+### Exceptions and restrictions
 
 **SAML NameID and UPN:** The attributes from which we source the NameID and UPN values from, and the claims transformations permitted, are limited.
 
@@ -405,16 +405,16 @@ ClaimTypeReferenceId is joined with ID of the claim schema entry to find the app
 |ExtractMailPrefix||None|
 |Join|The suffix being joined must be a verified domain of the resource tenant.|
 
-### Custom Signing Key
+### Custom signing key
 A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy will be signed with this key. Applications must be configured to accept tokens signed with this key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy. This protects applications from claims mapping policies created by malicious actors.
 
-### Cross-Tenant Scenarios
+### Cross-tenant scenarios
 Claims mapping policies do not apply to guest users. If a guest user attempts to access an application with a claims mapping policy assigned to its service principal, the default token will be issued (the policy will have no effect).
 
-## Claims Mapping Policy Assignment
+## Claims mapping policy assignment
 Claims mapping policies can only be assigned to service principal objects.
 
-### Example Claims Mapping Policies
+### Example claims mapping policies
 
 Many scenarios are possible in Azure AD when you can customize claims emitted in tokens for specific Service Principals. In this section, we walk through a few common scenarios that can help you grasp how to use the Claims Mapping Policy type.
 
@@ -437,7 +437,7 @@ To get started, do the following steps:
 		Get-AzureADPolicy
     
 	```
-#### Example: Create and Assign a policy to omit the Basic Claims from tokens issued to a Service Principal.
+#### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal.
 In this example, you create a policy that removes the Basic Claim set from tokens issued to linked Service Principals.
 
 
@@ -459,7 +459,7 @@ In this example, you create a policy that removes the Basic Claim set from token
 	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
-#### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a Service Principal.
+#### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a service principal.
 In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked Service Principals. The EmployeeID will be emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry will be emitted as the country claim type in both SAML tokens and JWTs. In this example, we will also choose to continue to include the Basic Claims Set in the tokens.
 
 1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, adds the EmployeeID and TenantCountry claims to tokens.
@@ -481,7 +481,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
-#### Example: Create and assign a policy utilizing a Claims Transformation in tokens issued to a Service Principal.
+#### Example: Create and assign a policy utilizing a claims transformation in tokens issued to a service principal.
 In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked Service Principals. This claim will contain a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we will also choose to exclude the Basic Claims Set in the tokens.
 
 
