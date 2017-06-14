@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 
 ---
@@ -175,8 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a FreshGrade test user
 
-In this section, you create a user called Britta Simon in FreshGrade. Please work with FreshGrade support team to add the users in the FreshGrade platform.
-For any issues with creating users, please contact [support@freshgrade.com](mailTo:support@freshgrade.com). 
+In this section, you create a user called Britta Simon in FreshGrade. Please work with [FreshGrade support team](mailTo:support@freshgrade.com) to add the users in the FreshGrade platform.
 
 ### Assigning the Azure AD test user
 
