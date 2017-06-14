@@ -257,8 +257,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
-                                        </li>
-                                        
+                                        </li>                                        
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -3119,7 +3118,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Get started</a>
+                                                    <a href="/azure/dotnet">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/azure/?view=azure-dotnet">API reference</a>
@@ -3140,19 +3139,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
+                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Get started</a>
+                                                    <a href="/python/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Learn more</a>
+                                                    <a href="/python/api/?view-azure-python">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3170,19 +3163,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">Get the Node.js SDK</a>
+                                                    <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
+                                                    <a href="/azure/nodejs">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
+                                                    <a href="/nodejs/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3203,10 +3190,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Get started</a>
+                                                    <a href="/azure/java">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">API reference</a>
+                                                    <a href="/java/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
