@@ -17,7 +17,7 @@ ms.date: 06/13/2017
 ms.author: raynew
 ---
 
-# Install the Mobility service
+# Step 10: Install the Mobility service
 
 
 This article describes how to configure source and target settings when replicating on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
