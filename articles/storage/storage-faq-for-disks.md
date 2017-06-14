@@ -258,12 +258,19 @@ You do not need to upgrade your existing Azure tools to create, attach, or resiz
 |Azure CLI v1     | Version number 0.10.13 – May 2017 Release or above|
 |AzCopy	          | Version number v6.1.0 – June 2017 Release or above|
 
-The support for Azure CLI v2 and Storage explorer is coming soon. 
+The support for Azure CLI v2 and Storage Explorer is coming soon. 
 
-**Are P4 and P6 disk sizes supported for unManaged Disks or Page Blob?**
+**Are P4 and P6 disk sizes supported for unmanaged Disks or Page Blob?**
 
-No, P4(32GB) and P6(64GB) disk sizes are only supported for Managed Disks. The support for unManged Disks and Page Blob is coming soon.
+No, P4(32GB) and P6(64GB) disk sizes are only supported for Managed Disks. The support for unmanged Disks and Page Blob is coming soon.
 
+**How is my existing Premium Managed disks with size less than 64 GB that is created before small disk is enabled (Around June 15th) billed?**
+
+Existing small Premium disks with size less than 64 GB will continue be billed as per P10 pricing tier. 
+
+**How can I switch the disk tier of small Premium Disks with size less than 64 GB from P10 to P4 or P6?**
+
+You can take a snapshot of your small disks and then create a disk which will automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
 
 
 ## What if my question isn't answered here?
