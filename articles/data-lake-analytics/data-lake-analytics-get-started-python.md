@@ -25,7 +25,7 @@ Learn how to use Python to create Azure Data Lake Analytics accounts, define Dat
 
 In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated-values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-##Prerequisites
+## Prerequisites
 
 Before you begin this tutorial, you must have the following items:
 
@@ -124,12 +124,12 @@ adls = '<Azure Data Lake Analytics Account Name>'
 
 ```
 
-## Create Resource Management client
-
-Use the following code snippet to create an Azure Resource Group:
+## Create the clients
 
 ```
 resourceClient = ResourceManagementClient(credentials, subId)
+adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subId)
+adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
 ```
 
 ## Create an Azure Resource Group
@@ -141,13 +141,6 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 ## Create Data Lake Store account
 
 Each Data Lake Analytics account requires a Data Lake Store account. For instructions, see [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
-
-
-## Create a management client object
-
-```
-adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subId)
-```
 
 ## Create an Azure Data Lake Analytics account
 
@@ -161,12 +154,6 @@ adlaAcctResult = adlaAcctClient.account.create(
 		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
 	)
 ).wait()
-```
-
-## Create a job client
-
-```
-adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
 ```
 
 ## Submit Data Lake Analytics jobs
