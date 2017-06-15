@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 06/15/2017
 ms.author: bradsev
 
 ---
@@ -127,6 +127,7 @@ Exit the SSH session.
 Another option would be to type `source(testhdi.r)` or `source(testhdi_spark.r)` to execute the script.
 
 ## See also
+
 * [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
