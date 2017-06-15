@@ -10,7 +10,6 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
-### [Optimize content delivery for your scenario](cdn-optimize-content-delivery.md)
 
 ## Manage
 ### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
