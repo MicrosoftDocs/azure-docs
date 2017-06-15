@@ -42,7 +42,7 @@ For more detailed explanation on the differences and guidance on using these opt
 
 ## What you learn
 
-You learn using iothub-explorer with various management options.
+You learn using iothub-explorer with various management options on your development machine.
 
 ## What you do
 
@@ -54,7 +54,7 @@ Run iothub-explorer with various management options.
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer))
+- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine)
 
 ## Connect to your IoT hub
 
