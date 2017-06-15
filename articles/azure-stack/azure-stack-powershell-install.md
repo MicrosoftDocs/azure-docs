@@ -37,13 +37,13 @@ Get-PSRepository
 
 Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. You can uninstall the existing modules by using one of the following two methods:
 
-a. Sign in to your Azure Stack POC computer, or to the Windows-based external client if you are connected through VPN. Close all the active PowerShell sessions and run the following command to uninstall the existing PowerShell modules: 
+a. Sign in to your Azure Stack POC computer, or to the Windows-based external client if you are planning to establish a VPN connection. Close all the active PowerShell sessions and run the following command to uninstall the existing PowerShell modules: 
 
    ```powershell
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-b. Sign in to your Azure Stack POC computer, or to the Windows-based external client if you are connected through VPN. Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
+b. Sign in to your Azure Stack POC computer, or to the Windows-based external client if you are planning to establish a VPN connection. Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
 
 Now,use the following steps to install PowerShell for Azure Stack:  
 
