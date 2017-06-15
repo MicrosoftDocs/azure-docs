@@ -8,7 +8,7 @@ To register your mobile or native application, use the settings specified in the
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Contoso B2C app | Enter a **Name** for the application that describes your application to consumers. |
 | **Native client** | Yes | Select **Yes** for a mobile or native application. |
-| **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter a redirect URI with a custom scheme. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri) and don't include special characters such as underscores. |
+| **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter a redirect URI with a custom scheme. Make sure you choose a [good redirect URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) and do not include special characters such as underscores. |
 
 Click **Create** to register your application.
 
@@ -25,12 +25,3 @@ If your native application calls a web API secured by Azure AD B2C, perform thes
 > [!NOTE]
 > An **Application Secret** is an important security credential, and should be secured appropriately.
 > 
-
-### Choosing a redirect URI
-
-There are two important considerations when choosing a redirect URI for mobile/native applications:
-
-* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
-* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
-
-Ensure there are no special characters like underscores in the redirect uri.
