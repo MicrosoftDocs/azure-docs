@@ -192,7 +192,7 @@ spec:
 Create the deployment with the following command:
 
 ```bash
-kubectl create -f backend-deployment
+kubectl create -f backend-deployment.yaml
 ```
 
 ## Create front-end deployment
@@ -216,13 +216,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: neilpeterson/azure-vote-front:latest
-        ports:
-        - containerPort: 80
-        resource:
+        resources:
           requests:
             cpu: 250m
           limits:
             cpu: 500m
+        ports:
+        - containerPort: 80
         imagePullPolicy: Always
         env:
         - name: MYSQL_USER
@@ -250,7 +250,7 @@ spec:
 Create the deployment with the following command:
 
 ```bash
-kubectl create -f frontend-deployment
+kubectl create -f frontend-deployment.yaml
 ```
 
 ## Expose application
@@ -288,7 +288,7 @@ kubectl create -f services.yaml
 
 ## Test application
 
-Once all resources have been created, the application can be accessed over the external IP address for the azure-vote-front service. This service can take a few minutes to create. To monitor the service creation process, run the following command. When the *ENTERNAL-IP* address value for the *azure-vote-front* switches from *<pending>* to and IP address, the application is ready and can be accessed on the external IP address.
+Once all resources have been created, the application can be accessed over the external IP address for the azure-vote-front service. This service can take a few minutes to create. To monitor the service creation process, run the following command. When the *ENTERNAL-IP* value for the *azure-vote-front* service switches from *<pending>* to an IP address, the application is ready and can be accessed on the external IP address.
 
 ```bash
 kubectl get service -w
@@ -305,7 +305,7 @@ kubernetes         10.0.0.1      <none>          443/TCP        7m
 
 Browse to the returned external IP address to see the application.
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-external.png)
 
 ## Next steps
 
