@@ -156,7 +156,7 @@ Do the same to the *azure-vote-back* image.
 docker push <acrLoginServer>/azure-vote-back:v1
 ```
 
-At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These mages will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
+At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These images will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
 
 ## Next steps
 
