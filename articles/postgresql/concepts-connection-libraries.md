@@ -32,6 +32,5 @@ Most language client libraries to connect to PostgreSQL server are external proj
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](http://pqxx.org/download/software/) |
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
-- For further details on servers, see [Azure Database for PostgreSQL servers](concepts-servers.md).
-- To create your first PostgreSQL server, see [Create an Azure Database for PostgreSQL in the Azure portal](quickstart-create-server-database-portal.md).
+Read these quickstarts on how to connect and query Azure Database for PostgreSQL using your language of choice:
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
