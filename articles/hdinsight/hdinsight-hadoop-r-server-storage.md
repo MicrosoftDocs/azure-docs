@@ -19,9 +19,9 @@ ms.author: bradsev
 
 ---
 # Azure Storage options for R Server on HDInsight
-Microsoft R Server on HDInsight has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
+Microsoft R Server on HDInsight has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) to persist data, code, or result objects from analysis.
 
-When you create a Hadoop cluster in HDInsight, you specify either an Azure Storage account or a Data Lake store. A specific storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
+When you create an Hadoop cluster in HDInsight, you specify either an Azure Storage account or a Data Lake store. A specific storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
 ## Use multiple Azure Blob storage accounts
 If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.
@@ -61,7 +61,7 @@ If necessary, you can access multiple Azure storage accounts or containers with 
 
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-All of the directory and file references point to the storage account wasbs://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
+All the directory and file references point to the storage account wasbs://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
 
 Now, suppose you want to process a file called mySpecial.csv that's located in the  /private directory of **container2** in **storage2**.
 
@@ -104,7 +104,7 @@ inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
 All of the directory and file references now point to the storage account wasbs://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
-Note that you will have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
+You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
 
 ````
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
@@ -123,13 +123,15 @@ You access a Data Lake store by using an Azure Active Directory (Azure AD) Servi
 
 2.In the **Cluster AAD Identity** dialog box, under **Select AD Service Principal**, select **Create new**.
 
-After you give the Service Principal a name and create a password for it, click on **Manage ADLS Access** to associate the Service Principal with your Data Lake stores.
+After you give the Service Principal a name and create a password for it, click **Manage ADLS Access** to associate the Service Principal with your Data Lake stores.
 
-It’s also possible to add cluster access to one or more Data Lake stores following cluster creation by opening the Azure Portal entry for a Data Lake store and going to **Data Explorer > Access > Add**. 
+It’s also possible to add cluster access to one or more Data Lake stores following cluster creation. Open the Azure portal entry for a Data Lake store and go to **Data Explorer > Access > Add**. 
 
-For additional detail on adding HDI cluster access to Data Lake stores see the article [Create an HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store)
+For additional detail on adding HDI cluster access to Data Lake stores, see the article [Create an HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store)
+
 
 ## Use the Data Lake store with R Server
+
 Once you’ve given access to a Data Lake store, you can use the store in R Server on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
 
 ````
@@ -180,7 +182,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 ````
 
 ## Use Azure Files on the edge node
-There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files"). It enables you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that might be needed later when it makes sense to use the native file system on the edge node rather than HDFS.
+There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files"). It enables you to mount an Azure Storage file share to the Linux file system. This option can be handy for storing data files, R scripts, and result objects that might be needed later, especially when it makes sense to use the native file system on the edge node rather than HDFS.
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system.
 
