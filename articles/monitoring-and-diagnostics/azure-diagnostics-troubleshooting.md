@@ -123,7 +123,32 @@ Here is an example:
           <DefaultEvents eventDestination=”dest2” />
         </EtwEventSourceProviderConfiguration>
 ```
-
+```JSON
+"EtwEventSourceProviderConfiguration": [
+    {
+        "provider": "prov1",
+        "Event": [
+            {
+                "id": 1
+            },
+            {
+                "id": 2,
+                "eventDestination": "dest1"
+            }
+        ],
+        "DefaultEvents": {
+            "eventDestination": "DefaultEventDestination",
+            "sinks": ""
+        }
+    },
+    {
+        "provider": "prov2",
+        "DefaultEvents": {
+            "eventDestination": "dest2"
+        }
+    }
+]
+```
 That generates 4 tables:
 
 | Event | Table Name |
