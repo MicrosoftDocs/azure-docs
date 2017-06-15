@@ -10,3 +10,4 @@
 # Resources
 ## [Jenkins Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
 ## [Jenkins Azure Storage plugin](https://github.com/jenkinsci/windows-azure-storage-plugin)
+## [Jenkins site](https://jenkins.io/)
