@@ -23,7 +23,7 @@ ms.author: saveenr
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. The overall process in simple:
 
 * Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script
-* Use the PROCESS operation to use the Cognitive capabilities 
+* Call the PROCESS operation to use the Cognitive capabilities 
 
 ## Imaging Scenarios
 
