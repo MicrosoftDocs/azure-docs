@@ -189,6 +189,7 @@ Congratulations! You've successfully configured Edison.
 3. Then navigate to the repo folder to run the following command to install all packages, it may take serval minutes to complete.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
