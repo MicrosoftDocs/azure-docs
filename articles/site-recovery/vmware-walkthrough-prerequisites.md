@@ -9,10 +9,10 @@ editor: ''
 
 ms.assetid: 318156ba-793b-48d0-98d4-cc5436bf28a3
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
 ms.date: 06/13/2017
 ms.author: raynew
 ---
