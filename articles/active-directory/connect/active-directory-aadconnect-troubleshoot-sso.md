@@ -104,4 +104,4 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 ### Step 5. Enable the feature on your tenant
 
-1. Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
+Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.

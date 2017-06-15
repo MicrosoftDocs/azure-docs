@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/15/2017
 ms.author: billmath
 ---
 
@@ -32,7 +32,7 @@ Pass-through Authentication is a free feature and you don't need any paid editio
 
 Yes, all Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 
-## Does Pass-through Authentication support `Alternate ID` as the username, instead of `userPrincipalName`?
+## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 
 Yes. Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](active-directory-aadconnect-get-started-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
