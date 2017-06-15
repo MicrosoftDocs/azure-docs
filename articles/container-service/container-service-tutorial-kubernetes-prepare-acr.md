@@ -61,13 +61,13 @@ Once the ACR instance has been created, the name, login server name, and authent
 ACR Name:
 
 ```bash
-az acr list --query [0].name -o tsv
+az acr list --resource-group myResourceGroup --query [0].name -o tsv
 ```
 
 ACR Login Server:
 
 ```bash
-az acr list --query [0].loginServer -o tsv
+az acr list --resource-group myResourceGroup --query [0].loginServer -o tsv
 ```
 
 ACR Password - update with the ACR name.
@@ -78,7 +78,7 @@ az acr credential show --name <acrName> --query passwords[0].value -o tsv
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation.
+You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation. When running `docker login` you need to provide a login server, this is the ACR loginServer name and credentials. 
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
@@ -150,6 +150,12 @@ Do the same to the *azure-vote-back* image.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-back:v1
+```
+
+To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository kist]( /cli/azure/acr/repository#list) command.
+
+```azurecli-interactive
+
 ```
 
 At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These images will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
