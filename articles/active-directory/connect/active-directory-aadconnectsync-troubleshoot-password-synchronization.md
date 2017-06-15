@@ -3,7 +3,7 @@ title: Troubleshoot password synchronization with Azure AD Connect sync | Micros
 description: This article provides information about how to troubleshoot password synchronization problems.
 services: active-directory
 documentationcenter: ''
-author: cychua;billmath
+author: cychua; billmath
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: cychua;billmath
+ms.author: cychua; billmath
 
 ---
 # Troubleshoot password synchronization with Azure AD Connect sync
@@ -64,7 +64,7 @@ The diagnostic cmdlet performs the following checks:
 
       * Validates that the domain is reachable from the Azure AD Connect server.
 
-      * Validates that the Active Directory Domain Services (AD DS) account used by the on-premises Active Directory Connector has the correct username, password, and permissions required for password synchronization.
+      * Validates that the Active Directory Domain Services (AD DS) accounts used by the on-premises Active Directory Connector has the correct username, password, and permissions required for password synchronization.
 
 The following diagram illustrates the results of the cmdlet for a single-domain, on-premises Active Directory topology:
 
@@ -165,9 +165,9 @@ Follow these steps to determine why no passwords are synchronized:
 
 4. Look in the event log for errors. Look for the following events, which would indicate a problem:
     * Source: "Directory synchronization" ID: 0, 611, 652, 655
-    If you see these, you have a connectivity problem. The event log message contains forest information where you have a problem. For more information, see [Connectivity problem](#connectivity problem).
+    If you see these events, you have a connectivity problem. The event log message contains forest information where you have a problem. For more information, see [Connectivity problem](#connectivity problem).
 
-5. If you see no heartbeat or if nothing else worked, run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). You should run this script only once.
+5. If you see no heartbeat or if nothing else worked, run [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). Run the script only once.
 
 6. See the [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords) section.
 
@@ -190,7 +190,7 @@ If you used custom installation, set the permissions manually by doing the follo
     ![Account used by Active Directory Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/connectoraccount.png)  
     Note the username and the domain where the account is located.
     
-5. Start **Active Directory Users and Computers**, and then verify that the account you found in the previous steps have the follow permissions set at the root of all domains in your forest:
+5. Start **Active Directory Users and Computers**, and then verify that the account you found earlier has the follow permissions set at the root of all domains in your forest:
     * Replicate Directory Changes
     * Replicate Directory Changes All
 
