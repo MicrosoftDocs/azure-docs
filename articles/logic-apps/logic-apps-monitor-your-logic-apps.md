@@ -23,7 +23,7 @@ ms.author: LADocs; jehollan
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
 you can check the performance and full run history in the Azure portal. 
 When you set up services like Azure Log Analytics, Azure Diagnostics, 
-and Azure Alerts, you can also log diagnostic data, monitor events in real-time, 
+and Azure Alerts, you can also log diagnostic data, monitor real-time events, 
 and get alerts for events that might indicate failures or other problems, 
 for example, "when more than five runs fail within an hour."
 
@@ -93,7 +93,7 @@ In addition to the details provided by the Azure portal and REST API above, you 
     ![Azure Diagnostics settings](media/logic-apps-monitor-your-logic-apps/diagnostics.png)
 
 ### Adding Azure Alerts
-Once diagnostics are configured, you can add Azure Alerts to fire when certain thresholds are crossed.  In the **Diagnostics** blade, select the **Alerts** tile and **Add alert**.  These steps show how to configure an alert based on a number of thresholds and metrics.
+Once diagnostics are configured, you can add Azure Alerts to fire when certain thresholds are crossed.  In the **Diagnostics** blade, select the **Alerts** tile and **Add alert**.  These steps show how to configure an alert based on specific thresholds and metrics.
 
 ![Azure Alert Metrics](media/logic-apps-monitor-your-logic-apps/alerts.png)
 

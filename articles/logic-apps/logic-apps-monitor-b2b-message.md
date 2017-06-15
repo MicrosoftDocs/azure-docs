@@ -102,8 +102,8 @@ Otherwise, select the correct values now:
    that you're using with your integration account.
    2. Under **Resource group**, select the resource group that 
    you're using with your integration account.
-   3. Under **Resource type**, select **Integration accounts**. 
-   4. Under **Resource**, select your integration account. 
+   3. Under **Resource type**, select **Integration accounts**.
+   4. Under **Resource**, select your integration account.
    5. Choose **Turn on diagnostics**.
 
 	![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
