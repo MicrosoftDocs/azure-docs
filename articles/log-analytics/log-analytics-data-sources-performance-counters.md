@@ -43,7 +43,7 @@ Follow this procedure to add a new Windows performance counter to collect.
 
 1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
 
-    When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, the format is *MSSQL$INST2:Databases(*)\Log Cache Hit Ratio*. 
+    When collecting SQL Server performance counters from named instances, all named instance counters start with *MSSQL$* and followed by the name of the instance.  For example, to collect the Log Cache Hit Ratio counter for all databases from the Database performance object for named SQL instance INST2, the format is *MSSQL$INST2:Databases(\*)\Log Cache Hit Ratio*. 
  
 2. Click **+** or press **Enter** to add the counter to the list.
 3. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
