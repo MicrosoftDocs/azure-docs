@@ -103,7 +103,7 @@ You can use the `Invoke-ADSyncDiagnostics` cmdlet to determine why one object is
 > [!NOTE]
 > The `Invoke-ADSyncDiagnostics` cmdlet is available only for Azure AD Connect version 1.1.524.0 or later.
 
-### How to run the diagnostics cmdlet
+### Run the diagnostics cmdlet
 To troubleshoot issues where no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
