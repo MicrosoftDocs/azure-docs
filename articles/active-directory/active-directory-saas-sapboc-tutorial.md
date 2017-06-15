@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06-14-2017
+ms.date: 06-16-2017
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `<sub-domain>.projectorca.cloud`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html) to get these values or you can get these values downloading the SAP Business Object Cloud metadata from the admin console that is explained later in the tutorial. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html) to get Sign-On URL and you can get Identifier downloading the SAP Business Object Cloud metadata from the admin console that is explained later in the tutorial. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/config3.png)  
 
-10. Click **Download** to download the Service Provider metadata. Retrieve SAML data values from the file and paste them to **SAP Business Object Cloud Domain and URLs** section on Azure portal.
+10. Click **Download** to download the Service Provider metadata. Retrieve **entityID** value from the file and paste it in **Identifier** textbox in **SAP Business Object Cloud Domain and URLs** section on Azure portal.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/config4.png)  
 
@@ -143,9 +143,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/config5.png)
 
-12. Select **Email** as user attribute from list to map to Identity provider.
+12. Select the appropriate **User Attribute** you want to use for your implementation from list to map to Identity provider. Use the "Custom SAML Mapping" option to enter a custom attribute in the users page or select either "Email" or "USER ID" as the user Attribute. E.x. **Email** is selected here as we have mapped the user identifier claim with the userprincipalname attribute in the **"User Attributes"** section on Azure portal, which provides unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML Response.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/config6.png)
+	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/config6.png)
 
 13. Enter your Email in **Login Credential (Email)** text box and click **Verify Account** button to allow the system to add your login credential to your account.
 
