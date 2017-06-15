@@ -105,7 +105,7 @@ When you run a test failover, you're asked to select network settings for test r
 
 
 ## Test failover to a production network on a recovery site
-We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in **Network mapping**. But if you really want to validate end-to-end network connectivity in a failed-over virtual machine, note the following points:
+We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in [Network mapping](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping). But if you really want to validate end-to-end network connectivity in a failed-over virtual machine, note the following points:
 
 * Make sure that the primary virtual machine is shut down when you're doing the test failover. If you don't, two virtual machines with the same identity will be running in the same network at the same time. That situation can lead to undesired consequences.
 * Any changes that you make to the test failover virtual machines are lost when you clean up the test failover virtual machines. These changes are not replicated back to the primary virtual machine.
