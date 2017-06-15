@@ -1,5 +1,5 @@
 ---
-title: Share results with your team using Workbooks that combine live data and text in Azure Application Insights | Microsoft docs
+title: Investigate and share usage data with interactive Workbooks in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
 services: application-insights
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 06/12/2017
 ms.author: cfreeman
 ---
 
-# Share results with your team using Workbooks that combine live data and text in Application Insights
+# Investigate and share usage data with interactive Workbooks in Application Insights
 
 Workbooks combine [Azure Application Insights](app-insights-overview.md) data visualizations, [Analytics queries](app-insights-analytics.md), and text into interactive documents. Workbooks are editable by other team members with access to the same Azure resource. This means the queries and controls used to create a workbook are available to other people reading the workbook, making them easy to explore, extend, and check for mistakes.
 
