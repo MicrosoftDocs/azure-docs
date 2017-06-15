@@ -32,7 +32,7 @@
 
 Azure Active Directory (Azure AD) is Microsoft's identity as a service (IDaaS) solution and platform. Azure AD is offered in different service editions: 
 
-* Azure Active Directory Free, which is available with any Microsoft service such as Office 365, Dynamics, Intune, or Azure. Azure AD does not generate any consumption charges in this mode.
+* Azure Active Directory Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune, or Azure. Azure AD does not generate any consumption charges in this mode.
 
 * Azure AD paid editions such as: 
   - Enterprise Mobility + Security
@@ -47,7 +47,7 @@ Like many of Microsoft online services, most Azure AD paid versions are delivere
 * Enabling the service components for the user.
 * Consuming one of the prepaid licenses.
 
-[Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
+[Try Azure AD Premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
 For a broad overview of Azure AD service capabilities, see [What is
 Azure AD?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/). For more information, see our [Service Level Agreements page](https://azure.microsoft.com/en-us/support/legal/sla/active-directory/v1_0/).
@@ -61,40 +61,40 @@ License-based Azure AD services work by activating a subscription in your Azure 
 
 ### Manage subscription information
 
-When you purchase Enterprise Mobility + Security, Azure AD Premium, or Azure AD Basic, your tenant is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal under **Azure Active Directory** &gt; **Licenses** tile for the specific directory. The **Licenses** blade is also the best place to manage your license assignments.
+When you purchase Enterprise Mobility + Security, Azure AD Premium, or Azure AD Basic, your tenant is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal: Under **Azure Active Directory**, open the **Licenses** tile for the specific directory. The **Licenses** blade is also the best place to manage your license assignments.
 
 Each subscription consists of one or more service plans, such as Azure AD, Multi-Factor Authentication, Intune, Exchange Online, or SharePoint Online.  Azure AD license management does *not* require service-plan-level management. Office 365 differs because it relies on this advanced configuration mode to manage access to included services. Azure AD relies on in-service configuration to enable features and manage individual permissions.
 
 > [!IMPORTANT]
-> Azure AD Premium and Basic, and Enterprise Mobility + Security subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible, but requires submitting a support ticket, or cancellation and repurchase for direct purchases.
+> Azure AD Premium, Azure AD Basic, and Enterprise Mobility + Security subscriptions are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible, but requires submitting a support ticket, or cancellation and repurchase for direct purchases.
 >
-> When purchasing Azure AD or Enterprise Mobility + Security through Volume Licensing subscription, activation happens automatically when the agreement includes other Microsoft Online services; for example, Office 365.
+> When purchasing Azure AD or Enterprise Mobility + Security through a Volume Licensing subscription, and when the agreement includes other Microsoft Online services (for example, Office 365), activation happens automatically. 
 
 ### Assign licenses
 
 While obtaining a subscription is all you need to configure paid capabilities, you must still distribute licenses for Azure AD paid features to users. Any user who should have access to or who is managed through an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
 
-Managing which users in your directory should have a license can be accomplished by 
+Managing which users in your directory should have a license can be accomplished by: 
 
-* Assigning licenses to groups in Azure portal
+* Assigning licenses to groups in the Azure portal.
 * Assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. 
 
 When assigning licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is assigned or removed. Group assignment can utilize any group management available to you, and it is consistent with group-based assignment to applications. 
 
-Use this approach to set up rules such that 
-* All users in your directory are automatically assigned
-* Everyone with the appropriate job title has a license
-* You can delegate the decision to other managers in the organization
+Use this approach to set up rules such that: 
+* All users in your directory are automatically assigned.
+* Everyone with the appropriate job title has a license.
+* You can delegate the decision to other managers in the organization.
 
-For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
+For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## Get started with Azure AD licensing
 
-Getting started with Azure AD is easy; you can create your directory when you sign up for a free Azure trial. Learn more about [signing up as an organization](https://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/). 
+Getting started with Azure AD is easy. You can create your directory when you sign up for a free Azure trial. Learn more about [signing up as an organization](https://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/). 
 
-The following best practices can help ensure that your tenant is aligned with other Microsoft services you might be consuming, and with your goals in obtaining the service:
+The following best practices can help ensure that your tenant is aligned with other Microsoft services you might be consuming and with your goals for the service:
 
-- If you are already using any of Microsoft's organizational services, you already have an Azure AD directory. It is useful to use the same directory for other services so that core identity management, including provisioning and hybrid single sign-on (SSO), can be utilized across the services. Your users use a single sign-on experience to benefit from richer capabilities across the services. Thus, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory again.
+- If you are already using any of Microsoft's organizational services, you already have an Azure AD directory. It is useful to use the same directory for other services so that core identity management, including provisioning and hybrid single sign-on (SSO), can be used across the services. With single sign-on, your users benefit from the rich capabilities across the services. Thus, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory again.
 
 - We recommend that you use a new tenant in the Azure portal if you plan to:
   - Use Azure AD for a different set of users (such as partners or customers).
@@ -104,7 +104,7 @@ The following best practices can help ensure that your tenant is aligned with ot
   The new directory is created with your account as an external user with global administrator permissions. When you sign in to the Azure portal with this account, you can see this tenant and access all administration tasks.
 
 > [!NOTE]
-> Azure AD supports “guest users,” which are user accounts in an Azure AD tenant that were created using either a Microsoft account or an Azure AD identity from another tenant. The Office 365 administration portal does not currently support these users. Guest users with Microsoft accounts are able to access the Office 365 administration portal at all, while guest users from other Azure AD tenants are ignored. In the latter case, only the user’s local account in the Azure AD or Office 365 tenant where the user was originally created is accessible through these experiences.
+> Azure AD supports “guest users,” which are user accounts in an Azure AD tenant that were created using either a Microsoft account or an Azure AD identity from another tenant. The Office 365 administration portal does not currently support these users. Guest users with Microsoft accounts are able to access the Office 365 administration portal at all, while guest users from other Azure AD tenants are ignored. In the latter case, only the user’s local account, in the Azure AD or Office 365 tenant where the user was originally created, is accessible.
 
 ### Select one or more license trials
 
@@ -119,7 +119,7 @@ Trial licenses are available on the **Licenses** blade.
 Once the subscription is active, you should assign a license to yourself. Then refresh the browser to ensure that you are seeing all the features. The next step is to assign licenses to the users who need access to paid Azure AD features. As described in [Assign licenses](#assign-licenses), one easy way to assign licenses is to identify the group representing the desired audience and assign the license to it. In this way, users who are added or removed from the group over its lifecycle are assigned or removed from the license, respectively.
 
 > [!NOTE]
-> Some Microsoft services are not available in all locations; before a license can be assigned to a user, the administrator must specify the **Usage location** property for the user. You can set this property under **User** &gt; **Profile** &gt; **Settings** in the Azure portal. When using group license assignment, any user whose usage location is not specified inherits the location of the directory.
+> Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property for the user. You can set this property under **User** &gt; **Profile** &gt; **Settings** in the Azure portal. When using group license assignment, any user whose usage location is not specified inherits the location of the directory.
 
 To assign a license, under **Azure Active Directory** &gt; **Licenses** &gt; **All Products**, select one or more products, and then select **Assign** on the command bar.
 
@@ -133,9 +133,9 @@ When assigning a license to a group, it can take some time before all users inhe
 
 ![License assignment status](media/active-directory-licensing-get-started-azure-portal/license-assignment-status.png)
 
-Assignment errors can occur during Azure AD license assignment, but are relatively rare when managing Azure AD and EMS products. Potential assignment errors are limited to:
-- Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license will require removing the current one.
-- Exceeded available licenses: when the number of users in assigned groups exceed available licenses, the users' assignment status reflects a failure to assign due to missing licenses.
+Assignment errors can occur during Azure AD license assignment but are relatively rare when managing Azure AD and EMS products. Potential assignment errors are limited to:
+- Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license requires removing the current one.
+- Exceeded available licenses: When the number of users in assigned groups exceeds the available licenses, an user's assignment status reflects a failure to assign due to missing licenses.
 
 Detailed information about group license assignment is available in this article.
 
@@ -153,7 +153,7 @@ Similarly, the **Licensed Groups** list shows all groups to which licenses have 
 
 ### Remove a license
 
-To remove a license, go to the user or group, and open the **Licenses** tile. Select the license and click **Remove**.
+To remove a license, go to the user or group, and open the **Licenses** tile. Select the license, and click **Remove**.
 
 ![Remove a license](media/active-directory-licensing-get-started-azure-portal/remove-license.png)
 
@@ -161,7 +161,7 @@ Licenses inherited by the user from a group cannot be removed directly. Instead,
 
 ### Extend trials
 
-Trial extensions for customers are available as self-service sign up through the Office 365 portal. A customer admin can navigate to the Office portal (access depends on permissions for the Office portal) and select the Azure AD Premium trial. Clicking the **Extend trial** link starts the extension process. A credit card is required, but it is not charged.
+Trial extensions for customers are available as self-service sign-up through the Office 365 portal. A customer admin can navigate to the Office portal (access depends on permissions for the Office portal) and select the Azure AD Premium trial. Clicking the **Extend trial** link starts the extension process. A credit card is required, but it is not charged.
 
 ![Extend a trial in the Azure portal](media/active-directory-licensing-get-started-azure-portal/extend-trial-beginning.png)
 
