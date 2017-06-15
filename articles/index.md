@@ -136,6 +136,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
+                                                        <li><a class="barLink" href="/azure/kubernetes/">Kubernetes</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -192,7 +193,22 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <li></li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>DevOps</h3>
+                                                    <ul class="noBullet">
+                                                        <li><a class="barLink" href="https://www.visualstudio.com/team-services/devops/">Visual Studio Team Services</a></li>
+                                                        <li><a class="barLink" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins">Jenkins</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>
