@@ -35,7 +35,7 @@ ms.author: mlearned
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
-<p>See the following for additional reference materials and tools for working with Jenkins on Azure.</p>
+<p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p>
 <ul>
   <li>Azure Jenkins plugins:</li>
   <ul>
