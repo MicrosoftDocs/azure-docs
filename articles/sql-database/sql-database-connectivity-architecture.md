@@ -8,7 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 
 ms.service: sql-database
-ms.custom: architecture
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

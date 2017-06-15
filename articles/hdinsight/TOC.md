@@ -22,7 +22,8 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight storage options](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # How To
 ## Use Hadoop for batch queries

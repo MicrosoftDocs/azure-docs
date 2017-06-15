@@ -19,7 +19,7 @@ ms.author: joflore
 ms.custom: end-user
 
 ---
-# Help I forgot my Azure AD password
+# Help, I forgot my Azure AD password
 
 If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 

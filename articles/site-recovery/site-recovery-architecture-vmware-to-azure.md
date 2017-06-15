@@ -21,12 +21,6 @@ ms.author: raynew
 
 # How does VMware replication to Azure work in Site Recovery?
 
-> [!div class="op_single_selector"]
-> * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
-> * [VMware VM and physical server to Azure replication](site-recovery-architecture-vmware-to-azure.md)
-> * [Hyper-V VM to Azure replication](site-recovery-architecture-hyper-v-to-azure.md)
-> * [VMs and physical servers to secondary site replication](site-recovery-architecture-to-secondary-site.md)
-
 This article describes the components and processes involved when replicating on-premises VMware virtual machines, and Windows/Linux physical servers, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 When you replicate physical on-premises servers to Azure, replication uses also the same components and processes as VMware VM replication, with these differences:

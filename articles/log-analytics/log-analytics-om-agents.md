@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/09/2017
 ms.author: magoedte
 ---
 
@@ -55,7 +55,7 @@ The information below list the proxy and firewall configuration information requ
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Yes|  
-|\*.ods.opinsights.azue.com| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
 |*.azure-automation.net | 443| Yes|  
 |**Operations Manager console to OMS**|||  
 |service.systemcenteradvisor.com| 443||  

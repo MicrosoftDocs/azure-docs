@@ -27,7 +27,7 @@ Azure Container Registries are compatible with a multitude of services and orche
 
 The ACR headers follow the format:
 ```
-Source-client: <cloud>/<service>/<optionalservicename>
+X-Meta-Source-Client: <cloud>/<service>/<optionalservicename>
 ```
 
 * Cloud: Azure, Azure Stack, or other government or country-specific Azure clouds. Although Azure Stack and government clouds are not currently supported, this parameter enables future support.
@@ -36,7 +36,7 @@ Source-client: <cloud>/<service>/<optionalservicename>
 
 Partner services and orchestrators are encouraged to use specific header values to help with our telemetry. Users can also modify the value passed to the header if they so desire.
 
-The key-value pairs we are encouraging ACR partners to use are below:
+The values we want ACR partners to use to populate the "X-Meta-Source-Client" field are below:
 
 | Service Name              | Header                                |
 | ------------------------- | ------------------------------------- |
