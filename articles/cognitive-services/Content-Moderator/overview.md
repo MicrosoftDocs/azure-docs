@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Overview
 
-Content moderation is the process of monitoring User Generated Content (UGC) on online and social media web sites, chat and messaging platforms, enterprise environments, gaming platforms, and peer communication platforms to track, flag, assess, and filter out offensive and unwanted content that creates risks for businesses. The content can include text, images, and videos.
+Content moderation is the process of monitoring User Generated Content (UGC) on online and social media web sites, chat and messaging platforms, enterprise environments, gaming platforms, and peer communication platforms. The goal is to track, flag, assess, and filter out offensive and unwanted content that creates risks for businesses. The content can include text, images, and videos.
 
 ## Why moderate content?
 
@@ -37,7 +37,7 @@ Microsoft Content Moderator enables all three scenarios. It can be used by human
 
 Content moderation consists of several web service APIs and human-in-the-loop capabilities via a review tool:
 
-- A review tool that uses the APIs listed below.
+- A review tool that uses the following APIs.
 - Text Moderation API – Scan and tag text.
 - Image Moderation API – Scan and tag images.
 - Video Moderation API – Scan and tag videos.
@@ -45,13 +45,13 @@ Content moderation consists of several web service APIs and human-in-the-loop ca
 - List Manager API – Create and use custom lists of images and text for matching against pre-identified content that you don’t need to scan repeatedly.
 - Workflow API – Select additional APIs, and define conditional logic and actions specific to your content policies.
 
-All of these work together to efficiently moderate content and prevent inappropriate material from being posted to your platform.
+All of these features work together to efficiently moderate content and prevent inappropriate material from being posted to your platform.
 
 ## Get started with the human review tool
 
 Hybrid moderation using the [review tool](quick-start.md) is a good way to try out the content moderation APIs. It easily and intuitively augments automated moderation with human-in-the-loop capabilities. The review tool internally calls the automated moderation APIs and presents the items for review right within your web browser. You can invite other users to review, track pending invites, and assign permissions to your team members.
 
-Use the [review API](review-api.md) to auto-moderate content in bulk and review the tagged images or text within the review tool. Provide your API callback point so that you get notified when the reviewers submit their decisions. This allows you to automate the post-review workflow by integrating with your own systems.
+Use the [review API](review-api.md) to auto-moderate content in bulk and review the tagged images or text within the review tool. Provide your API callback point so that you get notified when the reviewers submit their decisions. This feature allows you to automate the post-review workflow by integrating with your own systems.
 
 ## Directly use the automated moderation APIs
 If you sign up for the review tool, you will find your free tier key in the Credentials tab under Settings, as shown in the following screenshot:
