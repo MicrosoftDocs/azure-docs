@@ -58,7 +58,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 ## Get ACR information 
 
-Once the ACR instance has been created, the name, login server name, and authentication password is needed. These values are use throughout this tutorial. To keep things simple, these values are stored in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
+Once the ACR instance has been created, the name, login server name, and authentication password are needed. These values are use throughout this tutorial. To keep things simple, the code below stores these values in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
 
 ACR Name:
 
