@@ -1,7 +1,6 @@
 ﻿# Get started with Azure
 ## [Cloud computing overview](azure-operations-guide.md#cloud-computing-overview)
 ### [Azure regions](https://azure.microsoft.com/regions/)
-## [Types of cloud computing](azure-operations-guide.md#types-of-cloud-computing)
 ## [Services](azure-operations-guide.md#azure-services)
 ### [Azure service documentation](https://docs.microsoft.com/azure)
 ## [Key concepts](azure-operations-guide.md#azure-key-concepts)

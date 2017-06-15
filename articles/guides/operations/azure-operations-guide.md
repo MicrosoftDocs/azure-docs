@@ -49,23 +49,21 @@ For small businesses, Azure allows for a low-cost entry point, with the ability 
 
 For more information on the available Azure regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-## Types of cloud computing
+### Cloud computing is classified into three categories: SaaS, PaaS, and IaaS.
 
-Cloud computing is classified into three categories: SaaS, PaaS, and IaaS.
-
-### SaaS: Software as a service
+#### SaaS: Software as a service
 
 SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription.
 
 Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
-### PaaS: Platform as a service 
+#### PaaS: Platform as a service 
 
 With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
 
 Azure provides several PaaS compute offerings, including the Web Apps feature of Azure App Service and Azure Cloud Services (web and worker roles). In either case, developers have multiple ways to deploy their application without knowing anything about the nuts and bolts that support it. Developers don’t have to create virtual machines (VMs), use Remote Desktop Protocol (RDP) to sign in to each one, or install the application. They just hit a button (or close to it), and the tools provided by Microsoft provision the VMs and then deploy and install the application on them.
 
-### IaaS: Infrastructure as a service
+#### IaaS: Infrastructure as a service
 
 An IaaS cloud vendor runs and manages all physical compute resources and the required software to enable computer virtualization. A customer of this service deploys virtual machines in these hosted datacenters. Although the virtual machines are located in an offsite datacenter, the IaaS consumer has control over the configuration and management of them.
 
