@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: cahann
 ---
 
@@ -54,8 +54,202 @@ Pre-built entity   |   Example utterance   |   JSON
  builtin.geography | See separate table | See separate table below |
  builtin.encyclopedia | See separate table | See separate table below |
  
- The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered next.
- 
+ The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered later in this article.
+
+## builtin.number resolution
+
+There are many ways in which numeric values are used to quantify, express, and describe pieces of information, with more possibilities than the examples listed. LUIS interprets the variations in user utterances and returns consistent numeric values. 
+
+| Utterance        | Entity   | Resolution |
+| ------------- |:----------------:| --------------:|
+| one thousand  | "one thousand" |   "1000"      | 
+| 1,000         | "1,000"    |   "1000"      |
+|  1/2          | "1 / 2"    |    "0.5"      |
+|  one half     | "one half"     |    "0.5"      |
+| one hundred fifty| "one hundred fifty" | "150" |
+| one hundred and fifty| "one hundred and fifty" | "150"|
+| one point five| "one point five" |  "1.5" |
+| two dozen | "two dozen" | "24" |
+
+
+LUIS includes the recognized value of a `builtin.number` entity in the `resolution` field.
+
+The following example shows a JSON response from LUIS, that includes the `resolution` of `24` for the utterance "two dozen".
+
+```
+{
+  "query": "order two dozen eggs",
+  "topScoringIntent": {
+    "intent": "OrderFood",
+    "score": 0.105443209
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.105443209
+    },
+    {
+      "intent": "OrderFood",
+      "score": 0.9468431361
+    },
+    {
+      "intent": "Help",
+      "score": 0.000399122015
+    },
+  ],
+  "entities": [
+    {
+      "entity": "two dozen",
+      "type": "builtin.number",
+      "startIndex": 6,
+      "endIndex": 14,
+      "resolution": {
+        "value": "24"
+      }
+    }
+  ]
+}
+```
+
+
+
+## Ordinal, percentage and currency entities
+
+The `builtin.ordinal`, `builtin.percentage`, and `builtin.currency` entities also provide resolution to a value.
+<!--
+![Image of Pre-built Entities in LUIS](media/number-prebuilt-entities.png)
+-->
+
+### Percentage resolution
+
+The following example shows the resolution of the `builtin.percentage` entity.
+
+```
+{
+  "query": "set a trigger when my stock goes up 2%",
+  "topScoringIntent": {
+    "intent": "SetTrigger",
+    "score": 0.971157849
+  },
+  "intents": [
+    {
+      "intent": "SetTrigger",
+      "score": 0.971157849
+    },
+    {
+      "intent": "None",
+      "score": 0.07398871
+    },
+    {
+      "intent": "Help",
+      "score": 2.57078386E-06
+    }
+  ],
+  "entities": [
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 36,
+      "endIndex": 36,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "2%",
+      "type": "builtin.percentage",
+      "startIndex": 36,
+      "endIndex": 37,
+      "resolution": {
+        "value": "2%"
+      }
+    }
+  ]
+}
+```
+
+### Ordinal resolution
+
+The following example shows the resolution of the `builtin.ordinal` entity.
+
+```
+{
+  "query": "Order the second option",
+  "topScoringIntent": {
+    "intent": "OrderFood",
+    "score": 0.9993253
+  },
+  "intents": [
+    {
+      "intent": "OrderFood",
+      "score": 0.9993253
+    },
+    {
+      "intent": "None",
+      "score": 0.05046708
+    }
+  ],
+  "entities": [
+    {
+      "entity": "second",
+      "type": "builtin.ordinal",
+      "startIndex": 10,
+      "endIndex": 15,
+      "resolution": {
+        "value": "2"
+      }
+    }
+  ]
+}
+```
+
+
+### Currency resolution
+
+The following example shows the resolution of the `builtin.currency` entity.
+
+```
+{
+  "query": "search for items under $10.99",
+  "topScoringIntent": {
+    "intent": "SearchForItems",
+    "score": 0.926173568
+  },
+  "intents": [
+    {
+      "intent": "SearchForItems",
+      "score": 0.926173568
+    },
+    {
+      "intent": "None",
+      "score": 0.07376878
+    }
+  ],
+  "entities": [
+    {
+      "entity": "10.99",
+      "type": "builtin.number",
+      "startIndex": 24,
+      "endIndex": 28,
+      "resolution": {
+        "value": "10.99"
+      }
+    },
+    {
+      "entity": "$10.99",
+      "type": "builtin.currency",
+      "startIndex": 23,
+      "endIndex": 28,
+      "resolution": {
+        "unit": "Dollar",
+        "value": "10.99"
+      }
+    }
+  ]
+}
+```
+
+
 ## builtin.datetime
 
 The `builtin.datetime` pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, the `builtin.datetime` entity provides a resolution field that produces a machine-readable dictionary. 
