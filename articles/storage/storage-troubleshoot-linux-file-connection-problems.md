@@ -118,7 +118,7 @@ Until Ubuntu 16.10 is fixed, specify the `vers=2.1` mount option or use Ubuntu 1
 <a id="timestampslost"></a>
 ## Time stamps were lost in copying files from Windows to Linux
 
-On Linux/Unix platforms, the **cp -p** command will fail if file 1 and file 2 are owned by different users.
+On Linux/Unix platforms, the **cp -p** command fails if file 1 and file 2 are owned by different users.
 
 ### Cause
 
