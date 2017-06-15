@@ -231,13 +231,13 @@ The evaluation of the join depends on the context scope of the participating set
   
  In the current release, a maximum of one collection-scoped expression is supported by the query processor.  
   
- **Examples of joins:**  
+**Examples of joins:**  
   
- Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all collection aliases over their respective sets.  
   
- *JOIN example 1, with 2 sources:*  
+*JOIN example 1, with 2 sources:*  
   
 - Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
@@ -255,7 +255,7 @@ The evaluation of the join depends on the context scope of the participating set
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
- *JOIN example 2, with 3 sources:*  
+*JOIN example 2, with 3 sources:*  
   
 - Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
@@ -282,7 +282,7 @@ The evaluation of the join depends on the context scope of the participating set
 > [!NOTE]
 > Lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
   
- *JOIN example 3, with 3 sources:*  
+*JOIN example 3, with 3 sources:*  
   
 - Let <from_source1> be collection-scoped and represent set {A, B, C}.  
   
@@ -311,7 +311,7 @@ The evaluation of the join depends on the context scope of the participating set
 > [!NOTE]
 > This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
   
- **See also**  
+**See also**  
   
  [SELECT clause](#bk_select_query)  
   
