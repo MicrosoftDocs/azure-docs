@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 06/17/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with FM:Systems, you need the following items:
 
 - An Azure AD subscription
-- An FM:Systems single-sign on enabled subscription
+- An FM:Systems single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_url.png)
 
-	In the **Reply URL** textbox, type your FM:Systems **Reply URL** e.g. `https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx`
+	In the **Reply URL** textbox, type your FM:Systems **Reply URL** e.g. `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems support team](https://fmsystems.com/ask-us/) to get this value.
