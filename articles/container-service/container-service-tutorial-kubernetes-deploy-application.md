@@ -153,12 +153,11 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: neilpeterson/azure-vote-back:latest
+        image: neilpeterson/azure-vote-back:v1
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306
           name: mysql
-        imagePullPolicy: Always
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
@@ -208,6 +207,11 @@ metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
   template:
     metadata:
       labels:
@@ -215,7 +219,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: neilpeterson/azure-vote-front:latest
+        image: neilpeterson/azure-vote-front:v1
         resources:
           requests:
             cpu: 250m
@@ -223,6 +227,11 @@ spec:
             cpu: 500m
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
         imagePullPolicy: Always
         env:
         - name: MYSQL_USER
