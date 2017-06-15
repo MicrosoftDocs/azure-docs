@@ -142,7 +142,7 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal. 
 
-## Create production MySQL in Azure
+## Create MySQL in Azure
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
@@ -236,7 +236,7 @@ Exit the server connection by typing `quit`.
 quit
 ```
 
-## Connect app to production MySQL
+## Connect app to Azure MySQL
 
 In this step, you connect the PHP application to the MySQL database you created in Azure Database for MySQL (Preview). 
 
@@ -482,7 +482,7 @@ Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 
-## Update data model and redeploy
+## Update model and redeploy
 
 In this step, you make changes to the `task` data model and publish the changes to Azure.
 
