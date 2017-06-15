@@ -139,6 +139,8 @@
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
+    - name: Create VM with Python
+      href: python.md
     - name: Create VM running popular application frameworks
       href: app-frameworks.md
     - name: Move a VM between subscriptions
@@ -184,6 +186,8 @@
       href: capture-image-resource.md
     - name: Create a VM from a generalized Managed Disk image
       href: create-vm-generalized-managed.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -347,6 +351,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:

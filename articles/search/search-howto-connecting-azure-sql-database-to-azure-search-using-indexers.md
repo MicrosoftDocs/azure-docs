@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 06/01/2017
 ms.author: eugenesh
 ---
 
@@ -177,9 +177,10 @@ Integrated change tracking is supported starting with the following SQL Server d
 * SQL Server 2008 R2 and later, if you're using SQL Server on Azure VMs.
 * Azure SQL Database V12, if you're using Azure SQL Database.
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows.
-
-This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions.
+> [!IMPORTANT] 
+> This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions.
+> 
+> In addition, you cannot use this policy if the table uses a composite primary key (primary key containing more than one column).  
 
 To use this policy, create or update your data source like this:
 
@@ -192,6 +193,8 @@ To use this policy, create or update your data source like this:
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+
+When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
 
 <a name="HighWaterMarkPolicy"></a>
 

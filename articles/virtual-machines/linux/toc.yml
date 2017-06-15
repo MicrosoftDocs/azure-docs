@@ -201,7 +201,9 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
-    - name: Create Azure-endorsed images
+    - name: Create image with Packer
+      href: build-image-with-packer.md
+    - name: Create Azure images
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -213,6 +215,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -363,6 +367,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:

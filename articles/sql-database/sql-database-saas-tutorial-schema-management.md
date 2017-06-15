@@ -1,5 +1,5 @@
 ---
-title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs 
+title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
 description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
@@ -8,13 +8,13 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 
@@ -59,7 +59,7 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create a job account database and new job account
 

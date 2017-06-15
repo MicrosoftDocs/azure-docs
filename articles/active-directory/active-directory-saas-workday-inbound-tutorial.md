@@ -58,6 +58,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
+> [!NOTE]
+> If your Azure AD tenant is located in Europe, please see the [Known issues](#known-issues) section below.
+
 
 ### Solution architecture
 
@@ -79,11 +82,12 @@ Azure Active Directory supports pre-integrated provisioning connectors for Workd
 
 A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
 
+There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD:
+
 | Source System | Target System |
 | ---------- | ---------- | 
 | Azure AD tenant | SaaS application |
 
-There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD.
 
 However, when working with Workday and Active Directory, there are multiple source and target systems to be considered:
 
@@ -93,15 +97,19 @@ However, when working with Workday and Active Directory, there are multiple sour
 | Workday | Azure AD tenant | As required for cloud-only users |
 | Active Directory Forest | Azure AD tenant | This flow is handled by AAD Connect today |
 | Azure AD tenant | Workday | For writeback of email addresses |
-| Azure AD tenant | Other SaaS apps | As required |
 
 To facilitate these multiple workflows to multiple source and target systems, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
+![AAD App Gallery](./media/active-directory-saas-workday-inbound-tutorial/WD_Gallery.PNG)
+
 * **Workday to Active Directory Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory forest. If you have multiple forests, you can add one instance of this app from the Azure AD app gallery for each Active Directory forest you need to provision to.
 
-* **Workday to Azure Active Directory Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
+* **Workday to Azure AD Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
 
 * **Workday Writeback** - This app facilitates writeback of user's email addresses from Azure Active Directory to Workday.
+
+> [!TIP]
+> The regular "Workday" app is used for setting up single sign-on between Workday and Azure Active Directory. 
 
 How to set up and configure these special provisioning connector apps is the subject of the remaining sections of this tutorial. Which apps you choose to configure will depend on which systems you need to provision to, and how many Active Directory Forests and Azure AD tenants are in your environment.
 
@@ -226,9 +234,9 @@ Follow these instructions to configure user account provisioning from Workday to
 
 3.  Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**.
+4.  Select **Add an application**, and select the **All** category.
 
-5.  Search for ***Workday Provisioning to Active Directory**, and add that app from the gallery.
+5.  Search for **Workday Provisioning to Active Directory**, and add that app from the gallery.
 
 6.  After the app is added and the app details screen is shown, select **Provisioning**
 
@@ -238,7 +246,7 @@ Follow these instructions to configure user account provisioning from Workday to
 
    * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
-        appended. Should look something like: username@contoso4
+        appended. **Should look something like: username@contoso4**
 
    * **Admin password –** Enter the password of the Workday
         integration system account
@@ -247,8 +255,7 @@ Follow these instructions to configure user account provisioning from Workday to
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+        wd3-impl is replaced with the correct environment string.
 
    * **Active Directory Forest -** The “Name” of your Active
         Directory forest, as returned by the Get-ADForest powershell
@@ -268,7 +275,6 @@ Follow these instructions to configure user account provisioning from Workday to
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### Part 2: Configure attribute mappings 
-
 
 In this section, you will configure how user data flows from Workday to
 Active Directory.
@@ -361,7 +367,7 @@ Directory, with some common expressions**
     different OUs depending on their city data in Workday.
 
 -   The expression that maps to the userPrincipalName AD attribute
-    create a UPN of &lt;firstName&gt;.&lt;LastName&gt;@contoso.com. It
+    create a UPN of firstName.LastName@contoso.com. It
     also replaces illegal special characters.
 
 -   [There is documentation on writing expressions here](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -379,21 +385,21 @@ Directory, with some common expressions**
 | **EmployeeID**    |  cn    |   |   Written on create only |
 | **Fax**      | facsimileTelephoneNumber     |     |    Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
-| **Switch(\[Active\], , "0", "True", "1", |  accountDisabled      |     | Create + update |
+| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Create + update |
 | **Mobile**  |    mobile       |     |       Written on create only |
 | **EmailAddress**    | mail    |     |     Create + update |
 | **ManagerReference**   | manager  |     |  Create + update |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Create + update |
 | **PostalCode**  |   postalCode  |     | Create + update |
 | **LocalReference** |  preferredLanguage  |     |  Create + update |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "(**[\\\\.)\*\$](file:///\\.)*$)**", , "", , )**      |    sAMAccountName            |     |         Written on create only |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Written on create only |
 | **LastName**   |   sn   |     |  Create + update |
 | **CountryRegionReference** |  st     |     | Create + update |
 | **AddressLineData**    |  streetAddress  |     |   Create + update |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Written on create only |
 | **BusinessTitle**   |  title     |     |  Create + update |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Create + update                                                   
-| **Switch(Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Create + update                                                   
+| **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Create + update |
   
 ### Part 3: Configure the on-premises synchronization agent
 
@@ -417,23 +423,20 @@ Agent\\Modules\\AADSyncAgent
 
 > Add-ADSyncAgentActiveDirectoryConfiguration
 
-**Inputs**
-* Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
-* Domain admin username and password for Active Directory forest
+* Input: For "Directory Name", enter the AD Forest name, as entered in part \#2
+* Input: Admin username and password for Active Directory forest
 
 **Command #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
-**Inputs**
-* Global admin username and password for your Azure AD tenant
+* Input: Global admin username and password for your Azure AD tenant
 
 **Command #4**
 
 > Get-AdSyncAgentProvisioningTasks
 
-**Action**
-* Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
+* Action: Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
 
 > Name          : My AD Forest
 >
@@ -506,9 +509,9 @@ The following sections describe setting up a connection between Workday and Azur
 
 3.  Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**.
+4.  Select **Add an application**, and then select the **All** category.
 
-5.  Search for **Workday to Azure Active Directory provisioning**, and add that app from the gallery.
+5.  Search for **Workday to Azure AD provisioning**, and add that app from the gallery.
 
 6.  After the app is added and the app details screen is shown, select **Provisioning**
 
@@ -651,9 +654,9 @@ Follow these instructions to configure writeback of user email addresses from Az
 
 3.  Select **Enterprise Applications**, then **All Applications**.
 
-4.  Select **Add an application**.
+4.  Select **Add an application**, then select the **All** category.
 
-5.  Search for ***Workday Writeback**, and add that app from the gallery.
+5.  Search for **Workday Writeback**, and add that app from the gallery.
 
 6.  After the app is added and the app details screen is shown, select **Provisioning**
 
@@ -717,11 +720,15 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
-## Additional Resources
+## Known issues
+
+* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the [audit logs](active-directory-saas-provisioning-reporting.md) for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com) if the Azure AD tenant resides in a European data center. A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+
+## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## Next Steps
+## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

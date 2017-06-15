@@ -115,14 +115,40 @@ The tables in Azure storage holding Azure diagnostics data are named using the f
 Here is an example:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
+```
+```JSON
+"EtwEventSourceProviderConfiguration": [
+    {
+        "provider": "prov1",
+        "Event": [
+            {
+                "id": 1
+            },
+            {
+                "id": 2,
+                "eventDestination": "dest1"
+            }
+        ],
+        "DefaultEvents": {
+            "eventDestination": "DefaultEventDestination",
+            "sinks": ""
+        }
+    },
+    {
+        "provider": "prov2",
+        "DefaultEvents": {
+            "eventDestination": "dest2"
+        }
+    }
+]
 ```
 
 That generates 4 tables:

@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -48,7 +48,7 @@ To complete this tutorial, make sure you have:
 
 ## Set up Data Environment
 
-You will be provisioning a database per tenant. The database-per-tenant model provides the highest degree of isolation between tenants, with little DevOps cost. To optimize the cost of cloud resources, you will also be provisioning the tenant databases into an elastic pool which allows you to optimize the price performance for a group of databases. To learn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+You will be provisioning a database per tenant. The database-per-tenant model provides the highest degree of isolation between tenants, with little DevOps cost. To optimize the cost of cloud resources, you will also be provisioning the tenant databases into an elastic pool which allows you to optimize the price performance for a group of databases. To learn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Follow these steps to create a SQL server and an elastic pool that will host all your tenant databases. 
 

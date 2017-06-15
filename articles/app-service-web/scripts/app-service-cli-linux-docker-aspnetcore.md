@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
 # Create an ASP.NET Core web app in a Docker container
@@ -23,6 +24,10 @@ ms.author: cfowler
 In this scenario you will learn how to create a resource group, Linux app service plan, and web app, and deploy an ASP.NET Core application using a Docker Container.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

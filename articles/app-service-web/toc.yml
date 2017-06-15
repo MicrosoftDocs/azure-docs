@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-      - name: Remote debug Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Remote debug IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Django app with MySQL
@@ -282,8 +278,6 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Configuration and management FAQ
         href: app-service-web-configuration-and-management-faq.md
-      - name: More FAQ
-        href: app-service-web-others-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

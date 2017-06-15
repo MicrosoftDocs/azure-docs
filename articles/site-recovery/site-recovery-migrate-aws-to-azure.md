@@ -12,8 +12,8 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 02/12/2017
+ms.workload: storage-backup-recovery
+ms.date: 05/31/2017
 ms.author: bsiva
 
 ---
@@ -71,3 +71,8 @@ Here's what you need for this deployment
 9. Run a Failover from AWS to Azure for each VM. Optionally, you can create a recovery plan and run a Failover, to migrate multiple virtual machines from AWS to Azure. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
 
 10. For migration, you don't need to commit a failover. Instead, you select the Complete Migration option for each machine you want to migrate. The Complete Migration action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.![Migrate](./media/site-recovery-migrate-aws-to-azure/migration_pic6.png)
+
+## Next steps
+
+- [Prepare migrated machines to enable replication](site-recovery-azure-to-azure-after-migration.md) to another region for disaster recovery needs.
+- Start protecting your workloads by [replicating Azure virtual machines.](site-recovery-azure-to-azure.md)

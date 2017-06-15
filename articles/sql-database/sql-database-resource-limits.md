@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: resources
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 
 ---

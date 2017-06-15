@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
+ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 

@@ -19,15 +19,11 @@ ms.author: raynew
 ---
 # Support matrix for replication to a secondary site with Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to an on-premises site](site-recovery-support-matrix-to-sec-site.md)
-
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
 
 ## Deployment options
 
-**Deployment** | **VMware/physical server** | **Hyper-V (with/without SCVMM)
+**Deployment** | **VMware/physical server** | **Hyper-V (with/without SCVMM)**
 --- | --- | --- | ---
 **Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM  <br/><br/> Standard Hyper-V Replication only. SAN not supported.
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only<br></br> Not supported without SCVMM
