@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/tutorial_fmsystems_url.png)
 
-	In the **Reply URL** textbox, type your FM:Systems **Reply URL** e.g. `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
+	In the **Reply URL** textbox, type your FM:Systems **Reply URL**, type the URL using the following pattern: `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems support team](https://fmsystems.com/ask-us/) to get this value.
