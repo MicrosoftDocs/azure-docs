@@ -1175,7 +1175,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 
 * item: Represents an element in the multi-valued attribute
 * attribute: the multi-valued attribute
-* expression: an expression which returns a collection of values
+* expression: an expression that returns a collection of values
 * condition: any function that can process an item in the attribute
 
 **Examples:**  
@@ -1283,7 +1283,7 @@ Returns a subset of values from a multi-valued attribute (or output of an expres
 * item: Represents an element in the multi-valued attribute
 * attribute: the multi-valued attribute
 * condition: any expression that can be evaluated to true or false
-* expression: an expression which returns a collection of values
+* expression: an expression that returns a collection of values
 
 **Example:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
