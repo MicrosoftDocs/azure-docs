@@ -24,21 +24,14 @@ ms.author: mlearned
 <p>Learn how to quickly deploy Jenkins on Azure.</p>
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
-  <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale Jenkins using Azure Virtual Machines as agents.</a></li>
-  <li><a href="/azure/jenkins/securing-jenkins-on-Azure">Secure a Jenkins implementation on Azure.</a>
-  <li><a href="/azure/jenkins/monitoring-jenkins-on-Azure">Monitoring Jenkins on Azure.</a>
 </ol>
 <h2 style="margin-top: 36px">CI/CD with Jenkins on Azure</h2>
 <p>Below are guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
-    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CD pipeline using GitHub, Docker, and Azure Virtual Machines.</a></li>
-    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, Kubernetes, and ACS for CI/CD.</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Setting up CI/CD with Jenkins on a Linux VM.</a></li>
+    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, Kubernetes, and ACS.</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI as part of a Jenkins pipeline.</a></li>
     <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Use Azure Storage with Jenkins.</a></li>
-    <li><a href="https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/services/jenkins">Integrate Jenkins and Visual Studio Team Services (VSTS).</a></li>
-    <li><a href="/azure/jenkins/deploy-to-app-service-jenkins">Deploy to Azure AppService from Jenkins.</li></a>
-    <li><a href="/azure/jenkins/deploy-arm-template-jenkins">Deploy an Azure Resource Manager template from Jenkins.</li></a>
-    <li><a href="/azure/jenkins/publish-docker-image-jenkins">Publish a Docker image to Azure Container Service from Jenkins.</li></a>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI in a Jenkins pipeline.</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
