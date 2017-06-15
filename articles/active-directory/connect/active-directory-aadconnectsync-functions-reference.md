@@ -66,8 +66,8 @@ The functions with the types **mvbin**, **mvstr**, and **mvref** can only work o
 | [Contains](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **Program Flow** | | | | |
-| [Error](#error) |[IIF](#iif) |[Select])(#select) |[Switch](#switch) | |
-| [Where](#where] |[Where](#where) | | | |
+| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
+| [Where](#where) |[With](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
