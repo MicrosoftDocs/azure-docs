@@ -29,8 +29,9 @@ that might indicate failures or other problems, for example,
 
 ## View runs and trigger history for your logic app
 
-1. In the Azure portal, on the main left menu, choose **More services**. 
-In the search box, find "logic apps", then choose **Logic apps**.
+1. To find your logic app in the [Azure portal](https://portal.azure.com), 
+on the left menu, choose **More services**. Then, in the search box, 
+find "logic apps", and choose **Logic apps**.
 
    The Azure portal shows all the logic apps that are associated with your Azure subscription. 
 
