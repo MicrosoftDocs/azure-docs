@@ -142,8 +142,10 @@ The Oracle software is already installed on the Marketplace image. Create a samp
         -ignorePreReqs
     ```
 
+    It takes a few minutes to create the database.
+
 ## Prepare for connectivity 
-To make sure that the database initialized correctly, test for local connectivity. The easiest way to do this is to connect with `sqlplus`.  
+To make sure that the database initialized correctly, test for local connectivity. **Wait, is this step the first of the next H2? That's then to set up ports for something else to connect in, not to test the database is initialized correctly?** The easiest way to do this is to connect with `sqlplus`.  
 
 Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
 
@@ -184,6 +186,18 @@ For a GUI management tool that you can use to explore the database, set up Oracl
 
     ```bash
     alter database open;
+    ```
+
+6. Now exit I guess:
+
+    ```bash
+    exit
+    ```
+
+7. Exit the *oracle* user session:
+
+    ```bash
+    logout
     ```
 
 ## Automate database startup and shutdown
@@ -230,29 +244,29 @@ The Oracle database by default doesn't automatically start when you start the VM
 3.  Change permissions on files with *chmod* as follows:
 
     ```bash
-    chgrp dba /etc/init.d/dbora
-    chmod 750 /etc/init.d/dbora
+    sudo chgrp dba /etc/init.d/dbora
+    sudo chmod 750 /etc/init.d/dbora
     ```
 
 4.  Create symbolic links for startup and shutdown as follows:
 
     ```bash
-    ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
 5.  To test your changes, restart the VM (Really? Reboot?):
 
     ```bash
-    reboot
+    sudo reboot
     ```
 
 ## Open ports for connectivity
 
-The final task is to configure some external endpoints. To set up the Azure Network Security Group that protects the VM, first exit your SSH session in the VM. 
+The final task is to configure some external endpoints. To set up the Azure Network Security Group that protects the VM, first exit your SSH session in the VM (should have been kicked out of SSH when rebooting in previous step). 
 
-1.  To open the endpoint that you use to access the Oracle database remotely, run the following command: 
+1.  To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create) as follows: 
 
     ```azurecli
     az network nsg rule create \
@@ -264,7 +278,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --destination-port-range 1521
     ```
 
-2.  To open the endpoint that you use to access Oracle EM Express remotely, run the following command:
+2.  To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create) as follows:
 
     ```azurecli
     az network nsg rule create \
@@ -276,13 +290,23 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --destination-port-range 5502
     ```
 
+3. If needed, obtain the public IP address of your VM again with [az network public-ip show](/cli/azure/network/public-ip#show) as follows:
+
+    ```azurecli
+    az network public-ip show \
+        --resource-group myResourceGroup \
+        --name myVMPublicIP \
+        --query [ipAddress] \
+        --output tsv
+    ```
+
 3.  Connect EM Express from your browser: 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-You can log in by using the SYS account, check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation.
+You can log in by using the *SYS* account, and check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation. **Dude, this requires Flash... But, it does work and I could log in with IE (the only browser that didn't have Flash disabled...)**
 
 ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
@@ -295,6 +319,7 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
+This should point to actual Oracle docs...
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
