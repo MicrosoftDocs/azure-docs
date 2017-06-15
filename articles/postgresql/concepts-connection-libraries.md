@@ -11,13 +11,13 @@ ms.assetid:
 ms.service: postgresql - database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
 This topic lists each library or driver that client programs can use when connecting to Azure Database for PostgreSQL.
 
 ## Client interfaces
-Most language client libraries to connect to PostgreSQL server are external projects, and are distributed independently. These are supported on Windows, Linux, and Mac platforms. Some of the popular client drivers are listed below.
+Most language client libraries to connect to PostgreSQL server are external projects, and are distributed independently. These are supported on Windows, Linux, and Mac platforms. Several of the popular client drivers are listed here:
 | **Language** | **Client interface** | **Additional information** | **Download** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0-compliant | [Download](http://initd.org/psycopg/download/) |
