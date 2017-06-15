@@ -15,88 +15,84 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/09/2017
+ms.date: 06/15/2017
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
 
-The Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure") and is based on the [Microsoft SQL Server engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). This service is currently in 38 data centers around the world and is managing millions of production databases running a wide range of applications and workloads - from straightforward transactional data to the most data-intensive, mission-critical applications requiring advanced data processing at global scale. SQL Database supports existing [SQL Server tools, libraries, and APIs](sql-database-manage-overview.md). As a result, it is easy for you to develop new solutions, to move your existing SQL Server solutions, and to extend your existing SQL Server solutions to the Microsoft cloud without having to learn new skills.
+Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure"). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). 
 
-SQL Database delivers built-in intelligent optimization, global scalability and availability, advanced security options, and predictable performance at multiple service levels that provides dynamic scalability with no downtime — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. 
+Microsoft is currently managing millions of production databases running a wide range of applications and workloads - from straightforward transactional data to the most data-intensive, mission-critical applications requiring advanced data processing at global scale. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly.  
 
-This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
+SQL Database is a general purpose relational database that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. 
 
- - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
- - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
- - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
+With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with all of the newest SQL Server capabilities with no overhead for patching or upgrading - and fully tested across millions of databases. For information about new capabilities as they are announced, before they ship, see:
 
-For a set of Azure CLI and PowerShell samples, see:
- - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
- - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
+- [Azure Roadmap for SQL Database](https://azure.microsoft.com/en-us/roadmap/?category=databases)
+- [Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)
 
-## Easy to use
+SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. 
 
-Azure SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. 
+## Scalable database performance with resource sharing pools
 
-### Use tools you know
+With SQL Database, each database is isolated from each other and portable, each with its own [service tier](sql-database-service-tiers.md) with a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
-Develop your app and connect to SQL Database with the [SQLCMD](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility), [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms), or [Visual Studio Code](https://code.visualstudio.com/docs). You can also write and execute Transact-SQL scripts against an Azure SQL database directly in the Azure portal using the [SQL Database Query Editor](https://azure.microsoft.com/en-us/blog/t-sql-query-editor-in-browser-azure-portal).
+### Adjust performance and scale without downtime
 
-### No physical administration
+SQL Database offers four service tiers to support lightweight to heavyweight database workloads: Basic, Standard, Premium, and Premium RS. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
-Azure SQL Database manages all of the work of setting up SQL Server and managing the physical infrastructure. 
+   ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-### Supports Microsoft and non-Microsoft technologies
+### Elastic pools to maximize resource utilization
 
-Azure SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby as well as .NET on the MacOS, Linux, and Windows. 
+For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database, and pay for the collective performance resources of the pool rather than for single database performance. 
 
-## Choose between managed databases and managed instances
+   ![elastic pools](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). Public preview is planned to be announced by the end of 2017.
+With elastic pools, you don’t need to focus on dialing database performance up and down as demand for resources fluctuates. The pooled databases consume the performance resources of the elastic pool as needed. Pooled databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if individual database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. Finally, you can also control the minimum and maximum resources available to databases in the pool to ensure that no database in the pool uses all the pool resource and that every pooled database has a guaranteed minimum amount of resources. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-### Managed databases
+### Blend single databases with pooled databases
 
-With a managed database, each database is isolated from each other and portable, each with its own performance level - known as a [service tier](sql-database-service-tiers.md). With a managed database, you can perform all management functions from within the database itself. For manageability, databases are associated with logical servers that enable you to perform administrative tasks across multiple databases - including [logins](sql-database-manage-logins.md), [firewalls](sql-database-firewall-configure.md), [auditing](sql-database-auditing.md), [threat detection](sql-database-auditing.md), and [failover groups](sql-database-geo-replication-overview.md).
+Either way you go — single databases or elastic pools — you are not locked in. You can blend single databases with elastic pools, and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. Moreover, with the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-However, since databases are isolated from each other, features such as cross-database querying, jobs, and transactions are implemented using new techniques that require recoding of existing applications. Also, features such as SQL Server Agent, CLR, and three-part names are not supported.
+## Familiar, easy-to-use tools
 
-### Managed instances
+SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. You can manage and develop in SQL Database using tools and skills you already have.
 
-With a managed instance, features like SQL CLR, SQL Server Agent, and cross-database querying will be fully supported. Furthermore, a managed instance will have of the current capabilities of managed databases, including automatic backups, built-in HA, and continuous improvement and release of features in the Microsoft cloud-first development model. These capabilities are introduced in the remainder of this article.
+- [The Azure portal](https://portal.azure.com/) - a web-based application for managing all Azure services 
+- [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) - a free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database
+- [SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt) - a free, downloadable client application for developing SQL Server relational databases, Azure SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
+- [Visual Studio Code](https://code.visualstudio.com/docs) - a free, downloadable, open source, code editor for Windows, macOS and Linux that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
 
->
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4008/player]
->
+SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby as well as .NET on the MacOS, Linux, and Windows. SQL Database supports the same [connection libaries](sql-database/sql-database-libraries.md) as SQL Server.
 
-A new [Azure Database Migration Service](https://azure.microsoft.com/en-us/blog/azure-database-migration-service-announcement-at-build) was also announced in May 2017 that will make the migration to managed instances automated, risk free, and with down time measured in minutes. This service will streamline moving SQL Server and non-Microsoft database systems such as Oracle to Azure SQL Database. Migration will use native SQL Server backups rather than using a BACPAC file.
+## Intelligent optimization
 
-For customers in highly regulated industries, managed instances bringing two additional important innovations: 
-
-- VNETs with support for private IP addresses: With VNETs, customers will be able to completely isolate their database tier from the public internet and join it to their other cloud VNETs or on-premise networks where their application and users reside.
-- Controlled service updates.  With controlled service updates, customers can run their test environment deployed in a regular Azure public cloud subscription, where they will receive continuous service updates. After they have validated their application with the latest updates, they will be able to apply the updates in a scheduled manner to the production-managed instance environment.
-
-## Provides built-in intelligent optimization
-
-With Azure SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, Azure SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
+With SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
 
 ### Automatic performance tuning
 
-Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. You can consume Azure SQL Database's performance tuning recommendations using [SQL Database Advisor](sql-database-advisor.md), reviewing all tuning actions before they get applied. However, constantly monitoring database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to Azure SQL Database using automatic tuning feature. Azure SQL Database automatically tests and verifies each of its tuning actions to ensure the performance keeps improving. This means that the performance of your database is carefully monitored and compared before and after every tuning action, and if the performance doesn’t improve, the tuning action is reverted.
+SQL Database provides detailed insight into the queries that you need to monitor. SQL Database's learns about your database patterns and enables you to adapt your database schema to your workload. SQL Database provides performance tuning recommendations using  [SQL Database Advisor](sql-database-advisor.md), where you can review tuning actions and apply them. However, constantly monitoring database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that SQL Database and Azure portal provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to SQL Database using automatic tuning feature. SQL Database automatically apply recommendations, tests and verifies each of its tuning actions to ensure the performance keeps improving. This way, SQL Database automatically adapts to your workload in controlled and safe way. This means that the performance of your database is carefully monitored and compared before and after every tuning action, and if the performance doesn’t improve, the tuning action is reverted.
 
-Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of Azure SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by Azure SQL Database to help their SQL Server customers.
+Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by SQL Database to help their SQL Server customers.
 
-There are two automatic tuning aspects that are available in Azure SQL Database:
+There are two automatic tuning aspects that are available in SQL Database:
 
 - [Automatic index management](sql-database-automatic-tuning.md#automatic-index-management) that identifies indexes that should be added in your database, and indexes that should be removed.
 - [Automatic plan correction](sql-database-automatic-tuning.md#automatic-plan-choice-correction) (coming soon, already available in SQL Server 2017) that identifies problematic plans and fixes SQL plan performance problems.
 
 ### Adaptive query processing
 
-We are also adding the adaptive query processing family of features to Azure SQL Database, including [interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/), and [batch mode adaptive joins](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Each of these adaptive query processing features applies similar “learn and adapt” techniques, helping further address performance issues related to historically intractable query optimization problems.
+We are also adding the adaptive query processing family of features to SQL Database, including [interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/), and [batch mode adaptive joins](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Each of these adaptive query processing features applies similar “learn and adapt” techniques, helping further address performance issues related to historically intractable query optimization problems.
 
-## Provides global scalability and availability
+## Global scalability and high availability
 
-Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. In addition, Azure SQL Database provides out-of-the-box [business continuity and global scalability](sql-database-business-continuity.md) features, including [automatic backups](sql-database-automated-backups.md), [point-in-time restores](sql-database-recovery-using-backups.md), and [Active Geo-Replication](sql-database-geo-replication-overview.md), which allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, with Active Geo-Replication you can enable global read scale and remove bottlenecks on the primary that were due to read workloads. What’s more, with recently released auto-failover groups you can enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. This enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
+Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. In addition, SQL Database provides out-of-the-box [business continuity and global scalability](sql-database-business-continuity.md) features, including:
+
+- [Automatic backups](sql-database-automated-backups.md) - SQL Database automatically performs full, differential, and transaction log backups.
+- [Point-in-time restores](sql-database-recovery-using-backups.md) - SQL Database supports recovery to any point in time within the automatic backup retention period.
+- [Active geo-replication](sql-database-geo-replication-overview.md) - SQL Database allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, with Active Geo-Replication you can enable global read scale and remove bottlenecks on the primary that were due to read workloads. 
+- [Failover groups](sql-database-geo-replication-overview.md) - SQL Database allows you to enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. This enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
 
 > [!NOTE]
 > [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
@@ -104,15 +100,15 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 
 ## Included built-in security and compliance
 
-Azure SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
+SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
 
 ### Data encryption at rest
 
-Azure SQL Database [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. Starting in May 2017, all newly created Azure SQL databases are automatically protected with transparent data encryption (TDE). TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. Customers can manage the TDE encryption keys and other secrets in a secure and compliant management using Azure Key Vault.
+SQL Database [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. Starting in May 2017, all newly created Azure SQL databases are automatically protected with transparent data encryption (TDE). TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. Customers can manage the TDE encryption keys and other secrets in a secure and compliant management using Azure Key Vault.
 
 ### Data encryption in motion
 
-Azure SQL Database is the only database system to offer protection of sensitive data in flight, at rest and during query processing with [Always Encrypted]((https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, customers’ credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
+SQL Database is the only database system to offer protection of sensitive data in flight, at rest and during query processing with [Always Encrypted]((https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, customers’ credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
 
 ### SQL threat detection and security alerts
 
@@ -120,42 +116,37 @@ Azure SQL Database is the only database system to offer protection of sensitive 
 
 ### Multi-factor authentication
 
-Users of Azure SQL Database benefit from single sign-on through Azure Active Directory Authentication, which now also supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA). MFA is an authentication option that works for a growing number of tools and services across SQL Server and Azure SQL Database, such as SSMS or Visual Studio.
+Users of SQL Database benefit from single sign-on through Azure Active Directory Authentication, which now also supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA). MFA is an authentication option that works for a growing number of tools and services across SQL Server and SQL Database, such as SSMS or Visual Studio.
 
 ### Compliance certification
 
-Azure SQL Database participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
+SQL Database participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
-## Is dynamicly scalable and support data pools for resource sharing
-
-Azure SQL Database service provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources - and save money.
-
-### Adjust performance and scale without downtime
-
-The SQL Database service offers four service tiers: Basic, Standard, Premium, and Premium RS. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database at a low cost per month and then [change its service tier](sql-database-service-tiers.md) manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
-
-### Elastic pools to maximize resource utilization
-
-For many businesses and apps, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database, and pay for the collective performance resources of the pool rather than for single database performance. With elastic pools, you don’t need to focus on dialing database performance up and down as demand for resources fluctuates. The pooled databases consume the performance resources of the elastic pool as needed. Pooled databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if individual database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. Finally, you can also control the minimum and maximum resources available to databases in the pool to ensure that no database in the pool uses all the pool resource and that every pooled database has a guaranteed minimum amount of resources. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-
-### Blend single databases with pooled databases
-
-Either way you go — single databases or elastic pools — you are not locked in. You can blend single databases with elastic pools, and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. Moreover, with the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
 ## Provide extensive monitoring and alerting capabilities
 
 But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings based on [Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic pools](sql-database-what-is-a-dtu.md). Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
 
-Additionally, Azure SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
+Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
 - Azure Storage: For archiving vast amounts of telemetry for a small price
-- Azure Event Hub: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
+- Azure Event Hub: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
 - Azure Log Analytics: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## Next steps
+
 Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready to:
 
 * See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic pools cost comparisons and calculators.
-* Get started by [creating your first database](sql-database-get-started-portal.md).
+
+See these quick starts to get you started:
+
+ - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
+ - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
+ - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
+
+For a set of Azure CLI and PowerShell samples, see:
+ - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
+ - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
