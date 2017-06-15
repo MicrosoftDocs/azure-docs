@@ -1,3 +1,5 @@
+# [Azure Container Service Documentation](./index.md)
+
 # Overview
 ## [About Container Service](container-service-intro.md)
 
@@ -8,8 +10,12 @@
 
 # Tutorials
 ## Kubernetes
-### [Load balance applications](container-service-kubernetes-load-balancing.md)
-### [Monitor cluster with OMS](container-service-kubernetes-oms.md)
+### [1 - Create container images](container-service-tutorial-kubernetes-prepare-app.md)
+### [2 - Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md)
+### [3 - Deploy Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
+### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
+### [5 - Scale application](container-service-tutorial-kubernetes-scale.md)
+
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
 ### [Load balance applications](container-service-load-balancing.md)

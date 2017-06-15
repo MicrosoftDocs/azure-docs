@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Pass-through Authentication - How it works? | Microsoft Docs'
-description: This article describes how Azure Active Directory (Azure AD) Pass-through Authentication works.
+description: This article describes how Azure Active Directory Pass-through Authentication works.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/12/2017
 ms.author: billmath
 ---
 
@@ -39,7 +39,7 @@ The following diagram illustrates all the components and the steps involved.
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## Next steps
-- [**Preview limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
