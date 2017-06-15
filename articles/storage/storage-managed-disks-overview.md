@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 
 ---
@@ -75,15 +75,17 @@ create a standard managed disk and specify a provisioned size of 200 GB, you are
 
 Here are the disk sizes available for a premium managed disk:
 
-| **Premium Managed <br>Disk Type**  | **P10** | **P20** | **P30**        |
-|------------------|---------|---------|----------------|
-| Disk Size        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 Here are the disk sizes available for a standard managed disk:
 
-| **Standard Managed <br>Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|------------------|---------|---------|----------------|---------|----------------|
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
+| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
 
@@ -124,11 +126,8 @@ There are two kinds of encryption to discuss in reference to managed disks. The 
 
 ### Storage Service Encryption (SSE)
 
-Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks. However, it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted.
+[Azure Storage Service Encryption](storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption-sse) for more details.
 
-SSE encrypts data as it is written to the storage account. If you have a VHD file that has ever been encrypted with SSE, you cannot use that VHD file to create a VM that uses Managed Disks. You also can't convert an encrypted unmanaged disk into a managed disk. And finally, if you disable encryption on that storage account, it does not go back and decrypt the VHD file.
-
-To use a disk that has been encrypted, you must first copy the VHD file to a storage account that has never been encrypted. Then you can create a VM with Managed Disks and specify that VHD file during creation, or attach the copied VHD file to a running VM with Managed Disks.
 
 ### Azure Disk Encryption (ADE)
 

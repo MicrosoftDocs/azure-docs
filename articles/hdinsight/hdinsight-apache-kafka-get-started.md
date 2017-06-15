@@ -328,6 +328,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
+* [Increase scalability by configuring managed disks with Kafka on HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Apache Kafka documentation](http://kafka.apache.org/documentation.html) at kafka.apache.org.
 * [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

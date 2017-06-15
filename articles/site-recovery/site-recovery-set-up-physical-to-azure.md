@@ -12,15 +12,15 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: anoopkv
 ---
 
 # Set up the source environment (physical server to Azure)
 > [!div class="op_single_selector"]
-> * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
-> * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
 
 This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 
