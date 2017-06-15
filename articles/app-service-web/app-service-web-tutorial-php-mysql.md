@@ -143,7 +143,7 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal. 
 
-### Create production MySQL in Azure
+## Create production MySQL in Azure
 
 In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you configure the PHP application to connect to this database.
 
@@ -430,7 +430,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 ### Configure local Git deployment 
 
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)] 
 
 ### Push to Azure from Git
 
@@ -660,9 +660,7 @@ The left menu provides pages for configuring your app.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
-### Clean up resources
-
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli-no-h.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
 
 <a name="next"></a>
 
