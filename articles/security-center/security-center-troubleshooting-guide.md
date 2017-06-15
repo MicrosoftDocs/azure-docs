@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/15/2017
 ms.author: yurid
 
 ---
@@ -50,7 +50,7 @@ To see which version of the agent you have, open **Task Manager**, in the **Proc
    
 
 ## Microsoft Monitoring Agent installation scenarios
-There are three installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
+There are two installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
 
 * **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
 .

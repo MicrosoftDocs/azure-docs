@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/15/2017
 ms.author: yurid
 
 ---
@@ -36,11 +36,7 @@ You can configure security policies for each subscription. To modify a security 
 2. In the Security Policy blade that opens, select the subscription on which you want to enable the security policy.
 
     ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. The **Security policy** blade for the selected subscription opens with a set of options like the options in the following screenshot:
-
-    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    The available options in this blade are:
+3. The **Security policy** blade for the selected subscription opens with a set of options. The available options in this blade are:
 
    * **Prevention policy**: Use this option to configure policies per subscription or resource group.  
    * **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
