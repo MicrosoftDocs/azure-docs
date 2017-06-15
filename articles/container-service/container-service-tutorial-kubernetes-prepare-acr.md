@@ -48,44 +48,40 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. 
-
-The following example creates a registry with a randomly generate name.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry must be unique, update the name below with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
 ## Get ACR information 
 
-Once the ACR instance has been created, the name, login server name, and authentication password are needed. These values are use throughout this tutorial. To keep things simple, the code below stores these values in variables. Using these variables, the steps in this tutorial should work as is, without needing to be updated.
+Once the ACR instance has been created, the name, login server name, and authentication password are needed. The code below returns each of these values. Note each value down, they will be referenced throughout this tutorial.  
 
 ACR Name:
 
 ```bash
-acrName=$(az acr list --query [0].name -o tsv)
+az acr list --query [0].name -o tsv
 ```
 
 ACR Login Server:
 
 ```bash
-acrLoginServer=$(az acr list --query [0].loginServer -o tsv)
+az acr list --query [0].loginServer -o tsv
 ```
 
-ACR Password:
+ACR Password - update with the ACR name.
 
 ```bash
-acrPassword=$(az acr credential show --name $acrName --query passwords[0].value -o tsv)
+az acr credential show --name <acrName> --query passwords[0].value -o tsv
 ```
 
 ## Container registry login
 
 You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation.
 
-The following example uses the previously created variables.
-
 ```bash
-docker login --username=$acrName --password=$acrPassword $acrLoginServer
+docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
 ```
 
 The command returns a 'Login Succeeded’ message once completed.
@@ -113,13 +109,13 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ag
 Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This tag indicates the image version number.
 
 ```bash
-docker tag azure-vote-front $acrLoginServer/azure-vote-front:v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker tag azure-vote-back $acrLoginServer/azure-vote-back:v1
+docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
 ```
 
 Once tagged, run `docker images` to verify the operation.
@@ -147,16 +143,16 @@ Push the *azure-vote-front* image to the registry.
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
 ```bash
-docker push $acrLoginServer/azure-vote-front:v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker push $acrLoginServer/azure-vote-back:v1
+docker push <acrLoginServer>/azure-vote-back:v1
 ```
 
-At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance.  
+At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These images will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
 
 ## Next steps
 
@@ -168,5 +164,6 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 > * Uploading images to ACR
 
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.
+
 > [!div class="nextstepaction"]
 > [Deploy ACS cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)

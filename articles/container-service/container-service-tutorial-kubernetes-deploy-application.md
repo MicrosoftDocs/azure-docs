@@ -47,7 +47,7 @@ For details on all Kubernetes object, see [Kubernetes Concepts]( https://kuberne
 
 ## Get manifest files
 
-The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
+The manifest files for each object in this tutorial are available in the Azure Vote application repo, as well included in code blocks in this document. If you have not already done so, clone the repo with the following command: 
 
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
