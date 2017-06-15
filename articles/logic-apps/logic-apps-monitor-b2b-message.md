@@ -57,16 +57,16 @@ Under **Monitoring**, choose **Diagnostics logs** as shown here:
 
 2. Now perform these steps as shown:
 
-	1. Under **Subscription**, select the Azure subscription 
-	that you're using with your integration account.
-	2. Under **Resource group**, select the resource group that 
-	you're using with your integration account.
-	3. Under **Resource type**, select **Integration accounts**. 
-	4. Under **Resource**, select your integration account. 
-	5. To turn on diagnostics for your selected integration account, 
+   1. Under **Subscription**, select the Azure subscription 
+   that you're using with your integration account.
+   2. Under **Resource group**, select the resource group that 
+   you're using with your integration account.
+   3. Under **Resource type**, select **Integration accounts**. 
+   4. Under **Resource**, select your integration account. 
+   5. To turn on diagnostics for your selected integration account, 
 	choose **Turn on diagnostics**.
 
-	![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
+   ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 3. Under **Diagnostics settings**, **Status**, choose **On**.
 
@@ -106,7 +106,7 @@ Otherwise, select the correct values now:
    4. Under **Resource**, select your integration account.
    5. Choose **Turn on diagnostics**.
 
-	![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
+   ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 3. Under **Diagnostics settings**, **Status**, choose **On**.
 
