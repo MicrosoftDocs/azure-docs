@@ -68,10 +68,7 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+[Jump to **Next steps**](#next-steps)
 
 ## Limitations
 
@@ -129,3 +126,8 @@ B2C applications should NOT be edited:
 If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You have to delete the application and create it again.
 
 To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
