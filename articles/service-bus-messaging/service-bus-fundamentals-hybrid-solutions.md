@@ -13,14 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/15/2017
 ms.author: sethm
 
 ---
 # Azure Service Bus
+
 Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Microsoft Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
 
 ## Service Bus fundamentals
+
 Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. In some cases, all that's really needed is a connection between applications; queues aren't required. Service Bus provides all three options, enabling your applications to interact in several different ways.
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
@@ -37,11 +39,12 @@ Within a namespace, you can use one or more instances of three different communi
 
 When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with one another. 
 
-To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using [REST APIs](/rest/api/servicebus/) over HTTP(s). 
+To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). This is known as [WCF Relay](../service-bus-relay/relay-what-is-it.md). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using [REST APIs](/rest/api/servicebus/) over HTTP(s). 
 
 It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
 
 ## Queues
+
 Suppose you decide to connect two applications using a Service Bus queue. Figure 2 illustrates this situation.
 
 ![][2]
@@ -50,7 +53,7 @@ Suppose you decide to connect two applications using a Service Bus queue. Figure
 
 The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as Figure 2 shows. Or, multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver. For a multi-cast service, you should use a topic instead.
 
-Each message has two parts: a set of properties, each a key/value pair, and a message payload. The payload can be binary, text, or even XML. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+Each message has two parts: a set of properties, each a key/value pair, and a message payload. The payload can be binary, text, or even XML. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties **Seller="Ava"** and **Amount=10000**. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
 
 A receiver can read a message from a Service Bus queue in two different ways. The first option, called *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
 
@@ -65,13 +68,14 @@ Notice what can happen here: the same message might be delivered twice, perhaps 
 Queues are useful in quite a few situations. They enable applications to communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
 
 ## Topics
+
 Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
 
 ![][3]
 
 **Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
 
-A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
+A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber then sees only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
 
 * Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
 * Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, so she wants to see both her own sales and all big sales regardless of who makes them.
@@ -80,6 +84,7 @@ A *topic* is similar in many ways to a queue. Senders submit messages to a topic
 As with queues, subscribers to a topic can read messages using either [ReceiveAndDelete or PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
 
 ## Relays
+
 Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides *relays*, as Figure 4 shows.
 
 ![][4]
@@ -99,9 +104,11 @@ Unlike queues and topics, applications don't explicitly create relays. Instead, 
 Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
 
 ## Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, and relays, Service Bus aims to make this essential function easier to implement and more broadly available.
+
+Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the internet. By providing cloud-based technologies for achieving this through queues, topics, and relays, Service Bus aims to make this essential function easier to implement and more broadly available.
 
 ## Next steps
+
 Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
 
 * How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
