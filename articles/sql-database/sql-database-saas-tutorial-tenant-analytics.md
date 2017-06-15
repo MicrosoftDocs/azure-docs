@@ -1,5 +1,5 @@
 ---
-title: Run analytics queries against multiple Azure SQL databases | Microsoft Docs 
+title: Run analytics queries against multiple Azure SQL databases | Microsoft Docs
 description: "Run distributed queries across multiple Azure SQL databases"
 keywords: sql database tutorial
 services: sql-database
@@ -8,13 +8,13 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 
@@ -42,7 +42,7 @@ One of the great opportunities with SaaS applications is to use the rich tenant 
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Deploy a database for tenant analytics results
 

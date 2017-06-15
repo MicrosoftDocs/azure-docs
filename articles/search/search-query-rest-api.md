@@ -28,7 +28,7 @@ ms.author: ashmaka
 
 This article shows you how to query an index using the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/).
 
-Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md). For background information, see [How full text search works in Azure Search](search-lucene-query-architecture.md).
 
 ## Identify your Azure Search service's query api-key
 A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.

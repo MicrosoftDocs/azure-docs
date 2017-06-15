@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2017
 ms.author: mimig
-
+ms.custom: mvc
 ---
 
 # Welcome to Azure Cosmos DB

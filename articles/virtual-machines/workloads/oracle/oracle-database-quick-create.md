@@ -203,6 +203,13 @@ Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
+SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+
+PL/SQL procedure successfully completed.
+```
+Open the container PDB1 if not already opened.
+
+```bash
 SQL> select con_id, name, open_mode from v$pdbs;
 
     CON_ID NAME                           OPEN_MODE
@@ -217,14 +224,6 @@ Session altered.
 SQL> alter database open;
 
 database opened.
-
-SQL> alter session set container=pdb1;
-
-Session altered.
-
-SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
-
-PL/SQL procedure successfully completed.
 ```
 
 ## Automate database startup and shutdown
@@ -364,11 +363,12 @@ The final task is to configure some external endpoints. To set up the Azure Netw
 3.  Connect EM Express from your browser: 
 
     ```
-    https://<VM hostname>:5502/em
+    https://<VM ip address or hostname>:5502/em
     ```
 
-You can log in by using the SYS account, with the password that you set during installation.
+You can log in by using the SYS account, check the 'as sysdba' checkbox. Use the password 'OraPasswd1' that you set during installation.
 
+![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## Delete the VM
 

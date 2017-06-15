@@ -2,11 +2,11 @@
 redirect_url: /azure/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home
 title: Azure Cognitive Services, Custom Speech Service Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to build, deploy and use acoustic and language models for your apps.
-services:
+services: cognitive-services
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.service:
+ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

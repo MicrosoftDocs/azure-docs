@@ -259,7 +259,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 6: Create a collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionAsync** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 

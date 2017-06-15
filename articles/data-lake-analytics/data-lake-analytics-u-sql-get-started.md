@@ -64,20 +64,13 @@ Notice the question mark next to the data type in the `Duration` field. It means
 
 The EXTRACT and OUTPUT statements use file paths. File paths can be absolute or relative:
 
-This absolute file path refers to a file in a Data Lake Store named `mystore`:
+This following absolute file path refers to a file in a Data Lake Store named `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This absolute file path refers to a file in an Azure Blog Storage account named `myblobaccount` and in a container named `mycontainer`:
+This following relative file path starts with `"/"` and refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Azure Blob storage containers with public blobs or public containers access permissions are not currently supported.
-
-This relative file path starts with `"/"`. It refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## Use scalar variables
 
@@ -187,15 +180,16 @@ U-SQL rowsets do not preserve their order for the next query. Thus, to order an 
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -221,8 +215,8 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"

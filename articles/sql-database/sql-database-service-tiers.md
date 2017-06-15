@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: resources
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/23/2017
+wms.date: 05/31/2017
 ms.author: janeng
 
 ---

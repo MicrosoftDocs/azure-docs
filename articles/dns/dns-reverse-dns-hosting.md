@@ -39,7 +39,7 @@ This article walks you through the steps to create your first reverse lookup DNS
 The name of an IPv4 reverse lookup zone is based on the IP range it represents. It should be in the following format: `<IPv4 network prefix in reverse order>.in-addr.arpa`. For examples, see [overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> When creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`'`) rather than a forward slash ('/') in the zone name.
+> When creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`-`) rather than a forward slash ('/') in the zone name.
 >
 > For example, for the IP range 192.0.2.128/26, you must use `128-26.2.0.192.in-addr.arpa` as the zone name instead of `128/26.2.0.192.in-addr.arpa`.
 >

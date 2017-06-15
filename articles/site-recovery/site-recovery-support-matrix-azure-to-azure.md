@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery support matrix for replicating from Azure to Azure | Microsoft Docs
-description: Summarizes the supported operating systems and components for Azure Site Recovery
+description: Summarizes the supported operating systems and configurations for Azure Site Recovery replication of Azure virtual machines (VMs) from one region to another for disaster recovery (DR) needs.
 services: site-recovery
 documentationcenter: ''
 author: sujayt
@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/13/2017
+ms.date: 06/10/2017
 ms.author: sujayt
 
 ---
 # Azure Site Recovery support matrix for replicating from Azure to Azure
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
-> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 >[!NOTE]
 >
@@ -78,6 +74,21 @@ The below support is applicable for any workload running on the mentioned OS.
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
 * Volume manager : LVM2
 * Multipath software : Device Mapper
+
+## Region support
+
+You can replicate and recover VMs between any two regions within the same geographic cluster.
+
+**Geographic cluster** | **Azure regions**
+-- | --
+America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
+Europe | UK West, UK South, North Europe, West Europe
+Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West
+Australia	| Australia East, Australia Southeast
+
+>[!NOTE]
+>
+> For Brazil South region, you can only replicate and failover to one of South Central US, West Central US, East US, East US 2, West US, West US 2 and North Central US regions and fail back.
 
 
 ## Support for Compute configuration
