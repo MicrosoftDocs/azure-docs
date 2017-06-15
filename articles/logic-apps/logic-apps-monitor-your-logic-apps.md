@@ -22,47 +22,55 @@ ms.author: LADocs; jehollan
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
 you can check the performance and full run history in the Azure portal. 
-When you set up services like Azure Diagnostics and Azure Alerts, 
-you can also monitor events in real-time and get alerts for events 
-that might indicate failures or other problems, for example, 
-"when more than 5 runs fail within an hour."
+When you set up services like Azure Log Analytics, Azure Diagnostics, 
+and Azure Alerts, you can also log diagnostic data, monitor events in real-time, 
+and get alerts for events that might indicate failures or other problems, 
+for example, "when more than 5 runs fail within an hour."
 
-## View runs and trigger history for your logic app
+## View history for runs and triggers in your logic app
 
 1. To find your logic app in the [Azure portal](https://portal.azure.com), 
 on the left menu, choose **More services**. Then, in the search box, 
 find "logic apps", and choose **Logic apps**.
 
+   ![Find your logic app](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+
    The Azure portal shows all the logic apps that are associated with your Azure subscription. 
 
 2. Select the logic app that you want to monitor.
 
-3. To view all the actions and triggers that have happened for the selected logic app, 
+3. To view all the actions and triggers that ran for the selected logic app, 
 choose **Overview**.
 
-   * **Runs history** shows all the runs for the selected logic app. 
-   You can filter the run list to a specific date and timeframe.
-
-   * **Trigger History** shows all the trigger activity for the selected logic app. 
-
-   To learn more about the statuses in the run history and trigger history, 
-   see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+   * **Runs history** shows all the runs for the logic app. 
+   * **Trigger History** shows all the trigger activity for the logic app.
 
    For example:
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-4. To get more details about a specific run, select that run. 
+   You can filter either list to a specific date and timeframe. 
+   To learn more about the statuses for each run and trigger, 
+   see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
-   The monitor view shows each step in that run, including inputs and outputs, 
-   and any error messages that might have happened.
+4. To view the steps that ran for a specific run, select that run. 
+The monitor view shows each step in that run.
 
-   ![Logic app run and actions](media/logic-apps-monitor-your-logic-apps/monitor-view.png)
+   ![Actions for a specific run](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-   For more details like the run's **Correlation ID**, which you can use with the 
+   For more details about the run, like the run's **Correlation ID**, 
+   which you can use with the 
    [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-   choose **Run Details**. This information also includes all steps, status, 
+   choose **Run Details**. This information summarizes the steps, status, 
    inputs, and outputs for the run.
+
+   ![Run Details](media/logic-apps-monitor-your-logic-apps/run-details.png)
+
+5. To view the details about each step in the run, like inputs, 
+outputs, and any error messages that might have happened for each step, 
+expand the steps that you want. For example:
+
+   ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic App service. 
@@ -70,15 +78,9 @@ choose **Overview**.
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
+## Set up logging, monitoring, and alerts for your logic app with Azure Log Analytics, Azure Diagnostics, and Azure Alerts
+
 * **Diagnostics** allows you to view runtime details and events, and subscribe to [Azure Alerts](#adding-azure-alerts)
-
-
-
-
-
-
-
-## Azure Diagnostics and alerts
 In addition to the details provided by the Azure Portal and REST API above, you can configure your logic app to use Azure Diagnostics for more rich details and debugging.
 
 1. Click the **Diagnostics** section of the logic app blade
