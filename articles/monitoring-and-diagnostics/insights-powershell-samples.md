@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Monitor PowerShell quick start samples. | Microsoft Docs
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
 author: kamathashwin
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 03/06/2017
 ms.author: ashwink
 
 ---
@@ -26,7 +26,7 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 > 
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](../powershell-install-configure.md) .
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview) .
 
 ## Examples in this article
 The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
@@ -51,7 +51,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## Retrieve Audit logs for a subscription
+## Retrieve Activity log for a subscription
 Use the `Get-AzureRmLog` cmdlet.  Below are some common examples.
 
 Get log entries from this time/date to present:
@@ -187,7 +187,7 @@ The Add alert cmdlet also updates the rule if an alert rule already exists for t
 
 ### Alert on activity log event
 > [!NOTE]
-> This feature is still in Preview.
+> This feature is in preview and will be removed at some point in the future (it is being replaced).
 > 
 > 
 
@@ -250,13 +250,13 @@ The following examples show you how you can create an Autoscale setting for a VM
 First, create a rule to scale-out, with an instance count increase .
 
 ```PowerShell
-$rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
+$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
 Next, create a rule to scale-in, with an instance count decrease.
 
 ```PowerShell
-$rule2 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 2 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue 1
+$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
 ```
 
 Then, create a profile for the rules.
@@ -353,7 +353,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## Configure diagnostics logs
-Many Azure services provide additional logs and telemetry, including Azure Network Security Groups, Software Load Balancers, Key Vault, Azure Search Services, and Logic Apps and they can be configured to save data in your Azure Storage account. That operation can only be performed at a resource level and the storage account should be present in the same region as the target resource where the diagnostics setting is configured.
+Many Azure services provide additional logs and telemetry that can be configured to save data in your Azure Storage account, send to Event Hubs, and/or sent to an OMS Log Analytics workspace. That operation can only be performed at a resource level and the storage account or event hub should be present in the same region as the target resource where the diagnostics setting is configured.
 
 ### Get diagnostic setting
 ```PowerShell
@@ -382,4 +382,17 @@ Enable diagnostic setting with retention for a specific log category
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
+```
+
+Enable diagnostic setting for Event Hubs
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+
+Enable diagnostic setting for OMS
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+
 ```

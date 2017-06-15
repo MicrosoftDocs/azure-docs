@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
@@ -58,23 +58,28 @@ To configure the integration of MCM into Azure AD, you need to add MCM from the 
 
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-mcm-tutorial/tutorial_general_01.png "Active Directory")
+	![Active Directory](./media/active-directory-saas-mcm-tutorial/tutorial_general_01.png "Active Directory")
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
-   ![Applications](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+	![Applications](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+
 4. Click **Add** at the bottom of the page.
    
-   ![Add application](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+	![Add application](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
-   ![Add an application from gallerry](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+	![Add an application from gallerry](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+
 6. In the **search box**, type **MCM**.
    
-   ![Application gallery](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+	![Application gallery](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+
 7. In the results pane, select **MCM**, and then click **Complete** to add the application.
    
-   ![MCM](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_001.png "MCM")
+	![MCM](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_001.png "MCM")
 
 ## Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with MCM based on a test user called "Britta Simon".
@@ -98,24 +103,30 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 1. In the Azure classic portal, on the **MCM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
-   ![Configure single sign-on](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+	![Configure single sign-on](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+
 2. On the **How would you like users to sign on to MCM** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
-   ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+	![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+
 3. On the Configure App Settings dialog page, perform the following steps:
    
-   ![Configure App URL](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+	![Configure App URL](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
    
-   a. In the **Sign On URL** textbox, type: `https://myaba.co.uk/client-access/<company name>/saml.php`.
+	a. In the **Sign On URL** textbox, type: `https://myaba.co.uk/client-access/<company name>/saml.php`.
    
-   b. click **Next**
+	b. click **Next**
+
 4. On the **Configure single sign-on at MCM** page, click **Download metadata**, and then save the certificate file on your computer.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+	![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+
 5. To get SSO configured for your application, contact your MCM support team. Attach the downloaded metadata file and share it with MCM team to set up SSO on their side.
+
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+	![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+
 7. On the **Single sign-on confirmation** page, click **Complete**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
@@ -130,13 +141,17 @@ The objective of this section is to create a test user in the classic portal cal
 1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_01.png)
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_02.png)
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_03.png)
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_04.png)
@@ -146,22 +161,25 @@ The objective of this section is to create a test user in the classic portal cal
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_06.png)
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-mcm-tutorial/create_aaduser_07.png)
@@ -188,13 +206,17 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign users](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+
 2. In the applications list, select **MCM**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_08.png)
+
 3. In the menu on the top, click **Users**.
    
     ![Assign users](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign users](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")

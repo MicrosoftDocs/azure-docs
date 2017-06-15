@@ -1,4 +1,4 @@
-﻿---
+---
 title: Delegating offers in Azure Stack | Microsoft Docs
 description: Learn how to put other people in charge of creating offers and signing up users for you.
 services: azure-stack
@@ -97,21 +97,15 @@ provider (DP) and the user.
    delegated providers. This requires that you create a plan and an
    offer based on it:
    
-   a.  [Create a
-   
-       plan](azure-stack-create-plan.md).
+   a.  [Create a plan](azure-stack-create-plan.md).
        This plan should include only the subscriptions service. In this
        article, we use a plan called PlanForDelegation.
    
-   b.  [Create an
-   
-       offer](azure-stack-create-offer.md)
+   b.  [Create an offer](azure-stack-create-offer.md)
        based on this plan. In this article, we use an offer
        called OfferToDP.
    
-   c.  Once the creation of the offer is complete, add the user ID of
-   
-       the delegated provider as a tenant for this offer by clicking
+   c.  Once the creation of the offer is complete, add the delegated provider as a subscriber to this offer by clicking
        **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
    
    ![](media/azure-stack-delegated-provider/image3.png)
@@ -158,7 +152,7 @@ change the plans and quotas it includes.
 > 
 
 ## Delegated provider customizes the offer
-Sign in as the delegated provider and create a new offer using the delegated offer as a template.
+Sign in to the **tenant portal** as the delegated provider and create a new offer using the delegated offer as a template.
 
 1. Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
@@ -169,7 +163,8 @@ Sign in as the delegated provider and create a new offer using the delegated off
    
    ![](media/azure-stack-delegated-provider/image6.png)
 
-    >[AZURE.NOTE] Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will not make changes to them.
+    >[!NOTE] 
+    > Note the difference compared to offer creation as experienced by the service administrator. The delegated provider does not           > construct the offer from base plans and add-on plans; she can only choose from offers that have been delegated to her, and will       > not make changes to them.
 
 1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
 2. The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through this    delegated portal. To find and change this URL:

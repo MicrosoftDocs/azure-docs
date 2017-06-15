@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
 
 ---
@@ -31,7 +31,7 @@ The following figure and corresponding steps show the tasks you must follow in o
    
    * Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
    * Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
-   * Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
+   * Enable Microsoft peering - You must enable this to access Office 365 and Dynamics 365. 
      
      > [!IMPORTANT]
      > You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
@@ -54,21 +54,24 @@ The connectivity provider provisioning state represents the state on the connect
 ### Possible states of an ExpressRoute circuit
 This section lists out the possible states for an ExpressRoute circuit.
 
-#### At creation time
+**At creation time**
+
 You will see the ExpressRoute circuit in the following state as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### When connectivity provider is in the process of provisioning the circuit
+**When connectivity provider is in the process of provisioning the circuit**
+
 You will see the ExpressRoute circuit in the following state as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### When connectivity provider has completed the provisioning process
+**When connectivity provider has completed the provisioning process**
+
 You will see the ExpressRoute circuit in the following state as soon as the connectivity provider has completed the provisioning process.
 
     ServiceProviderProvisioningState : Provisioned
@@ -76,7 +79,8 @@ You will see the ExpressRoute circuit in the following state as soon as the conn
 
 Provisioned and Enabled is the only state the circuit can be in for you to be able to use it. If you are using a Layer 2 provider, you can configure routing for your circuit only when it is in this state.
 
-#### When connectivity provider is deprovisioning the circuit
+**When connectivity provider is deprovisioning the circuit**
+
 If you requested the service provider to deprovision the ExpressRoute circuit, you will see the circuit set to the following state after the service provider has completed the deprovisioning process.
 
     ServiceProviderProvisioningState : NotProvisioned

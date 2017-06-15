@@ -3,8 +3,8 @@ title: Azure CDN Overview | Microsoft Docs
 description: Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.
 services: cdn
 documentationcenter: ''
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 02/08/2017
+ms.author: rli
 
 ---
 # Overview of the Azure Content Delivery Network (CDN)
@@ -46,19 +46,20 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| HTTPS support |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS support with CDN endpoint |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Custom domain HTTPS | |**&#x2713;** |**&#x2713;** |
 | Load balancing |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Query string caching](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geo-filtering](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [HTTP/2 support](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -66,6 +67,8 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Mobile device rules (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 

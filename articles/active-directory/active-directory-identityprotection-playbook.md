@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory Identity Protection playbook | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
 services: active-directory
@@ -6,7 +6,6 @@ keywords: azure active directory identity protection, cloud app discovery, manag
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---
@@ -128,9 +127,9 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 9. Click on **Save**.
 10. You can now test risk-based conditional access by simulating the unfamiliar locations or anonymous IP risk events because they are both **Medium** risk events.
 
-<br>
+
 ![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
-<br>
+
 
 ## See also
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

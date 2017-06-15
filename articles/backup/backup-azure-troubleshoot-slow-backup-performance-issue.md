@@ -1,10 +1,10 @@
-﻿---
+---
 title: Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Docs
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 services: backup
 documentationcenter: ''
 author: genlin
-manager: jimpark
+manager: cshepard
 editor: ''
 
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 06/13/2017
 ms.author: genli
 
 ---
@@ -53,8 +53,8 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 > [!NOTE]
 > If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
-> 
-> 
+>
+>
 
 <a id="cause2"></a>
 
@@ -85,4 +85,3 @@ The following indicators can help you understand the bottleneck and accordingly 
 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
-

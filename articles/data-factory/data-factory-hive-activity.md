@@ -1,5 +1,5 @@
-﻿---
-title: Hive Activity
+---
+title: Transform data using Hive Activity - Azure | Microsoft Docs
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -13,54 +13,59 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 05/16/2017
 ms.author: shlo
 
 ---
-# Hive Activity
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> * [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+# Transform data using Hive Activity in Azure Data Factory 
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive Activity](data-factory-hive-activity.md) 
+> * [Pig Activity](data-factory-pig-activity.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Spark Activity](data-factory-spark.md)
+> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-## Syntax
-    {
-        "name": "Hive Activity",
-        "description": "description",
-        "type": "HDInsightHive",
-        "inputs": [
-          {
-            "name": "input tables"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "output tables"
-          }
-        ],
-        "linkedServiceName": "MyHDInsightLinkedService",
-        "typeProperties": {
-          "script": "Hive script",
-          "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
-          "defines": {
-            "param1": "param1Value"
-          }
-        },
-       "scheduler": {
-          "frequency": "Day",
-          "interval": 1
-        }
-    }
+> [!NOTE] 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](data-factory-introduction.md) and do the tutorial: [Build your first data pipeline](data-factory-build-your-first-pipeline.md) before reading this article. 
 
+## Syntax
+
+```JSON
+{
+    "name": "Hive Activity",
+    "description": "description",
+    "type": "HDInsightHive",
+    "inputs": [
+      {
+        "name": "input tables"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output tables"
+      }
+    ],
+    "linkedServiceName": "MyHDInsightLinkedService",
+    "typeProperties": {
+      "script": "Hive script",
+      "scriptPath": "<pathtotheHivescriptfileinAzureblobstorage>",
+      "defines": {
+        "param1": "param1Value"
+      }
+    },
+   "scheduler": {
+      "frequency": "Day",
+      "interval": 1
+    }
+}
+```
 ## Syntax details
 | Property | Description | Required |
 | --- | --- | --- |
@@ -79,36 +84,40 @@ Let’s consider an example of game logs analytics where you want to identify th
 
 The following log is a sample game log, which is comma (`,`) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
-    1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
-    1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
-    1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
-    1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
-    .....
+```
+1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
+1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
+1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
+1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
+.....
+```
 
 The **Hive script** to process this data:
 
-    DROP TABLE IF EXISTS HiveSampleIn; 
-    CREATE EXTERNAL TABLE HiveSampleIn 
-    (
-        ProfileID        string, 
-        SessionStart     string, 
-        Duration         int, 
-        SrcIPAddress     string, 
-        GameType         string
-    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
+```
+DROP TABLE IF EXISTS HiveSampleIn; 
+CREATE EXTERNAL TABLE HiveSampleIn 
+(
+    ProfileID        string, 
+    SessionStart     string, 
+    Duration         int, 
+    SrcIPAddress     string, 
+    GameType         string
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
 
-    DROP TABLE IF EXISTS HiveSampleOut; 
-    CREATE EXTERNAL TABLE HiveSampleOut 
-    (    
-        ProfileID     string, 
-        Duration     int
-    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
+DROP TABLE IF EXISTS HiveSampleOut; 
+CREATE EXTERNAL TABLE HiveSampleOut 
+(    
+    ProfileID     string, 
+    Duration     int
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
 
-    INSERT OVERWRITE TABLE HiveSampleOut
-    Select 
-        ProfileID,
-        SUM(Duration)
-    FROM HiveSampleIn Group by ProfileID
+INSERT OVERWRITE TABLE HiveSampleOut
+Select 
+    ProfileID,
+    SUM(Duration)
+FROM HiveSampleIn Group by ProfileID
+```
 
 To execute this Hive script in a Data Factory pipeline, you need to do the following
 
@@ -122,38 +131,39 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
    > 
    > 
 5. Create a pipeline with the HDInsightHive activity. The activity processes/transforms the data.
-   
-     {
-   
-       "name": "HiveActivitySamplePipeline",
-       "properties": {
-         "activities": [
-           {
-             "name": "HiveActivitySample",
-             "type": "HDInsightHive",
-             "inputs": [
-               {
-                 "name": "HiveSampleIn"
-               }
-             ],
-             "outputs": [
-               {
-                 "name": "HiveSampleOut"
-               }
-             ],
-             "linkedServiceName": "HDInsightLinkedService",
-             "typeproperties": {
-               "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-               "scriptLinkedService": "StorageLinkedService"
-             },
-                "scheduler": {
-                   "frequency": "Hour",
-                   "interval": 1
-             }
-           }
-         ]
-       }
-     }
+
+	```JSON   
+	{	
+		"name": "HiveActivitySamplePipeline",
+	   	"properties": {
+		"activities": [
+			{
+				"name": "HiveActivitySample",
+				"type": "HDInsightHive",
+				"inputs": [
+				{
+					"name": "HiveSampleIn"
+				}
+				],
+	         	"outputs": [
+	           	{
+	            	"name": "HiveSampleOut"
+	           	}
+	         	],
+	         	"linkedServiceName": "HDInsightLinkedService",
+	         	"typeproperties": {
+	           		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+	           		"scriptLinkedService": "StorageLinkedService"
+         		},
+            	"scheduler": {
+					"frequency": "Hour",
+	               	"interval": 1
+	         	}
+	       	}
+			]
+		}
+	}
+	```
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -163,66 +173,69 @@ In this example, game logs are ingested daily into Azure Blob Storage and are st
 To use parameterized Hive script, do the following
 
 * Define the parameters in **defines**.
-  
-        {
-            "name": "HiveActivitySamplePipeline",
-              "properties": {
-            "activities": [
-                 {
-                    "name": "HiveActivitySample",
-                    "type": "HDInsightHive",
-                    "inputs": [
-                          {
-                            "name": "HiveSampleIn"
-                          }
-                    ],
-                    "outputs": [
-                          {
-                            "name": "HiveSampleOut"
-                        }
-                    ],
-                    "linkedServiceName": "HDInsightLinkedService",
-                    "typeproperties": {
-                          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                          "scriptLinkedService": "StorageLinkedService",
-                          "defines": {
-                            "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-                          },
-                           "scheduler": {
-                              "frequency": "Hour",
-                              "interval": 1
-                        }
+
+	```JSON  
+    {
+        "name": "HiveActivitySamplePipeline",
+          "properties": {
+        "activities": [
+             {
+                "name": "HiveActivitySample",
+                "type": "HDInsightHive",
+                "inputs": [
+                      {
+                        "name": "HiveSampleIn"
+                      }
+                ],
+                "outputs": [
+                      {
+                        "name": "HiveSampleOut"
                     }
-                  }
-            ]
-          }
-        }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                      "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                      "scriptLinkedService": "StorageLinkedService",
+                      "defines": {
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
+                      },
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
+                    }
+                }
+              }
+        ]
+      }
+    }
+	```
 * In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
   
-        DROP TABLE IF EXISTS HiveSampleIn; 
-        CREATE EXTERNAL TABLE HiveSampleIn 
-        (
-            ProfileID     string, 
-            SessionStart     string, 
-            Duration     int, 
-            SrcIPAddress     string, 
-            GameType     string
-        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
-  
-        DROP TABLE IF EXISTS HiveSampleOut; 
-        CREATE EXTERNAL TABLE HiveSampleOut 
-        (
-            ProfileID     string, 
-            Duration     int
-        ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
-  
-        INSERT OVERWRITE TABLE HiveSampleOut
-        Select 
-            ProfileID,
-            SUM(Duration)
-        FROM HiveSampleIn Group by ProfileID
+	```
+    DROP TABLE IF EXISTS HiveSampleIn; 
+    CREATE EXTERNAL TABLE HiveSampleIn 
+    (
+        ProfileID     string, 
+        SessionStart     string, 
+        Duration     int, 
+        SrcIPAddress     string, 
+        GameType     string
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
 
+    DROP TABLE IF EXISTS HiveSampleOut; 
+    CREATE EXTERNAL TABLE HiveSampleOut 
+    (
+        ProfileID     string, 
+        Duration     int
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
+
+    INSERT OVERWRITE TABLE HiveSampleOut
+    Select 
+        ProfileID,
+        SUM(Duration)
+    FROM HiveSampleIn Group by ProfileID
+	```
 ## See Also
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)

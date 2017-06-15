@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Media Services fragmented MP4 live ingest specification | Microsoft Docs
 description: This specification describes the protocol and format for Fragmented MP4 based live streaming ingestion for Microsoft Azure Media Services. Microsoft Azure Media Services provides live streaming service which allows customers to stream live events and broadcast content in real-time using Microsoft Azure as the cloud platform. This document also discusses best practices in building highly redundant and robust live ingest mechanisms.
 services: media-services
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 
 ---
 # Azure Media Services fragmented MP4 live ingest specification
@@ -29,7 +29,7 @@ The diagram below shows the high level architecture of the live streaming servic
 1. Live Encoder pushes live feeds into Channels which are created and provisioned via the Microsoft Azure Media Services SDK.
 2. Channels, Programs and Streaming endpoint in Microsoft Azure Media Services handle all the live streaming functionalities including ingest, formatting, cloud DVR, security, scalability and redundancy.
 3. Optionally customers could choose to deploy a CDN layer between the Streaming endpoint and the client endpoints.
-4. Client endpoints stream from the Streaming endpoint using HTTP Adaptive Streaming protocols (e.g. Smooth Streaming, DASH, HDS or HLS).
+4. Client endpoints stream from the Streaming endpoint using HTTP Adaptive Streaming protocols (e.g. Smooth Streaming, DASH, or HLS).
 
 ![image1][image1]
 
@@ -43,7 +43,7 @@ Below is a list of special format definitions that apply to live ingest into Mic
 2. Section 3.3.2 in [1] defines an optional box called StreamManifestBox for live ingest. Due to the routing logic of Microsoft Azure’s load balancer, usage of this box is deprecated and SHOULD NOT be present when ingesting into Microsoft Azure Media Service. If this box is present, Azure Media Services silently ignores it.
 3. The TrackFragmentExtendedHeaderBox defined in 3.2.3.2 in [1] MUST be present for each fragment.
 4. Version 2 of the TrackFragmentExtendedHeaderBox SHOULD be used in order to generate media segments with identical URLs in multiple datacenters. The fragment index field is REQUIRED for cross-datacenter failover of index-based streaming formats such as Apple HTTP Live Streaming (HLS) and index-based MPEG-DASH.  To enable cross-datacenter failover, the fragment index MUST be synchronized across multiple encoders, and increase by 1 for each successive media fragment, even across encoder restarts or failures.
-5. Section 3.3.6 in [1] defines box called MovieFragmentRandomAccessBox ('mfra') that MAY be sent at the end of live ingestion to indicate EOS (End-of-Stream) to the channel. Due to the ingest logic of Azure Media Services, usage of EOS (End-of-Stream) is deprecated and the ‘mfra’ box for live ingestion SHOULD NOT be sent. If sent, Azure Media Services silently ignores it. It is recommended to use [Channel Reset](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) to reset the state of the ingest point and also it is recommended to use [Program Stop](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) to end a presentation and stream.
+5. Section 3.3.6 in [1] defines box called MovieFragmentRandomAccessBox ('mfra') that MAY be sent at the end of live ingestion to indicate EOS (End-of-Stream) to the channel. Due to the ingest logic of Azure Media Services, usage of EOS (End-of-Stream) is deprecated and the ‘mfra’ box for live ingestion SHOULD NOT be sent. If sent, Azure Media Services silently ignores it. It is recommended to use [Channel Reset](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels) to reset the state of the ingest point and also it is recommended to use [Program Stop](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) to end a presentation and stream.
 6. The MP4 fragment duration SHOULD be constant, in order to reduce the size of the client manifests and improve client download heuristics through use of repeat tags.  The duration MAY fluctuate in order to compensate for non-integer frame rates.
 7. The MP4 fragment duration SHOULD be between approximately 2 and 6 seconds.
 8. MP4 fragment timestamps and indexes (TrackFragmentExtendedHeaderBox fragment_ absolute_ time and fragment_index) SHOULD arrive in increasing order.  Although Azure Media Services is resilient to duplicate fragments, it has very limited ability to reorder fragments according to the media timeline.

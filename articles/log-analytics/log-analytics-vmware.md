@@ -4,7 +4,7 @@ description: Learn about how the VMware Monitoring solution can help manage logs
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
@@ -12,11 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 06/07/2017
 ms.author: banders
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
+
+![VMware symbol](./media/log-analytics-vmware/vmware-symbol.png)
+
 The VMware Monitoring solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 
 The solution uses native syslog functionality of the ESXi host to push data to a target VM, which has OMS Agent. However, the solution doesn't write files into syslog within the target VM. The OMS agent opens port 1514 and listens to this. Once it receives the data, the OMS agent pushes the data into OMS.

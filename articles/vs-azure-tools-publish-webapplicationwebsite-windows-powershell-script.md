@@ -1,4 +1,4 @@
-﻿---
+---
 title: Publish-WebApplicationWebSite (Windows PowerShell script) | Microsoft Docs
 description: Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Docs'
+title: 'The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset | Microsoft Docs'
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning,hdinsight
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---
-# The Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
+# The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset
+
 In this walkthrough, we demonstrate using the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
 
 It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
@@ -319,8 +320,9 @@ This yields:
 
 Again we see that except for Col20, all the other columns have many unique values.
 
-### Co-occurence counts of pairs of categorical variables in the train dataset
-The co-occurence counts of pairs of categorical variables is also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+### Co-occurrence counts of pairs of categorical variables in the train dataset
+
+The co-occurrence counts of pairs of categorical variables is also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -404,7 +406,9 @@ There is a final important component before we move on to Azure Machine Learning
 ## <a name="count"></a> A brief discussion on the count table
 As we saw, several categorical variables have a very high dimensionality. In our walkthrough, we present a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner. More information on this technique is in the link provided.
 
-**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+[!NOTE]
+>In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+>
 
 To build count tables on the count data, we use the data in the folder raw/count. In the modeling section, we show users how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when we refer to "pre-built count tables", we mean using the count tables that we provide. Detailed instructions on how to access these tables are provided in the next section.
 
@@ -412,11 +416,10 @@ To build count tables on the count data, we use the data in the folder raw/count
 Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
-2. [Create the experiment: clean the data, choose a learner, and featurize with count tables](#step2)
-3. [Train the model](#step3)
-4. [Score the model on test data](#step4)
-5. [Evaluate the model](#step5)
-6. [Publish the model as a web-service to be consumed](#step6)
+2. [Create the experiment: clean the data and featurize with count tables](#step2)
+3. [Build, train, and score the model](#step3)
+4. [Evaluate the model](#step4)
+5. [Publish the model as a web-service](#step5)
 
 Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided in what follows.
 
@@ -447,7 +450,7 @@ Right-click the output port of the **Import Data** module. This reveals a **Save
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Drage dataset onto the main panel](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**
@@ -457,7 +460,7 @@ To select the saved dataset for use in a machine learning experiment, locate the
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 Our Azure ML experiment looks like this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Machine Learning experiment](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 We now examine the key components of this experiment. As a reminder, we need to drag our saved train and test datasets on to our experiment canvas first.
 
@@ -469,85 +472,88 @@ The **Clean Missing Data** module does what its name suggests:  it cleans missin
 Here, we chose to replace all missing values with a 0. There are other options as well, which can be seen by looking at the dropdowns in the module.
 
 #### Feature engineering on the data
-There can be millions of unique values for some categorical features of large datasets. Using naive methods such as one-hot encoding for representing such high-dimensional categorical features is entirely infeasible. In this walkthrough, we demonstrate how to use count features using built-in Azure Machine Learning modules to generate compact representations of these high-dimensional categorical variables. The end-result is a smaller model size, faster training times, and performance metrics that are quite comparable to using other techniques.
+There can be millions of unique values for some categorical features of large datasets. Using naive methods such as one-hot encoding for representing such high-dimensional categorical features is entirely unfeasible. In this walkthrough, we demonstrate how to use count features using built-in Azure Machine Learning modules to generate compact representations of these high-dimensional categorical variables. The end-result is a smaller model size, faster training times, and performance metrics that are quite comparable to using other techniques.
 
 ##### Building counting transforms
 To build count features, we use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
+> [!IMPORTANT] 
+> In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
+> 
 
 To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration can be reused for this purpose as well) and its credentials. The  previous figures illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Module parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 In the figure above, we show how to enter the input blob location. This location has the data reserved for building count tables on.
 
 After this module finishes running, we can save the transform for later by right-clicking the module and selecting the **Save as Transform** option:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+!["Save as Transform" option](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 In our experiment architecture shown above, the dataset "ytransform2" corresponds precisely to a saved count transform. For the remainder of this experiment, we assume that the reader used a **Build Counting Transform** module on some data to generate counts, and can then use those counts to generate count features on the train and test datasets.
 
 ##### Choosing what count features to include as part of the train and test datasets
 Once we have a count transform ready, the user can choose what features to include in their train and test datasets using the **Modify Count Table Parameters** module. We just show this module here for completeness, but in interests of simplicity do not actually use it in our experiment.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Modify Count Table parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 In this case, as can be seen, we have chosen to use just the log-odds and to ignore the back off column. We can also set parameters such as the garbage bin threshold, how many pseudo-prior examples to add for smoothing, and whether to use any Laplacian noise or not. All these are advanced features and it is to be noted that the default values are a good starting point for users who are new to this type of feature generation.
 
 ##### Data transformation before generating the count features
 Now we focus on an important point about transforming our train and test data prior to actually generating count features. Note that there are two **Execute R Script** modules used before we apply the count transform to our data.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Execute R Script modules](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Here is the first R script:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![First R script](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
 
 In this R script, we rename our columns to names "Col1" to "Col40". This is because the count transform expects names of this format.
 
 In the second R script, we balance the distribution between positive and negative classes (classes 1 and 0 respectively) by downsampling the negative class. The R script here shows how to do this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Second R script](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 In this simple R script, we use "pos\_neg\_ratio" to set the amount of balance between the positive and the negative classes. This is important to do since improving class imbalance usually has performance benefits for classification problems where the class distribution is skewed (recall that in our case, we have 3.3% positive class and 96.7% negative class).
 
 ##### Applying the count transformation on our data
 Finally, we can use the **Apply Transformation** module to apply the count transforms on our train and test datasets. This module takes the saved count transform as one input and the train or test datasets as the other input, and returns data with count features. It is shown here:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Apply Transformation module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### An excerpt of what the count features look like
 It is instructive to see what the count features look like in our case. Here we show an excerpt of this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Count features](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs.
 
 We are now ready to build an Azure Machine Learning model using these transformed datasets. In the next section, we show how this can be done.
 
-#### Azure Machine Learning model building
-##### Choice of learner
+### <a name="step3"></a> Step 3: Build, train, and score the model
+
+#### Choice of learner
 First, we need to choose a learner. We are going to use a two class boosted decision tree as our learner. Here are the default options for this learner:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class Boosted Decision Tree parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 For our experiment, we are going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
 
 #### Train the model
 For training, we simply invoke a **Train Model** module. The two inputs to it are the Two-Class Boosted Decision Tree learner and our train dataset. This is shown here:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Train Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
 
 #### Score the model
 Once we have a trained model, we are ready to score on the test dataset and to evaluate its performance. We do this by using the **Score Model** module shown in the following figure, along with an **Evaluate Model** module:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step5"></a> Step 5: Evaluate the model
+### <a name="step4"></a> Step 4: Evaluate the model
 Finally, we would like to analyze model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the **Score Model** module to an **Evaluate Model** module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the following one:
 
 ![Evaluate module BDT model](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -556,7 +562,7 @@ In binary (or two class) classification problems, a good measure of prediction a
 
 ![Visualize Evaluate Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step6"></a> Step 6: Publish the model as a Web service
+### <a name="step5"></a> Step 5: Publish the model as a Web service
 The ability to publish an Azure Machine Learning model as web services with a minimum of fuss is a valuable feature for making it widely available. Once that is done, anyone can make calls to the web service with input data that they need predictions for, and the web service uses the model to return those predictions.
 
 To do this, we first save our trained model as a Trained Model object. This is done by right-clicking the **Train Model** module and using the **Save as Trained Model** option.
@@ -599,7 +605,7 @@ To get the blue input and output ports, you simply click **prepare webservice** 
 
 Once the webservice is published, we get redirected to a page that looks thus:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Web service dashboard](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 We see two links for webservices on the left side:
 

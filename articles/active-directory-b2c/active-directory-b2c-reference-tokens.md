@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Token Reference | Microsoft Docs'
 description: The types of tokens issued in the Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 3/17/2017
 ms.author: dastrock
 
 ---
@@ -55,9 +55,7 @@ CQhoFA
 ```
 
 ### Access tokens
-An access token is also a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your web services & APIs.
-
-Access tokens are signed, but they are not encrypted at this time - and very similar to id tokens.  Access tokens should be used to provide access to web services & APIs and to identify & authenticate the user in those services.  However, they do not provide any assertion of authorization at those services.  That is to say that the `scp` claim in access tokens does not limit or otherwise represent the access that the subject of the token has been granted.
+An access token is also a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they are not encrypted at this time.  Access tokens should be used to provide access to APIs and resource servers. Learn more on how to [use access tokens](active-directory-b2c-access-tokens.md). 
 
 When your API receives an access token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
 
@@ -77,8 +75,9 @@ Note that the claims in ID tokens are not returned in any particular order. In a
 | Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
 | Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
 | Nonce |`nonce` |`12345` |A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
-| Subject |`sub` |`Not supported currently. Use oid claim.` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. However, the subject claim is not yet implemented in the Azure AD B2C. You should configure your policies to include the object ID `oid` claim and use its value to identify users, rather than use the subject claim for authorization. |
-| Authentication context class reference |`acr` |`b2c_1_sign_in` |This is the name of the policy that was used to acquire the ID token. |
+| Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
+| Authentication context class reference |`acr` |Not applicable |Not used currently, except in the case of older policies. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
+| Trustframework policy |`tfp` |`b2c_1_sign_in` |This is the name of the policy that was used to acquire the ID token. |
 | Authentication time |`auth_time` |`1438535543` |This claim is the time at which a user last entered credentials, represented in epoch time. |
 
 ### Refresh tokens

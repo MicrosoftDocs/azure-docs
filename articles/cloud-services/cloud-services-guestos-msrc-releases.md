@@ -4,7 +4,7 @@ description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: ''
 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -13,12 +13,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 6/6/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## May Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-05 | [4019472] |WS 2016 OS Quality Improvements |5.7 | May 9, 2017 |
+| Rel 17-05 | [4019263] |Windows Security only |2.62 | May 9, 2017 |
+| Rel 17-05 | [4019213] |Windows Security only |4.42 | May 9, 2017 |
+| Rel 17-05 | [4019214] |Windows Security only |3.49 | May 9, 2017 |
+| Rel 17-05 | [4018271] |Cumulative security update for Internet Explorer |3.49 | May 9, 2017 |
+| Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | May 9, 2017 |
+| Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
+| N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
+| N/A | [4014565] |April .NET non-security rollup |2.62 | May 9, 2017 |
+| N/A | [4014559] |April .NET non-security rollup |2.62 | May 9, 2017 |
+| N/A | [4015549] |April non-Security Rollup |2.62 | May 9, 2017 |
+| N/A | [4019990] |D3DCompiler update - requirement for .NET 4.7 |3.49 | May 9, 2017 |
+| N/A | [4014563] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014557] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014545] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014548] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4015551] |April non-security rollup |3.49 | May 9, 2017 |
+| N/A | [3173424] |Servicing Stack Update  |4.42 | May 9, 2017 |
+| N/A | [4014555] |April .NET non-security rollup  |4.42 | May 9, 2017 |
+| N/A | [4014567] |April .NET non-security rollup |4.42 | May 9, 2017 |
+| N/A | [4015550] |April non-security rollup |4.42 | May 9, 2017 |
+| N/A | [4013418] |Servicing Stack Update |5.7 | May 9, 2017 |
+
+## April Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |WS 2016 OS Quality Improvements | 5.6 | April 11, 2017 |
+| Rel 17-04 |  [4015546]  |Windows Security only |2.61 | April 11, 2017 |
+| Rel 17-04 |  [4015547]  |Windows Security only |4.41 | April 11, 2017 |
+| Rel 17-04 |  [4015548]  |Windows Security only |3.48 | April 11, 2017 |
+| Rel 17-04 |  [4014661]  |Internet explorer |2.61, 3.48, 4.41 | April 11, 2017 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET Security |4.41 | April 11, 2017 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET Security |3.48 | April 11, 2017 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET Security |2.61 | April 11, 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | April 11, 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | April 11, 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | April 11, 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | April 11, 2017 |
+| Rel 17-04 |  [4015193]  |DST changes in Windows for Magallanes (Chile) |2.61, 3.48, 4.41 | April 11, 2017 |
+| Rel 17-04 |  [4012215]  |March 2017 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.61 | April 11, 2017 |
+| Rel 17-04 |  [4012217]  |March 2017 Security Monthly Quality Rollup for Windows Server 2012 |3.48 | April 11, 2017 |
+| Rel 17-04 |  [4012216]  |March 2017 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.41 | April 11, 2017 |
+
+## March Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-03 |  [4013429] |Improvements and fixes | 5.5 | March 14, 2017 |
+| Rel 17-03 |  [4012212] |March 2017 Security Only Quality Update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
+| Rel 17-03 |  [4012213] |March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
+| Rel 17-03 |  [4012214] |March 2017 Security Only Quality Update for Windows Server 2012|3.47 |March 14, 2017 |
+| Rel 17-03 |  [4012204] |Security update for Internet Explorer |2.60, 3.47, 4.40, 5.5 |March 14, 2017 |
+| N/A |  [4012864] |DST changes in Windows for Northern Cypress, Mongolia, and Russian Saratov region |2.60, 3.47, 4.40 |March 14, 2017 |
+| N/A |  [3212646] |January 2017 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.60 |March 14, 2017 |
+| N/A |  [3205409] |December 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.47 |March 14, 2017 |
+| N/A |  [3205401] |December 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.40 |March 14, 2017 |
+| N/A |  [3211320] |Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: January 24, 2017 |5.5 |March 14, 2017 |
+
+## January Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Security update for Local Security Authority Subsystem Service |2.59 |Jan 10, 2017 |
+
+## December Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Cumulative Security Update for Internet Explorer |2.58, 3.46, 4.39 |Dec 13, 2016 |
+| MS16-145 |[3204062] |Cumulative Security Update for Microsoft Edge |5.4 |Dec 13, 2016 |
+| MS16-146 |[3204066]	|Security Update for Microsoft Graphics Component|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-147 |[3204063]	|Security Update for Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-149 |[3205655]	|Security Update for Microsoft Windows|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-150 |[3205642]	|Security Update for Secure Kernel Mode |5.4 |Dec 13, 2016 |
+| MS16-151 |[3205651]	|Security Update for Kernel-Mode Drivers|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-152 |[3199709]	|Security Update for Windows Kernel |5.4 |Dec 13, 2016 |
+| MS16-153 |[3207328] |Security Update for Common Log File System Driver|2.58, 3.46, 4.39, 5.4 |Dec 13, 2016 |
+| MS16-155 |[3205640]	|Security Update for .NET Framework |5.4 |Dec 13, 2016 |
+| N/A |[3197868] |November 2016 Security Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.58 |Dec 13, 2016 |
+| N/A |[3197877] |November 2016 Security Monthly Quality Rollup for Windows Server 2012 |3.46 |Dec 13, 2016 |
+| N/A |[3197874] |November 2016 Security Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.39 |Dec 13, 2016 |
+
+## November Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Cumulative Security Update for Microsoft Edge |5.3 |Nov 8, 2016 |
+| MS16-130 |[3199172] |Security Update for Microsoft Windows |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-131 |[3199151]	|Security Update for Microsoft Video Control |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-132 |[3199120] |Security Update for Microsoft Component |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-134 |[3193706] |Security Update for Common Log File System Driver |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-135 |[3199135] |Security Update for Kernel-Mode Drivers |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-137 |[3199173]	|Security Update for Windows Authentication Methods |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-138 |[3199647] |Security Update to Microsoft Virtual Hard Drive |5.3, 4.38, 3.45 |Nov 8, 2016 |
+| MS16-139 |[3199720] |Security Update for Windows Kernel |2.57 |Nov 8.2016 |
+| MS16-140 |[3193479] |Security Update For Boot Manager |5.3, 4.38, 3.45 |Nov 8, 2016 |
+| MS16-142 |[3198467] |Cumulative Security Update for Internet Explorer |2.57, 4.38, 5.3 |Nov 8, 2016 |
+| N/A |[3192321] |Turkey ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| N/A |[3185330] |October 2016 security monthly quality rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
+| N/A |[3192403] |October 2016 Preview of Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
+| N/A |[3177467] |Servicing stack update for Windows 7 SP1 and Windows Server 2008 R2 SP1: September 20, 2016 |2.57 |Nov 8, 2016 |
+| N/A |[3185332] |October 2016 security monthly quality rollup for Windows Server 2012 |3.45 |Nov 8, 2016 |
+| N/A |[3192406] |October 2016 Preview of Monthly Quality Rollup for Windows Server 2012 |3.45 |Nov 8, 2016 |
+| N/A |[3185331] |October 2016 security monthly quality rollup for Windows 8.1 and Windows Server 2012 R2 |4.38 |Nov 8, 2016 |
+| N/A |[3192404] |October 2016 Preview of Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.38 |Nov 8, 2016 |
+| N/A |[3199986] |Servicing stack update for Windows 10 Version 1607: October 27, 2016 |5.3 |Nov 8, 2016 |
+| N/A |[3197954] |Cumulative Update for Windows 10 Version 1607 and Windows Server 2016: October 27, 2016 |5.3 |Nov 8, 2016 |
 
 ## October Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -29,11 +138,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-124 |[3193227] |Security Update for Windows Registry |4.37, 3.44, 2.56 |Oct 11, 2016 |
 | MS16-126 |[3196067] |Security Update for Microsoft Internet Messaging API |2.56 |Oct 11, 2016 |
 | MS16-101 |[3178465] |Security Update for Windows Authentication Methods |4.37, 3.44, 2.56 |Oct 11, 2016 |
-| [3182203] |September 2016 time zone change for Novosibirsk |4.37, 3.44, 2.56 |Oct 11, 2016 | |
-| [3185278] |September 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.56 |Oct 11, 2016 | |
-| [3185280] |September 2016 update rollup for Windows Server 2012 |3.44 |Oct 11, 2016 | |
-| [3185279] |September 2016 update rollup for Windows 8.1 and Windows Server 2012 R2 |4.37 |Oct 11, 2016 | |
-| [//]: # " | |[3194798] |Cumulative update for Windows 10 Version 1607 and Windows Server 2016 |5.2 |
+| N/A |[3182203] |September 2016 time zone change for Novosibirsk |4.37, 3.44, 2.56 |Oct 11, 2016 |
+| N/A |[3185278] |September 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.56 |Oct 11, 2016 |
+| N/A |[3185280] |September 2016 update rollup for Windows Server 2012 |3.44 |Oct 11, 2016 |
+| N/A |[3185279] |September 2016 update rollup for Windows 8.1 and Windows Server 2012 R2 |4.37 |Oct 11, 2016 |
+| N/A |[3194798] |Cumulative update for Windows 10 Version 1607 and Windows Server 2016 |5.2 |Oct 11, 2016 |
 
 ## September Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -46,11 +155,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-114 |[3185879] |Security Update for Windows SMB Server |4.36, 3.43, 2.55 |Sept 13, 2016 |
 | MS16-115 |[3188733] |Security Update for PDF |4.35, 3.43 |Sept 13, 2016 |
 | MS16-116 |[3188724] |Security Update in OLE Automation for VBScript Scripting Engine |4.36, 3.43, 2.55 |Sept 13, 2016 |
-| [3174644] |Updated Support for Diffie-Hellman Key Exchange |4.36, 3.43, 2.55 |Sept 13, 2016 | |
-| [3177723] |Timezone Update - Egypt cancels DST |4.36, 3.43, 2.55 |Sept 13, 2016 | |
-| [3179573] |August 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.55 |Sept 13, 2016 | |
-| [3179575] |August 2016 update rollup for Windows Server 2012 |3.43 |Sept 13, 2016 | |
-| [3179574] |August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.36 |Sept 13, 2016 | |
+| N/A |[3174644] |Updated Support for Diffie-Hellman Key Exchange |4.36, 3.43, 2.55 |Sept 13, 2016 |
+| N/A |[3177723] |Timezone Update - Egypt cancels DST |4.36, 3.43, 2.55 |Sept 13, 2016 |
+| N/A |[3179573] |August 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.55 |Sept 13, 2016 |
+| N/A |[3179575] |August 2016 update rollup for Windows Server 2012 |3.43 |Sept 13, 2016 |
+| N/A |[3179574] |August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.36 |Sept 13, 2016 |
 
 ## August Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -62,9 +171,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-101 |[3178465] |Security Update for Windows Authentication Methods |4.35, 3.42, 2.54 |Aug 9, 2016 |
 | MS16-102 |[3182248] |Security Update for Microsoft Windows PDF Library |4.35, 3.42 |Aug 9, 2016 |
 | MS16-077 Re-Release |[3165191] |Security Update for Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |Aug 9, 2016 |
-| [3172605] |July 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.54 |Aug 9, 2016 | |
-| [3172615] |July 2016 update rollup for Windows Server 2012 |3.42 |Aug 9, 2016 | |
-| [3172614] |July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.35 |Aug 9, 2016 | |
+| N/A |[3172605] |July 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.54 |Aug 9, 2016 |
+| N/A |[3172615] |July 2016 update rollup for Windows Server 2012 |3.42 |Aug 9, 2016 |
+| N/A |[3172614] |July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.35 |Aug 9, 2016 |
 
 ## July Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -75,12 +184,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-091 |[3170048] |Security Update for .NET Framework |4.34, 3.41, 2.53 |July 12, 2016 |
 | MS16-092 |[3171910] |Security Update for Windows Kernel |4.34, 3.41 |July 12, 2016 |
 | MS16-094 |[3177404] |Security Update for Secure Boot |4.34, 3.41 |July 12, 2016 |
-| [3162835] |June 2016 DST and time zone update for Windows |4.34, 3.41, 2.53 |July 12, 2016 | |
-| [3156417] |May 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.53 |July 12, 2016 | |
-| [3161608] |June 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.53 |July 12, 2016 | |
-| [3161609] |June 2016 update rollup for Windows Server 2012 |3.41 |July 12, 2016 | |
-| [3161606] |June 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.34 |July 12, 2016 | |
-| [3139923] |Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows |4.34 |July 12, 2016 | |
+| N/A |[3162835] |June 2016 DST and time zone update for Windows |4.34, 3.41, 2.53 |July 12, 2016 |
+| N/A |[3156417] |May 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.53 |July 12, 2016 |
+| N/A |[3161608] |June 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.53 |July 12, 2016 |
+| N/A |[3161609] |June 2016 update rollup for Windows Server 2012 |3.41 |July 12, 2016 |
+| N/A |[3161606] |June 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.34 |July 12, 2016 |
+| N/A |[3139923] |Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows |4.34 |July 12, 2016 |
 
 ## June Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -98,16 +207,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-077 |[3165191] |Security Update for WPAD |4.33, 3.40, 2.52 |June 14, 2016 |
 | MS16-080 |[3164302] |Security Update for Microsoft Windows PDF |4.33, 3.40 |June 14, 2016 |
 | MS16-081 |[3160352] |Security Update for Active Directory |4.33, 3.40, 2.52 |June 14, 2016 |
-| [2922223] |You cannot change system time if RealTimeIsUniversal registry entry is enabled in Windows |2.52 |June 14, 2016 | |
-| [3121255] |"0x00000024" Stop error in FsRtlNotifyFilterReportChange and copy file may fail in Windows |2.52 |June 14, 2016 | |
-| [3125424] |LSASS deadlocks cause Windows Server 2012 R2 or Windows Server 2012 not to respond |4.33, 3.40 |June 14, 2016 | |
-| [3125574] |Convenience rollup update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.52 |June 14, 2016 | |
-| [3140245] |Update to enable TLS 1.1 and TLS 1.2 as a default secure protocols in WinHTTP in Windows |3.40, 2.52 |June 14, 2016 | |
-| [3146604] |WMI service crashes randomly in Windows Server 2012 R2 or Windows Server 2012 |4.33, 3.40 |June 14, 2016 | |
-| [3149157] |Reliability and scalability improvements in TCP/IP for Windows 8.1 and Windows Server 2012 R2 |4.33 |June 14, 2016 | |
-| [3156416] |May 2016 update rollup for Windows Server 2012 |3.40 |June 14, 2016 | |
-| [3156418] |May 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.33 |June 14, 2016 | |
-| [3153731] |May 2016 DST update for Azerbaijan, Chile, Haiti, and Morocco in Windows |4.33, 3.40, 2.52 |June 14, 2016 | |
+| N/A |[2922223] |You cannot change system time if RealTimeIsUniversal registry entry is enabled in Windows |2.52 |June 14, 2016 |
+| N/A |[3121255] |"0x00000024" Stop error in FsRtlNotifyFilterReportChange and copy file may fail in Windows |2.52 |June 14, 2016 |
+| N/A |[3125424] |LSASS deadlocks cause Windows Server 2012 R2 or Windows Server 2012 not to respond |4.33, 3.40 |June 14, 2016 |
+| N/A |[3125574] |Convenience rollup update for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.52 |June 14, 2016 |
+| N/A |[3140245] |Update to enable TLS 1.1 and TLS 1.2 as a default secure protocols in WinHTTP in Windows |3.40, 2.52 |June 14, 2016 |
+| N/A |[3146604] |WMI service crashes randomly in Windows Server 2012 R2 or Windows Server 2012 |4.33, 3.40 |June 14, 2016 |
+| N/A |[3149157] |Reliability and scalability improvements in TCP/IP for Windows 8.1 and Windows Server 2012 R2 |4.33 |June 14, 2016 |
+| N/A |[3156416] |May 2016 update rollup for Windows Server 2012 |3.40 |June 14, 2016 |
+| N/A |[3156418] |May 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 |4.33 |June 14, 2016 |
+| N/A |[3153731] |May 2016 DST update for Azerbaijan, Chile, Haiti, and Morocco in Windows |4.33, 3.40, 2.52 |June 14, 2016 |
 
 ## May Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -121,11 +230,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-062 |[3158222] |Security Update for Kernel Mode Drivers |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-065 |[3156757] |Security Update for .Net Framework |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-067 |[3155784] |Security Update for Volume Manager Driver |4.32, 3.39 |May 10, 2016 |
-| [3148851] |Time zone changes for Russia in Windows |4.32, 3.39, 2.51 |May 10, 2016 | |
-| [3133977] |BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2 |2.51 |May 10, 2016 | |
-| [3133681] |Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2 |4.32 |May 10, 2016 | |
-| [3123245] |Update improves port exhaustion identification in Windows Server 2012 R2 |4.32 |May 10, 2016 | |
-| [Disable RC4] |Microsoft security advisory: Update for disabling RC4 |4.32, 3.39, 2.51 |May 10, 2016 | |
+| N/A |[3148851] |Time zone changes for Russia in Windows  |4.32, 3.39, 2.51 |May 10, 2016 |
+| N/A |[3133977] |BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  |2.51 |May 10, 2016 |
+| N/A |[3133681] |Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2  |4.32 |May 10, 2016 |
+| N/A |[3123245] |Update improves port exhaustion identification in Windows Server 2012 R2  |4.32 |May 10, 2016 |
+| N/A |[Disable RC4] | Microsoft security advisory: Update for disabling RC4  |4.32, 3.39, 2.51 |May 10, 2016 |
 
 ## April Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -291,21 +400,21 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 ## April Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| [MS15-034] |[3042553][3042553] |Vulnerability in HTTP.sys could allow remote code execution |4.19, 3.26, 2.38 |Apr 17, 2015 |
+| [MS15-034] |[3042553] |Vulnerability in HTTP.sys could allow remote code execution |4.19, 3.26, 2.38 |Apr 17, 2015 |
 
 ## March Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| MS15-018 |[3032359][3032359] |Cumulative Security Update for Internet Explorer |4.18, 3.25, 2.37 |N/A |
-| MS15-019 |[3040297][3040297] |Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
-| MS15-020 |[3041836][3041836] |Vulnerabilities in Windows could allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
-| MS15-021 |[3032323][3032323] |Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
-| MS15-023 |[3034344][3034344] |Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege |4.18, 3.25, 2.37 |N/A |
-| MS15-024 |[3035132][3035132] |Vulnerability in PNG Processing Could Allow Information Disclosure |4.18, 3.25, 2.37 |N/A |
-| MS15-025 |[3038680][3038680] |Vulnerabilities in Windows Kernel could allow Elevation of Privilege |4.18, 3.25, 2.37 |N/A |
-| MS15-027 |[3002657][3002657] |Vulnerability in NETLOGON Could Allow Spoofing |4.18, 3.25, 2.37 |N/A |
+| MS15-018 |[3032359] |Cumulative Security Update for Internet Explorer |4.18, 3.25, 2.37 |N/A |
+| MS15-019 |[3040297] |Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
+| MS15-020 |[3041836] |Vulnerabilities in Windows could allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
+| MS15-021 |[3032323] |Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution |4.18, 3.25, 2.37 |N/A |
+| MS15-023 |[3034344] |Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege |4.18, 3.25, 2.37 |N/A |
+| MS15-024 |[3035132] |Vulnerability in PNG Processing Could Allow Information Disclosure |4.18, 3.25, 2.37 |N/A |
+| MS15-025 |[3038680] |Vulnerabilities in Windows Kernel could allow Elevation of Privilege |4.18, 3.25, 2.37 |N/A |
+| MS15-027 |[3002657] |Vulnerability in NETLOGON Could Allow Spoofing |4.18, 3.25, 2.37 |N/A |
 | MS15-028 |[3030377] |Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass |4.18, 3.25, 2.37 |N/A |
-| MS15-029 |[3035126][3035126] |Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure |4.18, 3.25, 2.37 |N/A |
+| MS15-029 |[3035126] |Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure |4.18, 3.25, 2.37 |N/A |
 | MS15-030 |[3039976] |Vulnerability in Remote Desktop Protocol Could Allow Denial of Service |4.18, 3.25, 2.37 |N/A |
 
 > [!NOTE]
@@ -316,43 +425,143 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 ## February Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| MS15-009 |[3034682][3034682] |Security Update for Internet Explorer |4.17, 3.24, 2.36 |N/A |
-| MS15-010 |[3036220][3036220] |Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution |4.17, 3.24, 2.36 |N/A |
-| MS15-011 |[3000483][3000483] |Vulnerability in Group Policy Could Allow Remote Code Execution |4.17, 3.24, 2.36 |N/A |
-| MS15-014 |[3004361][3004361] |Vulnerability in SMB Could Allow Security Feature Bypass |4.17, 3.24, 2.36 |N/A |
-| MS15-015 |[3031432][3031432] |Vulnerability in Microsoft Windows Could Allow Elevation of Privilege |4.17, 3.24, 2.36 |N/A |
-| MS15-016 |[3029944][3029944] |Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure |4.17, 3.24, 2.36 |N/A |
-| N/A |[3004375][3004375] |Update to Improve Windows Command Line Auditing<p/>**Note**: This is installed but the registry key to enable it is turned off |4.17, 3.24, 2.36 |N/A |
+| MS15-009 |[3034682] |Security Update for Internet Explorer |4.17, 3.24, 2.36 |N/A |
+| MS15-010 |[3036220] |Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution |4.17, 3.24, 2.36 |N/A |
+| MS15-011 |[3000483] |Vulnerability in Group Policy Could Allow Remote Code Execution |4.17, 3.24, 2.36 |N/A |
+| MS15-014 |[3004361] |Vulnerability in SMB Could Allow Security Feature Bypass |4.17, 3.24, 2.36 |N/A |
+| MS15-015 |[3031432] |Vulnerability in Microsoft Windows Could Allow Elevation of Privilege |4.17, 3.24, 2.36 |N/A |
+| MS15-016 |[3029944] |Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Update to Improve Windows Command Line Auditing<p/>**Note**: This is installed but the registry key to enable it is turned off |4.17, 3.24, 2.36 |N/A |
 
 ## January Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| MS15-001 |[3023266][3023266] |Vulnerability in Windows AppCompatCache could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-002 |[3020393][3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-003 |[3021674][3021674] |Vulnerability in Windows User Profile Service could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-004 |[3019978][3019978] |Vulnerability in Windows Components Could Allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-005 |[3022777][3022777] |Vulnerability in NLA Could Allow Security Feature Bypass |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-006 |[3004365][3004365] |Vulnerability in Windows Error Reporting could Allow Security Feature Bypass |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-007 |[3014029][3014029] |Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-008 |[3019215][3019215] |Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS14-080 |[3008923][3008923] |Cumulative Security Update for Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-002 |[3020393][3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15-002 |[3020393][3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-001 |[3023266] |Vulnerability in Windows AppCompatCache could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-003 |[3021674] |Vulnerability in Windows User Profile Service could allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-004 |[3019978] |Vulnerability in Windows Components Could Allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-005 |[3022777] |Vulnerability in NLA Could Allow Security Feature Bypass |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-006 |[3004365] |Vulnerability in Windows Error Reporting could Allow Security Feature Bypass |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-007 |[3014029] |Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-008 |[3019215] |Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS14-080 |[3008923] |Cumulative Security Update for Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Vulnerability in Windows Telnet Service Could Cause Remote Code Execution |4.16, 3.23, 2.35 |Jan 19 2015 |
 
 ## December Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-| N/A |[3013776][3013776] |System freezes when you use a domain account to start an application |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3013043][3013043] |File system data is corrupted on a Windows-based computer that has more than one NUMA node |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3012712][3012712] |New data blocks initialize incorrectly when a differencing VHD is expanded |4.15, 3.22, 2.34 |Jan 13 201 |
-| N/A |[3004905][3004905] |Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3004394][3004394] |December 2014 update for Windows Root Certificate Program in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[2999323][2999323] |The text for event ID 17 is changed |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3013488][3013488] |Long wait to reset WSUS server when you import CSA files in Windows Server 2012 R2 or Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3012325][3012325] |Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[3007054][3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[2999802][2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N/A |[2896881][2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013776] |System freezes when you use a domain account to start an application |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013043] |File system data is corrupted on a Windows-based computer that has more than one NUMA node |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3012712] |New data blocks initialize incorrectly when a differencing VHD is expanded |4.15, 3.22, 2.34 |Jan 13 201 |
+| N/A |[3004905] |Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3004394] |December 2014 update for Windows Root Certificate Program in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2999323] |The text for event ID 17 is changed |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013488] |Long wait to reset WSUS server when you import CSA files in Windows Server 2012 R2 or Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3012325] |Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4019472]: http://support.microsoft.com/kb/4019472
+[4019263]: http://support.microsoft.com/kb/4019263
+[4019213]: http://support.microsoft.com/kb/4019213
+[4019214]: http://support.microsoft.com/kb/4019214
+[4018271]: http://support.microsoft.com/kb/4018271
+[4010323]: http://support.microsoft.com/kb/4010323
+[4012864]: http://support.microsoft.com/kb/4012864
+[4014565]: http://support.microsoft.com/kb/4014565
+[4014559]: http://support.microsoft.com/kb/4014559
+[4015549]: http://support.microsoft.com/kb/4015549
+[4019990]: http://support.microsoft.com/kb/4019990
+[4014563]: http://support.microsoft.com/kb/4014563
+[4014557]: http://support.microsoft.com/kb/4014557
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014548]: http://support.microsoft.com/kb/4014548
+[4015551]: http://support.microsoft.com/kb/4015551
+[3173424]: http://support.microsoft.com/kb/3173424
+[4014555]: http://support.microsoft.com/kb/4014555
+[4014567]: http://support.microsoft.com/kb/4014567
+[4015550]: http://support.microsoft.com/kb/4015550
+[4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
+
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
+
+
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
+
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884

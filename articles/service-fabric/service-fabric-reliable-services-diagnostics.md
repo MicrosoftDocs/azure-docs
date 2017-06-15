@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2016
+ms.date: 01/04/2017
 ms.author: alanwar
 
 ---
@@ -49,3 +49,5 @@ the service RunAsync() task throws an exception. Typically, an exception thrown 
 StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than four seconds. When a service takes too long to complete cancellation, it impacts
 the ability for the service to be quickly restarted on another node. This may impact the overall availability of the service.
 
+## Next steps
+* [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

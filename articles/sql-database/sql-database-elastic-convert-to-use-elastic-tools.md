@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate existing databases to scale-out | Microsoft Docs
 description: Convert sharded databases to use elastic database tools by creating a shard map manager
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -124,7 +125,7 @@ Map the data by adding a list mapping for each tenant.
     -SqlDatabaseName '<shard_database_name>' 
 
 ### Option 2: map the data for a range mapping
-Add the range mappings for all the tenant id range – database associations:
+Add the range mappings for all the tenant id range - database associations:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 

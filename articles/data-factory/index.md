@@ -1,23 +1,53 @@
 ---
+title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis.
+services: data-factory
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Data Factory Documentation
+# Azure Data Factory Documentation
 
-Data Factory is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Data Factory represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis.
 
 <ul class="panelContent cardsFTitle">
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+   <li>
+        <a href="/azure/data-factory/data-factory-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/data-factory.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Data Factory Getting Started Samples</h3>
+                        <h3>Learn about Azure Data Factory</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=data-factory">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Data Factory Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -25,35 +55,35 @@ Data Factory is a distributed systems platform that makes it easy to package, de
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="/azure/data-factory/data-factory-create-datasets">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Factory Party Cluster</h3>
+                        <h3>Get started with Azure Data Factory</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+   <li>
+        <a href="/azure/data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Data Factory with .NET Core</h3>
+                        <h3>Get started creating a pipeline for Data Factory</h3>
                     </div>
                 </div>
             </div>
@@ -64,19 +94,44 @@ Data Factory is a distributed systems platform that makes it easy to package, de
 
 ---
 
-##Reference
-
-###REST
-[Data Factory REST API Reference](/rest/api/)
-
-###.NET
-[Data Factory Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-<div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Factory Documentation
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/index?view=azuremgmtdatafactories-4.12.1">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-json-scripting-reference">JSON</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datafactory/">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+

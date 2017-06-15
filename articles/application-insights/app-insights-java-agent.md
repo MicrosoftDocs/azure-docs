@@ -1,10 +1,10 @@
 ---
-title: Monitor dependencies, exceptions and execution times in Java web apps
-description: Extended monitoring of your Java website with Application Insights
+title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
+description: Extended performance and usage monitoring of your Java website with Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: harelbr
+manager: carmonm
 
 ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Monitor dependencies, exceptions and execution times in Java web apps
-*Application Insights is in Preview.*
+
 
 If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
 
@@ -28,7 +28,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 * **Caught exceptions:** Data about exceptions that are handled by your code.
 * **Method execution time:** Data about the time it takes to execute specific methods.
 
-To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java].
+To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
 1. On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).
@@ -108,4 +108,3 @@ To search for individual instances of dependency, exception, and method reports,
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md

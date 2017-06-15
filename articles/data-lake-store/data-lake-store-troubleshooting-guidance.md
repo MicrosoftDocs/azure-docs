@@ -10,17 +10,17 @@ editor: cgronlun
 ms.assetid: bf7fd555-3e30-43ce-b28c-c3ad0a241fdb
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
 # Frequently asked questions for Azure Data Lake Store
 In this article you will learn about FAQs related to Azure Data Lake Store.
 
-## How do I handle disaster recovery and data corruption for my Azure Data Lake Store account?
+## How can I further protect my data from region-wide disasters or accidental deletions?
 The data in your Azure Data Lake Store account is resilient to transient hardware failures within a region through automated replicas. This ensures durability and high availability, meeting the Azure Data Lake Store SLA. Here's some guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
 ### Disaster recovery guidance
@@ -38,7 +38,7 @@ If a regional outage occurs, you can then access your data in the region where t
 While Azure Data Lake Store provides data resiliency through automated replicas, this does not prevent your application (or developers/users) from corrupting data or accidentally deleting it.
 
 #### Best practices
-To prevent accidental deletion, we recommend that you first set the correct access policies for your Data Lake Store account using the available [Data Lake Store security features](data-lake-store-security-overview.md). We also recommend that you routinely create copies of your critical data using [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) or [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) in another Data Lake Store account, folder, or Azure subscription.  This can be used to recover from a data corruption or deletion incident. Azure Data Factory is a useful service for creating and deploying data movement pipelines on a recurring basis.
+To prevent accidental deletion, we recommend that you first set the correct access policies for your Data Lake Store account.  This includes applying [Azure resource locks](../azure-resource-manager/resource-group-lock-resources.md) to lock down important resources as well as applying account and file level access control using the available [Data Lake Store security features](data-lake-store-security-overview.md). We also recommend that you routinely create copies of your critical data using [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) or [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) in another Data Lake Store account, folder, or Azure subscription.  This can be used to recover from a data corruption or deletion incident. Azure Data Factory is a useful service for creating and deploying data movement pipelines on a recurring basis.
 
 Organizations can also enable [diagnostic logging](data-lake-store-diagnostic-logs.md) for their Azure Data Lake Store account to collect data access audit trails that provides information about who might have deleted or updated a file.
 

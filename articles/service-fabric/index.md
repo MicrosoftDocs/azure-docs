@@ -1,9 +1,21 @@
 ---
+title: Azure Service Fabric Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
+services: service-fabric
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: service-fabric
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Service Fabric Documentation
 
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, tier-1, cloud-scale applications.
+Learn how to use Service Fabric to package, deploy, and manage scalable and reliable microservices. Tutorials, API references, and code samples show how to use this middleware platform to build and manage cloud-scale applications.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,11 +25,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/service-fabric.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Overview of Service Fabric</h3>
+                        <h3>Learn about Service Fabric</h3>
                     </div>
                 </div>
             </div>
@@ -25,35 +37,17 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
         </a>
     </li>
     <li>
-        <a href="https://aka.ms/servicefabricvideo">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-fabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduction Video to Service Fabric and Microservices</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=service-fabric">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Videos</h3>
+                        <h3>Service Fabric Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +61,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using C# for Windows</h3>
+                        <h3>Get Started with Service Fabric using C# for Windows</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +79,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using C# for Linux</h3>
+                        <h3>Get Started with Service Fabric using C# for Linux</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +97,11 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/java.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first application using Java</h3>
+                        <h3>Get Started with Service Fabric using Java</h3>
                     </div>
                 </div>
             </div>
@@ -120,16 +114,48 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 ---
 
-##Reference
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.servicefabric">PowerShell (Azure)</a></p>
+                        <p><a href="/powershell/azure/overview?view=azureservicefabricps">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/cli/azure/sf">Azure CLI</a></p>
+                        <p><a href="/java/api/overview/azure/servicefabric">Java API</a></p>
+                        <p><a href="/dotnet/api/overview/azure/servicefabric?view=azure-dotnet">.NET</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicefabric">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>	
 
-###REST 
-[Service Fabric Managed Reference API](/dotnet/api/)  
 
-<div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Fabric Documentation
-        </div>
-    </a>
-</div>
+

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -76,6 +76,9 @@ The Azure AD B2C password policy for local accounts is based on the policy for A
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 No, Azure AD Connect is not designed to work with Azure AD B2C. We will provide various migration options and tools out-of-the-box in the future.
 
+### Can my app open up Azure AD B2C pages within an iFrame?
+No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit this.  The security community in general and the OAUTH2 specification, recommend against using iframes for identity experiences due to the risk of clickjacking.
+
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 Not currently. Integrating these systems is on our roadmap.
 
@@ -86,7 +89,10 @@ Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portal
 Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
-No, Azure AD B2C does not support the same set of reports as Azure AD Premium. Azure AD B2C will be releasing basic reporting and auditing APIs soon.
+No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities.  
+* The signin reports provide a record of each signin with reduced details.  
+* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY: Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
+* A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Currently, Azure AD B2C is optimized for English only. We plan to roll out localization features as soon as possible.
@@ -115,6 +121,4 @@ No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise 
 ### How do I report issues with Azure AD B2C?
 See [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
-## More information
-You also might want to review current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
 

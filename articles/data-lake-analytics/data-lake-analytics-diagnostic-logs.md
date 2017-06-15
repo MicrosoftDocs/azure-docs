@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
+
 Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
 
 Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These logs provide information such as:
@@ -26,45 +27,62 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 * How frequently the data is accessed.
 * How much data is stored in the account.
 
-## Prerequisites
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md).
-* **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
-
 ## Enable logging
-1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Open your Data Lake Analytics account, and from your Data Lake Analytics account blade, click **Settings**, and then click **Diagnostic Settings**.
-3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
 
-    ![Enable diagnostic logging](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+1. Sign on to the new [Azure portal](https://portal.azure.com).
+
+2. Open your Data Lake Analytics account and select **Diagnostic logs** from the __Monitoring section__. Next, select __Turn on diagnostics__.
+
+    ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+
+3. From __Diagnostics settings__, set the status to __On__ and select logging options.
+
+    ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
 
    * Set **Status** to **On** to enable diagnostic logging.
+
    * You can choose to store/process the data in two different ways.
-     * Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
-     * Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure Storage account to save the logs to.
+
+     * Select __Archive to a storage account__ to store logs in an Azure storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure storage account to save the logs to.
+
+     * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+
+     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this if you want to use Log Analytics to gather and analyze logs.
    * Specify whether you want to get audit logs or request logs or both.
+
    * Specify the number of days for which the data must be retained.
+
    * Click **Save**.
 
-Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
+        > [!NOTE]
+        > You must select either __Archive to a storage account__, __Stream to an Event Hub__ or __Send to Log Analytics__ before using the __Save__ button.
+
+Once you have enabled diagnostic settings, you can return to the __Diagnostics logs__ blade to view logs.
 
 ## View logs
+
 There are two ways to view the log data for your Data Lake Analytics account.
 
 * From the Data Lake Analytics account settings
 * From the Azure Storage account where the data is stored
 
 ### Using the Data Lake Analytics Settings view
-1. From your Data Lake Analytics account **Settings** blade, click **Diagnostic Logs**.
+
+1. From your Data Lake Analytics account blade, select **Diagnostic Logs** and then select the entry to display logs for.
 
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+
+2. The logs are categorized by **Audit Logs** and **Request Logs**.
+
+    ![log entries](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Request logs capture every API request made on the Data Lake Analytics account.
    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
+
 3. Click the **Download** link for a log entry to download the logs.
 
 ### From the Azure Storage account that contains log data
+
 1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click Blobs. The **Blob service** blade lists two containers.
 
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
@@ -91,8 +109,6 @@ There are two ways to view the log data for your Data Lake Analytics account.
 
    > [!NOTE]
    > The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` always contains a value of `00`.
-   >
-   >
 
     As an example, the complete path to an audit log could be:
 
@@ -103,9 +119,11 @@ There are two ways to view the log data for your Data Lake Analytics account.
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## Log structure
+
 The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
 ### Request logs
+
 Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
 
     {
@@ -137,6 +155,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
     }
 
 #### Request log schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |String |The timestamp (in UTC) of the log |
@@ -150,6 +169,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | properties |JSON |See the next section (Request log properties schema) for details |
 
 #### Request log properties schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |String |The HTTP Method used for the operation. For example, GET. |
@@ -160,6 +180,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | EndTime |String |The time at which the server sent a response |
 
 ### Audit logs
+
 Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
 
     {
@@ -186,6 +207,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
     }
 
 #### Audit log schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |String |The timestamp (in UTC) of the log |
@@ -203,6 +225,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 >
 
 #### Audit log properties schema
+
 | Name | Type | Description |
 | --- | --- | --- |
 | JobId |String |The ID assigned to the job |
@@ -215,10 +238,9 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** and **Parallelism** provide information on an operation, and only contain a value if an operation has started or completed. For example, **SubmitTime** contains a value after **operationName** indicates **JobSubmitted**.
->
->
 
 ## Process the log data
+
 Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## Next steps

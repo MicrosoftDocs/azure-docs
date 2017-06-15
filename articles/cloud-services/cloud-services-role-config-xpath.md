@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/19/2017
 ms.author: adegeo
 
 ---

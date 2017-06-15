@@ -1,5 +1,5 @@
-﻿---
-title: Getting Started with Azure Stack Key Vault | Microsoft Docs
+---
+title: Getting started with Key Vault in Azure Stack | Microsoft Docs
 description: Get started using Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: ricardom
 
 ---
@@ -74,7 +74,7 @@ Output:
 
 Output:
 
-    VaultUri : https://vault010.vault.azurestack.local
+    VaultUri : https://vault010.vault.local.azurestack.global
     TenantId : 5454420b-2e38-4b9e-8b56-1712d321cf33
     TenantName : 5454420b-2e38-4b9e-8b56-1712d321cf33
     Sku : Standard
@@ -100,7 +100,7 @@ Output:
 The output of this cmdlet shows properties of the key vault that you’ve just created. The two most important properties are:
 
 * **Vault Name**: In the example, this is **vault010**. You will use this name for other Key Vault cmdlets.
-* **Vault URI**: In the example, this is https://vault010.vault.azurestack.local. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is https://vault010.vault.local.azurestack.global. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
@@ -115,17 +115,17 @@ In order to create a key, use the **Add-AzureKeyVaultKey** per the example below
 The following is the output of the *Add-AzureKeyVaultKey* cmdlet:
 
     Attributes : Microsoft.Azure.Commands.KeyVault.Models.KeyAttributes
-    Key : {"kid":"https://vault010.vault.azurestack.local/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff","kty":"RSA","key\_ops":\["encrypt"
+    Key : {"kid":"https://vault010.vault.local.azurestack.global/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff","kty":"RSA","key\_ops":\["encrypt"
     ,"decrypt","sign","verify","wrapKey","unwrapKey"\],"n":"nDkcBQCyyLnXtbwFMnXOWzPDqWKiyjf0G3QTxvuN\_MansEn9X-91q4\_WFmRBCd5zWBqz671iuZO\_D4r0P25
     Fe2lAq\_3T1gATVNGR7LTEU9W5h8AoY10bmt4e0y66Jn2vUV-UTCz4\_vtKSKoiuNXHFR\_tGZ-6YX-frqKIiC8pbE4Qvz1x-c7E-eM\_Cpu87koL95n-Hl3wQRQRPXEPRR6gcHR5E74D1
     gLEFCWKySTo4nXtLoeBMNK5QYEBZIAS61ACbR4czjHn6ty-tZeVTc7hyK\_UO2EbJovQIAhyayfq018uNtCBzjjkqJKnY34kviVCPoTQqOdpHa0FHrloe5FeIw","e":"AQAB"}
     VaultName : vault010
     Name : keyVaultKeyName001
     Version : 86062b02b10342688f3b0b3713e343ff
-    Id : https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
+    Id : https://vault010.vault.local.azurestack.global:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
 
-You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001**
-to always get the current version; and use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff** to get this specific version.
+You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://vault010.vault.local.azurestack.global:443/keys/keyVaultKeyName001**
+to always get the current version; and use **https://vault010.vault.local.azurestack.global:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff** to get this specific version.
 
 ### Retrieving a key
 Use the **Get-AzureKeyVaultKey** to retrieve a key and its details per the following example:
@@ -135,14 +135,14 @@ Use the **Get-AzureKeyVaultKey** to retrieve a key and its details per the follo
 The following is the output of Get-AzureKeyVaultKey
 
     Attributes : Microsoft.Azure.Commands.KeyVault.Models.KeyAttributes
-    Key : {"kid":"https://vault010.vault.azurestack.local/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff","kty":"RSA","key\_ops":\["encrypt"
+    Key : {"kid":"https://vault010.vault.local.azurestack.global/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff","kty":"RSA","key\_ops":\["encrypt"
     ,"decrypt","sign","verify","wrapKey","unwrapKey"\],"n":"nDkcBQCyyLnXtbwFMnXOWzPDqWKiyjf0G3QTxvuN\_MansEn9X-91q4\_WFmRBCd5zWBqz671iuZO\_D4r0P25
     Fe2lAq\_3T1gATVNGR7LTEU9W5h8AoY10bmt4e0y66Jn2vUV-UTCz4\_vtKSKoiuNXHFR\_tGZ-6YX-frqKIiC8pbE4Qvz1x-c7E-eM\_Cpu87koL95n-Hl3wQRQRPXEPRR6gcHR5E74D1
     gLEFCWKySTo4nXtLoeBMNK5QYEBZIAS61ACbR4czjHn6ty-tZeVTc7hyK\_UO2EbJovQIAhyayfq018uNtCBzjjkqJKnY34kviVCPoTQqOdpHa0FHrloe5FeIw","e":"AQAB"}
     VaultName : vault010
     Name : keyVaultKeyName001
     Version : 86062b02b10342688f3b0b3713e343ff
-    Id : https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
+    Id : https://vault010.vault.local.azurestack.global:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
 
 ### Setting a secret
     $secretvalue = ConvertTo-SecureString 'User@123' -AsPlainText -Force
@@ -153,7 +153,7 @@ Output
     Vault Name : vault010
     Name : MySecret
     Version : 65a387f2ed4a416180e852b970846f5b
-    Id : https://vault010.vault.azurestack.local:443/secrets/MySecret/65a387f2ed4a416180e852b970846f5b
+    Id : https://vault010.vault.local.azurestack.global:443/secrets/MySecret/65a387f2ed4a416180e852b970846f5b
     Enabled : True
     Expires :
     Not Before :
@@ -170,7 +170,7 @@ Output
     Vault Name : vault010
     Name : MySecret
     Version :
-    Id : https://vault010.vault.azurestack.local:443/secrets/MySecret
+    Id : https://vault010.vault.local.azurestack.global:443/secrets/MySecret
     Enabled : True
     Expires :
     Not Before :

@@ -1,6 +1,6 @@
 ---
-title: Secure your IoT solution from the ground up | Microsoft Docs
-description: This article describes the built-in security features of the Microsoft Azure IoT Suite
+title: Secure your Azure IoT solution from the ground up | Microsoft Docs
+description: How to use the built-in security features of Microsoft Azure IoT Hub and Suite.
 services: iot-hub
 documentationcenter: ''
 author: YuriDio
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 
 ---
@@ -28,10 +28,10 @@ To learn more about securing your IoT solution, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

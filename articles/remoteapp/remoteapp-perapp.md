@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 
 ---
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
-This article explains how to publish applications to individual users in an Azure RemoteApp collection. This is new functionality in Azure RemoteApp, currently in “private preview” and available only to select early adopters for evaluation purposes.
+This article explains how to publish applications to individual users in an Azure RemoteApp collection. This is new functionality in Azure RemoteApp, currently in private preview and available only to select early adopters for evaluation purposes.
 
-Originally Azure RemoteApp enabled only one way of “publishing” applications: the administrator would publish apps from the image and they would be visible to all users in the collection.
+Originally Azure RemoteApp enabled only one way of publishing applications: the administrator would publish apps from the image and they would be visible to all users in the collection.
 
 A common scenario is to include many applications in a single image and deploy one collection in order to reduce management costs. Oftentimes not all applications are relevant to all users – administrators would prefer to publish apps to individual users so they don’t see unnecessary applications in their application feed.
 
@@ -33,8 +33,8 @@ This is now possible in Azure RemoteApp – currently as a limited preview featu
 
 1. A collection can be set into one of two modes:
    
-   * the original “collection mode”, where all users in a collection can see all published applications. This is the default mode.
-   * the new “application mode”, where users only see applications that have been explicitly assigned to them
+   * the original collection mode, where all users in a collection can see all published applications. This is the default mode.
+   * the new application mode, where users only see applications that have been explicitly assigned to them
 2. At the moment the application mode can only be enabled using Azure RemoteApp PowerShell cmdlets.
    
    * When set to application mode, user assignment in the collection cannot be managed through the Azure portal. User assignment has to be managed through PowerShell cmdlets.
@@ -46,7 +46,7 @@ This is now possible in Azure RemoteApp – currently as a limited preview featu
 ## How to get Azure RemoteApp PowerShell cmdlets
 To try the new preview functionality, you will need to use Azure PowerShell cmdlets. It is currently not possible to use the Azure Management portal to enable the new application publishing mode.
 
-First, make sure you have the [Azure PowerShell module](../powershell-install-configure.md) installed.
+First, make sure you have the [Azure PowerShell module](/powershell/azure/overview) installed.
 
 Then launch the PowerShell console in administrator mode and run the following cmdlet:
 

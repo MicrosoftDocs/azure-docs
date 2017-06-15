@@ -15,17 +15,19 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: chrande; glenga
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Azure Functions timer trigger
+# Schedule code execution with Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code timer triggers in Azure Functions. 
-Azure Functions supports the trigger for timers. Timer triggers call functions based on a schedule, one time or recurring. 
+Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule. 
 
-The timer trigger supports multi-instance scale-out. One single instance of a particular timer function is run across all instances.
+The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -43,17 +45,34 @@ The timer trigger to a function uses the following JSON object in the `bindings`
 }
 ```
 
-The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields: 
-`{second} {minute} {hour} {day} {month} {day of the week}`. Many of the cron expressions you find online omit the 
-`{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. See 
-[`schedule` examples](#examples) below.
+The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+
+	{second} {minute} {hour} {day} {month} {day-of-week}
+&nbsp;
+>[!NOTE]   
+>Many of the cron expressions you find online omit the `{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. For specific examples, see [Schedule examples](#examples) below.
+
+The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx). 
+
+For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
+
+```json
+"schedule": "0 0 15 * * *",
+```	
+
+Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then the following CRON expression could be used for 10:00 AM EST: 
+
+```json
+"schedule": "0 0 10 * * *",
+```	
+
 
 <a name="examples"></a>
 
-## `schedule` examples
+## Schedule examples
 Here are some samples of CRON expressions you can use for the `schedule` property. 
 
-To trigger once every 5 minutes:
+To trigger once every five minutes:
 
 ```json
 "schedule": "0 */5 * * * *"
@@ -96,7 +115,7 @@ When a timer trigger function is invoked, the
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
 is passed into the function. The following JSON is an example representation of the timer object. 
 
-```
+```json
 {
     "Schedule":{
     },
@@ -130,7 +149,7 @@ See the language-specific sample that reads the timer object to see whether it's
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -144,7 +163,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\
+### Trigger sample in F# #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then

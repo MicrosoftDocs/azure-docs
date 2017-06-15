@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 06/05/2017
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ Feature Additions:
   * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
   * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
 * The following copy source types have been added:
-  * [MongoDbSource](https://msdn.microsoft.com/en-US/library/mt765123.aspx)
+  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
 ## Version 4.10.0
 * The following optional properties have been added to TextFormat:
@@ -160,19 +160,21 @@ The following classes have been renamed. The new names were the original names o
 
 * The **List** methods return paged results now. If the response contains a non-empty **NextLink** property, the client application needs to continue fetching the next page until all pages are returned.  Here is an example:
 
-        PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
-        var pipelines = new List<Pipeline>(response.Pipelines);
+	```csharp
+    PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
+    var pipelines = new List<Pipeline>(response.Pipelines);
 
-        string nextLink = response.NextLink;
-        while (string.IsNullOrEmpty(response.NextLink))
-        {
-            PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
-            pipelines.AddRange(nextResponse.Pipelines);
+    string nextLink = response.NextLink;
+    while (!string.IsNullOrEmpty(nextLink))
+    {
+        PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
+        pipelines.AddRange(nextResponse.Pipelines);
 
-            nextLink = nextResponse.NextLink;
-        }
+        nextLink = nextResponse.NextLink;
+    }
+	```
 * **List** pipeline API returns only the summary of a pipeline instead of full details. For instance, activities in a pipeline summary only contain name and type.
 
 ### Feature additions
-* The [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) class supports two new properties, **SliceIdentifierColumnName** and **SqlWriterCleanupScript**, to support idempotent copy to Azure SQL Data Warehouse. See the [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) article, specifically, the [Mechanism 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) and [Mechanism 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) sections, for details about these properties.
+* The [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) class supports two new properties, **SliceIdentifierColumnName** and **SqlWriterCleanupScript**, to support idempotent copy to Azure SQL Data Warehouse. See the [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) article for details about these properties.
 * We now support running stored procedure against Azure SQL Database and Azure SQL Data Warehouse sources as part of the Copy Activity. The [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) and [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) classes have the following properties: **SqlReaderStoredProcedureName** and **StoredProcedureParameters**. See the [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) and [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) articles on Azure.com for details about these properties.  

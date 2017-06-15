@@ -6,7 +6,7 @@
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |
 | [Scale-Out](../articles/app-service-web/web-sites-scale.md) (max instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> |20 dedicated (50 in ASE)<sup>3,4</sup> |
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
-| CPU time (short)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
+| CPU time (5 min)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
 | CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
 | Memory (1 hour) |1024 MB per App Service plan |1024 MB per app |N/A |N/A |N/A |
 | Bandwidth |165 MB |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |
@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Staging Slots (Preview)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Staging Slots](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Custom domains per app</a> | |500 |500 |500 |500 |
 | SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 

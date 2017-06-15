@@ -13,8 +13,10 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 12/2/2016
 ms.author: ryanwi
+
+redirect_url: /rest/api/servicefabric/
 
 ---
 # REST-based application lifecycle sample

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Vulnerabilities detected by Azure Active Directory Identity Protection | Microsoft Docs
 description: Overview of the vulnerabilities detected by Azure Active Directory Identity Protection.
 services: active-directory
@@ -6,7 +6,6 @@ keywords: azure active directory identity protection, cloud app discovery, manag
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
@@ -14,15 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---
 # Vulnerabilities detected by Azure Active Directory Identity Protection
 Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting them.
-<br><br>
+
+
 ![vulnerabilities](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
-<br>
+
+
 
 The following sections provide you with an overview of the vulnerabilities reported by Identity Protection.
 

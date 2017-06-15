@@ -9,7 +9,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 * [Sign up for LiveFyre](#sign-up-for-livefyre)
 * [Modify articles using the GitHub UI](#modify-articles-using-the-github-ui)
 * [Private or public repo?](#private-or-public-repo?)
-* [Permissions in GitHub](#permissions-in-github)
+* [Permissions](#permissions)
 * [Install Git for Windows](#install-git-for-windows)
 * [Enable two-factor authentication](#enable-two-factor-authentication)
 * [Install a markdown editor](#install-a-markdown-editor)
@@ -33,18 +33,21 @@ Your profile should resemble this profile:
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
 ## Sign up for Livefyre
-Every published Azure technical article has a comment stream provided by the Livefyre service.
 
-If you are a Microsoft employee, and if you are the author of or a contributor to an article, you need to sign up for Livefyre so you can participate in the comment stream for the article.
+Every published technical article supports a comment stream provided by the [Livefyre](http://web.livefyre.com/) service. 
 
-1. Visit https://www.livefyre.com/auth/register/.
-2. Create a Livefyre account (do not comment using your social media account - you need to create an actual Livefyre account).
+As a Microsoft employee and article author or contributor, you need to sign up for Livefyre so you can participate in the comment stream for the article. 
 
-  - **Username:** type your Microsoft alias plus _MSFT.
-  - **Email:** enter your Microsoft email address.
+1. Your Livefyre account needs to be created within docs.microsoft.com. Pick an article in docs.microsoft.com. E.g.  [https://docs.microsoft.com/en-us/active-directory/active-directory-developers-guide](https://docs.microsoft.com/en-us/active-directory/active-directory-developers-guide).
 
-  ![livefyre signup](./media/tools-and-setup/livefyre.png)
-
+2. At the bottom of the article, click the *Sign in* link in the comments section.
+ 
+3. In the authentication dialog, click *Create New Account*.
+  
+4. Enter your profile information and click *Sign up*.
+   - **Username**: your Microsoft email alias plus @MSFT, ie: *alias@MSFT*
+   - **Email**: Your Microsoft.com email address.
+  
 ## Modify articles using the GitHub UI
 You might not need to follow all the steps in this article. It depends on the sort of content contribution you want or need to make.
 
@@ -62,7 +65,7 @@ If you only need or want to make textual updates to an existing article, you pro
 ### All other changes
 The GitHub UI does support creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we typically recommend you install the tools and learn the commands for creating and managing articles. If you want to use the UI, see:
 
-* [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+* [Creating files on GitHub](https://github.com/blog/1327-creating-files-on-github)
 * [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
 For the following sorts of work, we strongly recommend you install and learn to use the tools:
@@ -85,10 +88,14 @@ For the following sorts of work, we strongly recommend you install and learn to 
 
  - github.com/Microsoft/azure-docs**-pr**/blob/master/articles/batch/batch-account-create-portal.md
 
-## Permissions in GitHub
+## Permissions
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Microsoft/azure-docs](https://github.com/Microsoft/azure-docs). No special permissions are required.
 
-If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr.
+
+1. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+
+2. Register your GitHub account with the publishing system before you submit your first pull request. To do this, visit https://op-portal-prod.azurewebsites.net/, and click "Sign in with GitHub". The one-time sign-in is all that is needed. 
 
 ## Install Git for Windows
 Install Git for Windows from [http://git-scm.com/download/win](http://git-scm.com/download/win). This download installs the Git version control system, and it installs Git Bash, the command-line app that you will use to interact with your local Git repository.
@@ -134,7 +141,7 @@ If you use Atom, you'll need to set a few things up.
 ## Fork the repository and copy it to your computer
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-docs-pr, the private repo. Community contributors need to fork azure-docs, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 2. Copy the Personal Access Token that you got from [https://github.com/settings/tokens](https://github.com/settings/tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
-3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) directory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-docs(-pr) directory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-docs(-pr).
 
 Public repo:
 

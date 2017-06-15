@@ -1,6 +1,6 @@
 ---
-title: Azure Functions DocumentDB bindings | Microsoft Docs
-description: Understand how to use Azure DocumentDB bindings in Azure Functions.
+title: Azure Functions Cosmos DB bindings | Microsoft Docs
+description: Understand how to use Azure Cosmos DB bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,259 +15,317 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/18/2016
 ms.author: chrande; glenga
 
 ---
-# Azure Functions DocumentDB bindings
+# Azure Functions Cosmos DB bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
-Azure Functions supports input and output bindings for DocumentDB.
+This article explains how to configure and code Azure Cosmos DB bindings in Azure Functions. 
+Azure Functions supports input and output bindings for Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-For more information on DocumentDB, see [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) 
-and [Build a DocumentDB console application](../documentdb/documentdb-get-started.md).
+For more information on Cosmos DB, see [Introduction to Cosmos DB](../documentdb/documentdb-introduction.md) 
+and [Build a Cosmos DB console application](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
-## DocumentDB input binding
-The DocumentDB input binding retrieves a DocumentDB document and passes it to the named input parameter of the function. The document 
-ID can be determined based on the trigger that invokes the function. 
+## DocumentDB API input binding
+The DocumentDB API input binding retrieves a Cosmos DB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
 
-The DocumentDB input to a function uses the following JSON object in the `bindings` array of function.json:
+The DocumentDB API input binding has the following properties in *function.json*:
 
-    {
-      "name": "<Name of input parameter in function signature>",
-      "type": "documentDB",
-      "databaseName": "<Name of the DocumentDB database>",
-      "collectionName": "<Name of the DocumentDB collection>",
-      "id": "<Id of the DocumentDB document - see below>",
-      "connection": "<Name of app setting with connection string - see below>",
-      "direction": "in"
-    },
+- `name` : Identifier name used in function code for the document
+- `type` : must be set to "documentdb"
+- `databaseName` : The database containing the document
+- `collectionName` : The collection containing the document
+- `id` : The Id of the document to retrieve. This property supports bindings parameters; see [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in the article [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+- `sqlQuery` : A Cosmos DB SQL query used for retrieving multiple documents. The query supports runtime bindings. For example: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection` : The name of the app setting containing your Cosmos DB connection string
+- `direction`  : must be set to `"in"`.
 
-Note the following:
+The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor `sqlQuery` is set, the entire collection is retrieved.
 
-* `id` supports bindings similar to `{queueTrigger}`, which uses the string value of the queue message as the document Id.
-* `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
-  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-  Functions portal UI, the account creation process creates an app setting for you. To use an existing DocumentDB account, you need to 
-  [configure this app setting manually](). 
-* If the specified document is not found, the named input parameter to the function is set to `null`. 
+## Using a DocumentDB API input binding
 
-## Input usage
-This section shows you how to use your DocumentDB input binding in your function code.
-
-In C# and F# functions, any changes made to the input document (named input parameter) is automatically sent back to the 
-collection when the function exits successfully. 
-In Node.js functions, updates to the document in the input binding are not sent 
-back to the collection. However, you can use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to 
-make updates to input documents. See how it is done in the [Node.js sample](#innodejs).
+* In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
+* In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript sample](#injavascript).
 
 <a name="inputsample"></a>
 
-## Input sample
-Suppose you have the following DocumentDB input binding in the `bindings` array of function.json:
+## Input sample for single document
+Suppose you have the following DocumentDB API input binding in the `bindings` array of function.json:
 
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger}",
-      "connection": "MyAccount_DOCUMENTDB",     
-      "direction": "in"
-    }
+```json
+{
+  "name": "inputDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger}",
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "in"
+}
+```
 
 See the language-specific sample that uses this input binding to update the document's text value.
 
 * [C#](#incsharp)
 * [F#](#infsharp)
-* [Node.js](#innodejs)
+* [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
-### Input sample in C\
-    public static void Run(string myQueueItem, dynamic inputDocument)
-    {   
-      inputDocument.text = "This has changed.";
-    }
+### Input sample in C# #
 
+```cs
+// Change input document contents using DocumentDB API input binding 
+public static void Run(string myQueueItem, dynamic inputDocument)
+{   
+  inputDocument.text = "This has changed.";
+}
+```
 <a name="infsharp"></a>
 
-### Input sample in F\
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-      inputDocument?text <- "This has changed."
+### Input sample in F# #
 
-You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+```fsharp
+(* Change input document contents using DocumentDB API input binding *)
+open FSharp.Interop.Dynamic
+let Run(myQueueItem: string, inputDocument: obj) =
+  inputDocument?text <- "This has changed."
+```
+
+This sample requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
-    {
-      "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-          }
-        }
+```json
+{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "Dynamitey": "1.0.2",
+        "FSharp.Interop.Dynamic": "3.0.0"
       }
     }
+  }
+}
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
-<a name="innodejs"></a>
+<a name="injavascript"></a>
 
-### Input sample in Node.js
-    module.exports = function (context) {   
-      context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-      context.bindings.inputDocumentOut.text = "This was updated!";
-      context.done();
-    };
+### Input sample in JavaScript
 
-## <a id="docdboutput"></a>DocumentDB output binding
-The DocumentDB output binding lets you write a new document to an Azure DocumentDB database. 
+```javascript
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+module.exports = function (context) {   
+  context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+  context.bindings.inputDocumentOut.text = "This was updated!";
+  context.done();
+};
+```
 
-The output binding uses the following JSON object in the `bindings` array of function.json: 
+## Input sample with multiple documents
 
+Suppose that you wish to retrieve multiple documents specified by a SQL query, using a queue trigger to customize the query parameters. 
+
+In this example, the queue trigger provides a parameter `departmentId`.A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. Use the following in *function.json*:
+
+```
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "CosmosDBConnection"
+}
+```
+
+### Input sample with multiple documents in C#
+
+```csharp
+public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+{   
+    foreach (var doc in documents)
     {
-      "name": "<Name of output parameter in function signature>",
-      "type": "documentDB",
-      "databaseName": "<Name of the DocumentDB database>",
-      "collectionName": "<Name of the DocumentDB collection>",
-      "createIfNotExists": <true or false - see below>,
-      "connection": "<Value of AccountEndpoint in Application Setting - see below>",
-      "direction": "out"
-    }
+        // operate on each document
+    }    
+}
 
-Note the following:
+public class QueuePayload
+{
+    public string departmentId { get; set; }
+}
+```
 
-* Set `createIfNotExists` to `true` to create the database and collection if it doesn't exist. The default value is `false`. New collections are 
-  created with reserved throughput, which has pricing implications. For more information, see 
-  [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
-  `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
-  Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
-  [configure this app setting manually](). 
+### Input sample with multiple documents in JavaScript
 
-## Output usage
-This section shows you how to use your DocumentDB output binding in your function code.
+```javascript
+module.exports = function (context, input) {    
+    var documents = context.bindings.documents;
+    for (var i = 0; i < documents.length; i++) {
+        var document = documents[i];
+        // operate on each document
+    }	    
+    context.done();
+};
+```
 
-When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated
-GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
-the output parameter. If a document with that ID already exists, the output document overwrites it. 
+## <a id="docdboutput"></a>DocumentDB API output binding
+The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
+It has the following properties in *function.json*:
+
+- `name` : Identifier used in function code for the new document
+- `type` : must be set to `"documentdb"`
+- `databaseName` : The database containing the collection where the new document will be created.
+- `collectionName` : The collection where the new document will be created.
+- `createIfNotExists` : A boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection` : The name of the app setting containing your Cosmos DB connection string
+- `direction` : must be set to `"out"`
+
+## Using a DocumentDB API output binding
+This section shows you how to use your DocumentDB API output binding in your function code.
+
+When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
+the output parameter. 
+
+>[!Note]  
+>When you specify the ID of an existing document, it gets overwritten by the new output document. 
+
+To output multiple documents, you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
 
 <a name="outputsample"></a>
 
-## Output sample
-Suppose you have the following DocumentDB output binding in the `bindings` array of function.json:
+## DocumentDB API output binding sample
+Suppose you have the following DocumentDB API output binding in the `bindings` array of function.json:
 
-    {
-      "name": "employeeDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "createIfNotExists": true,
-      "connection": "MyAccount_DOCUMENTDB",     
-      "direction": "out"
-    }
+```json
+{
+  "name": "employeeDocument",
+  "type": "documentDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connection": "MyAccount_COSMOSDB",     
+  "direction": "out"
+}
+```
 
 And you have a queue input binding for a queue that receives JSON in the following format:
 
-    {
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+```json
+{
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
 
-And you want to create DocumentDB documents in the following format for each record:
+And you want to create Cosmos DB documents in the following format for each record:
 
-    {
-      "id": "John Henry-123456",
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+```json
+{
+  "id": "John Henry-123456",
+  "name": "John Henry",
+  "employeeId": "123456",
+  "address": "A town nearby"
+}
+```
 
 See the language-specific sample that uses this output binding to add documents to your database.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
-* [Node.js](#outnodejs)
+* [JavaScript](#outjavascript)
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
-    #r "Newtonsoft.Json"
+### Output sample in C# #
 
-    using System;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
+```cs
+#r "Newtonsoft.Json"
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-    {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-      dynamic employee = JObject.Parse(myQueueItem);
+public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+{
+  log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
-    }
+  dynamic employee = JObject.Parse(myQueueItem);
+
+  employeeDocument = new {
+    id = employee.name + "-" + employee.employeeId,
+    name = employee.name,
+    employeeId = employee.employeeId,
+    address = employee.address
+  };
+}
+```
 
 <a name="outfsharp"></a>
 
-### Output sample in F\
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
+### Output sample in F# #
 
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
+```fsharp
+open FSharp.Interop.Dynamic
+open Newtonsoft.Json
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
+type Employee = {
+  id: string
+  name: string
+  employeeId: string
+  address: string
+}
 
-You need to add a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
+let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+  log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+  let employee = JObject.Parse(myQueueItem)
+  employeeDocument <-
+    { id = sprintf "%s-%s" employee?name employee?employeeId
+      name = employee?name
+      employeeId = employee?employeeId
+      address = employee?address }
+```
+
+This sample requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
-    {
-      "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-          }
-        }
+```json
+{
+  "frameworks": {
+    "net46": {
+      "dependencies": {
+        "Dynamitey": "1.0.2",
+        "FSharp.Interop.Dynamic": "3.0.0"
       }
     }
+  }
+}
+```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
-<a name="outnodejs"></a>
+<a name="outjavascript"></a>
 
-### Output sample in Node.js
-    module.exports = function (context) {
+### Output sample in JavaScript
 
-      context.bindings.employeeDocument = JSON.stringify({ 
-        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
-        name: context.bindings.myQueueItem.name,
-        employeeId: context.bindings.myQueueItem.employeeId,
-        address: context.bindings.myQueueItem.address
-      });
+```javascript
+module.exports = function (context) {
 
-      context.done();
-    };
+  context.bindings.employeeDocument = JSON.stringify({ 
+    id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+    name: context.bindings.myQueueItem.name,
+    employeeId: context.bindings.myQueueItem.employeeId,
+    address: context.bindings.myQueueItem.address
+  });
+
+  context.done();
+};
+```

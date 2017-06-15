@@ -1,23 +1,35 @@
 ---
+title: Azure Cloud Services Documentation - Tutorials, API Reference | Microsoft Docs
+description: Tutorials, API references and other documentation show you how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
+services: cloud-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cloud-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Cloud Services Documentation
+# Cloud Services Documentation
 
-Cloud Services is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Cloud Services represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs.  Tutorials, API references and other documentation show you how to manage virtual machine hosts and configure, patch, and install software.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="https:/azure/cloud-services/cloud-services-choose-me">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/cloud-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Cloud Services</h3>
+                        <h3>Learn about Cloud Services</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +37,17 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=cloud-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Cloud Services Party Cluster</h3>
+                        <h3>Cloud Services Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -43,40 +55,72 @@ Cloud Services is a distributed systems platform that makes it easy to package, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/cloud-services/cloud-services-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Cloud Services with .NET Core</h3>
+                        <h3>Get Started with Cloud Services using .NET</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-</ul>
+    <li>
+        <a href="/azure/cloud-services/cloud-services-python-ptvs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Cloud Services using Python</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+ </ul>
 
 ---
 
-##Reference
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-###REST
-[Cloud Services REST API Reference](/rest/api/)
 
-###.NET
-[Cloud Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-<div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
-        <div class="img"></div>
-        <div class="text">
-            Download Cloud Services Documentation
-        </div>
-    </a>
-</div>

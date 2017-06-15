@@ -1,14 +1,3 @@
----
-services: virtual-machines
-title: How to Log on to a Virtual Machine Running Windows Server
-author: cynthn
-solutions: ''
-manager: timlt
-editor: tysonn
-
-{}
-
----
 1. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
 2. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
    

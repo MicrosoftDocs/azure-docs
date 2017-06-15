@@ -15,7 +15,7 @@ Common uses of File storage include:
 ## File storage concepts
 File storage contains the following components:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Storage Account:** All access to Azure Storage is done
   through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
@@ -35,5 +35,3 @@ File storage contains the following components:
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png

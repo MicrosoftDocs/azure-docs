@@ -1,4 +1,4 @@
-﻿---
+---
 title: Logging for Machine Learning web services | Microsoft Docs
 description: Learn how to enable logging for Machine Learning web services. Logging provides additional information to help troubleshoot the APIs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
 
 ---

@@ -5,4 +5,3 @@ The following tasks will be done in this scenario:
 * Create health probes
 
 ![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-

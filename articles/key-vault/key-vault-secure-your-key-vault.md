@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/07/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 
 ---
@@ -27,7 +27,7 @@ For authentication both management plane and data plane use Azure Active Directo
 
 Here is a brief overview of the topics covered:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-direcrory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+[Authentication using Azure Active Directory](#authentication-using-azure-active-directory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
 
 [Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
 
@@ -69,7 +69,7 @@ The management plane and data plane access controls work independently. For exam
 The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. You can get a list of vaults in a subscription. You can retrieve key vault properties (such as SKU, tags) and set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC. See the complete list of key vault operations that can be performed via management plane in the table in preceding section. 
 
 ### Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can grant users or a group ability to manage key vaults in a specific resource group.
 
@@ -83,10 +83,10 @@ You can grant access to users, groups and applications at a specific scope by as
 ## Data plane access control
 The key vault data plane consists of operations that affect the objects in a key vault, such as keys, secrets, and certificates.  This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and set tags and other attributes for keys. Similarly, for secrets it includes, get, set, list, delete.
 
-Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
+Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. Key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
 
-### key vault Access Policies
-key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
+### Key vault Access Policies
+Key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
 
 > [!IMPORTANT]
 > Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
@@ -168,7 +168,7 @@ $kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionToKeys backup,create,delete,get,import,list,restore -PermissionToSecrets all
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets all
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
@@ -176,17 +176,17 @@ $devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
-$devlopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
+$devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $role
+New-AzureRmRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 The custom role defined, is only assignable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
@@ -207,7 +207,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 * [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
   
   This article details all the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+* [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
   
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
 * [Manage Role-Based Access Control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -230,7 +230,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
   Link to key vault REST API reference documentation.
 * [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Link to Key access control reference documentation.
+  Link to Secret access control reference documentation.
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Link to Key access control reference documentation.

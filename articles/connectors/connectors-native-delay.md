@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add a delay in logic apps | Microsoft Docs
 description: Overview of the delay and delay-until actions, and how to use them with an Azure logic app.
 services: ''
@@ -26,7 +26,7 @@ For example, you can:
 * Wait until a weekday to send a status update over email.
 * Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
 
-To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the delay action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Use the delay actions
 An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
@@ -69,5 +69,5 @@ A * means that it is a required field.
 <br>
 
 ## Next steps
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

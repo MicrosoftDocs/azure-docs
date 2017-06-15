@@ -1,4 +1,4 @@
-﻿---
+---
 title: Execute Python machine learning scripts | Microsoft Docs
 description: Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations.
 keywords: python machine learning,pandas,python pandas,python scripts, execute python scripts
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---

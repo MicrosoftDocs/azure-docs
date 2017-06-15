@@ -1,6 +1,6 @@
 ---
-title: Developer guide - quotas and throttling | Microsoft Docs
-description: Azure IoT Hub developer guide - description of quotas that apply to IoT Hub and expected throttling behavior
+title: Understand Azure IoT Hub quotas and throttling | Microsoft Docs
+description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 03/27/2017
 ms.author: dobett
 
 ---
-# Reference - Quotas and throttling
+# Reference - IoT Hub quotas and throttling
+
 ## Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs.
+Each Azure subscription can have at most 10 IoT hubs, and at most 1 Free hub.
 
 Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
 
@@ -30,18 +31,23 @@ Operation throttles are rate limitations that are applied in the minute ranges, 
 
 The following is the list of enforced throttles. Values refer to an individual hub.
 
-| Throttle | Per-hub value |
-| --- | --- |
-| Identity registry operations (create, retrieve, list, update, delete) |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
-| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Cloud-to-device sends |5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
-| Cloud-to-device receives |50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
-| File upload operations |5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
+| -------- | ------- | ------- | ------- |
+| Identity registry operations (create, retrieve, list, update, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
+| Device connections | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Device-to-cloud sends | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
+| Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
+| Cloud-to-device receives <br/> (only when device uses HTTP)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
+| File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
+| Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
+| Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Device twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
+| Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
-It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the hub.
+It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. This means that to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
+For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
 For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
 
@@ -53,11 +59,35 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 > 
 > 
 
+## Other limits
+
+IoT Hub enforces other operational limits:
+
+| Operation | Limit |
+| --------- | ----- |
+| File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
+| Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
+| Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
+| Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
+| Device-to-cloud messaging | Maximum message size 256 KB |
+| Cloud-to-device messaging | Maximum message size 64 KB |
+| Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
+
+> [!NOTE]
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+
+## Latency
+IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency,
+When designing your solution, avoid making any assumptions about the maximum latency of any IoT Hub operation. Provision your IoT hub in the Azure region closest to your devices, and consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
+
+Multiple IoT Hub units affect throttling as described previously, but do not provide any additional latency benefits or guarantees.
+In case of unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

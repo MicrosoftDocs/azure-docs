@@ -1,20 +1,23 @@
 ---
-title: Troubleshooting | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Troubleshoot | Microsoft Docs'
 description: Troubleshooting page for the Raspberry Pi Node.js experience
 services: iot-hub
 documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'iot issues, internet of things problems'
+
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 
 ms.assetid: 22cf50dc-8206-42a2-a1fc-f75fa85135fa
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -63,7 +66,11 @@ When the debug engine is ready, you should see ```Debugger listening on port 585
 ### Configure Visual Studio Code to connect to the remote device
 1. Open the **Debug** panel on the left side.
 2. Click the green **Start Debugging** (F5) button. Visual Studio Code opens a launch.json file.
-3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.   
+3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.
+
+> [!NOTE]
+> To learn more about the Visual Studio Debugging, please refer to [Debugging in Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
+
 
 ```json
 {
@@ -113,8 +120,9 @@ When you're installing pip, a permission error is thrown when older packages are
 ## Azure IoT Hub issues
 If you've successfully provisioned your Azure IoT hub with Azure CLI, and you need a tool to manage the devices that are connecting to your IoT hub, try the following tools.
 
-### Device Explorer
-[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
+### Device explorer
+The [Device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](iot-hub-devguide.md):
+
 
 * *Device identity management* to provision and manage devices registered with your IoT hub.
 * *Receive device-to-cloud* so you can monitor messages sent from your device to your IoT hub.
@@ -123,11 +131,11 @@ If you've successfully provisioned your Azure IoT hub with Azure CLI, and you ne
 Configure your IoT hub connection string within this tool to use all its capabilities.
 
 ### iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) is a sample multiplatform CLI tool to manage devices. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device messages.
 
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 

@@ -13,8 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/18/2017
 ms.author: bradsev
+
+ROBOTS: NOINDEX
+redirect_url: data-science-process-overview
+redirect_document_id: TRUE 
 
 ---
 # What is the Team Data Science Process (TDSP)?

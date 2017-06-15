@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Quick start guide: Machine Learning Recommendations API | Microsoft Docs'
 description: Azure Machine Learning Recommendations - Quick Start Guide
 services: cognitive-services
@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/28/2016
 ms.author: luisca
 
 ---
 # Quick start guide for the Cognitive Services Recommendations API
 This document describes how to onboard your service or application to use the [Recommendations API](http://go.microsoft.com/fwlink/?LinkId=759710).
-You can find more details on the Recommendations API and other Cognitive Services [here](http://go.microsoft.com/fwlink/?LinkId=759709). Throughout this guide, you may also find the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) handy.
+You can find more details on the Recommendations API and other Cognitive Services [here](http://go.microsoft.com/fwlink/?LinkId=759709). Throughout this guide, you may also find the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) and the [Recommendations UI Quick-Start Guide](cognitive-services-recommendations-ui-intro.md) handy.
 
 <a name="Overview"></a>
 
-## General overview
+### General overview
 This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to consume the model from your production environment.
 
 This exercise will take about 30 minutes.
@@ -75,7 +75,8 @@ The Recommendations API will learn from your catalog and your transactions in or
    
    You can download the data from [here](http://aka.ms/RecoSampleData). Copy and unpack the MsStoreData.Zip into a folder on your local machine.
    
-   > ** Note:** The sample code that you will download and run in Task 3 has sample data already
+   > [!NOTE]
+   > The sample code that you will download and run in Task 3 has sample data already
    > embedded inside it -- so this task is optional.  That said, this Task will allow you to
    > download more realistic data sets and allow you to understand the inputs into the
    > Recommendations API better.
@@ -143,7 +144,6 @@ In this task, you will use the sample application to build your first model.
 
 > Learn more about build types and how to evaluate the quality of builds [here](cognitive-services-recommendations-buildtypes.md).
 > 
-> 
 
 <a name="Ex1Task4"></a>
 
@@ -151,7 +151,8 @@ In this task, you will use the sample application to build your first model.
 Now that you understand how to create a model and consume recommendations, the next step is to put it in production on your website, mobile application or integrate into your CRM or ERP system.
 Obviously, each of these implementations would be different. Since the Recommendations API are requested as a web-service, you should be able to call it from any of these different environments easily.
 
-**Important:**  If you want to show recommendations from a public client (for instance, your ecommerce site), you should create a proxy server to provide the recommendations. This is important so that your API Key is not exposed to external (potentially untrusted) entities.
+>  [!IMPORTANT]
+>  If you want to show recommendations from a public client (for instance, your ecommerce site), you should create a proxy server to provide the recommendations. This is important so that your API Key is not exposed to external (potentially untrusted) entities.
 
 Here are a few ideas of locations where you can use Recommendations:
 

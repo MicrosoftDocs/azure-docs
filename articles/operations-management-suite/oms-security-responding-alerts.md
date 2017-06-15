@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution | Microsoft Docs
 description: This document helps you to use the threat intelligence option available in OMS Security and Audit to monitor and respond to security alerts.
 services: operations-management-suite
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---

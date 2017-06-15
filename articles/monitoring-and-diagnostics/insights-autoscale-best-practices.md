@@ -1,8 +1,8 @@
 ---
-title: Best practices for Azure Monitor autoscaling. | Microsoft Docs
-description: Learn principles to effectively use autoscaling in Azure Monitor.
+title: Best practices for autoscale | Microsoft Docs
+description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 
 ---
-# Best practices for Azure Monitor autoscaling
-The following sections in this document help you understand the best practices for autoscale-in Azure. After reviewing this information, you'll be better able to effectively use autoscale in your Azure infrastructure.
+# Best practices for Autoscale
+This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.
 
 ## Autoscale concepts
 * A resource can have only *one* autoscale setting
@@ -43,7 +43,7 @@ If you manually update the instance count to a value above or below the maximum,
 If you use only one part of the combination, autoscale scale-in that single out, or in, until the maximum, or minimum, is reached.
 
 ### Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PoSH, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
+For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PowerShell, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
@@ -56,7 +56,7 @@ We *do not recommend* autoscale settings like the examples below with the same o
 * Increase instances by 1 count when Thread Count <= 600
 * Decrease instances by 1 count when Thread Count >= 600
 
-Let's look at an example of what can lead to a behavior that may seem confusing. Cosider the following sequence.
+Let's look at an example of what can lead to a behavior that may seem confusing. Consider the following sequence.
 
 1. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625.
 2. Autoscale scales out adding a 3rd instance.
@@ -64,7 +64,7 @@ Let's look at an example of what can lead to a behavior that may seem confusing.
 4. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means autoscale would have to immediately scale-out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop.
 5. To avoid this situation (termed "flapping"), autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
 
-Estimation during a scale-in is intended to avoid "flappy" situations. You should keep this behavior in mind when you choose the same thresholds for scale-out and in.
+Estimation during a scale-in is intended to avoid "flapping" situations, where scale-in and scale-out actions continually go back and forth. Keep this behavior in mind when you choose the same thresholds for scale-out and in.
 
 We recommend choosing an adequate margin between the scale-out and in thresholds. As an example, consider the following better rule combination.
 
@@ -114,7 +114,7 @@ In addition, there is a recurring profile set for Monday. It is set for minimum 
 
 Similarly, when autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### Considerations for scaling when multiple rules are configured in a profile
 There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
@@ -146,4 +146,3 @@ Autoscale notifies the administrators and contributors of the resource by email 
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.
   In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
-

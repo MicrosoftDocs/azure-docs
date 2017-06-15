@@ -1,4 +1,4 @@
-﻿---
+---
 title: Intro to Microsoft Azure | Microsoft Docs
 description: New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful.
 services: " "
@@ -248,7 +248,7 @@ But organizations that already have an on-premises system can test new projects 
 
 When you have published your app - whether it runs on mobile devices, desktops, or web browsers - Application Insights tells you how it is performing and what users are doing with it. It will keep a count of crashes and slow response, alert you if the figures cross unacceptable thresholds, and help you diagnose any problems.
 
-When you develop a new feature, plan to measure its success with users. By analysing usage patterns, you understand what works best for your customers and enhance your app in every development cycle.
+When you develop a new feature, plan to measure its success with users. By analyzing usage patterns, you understand what works best for your customers and enhance your app in every development cycle.
 
 Although it's hosted in Azure, Application Insights works for a wide and growing range of apps, both on and off Azure. Both J2EE and ASP.NET web apps are covered, as well as iOS, Android, OSX and Windows applications. Telemetry is sent from an SDK built with the app, to be analyzed and displayed in the Application Insights service in Azure.
 

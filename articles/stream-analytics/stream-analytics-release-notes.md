@@ -1,4 +1,4 @@
-﻿---
+---
 title: Stream Analytics Release Notes | Microsoft Docs
 description: Stream Analytics Release Notes
 services: stream-analytics
@@ -13,17 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 05/03/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics release notes
+
+## Notes for 05/03/2017 update of Stream Analytics
+This update is for our troubleshooting documentation release.
+
+The [troubleshooting guide](stream-analytics-troubleshooting-guide.md) and other docs were released. Please review, feedback is welcome.
+
+## Notes for 02/01/2017 release of Stream Analytics
+This release contains the following update.
+
+| Title | Description |
+| --- | --- |
+| Introducing JavaScript User-Defined Functions (UDF) |[Java User-Defined Functions](stream-analytics-javascript-user-defined-functions.md) are now available for additional flexibility in creating queries. |
+| Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md) are now available for debugging and greater utility. |
+| Introducing Diagnostic Logging |[Diagnostic logging](stream-analytics-job-diagnostic-logs.md) is now available for additional troubleshooting options. |
+| Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) are now generally available. |
+
 ## Notes for 04/15/2016 release of Stream Analytics
 This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#Renew-authorization) section of Creating a Power BI dashboard. |
+| General Availability for Power BI outputs |[Power BI outputs](stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](stream-analytics-power-bi-dashboard.md#renew-authorization) section of Creating a Power BI dashboard. |
 
 ## Notes for 03/03/2016 release of Stream Analytics
 This release contains the following update.
@@ -64,7 +80,7 @@ This release contains the following updates.
 | --- | --- |
 | Azure IoT Suite Public Preview |Stream Analytics is included in the Public Preview of the Azure IoT Suite. |
 | Azure Portal integration |In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Portal](https://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to. |
-| Support for DocumentDB output |Stream Analytics jobs can now output to [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Support for Cosmos DB output |Stream Analytics jobs can now output to [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Support for IoT Hub input |Stream Analytics jobs can now ingest data from IoT Hubs. |
 | TIMESTAMP BY for heterogeneous events |When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case. |
 
@@ -122,7 +138,7 @@ This release contains the following updates.
 | PowerBI datasets can only contain one table |PowerBI does not support more than one table in a given dataset. |
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -130,4 +146,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

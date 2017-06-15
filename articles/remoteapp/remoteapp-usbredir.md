@@ -1,24 +1,23 @@
-﻿---
+---
 title: How do you redirect USB devices in Azure RemoteApp? | Microsoft Docs
 description: Learn how to use redirection for USB devices in Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
-
 ms.assetid: 191d98af-2f5a-4307-9042-aae0e4049f9f
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # How do you redirect USB devices in Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -70,7 +69,7 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 2. Open a Remote Desktop Connection and click **Show Options**.
 3. Click **Save as** to save the current connection settings to an RDP file.  
     ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
+4. Choose a file name and a location, for example MyConnection.rdp and This PC\Documents, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 
 Now, use the instance ID in the following cmdlet:

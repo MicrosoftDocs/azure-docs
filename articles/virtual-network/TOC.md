@@ -1,20 +1,15 @@
-# Overview
+﻿# Overview
 ## [Virtual networks](virtual-networks-overview.md)
-## [Network security groups](virtual-networks-nsg.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
+## [Virtual network peering](virtual-network-peering-overview.md)
+## [Business continuity](virtual-network-disaster-recovery-guidance.md)
+## [FAQ](virtual-networks-faq.md)
 ## IP addressing
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## [Virtual network peering](virtual-network-peering-overview.md)
-## Virtual machines
-### [Network interfaces](virtual-network-network-interface-overview.md)
-### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
-## [Business continuity](virtual-network-disaster-recovery-guidance.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
 
 # Get Started
-## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
-## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
 
 # How To
 ## Plan and design
@@ -22,17 +17,16 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
+### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Template](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+#### [Portal (classic)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (classic)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
-#### [Portal](virtual-networks-create-nsg-arm-portal.md)
+#### [Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Template](virtual-networks-create-nsg-arm-template.md)
@@ -46,21 +40,17 @@
 #### [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
-### Virtual network peering
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
+### [Virtual network peering](virtual-network-create-peering.md)
 
 ### Virtual machines
-
-#### Static public IP addresses
+#### Create a VM with a static public IP address
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Template](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
-#### Static private IP addresses
+#### Create a VM with a static private IP address
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -68,14 +58,19 @@
 ##### [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Multiple network interfaces
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Template](virtual-network-deploy-multinic-arm-template.md)
+#### Create a VM with multiple network interfaces
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### [Multiple IP addresses](virtual-network-multiple-ip-addresses-powershell.md)
+#### Create a VM with multiple IP addresses
+##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Template](virtual-network-multiple-ip-addresses-template.md)
+
+#### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -93,41 +88,62 @@
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Sample application](virtual-networks-sample-app.md)
 
+## Configure
+
+### Access control lists
+#### [Classic portal](virtual-networks-acl.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
+### Virtual machines
+#### [Add or remove network interfaces](virtual-network-network-interface-vm.md)
+#### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Optimize network throughput](virtual-network-optimize-network-bandwidth.md)
+#### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
+
 ## Manage
+### [Virtual networks](virtual-network-manage-network.md)
+#### [Subnets](virtual-network-manage-subnet.md)
+#### [Peerings](virtual-network-manage-peering.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logs](virtual-network-nsg-manage-log.md)
-#### Troubleshoot
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Troubleshoot routes
+### Network interfaces (NICs)
+#### [Create, change, or delete NICs](virtual-network-network-interface.md)
+#### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
+### Virtual machines
+#### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
+### [Public IP addresses](virtual-network-public-ip-address.md)
+
+## Troubleshoot
+### Network security groups
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Routes
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
-### Virtual machines
-#### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
-#### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
+### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
-## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure CLI](/cli/azure/network)
+## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
 
 
 # Related
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines)
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+## [Virtual Machines](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Load Balancer](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
 # Resources
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Frequently asked questions](virtual-networks-faq.md)
-
+## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

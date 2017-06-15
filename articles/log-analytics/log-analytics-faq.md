@@ -1,20 +1,19 @@
-﻿---
+---
 title: Log Analytics FAQ | Microsoft Docs
-description: Answers to frequently asked questions about the Log Analytics service.
+description: Answers to frequently asked questions about the Azure Log Analytics service.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
-manager: jwhit
+author: MGoedtel
+manager: carmonm
 editor: ''
-
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
 
 ---
 # Log Analytics FAQ
@@ -87,6 +86,13 @@ A yellow warning icon means the agent is having issues communication with OMS. O
 A: In SCOM, remove the computer from the OMS managed list. This stops all communication through SCOM for that agent. For agents connected to OMS directly, you can stop them from communicating with OMS through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 
+**Q: Why am I getting an error when I try to move my workspace from one Azure subscription to another?**
+
+A: When you add a solution, Azure creates a resource in the Azure subscription that the workspace is in.
+
+Typically, the person adding the subscription is either an administrator or contributor for the *Azure subscription*. Administrator or Contributor in the OMS portal is not enough if the user doesn’t also have the same permissions in the Azure portal for the Azure subscription.
+
+
 ## Agent data
 **Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics in OMS designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
@@ -118,4 +124,3 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## Next steps
 * [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.
-

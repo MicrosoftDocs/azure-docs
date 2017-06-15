@@ -1,11 +1,10 @@
-﻿---
+---
 title: Understanding resource access in Azure | Microsoft Docs
-description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.
+description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: curtand
 manager: femila
-editor: ''
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
@@ -13,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 05/08/2017
+ms.author: curtand
 
 ---
 # Understanding resource access in Azure
@@ -54,7 +53,7 @@ Users with subscriptions across multiple directories have the ability to switch 
 Operations such as moving resources between subscriptions can be more difficult as a result of this single directory view of subscriptions. To perform the resource transfer, it may be necessary to first use the **Edit Directory** command on the Subscriptions page in **Settings** to associate the subscriptions to the same directory.
 
 ## Next Steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 

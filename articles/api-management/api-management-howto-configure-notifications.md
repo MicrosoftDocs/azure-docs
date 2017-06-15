@@ -1,5 +1,5 @@
 ---
-title: How to configure notifications and email templates in Azure API Management
+title: Configure notifications and email templates in Azure API Management | Microsoft Docs
 description: Learn how to configure notifications and email templates in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to configure notifications and email templates in Azure API Management
 API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
@@ -25,9 +24,8 @@ To configure notifications, click **Publisher portal** in the Azure Portal for y
 
 ![Publisher portal][api-management-management-console]
 
+> [!NOTE] 
 > If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
-> 
-> 
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 
@@ -51,15 +49,15 @@ To specify the email addresses to be notified, enter them in the email address t
 
 To specify the users to be notified, click **add recipient**, check the box beside the users to be notified, and click **OK**.
 
-> Note that only administrators are displayed in the list.
-> 
-> 
+> [!NOTE] 
+> Only administrators are displayed in the list.
+
 
 After configuring the notification recipients, click **Save** to apply the updated notification recipients.
 
+> [!NOTE] 
 > If you navigate away from the **Publisher Notifications** tab the publisher portal alerts you if there are unsaved changes.
-> 
-> 
+
 
 ## <a name="email-templates"> </a>Configure email templates
 API Management provides email templates for the email messages that are sent in the course of administering and using the service. The following email templates are provided.
@@ -93,11 +91,11 @@ The **Parameters** list contains a list of parameters, which when inserted into 
 
 Click **Preview** or **Send a test** to see how the email will look or send a test email.
 
-> Note that the parameters are not replaced with actual values when previewing or sending a test.
-> 
-> To save the changes to the email template, click **Save**, or to cancel the changes click **Cancel**.
-> 
-> 
+> [!NOTE] 
+> The parameters are not replaced with actual values when previewing or sending a test.
+
+To save the changes to the email template, click **Save**, or to cancel the changes click **Cancel**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png

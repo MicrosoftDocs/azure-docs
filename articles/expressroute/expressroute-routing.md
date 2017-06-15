@@ -1,5 +1,5 @@
-﻿---
-title: Routing requirements for ExpressRoute | Microsoft Docs
+---
+title: Routing requirements for Azure ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
-ms.author: osamazia
+ms.date: 05/12/2017
+ms.author: osamam
 
 ---
 # ExpressRoute routing requirements
@@ -68,7 +68,7 @@ You can choose to use public or private IPv4 addresses for private peering. We p
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. You must use Public IP addresses for the traffic destined to Microsoft network.
 
 ### Microsoft Peering
-The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and CRM Online. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
+The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -114,7 +114,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 > 
 > 
 
-## Support for BGP communities (Preview)
+## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
 If you are connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region, you will have access to all Microsoft cloud services across all regions within the geopolitical boundary. 
@@ -123,41 +123,44 @@ For example, if you connected to Microsoft in Amsterdam through ExpressRoute, yo
 
 Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
-You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
+You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
-
-| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
-| --- | --- | --- |
-| **North America** | | |
-| East US |12076:51004 | |
-| East US 2 |12076:51005 | |
-| West US |12076:51006 | |
-| West US 2 |12076:51026 | |
-| West Central US |12076:51027 | |
-| North Central US |12076:51007 | |
-| South Central US |12076:51008 | |
-| Central US |12076:51009 | |
-| Canada Central |12076:51020 | |
-| Canada East |12076:51021 | |
-| **South America** | | |
-| Brazil South |12076:51014 | |
-| **Europe** | | |
-| North Europe |12076:51003 | |
-| West Europe |12076:51002 | |
-| **Asia Pacific** | | |
-| East Asia |12076:51010 | |
-| Southeast Asia |12076:51011 | |
-| **Japan** | | |
-| Japan East |12076:51012 | |
-| Japan West |12076:51013 | |
-| **Australia** | | |
-| Australia East |12076:51015 | |
-| Australia Southeast |12076:51016 | |
-| **India** | | |
-| India South |12076:51019 | |
-| India West |12076:51018 | |
-| India Central |12076:51017 | |
+| **Microsoft Azure region** | **BGP community value** |
+| --- | --- |
+| **North America** | |
+| East US |12076:51004 |
+| East US 2 |12076:51005 |
+| West US |12076:51006 |
+| West US 2 |12076:51026 |
+| West Central US |12076:51027 |
+| North Central US |12076:51007 |
+| South Central US |12076:51008 |
+| Central US |12076:51009 |
+| Canada Central |12076:51020 |
+| Canada East |12076:51021 |
+| **South America** | |
+| Brazil South |12076:51014 |
+| **Europe** | |
+| North Europe |12076:51003 |
+| West Europe |12076:51002 |
+| UK South | 12076:51024 |
+| UK West | 12076:51025 |
+| **Asia Pacific** | |
+| East Asia |12076:51010 |
+| Southeast Asia |12076:51011 |
+| **Japan** | |
+| Japan East |12076:51012 |
+| Japan West |12076:51013 |
+| **Australia** | |
+| Australia East |12076:51015 |
+| Australia Southeast |12076:51016 |
+| **India** | |
+| India South |12076:51019 |
+| India West |12076:51018 |
+| India Central |12076:51017 |
+| **Korea** | |
+| Korea South |12076:51028 |
+| Korea Central |12076:51029 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -170,16 +173,38 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype For Business** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Other Office 365 Services** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype For Business Online |12076:5030 |
+| Dynamics 365 |12076:5040 |
+| Other Office 365 Online services |12076:5100 |
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 > 
 > 
+
+### BGP Community support in National Clouds (Preview)
+
+| **National Clouds Azure Region**| **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| US Gov Arizona | 12076:51106 |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD East | 12076:51205 |
+
+
+| **Service in National Clouds** | **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype For Business Online |12076:5130 |
+| Dynamics 365 |12076:5140 |
+| Other Office 365 Online services |12076:5200 |
 
 ## Next steps
 * Configure your ExpressRoute connection.

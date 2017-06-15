@@ -1,5 +1,5 @@
 ---
-title: Design decisions and coding techniques for SQL Data Warehouse development | Microsoft Docs
+title: Resources for developing a data warehouse in Azure | Microsoft Docs
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 

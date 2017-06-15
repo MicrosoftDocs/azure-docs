@@ -22,5 +22,5 @@ Azure App Services complies with the key industry standards for security and rel
 
 [!INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](../security/azure-security-antimalware.md) 
+Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](../security/azure-security-antimalware.md). 
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Managing Concurrency in Microsoft Azure Storage
 description: How to manage concurrency for the Blob, Queue, Table, and File services
 services: storage
 documentationcenter: ''
-author: jasonnewyork
+author: jasontang501
 manager: tadb
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jahogg
+ms.date: 05/11/2017
+ms.author: jasontang501
 
 ---
 # Managing Concurrency in Microsoft Azure Storage
@@ -36,7 +36,7 @@ In addition to selecting an appropriate concurrency strategy developers should a
 You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service. If you do not explicitly specify a strategy last writes wins is the default.  
 
 ### Optimistic concurrency for blobs and containers
-The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an “If-Match” header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
+The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an "If-Match" header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
 
 The outline of this process is as follows:  
 
@@ -48,36 +48,38 @@ The outline of this process is as follows:
 
 The following C# snippet (using the Client Storage Library 4.2.0) shows a simple example of how to construct an **If-Match AccessCondition** based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted. It then uses the **AccessCondition** object when it updating the blob: the **AccessCondition** object adds the **If-Match** header to the request. If another process has updated the blob, the blob service returns an HTTP 412 (Precondition Failed) status message. You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
-    // Retrieve the ETag from the newly created blob
-    // Etag is already populated as UploadText should cause a PUT Blob call
-    // to storage blob service which returns the etag in response.
-    string orignalETag = blockBlob.Properties.ETag;
+```csharp
+// Retrieve the ETag from the newly created blob
+// Etag is already populated as UploadText should cause a PUT Blob call
+// to storage blob service which returns the etag in response.
+string orignalETag = blockBlob.Properties.ETag;
 
-    // This code simulates an update by a third party.
-    string helloText = "Blob updated by a third party.";
+// This code simulates an update by a third party.
+string helloText = "Blob updated by a third party.";
 
-    // No etag, provided so orignal blob is overwritten (thus generating a new etag)
-    blockBlob.UploadText(helloText);
-    Console.WriteLine("Blob updated. Updated ETag = {0}",
-    blockBlob.Properties.ETag);
+// No etag, provided so orignal blob is overwritten (thus generating a new etag)
+blockBlob.UploadText(helloText);
+Console.WriteLine("Blob updated. Updated ETag = {0}",
+blockBlob.Properties.ETag);
 
-    // Now try to update the blob using the orignal ETag provided when the blob was created
-    try
+// Now try to update the blob using the orignal ETag provided when the blob was created
+try
+{
+    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    blockBlob.UploadText(helloText,accessCondition:
+    AccessCondition.GenerateIfMatchCondition(orignalETag));
+}
+catch (StorageException ex)
+{
+    if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
-        Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
-        blockBlob.UploadText(helloText,accessCondition:
-        AccessCondition.GenerateIfMatchCondition(orignalETag));
+        Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
+        // TODO: client can decide on how it wants to handle the 3rd party updated content.
     }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-        {
-            Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
-            // TODO: client can decide on how it wants to handle the 3rd party updated content.
-        }
-        else
-            throw;
-    }  
+    else
+        throw;
+}  
+```
 
 The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
@@ -125,32 +127,34 @@ To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsof
 
 Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read. Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
 
-The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an “HTTP (409) Conflict” status result. The snippet below uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an "HTTP (409) Conflict" status result. The snippet below uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
-    // Acquire lease for 15 seconds
-    string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
-    Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
+```csharp
+// Acquire lease for 15 seconds
+string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
+Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
 
-    // Update blob using lease. This operation will succeed
-    const string helloText = "Blob updated";
-    var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
-    blockBlob.UploadText(helloText, accessCondition: accessCondition);
-    Console.WriteLine("Blob updated using an exclusive lease");
+// Update blob using lease. This operation will succeed
+const string helloText = "Blob updated";
+var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
+blockBlob.UploadText(helloText, accessCondition: accessCondition);
+Console.WriteLine("Blob updated using an exclusive lease");
 
-    //Simulate third party update to blob without lease
-    try
-    {
-        // Below operation will fail as no valid lease provided
-        Console.WriteLine("Trying to update blob without valid lease");
-        blockBlob.UploadText("Update without lease, will fail");
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-            Console.WriteLine("Precondition failure as expected. Blob's lease does not match");
-        else
-            throw;
-    }  
+//Simulate third party update to blob without lease
+try
+{
+    // Below operation will fail as no valid lease provided
+    Console.WriteLine("Trying to update blob without valid lease");
+    blockBlob.UploadText("Update without lease, will fail");
+}
+catch (StorageException ex)
+{
+    if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
+        Console.WriteLine("Precondition failure as expected. Blob's lease does not match");
+    else
+        throw;
+}  
+```
 
 If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease ids, see the [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.  
 
@@ -207,24 +211,28 @@ Note that unlike the blob service, the table service requires the client to incl
 
 The following C# snippet shows a customer entity that was previously either created or retrieved having their email address updated. The initial insert or retrieve operation stores the ETag value in the customer object, and because the sample uses the same object instance when it executes the replace operation, it automatically sends the ETag value back to the table service, enabling the service to check for concurrency violations. If another process has updated the entity in table storage, the service returns an HTTP 412 (Precondition Failed) status message.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
-    try
-    {
-        customer.Email = "updatedEmail@contoso.org";
-        TableOperation replaceCustomer = TableOperation.Replace(customer);
-        customerTable.Execute(replaceCustomer);
-        Console.WriteLine("Replace operation succeeded.");
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == 412)
-            Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
-        else
-            throw;
-    }  
+```csharp
+try
+{
+    customer.Email = "updatedEmail@contoso.org";
+    TableOperation replaceCustomer = TableOperation.Replace(customer);
+    customerTable.Execute(replaceCustomer);
+    Console.WriteLine("Replace operation succeeded.");
+}
+catch (StorageException ex)
+{
+    if (ex.RequestInformation.HttpStatusCode == 412)
+        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
+    else
+        throw;
+}  
+```
 
-To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to “*” before you execute the replace operation.  
+To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to "*" before you execute the replace operation.  
 
-    customer.ETag = "*";  
+```csharp
+customer.ETag = "*";  
+```
 
 The following table summarizes how the table entity operations use ETag values:
 

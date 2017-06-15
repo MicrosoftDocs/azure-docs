@@ -3,7 +3,7 @@ title: Migrate your data to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your data to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Migrate Your Data
@@ -29,8 +30,7 @@ If your data starts in flat files, then you will first need to transfer it to Az
 
 PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
-> [!NOTE]
-> PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
+
 > 
 > 
 
@@ -71,7 +71,6 @@ Advantages of bcp are:
 Limitations of bcp are:
 
 * bcp works with tabulated flat files only. It does not work with files such as xml or JSON
-* bcp does not support exporting to UTF-8. This may prevent using PolyBase on bcp exported data
 * Data transformation capabilities are limited to the export stage only and are simple in nature
 * bcp has not been adapted to be robust when loading data over the internet. Any network instability may cause a load error.
 * bcp relies on the schema being present in the target database prior to the load
@@ -95,14 +94,9 @@ Looking at these in reverse order for a moment; the fastest way to load data is 
 3. Location of data files
 
 ### Encoding
-PolyBase requires data files to be UTF-8 encoded. This means that when you export your data it must conform to this requirement. If your data only contains basic ASCII characters (not extended ASCII) then these map directly to the UTF-8 standard and you don't have to worry too much about the encoding. However, if your data contains any special characters such as umlauts, accents or symbols or your data supports non-latin languages then you will have to ensure that your export files are properly UTF-8 encoded.
+PolyBase requires data files to be UTF-8 or UTF-16FE. 
 
-> [!NOTE]
-> bcp does not support exporting data to UTF-8. Therefore your best option is to use either Integration Services or ADF Copy for the data export. It is worth pointing out that the UTF-8 byte order mark (BOM) is not required in the data file.
-> 
-> 
 
-Any files encoded using UTF-16 will need to be re-written ***prior*** to the data transfer.
 
 ### Format of data files
 PolyBase mandates a fixed row terminator of \n or newline. Your data files must conform to this standard. There aren't any restrictions on string or column terminators.
@@ -169,10 +163,7 @@ Full documentation available: [AZCopy][AZCopy].
 ## Optimizing data export
 In addition to ensuring that the export conforms to the requirements laid out by PolyBase you can also seek to optimize the export of the data to improve the process further.
 
-> [!NOTE]
-> As PolyBase requires the data to be in UTF-8 format it is unlikely you will use bcp to perform the data export. bcp does not support outputting data files to UTF-8. SSIS or ADF Copy are much better suited to performing this kind of data export.
-> 
-> 
+
 
 ### Data compression
 PolyBase can read gzip compressed data. If you are able to compress your data to gzip files then you will minimize the amount of data being pushed over the network.

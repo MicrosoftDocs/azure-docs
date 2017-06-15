@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 04/07/2017
 ms.author: msfussell;mikhegn
 
 ---
@@ -22,7 +22,11 @@ This article shows how to package and deploy multiple guest executables to Azure
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
-You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+
+## Samples
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Manually package the multiple guest executable application
 Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -129,8 +133,8 @@ mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
 > The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
-> 
-> 
+>
+>
 
 In PowerShell or the command shell, we run the packaging tool with the following parameters:
 
@@ -200,6 +204,14 @@ Once the application is successfully published to the local cluster, you can acc
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
+
+## Adding more guest executables to an existing application using Yeoman on Linux
+
+To add another service to an application already created using `yo`, perform the following steps: 
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfguest:AddService` and provide the necessary details.
+
 ## Next steps
 * Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)
-
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

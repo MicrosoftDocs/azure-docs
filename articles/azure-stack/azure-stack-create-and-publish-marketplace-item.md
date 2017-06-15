@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and publish a Marketplace item in Azure Stack | Microsoft Docs
 description: Create and publish a Marketplace item in Azure Stack.
 services: azure-stack
@@ -28,7 +28,7 @@ ms.author: rupisure
        /Contoso.TodoList/Icons/
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
-3. [Create an Azure Resource Manager template](../resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
+3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
 4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
@@ -68,7 +68,8 @@ ms.author: rupisure
 2. On the client virtual machine in the Microsoft Azure Stack environment, ensure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
 3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
    
-       Add-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
+       Add-AzureRMGalleryItem -GalleryItemUri `
+       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | Parameter | Description |
    | --- | --- |
@@ -84,7 +85,7 @@ ms.author: rupisure
 5. Your Marketplace item has now been saved to the Azure Stack Marketplace. You can choose to delete it from your Blob storage location.
 6. You can remove a Marketplace item by using the **Remove-AzureRMGalleryItem** cmdlet. Example:
    
-        Remove-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
+        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > The Marketplace UI may show an error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.

@@ -1,90 +1,67 @@
-﻿---
-title: Optimize your Hive queries for faster execution in HDInsight | Microsoft Docs
+---
+title: Optimize Hive queries in Azure HDInsight | Microsoft Docs
 description: Learn how to optimize your Hive queries for Hadoop in HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: rashimg
-manager: mwinkle
+author: mumian
+manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 
 ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/28/2015
-ms.author: rashimg
+ms.date: 04/26/2016
+ms.author: jgao
 
 ---
-# Optimize Hive queries for Hadoop in HDInsight
-By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
+# Optimize Hive queries in Azure HDInsight
+
+By default, Hadoop clusters are not optimized for performance. This article covers some most common Hive performance optimization methods that you can apply to your queries.
 
 ## Scale out worker nodes
+
 Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
 
-* At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell or Cross-platform command line interface.  For more information, see [Provision HDInsight clusters](hdinsight-provision-clusters.md). The following screen show the worker node configuration on the Azure Portal:
+* At the provision time, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or Cross-platform command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-* At the run time, you can also scale out a cluster without recreating one. This is shown below.
-  ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+* At the run time, you can also scale out a cluster without recreating one:
 
-For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+
+For more information about the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Enable Tez
+
 [Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine:
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez is faster because:
 
-* Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine, the DAG that is expressed requires each set of mappers to be followed by one set of reducers. This causes multiple MapReduce jobs to be spun off for each Hive query. Tez does not have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
-* **Avoids unnecessary writes** Due to multiple jobs being spun for the same Hive query in the MapReduce engine, the output of each job is written to HDFS for intermediate data. Since Tez minimizes number of jobs for each Hive query it is able to avoid unnecessary write.
-* **Minimizes start-up delays** Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.
-* **Reuses containers** Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
-* **Continuous optimization techniques** Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continous optimization techniques that allows it to optimize the plan further into the runtime phase.
+* **Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine**. The DAG requires each set of mappers to be followed by one set of reducers. This causes multiple MapReduce jobs to be spun off for each Hive query. Tez does not have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
+* **Avoids unnecessary writes**. Due to multiple jobs being spun for the same Hive query in the MapReduce engine, the output of each job is written to HDFS for intermediate data. Since Tez minimizes number of jobs for each Hive query it is able to avoid unnecessary write.
+* **Minimizes start-up delays**. Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.
+* **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
+* **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allows it to optimize the plan further into the runtime phase.
 
-For more details on these concepts, click [here](http://hortonworks.com/hadoop/tez/)
+For more details on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 You can make any Hive query Tez enabled by prefixing the query with the setting below:
 
     set hive.execution.engine=tez;
 
-For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
+Linux-based HDInsight clusters have Tez enabled by default.
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-    $clusterName = "[HDInsightClusterName]"
-    $location = "[AzureDataCenter]" #i.e. West US
-    $dataNodes = 32 # number of worker nodes in the cluster
-
-    $defaultStorageAccountName = "[DefaultStorageAccountName]"
-    $defaultStorageContainerName = "[DefaultBlobContainerName]"
-    $defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
-
-    $hdiUserName = "[HTTPUserName]"
-    $hdiPassword = "[HTTPUserPassword]"
-
-    $hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
-    $hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
-
-    $hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-    $hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
-
-    New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
-    Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
-    Add-AzureHDInsightConfigValues -Hive $hiveConfig |
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
-
-
-> [!NOTE]
-> Linux-based HDInsight clusters have Tez enabled by default.
-> 
-> 
 
 ## Hive partitioning
-I/O operation is the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans, however for queries that only need to scan a small amount of data (e.g. queries with filtering), this creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
+
+I/O operation is the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
 
 Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
@@ -92,8 +69,8 @@ Hive partitioning is implemented by reorganizing the raw data into new directori
 
 Some partitioning considerations:
 
-* **Do not under-partition** - Partitioning on columns with only a few values can cause very few partitions. For example, partitioning on gender will only create two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
-* **Do not over-partition** - On the other extreme, creating a partition on a column with a unique value (e.g. userid) will cause multiple partitions causing a lot of stress on the cluster namenode as it will have to handle the large amount of directories.
+* **Do not under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
+* **Do not over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
 * **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. An example is partitioning on *State* may cause the number of records under California to be almost 30x that of Vermont due to the difference in population.
 
 To create a partition table, use the *Partitioned By* clause:
@@ -110,7 +87,7 @@ To create a partition table, use the *Partitioned By* clause:
 
 Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.
 
-* **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. This is shown in the code snippet below.
+* **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. The following code snippet is an example.
   
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
@@ -119,7 +96,7 @@ Once the partitioned table is created, you can either create static partitioning
   
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
         LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
-* **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:
+* **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table:
   
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -143,7 +120,7 @@ ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data
 
 * support for complex types including DateTime and complex and semi-structured types
 * up to 70% compression
-* indexes every 10,000 rows which allow skipping rows
+* indexes every 10,000 rows, which allow skipping rows
 * a significant drop in run-time execution
 
 To enable ORC format, you first create a table with the clause *Stored as ORC*:
@@ -181,7 +158,8 @@ Next, you insert data to the ORC table from the staging table. For example:
 You can read more on the ORC format [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## Vectorization
-Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time. This means that simple operations are done faster because less internal code needs to run.
+
+Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time. It means that simple operations are done faster because less internal code needs to run.
 
 To enable vectorization prefix your Hive query with the following setting:
 
@@ -194,9 +172,9 @@ There are more optimization methods that you can consider, for example:
 
 * **Hive bucketing:** a technique that allows to cluster or segment large sets of data to optimize query performance.
 * **Join optimization:** optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints. For more information, see [Join optimization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **increase Reducers**
+* **Increase Reducers**.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hdinsight-use-hive.md)

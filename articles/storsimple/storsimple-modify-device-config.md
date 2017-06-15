@@ -1,4 +1,4 @@
-﻿---
+---
 title: Modify the StorSimple device configuration | Microsoft Docs
 description: Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed.
 services: storsimple

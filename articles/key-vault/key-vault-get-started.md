@@ -27,10 +27,10 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 
 > [!NOTE]
 > This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.
-> 
-> This tutorial uses Azure PowerShell. For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
-> 
-> 
+>
+> This tutorial uses Azure PowerShell. For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
+>
+>
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
@@ -38,7 +38,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 * A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 This tutorial is designed for Azure PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -53,13 +53,13 @@ For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure PowerShell:
 
-* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+* [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Using Azure PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
 
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Note that if you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -73,7 +73,7 @@ Then, to specify the subscription to use, type:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="resource"></a>Create a new resource group
 When you use Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group named **ContosoResourceGroup** for this tutorial:
@@ -82,7 +82,7 @@ When you use Azure Resource Manager, all related resources are created inside a 
 
 
 ## <a id="vault"></a>Create a key vault
-Use the [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
+Use the [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use the vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
@@ -96,12 +96,12 @@ The output of this cmdlet shows properties of the key vault that you’ve just c
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 > [!NOTE]
-> If you see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'** when you try to create your new key vault, run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` and then rerun your New-AzureRmKeyVault command. For more information, see [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
-> 
-> 
+> If you see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'** when you try to create your new key vault, run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` and then rerun your New-AzureRmKeyVault command. For more information, see [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+>
+>
 
 ## <a id="add"></a>Add a key or secret to the key vault
-If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet, and type the following:
+If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type the following:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -146,8 +146,8 @@ This step would usually be done by a developer, on a separate computer. It is no
 
 > [!IMPORTANT]
 > To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
-> 
-> 
+>
+>
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
@@ -168,7 +168,7 @@ To register the application in Azure Active Directory:
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the
- [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx) cmdlet.
+ [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
@@ -205,7 +205,7 @@ The next command imports a “bring your own key" (BYOK) package. This scenario 
 For more detailed instructions about how to generate this BYOK package, see [How to generate and transfer HSM-protected keys for Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets
-If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx) cmdlet:
+If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) cmdlet:
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -228,7 +228,6 @@ For a follow-up tutorial that uses Azure Key Vault in a web application, see [Us
 
 To see how your key vault is being used, see [Azure Key Vault Logging](key-vault-logging.md).
 
-For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
+For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
-

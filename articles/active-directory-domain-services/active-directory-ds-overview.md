@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: Overview of Azure Active Directory Domain Services
 services: active-directory-ds
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -58,8 +58,8 @@ Litware Corporation has deployed [Azure AD Connect](../active-directory/active-d
 
 > [!NOTE]
 > **Password synchronization is mandatory for hybrid organizations to use Azure AD Domain Services**. This requirement is because users' credentials are needed in the managed domain provided by Azure AD Domain Services, to authenticate these users via NTLM or Kerberos authentication methods.
-> 
-> 
+>
+>
 
 ![Azure AD Domain Services for Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -79,4 +79,3 @@ With Azure AD Domain Services, you can enjoy the following benefits:
 * **Integrated** – Azure AD Domain Services is deeply integrated with your Azure AD tenant. You can now use Azure AD as an integrated cloud-based enterprise directory that caters to the needs of both your modern applications and traditional directory-aware applications.
 * **Compatible** – Azure AD Domain Services is built on the proven enterprise grade infrastructure of Windows Server Active Directory. Therefore, your applications can rely on a greater degree of compatibility with Windows Server Active Directory features. Not all features available in Windows Server AD are currently available in Azure AD Domain Services. However, available features are compatible with the corresponding Windows Server AD features you rely on in your on-premises infrastructure. The LDAP, Kerberos, NTLM, Group Policy, and domain join capabilities constitute a mature offering that has been tested and refined over various Windows Server releases.
 * **Cost-effective** – With Azure AD Domain Services, you can avoid the infrastructure and management burden that is associated with managing identity infrastructure to support traditional directory-aware applications. You can move these applications to Azure Infrastructure Services and benefit from greater savings on operational expenses.
-

@@ -1,10 +1,10 @@
-﻿---
-title: Deep diagnostics for web apps and services with Application Insights | Microsoft Docs
+---
+title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/26/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Deep diagnostics for web apps and services with Application Insights
@@ -80,7 +80,7 @@ The web service of [Real Madrid Football Club](http://www.realmadrid.com/) serve
 
 The solution [is a system of services and applications on Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Scalability is a key requirement: traffic is variable and can reach very high volumes during and around matches.
 
-For Real Madrid, it's vital to monitor the system's performance. Visual Studio Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
+For Real Madrid, it's vital to monitor the system's performance. Azure Application Insights provides a comprehensive view across the system, ensuring a reliable and high level of service. 
 
 The Club also gets in-depth understanding of its fans: where they are (only 3% are in Spain), what interest they have in players, historical results, and upcoming games, and how they respond to match outcomes.
 
@@ -105,6 +105,10 @@ Customer Samtec said: "During a recent feature cutover, we found an under-scaled
 Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about one second.
 
 ![Live metrics](./media/app-insights-devops/040.png)
+
+And lets you immediately inspect a sample of any failures or exceptions.
+
+![Live failure events](./media/app-insights-devops/live-stream-failures.png)
 
 ## Application Map
 Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code-related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map, you can see it immediately and drill into the SQL Index Advisor or Query Insights experience.
@@ -149,13 +153,17 @@ If you use Visual Studio Team Services to build and deploy your app, deployment 
 ![Build annotations](./media/app-insights-devops/070.png)
 
 ### Work items
-When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
+When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
 * [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 Getting started with Application Insights is easy. The main options are:

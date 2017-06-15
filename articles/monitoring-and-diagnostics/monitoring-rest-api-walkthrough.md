@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Monitoring REST API Walkthrough | Microsoft Docs
 description: How to authenticate requests to and use the Azure Monitoring REST API.
 author: mcollier
@@ -20,14 +20,14 @@ ms.author: mcollier
 # Azure Monitoring REST API Walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
-The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions (the type of metric such as CPU Time, Requests, etc.), granularity, and metric values. Once retrieved, the data can be saved in a separate data store such as Azure SQL Database, DocumentDB, or Azure Data Lake. From there additional analysis can be performed as needed.
+The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions (the type of metric such as CPU Time, Requests, etc.), granularity, and metric values. Once retrieved, the data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
 Besides working with various metric data points, as this article demonstrates, the Monitor API makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ## Authenticating Azure Monitor Requests
 The first step is to authenticate the request.
 
-All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell). It is also possible to [create a service principle via the Azure portal](../resource-group-create-service-principal-portal.md).
+All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). It is also possible to [create a service principle via the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -72,7 +72,7 @@ $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.Cli
 
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
 
-# Build an array of HTTP header values 
+# Build an array of HTTP header values
 $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
@@ -88,8 +88,8 @@ Once the authentication setup step is complete, queries can then be executed aga
 ## Retrieve Metric Definitions
 > [!NOTE]
 > To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
-> 
-> 
+>
+>
 
 ```PowerShell
 $apiVersion = "2016-03-01"
@@ -111,8 +111,8 @@ Once the available metric definitions are known, it is then possible to retrieve
 
 > [!NOTE]
 > To retrieve metric values using the Azure Monitor REST API, use "2016-06-01" as the API version.
-> 
-> 
+>
+>
 
 **Method**: GET
 
@@ -188,12 +188,12 @@ The resource ID can also be obtained from the Azure portal. To do so, navigate t
 ### Azure PowerShell
 The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Web App, execute the Get-AzureRmWebApp cmdlet, as in the following screenshot:
 
-![Alt "Resource ID obtained via PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### Azure CLI
 To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show' command, specifying the '--json' option, as shown in the following screenshot:
 
-![Alt "Resource ID obtained via PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## Retrieve Activity Log Data
 In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
@@ -213,4 +213,3 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * View the [Supported metrics with Azure Monitor](monitoring-supported-metrics.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-

@@ -1,9 +1,9 @@
 ---
-title: Job and task output persistence in Azure Batch | Microsoft Docs
+title: Persist job and task output to Azure Storage - Azure Batch | Microsoft Docs
 description: Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal.
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 02/27/2017
+ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Persist Azure Batch job and task output
+# Persist results from completed jobs and tasks to Azure Storage
+
 The tasks you run in Batch typically produce output that must be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. This output might be files created by processing input data or log files associated with task execution. This article introduces a .NET class library that uses a conventions-based technique to persist such task output to Azure Blob storage, making it available even after you delete your pools, jobs, and compute nodes.
 
 By using the technique in this article, you can also view your task output in **Saved output files** and **Saved logs** in the [Azure portal][portal].
@@ -176,7 +178,7 @@ The following code snippet iterates through all of a job's tasks, prints some in
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
 {
-    foreach (TaskOutputStorage output in
+    foreach (OutputFileReference output in
         task.OutputStorage(storageAccount).ListOutputs(
             TaskOutputKind.TaskOutput))
     {
@@ -204,9 +206,9 @@ To view task outputs and logs in the Azure portal, navigate to the task whose ou
 ![Task outputs blade in the Azure portal][2]
 
 ## Code sample
-The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
+The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
 
-1. Open the project in **Visual Studio 2015**.
+1. Open the project in **Visual Studio 2015 or newer**.
 2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
 4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".

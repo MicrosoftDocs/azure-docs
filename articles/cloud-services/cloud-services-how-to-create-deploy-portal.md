@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 05/18/2017
 ms.author: adegeo
 
 ---
@@ -21,8 +21,8 @@ ms.author: adegeo
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 > * [Azure classic portal](cloud-services-how-to-create-deploy.md)
-> 
-> 
+>
+>
 
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
@@ -30,8 +30,8 @@ This article explains how to use the Quick Create method to create a new cloud s
 
 > [!NOTE]
 > If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from the Azure Quickstart or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
-> 
-> 
+>
+>
 
 ## Concepts
 Three components are required to deploy an application as a cloud service in Azure:
@@ -51,32 +51,28 @@ Before you can deploy a cloud service, you must create the cloud service package
 Three cloud service features require special configurations before you export a service package:
 
 * If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for SSL.
-* If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop.md) for Remote Desktop. This can only be done in the classic portal.
+* If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop-new-portal.md) for Remote Desktop.
 * If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
 To create a cloud service with deployments of web roles or worker roles, you must [create the service package](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Before you begin
 * If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](https://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
-* If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. [You can upload the certificates to Azure]() as you create and deploy the cloud service.
-* If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
+* If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Azure as you create and deploy the cloud service.
 
 ## Create and deploy
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **New > Virtual Machines**, and then scroll down to and click **Cloud Service**.
-   
+2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
+
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. At the bottom of the information page that displays, click **Create**. 
-4. In the new **Cloud Service** blade, enter a value for the **DNS name**.
-5. Create a new **Resource Group** or select an existing one.
-6. Select a **Location**.
-7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields.  
-   
-     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
-8. Make sure that **Start deployment** is selected.
-9. Click **OK** which will close the **Upload a package** blade.
-10. If you do not have any certificates to add, click **Create**.
-    
+3. In the new **Cloud Service** blade, enter a value for the **DNS name**.
+4. Create a new **Resource Group** or select an existing one.
+5. Select a **Location**.
+6. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+7. Make sure that **Start deployment** is selected.
+8. Click **OK** which will close the **Upload a package** blade.
+9. If you do not have any certificates to add, click **Create**.
+
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## Upload a certificate
@@ -85,15 +81,15 @@ If your deployment package was [configured to use certificates](cloud-services-c
 1. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
 2. Click **Attach certificate**, and then click **OK** on the **Add certificates** blade.
 3. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
-   
+
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## Verify your deployment completed successfully
 1. Click the cloud service instance.
-   
+
     The status should show that the service is **Running**.
 2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
-   
+
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
@@ -103,4 +99,3 @@ If your deployment package was [configured to use certificates](cloud-services-c
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
-

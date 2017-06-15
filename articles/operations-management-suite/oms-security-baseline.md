@@ -1,4 +1,4 @@
-﻿---
+---
 title: Operations Management Suite Security and Audit Solution Baseline | Microsoft Docs
 description: This document explains how to use OMS Security and Audit solution to perform a baseline assessment of all monitored computers for compliance and security purpose.
 services: operations-management-suite
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---
@@ -72,7 +73,7 @@ In this log result you see the type of baseline rule that failed, the descriptio
 > 
 
 ### Accessing computers missing baseline assessment
-OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
+OMS supports the domain member and Domain Controller baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
 
 ## See also
 In this document, you learned about OMS Security and Audit baseline assessment. To learn more about OMS Security, see the following articles:

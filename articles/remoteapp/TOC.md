@@ -24,6 +24,8 @@
 
 # How To
 
+## [Migrate user data from Azure RemoteApp](remoteapp-migrate.md)
+## [Migrate to Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Create a RemoteApp collection
 ### [Which collection do you need?](remoteapp-collections.md)
 ### [Create a cloud collection](remoteapp-create-cloud-deployment.md)
@@ -63,3 +65,9 @@
 ## Troubleshoot
 ### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
 ### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+
+# Resources
+## [Service updates](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Pricing](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

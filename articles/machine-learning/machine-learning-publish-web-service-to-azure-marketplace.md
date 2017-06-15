@@ -1,6 +1,6 @@
 ---
-title: Publish machine learning web service to Azure Marketplace | Microsoft Docs
-description: How to publish your Azure Machine Learning Web Service to the Azure Marketplace
+title: (deprecated) Publish machine learning web service to Azure Marketplace | Microsoft Docs
+description: (deprecated) How to publish your Azure Machine Learning Web Service to the Azure Marketplace
 services: machine-learning
 documentationcenter: ''
 author: BharathS
@@ -13,11 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 06/02/2017
 ms.author: bharaths
 
+ROBOTS: NOINDEX
+redirect_url: machine-learning-gallery-experiments
+redirect_document_id: TRUE 
+
 ---
-# Publish Azure Machine Learning Web Service to the Azure Marketplace
+# (deprecated) Publish Azure Machine Learning Web Service to the Azure Marketplace
+
+> [!NOTE]
+> DataMarket and Data Services are being retired, and existing subscriptions will be retired and cancelled starting 3/31/2017. As a result, this article is being deprecated. 
+> 
+> As an alternative, you can publish your Machine Learning experiments to the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) for the benefit of the data science community. For more information, see [Share and discover resources in the Cortana Intelligence Gallery](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
 The Azure Marketplace provides the ability to publish Azure Machine Learning web services as paid or free services for consumption by external customers. This article provides an overview of that process with links to guidelines to get you started. By using this process, you can make your web services available for other developers to consume in their applications.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

@@ -11,4 +11,3 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
    
     Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
-
