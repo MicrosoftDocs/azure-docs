@@ -287,7 +287,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[Online Swagger Editor]: http://editor.swagger.io/
+[Online Swagger Editor]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
