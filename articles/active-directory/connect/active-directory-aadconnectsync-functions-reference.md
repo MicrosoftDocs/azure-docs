@@ -951,6 +951,24 @@ The RTrim function removes trailing white spaces from a string.
 Returns " Test".
 
 - - -
+### Select
+**Description:**  
+Process all values in a multi-valued attribute (or output of an expression) based on function specified.
+
+**Syntax:**  
+`mvattr Select(variable item, mvattr attribute, func function)`  
+`mvattr Select(variable item, exp expression, func function)`
+
+* item: Represents an element in the multi-valued attribute
+* attribute: the multi-valued attribute
+* expression: an expression which returns a collection of values
+* condition: any function that can process an item in the attribute
+
+**Examples:**  
+`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
+
+- - -
 ### Split
 **Description:**  
 The Split function takes a string separated with a delimiter and makes it a multi-valued string.
@@ -1038,6 +1056,24 @@ The UCase function converts all characters in a string to upper case.
 **Example:**  
 `UCase("TeSt")`  
 Returns "TEST".
+
+- - -
+### Where
+
+**Description:**  
+Returns a subset of values from a multi-valued attribute (or output of an expression) based on specific condition.
+
+**Syntax:**  
+`mvattr Where(variable item, mvattr attribute, exp condition)`  
+`mvattr Where(variable item, exp expression, exp condition)`  
+* item: Represents an element in the multi-valued attribute
+* attribute: the multi-valued attribute
+* condition: any expression that can be evaluated to true or false
+* expression: an expression which returns a collection of values
+
+**Example:**  
+`Where($item,[userCertificate],CertNotAfter($item)>Now())`  
+Return the certificate values in the multi-valued attribute userCertificate which aren’t expired.
 
 - - -
 ### Word
