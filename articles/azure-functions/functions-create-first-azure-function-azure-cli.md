@@ -36,7 +36,7 @@ Before running this sample, you must have the following:
 
 Sign in to your Azure subscription using the [az login](/cli/azure/#login) command and follow the on-screen instructions. 
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
