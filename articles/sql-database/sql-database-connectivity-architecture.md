@@ -64,8 +64,11 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 The following PowerShell script shows how to change the connection policy.
 
+> [IMPORTANT]
+> You must install [Azure PowerShell]() before using the following script.
+
 ```powershell
-import-module azure
+import-module azureRm
 Login-AzureRmAccount
 
 $tenantId =  #your AAD tenant ID
