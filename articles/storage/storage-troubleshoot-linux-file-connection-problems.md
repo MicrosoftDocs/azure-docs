@@ -24,7 +24,7 @@ This article lists common problems that are related to Microsoft Azure File stor
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
 
-On Linux, you receive an error message that resembles the following:
+In Linux, you receive an error message that resembles the following:
 
 **<filename> [permission denied] Disk quota exceeded**
 
@@ -37,7 +37,7 @@ You have reached the upper limit of concurrent open handles that are allowed for
 Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure File storage on Linux
+## Slow file copying to and from Azure File storage in Linux
 
 -	If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 -	If you know the final size of a file that you are extending by using writes, and your software doesn’t experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
@@ -70,7 +70,7 @@ However, these changes might not be ported yet to all the Linux distributions. T
 
 ### Workaround
 
-You can work around this problem by specifying a hard mount. This forces the client to wait until a connection is established or until it’s explicitly interrupted and can be used to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. You should be prepared to stop connections as necessary.
+You can work around this problem by specifying a hard mount. This forces the client to wait until a connection is established or until it’s explicitly interrupted and can be used to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
 
 If you cannot upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
@@ -86,7 +86,7 @@ Linux distributions do not yet support encryption features in SMB 3.0. In some d
 If the Linux SMB client does not support encryption, mount Azure File storage by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
-## Slow performance on an Azure file share mounted on Linux VM
+## Slow performance on an Azure file share mounted on a Linux VM
 
 ### Cause
 
