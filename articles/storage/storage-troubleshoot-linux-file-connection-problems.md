@@ -90,7 +90,11 @@ If the Linux SMB client does not support encryption, mount Azure File storage by
 
 ### Cause
 
-One possible cause of slow performance is disabled caching. To check whether caching is disabled, look for the **cache=** entry. 
+One possible cause of slow performance is disabled caching.
+
+### Solution
+
+To check whether caching is disabled, look for the **cache=** entry. 
 
 **Cache=none** indicates that caching is disabled.  Remount the share by using the default mount command or by explicitly adding the **cache=strict** option to the mount command to ensure that default caching or "strict" caching mode is enabled.
 
