@@ -98,7 +98,7 @@ If any one of these conditions is true, the column is created NOT NULL instead o
 CTAS follows the same SQL Server behavior that has been documented for SELECT..INTO. However, you cannot specify an IDENTITY property in column definition of the `CREATE TABLE` part of the statement itself. You also cannot use the IDENTITY function in the `SELECT` part of the CTAS either. To populate a table, you would need to use `CREATE TABLE` to define the table followed by `INSERT..SELECT` to populate it.
 
 ## Explicit insertion of values into an IDENTITY column 
-SQL Data Warehouse supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the 
+SQL Data Warehouse supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
 
 Many data modelers like to use pre-defined negative values for certain rows in their dimensions. A good example is the -1 or "unknown member" row. 
 
