@@ -310,7 +310,7 @@ Later, you learn how to configure environment variables in App Service to connec
 ## Deploy to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)] 
 
 
 ### Create a web app
@@ -424,7 +424,11 @@ az resource update \
 
 By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_). 
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)] 
+
+### Configure local Git deployment 
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
@@ -656,7 +660,9 @@ The left menu provides pages for configuring your app.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
+### Clean up resources
+
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli-no-h.md)]
 
 <a name="next"></a>
 
