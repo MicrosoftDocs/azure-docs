@@ -51,7 +51,7 @@ Available now on the [Azure Marketplace](https://azuremarketplace.microsoft.com/
 Existing Azure RemoteApp customers can [register for a free trial](https://www.citrix.com/products/citrix-cloud/form/xenapp-essentials-msft-trial/).  Note: Only Citrix user service charge is free, Azure compute and storage costs apply
 
 Learn More:
-- [Migrate from Azure RemoteApp to Citrix XenApp Essentials](https://docs.microsoft.com/en-us/azure/remoteapp/remoteapp-migrate-citrix)
+- [Migrate from Azure RemoteApp to Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 - [Citrix and Microsoft](https://www.citrix.com/global-partners/microsoft/remote-app.html)
 - [Citrix XenApp Essentials presentation](https://www.youtube.com/watch?v=91Z7CCfQ-9k).  
 
