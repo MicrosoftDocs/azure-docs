@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 6/13/2017
 ms.author: parakhj
 
 
@@ -26,7 +26,7 @@ This Quickstart helps you register an application in a Microsoft Azure Active Di
 
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same management tool. If you edit the B2C applications using PowerShell or another tool, they become unsupported and may not work with Azure AD B2C. 
+Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
 
 ## Navigate to B2C settings
 
@@ -68,8 +68,66 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
+[Jump to **Next steps**](#next-steps)
+
+## Limitations
+
+### Choosing a web app or api reply URL
+
+Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name fails if either of the following conditions is true:
+
+* The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
+* The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
+
+For example, if the app has this reply URL:
+
+`https://login.contoso.com`
+
+You can add to it, like this:
+
+`https://login.contoso.com/new`
+
+In this case, the DNS name matches exactly. Or, you can do this:
+
+`https://new.login.contoso.com`
+
+In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+You can add the latter two because they are subdomains of the first reply URL, contoso.com.
+
+### Choosing a native application redirect URI
+
+There are two important considerations when choosing a redirect URI for mobile/native applications:
+
+* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
+* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
+
+Ensure there are no special characters like underscores in the redirect uri.
+
+### Faulted apps
+
+B2C applications should NOT be edited:
+
+* On other application management portals such as the [Azure classic portal](https://manage.windowsazure.com/) & the [Application Registration Portal](https://apps.dev.microsoft.com/).
+* Using Graph API or PowerShell
+
+If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You have to delete the application and create it again.
+
+To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-
