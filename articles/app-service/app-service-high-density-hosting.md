@@ -181,4 +181,9 @@ high density hosting for your apps:
    additional resources as needed. For example:
     - A high-use app can set **numberOfWorkers** to **3** to have more 
       processing capacity for that app. 
-    - low-use apps would set **numberOfWorkers** to **1**.
+    - Low-use apps would set **numberOfWorkers** to **1**.
+
+## Next Steps
+
+- [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+- [Introduction to App Service Environment](../app-service-web/app-service-app-service-environment-intro.md)
