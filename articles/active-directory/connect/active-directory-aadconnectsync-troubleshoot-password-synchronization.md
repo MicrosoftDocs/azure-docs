@@ -3,7 +3,7 @@ title: Troubleshoot password synchronization with Azure AD Connect sync | Micros
 description: This article provides information about how to troubleshoot password synchronization problems.
 services: active-directory
 documentationcenter: ''
-author: cychua, billmath
+author: cychua
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: cychua, billmath
+ms.author: cychua
 
 ---
 # Troubleshoot password synchronization with Azure AD Connect sync
