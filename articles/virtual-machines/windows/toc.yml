@@ -186,6 +186,8 @@
       href: capture-image-resource.md
     - name: Create a VM from a generalized Managed Disk image
       href: create-vm-generalized-managed.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
