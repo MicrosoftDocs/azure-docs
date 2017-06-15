@@ -21,9 +21,9 @@ Workbooks combine [Azure Application Insights](app-insights-overview.md) data vi
 
 Workbooks are helpful for scenarios like:
 
-* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, converstion rates, etc. Unlike other usage analytics tools in Application Insights, Workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.
+* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, conversion rates, etc. Unlike other usage analytics tools in Application Insights, Workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.
 * Explaining to your team how a newly released feature is performing, by showing user counts for key interactions and other metrics.
-* Sharing the results of an A/B experiment in your app with other members of your team by explaining the goals for the experiment with text, then showing each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
+* Sharing the results of an A/B experiment in your app with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your app, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 > [!NOTE]
@@ -43,7 +43,7 @@ To edit the contents of a workbook section, click the **Edit** button below and 
 
 2. To create a duplicate of a section, click the **Clone this section** icon. Creating duplicate sections is a great to way to iterate on a query without losing previous iterations.
 
-3. To move a section up in a workbook, click the **Move up** or **Move down** icon.
+3. To move up a section in a workbook, click the **Move up** or **Move down** icon.
 
 4. To remove a section permanently, click the **Remove** icon.
 
@@ -95,7 +95,7 @@ To add a text section to your workbook, use the **Add text** button at the botto
 
 ## Saving and Sharing Workbooks with Your Team
 
-Workbooks are saved within an Application Insights resource, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the Application Insights resource. To view all of the workbooks in the resource, click the **Open** button in the action bar.
+Workbooks are saved within an Application Insights resource, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the Application Insights resource. To view all the workbooks in the resource, click the **Open** button in the action bar.
 
 To share a workbook that's currently in **My Reports**:
 
@@ -103,12 +103,12 @@ To share a workbook that's currently in **My Reports**:
 2. Click the "..." button beside the workbook you want to share
 3. Click **Move to Shared Reports**.
 
-To share a workbook with a link or via email, click **Share** in the action bar. Keep in mind that recipients of the link will need access to this resource in the Azure Portal to view the workbook. To make edits, recipients will need at least Contributor permissions for the resource.
+To share a workbook with a link or via email, click **Share** in the action bar. Keep in mind that recipients of the link need access to this resource in the Azure portal to view the workbook. To make edits, recipients need at least Contributor permissions for the resource.
 
 To pin a link to a workbook to an Azure Dashboard:
 
 1. Click **Open** in the action bar
-2. Clik the "..." button beside the workbook you want to pin
+2. Click the "..." button beside the workbook you want to pin
 3. Click **Pin to dashboard**.
 
 ## Next steps
