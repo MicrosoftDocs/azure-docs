@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 06/17/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Dropbox for Business, you need the following items:
 
 - An Azure AD subscription
-- A Dropbox for Business single-sign on enabled subscription
+- A Dropbox for Business single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,23 +108,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Sign on to your Dropbox for business tenant. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configure single sign-on")
+	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
    
 	b. In the navigation pane on the left side, click **Admin Console**. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configure single sign-on")
+	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769510.png "Configure single sign-on")
    
 	c. On the **Admin Console**, click **Authentication** in the left navigation pane. 
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configure single sign-on")
+	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769511.png "Configure single sign-on")
    
 	d. In the **Single sign-on** section, select **Enable single sign-on**, and then click **More** to expand this section.  
    
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configure single sign-on")
+	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Configure single sign-on")
    
 	e. Copy the URL next to **Users can sign in by entering their email address or they can go directly to**. 
 	
-	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png)
+	![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
 	
 	f. On the Azure portal, in the **Sign-on URL** textbox, paste the URL.
 
@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Dropbox for Business Configuration** section, click **Configure Dropbox for Business** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
-<CS>
+
 7. To configure single sign-on on **Dropbox for Business** side, Go on your Dropbox for Business tenant, in the **Single sign-on** section of the **Authentication** page, perform the following steps: 
    
     ![Configure single sign-on](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configure single sign-on")
@@ -155,13 +155,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **Sign-in URL** textbox.
 
-    c. Click **Choose certificate**, and then browse to your **base-64 encoded certificate file**.
+    c. Click **Choose certificate**, and then browse to your **Base64 encoded certificate file**.
 
     d. Click **Save changes** to complete the configuration on your DropBox for Business tenant.
-<CE>
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
