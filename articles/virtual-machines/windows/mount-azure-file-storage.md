@@ -19,7 +19,7 @@ ms.author: cynthn
 
 # Use Azure File Shares with Windows VMs 
 
-You can use Azure file shares as a way to storea an access files in Azure from your VM. For example, you can store a script file that multiple VMs need to acccess or an application configuration file that you want all of your VMs to use. In this topic, we will show you how to create and mount an Azure file share as well as how to upload and download files.
+You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all of your VMs to share. In this topic, we will show you how to create and mount an Azure file share, and how to upload and download files.
 
 ## Connect to a file share from a VM
 
