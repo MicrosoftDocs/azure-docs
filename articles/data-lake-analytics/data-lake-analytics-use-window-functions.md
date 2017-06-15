@@ -55,7 +55,7 @@ QueryLog represents a list of what people searched for in search engine. Each qu
     AS T(Query,Latency,Vertical);
 ```
 
-## Employees Sample DataSet
+### Employees Sample DataSet
   
 The Employees dataset includes the following fields:
   
