@@ -103,7 +103,7 @@ We are also adding the adaptive query processing family of features to SQL Datab
 
  [SQL Threat Detection](sql-database-threat-detection.md) leverages [SQL Database auditing](sql-database-auditing.md) to continuously monitor Azure SQL databases for potentially harmful attempts to access sensitive data. SQL threat detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users will receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, and anomalous database access patterns. SQL threat detection alerts provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Users can explore the suspicious events to determine if they result from an attempt to access, breach, or exploit data in the database. Threat detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
-## Built-in security and compliance capabilities
+## Advanced security and compliance capabilities
 
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
 
