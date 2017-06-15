@@ -20,13 +20,14 @@ Azure end users can benefit from Mailjet’s [REST-ful API](https://dev.mailjet.
 - send and receive timely messages and alerts;
 - parse inbound traffic;
 - track email events in realtime;
+- receive alerts and notifications in real time for unusual sending volume, timing, statistics and errors;
 - synchronise their data back into their applications hosted on Azure.
 
 For more information please visit [https://www.mailjet.com/azure/](https://www.mailjet.com/azure?utm_source=Partners&utm_medium=IntegrationsAzureDoc&utm_campaign=AzureDoc&p=azuredoc).
 
 ## Enabling Mailjet on Azure
 
-Azure users can take advantage of the variety of Mailjet subscription options, from 25 000 emails monthly for the Mailjet Free plan, to 2 500 000 monthly for the Diamond plan. All subscription options (including the Free plan) will give you access to the Mailjet API, SMTP Relay and Responsive Marketing Tool; Tracking, Advanced Reporting and Personalisation options; Unlimited Contacts and Global Deliverability.
+Azure users can take advantage of the variety of Mailjet subscription options, from 25,000 emails monthly for the Mailjet Free plan, to 2,500,000 monthly for the Diamond plan. All subscription options (including the Free plan) will give you access to the Mailjet API, SMTP Relay and Responsive Marketing Tool; Tracking, Advanced Reporting and Personalisation options; Unlimited Contacts and Global Deliverability.
 
 ### To Install Mailjet Email Service in Azure
 
@@ -152,7 +153,7 @@ To install the Mailjet NuGet package, follow these instructions:
 1. In Visual Studio, click on **New Project**, then choose a **Template**.
 
 
-![Visual Studio New Project](./media/mailjet-dotnet-azure-guide/19-new-project)
+![Visual Studio New Project](./media/mailjet-dotnet-azure-guide/19-new-project.png)
 
 2. In Visual Studio, go to **Tools > NuGet Package Manager > Package Manager Console** to open the Console.
 
