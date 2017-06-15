@@ -26,7 +26,7 @@ This Quickstart helps you register an application in a Microsoft Azure Active Di
 
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and will not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
+Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
 
 ## Navigate to B2C settings
 
@@ -83,7 +83,7 @@ Currently, apps that are registered with Azure AD B2C are restricted to a limite
 
 `https://login-west.contoso.com`
 
-The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:
+The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name fails if either of the following conditions is true:
 
 * The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
 * The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
@@ -114,8 +114,8 @@ You can add the latter two because they are subdomains of the first reply URL, c
 
 There are two important considerations when choosing a redirect URI for mobile/native applications:
 
-* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user will see a "choose app" dialog. If the user makes an incorrect choice, the login will fail.
-* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ will work and //contoso will fail).
+* **Unique**: The scheme of the redirect URI should be unique for every application. In our example (com.onmicrosoft.contoso.appname://redirect/path), we use com.onmicrosoft.contoso.appname as the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
+* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
 
 Ensure there are no special characters like underscores in the redirect uri.
 
@@ -126,6 +126,6 @@ B2C applications should NOT be edited:
 * On other application management portals such as the [Azure classic portal](https://manage.windowsazure.com/) & the [Application Registration Portal](https://apps.dev.microsoft.com/).
 * Using Graph API or PowerShell
 
-If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it will become a faulted app, and your application will no longer be usable with Azure AD B2C. You will have to delete the application and create it again.
+If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You have to delete the application and create it again.
 
 To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
