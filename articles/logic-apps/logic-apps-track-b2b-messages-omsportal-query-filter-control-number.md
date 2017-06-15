@@ -13,27 +13,27 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 06/15/2017
 ms.author: LADocs; padmavc
 ---
 
 # Query for B2B messages in the Operations Management Suite portal
 
-To track business-to-business (B2B) messages in the Operations Management Suite portal, 
+To track business-to-business (B2B) messages in the Operations Management Suite (OMS) portal, 
 you can create queries that filter actions based on specific criteria, for example, 
 an interchange control number.
 
 ## Requirements
 
-* An integration account where diagnostics and logging for debugging are already set up. 
-Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-and [how to set up logging for that account](logic-apps-monitor-b2b-message.md).
-
-* A logic app where diagnostics and logging for debugging are already set up. 
+* A logic app that's set up with monitoring and logging for debugging and diagnostics. 
 Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+and [how to set up monitoring and logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in the Microsoft Operations Management Suite (OMS) portal. 
+* An integration account that's set up with monitoring and logging for debugging and diagnostics. 
+Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
+
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in the OMS portal. 
 
 ## Create a query in the Operations Management Suite portal
 

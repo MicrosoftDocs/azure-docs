@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017 
-ms.date: 01/27/2017
+ms.date: 06/15/2017
 ms.author: LADocs; padmavc
 ---
 
@@ -25,7 +25,8 @@ between two running business processes or applications,
 those entities can exchange messages with each other. 
 After you set up this communication, you can set up message monitoring 
 so that you can confirm that communication works as expected. 
-For richer details and debugging, you can also set up diagnostics for your integration account.
+For richer details and debugging, you can also set up diagnostics 
+logging for your integration account.
 
 Message tracking is available for these B2B protocols: AS2, X12, and EDIFACT. 
 
@@ -34,9 +35,9 @@ Message tracking is available for these B2B protocols: AS2, X12, and EDIFACT.
 * An Azure account, if you don't have this already. You can 
 [create a free account here](https://azure.microsoft.com/free).
 
-* A logic app with diagnostics and logging already set up. 
-Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+* A logic app that's set up with monitoring and logging for debugging and diagnostics. 
+Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+and [how to set up monitoring and logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
 * An integration account. Learn 
 [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md).

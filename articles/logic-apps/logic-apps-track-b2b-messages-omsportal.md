@@ -13,13 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 06/15/2017
 ms.author: LADocs; padmavc
 
 ---
 # Track B2B messages in the Operations Management Suite portal
-
-![Logic Apps B2B symbol](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
 
 When you set up B2B communication for your logic app 
 between two running business processes or applications, 
@@ -42,13 +40,13 @@ these web-based tracking capabilities to track your messages:
 * An Azure account, if you don't have this already. You can 
 [create a free account here](https://azure.microsoft.com/free).
 
-* A logic app with diagnostics and logging already set up. 
+* A logic app that's set up with monitoring and logging for debugging and diagnostics. 
 Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-* An integration account with diagnostics and logging already set up. 
+* An integration account that's set up with monitoring and logging for debugging and diagnostics. 
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-and [how to set up logging for that account](logic-apps-monitor-b2b-message.md).
+and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
 * An OMS workspace in Log Analytics, if you don't have this already. 
 Learn [how to create this workspace](../log-analytics/log-analytics-get-started.md).
