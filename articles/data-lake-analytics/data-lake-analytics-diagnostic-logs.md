@@ -31,7 +31,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 
-2. Open your Data Lake Analytics account and select **Diagnostic logs** from the __Monitoring section__. Next, select __Turn on diagnostics__.
+2. Open your Data Lake Analytics account and select **Diagnostic logs** from the __Monitor__ section. Next, select __Turn on diagnostics__.
 
     ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
@@ -48,9 +48,9 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
      * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
      * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this if you want to use Log Analytics to gather and analyze logs.
-   * Specify whether you want to get audit logs or request logs or both.
+   * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request, and an audit log records all operations that are triggered by that API request.
 
-   * Specify the number of days for which the data will be retained.
+   * For __Archive to a storage account__, specify the number of days for which the data will be retained.
 
    * Click __Save__.
 
@@ -66,9 +66,9 @@ There are two ways to view the log data for your Data Lake Analytics account.
 * From the Data Lake Analytics account settings
 * From the Azure Data Lake Storage account where the data is stored
 
-### Using the Data Lake Analytics Settings view
+### Use the Data Lake Analytics view
 
-1. From your Data Lake Analytics account blade, select **Diagnostic Logs** and then select the entry to display logs for.
+1. From your Data Lake Analytics account blade, under **Monitoring**, select **Diagnostic Logs** and then select an entry to display logs for.
 
     ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
 
@@ -77,11 +77,11 @@ There are two ways to view the log data for your Data Lake Analytics account.
     ![log entries](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Request logs capture every API request made on the Data Lake Analytics account.
-   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in a request log can result in multiple "Append" operations in the audit log.
+   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in a request log can result in multiple "Append" operations in its audit log.
 
 3. Click the **Download** link for a log entry to download that log.
 
-### From the Azure Storage account that contains log data
+### Use the Azure Data Lake Storage account that contains log data
 
 1. Open the Azure Data Lake Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
 
