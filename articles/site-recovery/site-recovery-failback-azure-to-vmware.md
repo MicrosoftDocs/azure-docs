@@ -12,15 +12,13 @@ ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
 
 ---
 # Fail back VMware virtual machines and physical servers to the on-premises site
-> [!div class="op_single_selector"]
-> * [VMware/physical machines from Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 
 This article describes how to failback Azure virtual machines from Azure to the on-premises site. Follow the instructions here when you're ready to fail back your VMware virtual machines or Windows or Linux physical servers after you have re-protected your machines using this [reference](site-recovery-how-to-reprotect.md).
 
