@@ -75,7 +75,7 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 
 ## Limitations
 
-### Choosing a web app/api reply URL
+### Choosing a web app or api reply URL
 
 Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
 
