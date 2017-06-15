@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 06/17/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Cornerstone OnDemand, you need the following items:
 
 - An Azure AD subscription
-- A Cornerstone OnDemand single-sign on enabled subscription
+- A Cornerstone OnDemand single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,10 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cornerstoneondemand-tutorial/tutorial_cornerstoneondemand_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.csod.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.csod.com`
+
+	b. In **Identifier** textbox, type a URL using the following pattern: `https://<company>.csod.com`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Cornerstone OnDemand Client support team](mailTo:moreinfo@csod.com) to get this value. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Cornerstone OnDemand Client support team](mailTo:moreinfo@csod.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the Certificate file on your computer.
 
