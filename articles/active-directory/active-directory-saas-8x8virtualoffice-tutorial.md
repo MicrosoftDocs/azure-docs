@@ -109,23 +109,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
-	
-	|  |
-	| --- |
+
 	| `https://sso.8x8.com/<companyname>` |
 	| `https://www.8x8.com/<companyname>` |
 	| `https://sso.8x8pilot.com/<companyname>` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 
-	|  |
-	| --- |
 	| `https://<subdomain>.8x8.com/saml2` |
 	| `https://<subdomain>.8x8pilot.com/saml2`|
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [8x8 Virtual Office support team](https://www.8x8.com/about-us/contact-us) to get these values.
  
+
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
