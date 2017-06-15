@@ -367,16 +367,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Language | Example 
 ---------|----------------
-Ruby     | 
-Go       |             
-python   | 
-C++      |
-C#       |
-PHP      |
-Javascript |
-Java       |
-Powershell |
-Bash       |
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Powershell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 
 ## FAQ
@@ -399,4 +397,4 @@ Bash       |
     
 ## Next Steps
 
-- Learn more about the [scheduledevents](virtual-machines-scheduled-events.md) API provided by the Instance Metadata Service.
+- Learn more about the [scheduledevents](virtual-machines-scheduled-events.md) API[Currently in Public Preview] provided by the Instance Metadata Service.
