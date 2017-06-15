@@ -72,10 +72,10 @@ ACR Login Server:
 az acr list --query [0].loginServer -o tsv
 ```
 
-ACR Password:
+ACR Password - update with the ACR name.
 
 ```bash
-az acr credential show --name $acrName --query passwords[0].value -o tsv
+az acr credential show --name <acrName> --query passwords[0].value -o tsv
 ```
 
 ## Container registry login
@@ -156,7 +156,7 @@ Do the same to the *azure-vote-back* image.
 docker push <acrLoginServer>/azure-vote-back:v1
 ```
 
-At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance.  
+At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These mages will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
 
 ## Next steps
 
@@ -168,5 +168,6 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 > * Uploading images to ACR
 
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.
+
 > [!div class="nextstepaction"]
 > [Deploy ACS cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)

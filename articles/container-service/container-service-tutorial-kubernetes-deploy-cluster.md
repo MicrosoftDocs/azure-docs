@@ -34,11 +34,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-**Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created, and an Azure Container Registry instance deployed into it. If you need to create the resource group, run the following command:
-
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+**Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created. This tutorial assumes that the resource group exists. If needed, create a resource group named *myResourceGroup*.
 
 ## Create Kubernetes cluster
 
@@ -56,11 +52,13 @@ After several minutes, the command completes, and shows you information about yo
 
 To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command. If running in Linux or macOS, you may need to run with sudo. On Windows, ensure your shell has been run as administrator.
 
 ```azurecli-interactive 
-sudo az acs kubernetes install-cli 
+az acs kubernetes install-cli 
 ```
+
+On Windows, the default installation is C:\Program Files (x86)\kubectl.exe. You may need to add this file to the Windows path variable. 
 
 ## Connect with kubectl
 
