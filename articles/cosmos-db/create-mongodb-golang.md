@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs
+title: "Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs"
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: durgaprasad
