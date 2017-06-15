@@ -60,7 +60,7 @@ Use the following checklist to troubleshoot Seamless SSO issues:
 - Ensure that the device's time is synchronized with the Active Directory's and the Domain Controllers' time and is within five minutes of each other.
 - List existing Kerberos tickets on the device using the **klist** command from a command prompt. Check if tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You may have  different settings in your Active Directory.
 - Purge existing Kerberos tickets from the device using the **klist purge** command, and try again.
-- Review the console logs of the browser (under "Developer Tools") to help determine JavaScript-related or other potential issues.
+- To determine if there are JavaScript-related issues, review the console logs of the browser (under "Developer Tools").
 - Review the [Domain Controller logs](#domain-controller-logs) as well.
 
 ### Domain Controller logs
