@@ -84,12 +84,11 @@ requests
  - Provide a subject for the email
  - Place your cursor in the *Body* field, and from the dynamic content menu that opens on the right, select *Body*.
  - Click on Show advanced options.
-![Office 365 email configuration screen](./media/app-insights-automate-with-flow/flow6.png)
+![Office 365 email configuration screen](./media/app-insights-automate-with-flow/flow7.png)
 5. From the dynamic content menu do the following:
 - Select Attachment Name
 - Select Attachment Content
 - Select Yes in the *Is HTML* field
-![Office 365 email configuration dynamic menu](./media/app-insights-automate-with-flow/flow7.png)
 
 ### Step 7: Save and test your flow
 - Add a name to your flow and click *Create flow*.
