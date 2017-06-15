@@ -26,7 +26,7 @@ ms.author: saurse;markgal;nkolli;trinadhk
 >
 >
 
-This article shows you how to use PowerShell to set up Azure Backup on Windows Server or a Windows workstation. This article also explains how to back up data to, and recover data from a backup vault. If you are a new Azure Backup user and have not created a backup vault in your subscription, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-client-automation.md). Use the recommended article instead of this article because Microsoft recommends using Recovery Services vaults for all new deployments. 
+This article explains how to use PowerShell to back up Windows Server or Windows workstation data to a backup vault. Microsoft recommends using Recovery Services vaults for all new deployments. If you are a new Azure Backup user and have not created a backup vault in your subscription, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-client-automation.md) so you store your data in a Recovery Services vault. 
 
 > [!IMPORTANT]
 > You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
