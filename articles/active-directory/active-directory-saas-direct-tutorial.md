@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/15/2017
 ms.author: jeedes
 
 ---
@@ -108,17 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url.png)
 
-    In the **Identifier** textbox, type a URL using the following pattern: `https://direct4b.com/`
+    In the **Identifier** textbox, type the URL: `https://direct4b.com/`
 
 4. Check **Show advanced URL settings**, If you wish to configure the application in **SP** initiated mode:
 
     ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url1.png)
 
-	 In the **Sign-on URL** textbox, type a URL using the following pattern: `https://direct4b.com/sso` 
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [Direct support team](https://direct4b.com/ja/support.html#inquiry) to get these values. 
-
+	 In the **Sign-on URL** textbox, type the URL: `https://direct4b.com/sso` 
+	
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_certificate.png) 
@@ -218,8 +215,6 @@ For more information about the Access Panel, see [Introduction to the Access
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
