@@ -64,8 +64,9 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 The following PowerShell script shows how to change the connection policy.
 
-> [IMPORTANT]
-> You must install [Azure PowerShell]() before using the following script.
+> [!IMPORTANT]
+> This script requires [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+>
 
 ```powershell
 import-module azureRm
