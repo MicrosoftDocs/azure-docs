@@ -26,7 +26,7 @@ Your subscription should be enabled to create Azure VMs in the target region tha
 
 **Error code** | **Possible causes** | **Recommendation**
 --- | --- | ---
-150097<br></br>**Message -**  Replication couldn't be enabled for the virtual machine VmName. | 1. Your Subscription ID might not have been enabled to create any VMs in the Target region location.</br>2. Your Subscription ID might not have been enabled or does not have sufficient quota to create specific VM sizes in the Target region location.</br>3. A suitable target VM size that matches the source VM NIC count (2) is not found for the Subscription ID in the Target region location.| Contact [Azure Billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable VM creation for the required VM sizes in the target location for your subscription. After it is enabled, retry the failed operation.
+150097<br></br>**Message**:  Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.</br></br> - Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.</br></br> - A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure Billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
 
 #### Fix the problem
 You can contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of required sizes in the target location.
@@ -94,8 +94,8 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 **Error codes** | **Possible causes** | **Recommendations**
 --- | --- | ---
-151037<br></br>**Message**: Failed to register Azure virtual machine with Site Recovery. | 1. You are using NSG to control outbound access on the VM and the required IP ranges are not whitelisted for outbound access.</br>2. You are using third-party firewall tools and the required IP ranges/URLs are not whitelisted.</br>|  1. If you are using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance). </br>2. If you are using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Message**: Site Recovery configuration failed. | Connection cannot be established to Site Recovery service endpoints. | 1. If you are using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance). </br>2. If you are using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
+151037<br></br>**Message**: Failed to register Azure virtual machine with Site Recovery. | - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.</br></br> - You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.</br>| - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance). </br></br> - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
+151072<br></br>**Message**: Site Recovery configuration failed. | Connection cannot be established to Site Recovery service endpoints. | - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance). </br> - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
 
 ### Fix the problem
 To whitelist [the required URLs](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-urls) or the [required IP ranges](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-ip-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -106,7 +106,7 @@ A new disk attached to the VM must be initialized.
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150039<br></br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | 1. A new data disk was attached to the VM but it has not been initialized.</br>2. The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks have been initialized, and then retry the operation.</br> For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | - A new data disk was attached to the VM but it wasn't initialized.</br></br> - The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks are initialized, and then retry the operation.</br> For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
 
 ### Fix the problem
 Ensure that the data disks have been initialized, and then retry the operation:
@@ -117,16 +117,16 @@ Ensure that the data disks have been initialized, and then retry the operation:
 If the problem persists, contact support.
 
 
-## Unable to see Azure VM for selection in 'Enable replication'
+## Unable to see Azure VM for selection in "enable replication"
 
-You might not see your Azure VM for selection in ['Enable replication - Step 2'] (./site-recovery-azure-to-azure.md#step-2---select-virtual-machines). This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
+You might not see your Azure VM for selection in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2.-select-virtual-machines). This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the resource group containing the Site Recovery vault without explicitly disabling replication on the VM.
 
 ### Fix the problem
 
-You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM in [Enable replication - Step 2](./site-recovery-azure-to-azure.md#step-2---select-virtual-machines) after removing the stale configuration.
+You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2.-select-virtual-machines) after removing the stale configuration.
 
 
 ## Next steps
