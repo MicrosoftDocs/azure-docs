@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/14/2017
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
@@ -34,6 +34,14 @@ Kafka provides the following features:
 * In-order delivery: Within each partition, records are stored in the stream in the order that they were received. By associating one consumer process per partition, you can guarantee that records are processed in-order.
 
 * Fault-tolerant: Partitions can be replicated between nodes to provide fault tolerance.
+
+* 99.99% SLA
+
+* Integration with Azure Managed Disks: Managed disks provides higher scale and throughput for the disks used by the virtual machines in the HDInsight cluster.
+
+    Managed disks are enabled by default for Kafka on HDInsight, and the number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
 
 ## Use cases
 
