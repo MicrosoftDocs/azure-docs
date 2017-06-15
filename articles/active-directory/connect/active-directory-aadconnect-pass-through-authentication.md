@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/12/2017
 ms.author: billmath
 ---
 
@@ -22,17 +22,18 @@ ms.author: billmath
 
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. This feature provides your users a better experience - one less password to remember, and reduces IT helpdesk costs because your users are less likely to forget how to sign in. When users sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.
 
-This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md), which provides the same benefit to organizations. However, security and compliance policies in certain organizations don't permit these organizations to send users' passwords, even in a hashed form, outside their internal boundaries. Pass-through Authentication is the right solution for such organizations.
+This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, security and compliance policies in certain organizations don't permit these organizations to send users' passwords, even in a hashed form, outside their internal boundaries. Pass-through Authentication is the right solution for such organizations.
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
-You can combine Pass-through Authentication with the [Seamless Single Sign-on](active-directory-aadconnect-sso.md) feature. This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
+You can combine Pass-through Authentication with the [Seamless Single Sign-On](active-directory-aadconnect-sso.md) feature. This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
 
 ## Key benefits of using Azure AD Pass-through Authentication
 
 - *Great user experience*
   - Users use the same passwords to sign into both on-premises and cloud-based applications.
   - Users spend less time talking to the IT helpdesk resolving password-related issues.
+  - Users can complete [self-service password management](../active-directory-passwords-overview.md) tasks in the cloud.
 - *Easy to deploy & administer*
   - No need for complex on-premises deployments or network configuration.
   - Needs just a lightweight agent to be installed on-premises.
@@ -40,7 +41,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-on](a
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
-  - Works seamlessly with Azure Multi-Factor Authentication (MFA).
+  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA).
 - *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 
@@ -56,8 +57,9 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-on](a
 - Installing multiple agents provides high availability of sign-in requests.
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
