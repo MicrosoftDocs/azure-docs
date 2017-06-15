@@ -305,8 +305,7 @@ You can build Resource Manager templates in any text editor. However, the Azure 
 
 Finally, you can convert existing resource groups into a reusable template from the Azure portal. This can be helpful if you want to create a deployable template of an existing resource group, or you just want to examine the underlying JSON. To export a resource group, select the **Automation Script** button from the resource group’s settings.
 
-Security of Azure resources (RBAC)
-----------------------------------
+## Security of Azure resources (RBAC)
 
 You can grant operational access to user accounts at a specified scope: subscription, resource group, or individual resource. This means you can deploy a set of resources into a resource group, such as a virtual machine and all related resources, and grant permissions to a specific user or group. This approach limits access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or a virtual network.
 
