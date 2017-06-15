@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with AnswerHub, you need the following items:
 
 - An Azure AD subscription
-- A AnswerHub single-sign on enabled subscription
+- An AnswerHub single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with AnswerHub, you need to comple
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a AnswerHub test user](#creating-a-answerhub-test-user)** - to have a counterpart of Britta Simon in AnswerHub that is linked to the Azure AD representation of user.
+3. **[Creating an AnswerHub test user](#creating-an-answerhub-test-user)** - to have a counterpart of Britta Simon in AnswerHub that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -108,14 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.demo.answerhub.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company>.demo.answerhub.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [AnswerHub Client support team](mailto:success@answerhub.com) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_certificate.png) 
 
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-answerhub-tutorial/tutorial_general_400.png)
 
-6. On the **AnswerHub Configuration** section, click **Configure AnswerHub** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **AnswerHub Configuration** section, click **Configure AnswerHub** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_configure.png) 
 
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
      b. In **IDP Logout URL** textbox, paste **Sign-Out URL** value which you have copied from Azure portal.
 	 
-     c. In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal under **User Attributes** section.
+     c. In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal in **User Attributes** section.
   
      d. Click **Keys and Certificates**.
 
@@ -196,7 +196,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a AnswerHub test user
+### Creating an AnswerHub test user
 
 To enable Azure AD users to log in to AnswerHub, they must be provisioned into AnswerHub.  
 In the case of AnswerHub, provisioning is a manual task.
