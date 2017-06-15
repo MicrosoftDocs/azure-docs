@@ -80,9 +80,10 @@ Output:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
-k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
-k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
-k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
+k8s-agent-98dc3136-0    Ready                      5m        v1.6.2
+k8s-agent-98dc3136-1    Ready                      5m        v1.6.2
+k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
 ## Next steps
