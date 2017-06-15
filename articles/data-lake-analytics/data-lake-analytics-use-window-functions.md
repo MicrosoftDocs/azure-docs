@@ -32,7 +32,7 @@ The window functions are categorized into:
 ## Sample datasets
 This tutorial uses two datasets:
 
-### The QueryLog Sample DataSet
+### QueryLog Sample DataSet
   
 QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
@@ -55,9 +55,9 @@ QueryLog represents a list of what people searched for in search engine. Each qu
     AS T(Query,Latency,Vertical);
 ```
 
-## The Employees Sample DataSet
+## Employees Sample DataSet
   
-The Employee dataset includes the following fields:
+The Employees dataset includes the following fields:
   
 * EmpID - Employee ID
 * EmpName - Employee name
@@ -260,7 +260,7 @@ The results:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-## Ranking Functions
+## Ranking functions
 Ranking functions return a ranking value (a LONG) for each row in each partition as defined by the PARTITION BY and OVER clauses. The ordering of the rank is controlled by the ORDER BY in the OVER clause.
 
 The following are supported ranking functions:
