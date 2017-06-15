@@ -32,6 +32,8 @@ ms.author: shlo
 
 The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
+> [!NOTE] If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](data-factory-introduction.md) and do the tutorial with step-by-step instructions [Build your first data pipeline](data-factory-buid-your-first-pipeline.md) before reading this article. 
+
 ## Syntax
 
 ```JSON

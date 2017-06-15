@@ -122,7 +122,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
             "clusterSize": 4,
             "timeToLive": "00:05:00",
             "osType": "linux",
-            "linkedServiceName": "StorageLinkedService"
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
