@@ -176,7 +176,6 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
 
 - Use the **copy /d** command. It allows the encrypted files to be saved as decrypted files at the destination.
 - Set the following registry key:
-
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Value type = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
