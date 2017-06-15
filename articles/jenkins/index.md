@@ -29,13 +29,13 @@ ms.author: mlearned
 <p>Below are guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Setting up CI/CD with Jenkins on a Linux VM.</a></li>
-    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, Kubernetes, and ACS.</a></li>
+    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes.</a></li>
     <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI as part of a Jenkins pipeline.</a></li>
     <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Use Azure Storage with Jenkins.</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
-<p>See below for additonal reference materials and tools for working with Jenkins on Azure.</p>
+<p>See the following for additional reference materials and tools for working with Jenkins on Azure.</p>
 <ul>
   <li>Azure Jenkins plugins:</li>
   <ul>
