@@ -149,7 +149,7 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 1. Open the *Contact.java* model file, which is located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code] or your favorite text editor. 
    
     ![Open Contact Model File][open-contact-model-file]
-2. Add the following constructor to the **Contact** class. 
+2. Add the following constructor within the **Contact** class. 
    
         public Contact(Integer id, String name, String email) 
         {
