@@ -14,7 +14,7 @@ ms.author: cahann
 
 # Prebuilt entities
 
-LUIS includes a set of pre-built entities. When a pre-built entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of pre-built entities **cannot** be modified. Unless otherwise noted, pre-built entities are available in all LUIS application locales (cultures). Below is a table of pre-built entities supported per culture.
+LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). Below is a table of prebuilt entities supported per culture.
 
 Pre-built entity   |   en-US   |   fr-FR   |   it-IT   |   es-ES   |   zh-CN   |   de-DE   |   pt-BR   |   ja-JP   |   ko-kr
 ------|------|------|------|------|------|------|------|------|------|
@@ -72,9 +72,14 @@ There are many ways in which numeric values are used to quantify, express, and d
 | two dozen | "two dozen" | "24" |
 
 
-LUIS includes the recognized value of a `builtin.number` entity in the `resolution` field.
+LUIS includes the recognized value of a **builtin.number** entity in the `resolution` field of the JSON response it returns.
 
-The following example shows a JSON response from LUIS, that includes the `resolution` of `24` for the utterance "two dozen".
+<!-- 
+> [!NOTE]
+> **builtin.number** resolution is a new feature.
+-->
+
+The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
 ```
 {
@@ -113,16 +118,16 @@ The following example shows a JSON response from LUIS, that includes the `resolu
 
 
 
-## Ordinal, percentage and currency entities
+## Ordinal, percentage and currency resolution
 
-The `builtin.ordinal`, `builtin.percentage`, and `builtin.currency` entities also provide resolution to a value.
+The **builtin.ordinal**, **builtin.percentage**, and **builtin.currency** entities also provide resolution to a value.
 <!--
 ![Image of Pre-built Entities in LUIS](media/number-prebuilt-entities.png)
 -->
 
 ### Percentage resolution
 
-The following example shows the resolution of the `builtin.percentage` entity.
+The following example shows the resolution of the **builtin.percentage** entity.
 
 ```
 {
@@ -170,7 +175,7 @@ The following example shows the resolution of the `builtin.percentage` entity.
 
 ### Ordinal resolution
 
-The following example shows the resolution of the `builtin.ordinal` entity.
+The following example shows the resolution of the **builtin.ordinal** entity.
 
 ```
 {
@@ -206,7 +211,7 @@ The following example shows the resolution of the `builtin.ordinal` entity.
 
 ### Currency resolution
 
-The following example shows the resolution of the `builtin.currency` entity.
+The following example shows the resolution of the **builtin.currency** entity.
 
 ```
 {
@@ -252,7 +257,7 @@ The following example shows the resolution of the `builtin.currency` entity.
 
 ## builtin.datetime
 
-The `builtin.datetime` pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, the `builtin.datetime` entity provides a resolution field that produces a machine-readable dictionary. 
+The **builtin.datetime** pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. 
 
 #### This pre-built entity has 3 subtypes:
 
@@ -279,7 +284,7 @@ builtin.datetime.set    |   every week   |```{ "entity": "every week", "type": "
 ## builtin.geography
 
 > [!NOTE]
-> `builtin.geography` is available only in the en-us locale.
+> **builtin.geography** is available only in the en-us locale.
 
 #### The builtin.geography built-in entity type has 3 sub-types:
 
@@ -295,7 +300,7 @@ builtin.geography.pointOfInterest   |   sahara desert|```{ "type": "builtin.geog
 ## builtin.encyclopedia
 
 > [!NOTE]
-> `builtin.encyclopedia` is available only in the en-US locale.
+> **builtin.encyclopedia** is available only in the en-US locale.
 
 ##### The builtin.encyclopedia built-in entity includes over 100 sub-types, listed below. In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 ```
