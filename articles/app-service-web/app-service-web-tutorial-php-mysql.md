@@ -43,8 +43,8 @@ To complete this tutorial:
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 * [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prepare local MySQL
 
@@ -150,7 +150,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
-```azurecli 
+```azurecli
 az login 
 ```
 ### Create a resource group
