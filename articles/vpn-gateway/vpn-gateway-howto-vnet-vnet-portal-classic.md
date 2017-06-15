@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
@@ -19,6 +19,8 @@ ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet connection (classic)
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
