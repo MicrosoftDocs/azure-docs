@@ -219,93 +219,97 @@ A collection expression may be collection-scoped or document-scoped:
   
 **Joins**  
   
-In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming. Inner join results in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.  
+In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming.
+
+Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.  
   
-The evaluation of join depends on the context scoping of the participating sets:  
+The evaluation of the join depends on the context scope of the participating sets:  
   
--   Join between collection-set A and collection-scoped set B, will result in a cross product of all elements in sets A and B.  
+-  A join between collection-set A and collection-scoped set B, results in a cross product of all elements in sets A and B.
   
--   Join between set A and document-scoped set B, will result in result in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
+-   A join between set A and document-scoped set B, results in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
   
- In the current release, at most one collection-scoped expression is supported by the query processor.  
+ In the current release, a maximum of one collection-scoped expression is supported by the query processor.  
   
  **Examples of joins:**  
   
  Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Let each source define `input_alias1, input_alias2, …, input_aliasN`. This from clause will return a set of N-tuples (tuple with N values). Each tuple will have values produced by iterating all collection aliases over their respective sets.  
+ Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all collection aliases over their respective sets.  
   
  *JOIN example 1, with 2 sources:*  
   
- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
- Let `<from_source2>` be document-scoped referencing input_alias1 and represent sets:  
+- Let `<from_source2>` be document-scoped referencing input_alias1 and represent sets:  
   
- {1, 2} for `input_alias1 = A,`  
+    {1, 2} for `input_alias1 = A,`  
   
- {3} for `input_alias1 = B,`  
+    {3} for `input_alias1 = B,`  
   
- {4, 5} for `input_alias1 = C,`  
+    {4, 5} for `input_alias1 = C,`  
   
- The FROM clause `<from_source1> JOIN <from_source2>` will result in the following tuples:  
+- The FROM clause `<from_source1> JOIN <from_source2>` will result in the following tuples:  
   
- (`input_alias1, input_alias2`):  
+    (`input_alias1, input_alias2`):  
   
- `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
+    `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
  *JOIN example 2, with 3 sources:*  
   
- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
- Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
+- Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
   
- {1, 2} for `input_alias1 = A,`  
+    {1, 2} for `input_alias1 = A,`  
   
- {3} for `input_alias1 = B,`  
+    {3} for `input_alias1 = B,`  
   
- {4, 5} for `input_alias1 = C,`  
+    {4, 5} for `input_alias1 = C,`  
   
- Let `<from_source3>` be document-scoped referencing `input_alias2` and represent sets:  
+- Let `<from_source3>` be document-scoped referencing `input_alias2` and represent sets:  
   
- {100, 200} for `input_alias2 = 1,`  
+    {100, 200} for `input_alias2 = 1,`  
   
- {300} for `input_alias2 = 3,`  
+    {300} for `input_alias2 = 3,`  
   
- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
+- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
   
- (input_alias1, input_alias2, input_alias3):  
+    (input_alias1, input_alias2, input_alias3):  
   
- (A, 1, 100), (A, 1, 200), (B, 3, 300)  
+    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
- Note: lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
+> [!NOTE]
+> Lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
   
  *JOIN example 3, with 3 sources:*  
   
- Let <from_source1> be collection-scoped and represent set {A, B, C}.  
+- Let <from_source1> be collection-scoped and represent set {A, B, C}.  
   
- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
- Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
+- Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
   
- {1, 2} for `input_alias1 = A,`  
+    {1, 2} for `input_alias1 = A,`  
   
- {3} for `input_alias1 = B,`  
+    {3} for `input_alias1 = B,`  
   
- {4, 5} for `input_alias1 = C,`  
+    {4, 5} for `input_alias1 = C,`  
   
- Let `<from_source3>` be scoped to `input_alias1` and represent sets:  
+- Let `<from_source3>` be scoped to `input_alias1` and represent sets:  
   
- {100, 200} for `input_alias2 = A,`  
+    {100, 200} for `input_alias2 = A,`  
   
- {300} for `input_alias2 = C,`  
+    {300} for `input_alias2 = C,`  
   
- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
+- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
   
- (`input_alias1, input_alias2, input_alias3`):  
+    (`input_alias1, input_alias2, input_alias3`):  
   
- (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
   
- Note: This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
+> [!NOTE]
+> This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
   
  **See also**  
   
@@ -477,7 +481,7 @@ ORDER BY <sort_specification>
 |**Category**|**Details**|  
 |-|-|  
 |**arithmetic**|Operator expects input(s) to be Number(s). Output is also a Number. If any of the inputs is **undefined** or type other than Number then the result is **undefined**.|  
-|**bitwise**|Operator expects input(s) to be 32-bit signed integer Number(s). Output is also 32-bit signed integer Number.<br /><br /> Any non-integer value will be rounded. Positive value will be rounded down, negative values rounded up.<br /><br /> Any value that is outside of the 32-bit integer range will be converted, by taking last 32-bits of its two's complement notation.<br /><br /> If any of the inputs is **undefined** or type other than Number, then the result is **undefined**.<br /><br /> Note: The above behavior is compatible with JavaScript bitwise operator behavior.|  
+|**bitwise**|Operator expects input(s) to be 32-bit signed integer Number(s). Output is also 32-bit signed integer Number.<br /><br /> Any non-integer value will be rounded. Positive value will be rounded down, negative values rounded up.<br /><br /> Any value that is outside of the 32-bit integer range will be converted, by taking last 32-bits of its two's complement notation.<br /><br /> If any of the inputs is **undefined** or type other than Number, then the result is **undefined**.<br /><br /> **Note:** The above behavior is compatible with JavaScript bitwise operator behavior.|  
 |**logical**|Operator expects input(s) to be Boolean(s). Output is also a Boolean.<br />If any of the inputs is **undefined** or type other than Boolean, then the result will be **undefined**.|  
 |**comparison**|Operator expects input(s) to have the same type and not be undefined. Output is a Boolean.<br /><br /> If any of the inputs is **undefined** or the inputs have different types, then the result is **undefined**.<br /><br /> See **Ordering of values for comparison** table for value ordering details.|  
 |**string**|Operator expects input(s) to be String(s). Output is also a String.<br />If any of the inputs is **undefined** or type other than String then the result is **undefined**.|  
@@ -2760,7 +2764,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## See Also  
+## Next steps  
  [SQL syntax and SQL query for Azure Cosmos DB](documentdb-sql-query.md)   
  [Azure Cosmos DB documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
