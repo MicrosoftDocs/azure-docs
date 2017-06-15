@@ -24,7 +24,7 @@ ms.author: nkolli;trinadhk;anuragm;markgal
 >
 >
 
-This article shows you how to use PowerShell to setup a classic deployment of Azure Backup on a DPM server. This article explains how to manage backup and recovery of data to a backup vault. If you are a new Azure Backup user, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-dpm-automation.md), so you store your data in a Recovery Services vault.
+This article explains how use PowerShell to back up and recover DPM data from a backup vault. Microsoft recommends using Recovery Services vaults for all new deployments. If you are a new Azure Backup user, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-dpm-automation.md), so you store your data in a Recovery Services vault.
 
 > [!IMPORTANT]
 > You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults. **Starting November 1, 2017**:

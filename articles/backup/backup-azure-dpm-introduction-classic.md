@@ -58,7 +58,7 @@ After the snapshot has been taken, the data is transferred by the Azure Backup s
 ## Prerequisites
 Prepare Azure Backup to back up DPM data as follows:
 
-1. **Create a Backup vault**. If you don't already a Backup vault in your subscription, see the Azure portal version of this article - [Prepare to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md).
+1. **Create a Backup vault**. If you haven't created a Backup vault in your subscription, see the Azure portal version of this article - [Prepare to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md).
 
   > [!IMPORTANT]
   > Starting March 2017, you can no longer use the classic portal to create Backup vaults.
