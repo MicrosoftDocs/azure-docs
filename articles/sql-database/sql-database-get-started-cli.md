@@ -33,7 +33,7 @@ This quick start requires the Azure CLI version 2.0.4 or later. Run `az --versio
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
