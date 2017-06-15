@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure File storage problems in Windows | Microsoft Docs
-description: Troubleshooting Azure File storage issues in Windows
+description: Troubleshooting Azure File storage problems in Windows
 services: storage
 documentationcenter: ''
 author: genlin
@@ -19,12 +19,12 @@ ms.author: genli
 ---
 # Troubleshoot Azure File storage problems in Windows
 
-This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes of and resolutions for these problems.
+This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes and resolutions for these problems.
 
 <a id="error53-67-87"></a>
-##  Error 53, Error 67, or Error 87 when you mount or unmount an Azure File Share
+##  Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
 
-When you try to mount a file share from on-premises or from a different data center, you may receive the following errors:
+When you try to mount a file share from on-premises or from a different datacenter, you might receive the following errors:
 
 - System error 53 has occurred. The network path was not found
 - System error 67 has occurred. The network name cannot be found
@@ -32,34 +32,35 @@ When you try to mount a file share from on-premises or from a different data cen
 
 ### Cause 1: Unencrypted communication channel
 
-For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which the Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption.
+For security reasons, connections to Azure file shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same datacenter on which the Azure file shares reside. Communication channel encryption is provided only if the user’s client OS supports SMB encryption.
+
 Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
 
-### Solution for Cause 1
+### Solution for cause 1
 
-Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connects from a virtual machine that is on the same data center as the Azure Storage account that is used for the Azure File share.
+Connect from a client that meets the requirements of Windows 8 and Windows Server 2012 or later versions, or that connects from a virtual machine that is on the same datacenter as the Azure storage account that is used for the Azure file share.
 
 ### Cause 2: Port 445 is blocked
 
-System Error 53 or System Error 67 can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
+System error 53 or System error 67 can occur if port 445 outbound communication to Azure File storage datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 To understand whether this is the reason behind the "System Error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-If the TCP 445 is blocked by a rule along the network path, you will see the following output:
+If TCP port 445 is blocked by a rule along the network path, you will see the following output:
 
   **TCP port 445 (microsoft-ds service): FILTERED**
 
 For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
 
-### Solution for Cause 2
+### Solution for cause 2
 
-Work with your IT department to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+Work with your IT department to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Cause 3 NTLMv1 is enabled
 
-System Error 53 or System error 87 can also be received if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+System Error 53 or System error 87 can also be received if NTLMv1 communication is enabled on the client. Azure File storage supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure File storage. To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -67,7 +68,7 @@ For more information, see the [LmCompatibilityLevel](https://technet.microsoft.c
 
 ### Solution for Cause 3
 
-To resolve this issue, revert the **LmCompatibilityLevel** value to the default value of 3 in the following registry subkey:
+To resolve this problem, revert the **LmCompatibilityLevel** value to the default value of 3 in the following registry subkey:
 
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
@@ -83,12 +84,12 @@ The problem occurs because you have reached the upper limit of concurrent open h
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure file storage on Windows
+## Slow file copying to and from Azure File storage on Windows
 
-You may see slow performance when you try to transfer files to the Azure File service.
+You might see slow performance when you try to transfer files to the Azure File service.
 
 -	 If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
+-	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
 -	Use the right copy method:
 
   -	Use AZCopy for any transfer between two file shares. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md#file-copy) for more details.
@@ -129,7 +130,7 @@ The net use command interprets a forward slash ( / ) as a command-line option. I
 
 ### Solution
 
-You can use either of the following steps to work around the issue:
+You can use either of the following steps to work around the problem:
 
 - Run the following PowerShell command:
 
@@ -139,10 +140,10 @@ From a batch file this can be done as the following:
 
 `Echo new-smbMapping ... | powershell -command –`
 
-- Put double quotation marks around the key to work around this issue — unless "/" is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with the forward slash (/) character.
+- Put double quotation marks around the key to work around this problem — unless "/" is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with the forward slash (/) character.
 
 <a id="cannotaccess"></a>
-## Application or service cannot access mounted Azure Files drive
+## Application or service cannot access mounted Azure File storage drive
 
 ### Cause
 
@@ -156,16 +157,16 @@ One of the following solutions can be user:
 
 - Another option for net use is to pass in the storage account name and key in the user name and password parameters of the net use command.
 
-After you follow these instructions, you may receive the following error message: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated" when you run net use for the system/network service account. If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
+After you follow these instructions, you might receive the following error message: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated" when you run net use for the system/network service account. If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
 
 <a id="doesnotsupportencryption"></a>
 ## Error "You are copying a file to a destination that does not support encryption"
 
-In order to copy a file over the network, the file is decrypted on the source computer, transmitted in plain-text, and re-encrypted on the destination. However, you may see the following error when trying to copy an encrypted file:
+In order to copy a file over the network, the file is decrypted on the source computer, transmitted in plain-text, and re-encrypted on the destination. However, you might see the following error when trying to copy an encrypted file:
 You are copying the file to a destination that does not support encryption
 
 ### Cause
-This can occur if you are using Encrypted File System (EFS). Bitlocker-encrypted files can be copied to Azure Files. However, Azure File storage does not support NTFS EFS.
+This can occur if you are using Encrypted File System (EFS). Bitlocker-encrypted files can be copied to Azure File storage. However, Azure File storage does not support NTFS EFS.
 
 ### Workaround
 To copy a file over the network, you must first decrypt it. You can do this by using one of the following methods:
@@ -181,4 +182,4 @@ To copy a file over the network, you must first decrypt it. You can do this by u
 However, be aware that setting the registry key affects all copy operations that are made to network shares.
 
 ## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

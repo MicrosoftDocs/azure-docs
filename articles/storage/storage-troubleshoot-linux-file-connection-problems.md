@@ -76,15 +76,15 @@ You can work around this problem by specifying a hard mount. This forces the cli
 If you cannot upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
 <a id="error115"></a>
-## "Mount error(115): Operation now in progress" when you mount Azure files by using SMB 3.0
+## "Mount error(115): Operation now in progress" when you mount Azure File storage by using SMB 3.0
 
 ### Cause
 
-Linux distributions do not yet support encryption features in SMB 3.0. In some distributions, users might receive a "115" error message if they try to mount Azure files by using SMB 3.0 because of a missing feature.
+Linux distributions do not yet support encryption features in SMB 3.0. In some distributions, users might receive a "115" error message if they try to mount Azure File storage by using SMB 3.0 because of a missing feature.
 
 ### Solution
 
-If the Linux SMB client does not support encryption, mount Azure files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+If the Linux SMB client does not support encryption, mount Azure File storage by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on Linux VM
@@ -103,7 +103,7 @@ You can also check whether the correct options are being used by running the  **
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-If the **cache=strict** or **serverino** option is not present, unmount and mount Azure files again by running the mount command from the [documentation](storage-how-to-use-files-linux.md#mount-the-file-share). Then, recheck that the **/etc/fstab** entry has the correct options.
+If the **cache=strict** or **serverino** option is not present, unmount and mount Azure File storage again by running the mount command from the [documentation](storage-how-to-use-files-linux.md#mount-the-file-share). Then, recheck that the **/etc/fstab** entry has the correct options.
 
 <a id="error11"></a>
 ## "Mount error(11): Resource temporarily unavailable" when you're mounting to an Ubuntu 4.8 kernel
