@@ -48,12 +48,10 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. 
-
-The following example creates a registry with a randomly generate name.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry must be unique, update the name below with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
 ```
 
 ## Get ACR information 
@@ -81,8 +79,6 @@ az acr credential show --name <acrName> --query passwords[0].value -o tsv
 ## Container registry login
 
 You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation.
-
-The following example uses the previously created variables.
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
