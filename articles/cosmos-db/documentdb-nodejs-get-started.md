@@ -89,7 +89,7 @@ Then, copy and paste the code snippet below and set properties ```config.endpoin
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.authKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) rather than adding the document definitions.
+Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) rather than adding the document definitions.
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -611,7 +611,7 @@ Install the **documentdb** module via npm. Use the following command:
 
 * ```npm install documentdb --save```
 
-Next, in the ```config.js``` file, update the config.endpoint and config.authKey values as described in [Step 3: Set your app's configurations](#Config). 
+Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config). 
 
 Then in your terminal, locate your ```app.js``` file and run the command: ```node app.js```.
 
