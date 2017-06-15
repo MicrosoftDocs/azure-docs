@@ -11,7 +11,7 @@
 ### [Install the Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index)
 
-## [Subscriptions]((azure-operations-guide.md#azure-subscriptions)
+## [Subscriptions](azure-operations-guide.md#azure-subscriptions)
 ### [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Gain insights into your resource consumption](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Online pricing calculator](http://azure.microsoft.com/pricing/calculator)
