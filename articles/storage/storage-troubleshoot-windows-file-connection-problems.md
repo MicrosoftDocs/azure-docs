@@ -141,7 +141,7 @@ You can use either of the following steps to work around the problem:
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
 
-  From a batch file, this can be done as the following:
+  From a batch file, you can run the command this way:
 
   `Echo new-smbMapping ... | powershell -command –`
 
@@ -175,7 +175,7 @@ This problem can occur if you are using Encrypting File System (EFS). BitLocker-
 ### Workaround
 To copy a file over the network, you must first decrypt it. Use one of the following methods:
 
-- Use the **copy /d** command. It allows the encrypted files that are being copied to be saved as decrypted files at the destination.
+- Use the **copy /d** command. It allows the encrypted files to be saved as decrypted files at the destination.
 - Set the following registry key:
 
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
