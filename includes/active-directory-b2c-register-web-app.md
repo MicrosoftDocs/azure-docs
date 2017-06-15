@@ -6,10 +6,10 @@ To register your web application, use the settings specified in the table.
 
 | Setting      | Sample value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Name** | Contoso B2C web app | Enter a **Name** for the application that describes your application to consumers. | 
+| **Name** | Contoso B2C app | Enter a **Name** for the application that describes your application to consumers. | 
 | **Include web app / web API** | Yes | Select **Yes** for a web application. |
 | **Allow implicit flow** | Yes | Select **Yes** if your application uses [OpenID Connect sign-in](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
-| **Reply URL** | `https://contoso.com/b2capp` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your application requests. |
+| **Reply URL** | `https://localhost:44316` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your application requests. Enter [a proper](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app/api-reply-url) for the **Reply URLs**. In this example, your app is local and listening on port 44316. |
 
 Click **Create** to register your application.
 
