@@ -39,6 +39,7 @@ Install the following NuGet packages:
 ## Common variables
 
 ```
+string subId = "<Subscription ID>";
 string tenantId = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
 string rg == "<value>"; // resource  group name
 string clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID for interactive auth
@@ -56,9 +57,10 @@ The following snippet shows the easiest authentication by the user providing cre
 // User login via interactive popup
 // Use the client ID of an existing AAD "native nlient" application.
 SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+var uri = new Uri("urn:ietf:wg:oauth:2.0:oob");
 var activeDirectoryClientSettings = 
-    ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-var creds = UserTokenProvider.LoginWithPromptAsync(_tenantId, activeDirectoryClientSettings).Result;
+    ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, uri );
+var creds = UserTokenProvider.LoginWithPromptAsync( tenantId, activeDirectoryClientSettings).Result;
 ```
 We recommend creating your own application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the sample ID used here.
 
@@ -91,10 +93,10 @@ var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantId, c
 
 ```
 var adlsClient = new DataLakeStoreAccountManagementClient(creds);
-adlsClient.SubscriptionId = <Subscription-ID>;
+adlsClient.SubscriptionId = subId;
 
 var adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-adlaClient.SubscriptionId = <Subscription-ID>;
+adlaClient.SubscriptionId = subId;
 
 var adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 var adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(creds);
@@ -128,13 +130,14 @@ For any Data Lake Analytics account, you only need to include the Data Lake Stor
 ```
 var adlaAccount = new DataLakeAnalyticsAccount()
 {
-   DefaultDataLakeStoreAccount = “Accounting”,
-   Location = _location,
+   DefaultDataLakeStoreAccount = adls,
+   Location = location,
    DataLakeStoreAccounts = new DataLakeStoreAccountInfo[]{
        new DataLakeStoreAccountInfo(“Expenditures”),
        new DataLakeStoreAccountInfo(“Accounting”)
    }
 };
+
 adlaClient.Account.Create(_resourceGroupName, newAccountName, adlaAccount);
 ```
 
@@ -147,14 +150,13 @@ The following code lists the Data Lake Store accounts in a subscription. List op
 var adlsAccounts = adlsClient.Account.List().ToList();
 foreach (var adls in adlsAccounts)
 {
-  Console.WriteLine($"\t{adls.Name});
-
+   Console.WriteLine($"\t{adls.Name});
 }
 
 var adlaAccounts = adlaClient.Account.List().ToList();
 for (var adla in AdlaAccounts)
 {
-  Console.WriteLine($"\t{adla.Name}");
+   Console.WriteLine($"\t{adla.Name}");
 }
 ```
 
@@ -165,8 +167,8 @@ The following code uses a DataLakeAnalyticsAccountManagementClient to get a Data
 DataLakeAnalyticsAccount adlaGet;
 if (adlaClient.Account.Exists(_resourceGroupName, accountName))
 {
-  adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
-  Console.WriteLine($"{adlaGet.Name}\tCreated: {adlaGet.CreationTime}");
+   adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
+   Console.WriteLine($"{adlaGet.Name}\tCreated: {adlaGet.CreationTime}");
 }
 ```
 
@@ -178,12 +180,8 @@ The following code deletes a Data Lake Analytics account if it exists.
 ```
 if (adlaClient.Account.Exists(_resourceGroupName, accountName))
 {
-  adlaClient.Account.Delete(_resourceGroupName, accountName);
-  Console.WriteLine($"{accountName} Deleted");
-}
-else
-{
-  Console.WriteLine($"{accountName} does not exist.");
+   adlaClient.Account.Delete(_resourceGroupName, accountName);
+   Console.WriteLine($"{accountName} Deleted");
 }
 ```
 
@@ -193,9 +191,9 @@ You can also delete a Data Lake Store account in the same way with a DataLakeSto
 Every Data Lake Analytics account requires a default Data Lake Store account. Use this code to determine the default Store account for an Analytics account.
 
 ```
-if (adlaClient.Account.Exists(_resourceGroupName, accountName))
+if (adlaClient.Account.Exists(_resourceGroupName, adla))
 {
-  var adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
+  var adlaGet = adlaClient.Account.Get(_resourceGroupName, adla);
   Console.WriteLine($"{adlaGet.Name} default DL store account: {adlaGet.DefaultDataLakeStoreAccount}");
 }
 ```
@@ -215,29 +213,28 @@ You can create links to Azure Storage accounts.
 
 ```
 var addParams = new AddStorageAccountParameters(<storage key value>);            
-adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
+adlaClient.StorageAccounts.Add(rg, adla, "<Azure Storage Account Name>", addParams);
 ```
 
 ### List Data Lake Store data sources
 The following code lists the Data Lake Store accounts and the Azure Storage accounts used for a specified Data Lake Analytics account.
 
 ```
-var sAccnts = adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
+var stg_accounts = adlaClient.StorageAccounts.ListByAccount(rg, adla);
 
-if (sAccnts != null)
+if (stg_accounts != null)
 {
   Console.WriteLine("Azure Storage accounts:");
-  foreach (var a in sAccnts)
+  foreach (var stg_account in stg_accounts)
   {
-      Console.WriteLine($"\t{a.Name}");
+      Console.WriteLine($"\t{stg_account.Name}");
   }
 }
 
-var stores = adlsClient.Account.List();
-if (stores != null)
+var adls_accounts = adlsClient.Account.List();
+if (adls_accounts != null)
 {
-  Console.WriteLine("\nData stores:");
-  foreach (var s in stores)
+  foreach (var s in adls_accounts)
   {
       Console.WriteLine($"\t{s.Name}");
   }
@@ -258,7 +255,7 @@ The following example shows how to download a folder in the Data Lake Store.
 
 
 ```
-adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
+adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
 
 
@@ -282,18 +279,6 @@ using (var azMem = new MemoryStream())
 
       adlsFileSystemClient.FileSystem.Create(adlsAccoutName, "/Samples/Output/randombytes.csv", azMem);
    }
-}
-```
-### List blob containers of an Azure Storage account
-The following code lists the containers for a specified Azure Storage account.
-
-```
-string ADLAName = "<specify Data Lake Analytics account name>";
-string azStorageName = "<specify Azure Storage account name>";
-var containers = adlaClient.StorageAccounts.ListStorageContainers(_resourceGroupName, ADLAName, azStorageName);
-foreach (var c in containers)
-{
- Console.WriteLine(c.Name);
 }
 ```
 
@@ -356,11 +341,11 @@ foreach (USqlTableColumn utc in columns)
 The following code lists information about jobs that failed.
 
 ```
-var jobs = adlaJobClient.Job.List(adlaClient,
-  new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" });
+var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
+var jobs = adlaJobClient.Job.List(adlaClient, odq );
 foreach (var j in jobs)
 {
-  Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
+   Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
 }
 ```
 
