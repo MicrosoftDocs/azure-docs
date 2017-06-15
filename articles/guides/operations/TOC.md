@@ -1,4 +1,4 @@
-﻿# [Get started with Azure](azure-operations-guide.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+﻿# Get started with Azure
 ## [Cloud computing overview](azure-operations-guide.md#cloud-computing-overview)
 ### [Azure regions](https://azure.microsoft.com/regions/)
 ## [Types of cloud computing](azure-operations-guide.md#types-of-cloud-computing)
@@ -97,6 +97,6 @@
 ### [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Virtual networking tutorials
 #### [Load balance VMs](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Connect a computer to a virtual network](../../virtual-networks/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Connect a computer to a virtual network](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Next steps](azure-operations-guide.md#next-steps)
