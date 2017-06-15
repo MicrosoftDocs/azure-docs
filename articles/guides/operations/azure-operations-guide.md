@@ -180,7 +180,7 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
 
 
-## Getting started with Azure subscriptions
+## Azure subscriptions
 
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
