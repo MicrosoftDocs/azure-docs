@@ -26,7 +26,7 @@ ms.author: mlearned
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
 </ol>
 <h2 style="margin-top: 36px">CI/CD with Jenkins on Azure</h2>
-<p>Below are guides to integrate Jenkins with Azure tools and services.</p> 
+<p>Use the following guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Setting up CI/CD with Jenkins on a Linux VM.</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes.</a></li>
