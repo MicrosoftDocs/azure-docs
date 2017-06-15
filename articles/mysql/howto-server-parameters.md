@@ -28,8 +28,8 @@ Login to Azure portal, then click on your MySQL server name. Under **SETTINGS** 
 
 Below you can find a list of currently supported server parameters that can be configured easily according to your application demands.
 
-<table width="100%" border="1" cellspacing="10" cellpadding="10">
-  <th align="left"><strong>Parameter Name</strong>
+<table table-layout="auto" border-collapse="collapse" width="100%">
+  <th align="left"><strong>Parameter Name</strong>
     </td>
   <th align="left"><strong>Default Value</strong>
     </td>
