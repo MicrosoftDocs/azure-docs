@@ -41,11 +41,10 @@ To complete this tutorial:
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Prepare local MySQL
 
@@ -660,7 +659,7 @@ The left menu provides pages for configuring your app.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
 
