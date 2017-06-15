@@ -37,7 +37,7 @@ SQL Database delivers predictable performance at multiple service levels that pr
 > See [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 >
 
-## Scalable database performance with resource sharing pools
+## Scalable performance and pools
 
 With SQL Database, each database is isolated from each other and portable, each with its own [service tier](sql-database-service-tiers.md) with a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
@@ -71,7 +71,7 @@ Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-m
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## Global scalability and high availability capabilities
+## Availability capabilities
 
 Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. In addition, SQL Database provides built-in [business continuity and global scalability](sql-database-business-continuity.md) features, including:
 
@@ -80,7 +80,7 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 - **[Active geo-replication](sql-database-geo-replication-overview.md)**: SQL Database allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale and remove bottlenecks on the primary that are due to read workloads. 
 - **[Failover groups](sql-database-geo-replication-overview.md)**: SQL Database allows you to enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. Failover groups and active geo-replication enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
 
-## Intelligent performance optimization and security
+## Built-in intelligence
 
 With SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
 
@@ -103,7 +103,7 @@ We are also adding the adaptive query processing family of features to SQL Datab
 
  [SQL Threat Detection](sql-database-threat-detection.md) leverages [SQL Database auditing](sql-database-auditing.md) to continuously monitor Azure SQL databases for potentially harmful attempts to access sensitive data. SQL threat detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive alerts upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, and anomalous database access patterns. SQL threat detection alerts provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Users can explore the suspicious events to determine if the event results from an attempt to access, breach, or exploit data in the database. Threat detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
-## Advanced security and compliance capabilities
+## Advanced security and compliance
 
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
 
@@ -135,7 +135,7 @@ SQL Database enables you to centrally manage identities of database user and oth
 
 SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
-## Familiar, easy-to-use tools management and development tools
+## Easy-to-use tools
 
 SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. You can manage and develop in SQL Database using tools and skills you already have.
 
