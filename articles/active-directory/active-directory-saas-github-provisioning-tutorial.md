@@ -62,13 +62,13 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 4)	Set the **Provisioning Mode** to **Automatic**.
 
-![GitHub Provisioning](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.PNG)
+![GitHub Provisioning](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.png)
 
 5)	Under the **Admin Credentials** section, click **Authorize**. This opens a GitHub authorization dialog in a new browser window. 
 
 6) In the new window, sign into GitHub using your Team Admin account. in the resulting authorization dialog, select the GitHub team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.PNG)
+![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
 7) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Team Admin permissions and try the "Authorize" step again.
 
