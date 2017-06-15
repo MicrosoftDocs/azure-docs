@@ -75,7 +75,7 @@ acrLoginServer=$(az acr list --query [0].loginServer -o tsv)
 ACR Password:
 
 ```bash
-acrPassword = $(az acr credential show --name $acrName --query passwords[0].value -o tsv)
+acrPassword=$(az acr credential show --name $acrName --query passwords[0].value -o tsv)
 ```
 
 ## Container registry login
@@ -119,7 +119,7 @@ docker tag azure-vote-front $acrLoginServer/azure-vote-front:v1
 Do the same to the *azure-vote-back* image.
 
 ```bash
-docker tag azure-vote-front $acrLoginServer/azure-vote-back:v1
+docker tag azure-vote-back $acrLoginServer/azure-vote-back:v1
 ```
 
 Once tagged, run `docker images` to verify the operation.
