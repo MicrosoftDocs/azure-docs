@@ -34,46 +34,19 @@ You will learn:
 
 ## How Azure Relay helps with hybrid solutions
 
-Business solutions are typically composed of a combination of custom
-code written to tackle new and unique business requirements and existing
-functionality provided by solutions and systems that are already in
-place.
+Business solutions are typically composed of a combination of custom code written to tackle new and unique business requirements and existing functionality provided by solutions and systems that are already in place.
 
-Solution architects are starting to use the cloud for easier handling of
-scale requirements and lower operational costs. In doing so, they find
-that existing service assets they'd like to leverage as building blocks
-for their solutions are inside the corporate firewall and out of easy
-reach for access by the cloud solution. Many internal services are not
-built or hosted in a way that they can be easily exposed at the
-corporate network edge.
+Solution architects are starting to use the cloud for easier handling of scale requirements and lower operational costs. In doing so, they find that existing service assets they'd like to leverage as building blocks for their solutions are inside the corporate firewall and out of easy reach for access by the cloud solution. Many internal services are not built or hosted in a way that they can be easily exposed at the corporate network edge.
 
 [Azure Relay](https://azure.microsoft.com/services/service-bus/) is designed for the use-case of taking existing
-Windows Communication Foundation (WCF) web services and making those
-services securely accessible to solutions that reside outside the
-corporate perimeter without requiring intrusive changes to the corporate
-network infrastructure. Such relay services are still hosted
-inside their existing environment, but they delegate listening for
-incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
+Windows Communication Foundation (WCF) web services and making those services securely accessible to solutions that reside outside the corporate perimeter without requiring intrusive changes to the corporate network infrastructure. Such relay services are still hosted inside their existing environment, but they delegate listening for incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
 
 ## Solution scenario
 In this tutorial, you will create an ASP.NET website that enables you to see a list of products on the product inventory page.
 
 ![][0]
 
-The tutorial assumes that you have product information in an existing
-on-premises system, and uses Azure Relay to reach into that
-system. This is simulated by a web service that runs in a simple
-console application and is backed by an in-memory set of products. You
-will be able to run this console application on your own computer and
-deploy the web role into Azure. By doing so, you will see how
-the web role running in the Azure datacenter will indeed call
-into your computer, even though your computer will almost certainly
-reside behind at least one firewall and a network address translation
-(NAT) layer.
-
-The following is a screen shot of the start page of the completed web application.
-
-![][1]
+The tutorial assumes that you have product information in an existing on-premises system, and uses Azure Relay to reach into that system. This is simulated by a web service that runs in a simple console application and is backed by an in-memory set of products. You will be able to run this console application on your own computer and deploy the web role into Azure. By doing so, you will see how the web role running in the Azure datacenter will indeed call into your computer, even though your computer will almost certainly reside behind at least one firewall and a network address translation (NAT) layer.
 
 ## Set up the development environment
 
@@ -93,10 +66,7 @@ To begin using the relay features in Azure, you must first create a service name
 
 ## Create an on-premises server
 
-First, you will build a (mock) on-premises product catalog system. It
-will be fairly simple; you can see this as representing an actual
-on-premises product catalog system with a complete service surface that
-we're trying to integrate.
+First, you will build a (mock) on-premises product catalog system. It will be fairly simple; you can see this as representing an actual on-premises product catalog system with a complete service surface that we're trying to integrate.
 
 This project is a Visual Studio console application, and uses the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) to include the Service Bus libraries and configuration settings.
 
