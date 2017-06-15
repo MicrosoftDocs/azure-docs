@@ -53,7 +53,7 @@ To understand whether this is the reason behind the "System error 53" message, y
 
 If TCP port 445 is blocked by a rule along the network path, you will see the following output:
 
-  **TCP port 445 (microsoft-ds service): FILTERED**
+  `TCP port 445 (microsoft-ds service): FILTERED`
 
 For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
 
@@ -109,7 +109,7 @@ You can run the following script to check whether the hotfix has been installed:
 
 If hotfix is installed, the following output is displayed:
 
-**HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1**
+`HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
 
 > [!Note]
 > Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
@@ -159,7 +159,6 @@ Drives are mounted per user. If your application or service is running under a d
 Use one of the following solutions:
 
 -	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
-
 - Pass the storage account name and key in the user name and password parameters of the net use command.
 
 After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
