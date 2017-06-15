@@ -19,7 +19,7 @@ ms.author: cynthn
 
 # Use Azure File Shares with Windows VMs 
 
-You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all of your VMs to share. In this topic, we will show you how to create and mount an Azure file share, and how to upload and download files.
+You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all your VMs to share. In this topic, we show you how to create and mount an Azure file share, and how to upload and download files.
 
 ## Connect to a file share from a VM
 
@@ -30,12 +30,12 @@ This section assumes you already have a file share that you want to connect to. 
 3. Choose your storage account.
 4. In the **Overview** page, under **Services**, select **Files**.
 5. Select a file share.
-6. Click **Connect** to open a page that shows the command line syntax for mounting the file share from Windows or Linux.
-7. Hightlight the syntax of the command and paste it into Notepad or someplace else where you can easily access it. 
+6. Click **Connect** to open a page that shows the command-line syntax for mounting the file share from Windows or Linux.
+7. Highlight the syntax of the command and paste it into Notepad or someplace else where you can easily access it. 
 8. Edit the syntax to remove the leading **> ** and replace *[drive letter]* with the drive letter (for example, **Y:**) where you would like to mount the file share.
 8. Connect to your VM and open a command prompt.
 9. Paste in the edited connection syntax and hit **Enter**.
-10. When the connection has been created, you will get the message **The command completed successfully.**
+10. When the connection has been created, you get the message **The command completed successfully.**
 11. Check the connection by typing in the drive letter to switch to that drive and then type **dir** to see the contents of the file share.
 
 
@@ -47,7 +47,7 @@ This section assumes you already have a file share that you want to connect to. 
 4. In the **Overview** page, under **Services**, select **Files**.
 5. In the File Service page, click **+ File share** to create your first file share.\
 6. Fill in the file share name. File share names can use lowercase letters, numbers and single hyphens. The name cannot start with a hyphen and you can't use multiple, consecutive hyphens. 
-7. Fill in a limit on how large the file can be, up to up to 5120 GB.
+7. Fill in a limit on how large the file can be, up to 5120 GB.
 8. Click **OK** to deploy the file share.
    
 ## Upload files
