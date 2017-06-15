@@ -162,7 +162,7 @@ The following image shows the details of a successful connection:
 
 ![Hybrid connection test](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 
-## Connect ServiceNow to IT Service Management connector in OMS
+## Connect ServiceNow to IT Service Management Connector in OMS
 
 The following sections provide details about how to connect your ServiceNow product to the IT Service Management Connector in OMS.
 
