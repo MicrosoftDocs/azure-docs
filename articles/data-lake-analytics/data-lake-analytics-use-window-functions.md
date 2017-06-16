@@ -32,7 +32,7 @@ The window functions are categorized into:
 ## Sample datasets
 This tutorial uses two datasets:
 
-### QueryLog Sample DataSet
+### QueryLog sample dataset
   
 QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
@@ -55,7 +55,7 @@ QueryLog represents a list of what people searched for in search engine. Each qu
     AS T(Query,Latency,Vertical);
 ```
 
-### Employees Sample DataSet
+### Employees sample dataset
   
 The Employees dataset includes the following fields:
   
@@ -80,10 +80,10 @@ The Employees dataset includes the following fields:
     AS T(EmpID, EmpName, DeptName, DeptID, Salary);
 ```  
 
-## Compare window functions to Grouping
+## Compare window functions to grouping
 Windowing and Grouping are conceptually related. It is helpful to understand this relationship.
 
-### Use aggregation and Grouping
+### Use aggregation and grouping
 The following query uses an aggregation to calculate the total salary for all employees:
 
     @result = 
@@ -651,5 +651,4 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Learn about the U-SQL language](http://usql.io)
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-
 
