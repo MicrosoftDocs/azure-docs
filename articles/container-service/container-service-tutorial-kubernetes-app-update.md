@@ -164,4 +164,4 @@ In this tutorial, an application was updated and this update rolled out to a Kub
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-scale.md)
+> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-monitor.md)
