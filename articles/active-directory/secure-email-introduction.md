@@ -4,7 +4,7 @@ description:  Describes Microsoft recommendations and core concepts for deployin
 author: jeffgilb
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/14/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
@@ -23,7 +23,7 @@ This document is intended for enterprise infrastructure architects and IT Pros f
 
 ### Customer environment
 
-The policies recommended in this document apply to enterprise organizations operating both entirely in the Microsoft cloud. It is also for customers with their infrastructure deployed both on-premises and in the Microsoft cloud. 
+The policies recommended in this document are applicable to enterprise organizations operating both entirely within the Microsoft cloud and for customers with infrastructure deployed across on-premises and the Microsoft cloud. 
 
 ### Assumptions
 
@@ -36,6 +36,10 @@ This document outlines how to apply the recommended configuration for protected 
 Your organization may be subject to regulatory or other compliance requirements, including specific recommendations that may require you to apply policies that diverge from these recommended configurations.  These configurations recommend usage controls that have not historically been available.  We recommend these controls, because we believe they represent a balance between security and productivity.  
 
 We have done our best to account for a wide variety of organizational protection requirements. But, we cannot account for all possible requirements or for all the unique aspects of your organization. Use this document as a guide for how Microsoft and the secure productive enterprise team is thinking about how to correctly apply policy in your organization. 
+
+>[!NOTE]
+>For an overview of the core concepts necessary to understand the protection capabilities described in these recommendations, see [EMS and Office 365 Service Descriptions](secure-email-ems-office365-service-descriptions.md).
+>
 
 ## Core concepts
 

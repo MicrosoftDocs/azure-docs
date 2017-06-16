@@ -6,11 +6,10 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: mysql-database
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 06/06/2017
+ms.date: 06/13/2017
 ms.custom: mvc
 ---
 
@@ -25,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to Azure
 If you are using the Azure Cloud Shell or Try It button, follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -47,10 +46,10 @@ az group create --name myresourcegroup --location westus
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the **az mysql server create** command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresoucegroup` with name `myserver4demo`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
+The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresourcegroup` with name `myserver4demo`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresoucegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ## Configure firewall rule
@@ -59,7 +58,7 @@ Create an Azure Database for MySQL server-level firewall rule using the **az mys
 The following example creates a firewall rule for a predefined address range, which in this example is the entire possible range of IP addresses.
 
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myresoucegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## Configure SSL settings
 By default, SSL connections between your server and client applications are enforced.  This ensures security of "in-motion" data by encrypting the data stream over the internet.  To make this quick start easier, we disable SSL connections for your server.  This is not recommended for production servers.  For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).
@@ -167,6 +166,8 @@ mysql>
 
 2.	In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
 
+   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+
 | **Setting** | **Suggested Value** | **Description** |
 |---|---|---|
 |	Connection Name | My Connection | Specify a label for this connection (this can be anything) |
@@ -176,13 +177,10 @@ mysql>
 | Username | myadmin@myserver4demo | The server admin login you previously noted. |
 | Password | **** | Use the admin account password you configured earlier. |
 
-   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
-
 Click **Test Connection** to test if all parameters are correctly configured.
 Now, you can click the connection to successfully connect to the server.
 
 ## Clean up resources
-
 If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
 
 ```azurecli-interactive

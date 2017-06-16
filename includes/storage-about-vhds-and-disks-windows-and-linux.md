@@ -27,7 +27,7 @@ For more information about using Standard Storage with VM disks, please see [Sta
 
 ### Premium storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
 
 ### Unmanaged disks
 
@@ -50,6 +50,7 @@ The following table provides a comparison of Premium vs Standard for both unmana
 | Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
 | Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
 | Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Max Throughput per Disk | 200 MB/s | 60 MB/s |
-| Max IOPS per Disk | 5000 IOPS | 500 IOPS |
+| Disk Size | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
+| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+

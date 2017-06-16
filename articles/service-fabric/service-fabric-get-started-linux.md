@@ -57,7 +57,19 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Refresh your package lists based on the newly added repositories.
+5. Add Docker’s official GPG key to your apt keyring.
+
+    ```bash
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+
+6. Set up the Docker repository.
+
+    ```bash
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+
+7. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
@@ -74,7 +86,7 @@ Once your sources are updated, you can install the SDK.
     ```
 
    The following commands automate accepting the license for Service Fabric packages:
-    
+
     ```bash
     echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
     echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
@@ -86,17 +98,17 @@ Once your sources are updated, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
+Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest` or `yo azuresfcontainer`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
-  ```bash
-  export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
-  ```
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
+    ```
 
 If you are using the environment as root, you may need to set the variable with the following command:
 
-  ```bash
-  export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
-  ```
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules
+    ```
 
 > [!TIP]
 > You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
@@ -189,7 +201,7 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 5. Choose the Service Fabric plugin and click **Next**.
 6. Proceed through the installation and accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available. 
+If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available.
 
 For more information, see [Service fabric getting started with Eclipse](service-fabric-get-started-eclipse.md).
 
@@ -217,13 +229,13 @@ To update to the latest version of the SDK and runtime, run the following comman
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
-   
+
 > [!NOTE]
 > Updating the packages may result in your local development cluster being stopped. Restart your local cluster after an upgrade by following instructions on this page.
 >
 >
 
-For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  The release notes may contain additional steps. 
+For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  The release notes may contain additional steps.
 
 
 ## Next steps

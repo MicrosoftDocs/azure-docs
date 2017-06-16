@@ -184,6 +184,21 @@ The example below shows how to change the the shared transaction log that gets c
         }]
     }]
 
+### Add-on features
+To configure add-on features, the apiVersion should be configured as '04-2017' or higher, and addonFeatures needs to be configured:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### Container support
+To enable container support for both windows server container and hyper-v container for standalone clusters, the 'DnsService' add-on feature needs to be enabled.
+
+
 ## Next steps
 Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

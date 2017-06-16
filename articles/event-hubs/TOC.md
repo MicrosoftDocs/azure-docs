@@ -23,6 +23,7 @@
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
+### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ## Develop
 ### [🔧 Handling errors and retry](event-hubs-handling-errors-retry.md)
 ### [🔧 Managing performance and scale](event-hubs-performance-scale.md)
