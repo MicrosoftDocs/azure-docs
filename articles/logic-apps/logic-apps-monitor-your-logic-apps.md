@@ -24,7 +24,7 @@ After you [create a logic app](logic-apps-create-a-logic-app.md),
 you can check the performance and full run history in the Azure portal. 
 You can also set up diagnostics data logging and alerts 
 for monitoring real-time events, richer debugging, 
-notifications for events that could indicate failures or other problems. 
+and notifications about events that might indicate failures or other problems. 
 For example, you could create an alert for "when more than five runs fail within an hour."
 
 ## View history for runs and triggers in your logic app
@@ -39,7 +39,7 @@ find "logic apps", and choose **Logic apps**.
 
 2. Select the logic app that you want to monitor.
 
-3. To view all the actions and triggers that ran for the selected logic app, 
+3. To view all the actions and triggers that fired for the selected logic app, 
 choose **Overview**.
 
    * **Runs history** shows all the runs for the logic app. 
@@ -78,22 +78,30 @@ expand the steps that you want. For example:
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
+6. To view the details for a specific trigger event, like inputs and outputs, 
+select that trigger event.
+
+   
+   
+
 <a name="azure-diagnostics-and-alerts"></a>
 
 ## Set up diagnostic data logging and alerts for your logic app
 
 Along with monitoring in the Azure portal and with the 
 [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-you can set up up diagnostics data logging for richer debugging and 
-to view runtime details and events. You can also subscribe to 
-[alerts in Azure](#add-azure-alerts). 
+you can set up up diagnostics data logging for richer debugging 
+with runtime details and events. You can also subscribe to 
+[alerts about logic app events](#add-azure-alerts). 
 
-### Log diagnostic data with Azure Diagnostics and Azure Log Analytics
+### Log diagnostic data with Azure Log Analytics
 
-Before you start, you need a workspace in the 
-[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
-for the [Azure Log Analytics service](../log-analytics/log-analytics-overview.md). 
-Learn [how to create this workspace](../log-analytics/log-analytics-get-started.md).
+[Log Analytics](../log-analytics/log-analytics-overview.md) is a service 
+in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+that monitors your cloud and on-premises environments 
+so you can maintain their availability and performance. 
+Before you start, you first need a workspace in OMS. 
+Learn more about [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Diagnostic Settings**.
@@ -117,8 +125,8 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
 Along with Azure Log Analytics, you can set up your 
 [logic app](logic-apps-monitor-your-logic-apps.md) so that diagnostics 
-data is archived with the [Azure Storage service](../storage/storage-introduction.md) 
-or streamed through the [Azure Event Hubs service](../event-hubs/event-hubs-what-is-event-hubs.md). 
+data is archived with [Azure Storage](../storage/storage-introduction.md) 
+or streamed through [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
 That way, you can get real-time monitoring for your workflows by using the telemetry 
 that you send to Azure Storage or Azure Event Hubs with other services like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
@@ -142,8 +150,7 @@ or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 To notify you about metrics that are met or thresholds 
 that are crossed while your logic app runs, you can set up 
 [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
-Learn more about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 
-and [how to create metric alerts](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Learn more about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
    > [!TIP]
    > To run a logic app based on a alert, you can include the 
@@ -163,7 +170,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
    1. Under **Resource**, select your logic app, if not already selected. 
    2. Give a name and description for your alert.
-   3. Select a **Metric** that you want to use.
+   3. Select a **Metric** that you want to track.
    4. Select a **Condition**, specify a **Threshold** for the metric, 
    and select the **Period** for monitoring this metric.
    5. Select whether to send mail for the alert. 
@@ -174,12 +181,14 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
    ![Create metric alert rule](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
-### Azure Diagnostics settings
+### Azure Diagnostic settings for tracking and monitoring events
 
-Each of these events contains details about the logic app and event, like status. 
-Here's an example of a *ActionCompleted* event:
+Each event contains details about your logic app and the event, 
+like status. In this example for the `ActionCompleted` event, 
+the `clientTrackingId` and `trackedProperties` properties 
+are especially useful for tracking and monitoring:
 
-```javascript
+```
 {
     "time": "2016-07-09T17:09:54.4773148Z",
     "workflowId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
@@ -199,49 +208,55 @@ Here's an example of a *ActionCompleted* event:
             "workflowId": "cff00d5458f944d5a766f2f9ad142553",
             "workflowName": "MyLogicApp",
             "runId": "08587361146922712057",
-            "location": "eastus",
+            "location": "westus",
             "actionName": "Http"
         },
         "correlation": {
             "actionTrackingId": "e1931543-906d-4d1d-baed-dee72ddf1047",
-            "clientTrackingId": "my-custom-tracking-id"
+            "clientTrackingId": "<my-custom-tracking-id>"
         },
         "trackedProperties": {
-        "myProperty": "<value>"
+            "myTrackedProperty": "<value>"
         }
     }
 }
 ```
 
-The two properties that are especially useful for tracking and monitoring are *clientTrackingId* and *trackedProperties*.  
+* `clientTrackingId`: This ID is auto-generated if not provided, 
+and correlates events across a logic app run, 
+including any nested workflows that are called from the logic app. 
+You can manually specify this ID from a trigger by passing a 
+`x-ms-client-tracking-id` header with the custom ID value 
+in the trigger request for a request trigger, HTTP trigger, or webhook trigger.
 
-#### Client tracking ID
+* `trackedProperties`: To track inputs or outputs in diagnostics data, 
+you can add tracked properties to actions in the workflow definition. 
 
-The client tracking ID is a value that correlates events across a logic app run, including any nested workflows called as a part of a logic app. This ID is auto-generated if not provided, but you can manually specify the client tracking ID from a trigger by passing a `x-ms-client-tracking-id` header with the ID value in the trigger request (request trigger, HTTP trigger, or webhook trigger).
+    For example, suppose you want to track data like an "order ID" in your telemetry. 
+    To add a tracked property, include the `trackedProperties` property and the 
+    properties that you want to track in the action definition. 
+    Tracked properties can track only a single action's inputs and outputs, 
+    but you can use the `correlation` properties of events to correlate across actions in a run.
 
-#### Tracked properties
-
-To track inputs or outputs in diagnostics data, you can add tracked properties to actions in the workflow definition, for example, if you want to track data like an "order ID" in your telemetry. To add a tracked property, include the `trackedProperties` property on an action.  Tracked properties can only track a single action's inputs and outputs, but you can use the `correlation` properties of the events to correlate across actions in a run.
-
-```javascript
-{
-    "myAction": {
-        "type": "http",
-        "inputs": {
-            "uri": "http://uri",
-            "headers": {
-                "Content-Type": "application/json"
+    ``` 
+    {
+        "myAction": {
+            "type": "http",
+            "inputs": {
+                "uri": "http://uri",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "@triggerBody()"
             },
-            "body": "@triggerBody()"
-        },
-        "trackedProperties":{
-            "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
-            "myActionHTTPValue": "@action()['outputs']['body']['foo']",
-            "transactionId": "@action()['inputs']['body']['bar']"
+            "trackedProperties":{
+                "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
+                "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
+                "transactionId": "@action()['inputs']['body']['<content>']"
+            }
         }
     }
-}
-```
+    ```
 
 ## Next steps
 
