@@ -25,7 +25,7 @@ and assign configurations to target nodes, all in the cloud.
 
 ## Why use Azure Automation DSC
 
-Azure Automation DSC provides a number of advantages over using DSC outside of Azure.
+Azure Automation DSC provides several advantages over using DSC outside of Azure.
 
 ### Built-in pull server
 
@@ -33,19 +33,19 @@ Azure Automation provides a [DSC pull server](https://msdn.microsoft.com/en-us/p
 The built-in pull server in Azure Automation eliminates the need to set up and maintain your own pull server.
 Azure Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
 
-### Management of all of your DSC artifacts
+### Management of all your DSC artifacts
 
 Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting.
 
-From the Azure portal, or from PowerShell, you can manage all of your DSC configurations, resources, and target nodes.
+From the Azure portal, or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
 
 ![Screen shot of the Azure Automation blade](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### Import reporting data into Log Analytics
 
-Nodes that are managed with Azure Automation DSC send detailed reporting data to the built-in pull server.
+Nodes that are managed with Azure Automation DSC send detailed reporting status data to the built-in pull server.
 You can configure Azure Automation DSC to send this data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.
-To learn how to do this, see [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md).
+To learn how to send DSC status data to your Log Analytics workspace, see [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md).
 
 ## Introduction video
 
