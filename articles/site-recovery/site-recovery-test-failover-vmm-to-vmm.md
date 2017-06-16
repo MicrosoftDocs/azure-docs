@@ -77,7 +77,7 @@ Prepare a DNS server for the test failover as follows:
 
 
 ## Run a test failover
-This procedure describes how to run a test failover for a recovery plan. Alternatively, you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
+This procedure describes how to run a test failover for a recovery plan. Alternatively, you can run the failover for a single virtual machine on the **Virtual Machines** tab.
 
 ![Test failover blade](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
 
@@ -105,7 +105,7 @@ When you run a test failover, you're asked to select network settings for test r
 
 
 ## Test failover to a production network on a recovery site
-We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in [Network mapping](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping). But if you really want to validate end-to-end network connectivity in a failed-over virtual machine, note the following points:
+We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in [network mapping](https://docs.microsoft.com/azure/site-recovery/site-recovery-network-mapping). But if you really want to validate end-to-end network connectivity in a failed-over virtual machine, note the following points:
 
 * Make sure that the primary virtual machine is shut down when you're doing the test failover. If you don't, two virtual machines with the same identity will be running in the same network at the same time. That situation can lead to undesired consequences.
 * Any changes that you make to the test failover virtual machines are lost when you clean up the test failover virtual machines. These changes are not replicated back to the primary virtual machine.
@@ -113,4 +113,4 @@ We recommend that when you're doing a test failover, you choose a network that i
 
 
 ## Next steps
-After you have successfully run a test failover, you can try a [production failover](site-recovery-failover.md).
+After you have successfully run a test failover, you can try a [failover](site-recovery-failover.md).
