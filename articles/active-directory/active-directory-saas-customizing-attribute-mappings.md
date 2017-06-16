@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/17/2017
 ms.author: markvi
 
 ms.custom: H1Hack27Feb2017
@@ -25,33 +25,25 @@ Microsoft Azure AD provides support for user provisioning to third-party SaaS ap
 There is a preconfigured set of attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. <br> 
  You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings or create new attribute mappings.
 
-In the Azure AD portal, you can access this feature by clicking Attributes in the toolbar of a SaaS application.
+In the Azure AD portal, you can access this feature by clicking a **Mappings** configuration under **Provisioning** in the **Manage** section of an **Enterprise application**.
 
-> [!NOTE]
-> The **Attributes** link is only available if you have user provisioning enabled for a SaaS application. 
-> 
-> 
 
-![Salesforce][1] 
+![Salesforce][5] 
 
-When you click Attributes in the toolbar, the list of current mappings that are configured for a SaaS application.
+Clicking a **Mappings** configuration, opens the related **Attribute Mapping** blade.  
+There are attribute mappings that are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
 
-The following screenshot shows an example for this:
 
-![Salesforce][2]  
+![Salesforce][6]  
 
-In the example above, you can see that the **firstName** attribute of a managed object in Salesforce is populated with the **givenName** value of the linked Azure AD object.
+In the example above, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
 
-If you either want to customize your attribute mappings or if you want to revert customized settings back to the default configuration, you can do this by clicking the related button in the toolbar on the bottom of an application.
+You can customize existing **Attribute Mappings** by clicking a mapping. This opens the **Edit Attribute** blade.
 
-![Salesforce][3]  
+![Salesforce][7]  
 
-There are attribute mappings that are required by a SaaS application to function correctly. 
- In the attributes table, the related attribute mappings have **Yes** as value for the **Required** attribute. If an attribute mapping is required, you cannot delete it. In this case, **Delete** feature is unavailable.
 
-To modify an existing attribute mapping, select the mapping, and then click **Edit**. This brings up a dialog page that enables you to modify the selected attribute mapping.
-
-![Edit Attribute Mapping][4]  
+  
 
 ## Understanding Attribute Mapping Types
 With attribute mappings, you control how attributes are populated in a third-party SaaS application. 
@@ -85,3 +77,7 @@ Microsoft Azure AD provides an efficient implementation of a synchronization pro
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
+[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
+[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
+[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
+
