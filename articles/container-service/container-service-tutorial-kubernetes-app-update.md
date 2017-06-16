@@ -21,7 +21,9 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Tasks completed in this tutorial include:
+Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When this occurs, the update rollout is staged such that only a portion of the application pods are concurrently updated. This allows the application to stay running during the update, and provides a rollback mechanism in the event of deployment failure. 
+
+In this tutorial the sample Azure Vote app will be updated. Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
 > * Update application code
@@ -41,11 +43,13 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, do so with the following command:
 
+
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
 Change directories such that you are working from the root of the cloned repository.
+
 
 ```bash
 cd azure-kubernetes-samples
@@ -53,18 +57,9 @@ cd azure-kubernetes-samples
 
 Open the `config_file.cfg` file with any code or text editor.
 
+
 ```bash
 code /azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg
-```
-
-The file will look like the following:
-
-```bash
-# UI Configurations
-TITLE = 'Azure Voting App'
-VOTE1VALUE = 'Cats'
-VOTE2VALUE = 'Dogs'
-SHOWHOST = 'false'
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.
@@ -99,38 +94,30 @@ Tag the new image with `v2` to indicate a new version. Replace `<acrLoginServer>
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Push the image to your registry.
-
+Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
 
 ```bash
-docker push mycontainerregistry007.azurecr.io/azure-vote-front:v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## Deploy updated application
 
-Ensure that you have multiple running instances of the azure-vote-front container.
-
+To provide for a staged rooloout, ensure that you have multiple running instances of the azure-vote-front container.
 
 ```bash
 kubectl get pod
 ```
 
-If needed, scale the front-end pod out so that multiple instances are running.
+If needed, scale the front-end deployment so that multiple instances are running.
 
 ```bash
 kubectl scale --replicas=4 deployment/azure-vote-front
 ```
 
-Make sure that they are running before updating the application.
+Make sure that the pods are running before updating the application.
 
 ```bash
 kubectl get pod
-```
-
-If using Azure Container Registry to store container images, you need the ACR login server name. This name can be retrieved using the [az acr list](/cli/azure/acr#list) command.
-
-```bash
-az acr list --resource-group myResourceGroup --query [0].loginServer -o tsv
 ```
 
 Run the following command to update the application. Update `<acrLoginServer>` with your ACR loging server name.
