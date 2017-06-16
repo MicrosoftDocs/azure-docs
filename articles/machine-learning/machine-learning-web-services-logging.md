@@ -61,7 +61,7 @@ You enable logging from the [Azure Machine Learning Web Services](https://servic
 
 ## The effects of enabling logging
 When logging is enabled, the diagnostics and errors from the web service endpoint are logged in the **ml-diagnostics** blob container in the Azure Storage Account linked with the user’s workspace. 
-This container holds all the diagnostics information for all the web service endpoints for all the workspaces associated with this Storage account.
+This container holds all the diagnostics information for all the web service endpoints for all the workspaces associated with this storage account.
 
 The logs can be viewed using any of the several tools available to explore an Azure Storage Account. The easiest may be to navigate to the storage account in the Azure portal, click **Containers**, and then click the container **ml-diagnostics**.  
 
@@ -74,9 +74,11 @@ Each blob in the container holds the diagnostics information for exactly one of 
 
 The name of each blob has a prefix of the following form: 
 
-    {Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}  
 
-Where Log type is one of the following values:  
+`{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
+
+
+Where _Log type_ is one of the following values:  
 
 * batch  
 * score/requests  
