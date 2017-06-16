@@ -15,11 +15,6 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
 
----
-| Logo| App Name |
-| :---: | :--- |
-| ![logo](./media/active-directory-saas-itslearning-tutorial/logo.png)| [itslearning]( active-directory-saas-itslearning-tutorial.md)|
-
 # Tutorial: Azure Active Directory integration with itslearning
 
 In this tutorial, you learn how to integrate itslearning with Azure Active Directory (Azure AD).
