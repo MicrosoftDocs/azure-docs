@@ -59,7 +59,7 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
 
 3. Enter the Azure **Subscription ID** that can be found on the Azure portal. 
 
-    ![SAP CAL Subscription ID](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![SAP CAL Subscription ID](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 4. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
 
