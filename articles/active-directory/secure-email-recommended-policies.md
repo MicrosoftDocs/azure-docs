@@ -14,6 +14,7 @@ pnp.series.title: Best Practices
 # Recommended policies
  
 This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
+
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -28,7 +29,7 @@ Before implementing the policies described in the remainder of this document, th
 ### Recommended email clients
 The following email clients support Modern Authentication and Conditional Access. Azure Information Protection is not yet available for all clients.
 
-|Platform|Client|Version/Notes|Azure Info Protection|
+|Platform|Client|Version/Notes|Azure Information Protection|
 |:-------|:-----|:------------|:--------------------|
 |**Windows**|Outlook|2016, 2013 ([Enable Modern Auth]((https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910))|Yes|
 |**iOS**|Outlook|[Latest](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)|No|
@@ -72,6 +73,7 @@ Each industry also has their own set of specialized regulations. Rather than pro
 
 ### Default protection mechanism recommendations
 
+
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
 |Protection mechanism|Baseline|Sensitive|Highly regulated|
@@ -79,7 +81,7 @@ The following table contains default protection mechanism recommendations for ea
 |**Enforce MFA**|On medium or above sign-in risk|On low or above sign-in risk|On all new sessions|
 |**Enforce Password Change**|For high risk users|For high risk users|For high risk users|
 |**Enforce Intune Application Protection**|Yes|Yes|Yes|
-|**Enforce Intune Enrollment (COD**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
+|**Enforce Intune Enrollment (COD)**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
 
 ### Device ownership
 The above table reflects the trend for many organizations to support a mix of corporate-owned devices (COD) as well as personal or bring-your-own devices (BYOD) to enable mobile productivity across their workforces. Intune App Protection Policies ensure that email is protected from exfiltrating out of the Outlook mobile app and other Office mobile apps, on both COD and BYOD.  
@@ -147,7 +149,7 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-#|Policy recommendation|Description|
+|Policy recommendation|Description|
 |:--------------------|:----------|
 |**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
 |**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
@@ -157,7 +159,7 @@ The goal for these device and app management policies is to protect data loss in
 
 ### User impact
 
-#For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
+For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
 * When requesting authentication tokens for Exchange Online:

@@ -18,9 +18,7 @@ ms.author: pratshar
 
 ---
 # Test 	Failover to Azure in Site Recovery
-> [!div class="op_single_selector"]
-> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
-> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using Azure as the recovery site.
@@ -72,19 +70,19 @@ When a test failover is triggered, it involves following steps:
 
 In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
 
-* VMware virtual machines using mobility service of version older than 9.8
-* Physical servers 
+* VMware virtual machines using a version of the Mobility service older than 9.8
+* Physical servers
 * VMware Linux virtual machines
 * Hyper-V virtual machines protected as physical servers
-* VMware virtual machines where following drivers are not present as boot drivers 
-	* storvsc 
-	* vmbus 
-	* storflt 
-	* intelide 
+* VMware virtual machines where following drivers are not present as boot drivers
+	* storvsc
+	* vmbus
+	* storflt
+	* intelide
 	* atapi
 * VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
 
-In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
+In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower.
 
 
 ## Creating a network for test failover
