@@ -149,6 +149,8 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
+* [Use Managed Disks in Azure Resource Manager templates](storage-using-managed-disks-template-deployments.md)
+
 ### Compare Managed Disks storage options
 
 * [Premium storage and disks](storage-premium-storage.md)
