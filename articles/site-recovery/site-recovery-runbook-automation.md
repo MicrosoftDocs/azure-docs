@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 
@@ -42,7 +42,7 @@ recovery into a single-click recovery action.
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Click the customize button to begin adding a runbook. 
+1. Click the customize button to begin adding a runbook.
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -50,10 +50,10 @@ recovery into a single-click recovery action.
 1. Right-click on the start group 1 and select to add a 'Add post action'.
 2. Select to choose a script in the new blade.
 3. Name the script 'Hello World'.
-4. Choose an Automation Account name. 
+4. Choose an Automation Account name.
 	>[!NOTE]
 	> Automation account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
-	
+
 5. Select a runbook from the Automation Account. This runbook is the script that will run during the execution of the recovery plan after the recovery of first group.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
@@ -80,13 +80,13 @@ Following is an example of how the context variable looks.
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
                 { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-				
+
 				"ResourceGroupName":"ContosoRG",
-				
+
 				"CloudServiceName":"pod02hrweb-Chicago-test",
 
                 "RoleName":"Fabrikam-Hrweb-frontend-test",
-				
+
 				"RecoveryPointId":"TimeStamp"}
 
                 }
@@ -174,14 +174,14 @@ In the script, acquire the variables' values by using the following reference co
 	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
 	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-	$NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+	$NSGnameVar = Get-AutomationVariable -Name $NSGValue
 	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 ```
 
 Next you can use the variables in the runbook and apply the NSG to the Network Interface of the failed over virtual machine.
 
 ```
-	 InlineScript { 
+	 InlineScript {
 	 	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
 			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
 			Write-output $NSG.Id
@@ -222,17 +222,17 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 3. Use this variable in your runbook and apply the NSG on the virtual machine if any of the given VMGUID is found in the recovery plan context.
 
 	```
-		$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+		$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
 	```
 
 4. In your runbook, loop through the VMs of the recovery plan context and check if the VM also exists in **$VMDetailsObj**. If it exists, apply the NSG by accessing the properties of the variable.
 	```
 		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 		$vmMap = $RecoveryPlanContext.VmMap
-		   
+
 		foreach($VMID in $VMinfo) {
 			Write-output $VMDetailsObj.value.$VMID
-			
+
 			if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
 				$VM = $vmMap.$VMID
 				# Access the properties of the variable

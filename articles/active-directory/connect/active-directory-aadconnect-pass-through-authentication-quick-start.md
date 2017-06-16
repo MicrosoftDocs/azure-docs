@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/15/2017
 ms.author: billmath
 ---
 
@@ -76,7 +76,7 @@ If you plan to deploy Pass-through Authentication in a production environment, y
 2.	Open the command prompt as an Administrator.
 3.	Run the following command (the **/q** option means "quiet installation" - the installation does not prompt you to accept the End-User License Agreement):
 `
-AADApplicationProxyagentInstaller.exe REGISTERagent="false" /q
+AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 `
 
 >[!NOTE]
