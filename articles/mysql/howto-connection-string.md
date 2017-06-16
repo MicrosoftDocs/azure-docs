@@ -1,5 +1,5 @@
 ---
-title: How to connect applications to Azure Database for MySQL | Microsoft Docs
+title: Connect applications to Azure Database for MySQL | Microsoft Docs
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.Net (C#), JDBC, Node.JS, ODBC, PHP, Python, Ruby.
 services: mysql
 author: mswutao 
@@ -12,9 +12,9 @@ ms.date: 06/12/2017
 ---
 
 # How to connect applications to Azure Database for MySQL
-This document lists the connection string types supported by Azure Database for MySQL, together with templates and examples. You may have different parameters and different settings in your connection string.
+This document lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and different settings in your connection string.
 
-- Refer to this document [How to configure SSL](./howto-configure-ssl.md) to obtain the certificate.
+- To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md) to obtain the certificate.
 - {your_host} = <servername>.mysql.database.azure.com
 
 ## ADO.NET
@@ -59,10 +59,10 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## Get the connection string details from the Azure portal
-In [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL and click **Connection strings** to get your string list for your instance:
-![connection strings on portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+In [Azure portal](https://portal.azure.com), go to your Azure database for MySQL, and then click **Connection strings** to get your string list for your instance:
+![The Connection strings pane in the Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-The string provides details such as the driver, server, and other database connection parameters. Modify these examples using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
+The string provides details such as the driver, server, and other database connection parameters. Modify these examples by using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
 
 ## Next steps
-- For more information regarding connection library, see [Concepts - Connection libraries](./concepts-connection-libraries.md)
+- For more information about connection library, see [Concepts - Connection libraries](./concepts-connection-libraries.md).
