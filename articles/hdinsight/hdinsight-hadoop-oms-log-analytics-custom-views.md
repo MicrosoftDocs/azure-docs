@@ -63,3 +63,4 @@ In this section, you import templates create custom views for HDInsight clusters
 
 * [Working with OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
