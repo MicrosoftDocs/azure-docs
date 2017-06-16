@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist 
 
-A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks may also have a file retention period, after which output files are deleted. For these reasons, it's important to persist task output that you'll need later to a data store such as Azure Storage.
+[!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
 One way to persist task data is to use the [Azure Batch File Conventions library for .NET][nuget_package]. The File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario. 
 
@@ -62,7 +62,9 @@ To persist output data to Azure Storage using the File Conventions library, you 
 
 ## Persist output data
 
-To persist job and task output data with the File Conventions library, create the storage container, then save the output to the container.
+To persist job and task output data with the File Conventions library, create a container in Azure Storage, then save the output to the container. Use the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) in your task code to upload the task output to the container. 
+
+For more information about working with containers and blobs in Azure Storage, see [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
 > All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, [storage throttling limits](../storage/storage-performance-checklist.md#blobs) may be enforced.
@@ -71,7 +73,7 @@ To persist job and task output data with the File Conventions library, create th
 
 ### Create storage container
 
-To persist task output to storage, first create a blob storage container by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter. It creates a container named according to the File Conventions standard,so that its contents are discoverable by the Azure portal and the retrieval methods discussed later in the article.
+To persist task output to Azure Storage, first create a container by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter. It creates a container named according to the File Conventions standard,so that its contents are discoverable by the Azure portal and the retrieval methods discussed later in the article.
 
 You typically place the code to create a container in your client application &mdash; the application that creates your pools, jobs, and tasks.
 
@@ -90,7 +92,7 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 
 ### Store task outputs
 
-Now that you've prepared a container in blob storage, tasks can save output to the container by using the [TaskOutputStorage][net_taskoutputstorage] class found in the File Conventions library.
+Now that you've prepared a container in Azure Storage, tasks can save output to the container by using the [TaskOutputStorage][net_taskoutputstorage] class found in the File Conventions library.
 
 In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when the task has completed its work, call the [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] method to save its output to Azure Storage.
 
@@ -215,6 +217,7 @@ The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure 
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
 4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".
 5. **Start** (run) the **PersistOutputs** project.
+6. When prompted to choose the persistence technology to use for running the sample, enter **1** to run the sample using the File Conventions library to persist task output. 
 
 ## Next steps
 

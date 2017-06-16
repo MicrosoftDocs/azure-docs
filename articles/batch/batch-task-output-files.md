@@ -19,7 +19,7 @@ ms.author: tamram
 
 # Persist task data to Azure Storage with the Batch service API
 
-A task running in Azure Batch may produce output data when it runs. Task output data often needs to be stored for retrieval by other tasks in the job, the client application that executed the job, or both. Tasks write output data to the file system of a Batch compute node, but all data on the node is lost when it is reimaged. Tasks may also have a file retention period, after which output files are deleted. For these reasons, it's important to persist task output that you'll need later to a data store such as Azure Storage.
+[!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
 Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools with the virtual machine configuration. When you add a task, you can specify a container in Azure Storage as the destination for the task's output. The Batch service then writes any output data to that container when the task is complete.
 
@@ -35,15 +35,6 @@ Azure Batch provides more than one way to persist task output. Using the Batch s
 - You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 If your scenario differs from those listed above, you may need to consider a different approach. For example, the Batch service API does not currently support streaming output to Azure Storage while the task is running. To stream output, consider using the Batch File Conventions library, available for .NET. For other languages, you'll need to implement your own solution. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md). 
-
-## Link an Azure Storage account to your Batch account
-
-To persist task output to Azure Storage using the Batch service API, you must first link an Azure Storage account to your Batch account. If you haven't done so already, link a Storage account to your Batch account by using the [Azure portal](https://portal.azure.com):
-
-1. Navigate to your Batch account in the Azure portal. 
-2. Under **Settings**, select **Storage Account**.
-3. If you do not already have a Storage account associated with your Batch account, click **Storage Account (None)**.
-4. Select a Storage account from the list for your subscription. For best performance, use an Azure Storage account that is in the same region as the Batch account where your tasks are running.
 
 ## Create a container in Azure Storage
 
@@ -78,7 +69,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 To specify output files for a task, create a collection of [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile?view=azure-dotnet) objects and assign it to the [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles?view=azure-dotnet#Microsoft_Azure_Batch_CloudTask_OutputFiles) property when you create the task. 
 
-The following .NET code example creates a task that writes random numbers to a file named `output.txt`. The example creates an output file for `output.txt` to be written to the container. The example also creates output files for any log files that match the file pattern `std*.txt` (_e.g._, `stdout` and `stderr`). The container URL requires the SAS that was created previously for the container. The Batch service uses the SAS to authenticate access to the container: 
+The following .NET code example creates a task that writes random numbers to a file named `output.txt`. The example creates an output file for `output.txt` to be written to the container. The example also creates output files for any log files that match the file pattern `std*.txt` (_e.g._, `stdout.txt` and `stderr.txt`). The container URL requires the SAS that was created previously for the container. The Batch service uses the SAS to authenticate access to the container: 
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -108,7 +99,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 When you specify an output file, you can use the [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern?view=azure-dotnet#Microsoft_Azure_Batch_OutputFile_FilePattern) property to specify a file pattern for matching. The file pattern may match zero files, a single file, or a set of files that are created by the task.
 
-The **FilePattern** property supports standard filesystem wildcards such as \* (for non-recursive matches) and \*\* (for recursive matches). For example, the code sample above specifies the file pattern to match `std*.txt` non-recursively: 
+The **FilePattern** property supports standard filesystem wildcards such as `*` (for non-recursive matches) and `**` (for recursive matches). For example, the code sample above specifies the file pattern to match `std*.txt` non-recursively: 
 
 `filePattern: @"..\std*.txt"`
 
@@ -139,7 +130,7 @@ https://myaccount.blob.core.windows.net/mycontainer/mytask/stderr.txt
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stdout.txt
 ```
 
-If the **FilePattern** property is set to match a single file name, then the value of the **Path** property specifies the fully qualified blob name. If you anticipate naming conflicts with a single file from multiple tasks, then include the name of the virtual directory as part of the file name to disambiguate those files. For example, set the **Path** property to include the task ID, the delimiter character (typically a forward slash), and the file name:
+If the **FilePattern** property is set to match a single file name, meaning it does not contain any wildcard characters, then the value of the **Path** property specifies the fully qualified blob name. If you anticipate naming conflicts with a single file from multiple tasks, then include the name of the virtual directory as part of the file name to disambiguate those files. For example, set the **Path** property to include the task ID, the delimiter character (typically a forward slash), and the file name:
 
 `path: taskId + @"/output.txt"`
 
@@ -182,9 +173,20 @@ string containerName = job.OutputStorageContainerName();
 
 If you are developing in a language other than C#, you will need to implement the File Conventions standard yourself.
 
+## Code sample
+
+The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to use the Batch client library for .NET to persist task output to durable storage. To run the sample, follow these steps:
+
+1. Open the project in **Visual Studio 2015 or newer**.
+2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
+3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
+4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".
+5. **Start** (run) the **PersistOutputs** project.
+6. When prompted to choose the persistence technology to use for running the sample, enter **2** to run the sample using the Batch service API to persist task output.
+7. If desired, run the sample again, entering **3** to persist output with the Batch service API, and also to name the destination container and blob path according to the File Conventions standard.
+
 ## Next steps
 
-- See the XXX code example to view and run code that shows how to write task output to Azure Storage.
 - For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md).
 - For information on other approaches for persisting output data in Azure Batch, see [Persist job and task output to Azure Storage](batch-task-output.md).
 
