@@ -38,7 +38,7 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). To learn more, see [Security Center pricing](security-center-pricing.md).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies). To learn more, see [Security Center pricing](security-center-pricing.md).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
