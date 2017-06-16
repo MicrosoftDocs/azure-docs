@@ -5,12 +5,10 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ---
 # Migrate your PostgreSQL database using export and import
 You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to import the data into the target database from that file.
@@ -24,7 +22,7 @@ To step through this how-to guide, you need:
 Follow these steps to export and import your PostgreSQL database.
 
 ## Create a script file using pg_dump that contains the data to be loaded
-To export your existing PostgreSQL database on-prem or in a VM to a sql script file, run the following command:
+To export your existing PostgreSQL database on-premises or in a VM to a sql script file, run the following command in your existing environment:
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
@@ -38,7 +36,7 @@ You can use the psql command line and the -d, --dbname parameter to import the d
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-In this example, we will use psql and script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on target server **mypgserver-20170401.postgres.database.azure.com**.
+This example uses psql utility and a script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on target server **mypgserver-20170401.postgres.database.azure.com**.
 ```bash
 psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
 ```

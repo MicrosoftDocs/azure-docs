@@ -5,12 +5,10 @@ services: postgresql
 author: salonisonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.custom: mvc
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: sample
 ms.date: 05/31/2017
 ---
