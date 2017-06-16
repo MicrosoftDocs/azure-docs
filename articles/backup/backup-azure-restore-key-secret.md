@@ -18,7 +18,7 @@ ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
 ---
-# Restore an encrypted virtual machine from an Azure Backup recovery point
+# Restore Key Vault key and secret for encrypted VMs using Azure Backup
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret do not exist in the key vault. These steps can also be used if you want to maintain a separate copy of key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
 ## Pre-requisites
@@ -84,7 +84,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 The above PowerShell cmdlets help you restore key and secret back to the key vault, if you have backed up encrypted VM using Azure VM Backup. After restoring them, refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create encrypted VMs from restored disk, key and secret.
 
 ## Legacy Approach
-The approach mentioned above would work for all the recovery points, however, the older approach of getting key and secret information from recovery point, would still be valid for recovery points older than 30th June 2017. Once restore disk job is complete using for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm), ensure that $rp is populated with a valid value.
+The approach mentioned above would work for all the recovery points, however, the older approach of getting key and secret information from recovery point, would still be valid for recovery points older than 30th June 2017. Once restore disk job is complete for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm), ensure that $rp is populated with a valid value.
 
 ### Restore key
 Use the following cmdlets to get key (KEK) information from recovery point and feed it to restore key cmdlet to put it back in the key vault.
