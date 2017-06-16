@@ -57,7 +57,6 @@ Site Recovery provides a simple way to replicate Azure VMs between regions:
 Here's a summary of what you need to do to set up replication of VMs between Azure regions:
 
 1. Create a Recovery Services vault. The vault contains configuration settings and orchestrates replication.
-
 2. Enable replication for the Azure VMs.
 3. Run a test failover to make sure that everything's working as expected.
 
@@ -88,7 +87,6 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
 ### Step 1. Configure the source
 1. In **Source**, select **Azure - PREVIEW**.
-
 2. In **Source location**, select the source Azure region where your VMs are currently running.
 3. Select the deployment model of your VMs: **Resource Manager** or **Classic**.
 4. Select the **Source resource group** for Resource Manager VMs or **cloud service** for classic VMs.
