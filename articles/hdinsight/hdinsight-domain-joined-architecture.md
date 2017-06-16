@@ -31,7 +31,7 @@ By integrating HDInsight with Azure AD, the HDInsight cluster nodes are domain-j
 
 You can achieve this setup by using multiple architectures. You can choose from the following architectures.
 
-**HDInsight integrated with Azure AD running on Azure IaaS**
+**HDInsight integrated with AD running on Azure IaaS**
 
 This is the simplest architecture for integrating HDInsight with Azure AD. The Azure AD domain controller runs on one (or multiple) virtual machines (VMs) in Azure. These VMs are usually in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Azure AD, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-network-create-peering.md).
 
