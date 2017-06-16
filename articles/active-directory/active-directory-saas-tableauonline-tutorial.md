@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Tableau Online, you need the following items:
 
 - An Azure AD subscription
-- A Tableau Online single-sign on enabled subscription
+- A Tableau Online single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,13 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
 	
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.online.tableau.com`
+	a. In the **Sign-on URL** textbox, type the URL: `https://sso.online.tableau.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.online.tableau.com/public/sp/<instancename>`
-	
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Tableau Online Client support team](https://www.tableau.com/support) to get these values. 
- 
+	b. In the **Identifier** textbox, type the URL: `https://sso.online.tableau.com/public/sp/<instancename>`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
