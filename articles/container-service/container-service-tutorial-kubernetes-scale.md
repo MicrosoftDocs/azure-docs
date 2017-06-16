@@ -32,6 +32,16 @@ Tasks completed in this tutorial include:
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
+
+
+## Prerequisites
+
+This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+
+**Azure Container Service Kubernetes cluster** -  See [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster and setting up the `kubectl` command line tool.
+
+**App deployed** - This tutorial assumes you deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
+
 ## Manually scale pods
 
 The previous tutorial deployed the Azure Vote front end and back end each in a single pod. To verify, run the following command:
@@ -149,3 +159,5 @@ Advance to the next tutorial to learn about updating application in Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Update an application in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
+
+
