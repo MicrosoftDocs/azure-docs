@@ -23,7 +23,7 @@ ms.author: danlep
 
 If you have been following along, you created a Kubernetes cluster and deployed a sample container app. Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
-You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes solution by using [Operations Management Suite](../operations-management-suite/operations-management-suite-overview), Microsoft's cloud-based IT management solution. 
+You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes solution by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
 Tasks completed in this tutorial include:
 
@@ -38,9 +38,9 @@ If you haven't already done so, you can sign up for a [free trial](https://www.m
 
 ## Set up OMS agents
 
-Here is a YAML file to set up OMS agents on the cluster nodes. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single identical pod on each cluster node. A DaemonSet is ideal for deploying a monitoring agent. 
+Here is a YAML file to set up OMS agents on the cluster nodes. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single identical pod on each cluster node. The DaemonSet resource is ideal for deploying a monitoring agent. 
 
-Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for *myWorkspaceID* and *myWorkspaceKey* with your OMS Workspace ID and Key. (In production, you would encode these values as secrets.)
+Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for *myWorkspaceID* and *myWorkspaceKey* with your OMS Workspace ID and Key. (In production, you can encode these values as secrets.)
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -52,8 +52,8 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: 1.3.2-15
-    dockerProviderVersion: 10.0.0-22
+    agentVersion: v1.3.4-127
+    dockerProviderVersion: 10.0.0-25
   spec:
    containers:
      - name: omsagent 
@@ -64,6 +64,8 @@ spec:
          value: myWorkspaceID
        - name: KEY 
          value: myWorkspaceKey
+       - name: DOMAIN
+         value: opinsights.azure.com
        securityContext:
          privileged: true
        ports:
@@ -74,22 +76,23 @@ spec:
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/opt/microsoft/omsagent/state/containerhostname
-          name: container-hostname
         - mountPath: /var/log 
           name: host-log
+       livenessProbe:
+        exec:
+         command:
+         - /bin/bash
+         - -c
+         - ps -ef | grep omsagent | grep -v "grep"
+        initialDelaySeconds: 60
+        periodSeconds: 60
    volumes:
     - name: docker-sock 
       hostPath:
        path: /var/run/docker.sock
-    - name: container-hostname
-      hostPath:
-       path: /etc/hostname
     - name: host-log
       hostPath:
-       path: /var/log 
- 
-
+       path: /var/log
 ```
 
 Create the DaemonSet with the following command:
@@ -119,7 +122,7 @@ View and analyze the OMS container monitoring data with the [Container solution]
 
 To install the Container solution using the [OMS portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-In the OMS portal, you see a **Containers** summary tile on the OMS dashboard. Click the tile for details, including container events, errors, status, image inventory, and CPU and memory usage. For more granual information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
+In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details, including container events, errors, status, image inventory, and CPU and memory usage. For more granual information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
 
 ![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
