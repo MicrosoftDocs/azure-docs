@@ -5,7 +5,9 @@ The Azure Cloud Shell is a bash shell that you can launch and run directly withi
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell.png)](https://portal.azure.com)
 
-The button launches the interactive Azure Cloud Shell that you can use to run all of the steps in this topic:
+The button launches an interactive Azure Cloud Shell that you can use to run all of the steps in this topic:
+
+[![Screenshot showing the Cloud Shell window in the portal](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
 
 
