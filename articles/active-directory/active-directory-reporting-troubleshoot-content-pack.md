@@ -24,9 +24,9 @@ ms.author: markvi
 
 Following is the list of error messages you might encounter while using the Azure Active Directory Activity content pack 
 
-- Refresh failed 
-- Failed to update data source credentials 
-- Importing of data is taking too long 
+- [Refresh failed](active-directory-reporting-troubleshoot-content-pack.md#refresh-failed) 
+- [Failed to update data source credentials](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
+- [Importing of data is taking too long](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
  
  
 ## Refresh failed 
@@ -61,5 +61,7 @@ Following is the list of error messages you might encounter while using the Azur
 | Depending on the size of your tenant, this step could take anywhere from a few mins to 30 minutes. | Just be patient. If the message does not change to showing your dashboard within an hour, please file a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
 ## Next steps
-See the [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md).
+
+To install the Power BI Content Pack for Azure Active Directory Preview, click [here](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
+
 
