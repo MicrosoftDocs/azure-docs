@@ -257,7 +257,7 @@ You can create a group containing all direct reports of a manager. When the mana
 
     An example of a valid rule:
 ```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
 3. After saving the rule, all users with the specified Manager ID value will be added to the group.
