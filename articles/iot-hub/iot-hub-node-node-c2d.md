@@ -52,7 +52,7 @@ In this section, you modify the simulated device app you created in [Get started
 1. Using a text editor, open the SimulatedDevice.js file.
 2. Modify the **connectCallback** function to handle messages sent from IoT Hub. In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. Your new version of the **connectCallback** function looks like the following snippet:
    
-    ```json
+    ```javascript
     var connectCallback = function (err) {
       if (err) {
         console.log('Could not connect: ' + err);
@@ -97,7 +97,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 3. Using a text editor, create a **SendCloudToDeviceMessage.js** file in the **sendcloudtodevicemessage** folder.
 4. Add the following `require` statements at the start of the **SendCloudToDeviceMessage.js** file:
    
-    ```json
+    ```javascript
     'use strict';
    
     var Client = require('azure-iothub').Client;
@@ -105,7 +105,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the "{device id}" placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
    
-    ```json
+    ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
    
@@ -113,7 +113,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 6. Add the following function to print operation results to the console:
    
-    ```json
+    ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
@@ -123,7 +123,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 7. Add the following function to print delivery feedback messages to the console:
    
-    ```json
+    ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
         console.log('Feedback message:')
@@ -133,7 +133,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 8. Add the following code to send a message to your device and handle the feedback message when the device acknowledges the cloud-to-device message:
    
-    ```json
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
