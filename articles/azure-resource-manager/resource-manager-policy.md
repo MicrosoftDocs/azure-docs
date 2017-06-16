@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 
 ---
@@ -322,8 +322,10 @@ You use property aliases to access specific properties for a resource type.
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | Set the access tier used for billing. |
 | Microsoft.Storage/storageAccounts/accountType | Set the SKU name. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Set whether the service encrypts the data as it is stored. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Set whether the service encrypts the data as it is stored in the blob storage service. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
 
 
 ## Policy examples

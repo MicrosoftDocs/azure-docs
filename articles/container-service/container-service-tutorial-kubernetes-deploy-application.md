@@ -98,7 +98,7 @@ Create the storage objects with the following command:
 kubectl create -f storage-resources.yaml
 ```
 
-Once completed, a VHD is created in an Azure storage account, and attached to the resulting Kubernetes pods. The VHD is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
+Once completed, a virtual disk is created in an Azure storage account, and attached to the resulting Kubernetes pods. The virtual disk is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
 
 ## Secure sensitive values
 
@@ -137,7 +137,7 @@ A Kubernetes deployment object manages the state of pods. This includes things l
 
 The following example creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
 
-Note, if using Azure Container Registry, update the image name with the loginServer of the ACR instance.
+Note, if using Azure Container Registry, update the container image name in the **backend-deployment.yaml** file with the loginServer of the ACR instance.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -153,12 +153,11 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: neilpeterson/azure-vote-back:latest
+        image: neilpeterson/azure-vote-back:v1
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306
           name: mysql
-        imagePullPolicy: Always
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
@@ -199,7 +198,7 @@ kubectl create -f backend-deployment.yaml
 
 The front-end deployment is like the back-end. 
 
-Again, if using ACR, update the image names to reference the ACR loginServer name. 
+Again, if using ACR, update the container image name in the **frontend-deployment.yaml** file to reference the ACR loginServer name. 
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,6 +207,11 @@ metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
   template:
     metadata:
       labels:
@@ -215,7 +219,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: neilpeterson/azure-vote-front:latest
+        image: neilpeterson/azure-vote-front:v1
         resources:
           requests:
             cpu: 250m
@@ -223,6 +227,11 @@ spec:
             cpu: 500m
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
         imagePullPolicy: Always
         env:
         - name: MYSQL_USER
@@ -288,7 +297,7 @@ kubectl create -f services.yaml
 
 ## Test application
 
-Once all resources have been created, the application can be accessed over the external IP address for the azure-vote-front service. This service can take a few minutes to create. To monitor the service creation process, run the following command. When the *ENTERNAL-IP* value for the *azure-vote-front* service switches from *<pending>* to an IP address, the application is ready and can be accessed on the external IP address.
+Once all resources have been created, the application can be accessed over the external IP address for the azure-vote-front service. This service can take a few minutes to create. To monitor the service creation process, run the following command. When the *EXTERNAL-IP* value for the *azure-vote-front* service switches from *pending* to an IP address, the application is ready and can be accessed on the external IP address.
 
 ```bash
 kubectl get service -w
