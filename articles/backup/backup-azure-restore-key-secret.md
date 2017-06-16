@@ -35,7 +35,7 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 >
 >
 
-1. Query the restored disk properties for the job details.
+Query the restored disk properties for the job details.
 
 ```
 PS C:\> $properties = $details.properties
@@ -45,7 +45,7 @@ PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
 PS C:\> $containerName = $properties["Config Blob Container Name"]
 ```
 
-2. Set the Azure storage context and restore JSON configuration file containing key and secret details for encrypted VM.
+Set the Azure storage context and restore JSON configuration file containing key and secret details for encrypted VM.
 
 ```
 PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
@@ -64,7 +64,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## Restore secret
-Use the JSON file generated above to get secret name and value and feed it to set secrete cmdlet to put the secret (BEK) back in the key vault.
+Use the JSON file generated above to get secret name and value and feed it to set secret cmdlet to put the secret (BEK) back in the key vault.
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
