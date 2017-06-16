@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 06/16/2017
 ms.author: yurid
 
 ---
@@ -25,7 +25,7 @@ This guide is for information technology (IT) professionals, information securit
 >
 
 ## Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
 
 * Which operations were taken place
 * Who initiated the operation
@@ -44,7 +44,7 @@ If you open the services management console (services.msc), you will also see th
 
 ![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Microsoft Monitoring Agent Service**, right click on it and click **Properties**. In the **Details** tab, look the file version as shown below:
+To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Microsoft Monitoring Agent Service**, right-click on it and click **Properties**. In the **Details** tab, look the file version as shown below:
 
 ![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
    
@@ -97,7 +97,7 @@ By default the Microsoft Antimalware User Interface is disabled, read [Enabling 
 If you experience issues loading the Security Center dashboard, ensure that the user that registers the subscription to Security Center (i.e. the first user one who opened Security Center with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
 
 ## Contacting Microsoft Support
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure Portal** as shown below: 
+Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below: 
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

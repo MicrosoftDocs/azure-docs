@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/16/2017
 ms.author: yurid
 
 ---
@@ -75,13 +75,13 @@ Security Center enables these individuals to meet these various responsibilities
 
 Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
 
-- **Security reader**: user that belongs to this role will be able to view rights to Security Center, which includes recommendations, alerts, policy, and health, but it won't be able to make changes.
+- **Security reader**: user that belongs to this role is be able to view rights to Security Center, which includes recommendations, alerts, policy, and health, but it won't be able to make changes.
 - **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
 
 The Security Center roles described above do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.  
 
 > [!NOTE]
-> A user needs to be at least a subscription, resource group owner or contributor to be able to see Security Center in Azure. 
+> A user needs to be at least a subscription, resource group owner, or contributor to be able to see Security Center in Azure. 
 > 
 > 
 
@@ -140,7 +140,7 @@ Azure Security Center uses the Microsoft Monitoring Agent – this is the same a
 
 ### Agent
 
-After data collection is enabled in the security policy, the Microsoft Monitoring Agent (for [Windows](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) or [Linux](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents)) is installed on all supported Azure VMs and any new ones that are created.  If the VM already has the Microsoft Monitoring Agent installed, Azure Security Center will leverage the current installed agent. The agent’s process is designed to be non-invasive and have very minimal impact on VM performance.
+After data collection is enabled in the security policy, the Microsoft Monitoring Agent (for [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) or [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) is installed on all supported Azure VMs and any new ones that are created.  If the VM already has the Microsoft Monitoring Agent installed, Azure Security Center will leverage the current installed agent. The agent’s process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Microsoft Monitoring Agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 
@@ -193,7 +193,7 @@ When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Ce
 
 ![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. For virtual machines, click **Compute**, under **Prevention** section. Any issues with enabling data  enabling data collection or related recommendations will be surfaced in the **Overview** tab, and **Monitoring Recommendations** section.
+1. For virtual machines, click **Compute**, under **Prevention** section. Any issues with enabling data or related recommendations will be surfaced in the **Overview** tab, and **Monitoring Recommendations** section.
 2. View the **Recommendations** to see what, if any, security risks were identified for the new resource.
 3. It is very common that when new VMs are added to your environment, only the operating system is initially installed. The resource owner might need some time to deploy other apps that will be used by these VMs.  Ideally, you should know the final intent of this workload. Is it going to be an Application Server? Based on what this new workload is going to be, you can enable the appropriate **Security Policy**, which is the third step in this workflow.
 4. As new resources are added to your Azure environment, it is possible that new alerts appear in the **Security Alerts** tile. Always verify if there are new alerts in this tile and take actions according to Security Center recommendations.
@@ -203,7 +203,7 @@ You will also want to regularly monitor the state of existing resources to ident
 ![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. The **Prevention** section panel provides you quick access to your key resources. Use this option to monitor Compute, Networking, Storage & data and Applications.
-2. The **Recommendations** panel enables you to review Security Center recommendations. During your ongoing monitoring you may find that you don’t have recommendations on a daily basis, which is normal since you addressed all recommendations on the initial Security Center set up. For this reason, you may not have new information in this section every day and will just need to access it as needed.
+2. The **Recommendations** panel enables you to review Security Center recommendations. During your ongoing monitoring you may find that you don’t have recommendations on a daily basis, which is normal since you addressed all recommendations on the initial Security Center setup. For this reason, you may not have new information in this section every day and will just need to access it as needed.
 3. The **Detection** section might change on either a very frequent or very infrequent basis. Always review your security alerts and take actions based on Security Center recommendations.
 
 ## Incident response
@@ -223,7 +223,7 @@ You can use Security Center Alerts during the following stages:
 * **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
 * **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue.
 
-Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation, and you can also search security related data that is stored in your workspace.
+Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation, and you can also search security-related data that is stored in your workspace.
 
 The following example shows a suspicious RDP activity taking place:
 

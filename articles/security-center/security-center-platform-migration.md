@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center Platform Migration | Microsoft Docs
-description: This document explains some changes to the way Azreu Security Center data is collected.
+description: This document explains some changes to the way Azure Security Center data is collected.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 06/16/2017
 ms.author: yurid
 
 ---
 # Azure Security Center platform migration
 
-Beginning in early June 2017, Azure Security Center will roll out important changes to the way security data is collected and stored.  These changes will unlock new capabilities like the ability to easily search security data and better aligns with other Azure management and monitoring services.
+Beginning in early June 2017, Azure Security Center rolls out important changes to the way security data is collected and stored.  These changes unlock new capabilities like the ability to easily search security data and better aligns with other Azure management and monitoring services.
 
 > [!NOTE]
 > The platform migration should not impact your production resources, and no action is necessary from your side.
@@ -29,11 +29,11 @@ Beginning in early June 2017, Azure Security Center will roll out important chan
 
 Previously, Security Center used the Azure Monitoring Agent to collect security data from your VMs. This includes information about security configurations, which are used to identify vulnerabilities, and security events, which are used to detect threats. This data was stored in your Storage account(s) in Azure.
 
-Going forward, Security Center will use the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent will be stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
+Going forward, Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
 ## Agent
 
-As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) will be installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center will leverage the current installed agent.
+As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) are installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
 
 For a period of time (typically a few days), both agents will run side by side to ensure a smooth transition without any loss of data. This will enable Microsoft to validate that the new data pipeline is operational before discontinuing use of the current pipeline. Once verified, the Azure Monitoring Agent will be removed from your VMs. No work is required on your part. An email will notify you when all customers have been migrated.
  
@@ -47,9 +47,9 @@ The Microsoft Monitoring Agent for Windows requires use TCP port 443, read [Azur
 
 ## Workspace
 
-As described previously, data collected from the Microsoft Monitoring Agent (on behalf of Security Center) will be stored in either an existing Log Analytics workspace(s) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
+As described previously, data collected from the Microsoft Monitoring Agent (on behalf of Security Center) are stored in either an existing Log Analytics workspace(s) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
-In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Security Center. A related resource group will be created for new workspaces. Both will follow this naming convention:
+In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Security Center. A related resource group will be created for new workspaces. Both follow this naming convention:
 
 - Workspace: *DefaultWorkspace-[subscription-ID]-[geo]*
 - Resource Group: *DefaultResouceGroup-[geo]* 
@@ -57,11 +57,11 @@ In the Azure portal, you can browse to see a list of your Log Analytics workspac
 For workspaces created by Security Center, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier.
 
 > [!NOTE]
-> Data previously collected by Security Center will remain in your Storage account(s). After the migration is complete, you can delete these Storage accounts.
+> Data previously collected by Security Center remains in your Storage account(s). After the migration is complete, you can delete these Storage accounts.
 
 ### OMS Security Solution 
 
-For existing customers that don’t have OMS Security solution installed, Microsoft will be installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from OMS management console.
+For existing customers that don’t have OMS Security solution installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from OMS management console.
 
 
 ## Other updates
