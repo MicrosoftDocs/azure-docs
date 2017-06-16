@@ -29,4 +29,4 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create an ACS DC/OS cluster](./scripts/container-service-cli-deploy-dcos.md?toc=%2fcli%2fazure%2ftoc.json) | Create a DC/OS cluster for Linux based containers. |
 | [Create an ACS Kubernetes Linux cluster](./scripts/container-service-cli-deploy-k8s-linux.md?toc=%2fcli%2fazure%2ftoc.json) | Create a Kubernetes cluster for Linux based containers. |
 | [Create an ACS Kubernetes Windows cluster](./scripts/container-service-cli-deploy-k8s-windows.md?toc=%2fcli%2fazure%2ftoc.json) | Create a Kubernetes cluster for Windows based containers. |
-| [Scale an ACS cluster](./scripts/container-service-cli-scale-cluster.md?toc=%2fcli%2fazure%2ftoc.json) | Scale and ACS cluster. |
+| [Scale an ACS cluster](./scripts/container-service-cli-scale-cluster.md?toc=%2fcli%2fazure%2ftoc.json) | Scale an ACS cluster. |

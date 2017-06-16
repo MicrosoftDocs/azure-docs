@@ -21,19 +21,23 @@ ms.author: danlep
 
 # Azure Container Service tutorial - Monitor Kubernetes
 
-If you have been following along, you created a Kubernetes cluster and deployed a sample container app. Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
+Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
 You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
-Tasks completed in this tutorial include:
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
 
+## Prerequisites
 
+This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
+**Azure Container Service Kubernetes cluster** -  See [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster and setting up the `kubectl` command line tool.
+
+**OMS account** - If you don't already have an account, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
 
 
 ## Set up OMS agents
@@ -139,3 +143,9 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 > [!div class="checklist"]
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
+
+
+Folowing this link to see pre-built script samples for Container Service.
+
+> [!div class="nextstepaction"]
+> [Azure Container Service script samples](./cli-samples.md)
