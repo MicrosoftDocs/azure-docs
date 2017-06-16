@@ -19,9 +19,9 @@ ms.author: LADocs; padmavc
 
 # Query for B2B messages in the Operations Management Suite portal
 
-To track business-to-business (B2B) messages with the 
-[Azure Log Analytics service](../log-analytics/log-analytics-overview.md) 
-in the [Operations Management Suite (OMS) portal](../operations-management-suite/operations-management-suite-overview.md), 
+To find business-to-business (B2B) messages that you're tracking with 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), 
 you can create queries that filter actions based on specific criteria, 
 for example, an interchange control number.
 
@@ -35,8 +35,7 @@ and [how to set up monitoring and logging for that logic app](../logic-apps/logi
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
-in the OMS portal. 
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS. 
 
 ## Create a query in the Operations Management Suite portal
 
@@ -44,6 +43,13 @@ You can either create a query on the Log Search page after
 
 * [Follow the steps for tracking and viewing message status and details](logic-apps-track-b2b-messages-omsportal.md#message-status-details) in the OMS portal 
 until you've opened the **Log Search** page for the actions that you want to filter.
+
+   1. To create queries manually on the **Log Search** page, 
+   in the search box, enter `Type="AzureDiagnostics"` plus the 
+   columns and values that you want to use as query filters.
+
+   1.    
+
 
 1. On the **Log Search** page, create a query. 
 

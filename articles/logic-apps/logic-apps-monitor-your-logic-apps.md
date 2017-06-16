@@ -98,18 +98,21 @@ with runtime details and events. You can also subscribe to
 [Log Analytics](../log-analytics/log-analytics-overview.md) is a service 
 in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
 that monitors your cloud and on-premises environments 
-so you can maintain their availability and performance. 
-Before you start, you first need a workspace in OMS. 
-Learn more about [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+to help you maintain their availability and performance. 
 
-1. On the logic app blade menu, under **Monitoring**, 
+Before you start, you first need a workspace in OMS. Learn more about 
+[how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
+
+1. In the [Azure portal](https://portal.azure.com), find and select your logic app. 
+
+2. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Diagnostic Settings**.
 
-2. Under **Diagnostics settings**, and then **Status**, choose **On**.
+3. Under **Diagnostics settings**, choose **On**.
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-3. Now perform these steps as shown:
+4. Now perform these steps as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
@@ -232,8 +235,8 @@ HTTP trigger, or webhook trigger.
 you can add tracked properties to actions in the workflow definition. 
 
     For example, suppose you want to track data like an "order ID" in your telemetry. 
-    To add a tracked property, include the `trackedProperties` property and the 
-    properties that you want to track in the action definition. 
+    To track one or more properties, add the `trackedProperties` section and the 
+    properties you want to the action definition.
     Tracked properties can track only a single action's inputs and outputs, 
     but you can use the `correlation` properties of events to correlate across actions in a run.
 
