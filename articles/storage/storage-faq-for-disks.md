@@ -170,48 +170,6 @@ No. This feature is not supported yet. It is expected to come out by end of July
 
 No. But if you export a VHD to an encrypted storage account from an encrypted Managed Disk or snapshot then it will be encrypted. 
 
-
-## Managed Disks and port 8443
-
-**Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
-The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
-
-**What happens if a VM is deployed with extensions and the port is not unblocked?**
-
-The deployment will result in an error. 
-
-**What happens if a VM is deployed with no extensions and the port is not unblocked?**
-
-There will be no impact on the deployment. 
-
-**What happens if an extension is installed on a VM which is already provisioned and running and the VM does not have port 8443 unblocked?**
-
-The extension won't be successfully deployed. The status of the extension will be unknown. 
-
-**What happens if an Azure resource manager template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
-
-The first VM will show as a failed deployment because the extensions were not successfully deployed. The second VM will not be deployed. 
-
-**Will this requirement of the port being unblocked apply to all VM extensions?**
-
-Yes.
-
-**Do both inbound and outbound connections on port 8443 have to be unblocked?**
-
-No. Only outbound connections on port 8443 have to be unblocked. 
-
-**Is having outbound connections on port 8443 being unblocked required for the entire lifetime of the VM?**
-
-Yes.
-
-**Does having this port unblocked affect the performance of the VM?**
-
-No.
-
-**Is there an estimated date for this issue to be fixed so I no longer have to unblock port 8443?**
-
-Yes, by the end of June 2017.
-
 ## Premium Disks – both managed and unmanaged
 
 **If a VM uses a size series that supports Premium storage, such as a DSv2, can I attach both premium and standard data disks?** 
