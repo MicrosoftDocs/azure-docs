@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Zendesk, you need the following items:
 
 - An Azure AD subscription
-- A Zendesk single-sign on enabled subscription
+- A Zendesk single sign-on enabled subscription
 
 
 > [!NOTE]
@@ -112,10 +112,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
 
-     In the **Sign-on URL** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
+    a. In the **Sign-on URL** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
+
+	b. In the **Identifier** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
 
 	> [!NOTE] 
-	> This value is not the real. Update this value with the actual Sign-on URL. Contact [Zendesk support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get this value. 
+	> These values are not real. Update these values with the actual Sign-on URL and Identifier URL. Contact [Zendesk support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. 
 
 4. Zendesk expects the SAML assertions in a specific format. There are no mandatory SAML attributes but optionally you can add an attribute from **User Attributes** section by following the below steps: 
 
