@@ -1,6 +1,6 @@
 ---
 title: Azure Container Service tutorial - Monitor Kubernetes | Microsoft Docs
-description: Azure Container Service tutorial - Monitor Kubernetes with OMS
+description: Azure Container Service tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
 services: container-service
 documentationcenter: ''
 author: dlepow
@@ -139,11 +139,3 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 > [!div class="checklist"]
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
-
-
-Advance to the next tutorial to learn about ....
-
-> [!div class="nextstepaction"]
-> XXX
-
-[TODO: Link to the next article]
