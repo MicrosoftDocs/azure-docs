@@ -144,3 +144,8 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 > * Manually scale pods running the app front end
 > * Autoscale pods running the app front end
 > * Scale the agent nodes in the cluster
+
+Advance to the next tutorial to learn about updating application in Kubernetes.
+
+> [!div class="nextstepaction"]
+> [Update an application in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)

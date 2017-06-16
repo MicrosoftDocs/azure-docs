@@ -24,7 +24,10 @@ ms.author: nepeters
 Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
-> * <complete>
+> * Update application code
+> * Create update container images
+> * Push container images to ACR
+> * Deploy updated application
 
 ## Prerequisites
 
@@ -42,7 +45,13 @@ To complete the steps in this tutorial, you must have cloned a copy of the Azure
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Open up the file with any code or text editor.
+Change directories such that you are working from the root of the cloned repository.
+
+```bash
+cd azure-kubernetes-samples
+```
+
+Open the `config_file.cfg` file with any code or text editor.
 
 ```bash
 code /azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg
@@ -84,9 +93,14 @@ Browse to `http://localhost:8080` to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
+Tag the new image with `v2` to indicate a new version. Replace `<acrLoginServer>` with your ACR login server name.
+
 ```bash
-docker tag azure-vote-front mycontainerregistry007.azurecr.io/azure-vote-front:v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
+
+Push the image to your registry.
+
 
 ```bash
 docker push mycontainerregistry007.azurecr.io/azure-vote-front:v2
@@ -94,32 +108,32 @@ docker push mycontainerregistry007.azurecr.io/azure-vote-front:v2
 
 ## Deploy updated application
 
-Ensure multiple instances of the front-end pod are running.
+Ensure that you have multiple running instances of the azure-vote-front container.
+
 
 ```bash
 kubectl get pod
 ```
 
-If needed, scale the front-end pod out so that multiple instances are running. This will ensure no down time as the updated application is deployed.
+If needed, scale the front-end pod out so that multiple instances are running.
 
 ```bash
 kubectl scale --replicas=4 deployment/azure-vote-front
 ```
 
-If you’ve scaled out the front-end nodes, make sure that they are running before updating the application.
+Make sure that they are running before updating the application.
 
 ```bash
 kubectl get pod
 ```
 
-Update the application. If using Azure Container Registry to store container images, you need the ACR login server name. This name can be retrieved using the [az acr list](/cli/azure/acr#list) command.
+If using Azure Container Registry to store container images, you need the ACR login server name. This name can be retrieved using the [az acr list](/cli/azure/acr#list) command.
 
 ```bash
 az acr list --resource-group myResourceGroup --query [0].loginServer -o tsv
 ```
 
-Run the following command to update the applicaiton. Update `<acrLoginServer>` with your ACR loging server name.
-
+Run the following command to update the application. Update `<acrLoginServer>` with your ACR loging server name.
 
 ```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
@@ -132,7 +146,18 @@ kubectl get pod -w
 ```
 
 ```bash
-
+NAME                               READY     STATUS    RESTARTS   AGE
+azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
+azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
+azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
+azure-vote-front-1297194256-wfgqt   1/1       Running   0         1m
+azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
+azure-vote-front-2870584546-htssh   1/1       Running   0         6s
+azure-vote-front-2870584546-qj3tf   1/1       Running   0         6s
+azure-vote-front-1297194256-tpjlg   1/1       Terminating   0         1m
+azure-vote-front-1297194256-wfgqt   1/1       Terminating   0         1m
+azure-vote-front-2870584546-p9ldj   0/1       Pending   0         0s
+azure-vote-front-2870584546-nk8px   0/1       Pending   0         0s
 ```
 
 Get the external IP address of the service.
@@ -147,12 +172,15 @@ Browse to the IP address to see the updated application.
 
 ## Next steps
 
-<complete> Tasks completed include:  
+In this tutorial, an application was updated and this update rolled out to a Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * <complete>
+> * Update application code
+> * Create update container images
+> * Push container images to ACR
+> * Deploy updated application
 
-Advance to the next tutorial to learn about monitoring Kubernetes with Operations Managemetn Suite.
+Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
 > [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-scale.md)
