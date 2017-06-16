@@ -97,7 +97,7 @@ The table below details the required fields in order to publish your Function Ap
 
 Click the **Create** button, and the final confirmation page displays. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function. 
 
-![Test function in Azure Portal](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish.png)
+![Test function in Azure Portal](./media/functions-create-your-first-function-visual-studio/functions-verify-publish.png)
 
 ## Next steps
 
