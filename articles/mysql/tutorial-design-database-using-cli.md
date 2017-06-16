@@ -5,8 +5,6 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
