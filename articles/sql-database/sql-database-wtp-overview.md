@@ -36,7 +36,7 @@ After deploying the app, explore the following tutorials that build upon the ini
 |[Restore a single tenant](sql-database-saas-tutorial-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Steps to restore to a parallel database, leaving the existing tenant database online, are also included. |
 |[Manage tenant schema](sql-database-saas-tutorial-schema-management.md)| Learn how to update schema, and update reference data, across all Wingtip SaaS tenants. |
 |[Run ad-hoc analytics](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run real-time distributed queries across all tenants.  |
-|[Run tenant analytics](sql-database-saas-tutorial-tenant-analytics.md) | Extract tenant data into an analytics database for running offline analytic queries. |
+|[Run tenant analytics](sql-database-saas-tutorial-tenant-analytics.md) | Extract tenant data into an analytics database or data warehouse for running offline analytic queries. |
 
 
 
