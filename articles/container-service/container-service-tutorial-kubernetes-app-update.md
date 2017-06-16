@@ -21,9 +21,9 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When this occurs, the update rollout is staged such that only a portion of the application pods are concurrently updated. This allows the application to stay running during the update, and provides a rollback mechanism in the event of deployment failure. 
+Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the application pods is concurrently updated. This staged deployment allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
-In this tutorial the sample Azure Vote app will be updated. Tasks completed in this tutorial include:
+In this tutorial, the sample Azure Vote app is updated. Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
 > * Update application code
@@ -120,13 +120,13 @@ Make sure that the pods are running before updating the application.
 kubectl get pod
 ```
 
-Run the following command to update the application. Update `<acrLoginServer>` with your ACR loging server name.
+To update the application, run the following command. Update `<acrLoginServer>` with your ACR logging server name.
 
 ```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
 ```
 
-To monitor the deployment, run the following command. Exit the wait loop by pressing `control + c`.
+To monitor the deployment, run the following command:
 
 ```bash
 kubectl get pod -w
