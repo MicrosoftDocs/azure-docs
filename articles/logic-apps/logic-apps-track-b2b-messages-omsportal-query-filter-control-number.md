@@ -19,9 +19,11 @@ ms.author: LADocs; padmavc
 
 # Query for B2B messages in the Operations Management Suite portal
 
-To track business-to-business (B2B) messages in the Operations Management Suite (OMS) portal, 
-you can create queries that filter actions based on specific criteria, for example, 
-an interchange control number.
+To track business-to-business (B2B) messages with the 
+[Azure Log Analytics service](../log-analytics/log-analytics-overview.md) 
+in the [Operations Management Suite (OMS) portal](../operations-management-suite/operations-management-suite-overview.md), 
+you can create queries that filter actions based on specific criteria, 
+for example, an interchange control number.
 
 ## Requirements
 

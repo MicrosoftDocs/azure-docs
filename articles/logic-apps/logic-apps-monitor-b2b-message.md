@@ -1,6 +1,6 @@
 ---
 title: Monitor messages in B2B transactions - Azure Logic Apps | Microsoft Docs
-description: Log, monitor, and track B2B communication for your integration account and logic app
+description: Monitor, log, and track B2B communication for your integration account and logic apps
 author: padmavc
 manager: anneta
 editor: ''
@@ -18,7 +18,7 @@ ms.date: 06/15/2017
 ms.author: LADocs; padmavc
 ---
 
-# Log and monitor AS2, X12, and EDIFACT messages for success, errors, and message properties
+# Monitor and log diagnostics data for AS2, X12, and EDIFACT messages to check success, errors, and message properties
 
 When you set up B2B communication for your logic app 
 between two running business processes or applications, 
@@ -42,14 +42,18 @@ and [how to set up monitoring and logging for that logic app](../logic-apps/logi
 * An integration account. Learn 
 [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md).
 
-## Turn on logging and diagnostics for your integration account
+* A workspace in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+for the [Azure Log Analytics service](../log-analytics/log-analytics-overview.md). 
+Learn [how to create this workspace](../log-analytics/log-analytics-get-started.md).
+
+## Turn on diagnostics data logging for your integration account
 
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service), 
 which provides [basic monitoring with infrastructure-level data](../monitoring-and-diagnostics/monitoring-overview.md). 
 Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
-### Turn on logging directly from your integration account
+### Turn on diagnostics data logging directly from your integration account
 
 1. In the Azure portal, find and select your integration account. 
 Under **Monitoring**, choose **Diagnostics logs** as shown here:
@@ -69,9 +73,9 @@ Under **Monitoring**, choose **Diagnostics logs** as shown here:
 
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Under **Diagnostics settings**, **Status**, choose **On**.
+3. Under **Diagnostics settings**, and then **Status**, choose **On**.
 
-   ![Turn on diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
+   ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
 4. Now perform these steps as shown:
 
@@ -86,7 +90,7 @@ Under **Monitoring**, choose **Diagnostics logs** as shown here:
 
 <a name="azure-monitor-service"></a>
 
-### Turn on logging through the Monitor service
+### Turn on dianostics data logging through the Monitor service
 
 1. In the Azure portal, on the main left menu, 
 choose **Monitor**, **Diagnostics logs**. 
@@ -109,9 +113,9 @@ Otherwise, select the correct values now:
 
    ![Set up diagnostics for your integration account](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Under **Diagnostics settings**, **Status**, choose **On**.
+3. Under **Diagnostics settings**, and then **Status**, choose **On**.
 
-   ![Turn on diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
+   ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
 4. Now perform these steps as shown:
 
@@ -124,7 +128,7 @@ Otherwise, select the correct values now:
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-## Expand how and where you use diagnostic data with other services
+## Extend how and where you use diagnostic data with other services
 
 Along with **Log Analytics**, you can set up your integration account, 
 and also your [logic app](logic-apps-monitor-your-logic-apps.md), so that diagnostics 
