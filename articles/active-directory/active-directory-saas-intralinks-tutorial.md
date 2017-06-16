@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 06/18/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Intralinks, you need the following items:
 
 - An Azure AD subscription
-- An Intralinks single-sign on enabled subscription
+- An Intralinks single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,7 +108,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<Azure AD Tenant ID>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	`https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Intralinks Client support team](https://www.intralinks.com/contact-1) to get this value. 
@@ -190,7 +191,63 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
+
+### Add Intralinks VIA or Elite application
+
+Intralinks uses the same SSO identity platform for all other Intralinks applications excluding Deal Nexus application. So if you plan to use any other Intralinks application then first you have to configure SSO for one Primary Intralinks application using the procedure described above.
+
+After that you can follow the below procedure to add another Intralinks application in your tenant which can leverage this primary application for SSO. 
+
+>[!NOTE]
+>This feature is available only to Azure AD Premium SKU Customers and not available for Free or Basic SKU customers.
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+
+	![Active Directory][1]
+
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
 	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+5. On **Add an application** page, click **Non-gallery application**.
+   
+   ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_nongalleryapp.png)
+
+6. On **Add your own application** perform the following steps:
+
+   ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_addyourownapp.png)
+
+   a. In **Name** textbox, enter appropriate name of the application e.g. **Intralinks Elite**.
+
+   b. Click **Add** button.
+
+6.  In the Azure portal, on the **Intralinks** application integration page, click **Single sign-on**.
+
+    ![Configure Single Sign-On][4]
+
+7. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on**.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
+
+8. Get the the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
+    
+     ![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_customappurl.png)
+    
+     In the Sign On URL textbox, type the URL used by your users to sign-on to your Intralinks application using the following pattern:
+   
+    `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
+
+9. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_general_400.png)
+
+10. Assign the application to user or groups as shown in the section **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)**.
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
