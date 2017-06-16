@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
-ms.date: 02/02/2017
+ms.date: 06/15/2017
 ms.author: eslesar
 ---
 
@@ -23,24 +23,39 @@ Azure Automation DSC is an Azure service that allows you to write, manage, and c
 [configurations](https://msdn.microsoft.com/powershell/dsc/configurations), import [DSC Resources](https://msdn.microsoft.com/powershell/dsc/resources),
 and assign configurations to target nodes, all in the cloud.
 
-Azure Automation also provides a [DSC pull server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) so that target nodes automatically receive configurations, conform to the desired state, and report back on their compliance.
+## Why use Azure Automation DSC
+
+Azure Automation DSC provides a number of advantages over using DSC outside of Azure.
+
+### Built-in pull server
+
+Azure Automation provides a [DSC pull server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) so that target nodes automatically receive configurations, conform to the desired state, and report back on their compliance.
+The built-in pull server in Azure Automation eliminates the need to set up and maintain your own pull server.
 Azure Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
 
-Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting.
+### Management of all of your DSC artifacts
 
-Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation DSC was first announced. **Note:** While the concepts and life cycle discussed in this video are correct, Azure Automation DSC has progressed a lot since this video was recorded. It is now generally available, has a much more extensive UI in the Azure portal, and supports many additional capabilities.
+Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting.
+
+From the Azure portal, or from PowerShell, you can manage all of your DSC configurations, resources, and target nodes.
+
+![Screen shot of the Azure Automation blade](./media/automation-dsc-overview/azure-automation-blade.png)
+
+### Import reporting data into Log Analytics
+
+Nodes that are managed with Azure Automation DSC send detailed reporting data to the built-in pull server.
+You can configure Azure Automation DSC to send this data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.
+To learn how to do this, see [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md).
+
+## Introduction video
+
+Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation DSC was first announced.
+
+>[!NOTE]
+>While the concepts and life cycle discussed in this video are correct, Azure Automation DSC has progressed a lot since this video was recorded.
+>It is now generally available, has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
-
-## Azure Automation DSC LifeCycle
-
-Going from an empty automation account to a managed set of correctly configured nodes involves a set of processes for defining configurations, turning those configurations into node configurations, and onboarding nodes to Azure Automation DSC and to those node configurations. The following diagram illustrates the Azure Automation DSC lifecycle:
-
-![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
-
-The following image illustrates detailed step-by-step process in the life cycle of DSC. It includes different ways a configuration is imported and applied to nodes in Azure Automation, components required for an on-premises machine to support DSC and interactions between different components.
-
-![DSC Architecture](./media/automation-dsc-overview/dsc-architecture.png)
 
 ## Next steps
 
