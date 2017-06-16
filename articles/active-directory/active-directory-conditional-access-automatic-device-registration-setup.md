@@ -136,7 +136,7 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
 - Uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
-- Is only supported by cmdlet the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
