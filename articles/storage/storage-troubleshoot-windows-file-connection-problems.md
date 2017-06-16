@@ -183,5 +183,5 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
 
 Be aware that setting the registry key affects all copy operations that are made to network shares.
 
-## Support
+## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
