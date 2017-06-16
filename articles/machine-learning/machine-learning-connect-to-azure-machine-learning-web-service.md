@@ -17,7 +17,7 @@ ms.date: 06/02/2017
 ms.author: garye
 
 ROBOTS: NOINDEX
-redirect_url: /azure/machine-learning/machine-learning-consume-web-services
+redirect_url: machine-learning-consume-web-services
 redirect_document_id: TRUE 
 
 ---

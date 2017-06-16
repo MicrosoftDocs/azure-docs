@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -27,6 +27,10 @@ See this article for the steps to [enable automatic tuning](sql-database-automat
 ## Why automatic tuning?
 
 One of the main tasks in classic database administration is monitoring the workload, identifying critical SQL queries, indexes that should be added to improve performance, and rarely used indexes. Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. However, constantly monitoring database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to Azure SQL Database using automatic tuning feature. 
+
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-in-the-Enterprise/Enabling-Azure-SQL-Database-Auto-Tuning-at-Scale-for-Microsoft-IT/player]
+>
 
 ## How does automatic tuning work?
 

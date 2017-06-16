@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 
 ---
@@ -89,7 +89,6 @@ The supported fault domain count is 2 or 3 for Availability Sets using Managed D
 You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
 
 **What kind of RBAC support do we have for Managed Disks?**
-
 Managed Disks supports three key default roles:
 
 1.  Owner: Can manage everything, including access.
@@ -110,6 +109,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, we support both managed and unmanaged disks. However, we recommend you start using managed disks for new workloads and migrate your current workloads to Managed Disks.
 
+
 **If I create a disk of size 128 GB and then increase the size to 130 GB will I be charged for the next disk size (512 GB)?**
 
 Yes.
@@ -127,6 +127,49 @@ No. You cannot update computer name property. New VM will inherit it from the pa
 **Where can I find sample Azure resource manager templates to create VMs with Managed Disks**
 * https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
 * https://github.com/chagarw/MDPP
+
+## Managed Disks and Storage service encryption (SSE)
+
+**Is SSE enabled by default when I create a Managed Disk?**
+
+Yes
+
+**Who manages the encryption keys?**
+
+Keys are managed by Microsoft.
+
+**Can I disable SSE for my Managed Disks?**
+
+No
+
+**Is SSE available in only specific regions?**
+
+No. It is available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany regions.
+
+**How can I find if my Managed Disk is encrypted?**
+
+You can find created time of Managed Disks from Azure portal, CLI and PowerShell. If created time is greater than June 9th, 2017 then your disks are encrypted. 
+
+**How can I encrypt my existing disks created before June 10th, 2017?**
+
+Starting June 10th 2017, new data written to existing Managed Disks will be automatically encrypted. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
+
+[Copy Managed Disks using CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+[Copy Managed Disks using PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+
+**Are managed snapshots and images encrypted?**
+
+Yes. All managed snapshots and images created after June 9th, 2017 are automatically encrypted. 
+
+**Can I convert VMs with unmanaged disks that are located on storage accounts that are or have previously been encrypted to managed disks?
+
+No. This feature is not supported yet. It is expected to come out by end of July. 
+
+**Will an exported VHD from a Managed Disk or a snapshot also be encrypted?**
+
+No. But if you export a VHD to an encrypted storage account from an encrypted Managed Disk or snapshot then it will be encrypted. 
+
 
 ## Managed Disks and port 8443
 
@@ -198,6 +241,41 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 **Is there any repercurssions on using TRIM on Premium Disks?**
 
 There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
+
+## New Disk Sizes - both managed and unmanaged
+
+**What is the largest disk size supported for OS and Data Disks?**
+
+The partition type Azure supports for OS Disks is MBR(Master Boot Record). The MBR format supports up to 2TB disk size. So the largest OS Disks Azure support is 2TB. For Data Disks, Azure supports up to 4TB. 
+
+**What is the largest page blob size supported?**
+
+The largest page blob size Azure supports is 8TB (8191GB). We don't support attaching any page blobs larger than 4TB (4095GB) to a VM as Data or OS disks.
+
+**Do I need to use a new version of Azure tools to create, attach, resize and upload disks larger than 1TB?**
+
+You do not need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1TB. If you would like to directly upload your VHD file from on-premises to Azure as a page blob/unManaged Disks. You would need to pick up the latest toolsets listed below.
+
+|Azure Tools      | Supported Versions                                |
+|-----------------|---------------------------------------------------|
+|Azure Powershell | Version number v4.1.0 – June 2017 Release or above|
+|Azure CLI v1     | Version number 0.10.13 – May 2017 Release or above|
+|AzCopy	          | Version number v6.1.0 – June 2017 Release or above|
+
+The support for Azure CLI v2 and Storage Explorer is coming soon. 
+
+**Are P4 and P6 disk sizes supported for unmanaged Disks or Page Blob?**
+
+No, P4(32GB) and P6(64GB) disk sizes are only supported for Managed Disks. The support for unmanged Disks and Page Blob is coming soon.
+
+**How is my existing Premium Managed disks with size less than 64 GB that is created before small disk is enabled (Around June 15th) billed?**
+
+Existing small Premium disks with size less than 64 GB will continue be billed as per P10 pricing tier. 
+
+**How can I switch the disk tier of small Premium Disks with size less than 64 GB from P10 to P4 or P6?**
+
+You can take a snapshot of your small disks and then create a disk which will automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+
 
 ## What if my question isn't answered here?
 

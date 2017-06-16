@@ -22,7 +22,8 @@
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight storage options](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 # How To
 ## Use Hadoop for batch queries
@@ -105,14 +106,17 @@
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
+### [Configure storage and scalability of Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
+### [Use with Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Use with Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
 ### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Use HDInsight Tools to debug Spark apps remotely](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Use empty edge nodes](hdinsight-apps-use-edge-node.md)
 ### [Develop Python streaming programs](hdinsight-hadoop-streaming-python.md)
 ### [Process and analyze JSON documents](hdinsight-using-json-in-hive.md)
