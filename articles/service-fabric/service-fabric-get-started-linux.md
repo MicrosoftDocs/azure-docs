@@ -100,15 +100,16 @@ Once your sources are updated, you can install the SDK.
 
 Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest` or `yo azuresfcontainer`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
-     ```bash
-     export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
-     ```
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    ```
 
 If you are using the environment as root, you may need to set the variable with the following command:
 
-     ```bash
-     export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
-     ```
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    ```
 
 
 > [!TIP]
