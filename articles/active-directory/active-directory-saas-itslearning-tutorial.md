@@ -12,10 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/17/2017
 ms.author: jeedes
 
 ---
+| Logo| App Name |
+| :---: | :--- |
+| ![logo](./media/active-directory-saas-itslearning-tutorial/logo.png)| [itslearning]( active-directory-saas-itslearning-tutorial.md)|
+
 # Tutorial: Azure Active Directory integration with itslearning
 
 In this tutorial, you learn how to integrate itslearning with Azure Active Directory (Azure AD).
@@ -33,7 +37,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with itslearning, you need the following items:
 
 - An Azure AD subscription
-- An itslearning single-sign on enabled subscription
+- An itslearning single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,14 +112,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-itslearning-tutorial/tutorial_itslearning_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.<domain>.com/index.aspx`
-	or
-	`https://us1.<domain>.com/index.aspx`
+    a. In the **Sign-on URL** textbox, type a URL as:
+	| |
+	|--| 
+	| `https://www.itslearning.com/index.aspx`|
+	| `https://us1.itslearning.com/index.aspx`|
 
 	b. In the **Identifier** textbox, type a URL as: `urn:mace:saml2v2.no:services:com.itslearning`
-
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [itslearning Client support team](mailto:support@itslearning.com) to get this value.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
