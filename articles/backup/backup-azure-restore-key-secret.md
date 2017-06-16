@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 06/16/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -24,35 +24,47 @@ This article talks about using Azure VM Backup to perform restore of encrypted A
 ## Pre-requisites
 1. **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
 2. **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
+3. **Restore disk** - Ensure that you have triggerred restore job for restoring disks for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm). This is because this job generates a JSON file in your storage account containing keys and secrets for the encrypted VM to be restored.
 
-## Setup recovery services vault
-Use the following steps to log in to PowerShell and set recovery services vault context
+## Get key and secret from Azure Backup
 
-### Log in to Azure PowerShell
-Log in to Azure account using the following cmdlet
+> [!NOTE]
+> Once disk has been restored for the encrypted VM, please ensure that:
+> 1. $details is populated with restore disk job details, as mentioned in [PowerShell steps in Restore the Disks section](backup-azure-vms-automation.md#restore-an-azure-vm)
+> 2. VM should be created from restored disks only **after key and secret is restored to key vault**.
+>
+>
 
-```
-PS C:\> Login-AzureRmAccount
-```
-
-### Set recovery services vault context
-Once logged in, use the following cmdlet to get the list of your available subscriptions
-
-```
-PS C:\> Get-AzureRmSubscription
-```
-
-Select the subscription in which resources are available
+1. Query the restored disk properties for the job details.
 
 ```
-PS C:\> Set-AzureRmContext -SubscriptionId "<subscription-id>"
+PS C:\> $properties = $details.properties
+PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+PS C:\> $containerName = $properties["Config Blob Container Name"]
+PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
+PS C:\> $containerName = $properties["Config Blob Container Name"]
 ```
 
-Set the vault context using Recovery Services vault where backup was enabled for encrypted VMs
+2. Set the Azure storage context and restore JSON configuration file containing key and secret details for encrypted VM.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault -ResourceGroupName "<rg-name>" -Name "<rs-vault-name>" | Set-AzureRmRecoveryServicesVaultContext
+PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
+PS C:\> $destination_path = "C:\vmencryption_config.json"
+PS C:\> Get-AzureStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
+PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
+
+## Restore key
+Once the JSON file is generated in the destination path mentioned above, generate key blob file from the JSON and feed it to restore key cmdlet to put the key (KEK) back in the key vault.
+
+```
+PS C:\> $keyDestination = 'C:\keyDetails.blob'
+PS C:\> [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
+PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+```
+
+## Restore secret
+
 
 ### Get recovery point
 Select container in the vault that represents encrypted Azure virtual machine
