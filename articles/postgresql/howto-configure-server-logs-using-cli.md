@@ -6,9 +6,7 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
