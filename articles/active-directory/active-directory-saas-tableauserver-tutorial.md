@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 06/18/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Tableau Server, you need the following items:
 
 - An Azure AD subscription
-- A Tableau Server single-sign on enabled subscription
+- A Tableau Server single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,14 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://azure.<domainname>.link`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://azure.<domain name>.link`
 	
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://azure.<domainname>.link`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://azure.<domain name>.link`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://azure.<domainname>.link/wg/saml/SSO/index.html`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 	 
 	> [!NOTE] 
-	> The above values are not real values. Please update the values with the actual URLs and identifier from the Tableau Server configuration page. 
+	> The preceding values are not real values. Later, you update the values with the actual URL and identifier from the Tableau Server configuration page. 
 
 4. Tableau Server application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"User Attributes"** section on application integration page. The following screenshot shows an example for the same.
 	
@@ -211,7 +211,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Tableau Server. You need to provision all the users in the Tableau server. 
 
-That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the Tableau Server administrator in your organization.
