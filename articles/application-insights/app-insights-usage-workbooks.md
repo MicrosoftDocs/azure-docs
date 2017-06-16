@@ -31,7 +31,7 @@ Workbooks are helpful for scenarios like:
 > 
 > 
 
-## Editing, Rearranging, Cloning, and Deleting Workbook Sections
+## Editing, rearranging, cloning, and deleting workbook sections
 
 A workbook is a made of sections: independently editable usage visualizations, charts, tables, text, or Analytics query results.
 
@@ -47,7 +47,7 @@ To edit the contents of a workbook section, click the **Edit** button below and 
 
 4. To remove a section permanently, click the **Remove** icon.
 
-## Adding Usage Data Visualization Sections
+## Adding usage data visualization sections
 
 Workbooks offer four types of built-in usage analytics visualizations. Each answers a common question about the usage of your app. To add tables and charts other than these four sections, add Analytics query sections (see below).
 
@@ -73,7 +73,7 @@ Each of these three section types offers the same sets of controls and visualiza
 * [Learn more about editing Retention sections](app-insights-usage-retention.md)
 * Toggle the optional Overall Retention chart using the **Show overall retention chart** checkbox at the top of the section.
 
-## Adding Application Insights Analytics Sections
+## Adding Application Insights Analytics sections
 
 ![Analytics section in Workbooks](./media/app-insights-usage-workbooks/analytics-section.png)
 
@@ -87,13 +87,13 @@ Analytics query sections let you add arbitrary queries over your Application Ins
 
 Use the [Analytics query language reference](app-insights-analytics-reference.md) to learn more about writing queries.
 
-## Adding Text and Markdown Sections
+## Adding text and Markdown sections
 
 Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Text sections in Workbooks support the [Markdown syntax](https://daringfireball.net/projects/markdown/) for text formatting, like headings, bold, italics, and bulleted lists.
 
 To add a text section to your workbook, use the **Add text** button at the bottom of the workbook, or at the bottom of any section.
 
-## Saving and Sharing Workbooks with Your Team
+## Saving and sharing Workbooks with your team
 
 Workbooks are saved within an Application Insights resource, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the Application Insights resource. To view all the workbooks in the resource, click the **Open** button in the action bar.
 
