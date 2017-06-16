@@ -21,12 +21,12 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the application pods is concurrently updated. This staged deployment allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
 In this tutorial, the sample Azure Vote app is updated. Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
-> * Update application code
+> * Update the front-end application code
 > * Create update container images
 > * Push container images to ACR
 > * Deploy updated application
@@ -43,20 +43,17 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, do so with the following command:
 
-
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
 Change directories such that you are working from the root of the cloned repository.
 
-
 ```bash
 cd azure-kubernetes-samples
 ```
 
 Open the `config_file.cfg` file with any code or text editor.
-
 
 ```bash
 code /azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg
@@ -72,13 +69,13 @@ VOTE2VALUE = 'Half Empty'
 SHOWHOST = 'false'
 ```
 
-Run `docker-compose build` to re-create the container images.
+Run `docker-compose build` to re-create the front-end container image.
 
 ```bash
 docker-compose build
 ```
 
-Run `docker-compose up -d` to run the container images.
+Run `docker-compose up -d` to run the application.
 
 ```bash
 docker-compose up -d
@@ -87,6 +84,8 @@ docker-compose up -d
 Browse to `http://localhost:8080` to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+
+## Tag and push images
 
 Tag the new image with `v2` to indicate a new version. Replace `<acrLoginServer>` with your ACR login server name.
 
@@ -102,7 +101,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## Deploy updated application
 
-To provide for a staged rooloout, ensure that you have multiple running instances of the azure-vote-front container.
+To provide for a staged deployment, ensure that you have multiple running instances of the azure-vote-front container.
 
 ```bash
 kubectl get pod
@@ -129,22 +128,17 @@ kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/
 To monitor the deployment, run the following command:
 
 ```bash
-kubectl get pod -w
+kubectl get pod
 ```
+
+Output:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
 azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
-azure-vote-front-1297194256-wfgqt   1/1       Running   0         1m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
-azure-vote-front-2870584546-htssh   1/1       Running   0         6s
-azure-vote-front-2870584546-qj3tf   1/1       Running   0         6s
-azure-vote-front-1297194256-tpjlg   1/1       Terminating   0         1m
-azure-vote-front-1297194256-wfgqt   1/1       Terminating   0         1m
-azure-vote-front-2870584546-p9ldj   0/1       Pending   0         0s
-azure-vote-front-2870584546-nk8px   0/1       Pending   0         0s
 ```
 
 Get the external IP address of the service.
@@ -162,7 +156,7 @@ Browse to the IP address to see the updated application.
 In this tutorial, an application was updated and this update rolled out to a Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * Update application code
+> * Update the front-end application code
 > * Create update container images
 > * Push container images to ACR
 > * Deploy updated application
