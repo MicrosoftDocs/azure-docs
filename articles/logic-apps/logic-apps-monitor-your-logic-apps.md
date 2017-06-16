@@ -90,8 +90,6 @@ to view runtime details and events. You can also subscribe to
 
 ### Log diagnostic data with Azure Diagnostics and Azure Log Analytics
 
-To help when debugging 
-
 Before you start, you need a workspace in the 
 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
 for the [Azure Log Analytics service](../log-analytics/log-analytics-overview.md). 
@@ -115,7 +113,7 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
    ![Set up Azure Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-## Extend how and where you use diagnostic data with other services
+### Extend how and where you use diagnostic data with other services
 
 Along with Azure Log Analytics, you can set up your 
 [logic app](logic-apps-monitor-your-logic-apps.md) so that diagnostics 
@@ -124,9 +122,9 @@ or streamed through the [Azure Event Hubs service](../event-hubs/event-hubs-what
 That way, you can get real-time monitoring for your workflows by using the telemetry 
 that you send to Azure Storage or Azure Event Hubs with other services like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](https://powerbi.microsoft.com). 
+and [Power BI](https://powerbi.microsoft.com). Learn more about 
+[monitoring and diagnostics in Azure](../monitoring-and-diagnostics/monitoring-overview.md). 
 
-Learn more about [monitoring and diagnostics in Azure](../monitoring-and-diagnostics/monitoring-overview.md). 
 Based on the options that you want to set up, make sure that you first 
 [create an Azure storage account](../storage/storage-create-storage-account.md) 
 or [create an Azure event hub](../event-hubs/event-hubs-create.md):
@@ -147,26 +145,34 @@ that are crossed while your logic app runs, you can set up
 Learn more about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 
 and [how to create metric alerts](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
+   > [!TIP]
+   > To run a logic app based on a alert, you can include the 
+   > [request trigger](../connectors/connectors-native-reqres.md) in your workflow, 
+   > which lets you perform tasks like these examples:
+   > 
+   > * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+   > * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+   > * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
    ![Add an alert for your logic app](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. On the **Add an alert rule** blade:
+2. On the **Add an alert rule** blade, create your alert as shown:
 
    1. Under **Resource**, select your logic app, if not already selected. 
    2. Give a name and description for your alert.
-   3. Select the metric that you want to use.
-   4. Select a **Condition**, specify a **Threshold**, 
+   3. Select a **Metric** that you want to use.
+   4. Select a **Condition**, specify a **Threshold** for the metric, 
    and select the **Period** for monitoring this metric.
-   5. Specify an email address or a webhook URL where 
-   you want to send the alert.
+   5. Select whether to send mail for the alert. 
+   6. Specify any other email addresses for sending the alert. 
+   You can also specify a webhook URL where you want to send the alert.
 
-   ![Azure Alert metrics](media/logic-apps-monitor-your-logic-apps/alerts.png)
+   For example, this rule sends an alert when five or more runs fail in an hour:
 
-   > [!TIP]
-   > You can use the [request trigger](../connectors/connectors-native-reqres.md) 
-in a logic app to run on an alert as well (to do things like [post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app), [send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app), or [add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)).
+   ![Create metric alert rule](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
 ### Azure Diagnostics settings
 
