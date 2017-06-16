@@ -122,11 +122,11 @@ View and analyze the OMS container monitoring data with the [Container solution]
 
 To install the Container solution using the [OMS portal](https://mms.microsoft.com), go to **Solutions Gallery**. Then add **Container Solution**. Alternatively, add the Containers solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details, including container events, errors, status, image inventory, and CPU and memory usage. For more granual information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
+In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../log-analytics/log-analytics-log-searches.md).
 
 ![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. Click the tile to see details.
+Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
 See the [Azure Log Analytics documentation](../log-analytics/) for detailed guidance on querying and analyzing monitoring data.
 
