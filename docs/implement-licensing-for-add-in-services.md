@@ -1,7 +1,7 @@
 # Implement licensing to upsell your Office Add-in services
 
 If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. It also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired.  
-m
+
 
 ## Step 1: Use a single manifest for all customers
 
@@ -26,7 +26,7 @@ As such, you must build a licensing database (or use your existing licensing dat
 - Whether users belonging to this organization should be blocked (for example, if they keep using the service but do not purchase it).
 - Links to your internal sales system, which you can use to map a given organization’s license(s) to your own records of that sale.
 
-This database should be able to expose an API to your add-in that might be similar to the following the API. 
+This database should be able to expose an API to your add-in that might be similar to the following. 
 
 ```
 www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1
@@ -98,7 +98,7 @@ Pass this information to your licensing API.
 
 You can support the rebranding of your add-in for a particular customer. To do this, you pass the current user's organization ID when your add-in service activates. You can do this in one of two ways:
 
-- Use the organizational tenant ID to retrieve the organization's logo or name that is to be used on the splash screen. Because this information might be confidential, we recommend that you save it in X.
+- Use the organizational tenant ID to retrieve the organization's logo or name that is to be used on the splash screen. <!-- Because this information might be confidential, we recommend that you save it in X. -->
 - If the add-in manifest is organization-specific, use a common backend service for all organizations, but include that organization’s name (or ID) as a URL parameter or path in the activation URL.
 
 You can fall back to generic branding if the organization does not have or need specific branding.
