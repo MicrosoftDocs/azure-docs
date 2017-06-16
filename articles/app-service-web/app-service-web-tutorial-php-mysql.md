@@ -309,6 +309,8 @@ Later, you learn how to configure environment variables in App Service to connec
 ## Deploy to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
 
+### Create an App Service plan
+
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)] 
 
 
