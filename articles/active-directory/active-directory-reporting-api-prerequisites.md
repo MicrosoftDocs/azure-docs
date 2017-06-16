@@ -28,7 +28,7 @@ To prepare your access to the reporting API, you must:
 2. Grant the application appropriate permissions to access the Azure AD data
 3. Gather configuration settings from your directory
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+For questions, issues or feedback, please raise a support ticket.Learn more about how to [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## Create an Azure AD application
 To configure your directory to access the Azure AD reporting API, you must sign in to the Azure classic portal with an Azure subscription administrator account that is also a member of the Global Administrator directory role in your Azure AD tenant.
