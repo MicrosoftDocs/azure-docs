@@ -28,8 +28,8 @@ SQL Database is a general-purpose relational database that supports structures s
 
 With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
 
-- [Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)
-- [Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)
+- **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**: A place to find out what’s new and what’s coming next. 
+- **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)**: A place where SQL Server product team members blog about SQL Database news and features. 
 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. 
 
