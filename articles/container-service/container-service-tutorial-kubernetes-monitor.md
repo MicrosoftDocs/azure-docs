@@ -19,7 +19,7 @@ ms.date: 06/15/2017
 ms.author: danlep
 ---
 
-# Azure Container Service tutorial - Monitor Kubernetes
+# Monitor a Kubernetes cluster with Operations Management Suite
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
