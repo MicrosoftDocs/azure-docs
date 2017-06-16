@@ -126,7 +126,7 @@ In addition to storing task outputs, you can store the outputs associated with a
 Store job output by calling the [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] method, and specify the [JobOutputKind][net_joboutputkind] and filename:
 
 ```csharp
-CloudJob job = await batchClient.JobOperations.GetJobAsync(jobId);
+CloudJob job = new JobOutputStorage(acct, jobId);
 JobOutputStorage jobOutputStorage = job.OutputStorage(linkedStorageAccount);
 
 await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");

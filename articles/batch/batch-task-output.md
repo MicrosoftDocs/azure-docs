@@ -36,15 +36,15 @@ It's up to you whether you decide to use the File Conventions standard for namin
 
 There are a few different ways that you can use the File Conventions standard:
 
-- If you are using the Batch service API to persist output files, you can choose to name destination containers and blobs according to the File Conventions standard.
-- If you are developing with .NET, you can use the [Azure Batch File Conventions library for .NET][nuget_package]. An advantage of using this library is that it supports querying your output files according to their ID or purpose. The built-in querying functionality makes it easy to access output files from a client application or from other tasks. For more information, see the reference for the [File Conventions library for .NET](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx).
+- If you are using the Batch service API to persist output files, you can choose to name destination containers and blobs according to the File Conventions standard. The Batch service API enables you to persist output files from client code, without modifying your task application.
+- If you are developing with .NET, you can use the [Azure Batch File Conventions library for .NET][nuget_package]. An advantage of using this library is that it supports querying your output files according to their ID or purpose. The built-in querying functionality makes it easy to access output files from a client application or from other tasks. However, your task application must be modified to call File Conventions library. For more information, see the reference for the [File Conventions library for .NET](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx).
 - If you are developing with a language other than .NET, you can implement the File Conventions standard in your application.
 
 ## Design considerations for persisting output 
 
 When designing your Batch solution, consider the following factors related to job and task outputs.
 
-* **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. Output from a task that runs on a node is available only while the node exists, and only within the file retention period you've set for the task. To ensure that task output is preserved, your tasks must upload their output files to a durable store such as Azure Storage.
+* **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. Output from a task that runs on a node is available only while the node exists, and only within the file retention period you've set for the task. If a task produces output that may be needed after the task is complete, then the task must upload its output files to a durable store such as Azure Storage.
 
 * **Output storage**: Azure Storage is recommended as a data store for task output, but you can use any durable storage. Writing task output to Azure Storage is integrated into the Batch service API. If you use another form of durable storage, you'll need to write the application logic to persist task output yourself.   
 
@@ -93,6 +93,7 @@ Use the Batch File Conventions library for .NET to persist task output when:
 - You want to stream data to Azure Storage while the task is still running.
 - You want to persist data from pools created with either the cloud service configuration or the virtual machine configuration.
 - Your client application or other tasks in the job needs to locate and download task output files by ID or by purpose. 
+- You want to perform check-pointing or early upload of initial results.
 - You want to view task output in the Azure portal.
 
 For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md). Also see the [PersistOutputs][github_persistoutputs] sample project on GitHub, which demonstrates how to use the File Conventions library for .NET to persist task output to durable storage.

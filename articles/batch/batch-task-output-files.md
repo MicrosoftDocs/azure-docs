@@ -171,6 +171,8 @@ If you are developing in C#, you can use the methods built into the [Batch File 
 string containerName = job.OutputStorageContainerName();
 ```
 
+You can use the [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl?view=azure-dotnet) method to return a shared access signature (SAS) URL that is used to write to the container. You can then pass this SAS to the [Output​File​Blob​Container​Destination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination?view=azure-dotnet) constructor.
+
 If you are developing in a language other than C#, you will need to implement the File Conventions standard yourself.
 
 ## Code sample
