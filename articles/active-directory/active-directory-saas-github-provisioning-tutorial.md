@@ -27,6 +27,7 @@ The objective of this tutorial is to show you the steps you need to perform in G
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
+*   A Github tenant with the [Business plan](https://help.github.com/articles/organization-billing-plans/#business-plan) or better enabled 
 *   A user account in GitHub with Team Admin permissions 
 
 ## Assigning users to GitHub
@@ -84,5 +85,6 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 13) Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to GitHub in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 10 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your GitHub app.
+This will start the initial synchronization of any users and/or groups assigned to GitHub in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 10 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
