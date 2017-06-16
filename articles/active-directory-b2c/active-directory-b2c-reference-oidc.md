@@ -20,21 +20,21 @@ ms.author: dastrock
 # Azure Active Directory B2C: Web sign-in with OpenID Connect
 OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users into web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure AD. This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *id_token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
 Because it extends OAuth 2.0, it also enables apps to securely acquire *access_tokens*. You can use access_tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics). We recommend OpenID Connect if you're building a web application that is hosted on a server and accessed through a browser. If you want to add identity management to your mobile or desktop applications by using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect.
 
 Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [policy parameter](active-directory-b2c-reference-policies.md),
 which enables you to use OpenID Connect to add user experiences--such as sign-up, sign-in, and profile management--to your app. Here we'll show you how to use OpenID Connect and policies to implement each of these experiences
-in your web applications. We'll also show you how to get access_tokens for accessing web APIs.
+in your web applications. We'll also show you how to get access tokens for accessing web APIs.
 
-The example HTTP requests in the next section use our sample B2C directory, *fabrikamb2c.onmicrosoft.com*, as well as our sample application *https://aadb2cplayground.azurewebsites.net* and policies. You're free to try out the requests yourself by using these values, or you can replace them with your own.
+The example HTTP requests in the next section use our sample B2C directory, fabrikamb2c.onmicrosoft.com, as well as our sample application, https://aadb2cplayground.azurewebsites.net, and policies. You're free to try out the requests yourself by using these values, or you can replace them with your own.
 Learn how to [get your own B2C tenant, application, and policies](#use-your-own-b2c-directory).
 
 ## Send authentication requests
-When your web app needs to authenticate the user and execute a policy, it can direct the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user will actually take action, depending on the policy.
+When your web app needs to authenticate the user and execute a policy, it can direct the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user actually takes action, depending on the policy.
 
-In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the policy to execute in the `p` parameter. Three examples are provided below (with line breaks for readability),
+In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the policy to execute in the `p` parameter. Three examples are provided in the following sections (with line breaks for readability),
 each using a different policy. To get a feel for how each request works, try pasting the request into a browser and running it.
 
 #### Use a sign-in policy
@@ -79,18 +79,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parameter | Required? | Description |
 | --- | --- | --- |
 | client_id |Required |The application ID that the [Azure portal](https://portal.azure.com/) assigned to your app. |
-| response_type |Required |The response type, which must include `id_token` for OpenID Connect. If your web app will also need tokens for calling a web API, you can use `code+id_token`, as we've done here. |
-| redirect_uri |Recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris that you registered in the portal, except that it must be URL encoded. |
-| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of **id_tokens** (more to come on this later in the article). The `offline_access` scope is optional for web apps. It indicates that your app will need a **refresh_token** for long-lived access to resources. |
-| response_mode |Recommended |The method that should be used to send the resulting authorization_code back to your app. It can be either `query`, `form_post`, or `fragment`;  `form_post` is recommended for best security. |
+| response_type |Required |The response type, which must include `id_token` for OpenID Connect. If your web app also needs tokens for calling a web API, you can use `code+id_token`, as we've done here. |
+| redirect_uri |Recommended |The `redirect_uri` parameter of your app, where authentication responses can be sent and received by your app. It must exactly match one of the `redirect_uri` parameters that you registered in the portal, except that it must be URL encoded. |
+| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens (more to come on this later in the article). The `offline_access` scope is optional for web apps. It indicates that your app will need a *refresh token* for long-lived access to resources. |
+| response_mode |Recommended |The method that should be used to send the resulting authorization code back to your app. It can be either `query`, `form_post`, or `fragment`;  `form_post` is recommended for best security. |
 | state |Recommended |A value included in the request that is also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page they were on. |
-| nonce |Required |A value included in the request (generated by the app) that will be included in the resulting id_token as a claim. The app can then verify this value to mitigate token replay attacks. The value is typically a randomized, unique string that can be used to identify the origin of the request. |
-| p |Required |The policy that will be executed. It is the name of a policy that is created in your B2C tenant. The policy name value should begin with `b2c\_1\_`. Learn more about policies in [Extensible policy framework](active-directory-b2c-reference-policies.md). |
+| nonce |Required |A value included in the request (generated by the app) that will be included in the resulting ID token as a claim. The app can then verify this value to mitigate token replay attacks. The value is typically a randomized unique string that can be used to identify the origin of the request. |
+| p |Required |The policy that will be executed. It is the name of a policy that is created in your B2C tenant. The policy name value should begin with `b2c\_1\_`. Learn more about policies and the [extensible policy framework](active-directory-b2c-reference-policies.md). |
 | prompt |Optional |The type of user interaction that is required. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 
 At this point, the user is asked to complete the policy's workflow. This might involve the user entering their user name and password, signing in with a social identity, signing up for the directory, or any other number of steps, depending on how the policy is defined.
 
-After the user completes the policy, Azure AD returns a response to your app at the indicated `redirect_uri`, by using the method that is specified in the `response_mode` parameter. The response will be exactly the same for each of the above cases, independent of the policy that was executed.
+After the user completes the policy, Azure AD returns a response to your app at the indicated `redirect_uri` parameter, by using the method that is specified in the `response_mode` parameter. The response will be exactly the same for each of the preceding cases, independent of the policy that was executed.
 
 A successful response using `response_mode=fragment` would look like:
 
@@ -103,11 +103,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user. More details on id_tokens and their contents are included in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
-| code |The authorization_code that the app requested, if you used `response_type=code+id_token`. The app can use the authorization code to request an access_token for a target resource. Authorization_codes are very short lived. Typically, they expire after about 10 minutes. |
-| state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
+| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. More details on ID tokens and their contents are included in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
+| code |The authorization code that the app requested, if you used `response_type=code+id_token`. The app can use the authorization code to request an access token for a target resource. Authorization codes are very short-lived. Typically, they expire after about 10 minutes. |
+| state |If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
-Error responses can also be sent to the `redirect_uri` so that the app can handle them appropriately:
+Error responses can also be sent to the `redirect_uri` parameter so that the app can handle them appropriately:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -118,9 +118,9 @@ error=access_denied
 
 | Parameter | Description |
 | --- | --- |
-| error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
+| error |An error-code string that can be used to classify types of errors that occur and that can be used to react to errors. |
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
-| state |See the full description in the previous table. If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
+| state |See the full description in the first table in this section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## Validate the id_token
 Just receiving an id_token is not enough to authenticate the user--you must validate the id_token's signature and verify the claims in the token as per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
@@ -199,7 +199,7 @@ A successful token response looks like:
 | access_token |The signed JWT token that you requested. |
 | scope |The scopes for which the token is valid. These can be used for caching tokens for later use. |
 | expires_in |The length of time that the access_token is valid (in seconds). |
-| refresh_token |An OAuth 2.0 refresh_token. The app can use this token to acquire additional tokens after the current token expires.  Refresh_tokens are long lived, and can be used to retain access to resources for extended periods of time. For more detail, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md). Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh_token. |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived and can be used to retain access to resources for extended periods of time. For more details, refer to the [B2C token reference](active-directory-b2c-reference-tokens.md). Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token. |
 
 Error responses look like:
 
