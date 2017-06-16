@@ -15,13 +15,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/17/2017
 ms.author: nepeters
 ---
 
 # Deploy application to Kubernetes cluster
 
-If you have been following along, at this point, an application was tested, container images created and up loaded to an Azure Container registry, and finally an Azure Container Service Kubernetes cluster deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and monitored.
+If you have been following along with this tutorial set, an application has been tested and container images created. These images have been pushed to an Azure Container Registry. Finally, and Azure Container Service Kubernetes cluster has been deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and monitored.
 
 Tasks completed in this tutorial include:
 
@@ -35,19 +35,21 @@ Tasks completed in this tutorial include:
 
 This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
 
-**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
+**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
-**Azure Container Registry** – if you would like to integrate Azure Container registry (optional), an ACR instance is needed. See, [Deploy container registry]() for information on the deployment steps.
+**Azure Container Registry** – if you would like to integrate Azure Container registry, an ACR instance is needed. See, [Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md) for information on the deployment steps.
 
 ## Understand Kubernetes Objects
 
-When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the application deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim, which is a request to use a persistent volume, and a deployment, which manages the state of the application. 
+When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim, which is a request to use a persistent volume, and a deployment, which manages the state of the application. 
 
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
 ## Get manifest files
 
-The manifest files for each object in this tutorial are available in the Azure Vote application repo, as well included in code blocks in this document. If you have not already done so, clone the repo with the following command: 
+For this tutorial, Kubernetes object will be deployed using Kubernetes manifest files. Manifest files are YAML files that contain the configuration instructions.
+
+The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
 
 ```bash
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
@@ -59,9 +61,11 @@ Once downloaded, change to the kubernetes-manifests directory.
 cd kubernetes-manifests
 ```
 
-## Create storage resources
+## Deploy the Azure Vote app
 
-Because the Azure Vote application includes a MySQL database, we want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact. 
+### Create storage resources
+
+Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact. 
 
 The following manifest file creates a **storage class** object, which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug-in is used.
 
@@ -100,7 +104,7 @@ kubectl create -f storage-resources.yaml
 
 Once completed, a virtual disk is created in an Azure storage account, and attached to the resulting Kubernetes pods. The virtual disk is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
 
-## Secure sensitive values
+### Secure sensitive values
 
 Kubernetes secrets provide a secure storage environment for sensitive information. These secrets can then be used inside the pods, when deploying application in a Kubernetes cluster.
 
@@ -131,9 +135,9 @@ Create the secret objects with the following command:
 kubectl create -f pod-secrets.yaml
 ```
 
-## Create back-end deployment
+### Create back-end deployment
 
-A Kubernetes deployment object manages the state of pods. This includes things like ensuring that the desired replica counts are running, that volumes are mounted, and the proper container images are being used.
+A Kubernetes deployment object manages the state of pods. This includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
 
 The following example creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
 
@@ -194,7 +198,7 @@ Create the deployment with the following command:
 kubectl create -f backend-deployment.yaml
 ```
 
-## Create front-end deployment
+### Create front-end deployment
 
 The front-end deployment is like the back-end. 
 
@@ -262,7 +266,7 @@ Create the deployment with the following command:
 kubectl create -f frontend-deployment.yaml
 ```
 
-## Expose application
+### Expose application
 
 A Kubernetes service defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. Giving the service a type of *LoadBalancer* crates an externally accessible IP address over which the application can be accessed.
 

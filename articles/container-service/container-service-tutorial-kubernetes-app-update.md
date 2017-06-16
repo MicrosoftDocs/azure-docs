@@ -34,6 +34,54 @@ This tutorial is one part of a series. While you do not need to complete the ful
 
 **Azure Container Registry** – if you would like to integrate Azure Container registry (optional), an ACR instance is needed. See, [Deploy container registry]() for information on the deployment steps.
 
+## Update application
+
+To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, do so with the following command:
+
+```bash
+git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+```
+
+Open up the file `/azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg` with and code or text editor. The file looks liek the following.
+
+```bash
+# UI Configurations
+TITLE = 'Azure Voting App'
+VOTE1VALUE = 'Cats'
+VOTE2VALUE = 'Dogs'
+SHOWHOST = 'false'
+```
+
+Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.
+
+```bash
+# UI Configurations
+TITLE = 'Azure Voting App'
+VOTE1VALUE = 'Half Full'
+VOTE2VALUE = 'Half Empty'
+SHOWHOST = 'false'
+```
+
+Run `docker-compose build` to re-create the container images.
+
+```bash
+docker-compose build
+```
+
+Run `docker-compose up -d` to run the container images.
+
+```bash
+docker-compose up -d
+```
+
+Browse to `http://localhost:8080` to see the updated application.
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+
+## Recreate container images
+
+## Re-deplopy application
+
 ## Next steps
 
 <complete> Tasks completed include:  
