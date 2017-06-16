@@ -1,5 +1,5 @@
 ---
-title: Develop U-SQL scripts using Data Lake Tools for Visual Studio | Microsoft Docs
+title: Develop U-SQL scripts by using Data Lake Tools for Visual Studio | Microsoft Docs
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 services: data-lake-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 
 ---
-# Develop U-SQL scripts using Data Lake Tools for Visual Studio
+# Develop U-SQL scripts by using Data Lake Tools for Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
@@ -32,20 +32,20 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
     * Visual Studio 2015 Update 4
     * Visual Studio 2013
 * **Microsoft Azure SDK for .NET** version 2.7.1 or later.  Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* A **Data Lake Analytics Account** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
+* A **Data Lake Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Install Azure Data Lake Tools for Visual Studio 
 
 Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](http://aka.ms/adltoolsvs). After installation, note that:
-* The **Server Explorer > Azure** node contains a **Data Lake Analytics** node. 
+* The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node. 
 * The **Tools** menu has a **Data Lake** item.
 
 ## Connect to an Azure Data Lake Analytics account
 
 1. Open Visual Studio.
-2. Open Server Explorer by selecting **View > Server Explorer**.
+2. Open Server Explorer by selecting **View** > **Server Explorer**.
 3. Right-click **Azure**. Then select **Connect to Microsoft Azure Subscription** and follow the instructions.
-4. In Server Explorer, select **Azure > Data Lake Analytics**. You see a list of your Data Lake Analytics accounts.
+4. In Server Explorer, select **Azure** > **Data Lake Analytics**. You see a list of your Data Lake Analytics accounts.
 
 
 ## Write your first U-SQL script
@@ -67,17 +67,17 @@ OUTPUT @a
 
 ### Submit a Data Lake Analytics job
 
-1. Select **File > New > Project**.
+1. Select **File** > **New** > **Project**.
 
 2. Select the **U-SQL Project** type, and then click **OK**. Visual Studio creates a solution with a **Script.usql** file.
 
 3. Paste the previous script into the **Script.usql** window.
 
-4. In the upper left corner of the **Script.usql** window, specify the Data Lake Analytics account.
+4. In the upper-left corner of the **Script.usql** window, specify the Data Lake Analytics account.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-5. In the upper left corner of the **Script.usql** window, select **Submit**.
+5. In the upper-left corner of the **Script.usql** window, select **Submit**.
 6. Verify the **Analytics Account**, and then select **Submit**. Submission results are available in the Data Lake Tools for Visual Studio Results after the submission is complete.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
@@ -94,7 +94,7 @@ OUTPUT @a
 
 ### To check job state
 
-1. In Server Explorer, select **Azure > Data Lake Analytics**. 
+1. In Server Explorer, select **Azure** > **Data Lake Analytics**. 
 2. Expand the Data Lake Analytics account name.
 3. Double-click **Jobs**.
 4. Select the job that you previously submitted.
