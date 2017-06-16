@@ -1,5 +1,5 @@
 ﻿---
-title: Mount Azure File storage from an Azure Windows VM | Microsoft Docs
+title: Mount Azure file storage from an Azure Windows VM | Microsoft Docs
 description: Store file in the cloud with Azure file storage, and mount your cloud file share from an Azure virtual machine (VM).
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.author: cynthn
 
 ---
 
-# Use Azure File Shares with Windows VMs 
+# Use Azure file shares with Windows VMs 
 
 You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all your VMs to share. In this topic, we show you how to create and mount an Azure file share, and how to upload and download files.
 
