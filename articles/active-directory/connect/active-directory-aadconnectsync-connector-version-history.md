@@ -42,7 +42,7 @@ Related links:
   * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. Because of this, there were problems with serialization this Json array for the REST request.
   * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. <appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>
 
-* Lotus Notes: 
+* Lotus Notes:
   * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
     - LastName
     - FirstName
@@ -52,7 +52,7 @@ Related links:
     - ou
     - altcommonname
 
-  * When “Allow custom certifiers for Organization/Organizational Units” option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
+  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
 
 
 ## 1.1.522.0
