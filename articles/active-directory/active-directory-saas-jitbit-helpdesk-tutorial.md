@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. Click **General settings**.
    
-    ![Users, companies and permissions](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777680.png "Users, companies and permissions")
+    ![Users, companies, and permissions](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777680.png "Users, companies, and permissions")
 
 10. In the **Authentication settings** configuration section, perform the following steps:
    
@@ -144,7 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Enable SAML 2.0 single sign on** sign-in using Single Sign-On (SSO) with **OneLogin**.
 
-	b. In the **EndPoint URL** textbox, paste the value of **Service Provider (SP) initiated endpoint** which you have copied from Azure portal
+	b. In the **EndPoint URL** textbox, paste the value of **Service Provider (SP) initiated endpoint** which you have copied from Azure portal.
 
 	c. Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
 
@@ -177,7 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 	![Creating an Azure AD test user](./media/active-directory-saas-jitbit-helpdesk-tutorial/create_aaduser_04.png) 
 
-	a. In the **Name** textbox, type **BrittaSimon**.
+	a. In the **Name** textbox, type name as **BrittaSimon**.
 
     b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
@@ -189,7 +189,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk.  In the case of Jitbit Helpdesk, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Jitbit Helpdesk** tenant.
 
@@ -199,7 +199,7 @@ In order to enable Azure AD users to log into Jitbit Helpdesk, they must be prov
 
 3. Click **Users, companies and permissions**.
    
-    ![Users, companies and permissions](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777682.png "Users, companies and permissions")
+    ![Users, companies, and permissions](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777682.png "Users, companies, and permissions")
 
 4. Click **Add user**.
    
