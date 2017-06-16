@@ -32,7 +32,7 @@ The window functions are categorized into:
 ## Sample datasets
 This tutorial uses two datasets:
 
-### QueryLog Sample DataSet
+### QueryLog sample dataSet
   
 QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
@@ -55,7 +55,7 @@ QueryLog represents a list of what people searched for in search engine. Each qu
     AS T(Query,Latency,Vertical);
 ```
 
-### Employees Sample DataSet
+### Employees sample dataSet
   
 The Employees dataset includes the following fields:
   
