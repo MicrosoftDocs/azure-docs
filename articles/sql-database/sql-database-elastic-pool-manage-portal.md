@@ -203,7 +203,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
 6. Click **OK**.
 
-For more information, see [create SQL Database alerts in Azure portal](/sql-database-insights-alerts-portal.md).
+For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
 
 ## Move a database into an elastic pool
 
