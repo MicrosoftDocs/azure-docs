@@ -22,7 +22,7 @@ ms.author: magoedte
 This getting started guide introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, this guide helps you understand how to prepare and onboard Automation in support of your process automation needs. 
 
 
-## Understanding the Automation architecture
+## Automation architecture overview
 
 ![Azure Automation overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
