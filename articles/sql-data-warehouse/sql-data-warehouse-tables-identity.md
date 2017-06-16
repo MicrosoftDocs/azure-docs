@@ -1,6 +1,6 @@
 ---
-title: Managing statistics on tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with statistics on tables in Azure SQL Data Warehouse.
+title: Creating surrogate keys in Azure SQL Data Warehouse | Microsoft Docs
+description: Learn how to use IDENTITY to create a surrogate key on your tables.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -266,23 +266,23 @@ To learn more about developing tables, see the articles on [Table Overview][Over
 [Identity]: ./sql-data-warehouse-tables-identity.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
-[Load with bcp]: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
-[Load with PolyBase]: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
-[PolyBase best practices]: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
+[Load with bcp]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
+[Load with PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
+[PolyBase best practices]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
 
 
 <!--MSDN references-->
-[Identity property]: https://msdn.microsoft.com/en-us/library/ms186775.aspx
-[sys.identity_columns]: https://msdn.microsoft.com/en-us/library/ms187334.aspx
-[IDENTITY()]: https://msdn.microsoft.com/en-us/library/ms189838.aspx
-[@@IDENTITY]: https://msdn.microsoft.com/en-us/library/ms187342.aspx
-[SCOPE_IDENTITY]: https://msdn.microsoft.com/en-us/library/ms190315.aspx
-[IDENT_CURRENT]: https://msdn.microsoft.com/en-us/library/ms175098.aspx
-[IDENT_INCR]: https://msdn.microsoft.com/en-us/library/ms189795.aspx
-[IDENT_SEED]: https://msdn.microsoft.com/en-us/library/ms189834.aspx
-[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/en-us/library/ms176057.aspx
+[Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
+[sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
+[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
+[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
+[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
+[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
+[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
+[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
+[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
 
-[bcp in MSDN]: https://msdn.microsoft.com/en-us/library/ms162802.aspx
+[bcp in MSDN]: https://msdn.microsoft.com/library/ms162802.aspx
   
 
 <!--Other Web references-->  
