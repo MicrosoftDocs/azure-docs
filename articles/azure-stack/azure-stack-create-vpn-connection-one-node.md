@@ -143,7 +143,7 @@ In an Azure deployment, a local network gateway represents an on-premise (at the
 A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. Because of the way the POC was designed, you need to provide the IP address of the external network adapter on the network address translation (NAT) VM of the other POC as the Public IP Address of the local network gateway. You then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
 
 
-### Create the local network gateway Resource
+### Create the local network gateway resource
 1. Sign in to the Azure Stack physical machine for POC1.
 2. In the user portal, select **New**.
 3. Go to **Marketplace**, and then select **Networking**.
@@ -285,7 +285,7 @@ network.
 Because the POC is self-contained and isolated from the
 network on which the physical host is deployed, the *external* VIP network
 that the gateways are connected to is not actually external. Instead,
-the VIP network is hidden behind a router that performs network address translation (NAT). 
+the VIP network is hidden behind a router that performs network address translation. 
 
 The
 router is a Windows Server virtual machine, called *MAS-BGPNAT01*, that runs the
@@ -421,7 +421,7 @@ went through the VPN connection.
    user portal.
 2. Go to **All resources**, and then select the **POC2-POC1** connection. **Connections** appears.
 4. On the **Connection** blade, the statistics for **Data in** and
-   **Data out** appear. In the following screen shot, the large numbers are attributed to additional file transfer. You should see some non-zero values there.
+   **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
    
     ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
 
