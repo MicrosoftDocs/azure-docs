@@ -27,7 +27,7 @@ See:
 * [Sign-in activities](active-directory-reporting-azure-portal.md#sign-in-activities) for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+For frequently asked questions,read our [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). For issues, please [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## Who can access the API data?
 * Users and Service Principals in the Security Admin or Security Reader role
