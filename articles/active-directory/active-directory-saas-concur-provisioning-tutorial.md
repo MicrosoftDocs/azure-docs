@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -25,7 +25,7 @@ The objective of this tutorial is to show you the steps you need to perform in C
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant.
-*   A Concur single-sign on enabled subscription.
+*   A Concur single sign-on enabled subscription.
 *   A user account in Concur with Team Admin permissions.
 
 ## Assigning users to Concur
@@ -42,7 +42,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 *   When assigning a user to Concur, you must select a valid user role. The "Default Access" role does not work for provisioning.
 
-## Enable User Provisioning
+## Enable user provisioning
 
 This section guides you through connecting your Azure AD to Concur's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Concur based on user and group assignment in Azure AD.
 
@@ -61,13 +61,16 @@ When you create the profile to be used for enabling the app, enter the client ad
 
 For the following reasons, this action should not be done with the profile they use for normal T&E administration.
 
-1. The client has to be the one that clicks "*Yes*" on the dialogue window that is displayed after an app is enabled. This click acknowledges the client is willing for the Partner application to access their data, so you or the Partner cannot click that Yes button.
-2. If a client administrator that has enabled an app using the T&E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile does not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.
-3. If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated
+* The client has to be the one that clicks "*Yes*" on the dialogue window that is displayed after an app is enabled. This click acknowledges the client is willing for the Partner application to access their data, so you or the Partner cannot click that Yes button.
+
+* If a client administrator that has enabled an app using the T&E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile does not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.
+
+* If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated.
 
 **To configure user provisioning, perform the following steps:**
 
 1. Log on to your **Concur** tenant.
+
 2. From the **Administration** menu, select **Web Services**.
    
     ![Concur tenant](./media/active-directory-saas-concur-provisioning-tutorial/IC721729.png "Concur tenant")
