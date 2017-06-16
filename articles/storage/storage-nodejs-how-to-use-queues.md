@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue service to create and delete queue
 services: storage
 documentationcenter: nodejs
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
 # How to use Queue storage from Node.js
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This guide shows you how to perform common scenarios using the Microsoft
@@ -354,14 +354,9 @@ to learn about more complex storage tasks.
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Create a Node.js web app in Azure App Service]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
-
-[Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
-[plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
-[quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
 [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

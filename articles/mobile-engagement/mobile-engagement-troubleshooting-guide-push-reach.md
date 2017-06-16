@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement Troubleshooting Guide - Push/Reach
 description: Troubleshooting user interaction and notification issues in Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3

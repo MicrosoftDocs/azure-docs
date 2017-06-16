@@ -1,4 +1,4 @@
-﻿---
+---
 title: Default TEMP folder size is too small for a role | Microsoft Docs
 description: A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space.
 services: cloud-services
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2016
+ms.date: 4/6/2017
 ms.author: v-six
 
 ---
@@ -29,7 +29,7 @@ The standard Windows environment variables TEMP and TMP are available to code th
 ## Suggestion to fix the problem
 Implement one of the following alternatives:
 
-* Configure a local storage resource, and access it directly instead of using TEMP or TMP. To access a local storage resource from code that is running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method. 
+* Configure a local storage resource, and access it directly instead of using TEMP or TMP. To access a local storage resource from code that is running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method.
 * Configure a local storage resource, and point the TEMP and TMP directories to point to the path of the local storage resource. This modification should be performed within the [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method.
 
 The following code example shows how to modify the target directories for TEMP and TMP from within the OnStart method:
@@ -72,4 +72,3 @@ Read a blog that describes [How to increase the size of the Azure Web Role ASP.N
 View more [troubleshooting articles](/?tag=top-support-issue&product=cloud-services) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

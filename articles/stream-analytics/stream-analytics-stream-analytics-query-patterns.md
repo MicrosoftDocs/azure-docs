@@ -1,4 +1,4 @@
-﻿---
+---
 title: Query examples for common usage patterns in Stream Analytics | Microsoft Docs
 description: 'Common Azure Stream Analytics Query Patterns '
 keywords: query examples
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -214,28 +214,18 @@ For example, how many unique make of cars passed through the toll booth in a 2 s
 
 **Solution:**
 
-    WITH Makes AS (
-        SELECT
-            Make,
-            COUNT(*) AS CountMake
-        FROM
-            Input TIMESTAMP BY Time
-        GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-        COUNT(*) AS Count,
-        System.TimeStamp AS Time
-    FROM
-        Makes
-    GROUP BY
-        TumblingWindow(second, 1)
+````
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+````
 
 
 **Explanation:**
-We do an initial aggregation to get unique makes with their count over the window.
-We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
+COUNT(DISTINCT Make) returns the number of distinct values of the “Make” column within a time window.
 
 ## Query example: Determine if a value has changed
 **Description**: Look at a previous value to determine if it is different than the current value
@@ -522,7 +512,7 @@ For example, generate event every 5 seconds that will report the most recently s
 This query will generate events every 5 second and will output the last event that was received before. [Hopping Window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") duration determines how far back the query will look to find the latest event (300 seconds in this example).
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

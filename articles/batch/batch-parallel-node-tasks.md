@@ -1,9 +1,9 @@
 ---
-title: Maximize Batch node use with parallel tasks | Microsoft Docs
+title: Run tasks in parallel to use compute resources efficiently - Azure Batch | Microsoft Docs
 description: Increase efficiency and lower costs by using fewer compute nodes and running concurrent tasks on each node in an Azure Batch pool
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/25/2016
-ms.author: marsma
+ms.date: 05/22/2017
+ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Maximize Azure Batch compute resource usage with concurrent node tasks
+# Run tasks concurrently to maximize usage of Batch compute nodes 
+
 By running more than one task simultaneously on each compute node in your Azure Batch pool, you can maximize resource usage on a smaller number of nodes in the pool. For some workloads, this can result in shorter job times and lower cost.
 
 While some scenarios benefit from dedicating all of a node's resources to a single task, several situations benefit from allowing multiple tasks to share those resources:
@@ -56,7 +58,7 @@ This [Batch .NET][api_net] API code snippet shows a request to create a pool tha
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
-        targetDedicated: 4
+        targetDedicatedComputeNodes: 4
         virtualMachineSize: "large",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -77,7 +79,7 @@ This [Batch REST][api_rest] API snippet shows a request to create a pool that co
     "osFamily":"4",
     "targetOSVersion":"*",
   }
-  "targetDedicated":2,
+  "targetDedicatedComputeNodes":2,
   "maxTasksPerNode":4,
   "enableInterNodeCommunication":true,
 }

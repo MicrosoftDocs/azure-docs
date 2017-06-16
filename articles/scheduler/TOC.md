@@ -1,4 +1,4 @@
-
+﻿
 
 # Overview
 ## [What is Scheduler?](scheduler-intro.md)
@@ -21,9 +21,8 @@
 ### [Outbound authentication](scheduler-outbound-authentication.md)
 
 # Reference
-## [Azure Scheduler PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/scheduler/)
+## [PowerShell](/powershell/module/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/scheduler/)

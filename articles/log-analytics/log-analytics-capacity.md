@@ -1,173 +1,133 @@
 ---
-title: Capacity Management solution in Log Analytics | Microsoft Docs
-description: You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V  servers managed by System Center Virtual Machine Manager
+title: Capacity and Performance solution in Azure Log Analytics | Microsoft Docs
+description: Use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
-# Capacity Management solution in Log Analytics
-You can use the Capacity Management solution in Log Analytics to help you understand the capacity of your Hyper-V servers. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. If you use directly connected agents, the Capacity Planning solution isn’t functional. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
+# Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
 
-For example, a projection might identify when additional processor cores or additional memory is needed for an individual server. In this example, the projection might indicate that in 30 days the server needs additional memory. This projection can help you plan for a memory upgrade during the server’s next maintenance window.
+![Capacity and Performance symbol](./media/log-analytics-capacity/capacity-solution.png)
+
+You can use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers. The solution provides insights into your Hyper-V environment by showing you the overall utilization (CPU, memory, and disk) of the hosts and the VMs running on those Hyper-V hosts. Metrics are collected for CPU, memory, and disks across all your hosts and the VMs running on them.
+
+The solution:
+
+-	Shows hosts with highest and lowest CPU and memory utilization
+-	Shows VMs with highest and lowest CPU and memory utilization
+-	Shows VMs with highest and lowest IOPS and throughput utilization
+-	Shows which VMs are running on which hosts
+-	Shows the top disks with high throughput, IOPS, and latency in cluster shared volumes
+- Allows you to customize and filter based on groups
 
 > [!NOTE]
-> The Capacity Management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.  
-> 
-> 
+> The previous version of the Capacity and Performance solution called Capacity Management required both System Center Operations Manager and System Center Virtual Machine Manager. This updated solution doesn't have those dependencies.
 
-A replacement Capacity and Performance solution is in private preview. This replacement solution is intended to address the following customer reported challenges with the original Capacity Management solution:
 
-* Requirement to use Virtual Machine Manager and Operations Manager
-* Inability to customize/filter based on groups
-* Hourly data aggregation not frequent enough
-* No VM level insights
-* Data reliability
+## Connected sources
 
-Benefits of the new capacity solution:
+The following table describes the connected sources that are supported by this solution.
 
-* Support granular data collection with improved reliability and accuracy
-* Support for Hyper-V without requiring VMM
-* Insights on VM level utilization
+| Connected Source | Support | Description |
+|---|---|---|
+| [Windows agents](log-analytics-windows-agents.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
+| [Linux agents](log-analytics-linux-agents.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [SCOM management group](log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to OMS is not required. Data is forwarded from the management group to the OMS repository.|
+| [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage does not include capacity and performance data.|
 
-The new solution currently requires Hyper-V Server 2012 or later. The solution provides insights into your Hyper-V environment, and gives visibility into the overall utilization (CPU, Memory, and Disk) of the hosts and the VMs running on those Hyper-V servers. Metrics are collected on CPU, Memory, and Disk across all your hosts and the VMs running on them.
+## Prerequisites
 
-The remaining documentation on this page refers to the old Capacity Management solution. This documentation will be updated when the new solution is in public preview.
+- Windows or Operations Manager agents must be installed on Windows Server 2012 or higher Hyper-V hosts, not virtual machines.
 
-## Installing and configuring the solution
-Use the following information to install and configure the solution.
 
-* Operations Manager is required for the Capacity Management solution.
-* Virtual Machine Manager is required for the Capacity Management solution.
-* Operations Manager connectivity with Virtual Machine Manager (VMM) is required. For more information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
-* Operations Manager must be connected to Log Analytics.
-* Add the Capacity Management solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+## Configuration
 
-## Capacity Management data collection details
-Capacity Management collects performance data, metadata, and state data using the agents that you have enabled.
+Perform the following step to add the Capacity and Performance solution to your workspace.
 
-The following table shows data collection methods and other details about how data is collected for capacity management.
+- Add the Capacity and Performance solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
-| platform | Direct Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |![Yes](./media/log-analytics-capacity/oms-bullet-green.png) |hourly |
+## Management packs
 
-The following table shows examples of data types collected by Capacity Management:
+If your SCOM management group is connected to your OMS workspace, then the following management packs will be installed in SCOM when you add this solution. There is no configuration or maintenance of these management packs required.
 
-| **Data type** | **Fields** |
-| --- | --- |
-| Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
-| Performance |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+- Microsoft.IntelligencePacks.CapacityPerformance
 
-## Capacity Management page
-After the Capacity Planning solution is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in OMS.
+The 1201 event resembles:
 
-![image of Capacity Planning tile](./media/log-analytics-capacity/oms-capacity01.png)
 
-The tile opens the **Capacity Management** dashboard where you can view a summary of your server capacity. The page displays the following tiles that you can click:
+```
+New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", version:"1.10.3190.0" received.
+```
 
-* *Virtual machine count*: Shows the number of days remaining for the capacity of virtual machines
-* *Compute*: Shows processor cores and available memory
-* *Storage*: Shows the disk space used and average disk latency
-* *Search*: The data explorer that you can use to Search for any data in the OMS system
+When the Capacity and Performance solution is updated, the version number will change.
 
-![image of Capacity Management dashboard](./media/log-analytics-capacity/oms-capacity02.png)
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
 
-### To view a capacity page
-* On the **Overview** page, click **Capacity Management**, and then click **Compute** or **Storage**.
+## Using the solution
 
-## Compute page
-You can use the **Compute** dashboard in Microsoft Azure OMS to view capacity information about utilization, projected days of capacity, and efficiency related to your infrastructure. You use the **Utilization** area to view CPU core and memory utilization in your virtual machine hosts. You can use the projection tool to estimate how much capacity is expected to be available for a given date range. You can use the **Efficiency** area to see how efficient your virtual machine hosts are. You can view details about linked items by clicking them.
+When you add the Capacity and Performance solution to your workspace, the Capacity and Performance is added to the Overview dashboard. This tile displays a count of the number of currently active Hyper-V hosts  and the number of active virtual machines that were monitored for the time period selected.
 
-You can generate an Excel workbook for the following categories:
+![Capacity and Performance tile](./media/log-analytics-capacity/capacity-tile.png)
 
-* Top hosts with highest core utilization
-* Top hosts with highest memory utilization
-* Top hosts with inefficient virtual machines
-* Top hosts by utilization
-* Bottom hosts by utilization
 
-![image of Capacity Management Compute page](./media/log-analytics-capacity/oms-capacity03.png)
+### Review utilization
 
-The following areas are shown on the **Compute** dashboard:
+Click on the Capacity and Performance tile to open the Capacity and Performance dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
 
-**Utilization**: View CPU core and memory utilization in your virtual machine hosts.
+- **Hosts**
+    - **Host CPU Utilization** Shows a graphical trend of the CPU utilization of host computers and a list of hosts, based on the selected time period. Hover over the line chart to view details for a specific point in time. Click the chart to view more details in log search. Click any host name to open log search and view CPU counter details for hosted VMs.
+    - **Host Memory Utilization** Shows a graphical trend of the memory utilization of host computers and a list of hosts, based on the selected time period. Hover over the line chart to view details for a specific point in time. Click the chart to view more details in log search. Click any host name to open log search and view memory counter details for hosted VMs.
+- **Virtual Machines**
+    - **VM CPU Utilization** Shows a graphical trend of the CPU utilization of virtual machines and a list of virtual machines, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated CPU counter details for the VM.
+    - **VM Memory Utilization**	Shows a graphical trend of the memory utilization of virtual machines and a list of virtual machines, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated memory counter details for the VM.
+    - **VM Total Disk IOPS** Shows a graphical trend of the total disk IOPS for virtual machines and a list of virtual machines with the IOPS for each, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated disk IOPS counter details for the VM.
+    - **VM Total Disk Throughput** Shows a graphical trend of the total disk throughput for virtual machines and a list of virtual machines with the total disk throughput for each, based on the selected time period. Hover over the line chart to view details for a specific point in time for the top 3 VMs. Click the chart to view more details in log search. Click any VM name to open log search and view aggregated total disk throughput counter details for the VM.
+- **Clustered Shared Volumes**
+    - **Total Throughput** Shows the sum of both reads and writes on clustered shared volumes.
+    - **Total IOPS** Shows the sum of input/output operations per second on clustered shared volumes.
+    - **Total Latency** Shows the total latency on clustered shared volumes.
+- **Host Density** The top tile shows the total number of hosts and virtual machines available to the solution. Click the top tile to view additional details in log search. Also lists all hosts and the number of virtual machines that are hosted. Click a host to drill into the VM results in a log search.
 
-* *Used Cores*: Sum for all hosts (% of the CPU utilized multiplied by the number of physical cores on host).
-* *Free Cores*: Total physical cores minus used cores.
-* *Percentage Cores Available*: Free physical cores divided by total number of physical cores.
-* *Virtual Cores per VM*: Total virtual cores in the system divided by the total number of virtual machines in the system.
-* *Virtual Cores to Physical Cores Ratio*: Ratio of total physical cores to physical cores that are used by virtual machines in the system.
-* *Number of virtual Cores Available*: Virtual core to physical cores ratio multiplied by the available physical cores.
-* *Used Memory*: Sum of memory that is utilized by all hosts.
-* *Free Memory*: Total physical memory minus used memory.
-* *Percentage Memory Available*: Free physical memory divided by total physical memory.
-* *Virtual Memory per VM*: Total virtual memory in the system divided by the total number of virtual machines in the system.
-* *Virtual Memory to Physical Memory Ratio*: Total virtual memory in the system divided by the total physical memory in the system.
-* *Virtual Memory Available*: Virtual memory to physical memory ratio multiplied by the available physical memory.
 
-**Projection tool**
+![dashboard Hosts blade](./media/log-analytics-capacity/dashboard-hosts.png)
 
-By using the projection tool, you can view historical trends for your resource utilization. This includes the usage trends for virtual machines, memory, core, and storage. The projection capability uses a projection algorithm to help you know when you are running out of each of the resources. This helps you calculate proper capacity planning so that you can know when you need to purchase more capacity (such as memory, cores, or storage).
+![dashboard virtual machines blade](./media/log-analytics-capacity/dashboard-vms.png)
 
-**Efficiency**
 
-* *Idle VM*: Using less than 10% of the CPU and 10% memory for the specified time period.
-* *Overutilized VM*: Using more than 90% of the CPU and 90% memory for the specified time period.
-* *Idle Host*: Using less than 10% of the CPU and 10% memory for the specified time period.
-* *Overutilized Host*: Using more than 90% of the CPU and 90% memory for the specified time period.
+### Evaluate performance
 
-### To work with items on the Compute page
-1. On the **Compute** dashboard, in the **Utilization** area, view capacity information about the CPU cores and memory in use.
-2. Click an item to open it in the **Search** page and view detailed information about it.
-3. In the **Projection** tool, move the date slider to display a projection of the capacity that will be used on the date you choose.
-4. In the **Efficiency** area, view capacity efficiency information about virtual machines and virtual machine hosts.
+Production computing environments differ greatly from one organization to another. Also, capacity and performance workloads might depend on how your VMs are running, and what you consider normal. Specific procedures to help you measure performance would probably not apply to your environment. So, more generalized prescriptive guidance is better suited to help. Microsoft publishes a variety of prescriptive guidance articles to help you measure performance.
 
-## Direct Attached Storage page
-You can use the **Direct Attached Storage** dashboard in OMS to view capacity information about storage utilization, disk performance, and projected days of disk capacity. You use the **Utilization** area to view disk space usage in your virtual machine hosts. You can use the **Disk Performance** area to view disk throughput and latency in your virtual machine hosts. You can also use the projection tool to estimate how much capacity is expected to be available for a given date range. You can view details about linked items by clicking them.
+To summarize, the solution collects capacity and performance data from a variety of sources including performance counters. Use that capacity and performance data that presented in various surfaces in the solution and compare your results to those at the [Measuring Performance on Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) article. Although the article was published some time ago, the metrics, considerations, and guidelines are still valid. The article contains links to other useful resources.
 
-You can generate an Excel workbook from this capacity information for the following categories:
 
-* Top disk space usage by host
-* Top average latency by host
+## Sample log searches
 
-The following areas are shown on the **Storage** page:
+The following table provides sample log searches for capacity and performance data collected and calculated by this solution.
 
-* *Utilization*: View disk space usage in your virtual machine hosts.
-* *Total Disk Space*: Sum (logical disk space) for all hosts
-* *Used Disk Space*: Sum (used logical disk space) for all hosts
-* *Available Disk Space*: Total disk space minus used disk space
-* *Percentage Disk Used*: Used disk space divided by total disk space
-* *Percentage Disk Available*: Available disk space divided by total disk space
+| Query | Description |
+|---|---|
+| All host memory configurations | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
+| All VM memory configurations | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
+| Breakdown of Total Disk IOPS across all VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Breakdown of Total Disk Throughput across all VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Breakdown of Total IOPS across all CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Breakdown of Total Throughput across all CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Breakdown of Total Latency across all CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
-![image of Capacity Management Direct Attached Storage page](./media/log-analytics-capacity/oms-capacity04.png)
 
-**Disk Performance**
 
-By using OMS, you can view the historical usage trend of your disk space. The projection capability uses an algorithm to project future usage. For space usage in particular, the projection capability enables you to project when you might run out of disk space. This projection helps you plan proper storage and know when you need to purchase more storage.
-
-**Projection Tool**
-
-By using the projection tool, you can view historical trends for your disk space utilization. The projection capability also lets you project when you are running out of disk space. This projection helps you plan proper capacity and know when you need to purchase more storage capacity.
-
-### To work with items on the Direct Attached Storage page
-1. On the **Direct Attached Storage** dashboard, in the **Utilization** area, you can view the disk utilization information.
-2. Click a linked item to open it in the **Search** page and view detailed information about it.
-3. In the **Disk Performance** area, you can view disk throughput and latency information.
-4. In the **Projection tool**, move the date slider to display a projection of the capacity that will be used on the date you choose.
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed capacity management data.
-
+* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Capacity and Performance data.

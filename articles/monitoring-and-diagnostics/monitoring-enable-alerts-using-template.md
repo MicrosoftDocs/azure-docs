@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a metric alert with a Resource Manager template | Microsoft Docs
 description: Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook.
 author: johnkemnetz
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 4/13/2017
 ms.author: johnkem
 
 ---
 # Create a metric alert with a Resource Manager template
-This article shows how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the alert.
-2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 
@@ -150,9 +150,9 @@ To create an alert using a Resource Manager template, you create a resource of t
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -372,9 +372,9 @@ An alert on a Resource Manager template is most often useful when creating an al
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"

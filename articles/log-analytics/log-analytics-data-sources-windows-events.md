@@ -1,10 +1,10 @@
 ---
-title: Windows Event logs in Log Analytics | Microsoft Docs
+title: Collect and analyze Windows Event logs in OMS Log Analytics | Microsoft Docs
 description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 05/23/2017
 ms.author: bwren
 
 ---
@@ -32,7 +32,9 @@ As you type the name of an event log, Log Analytics provides suggestions of comm
 ![Configure Windows events](media/log-analytics-data-sources-windows-events/configure.png)
 
 ## Data collection
-Log Analytics collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.
+Log Analytics collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
+
+
 
 ## Windows event records properties
 Windows event records have a type of **Event** and have the properties in the following table:

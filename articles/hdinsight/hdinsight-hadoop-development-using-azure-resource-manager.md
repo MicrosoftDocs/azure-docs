@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure Resource Manager development tools for HDInsight clusters | Microsoft Docs
+title: Migrate to Azure Resource Manager tools for HDInsight | Microsoft Docs
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 services: hdinsight
 editor: cgronlun
@@ -9,15 +9,17 @@ documentationcenter: ''
 
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
+
 HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager (ARM)-based versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new ARM-based approach. Wherever applicable, this article also points out the differences between the ASM and ARM approaches for HDInsight.
 
 > [!IMPORTANT]
@@ -45,8 +47,6 @@ New commands available with Azure Resource Manager are:
 * `azure hdinsight cluster resize` - dynamically changes the number of worker nodes in the cluster
 * `azure hdinsight cluster enable-http-access` - enables HTTPs access to the cluster (on by default)
 * `azure hdinsight cluster disable-http-access` - disables HTTPs access to the cluster
-* `azure hdinsight-enable-rdp-access` - enables Remote Desktop Protocol on a Windows-based HDInsight cluster
-* `azure hdinsight-disable-rdp-access` - disables Remote Desktop Protocol on a Windows-based HDInsight cluster
 * `azure hdinsight script-action` - provides commands for creating/managing Script Actions on a cluster
 * `azure hdinsight config` - provides commands for creating a configuration file that can be used with the `hdinsight cluster create` command to provide configuration information.
 
@@ -92,7 +92,7 @@ The Azure PowerShell ARM cmdlets can be installed side-by-side with the ASM cmdl
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
-* Login-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+* Login-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### Renamed cmdlets
@@ -321,7 +321,7 @@ Following are some examples on how an operation is performed using the ASM-based
                 Location = "West US",
                 ClusterType = "Hadoop",
                 Version = "3.1",
-                OSType = OSType.Windows,
+                OSType = OSType.Linux,
                 DefaultStorageAccountName = "mystorage.blob.core.windows.net",
                 DefaultStorageAccountKey =
                     "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",

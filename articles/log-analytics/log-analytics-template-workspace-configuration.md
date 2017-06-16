@@ -1,5 +1,3 @@
-
-
 ---
 title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
@@ -15,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 06/01/2017
 ms.author: richrund
 
 ---
 # Manage Log Analytics using Azure Resource Manager templates
-You can use [Azure Resource Manager templates](../resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
 * Create a workspace
 * Add a solution
@@ -129,7 +127,7 @@ The following template sample illustrates how to:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retentionInDays": "[parameters('dataRetention')]"
+    "retention": "[parameters('dataRetention')]"
       },
       "resources": [
         {

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory hybrid identity design considerations - determine multi-factor authentication requirements
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 05/16/2017
 ms.author: billmath
 
 ---

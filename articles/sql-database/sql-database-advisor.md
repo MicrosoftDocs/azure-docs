@@ -1,6 +1,6 @@
-﻿---
-title: Azure SQL Database Advisor
-description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
+---
+title: Performance recommendations - Azure SQL Database | Microsoft Docs
+description: The Azure SQL Database provides recommendations for your SQL Databases that can improve current query performance.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,22 +18,30 @@ ms.date: 09/30/2016
 ms.author: sstein
 
 ---
-# SQL Database Advisor
-> [!div class="op_single_selector"]
-> * [SQL Database Advisor Overview](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
+# Performance recommendations
 
-Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
+Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. Your performance is continuously assessed by analyzing your SQL Database usage history. The recommendations that are provided are based on a database unique workload pattern and help improve its performance.
 
-The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
+> [!NOTE]
+> Recommended way of using recommendations is by enabling ‘Automatic tuning’ on your database. For details, see [Automatic tuning](sql-database-automatic-tuning.md).
+>
 
-## Create Index recommendations
-**Create Index** recommendations appear when the SQL Database service detects a missing index that if created, can benefit your databases workload (non-clustered indexes only).
+## Create index recommendations
+Azure SQL Database continuously monitors the queries being executed and identifies the indexes that could improve the performance. Once enough confidence is built that a certain index is missing, a new **Create index** recommendation will be created. Azure SQL Database builds confidence by estimating performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as High, Medium,  or Low. 
 
-## Drop Index recommendations
-**Drop Index** recommendations appear when the SQL Database service detects duplicate indexes (currently in preview and applies to duplicate indexes only).
+Indexes created using recommendations are always flagged as auto_created indexes. You can see which indexes are auto_created by looking at sys.indexes view. Auto created indexes don’t block ALTER/RENAME commands. If you try to drop the column that has an auto created index over it, the command passes and the auto created index is dropped with the command as well. Regular indexes would block the ALTER/RENAME command on columns that are indexed.
+
+Once the create index recommendation is applied, Azure SQL Database will compare performance of the queries with the baseline performance. If new index brought improvements in the performance, recommendation will be flagged as successful and impact report will be available. In case the index didn’t bring the benefits, it will be automatically reverted. This way Azure SQL Database ensures that using recommendations will only improve the database performance.
+
+Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the database or pool DTU usage was above 80% in last 20 minutes or if the storage is above 90% of usage. In this case, the recommendation will be postponed.
+
+## Drop index recommendations
+In addition to detecting a missing index, Azure SQL Database continuously analyzes the performance of existing indexes. If index is not used, Azure SQL Database will recommend dropping it. Dropping an index is recommended in two cases:
+* Index is a duplicate of another index (same indexed and included column, partition schema, and filters)
+* Index is unused for a prolonged period (93 days)
+
+Drop index recommendations also go through the verification after implementation. If the performance is improved the impact report will be available. In case performance degradation is detected, recommendation will be reverted.
+
 
 ## Parameterize queries recommendations
 **Parameterize queries** recommendations appear when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. This condition opens up an opportunity to apply forced parameterization, which will allow query plans to be cached and reused in the future improving performance and reducing resource usage. 
@@ -64,7 +73,7 @@ Once you apply this recommendation, it will enable forced parameterization withi
 ## Next steps
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
-* See [SQL Database Advisor in the Azure portal](sql-database-advisor-portal.md) for steps on how to use SQL Database Advisor in the Azure portal.
+* See [Performance recommendations in the Azure portal](sql-database-advisor-portal.md) for steps on how to use performance recommendations in the Azure portal.
 * See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
 
 ## Additional resources

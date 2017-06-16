@@ -1,14 +1,14 @@
 ---
-title: Azure SQL database overview | Microsoft Docs
-description: This page provides an overview of Azure SQL databases.
+title: What is an Azure SQL database? | Microsoft Docs
+description: This article provides an overview of Azure SQL databases.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
 editor: ''
-
 ms.assetid: 
 ms.service: sql-database
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -24,7 +24,7 @@ This topic provides an overview of Azure SQL databases. For information about Az
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
 - A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
-- Part of a [pool of databases](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
+- Part of an [elastic pool](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
@@ -37,7 +37,7 @@ For more information, see [Managing Databases and Logins in Azure SQL Database](
 - **SQL Database firewall**: To help protect your data, a SQL Database firewall prevents all access to your database server or its databases until you specify which computers have permission. See [Firewalls](sql-database-firewall-configure.md)
 
 ## What collations are supported?
-The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is not possible to alter the collation for V12 databases. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## What are the naming requirements for database objects?
 
@@ -50,9 +50,10 @@ For information about supported features, see [Features](sql-database-features.m
 ## How do I manage an Azure SQL database?
 
 You can manage Azure SQL Database logical servers using several methods:
-- [Azure portal](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
-- [Transact-SQL](sql-database-manage-azure-ssms.md)
+- [Azure portal](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
+- [Transact-SQL](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [REST](/rest/api/sql/)
 
 ## Next steps
@@ -62,6 +63,6 @@ You can manage Azure SQL Database logical servers using several methods:
 - For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-database-server-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For an overview of security, see [Azure SQL Database Security Overview](sql-database-security-overview.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
 

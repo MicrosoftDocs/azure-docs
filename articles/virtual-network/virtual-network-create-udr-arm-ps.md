@@ -1,5 +1,5 @@
 ---
-title: Control routing and virtual appliances using PowerShell | Microsoft Docs
+title: Control routing and virtual appliances in Azure - PowerShell | Microsoft Docs
 description: Learn how to control routing and virtual appliances using PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -21,17 +21,17 @@ ms.author: jdial
 # Create User-Defined Routes (UDR) using PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [Template](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Template](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
 >
 
 This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment model](virtual-network-create-udr-classic-ps.md).

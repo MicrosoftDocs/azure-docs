@@ -13,11 +13,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2016
+ms.date: 03/16/2017
 ms.author: dobett
 
 ---
-# How to send cloud-to-device messages with IoT Hub (Node)
+# Send cloud-to-device messages with IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
@@ -50,7 +50,7 @@ To complete this tutorial, you need the following:
 In this section, you modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the SimulatedDevice.js file.
-2. Modify the **connectCallback** function to handle messages sent from IoT Hub. In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. Your new version of the **connectCallback** function looks like this:
+2. Modify the **connectCallback** function to handle messages sent from IoT Hub. In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. Your new version of the **connectCallback** function looks like the following snippet:
    
     ```
     var connectCallback = function (err) {
@@ -64,9 +64,11 @@ In this section, you modify the simulated device app you created in [Get started
         });
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
+            var temperature = 20 + (Math.random() * 15);
+            var humidity = 60 + (Math.random() * 20);            
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
+            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
         }, 1000);
@@ -92,7 +94,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
     npm install azure-iothub --save
     ```
-3. Using a text editor, create a new **SendCloudToDeviceMessage.js** file in the **sendcloudtodevicemessage** folder.
+3. Using a text editor, create a **SendCloudToDeviceMessage.js** file in the **sendcloudtodevicemessage** folder.
 4. Add the following `require` statements at the start of the **SendCloudToDeviceMessage.js** file:
    
     ```
@@ -164,7 +166,7 @@ You are now ready to run the applications.
     node SendCloudToDeviceMessage.js 
     ```
    
-    ![Run the app to send the c2d command][img-send-command]
+    ![Run the app to send the cloud-to-device command][img-send-command]
    
    > [!NOTE]
    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
@@ -189,7 +191,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

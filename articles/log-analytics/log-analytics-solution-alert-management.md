@@ -13,15 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 03/07/2017
 ms.author: bwren
 
 ---
 # Alert Management solution in Operations Management Suite (OMS)
-![Alert Management icon](media/log-analytics-solution-alert-management/icon.png) The Alert Management solution helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics.  In environments with multiple management groups, the Alert Management solution will provide a consolidated view of alerts across all management groups.
+
+![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
+
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those [created by Log Analytics](log-analytics-alerts.md) or [imported from Nagios or Zabbix](log-analytics-linux-agents.md#linux-alerts).  The solution also imports alerts from any [connected System Center Operations Manager (SCOM) management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
-* To import alerts from SCOM, this solution requires a connection between your OMS workspace and a SCOM management group using the process described in [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).  
+The solution will work with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
+
+- For Log Analytics alerts, [create alert rules](log-analytics-alerts.md) to create alert records directly in the repository.
+- For Nagios and Zabbix alerts, [configure those servers](log-analytics-linux-agents.md#linux-alerts) to send alerts to Log Analytics.
+- For SCOM alerts,[connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in SCOM will be imported into Log Analytics.  
 
 ## Configuration
 Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).  There is no further configuration required.
@@ -39,13 +46,14 @@ The following table describes the connected sources that are supported by this s
 
 | Connected Source | Support | Description |
 |:--- |:--- |:--- |
-| [Windows agents](log-analytics-windows-agents.md) |No |Direct Windows agents do not generate SCOM alerts. |
-| [Linux agents](log-analytics-linux-agents.md) |No |Direct Linux agents do not generate SCOM alerts. |
-| [SCOM management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from the SCOM agent to Log Analytics is not required. Alert data is forwarded from the management group to the OMS repository. |
-| [Azure storage account](log-analytics-azure-storage.md) |No |SCOM alerts are not stored in Azure storage accounts. |
+| [Windows agents](log-analytics-windows-agents.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
+| [Linux agents](log-analytics-linux-agents.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers which require the Linux agent. |
+| [SCOM management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on SCOM agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  SCOM agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
+
 
 ### Collection frequency
-Alerts generated within OMS are available to the solution immediately.  Alert data is sent from the SCOM management group to Log Analytics every 3 minutes.  
+- Alert records are available to the solution as soon as they are stored in the repository.
+- Alert data is sent from the SCOM management group to Log Analytics every 3 minutes.  
 
 ## Using the solution
 When you add the Alert Management solution to your OMS workspace, the **Alert Management** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the number of currently active alerts that were generated within the last 24 hours.  You cannot change this time range.
@@ -58,23 +66,18 @@ Click on the **Alert Management** tile to open the **Alert Management** dashboar
 |:--- |:--- |
 | Critical Alerts |All alerts with a severity of Critical grouped by alert name.  Click on an alert name to run a log search returning all records for that alert. |
 | Warning Alerts |All alerts with a severity of Warning grouped by alert name.  Click on an alert name to run a log search returning all records for that alert. |
-| Active SCOM Alerts |All SCOM alerts with any state other than *Closed* grouped by source that generated the alert. |
+| Active SCOM Alerts |All alerts collected from SCOM with any state other than *Closed* grouped by source that generated the alert. |
 | All Active Alerts |All alerts with any severity grouped by alert name. Only includes SCOM alerts with any state other than *Closed*. |
 
 If you scroll to the right, the dashboard will list several common queries that you can click on to perform a [log search](log-analytics-log-searches.md) for alert data.
 
 ![Alert Management dashboard](media/log-analytics-solution-alert-management/dashboard.png)
 
-## Scope and time range
-By default, the scope of the alerts analyzed in the Alert Management solution is from all connected management groups generated within the last 7 days.  
-
-![Alert Management scope](media/log-analytics-solution-alert-management/scope.png)
-
-* To change the management groups included in the analysis, click **Scope** at the top of the dashboard.  You can either select **Global** for all connected management groups or **By Management Group** to select a single management group.
-* To change the time range of alerts, select **Data based on** at the top of the dashboard.  You can select alerts generated within the last 7 days, 1 day, or 6 hours.  Or you can select **Custom** and specify a custom date range.
 
 ## Log Analytics records
-The Alert Management solution analyzes any record with a type of **Alert**.  It will also import alerts from SCOM and create a corresponding record for each with a type of **Alert** and a SourceSystem of **OpsManager**.  These records have the properties in the following table.  
+The Alert Management solution analyzes any record with a type of **Alert**.  Alerts created by Log Analytics or collected from Nagios or Zabbix are not directly collected by the solution.
+
+The solution does import alerts from SCOM and creates a corresponding record for each with a type of **Alert** and a SourceSystem of **OpsManager**.  These records have the properties in the following table.  
 
 | Property | Description |
 |:--- |:--- |

@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Staging Slots (Preview)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Staging Slots](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Custom domains per app</a> | |500 |500 |500 |500 |
 | SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 

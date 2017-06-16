@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell | Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,50 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
-ms.author: ganesr
+ms.date: 04/12/2017
+ms.author: ganesr;cherylmc
 
 ---
-# Create and modify an ExpressRoute circuit
+# Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classic](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
-This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. This article will also show you how to check the status of the circuit, update it, or delete and deprovision it.
-
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+This article describes how to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the circuit, update it, or delete and deprovision it.
 
 ## Before you begin
-* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](/powershell/azure/overview).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+
 
 ## Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
-To begin your configuration, sign in to your Azure account. For more information about PowerShell, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md). Use the following examples to help you connect:
+To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
-    Login-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 Check the subscriptions for the account:
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Select the subscription that you want to create an ExpressRoute circuit for:
 
-    Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```powershell
+Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
-The PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` returns this information, which you’ll use in later steps:
+The PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider** returns this information, which you’ll use in later steps:
 
-    Get-AzureRmExpressRouteServiceProvider
+```powershell
+Get-AzureRmExpressRouteServiceProvider
+```
 
-Check to see if your connectivity provider is listed there. Make a note of the following information because you'll need it later when you create a circuit:
+Check to see if your connectivity provider is listed there. Make a note of the following information. You'll need it later when you create a circuit.
 
 * Name
 * PeeringLocations
@@ -68,32 +73,40 @@ You're now ready to create an ExpressRoute circuit.
 ### 3. Create an ExpressRoute circuit
 If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
 
-    New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```powershell
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```
 
 
 The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. The following is an example request for a new service key:
 
-    New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```powershell
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```
 
 Make sure that you specify the correct SKU tier and SKU family:
 
 * SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify *Standard* to get the standard SKU or *Premium* for the premium add-on.
-* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. Note that you can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
+* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 > 
 > 
 
-The response contains the service key. You can get detailed descriptions of all the parameters by running the following:
+The response contains the service key. You can get detailed descriptions of all the parameters by running the following command:
 
-    get-help New-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help New-AzureRmExpressRouteCircuit -detailed
+```
 
 
 ### 4. List all ExpressRoute circuits
-To get a list of all the ExpressRoute circuits that you created, run the `Get-AzureRmExpressRouteCircuit` command:
+To get a list of all the ExpressRoute circuits that you created, run the **Get-AzureRmExpressRouteCircuit** command:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 The response will look similar to the following example:
 
@@ -121,7 +134,9 @@ The response will look similar to the following example:
 
 You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key will be listed in the *ServiceKey* field:
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 The response will look similar to the following example:
@@ -149,9 +164,11 @@ The response will look similar to the following example:
     Peerings                         : []
 
 
-You can get detailed descriptions of all the parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following command:
 
-    get-help Get-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help Get-AzureRmExpressRouteCircuit -detailed
+```
 
 ### 5. Send the service key to your connectivity provider for provisioning
 *ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
@@ -176,7 +193,9 @@ For you to be able to use an ExpressRoute circuit, it must be in the following s
 ### 6. Periodically check the status and the state of the circuit key
 Checking the status and the state of the circuit key lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 The response will look similar to the following example:
@@ -215,9 +234,11 @@ For step-by-step instructions, see the [ExpressRoute circuit routing configurati
 Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
 ## Getting the status of an ExpressRoute circuit
-You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits.
+You can retrieve this information at any time by using the **Get-AzureRmExpressRouteCircuit** cmdlet. Making the call with no parameters lists all the circuits.
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 The response will be similar to the following example:
@@ -247,7 +268,9 @@ The response will be similar to the following example:
 
 You can get information on a specific ExpressRoute circuit by passing the resource group name and circuit name as a parameter to the call:
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 The response will look similar to the following example:
@@ -275,10 +298,11 @@ The response will look similar to the following example:
     Peerings                         : []
 
 
-You can get detailed descriptions of all the parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following command:
 
-    get-help get-azurededicatedcircuit -detailed
-
+```powershell
+get-help get-azurededicatedcircuit -detailed
+```
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
@@ -286,8 +310,8 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
-* Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
@@ -295,15 +319,16 @@ For more information on limits and limitations, refer to the [ExpressRoute FAQ](
 ### To enable the ExpressRoute premium add-on
 You can enable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell snippet:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Premium"
-    $ckt.sku.Name = "Premium_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
-
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that we will begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit will now have the ExpressRoute premium add-on features enabled. We will begin billing you for the premium add-on capability as soon as the command has successfully run.
 
 ### To disable the ExpressRoute premium add-on
 > [!IMPORTANT]
@@ -319,29 +344,33 @@ Note the following:
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Standard"
-    $ckt.sku.Name = "Standard_MeteredData"
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### To update the ExpressRoute circuit bandwidth
 For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md). You can pick any size greater than the size of your existing circuit.
 
 > [!IMPORTANT]
+> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+>
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
 > 
 
 After you decide what size you need, use the following command to resize your circuit:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
+$ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 
 Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we will begin billing you for the updated bandwidth option.
@@ -349,12 +378,14 @@ Your circuit will be sized up on the Microsoft side. Then you must contact your 
 ### To move the SKU from metered to unlimited
 You can change the SKU of an ExpressRoute circuit by using the following PowerShell snippet:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Family = "UnlimitedData"
-    $ckt.sku.Name = "Premium_UnlimitedData"
+$ckt.Sku.Family = "UnlimitedData"
+$ckt.sku.Name = "Premium_UnlimitedData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### To control access to the classic and Resource Manager environments
 Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).  
@@ -368,13 +399,13 @@ Note the following:
 
 You can delete your ExpressRoute circuit by running the following command:
 
-    Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
-
-
+```powershell
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 ## Next steps
+
 After you create your circuit, make sure that you do the following:
 
 * [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)
 * [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-

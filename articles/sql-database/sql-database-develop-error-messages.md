@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL error codes - database connection error | Microsoft Docs
 description: 'Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. '
 keywords: sql error code,access sql,database connection error,sql error codes
@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -133,10 +134,10 @@ The following errors are related to creating and using Elastics Pools.
 
 Related topics:
 
-* [Create an elastic database pool (C#)](sql-database-elastic-pool-create-csharp.md) 
-* [Manage an elastic database pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Create an elastic database pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
-* [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+* [Create an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
+* [Manage an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
+* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
+* [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## General errors
 The following errors do not fall into any previous categories.

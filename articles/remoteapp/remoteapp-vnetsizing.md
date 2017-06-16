@@ -1,4 +1,3 @@
-﻿
 ---
 title: Sizing information for a VNET in Azure RemoteApp | Microsoft Docs
 description: Learn about the IP address requirements for Azure RemoteApp running with a VNET
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Sizing information for a VNET in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

@@ -1,10 +1,9 @@
-﻿---
+---
 title: Azure SDK for .NET 2.6 Release Notes
 description: Azure SDK for .NET 2.6 Release Notes
 services: app-service/web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: ''
 
 ms.assetid: b45853d5-a2b8-4962-a22d-579cb36ae14c
@@ -13,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 10/17/2016
+ms.date: 02/24/2017
 ms.author: juliako
 
 ---

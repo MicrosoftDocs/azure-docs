@@ -1,4 +1,3 @@
-
 ---
 title: Change the billing for Azure RemoteApp | Microsoft Docs
 description: Learn how to stop being billed for Azure RemoteApp.
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # How to stop being billed for Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

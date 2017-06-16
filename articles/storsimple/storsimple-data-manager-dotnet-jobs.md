@@ -27,7 +27,7 @@ This article explains how you can use the data transformation feature within the
 
 Before you begin, ensure that you have:
 *	A system with Visual Studio 2012, 2013, or 2015 installed.
-*	[Azure Powershell] is also installed. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*	Azure Powershell installed. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *	Configuration settings to initialize the Data Transformation job (instructions to obtain these settings are included here).
 *	A job definition that has been correctly configured in a Hybrid Data Resource within a Resource Group.
 *	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
@@ -48,10 +48,10 @@ Perform the following steps to use .NET to launch a data transformation job.
 
 
 2. This script outputs the following values:
-        - Client ID
-        - Tenant ID
-        - Active Directory key (same as the one entered above)
-        - Subscription ID
+    * Client ID
+    * Tenant ID
+    * Active Directory key (same as the one entered above)
+    * Subscription ID
 
 3. Using Visual Studio 2012, 2013 or 2015, create a C# .NET console application.
 
@@ -63,27 +63,27 @@ Perform the following steps to use .NET to launch a data transformation job.
     5. Select **C:\DataTransformation** for the **Location**.
     6. Click **OK** to create the project.
 
-3.	Now, add all DLLs present in the [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) folder as **References** in the project that you created. To download the dll files, do the following:
+4.	Now, add all DLLs present in the [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) folder as **References** in the project that you created. To download the dll files, do the following:
 
     1. In Visual Studio, go to **View > Solution Explorer**.
     1. Click the arrow to the left of Data Transformation App project. Click **References** and then right-click to **Add Reference**.
     2. Browse to the location of the packages folder, select all the DLLs and click **Add**, and then click **OK**.
 
-4. Add the following **using** statements to the source file (Program.cs) in the project.
+5. Add the following **using** statements to the source file (Program.cs) in the project.
 
-    ````
+    ```
     using System;
     using System.Collections.Generic;
     using System.Threading;
     using Microsoft.Azure.Management.HybridData.Models;
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
-    ````
+    ```
 
 
-5. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **Hybrid Data Resource name**. The **Resource Group Name** is the one that hosts the Hybrid Data Resource on which the job definition was configured.
+6. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **Hybrid Data Resource name**. The **Resource Group Name** is the one that hosts the Hybrid Data Resource on which the job definition was configured.
 
-    ````
+    ```
     // Setup the configuration parameters.
     var configParams = new ConfigurationParams
     {
@@ -98,24 +98,23 @@ Perform the following steps to use .NET to launch a data transformation job.
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
-    ````
+    ```
 
-6. Specify the parameters with which the job definition needs to be run
+7. Specify the parameters with which the job definition needs to be run
 
-    ````
+    ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
 
-    ````
+    ```
 
     (OR)
 
     If you want to change the job definition parameters during run time, then add the following code:
 
+    ```
     string jobDefinitionName = "job-definition-name";
-
-    ````
     // Must start with a '\'
     var rootDirectories = new List<string> {@"\root"};
 
@@ -137,23 +136,24 @@ Perform the following steps to use .NET to launch a data transformation job.
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    ````
+    
+    ```
 
-7. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
+8. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
 
-    ````
+    ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
 
-    ````
+    ```
 
-8. This job uploads the matched files present under the root directory on the StorSimple volume to the specified container. When a file is uploaded, a message is dropped in the queue (in the same storage account as the container) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
+9. This job uploads the matched files present under the root directory on the StorSimple volume to the specified container. When a file is uploaded, a message is dropped in the queue (in the same storage account as the container) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
 
-9. Once the job has been triggered, add the following code to track the job for completion.
+10. Once the job has been triggered, add the following code to track the job for completion.
 
-    ````
+    ```
     Job jobDetails = null;
 
     // Poll the job.
@@ -172,7 +172,7 @@ Perform the following steps to use .NET to launch a data transformation job.
     // To hold the console before exiting.
     Console.Read();
 
-    ````
+    ```
 
 
 ## Next steps

@@ -1,23 +1,26 @@
-﻿---
-title: Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Docs
+---
+title: Optimize your Active Directory environment with Azure Log Analytics | Microsoft Docs
 description: You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 06/07/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Optimize your environment with the Active Directory Assessment solution in Log Analytics
+# Optimize your Active Directory environment with the Active Directory Assessment solution in Log Analytics
+
+![AD Assessment symbol](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+
 You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas which help you quickly understand the risk and take action.
@@ -36,13 +39,13 @@ After you've added the solution and an assessment is completed, summary informat
 Use the following information to install and configure the solutions.
 
 * Agents must be installed on domain controllers that are members of the domain to be evaluated.
-* The Active Directory Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
-* Add the Active Directory Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
-  
+* The Active Directory Assessment solution requires a supported version of .NET Framework 4 (4.5.2 or above) installed on each computer that has an OMS agent.
+* Add the Active Directory Assessment solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
+
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
-  > 
-  > 
+  >
+  >
 
 ## Active Directory Assessment data collection details
 Active Directory Assessment collects WMI data, registry data, and performance data using the agents that you have enabled.
@@ -96,11 +99,11 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ### To identify recommendations that you will ignore
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Here's a screen shot showing the Log Search query:
    ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
@@ -116,7 +119,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 After the next scheduled assessment runs, by default every 7 days, the specified recommendations are marked *Ignored* and will not appear on the assessment dashboard.
 
 1. You can use the following Log Search queries to list all the ignored recommendations.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -168,4 +171,3 @@ After the next scheduled assessment runs, by default every 7 days, the specified
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed AD Assessment data and recommendations.
-

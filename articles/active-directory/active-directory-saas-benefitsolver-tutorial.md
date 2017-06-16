@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Benefitsolver
 The objective of this tutorial is to show the integration of Azure and Benefitsolver.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A Benefitsolver single sign-on enabled subscription
+* A Benefitsolver single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Benefitsolver will be able to single sign into the application using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Benefitsolver
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
@@ -58,16 +59,19 @@ The objective of this section is to outline how to enable the application integr
    
    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Benefitsolver with their account in Azure AD using federation based on the SAML protocol.  
-Your Benefitsolver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+
+Your Benefitsolver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. 
+
 The following screenshot shows an example for this.
 
 ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Benefitsolver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **Benefitsolver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Benefitsolver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -85,11 +89,10 @@ The following screenshot shows an example for this.
    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
 5. Send the downloaded metadata file to your Benefitsolver support team.
    
-   > [!NOTE]
-   > Your Benefitsolver support team has to do the actual SSO configuration.
-   > You will get a notification when SSO has been enabled for your subscription.
-   > 
-   > 
+   >[!NOTE]
+   >Your Benefitsolver support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
+   >
+
 6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
@@ -113,13 +116,13 @@ The following screenshot shows an example for this.
    4. Click **Complete**.
 9. Click **Apply Changes**.
 
-## Configuring user provisioning
+## Configure user provisioning
 In order to enable Azure AD users to log into Benefitsolver, they must be provisioned into Benefitsolver.  
+
 In the case of Benefitsolver, employee data is in your application populated through a Census file from your HRIS system (typically nightly).  
 
-> [!NOTE]
-> You can use any other Benefitsolver user account creation tools or APIs provided by Benefitsolver to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Benefitsolver user account creation tools or APIs provided by Benefitsolver to provision AAD user accounts. 
 > 
 
 ## Assigning users

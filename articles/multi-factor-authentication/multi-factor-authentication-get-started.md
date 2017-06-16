@@ -1,5 +1,5 @@
-﻿---
-title: Azure MFA cloud vs server | Microsoft Docs
+---
+title: Choose between Azure MFA cloud or server | Microsoft Docs
 description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 04/23/2017
 ms.author: kgremban
 
 ---
@@ -32,8 +32,8 @@ To determine the correct two-step verification solution, first we must answer th
 | What are you trying to secure | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
 | First-party Microsoft apps |● |● |
-| SaaS apps in the app gallery |● |● |
-| IIS applications published through Azure AD App Proxy |● |● |
+| SaaS apps in the app gallery |● |  |
+| Web applications published through Azure AD App Proxy |● |  |
 | IIS applications not published through Azure AD App Proxy | |● |
 | Remote access such as VPN, RDG | |● |
 
@@ -59,18 +59,18 @@ The following table is a comparison of the features that are available with Mult
 | One-way SMS as second factor | ● | ● |
 | Two-way SMS as second factor | | ● |
 | Hardware Tokens as second factor | | ● |
-| App passwords for clients that don’t support MFA | ● | |
-| Admin control over authentication methods | | ● |
+| App passwords for Office 365 clients that don’t support MFA | ● | |
+| Admin control over authentication methods | ● | ● |
 | PIN mode | | ● |
 | Fraud alert |● | ● |
 | MFA Reports |● | ● |
-| One-Time Bypass | ● | ● |
+| One-Time Bypass | | ● |
 | Custom greetings for phone calls | ● | ● |
 | Customizable caller ID for phone calls | ● | ● |
 | Trusted IPs | ● | ● |
 | Remember MFA for trusted devices | ● | |
 | Conditional access | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication. **Select the icon that represents your scenario!**
 

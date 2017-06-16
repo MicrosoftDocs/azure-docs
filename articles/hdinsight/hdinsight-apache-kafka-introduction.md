@@ -1,6 +1,6 @@
 ---
-title: An introduction to Apache Kafka on HDInsight | Microsoft Docs
-description: 'Learn about Apache Kafka on HDInsight. What it is, what it does, and where to find examples and getting started information.'
+title: An introduction to Apache Kafka on HDInsight - Azure | Microsoft Docs
+description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2016
+ms.date: 06/15/2017
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
@@ -34,6 +35,12 @@ Kafka provides the following features:
 
 * Fault-tolerant: Partitions can be replicated between nodes to provide fault tolerance.
 
+* Integration with Azure Managed Disks: Managed disks provides higher scale and throughput for the disks used by the virtual machines in the HDInsight cluster.
+
+    Managed disks are enabled by default for Kafka on HDInsight, and the number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+
 ## Use cases
 
 * **Messaging**: Since it supports the publish-subscribe message pattern, Kafka is often used as a message broker.
@@ -43,10 +50,6 @@ Kafka provides the following features:
 * **Aggregation**: Using stream processing, you can aggregate information from different streams to combine and centralize the information into operational data.
 
 * **Transformation**: Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
-
-## Where do I start?
-
-See [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) for steps on creating a Kafka cluster and using Kafka, including Java-based examples of using the producer, consumer, and streaming API
 
 ## Next steps
 
@@ -60,3 +63,4 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

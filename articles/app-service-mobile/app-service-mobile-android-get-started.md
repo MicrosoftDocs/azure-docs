@@ -4,7 +4,7 @@ description: Follow this tutorial to get started with using Azure mobile app bac
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9

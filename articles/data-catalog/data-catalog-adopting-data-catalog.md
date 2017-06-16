@@ -1,5 +1,5 @@
 ---
-title: Adopting Azure Data Catalog | Microsoft Docs
+title: Approach and process for adopting Azure Data Catalog | Microsoft Docs
 description: This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project.
 services: data-catalog
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
-# Adopting Azure Data Catalog
+# Approach and process for adopting Azure Data Catalog
 This article helps you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, you focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.
 
 ## Introducing the Azure Data Catalog

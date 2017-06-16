@@ -1,5 +1,5 @@
 ---
-title: Install RStudio with R Server on HDInsight | Microsoft Docs
+title: Install RStudio with R Server on HDInsight - Azure | Microsoft Docs
 description: How to install RStudio with R Server on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 918abb0d-8248-4bc5-98dc-089c0e007d49
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: jeffstok
 
 ---
@@ -39,10 +40,8 @@ In this article you will learn how to install the community (free) version of RS
 
    * Head node `CLUSTERNAME-ssh.azurehdinsight.net`
    * Edge node `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. SSH into the edge node of the cluster using the above naming pattern. 
+2. SSH into the edge node of the cluster using the above naming pattern. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
 
         sudo su -
@@ -77,7 +76,7 @@ In this article you will learn how to install the community (free) version of RS
        You can also use a SSH key rather than a password by adding `-i id_rsa_key`        
    * If using a Windows client with PuTTY then
 
-     1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
+     1. Open PuTTY, and enter your connection information.
      2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
      3. Provide the following information on the **Options controlling SSH port forwarding** form:
 

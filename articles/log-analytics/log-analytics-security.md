@@ -3,18 +3,17 @@ title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
-manager: jwhit
+author: MGoedtel
+manager: carmonm
 editor: ''
-
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
-ms.author: banders
+ms.date: 05/03/2017
+ms.author: magoedte
 
 ---
 # Log Analytics data security
@@ -105,7 +104,9 @@ The OMS software development and service team is actively working with the Micro
 ## Certifications and attestations
 OMS Log Analytics meets the following requirements:
 
-* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) and [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498) compliant
+* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
 * [HIPAA and HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
@@ -113,7 +114,7 @@ OMS Log Analytics meets the following requirements:
 * Microsoft Trustworthy Computing
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
 
-> [!NOTE] 
+> [!NOTE]
 > In some certifications/attestations, Log Analytics is listed under its former name of *Operational Insights*.
 >
 >

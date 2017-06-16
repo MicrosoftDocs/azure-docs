@@ -24,18 +24,18 @@ to create new Linux VMs, configured with the Docker daemon, running in Azure.
 
 **Note:** 
 
-* *This article depends on docker-machine version 0.7.0 or greater*
+* *This article depends on docker-machine version 0.9.0-rc2 or greater*
 * *Windows Containers will be supported through docker-machine in the near future*
 
 ## Create VMs with Docker Machine
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
-The Azure driver will need your subscription ID. You can use the [Azure CLI](xplat-cli-install.md)
+The Azure driver requires your subscription ID. You can use the [Azure CLI](cli-install-nodejs.md)
 or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
 
-* Select Subscriptions from the left navigation page, and copy to subscription id.
+* Select **Subscriptions** from the left navigation page and copy the subscription id.
 
 **Using the Azure CLI**
 
@@ -44,10 +44,15 @@ or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscript
 Type `docker-machine create --driver azure` to see the options and their default values.
 You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
 
-The following example relies upon the default values, but it does optionally open port 80 on the VM for internet access. 
+The following example relies upon the [default values](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), but it does optionally set these values: 
+
+* azure-dns for the name associated with the public IP and certificates generated. This is the DNS name of your virtual machine. The VM can then safely stop, release the dynamic IP, and provide the ability to reconnect after the vm starts again with a new IP. The name prefix must be unique for that region  UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* open port 80 on the VM for outbound internet access
+* size of the VM to utilize faster premium storage
+* premium storage used for the vm disk
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## Choose a docker host with docker-machine
@@ -100,7 +105,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-And check to see the running container, type `docker-machine ip <VM name>` to find the IP address to enter in the browser:
+And, to see the running container, type `docker-machine ip <VM name>` to find the IP address to enter in the browser:
 
 ```
 PS C:\> docker-machine ip MyDockerHost
@@ -110,7 +115,7 @@ PS C:\> docker-machine ip MyDockerHost
 ![Running ngnix container](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
 ## Summary
-With docker-machine you can easily provision docker hosts in Azure for your individual docker host validations.
+With docker-machine, you can easily provision docker hosts in Azure for your individual docker host validations.
 For production hosting of containers, see the [Azure Container Service](http://aka.ms/AzureContainerService)
 
 To develop .NET Core Applications with Visual Studio, see [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS)

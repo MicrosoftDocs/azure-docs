@@ -3,8 +3,8 @@ title: How to use Blob storage from Node.js | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: nodejs
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 8b0df222-1ca8-4967-8248-6d6d720947b8
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Blob storage from Node.js
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This article shows you how to perform common scenarios using Blob storage. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
@@ -38,18 +38,17 @@ To use Azure storage, you need the Azure Storage SDK for Node.js, which includes
 ### Use Node Package Manager (NPM) to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), to navigate to the folder where you created your sample application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following code example.
-   
-  azure-storage@0.5.0 node_modules\azure-storage
-  +-- extend@1.2.1
-  +-- xmlbuilder@0.4.3
-  +-- mime@1.2.11
-  +-- node-uuid@1.4.3
-  +-- validator@3.22.2
-  +-- underscore@1.4.4
-  +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-  +-- xml2js@0.2.7 (sax@0.5.2)
-  +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 3. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder, find the **azure-storage** package, which contains the libraries that you need to access storage.
 
 ### Import the package
@@ -62,7 +61,7 @@ var azure = require('azure-storage');
 ## Set up an Azure Storage connection
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
+For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
 
 ## Create a container
 The **BlobService** object lets you work with containers and blobs. The following code creates a **BlobService** object. Add the following near the top of **server.js**:
@@ -73,8 +72,8 @@ var blobSvc = azure.createBlobService();
 
 > [!NOTE]
 > You can access a blob anonymously by using **createBlobServiceAnonymous** and providing the host address. For example, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
-> 
-> 
+>
+>
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -192,9 +191,9 @@ To append a block to an existing append blob, use the following:
 * **appendBlockFromText** - append the contents of a string to an existing append blob
 
 > [!NOTE]
-> appendFromXXX APIs will do some client-side validation to fail fast to avoid unncessary server call. appendBlockFromXXX won't.
-> 
-> 
+> appendFromXXX APIs will do some client-side validation to fail fast to avoid unnecessary server calls. appendBlockFromXXX won't.
+>
+>
 
 The following code example uploads the contents of the **test.txt** file into **myappendblob**.
 
@@ -227,8 +226,8 @@ blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', fun
 
 > [!NOTE]
 > Page blobs consist of 512-byte 'pages'. You will receive an error when uploading data with a size that is not a multiple of 512.
-> 
-> 
+>
+>
 
 ## List the blobs in a container
 To list the blobs in a container, use the **listBlobsSegmented** method. If you'd like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
@@ -317,8 +316,8 @@ Subsequent operations on **myblob** must provide the `options.leaseId` parameter
 
 > [!NOTE]
 > By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds) by providing the `options.leaseDuration` parameter.
-> 
-> 
+>
+>
 
 To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
 
@@ -327,8 +326,8 @@ Shared access signatures (SAS) are a secure way to provide granular access to bl
 
 > [!NOTE]
 > While you can also allow anonymous access to blobs, shared access signatures allow you to provide more controlled access, as you must generate the SAS.
-> 
-> 
+>
+>
 
 A trusted application such as a cloud-based service generates shared access signatures using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application such as a mobile app. Shared access signatures are generated using a policy, which describes the start and end dates during which the shared access signatures are valid, as well as the access level granted to the shared access signatures holder.
 
@@ -420,12 +419,11 @@ For more information, see the following resources.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Create a Node.js web app in Azure App Service]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html

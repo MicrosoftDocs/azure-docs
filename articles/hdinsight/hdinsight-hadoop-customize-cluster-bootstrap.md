@@ -1,5 +1,5 @@
-﻿---
-title: Customize HDInsight Clusters using bootstrap | Microsoft Docs
+---
+title: Customize HDInsight Clusters using bootstrap - Azure | Microsoft Docs
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
 documentationcenter: ''
@@ -10,16 +10,18 @@ tags: azure-portal
 
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
 # Customize HDInsight clusters using Bootstrap
-Sometimes, you want to configure the configuration files which include:
+
+Sometimes, you want to configure the configuration files, which include:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -37,22 +39,17 @@ Sometimes, you want to configure the configuration files which include:
 * webhcat-site.xml
 * yarn-site.xml
 
-The clusters can't retain the changes due to re-imaging. For more information on re-imaging, 
-see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
-To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted. 
-
-There are 3 methods to use bootstrap:
+There are three methods to use bootstrap:
 
 * Use Azure PowerShell
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * Use .NET SDK
 * Use Azure Resource Manager template
 
-For information on installing additional components on HDInsight cluster during the creation time, see :
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+For information on installing additional components on HDInsight cluster during the creation time, see:
 
 * [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## Use Azure PowerShell
 The following PowerShell code customizes a Hive configuration:
@@ -73,8 +70,8 @@ The following PowerShell code customizes a Hive configuration:
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
-        -OSType Windows `
-        -Version "3.2" `
+        -OSType Linux `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -Config $config 
 
@@ -83,7 +80,7 @@ A complete working PowerShell script can be found in [Appendix-A](#hdinsight-had
 **To verify the change:**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. On the left pane, click **Browse**, and then click **HDInsight Clusters**.
+2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.
 5. Click **Hive** from the left menu.
@@ -126,7 +123,7 @@ You can use bootstrap in Resource Manager template:
     }
 
 
-![hdinsight hadoop customize cluster bootstrap azure resource manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
 * [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
@@ -139,8 +136,8 @@ You can use bootstrap in Resource Manager template:
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
@@ -243,7 +240,7 @@ This PowerShell script creates an HDInsight cluster and customizes a Hive settin
         -ClusterSizeInNodes 1 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.2" `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -SshCredential $sshCredential `
         -Config $config

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Notification Hubs - Diagnosis Guidelines
 description: Guidelines on how to diagnose common issues with Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61

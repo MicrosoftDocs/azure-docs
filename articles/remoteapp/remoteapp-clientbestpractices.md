@@ -1,4 +1,3 @@
-
 ---
 title: Best practices for Azure RemoteApp clients | Microsoft Docs
 description: Learn about best practices for using the RemoteApp clients
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Best practices for Azure RemoteApp clients
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute Troubleshooting Guide - Getting ARP tables | Microsoft Docs
+title: 'Getting ARP tables: Resource Manager: Azure ExpressRoute Troubleshooting | Microsoft Docs'
 description: This page provides instructions on getting the ARP tables for an ExpressRoute circuit
 documentationcenter: na
 services: expressroute
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 
 ---
-# ExpressRoute Troubleshooting guide - Getting ARP tables in the Resource Manager deployment model
+# Getting ARP tables in the Resource Manager deployment model
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
@@ -46,8 +46,8 @@ Example ARP table:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 The following section provides information on how you can view the ARP tables seen by the ExpressRoute edge routers. 
@@ -80,8 +80,8 @@ Sample output is shown below for one of the paths
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### ARP tables for Azure public peering
@@ -102,8 +102,8 @@ Sample output is shown below for one of the paths
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### ARP tables for Microsoft peering
@@ -124,8 +124,8 @@ Sample output is shown below for one of the paths
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## How to use this information
@@ -139,19 +139,30 @@ The ARP table of a peering can be used to determine validate layer 2 configurati
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### ARP table when on-premises / connectivity provider side has problems
-* Only one entry will appear in the ARP table. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
+If there are issues with the on-premises or connectivity provider you may see that either only one entry will appear in the ARP table or the on-prem MAC address will show incomplete. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+or
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
 > Open a support request with your connectivity provider to debug such issues. 
+> If the ARP table does not have IP addresses of the interfaces mapped to MAC addresses, review the following information:
 > 
+> 1. If the first IP address of the /30 subnet assigned for the link between the MSEE-PR and MSEE is used on the interface of MSEE-PR. Azure always uses the second IP address for MSEEs.
+> 2. Verify if the customer (C-Tag) and service (S-Tag) VLAN tags match both on MSEE-PR and MSEE pair.
 > 
 
 ### ARP table when Microsoft side has problems

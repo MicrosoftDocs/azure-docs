@@ -1,10 +1,10 @@
 ---
-title: Optimize your environment with the System Center Operations Manager Assessment solution in Log Analytics | Microsoft Docs
+title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
 description: You can use the System Center Operations Manager Assessment solution to assess the risk and health of your server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -12,12 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 06/07/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
 
-# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution in Log Analytics
+# Optimize your environment with the System Center Operations Manager Assessment (Preview) solution
+
+![System Center Operations Manager Assessment symbol](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 You can use the System Center Operations Manager Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
 
@@ -39,14 +42,19 @@ The solution works with Microsoft System Operations Manager 2012 R2 and 2012 SP1
 
 Use the following information to install and configure the solution.
 
-- One Operations Manager management server from a Management group should be configured to connect to OMS. To connect Operations Manager Management Server to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md#connecting-operations-manager-to-oms).
-    - If you monitor more than one management server in a management group using the OMS-managed Computers group, ensure that the assessment is configured to run on one management server. For more information, see [Configure the assessment rule](#configure-the-assessment-rule).
-- Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-- When using the Operations Manager agent with the System Center Operations Manager assessment, you need to use an Operations Manager Run-As account. For more information, see [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms).
-    >[!NOTE]
-    After you've added the solution, the AdvisorAssessment.exe file is added to SCOM server. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
+ - Before you can use an assessment solution in OMS, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) or by following the instructions in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
-# System Center Operations Manager assessment data collection details
+ - After adding the solution to the workspace, the System Center Operations Manager Assessment tile on the dashboard displays the additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
+
+ ![System Center Operations Manager dashboard tile](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
+
+ Configuration of the System Center Operations Manager can be done through the script by following the steps mentioned in the configuration page of the solution in OMS.
+
+ Instead, to configure the assessment through SCOM Console, follow the below steps in the same order
+1. [Set the Run As account for System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
+2. [Configure the System Center Operations Manager Assessment rule](#configure-the-assessment-rule)
+
+## System Center Operations Manager assessment data collection details
 
 The System Center Operations Manager assessment collects WMI data, Registry data, EventLog data, Operations Manager data through Windows PowerShell, SQL Queries, File information collector using the server that you have enabled.
 
@@ -54,7 +62,7 @@ The following table shows data collection methods for System Center Operations M
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Yes](./media/log-analytics-scom-assessment/oms-bullet-green.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Yes](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | seven days |
+| Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Yes](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | seven days |
 
 ## Operations Manager run-as accounts for OMS
 
@@ -72,7 +80,8 @@ Use the following information to set the Operations Manager run-as account for S
     The Run As account must meet following requirements:
     - A domain account member of the local Administrators group on all servers in the environment (All Operations Manager Roles - Management Server, OpsMgr Database, Data Warehouse, Reporting, Web Console, Gateway)
     - Operation Manager Administrator Role for the management group being assessed
-    - SysAdmin role on all SQL servers or instances used by Operations Manager
+    - Execute the [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) to grant granular permissions to the account on SQL instance used by Operations Manager.
+      Note: If this account has sysadmin rights already, then skip the script execution.
 
 4. Under **Distribution Security**, select **More secure**.
 5. Specify the management server where the account is distributed.
@@ -81,7 +90,7 @@ Use the following information to set the Operations Manager run-as account for S
 5. The profile name should be: *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Right-click and update its properties and add the recently created Run As Account you created in step 3.
 
-### SQL script granting permissions to the Run As account
+### SQL script to grant granular permissions to the Run As account
 
 Execute the following SQL script to grant required permissions to the Run As account on the SQL instance used by Operations Manager.
 
@@ -241,6 +250,12 @@ If you have recommendations that you want to ignore, you can create a text file 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## System Center Operations Manager Assessment solution FAQ
+
+*I added the assessment solution to my OMS workspace. But I don’t see the recommendations. Why not?* After adding the solution, use the following steps view the recommendations on the OMS dashboard.  
+
+- [Set the Run As account for System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
+- [Configure the System Center Operations Manager Assessment rule](#configure-the-assessment-rule)
+
 
 *Is there a way to configure how often the assessment runs?* Yes. See [Configure the run frequency](#configure-the-run-frequency).
 

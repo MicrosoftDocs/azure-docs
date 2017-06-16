@@ -1,4 +1,4 @@
-﻿---
+---
 title: Import and export a domain zone file to Azure DNS using CLI| Microsoft Docs
 description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI
 services: dns
@@ -24,7 +24,14 @@ This article will walk you through how to import and export DNS zone files for A
 
 A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.
 
-Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
+
+The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+
+> [!NOTE]
+> There are currently two versions of the Azure CLI. CLI1.0 is based on Node.js, and has commands beginning with "azure".
+> CLI2.0 is based on Python and has commands beginning with "az". While zone file import is supported in both versions,
+> we recommend using the CLI1.0 commands, as described in this page.
 
 ## Obtain your existing DNS zone file
 
@@ -34,9 +41,17 @@ Before you import a DNS zone file into Azure DNS, you will need to obtain a copy
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file also shows on the **General** tab of the DNS service management console.
 * If your DNS zone is hosted by using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
 
-**Working with zone files from GoDaddy**
-
-Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import these zone files into Azure DNS. DNS names in the RData of each DNS record are specified as fully qualified names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative names. You need to edit the zone file to append the terminating "." to their names before you import them into Azure DNS.
+> [!NOTE]
+> Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import
+> these zone files into Azure DNS.
+>
+> DNS names in the RDATA of each DNS record are specified as fully qualified
+> names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative
+> names. You need to edit the zone file to append the terminating "." to their names before you import them into
+> Azure DNS.
+>
+> For example, the CNAME record "www 3600 IN CNAME contoso.com" should be changed to "www 3600 IN CNAME contoso.com."
+> (with a terminating ".").
 
 ## Import a DNS zone file into Azure DNS
 

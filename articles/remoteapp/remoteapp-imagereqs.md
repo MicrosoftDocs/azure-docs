@@ -1,4 +1,3 @@
-﻿
 ---
 title: Azure RemoteApp image requirements | Microsoft Docs
 description: Learn about the requirements for creating images to be used with Azure RemoteApp
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Requirements for Azure RemoteApp images
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

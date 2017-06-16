@@ -13,14 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/09/2017
 ms.author: sdanie
 
 ---
 # How to configure data persistence for a Premium Azure Redis Cache
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
-
-The Azure Redis Cache premium tier includes features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Redis Cache instance.
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Redis Cache instance.
 
 For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
@@ -29,16 +27,9 @@ Redis persistence allows you to persist data stored in Redis. You can also take 
 
 Azure Redis Cache offers Redis persistence using the [RDB model](http://redis.io/topics/persistence), where the data is stored in an Azure storage account. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
 
-Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Settings** blade for existing premium caches.
+Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
 
-## Create a premium cache
-To create a cache and configure persistence, sign-in to the [Azure portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
-
-![Create a Redis Cache][redis-cache-new-cache-menu]
-
-To configure persistence, first select one of the **Premium** caches in the **Choose your pricing Tier** blade.
-
-![Choose your pricing tier][redis-cache-premium-pricing-tier]
+[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Once a premium pricing tier is selected, click **Redis persistence**.
 
@@ -47,7 +38,7 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 The steps in the following section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
 ## Configure Redis persistence
-Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Settings** blade for your cache.
+Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
 
@@ -58,7 +49,7 @@ To configure the backup interval, select a **Backup Frequency** from the drop-do
 Click **Storage Account** to select the storage account to use, and choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
 
 > [!IMPORTANT]
-> If the storage key for your persistence account is regenerated, you must rechoose the desired key from the **Storage Key** drop-down.
+> If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
 > 
 > 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory conditional access | Microsoft Docs
 description: Use conditional access control in Azure Active Directory to check for specific conditions when authenticating for access to applications.
 services: active-directory
@@ -14,11 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2016
+ms.date: 06/07/2017
 ms.author: markvi
 
 ---
 # Conditional access in Azure Active Directory
+
+> [!div class="op_single_selector"]
+> * [Azure classic portal](active-directory-conditional-access.md)
+> * [Azure portal](active-directory-conditional-access-azure-portal.md)
+
 The control capabilities in Azure Active Directory (Azure AD) conditional access offer simple ways to help secure resources in the cloud and on-premises. Conditional access policies like multi-factor authentication can help protect against the risk of stolen and phished credentials. Other conditional access policies can help keep your organization's data safe. For example, in addition to requiring credentials, you might have a policy that only devices that are enrolled in a mobile device management system like Microsoft Intune can access your organization's sensitive services.
 
 ## Prerequisites
@@ -73,7 +78,7 @@ See the following resource categories and articles to learn more about setting c
 
 ### Multi-factor authentication and location policies
 * [Getting started with conditional access to Azure AD-connected apps based on group, location, and multi-factor authentication policies](active-directory-conditional-access-azuread-connected-apps.md)
-* [Applications that are supported](active-directory-conditional-access-supported-apps.md)
+* [Applications and browsers that are supported](active-directory-conditional-access-supported-apps.md)
 
 ### Device-based conditional access
 * [Set device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
