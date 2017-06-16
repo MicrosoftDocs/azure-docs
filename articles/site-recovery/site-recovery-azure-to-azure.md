@@ -45,7 +45,7 @@ Use Site Recovery for Azure-to-Azure VM replication to help you do all these tas
 Site Recovery provides a simple way to replicate Azure VMs between regions:
 
 - **Automatic deployment**. Unlike an active-active replication model, there's no need for an expensive and complex infrastructure in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on source region settings.
-- **Control regions**. With Site Recovery, you can replicate from any region to any region within a continent. Compare this with read-access geo-redundant storage (RA-GRS), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only. RA-GRS provides read-only access to the data in the target region.
+- **Control regions**. With Site Recovery, you can replicate from any region to any region within a continent. Compare this with read-access geo-redundant storage, which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only. Read-access geo-redundant storage provides read-only access to the data in the target region.
 - **Automated replication**. Site Recovery provides automated continuous replication. Failover and failback can be triggered with a single click.
 - **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions to keep RTO and RPO very low.
 - **Testing**. You can run disaster-recovery drills with on-demand test failovers, as and when needed, without affecting your production workloads or ongoing replication.
@@ -97,7 +97,7 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
 ### Step 2. Select virtual machines
 
-1. Select the VMs you want to replicate, and then click **OK**.
+* Select the VMs you want to replicate, and then click **OK**.
 
     ![Select VMs](./media/site-recovery-azure-to-azure/vms.png)
 
