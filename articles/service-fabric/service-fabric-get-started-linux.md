@@ -110,6 +110,7 @@ If you are using the environment as root, you may need to set the variable with 
      export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
      ```
 
+
 > [!TIP]
 > You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
 >
