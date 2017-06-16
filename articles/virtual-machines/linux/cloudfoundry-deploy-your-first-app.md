@@ -73,7 +73,7 @@ Now, when you deploy an application, it will automatically be created in the new
 
 ## Deploy an application
 
-We will deploy a Cloud Foundry sample application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](http://spring.io) and [Spring Boot](http://projects.spring.io/spring-boot/).
+Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](http://spring.io) and [Spring Boot](http://projects.spring.io/spring-boot/).
 
 ### Clone the Hello Spring Cloud repository
 
