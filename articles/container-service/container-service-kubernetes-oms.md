@@ -33,7 +33,8 @@ You can test if you have the `az` tool installed by running:
 $ az --version
 ```
 
-If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).
+If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).  
+Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
 
 You can test if you have the `kubectl` tool installed by running:
 
@@ -42,9 +43,20 @@ $ kubectl version
 ```
 
 If you don't have `kubectl` installed, you can run:
-
 ```console
 $ az acs kubernetes install-cli
+```
+
+To test if you have kubernetes keys installed in your kubectl tool you can run:
+```console
+$ kubectl get nodes
+```
+
+If the above command errors out, you need to install kubernetes cluster keys into your kubectl tool. You can do that with the following command:
+```console
+RESOURCE_GROUP=my-resource-group
+CLUSTER_NAME=my-acs-name
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 ## Monitoring Containers with Operations Management Suite (OMS)
@@ -87,6 +99,44 @@ on your cluster with the `kubectl` command line tool:
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
+
+### Installing the OMS agent using a Kubernetes Secret
+To protect your OMS workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
+
+ - Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory. 
+	  - secret generating script - secret-gen.sh
+	  - secret template - secret-template.yaml
+   - DaemonSet YAML file - omsagent-ds-secrets.yaml
+ - Run the script. The script will ask for the OMS Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
+   ```
+   #> sudo bash ./secret-gen.sh 
+   ```
+
+   - Create the secrets pod by running the following: 
+  ``` kubectl create -f omsagentsecret.yaml ```
+ 
+   - To check, run the following: 
+
+   ``` 
+   root@ubuntu16-13db:~# kubectl get secrets
+   NAME                  TYPE                                  DATA      AGE
+   default-token-gvl91   kubernetes.io/service-account-token   3         50d
+   omsagent-secret       Opaque                                2         1d
+   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+   Name:           omsagent-secret
+   Namespace:      default
+   Labels:         <none>
+   Annotations:    <none>
+
+   Type:   Opaque
+
+   Data
+   ====
+   WSID:   36 bytes
+   KEY:    88 bytes 
+   ```
+ 
+  - Create your omsagent daemon-set by running ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### Conclusion
 That's it! After a few minutes, you should be able to see data flowing to your OMS dashboard.
