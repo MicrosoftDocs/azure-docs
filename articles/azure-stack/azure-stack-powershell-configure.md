@@ -31,7 +31,7 @@ This article describes the steps required to connect to an Azure Stack proof-of-
 After you download the required tools, navigate to the downloaded folder and import the **Connect** PowerShell module. To import the Connect module, run the following command in an elevated PowerShell session:
 
 ```PowerShell
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy RemoteSigned
 Import-Module .\Connect\AzureStack.Connect.psm1
 ```
 

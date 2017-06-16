@@ -6,10 +6,7 @@ author: mswutao
 ms.author: wuta
 editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ---
