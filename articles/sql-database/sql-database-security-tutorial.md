@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure, mvc
+ms.custom: mvc,security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -108,7 +108,7 @@ Follow these steps to create a user using SQL Authentication:
 3. In the query window, enter the following query:
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. On the toolbar, click **Execute** to create the user.
@@ -116,8 +116,8 @@ Follow these steps to create a user using SQL Authentication:
 5. By default, the user can connect to the database, but has no permissions to read or write data. To grant these permissions to the newly created user, execute the following two commands in a new query window
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 It is best practice to create these non-administrator accounts at the database level to connect to your database unless you need to execute administrator tasks like creating new users. Please review the [Azure Active Directory tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure Active Directory.
@@ -161,7 +161,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Navigation pane](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
+6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#a-idsubheading-7aautomation-powershell--rest-api) section for more details.
 
 7. Click **Save**.
 

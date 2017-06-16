@@ -44,7 +44,7 @@ or use your own VHD. The script looks for `~/sample.vhd`.
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

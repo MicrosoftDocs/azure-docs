@@ -14,8 +14,9 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create your first function in the Azure portal
@@ -54,7 +55,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL** and copy the **Function URL**. 
+1. In your new function, click **</> Get function URL**, select **default (Function key)**, and then click **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

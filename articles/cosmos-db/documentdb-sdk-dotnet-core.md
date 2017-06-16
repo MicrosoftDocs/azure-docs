@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## Release Notes
@@ -51,7 +51,15 @@ ms.custom: H1Hack27Feb2017
 The DocumentDB .NET Core SDK has feature parity with the latest version of the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> The DocumentDB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> The DocumentDB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.3.2"/>1.3.2
+
+*	Supporting .NET Standard 1.5 as one of the target frameworks.
+
+### <a name="1.3.1"/>1.3.1
+
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
 
 ### <a name="1.3.0"/>1.3.0
 
@@ -112,6 +120,8 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |June 12, 2017 |--- |
+| [1.3.1](#1.3.1) |May 23, 2017 |--- |
 | [1.3.0](#1.3.0) |May 10, 2017 |--- |
 | [1.2.2](#1.2.2) |April 19, 2017 |--- |
 | [1.2.1](#1.2.1) |March 29, 2017 |--- |

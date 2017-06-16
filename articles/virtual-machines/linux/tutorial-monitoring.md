@@ -39,13 +39,13 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/gropu#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
 Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVM*:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -60,7 +60,7 @@ As Linux VMs boot, the boot diagnostic extension captures boot output and stores
 
 Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#create) command. In this example, a random string is used to create a unique storage account name. 
 
-```azurecli
+```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
 
 az storage account create \
@@ -72,13 +72,13 @@ az storage account create \
 
 When enabling boot diagnostics, the URI to the blob storage container is needed. The following command queries the storage account to return this URI. The URI value is stored in a variable names *bloburi*, which is used in the next step.
 
-```azurecli
+```azurecli-interactive 
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
 Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). The `--storage` value is the blob URI collected in the previous step.
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics enable \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -90,19 +90,19 @@ az vm boot-diagnostics enable \
 
 When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#deallocate) command as follows:
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
 Now start the VM with the [az vm start]( /cli/azure/vm#stop) command as follows:
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
 You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command as follows:
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
@@ -164,7 +164,7 @@ You can do more advanced monitoring of your VM by using [Operations Management S
 
 When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Replace <workspace-key> and <workspace-id> with the values for from your OMS workspace and then you can use **az vm extension set** to add the OMS extension to the VM:
 
-```azurecli
+```azurecli-interactive 
 az vm extension set \
   --resource-group myResourceGroupMonitor \
   --vm-name myVM \

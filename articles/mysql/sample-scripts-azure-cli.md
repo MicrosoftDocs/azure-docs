@@ -5,13 +5,11 @@ services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.custom: sample
+ms.custom: mvc
 ms.date: 05/10/2017
 ---
 # Azure CLI samples for Azure Database for MySQL 

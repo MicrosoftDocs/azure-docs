@@ -88,7 +88,7 @@ language|The language of the transcript.
 
 Attribute | Description 
 ---|---
-transcripBlocks|May contain one or more [transcripBlocks](#transcripBlocks)
+transcriptBlocks|May contain one or more [transcriptBlocks](#transcriptBlocks)
 topics|May contain one or more [topics](#topics)
 faces|May contain one or more [faces](#faces)
 participants|May contain one or more [participants](#participants)
@@ -204,7 +204,7 @@ Attribute | Description
 type|Id of the category.
 key|One of the following: Speech, Silence, HandClaps. 
 
-## transcripBlocks
+## transcriptBlocks
 
 Attribute | Description
 ---|---
@@ -231,9 +231,9 @@ lines|May contain one or more [lines](#lines).
 
 ## lines
 
-### transcripBlocks
+### transcriptBlocks
 
-**lines** that appear under **transcripBlocks**, describe lines of transcripts found in the video.
+**lines** that appear under **transcriptBlocks**, describe lines of transcripts found in the video.
 
 Attribute | Description 
 ---|---

@@ -9,7 +9,7 @@ author: jan-eng
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: performance, mvc
+ms.custom: mvc,monitor & tune
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,7 +103,6 @@ Follow these steps to find the query consuming the most resources:
 
 ## Next steps 
 Missing indexes and poorly optimized queries are common reasons for poor database performance. In this tutorial you learned to:
-In this tutorial you learned how to:
 > [!div class="checklist"]
 > * Review, apply and revert performance improvement recommendations
 > * Find queries with high resource utilization

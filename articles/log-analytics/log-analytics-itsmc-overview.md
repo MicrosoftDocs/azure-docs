@@ -18,6 +18,8 @@ ms.author: v-jysur
 ---
 # Centrally manage ITSM work items using IT Service Management Connector (Preview)
 
+![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
+
 You can use the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
 The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.
@@ -73,13 +75,13 @@ The following ITSM products/services are supported by the IT Service Management 
 
 ## Using the solution
 
-Once you connect the OMS IT Service Management connector with your ITSM service, the Log Analytics services starts gathering the data from the connected ITSM products/service.
+Once you connect the OMS IT Service Management Connector with your ITSM service, the Log Analytics services starts gathering the data from the connected ITSM products/service.
 
 > [!NOTE]
-> - Data imported by IT Service Management connector solution appears in Log Analytics as events named **ServiceDesk_CL**.
+> - Data imported by IT Service Management Connector solution appears in Log Analytics as events named **ServiceDesk_CL**.
 - Event contains a field named **ServiceDeskWorkItemType_s**. which can take its value as incident, or change request, depending on the work item data contained in the **ServiceDesk_CL** event.
 
-The following information shows examples of data gathered by the IT Service Management connector:
+The following information shows examples of data gathered by the IT Service Management Connector:
 
 > [!NOTE]
 > Depending on the work item type imported into Log Analytics, **ServiceDesk_CL** contains the following fields:
@@ -148,7 +150,7 @@ Sample Log Analytics screen for ITSM data:
 
 ![Log Analytics screen](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
 
-## IT Service Management connector – integration with other OMS solutions
+## IT Service Management Connector – integration with other OMS solutions
 
 IT Service Management Connector, currently supports integration with the Service Map solution.
 

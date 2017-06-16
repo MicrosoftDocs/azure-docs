@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
-
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Table API in .NET
 
