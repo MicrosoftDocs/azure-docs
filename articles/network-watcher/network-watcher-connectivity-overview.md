@@ -22,21 +22,7 @@ The connectivity feature of Network Watcher provides the capability to test a di
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
-## Fault types
-
-The connectivity test returns fault types about the connection. The following table provides a list of the current fault types returned.
-
-|Heuristic Name  |Description  |
-|---------|---------|
-|CPU     | Total CPU Usage on VM goes above 90%        |
-|Memory     | Total memory usage on VM above 90%        |
-|Firewall Rules     | Ports are blocked by Windows firewall        |
-|NIC DNS Resolution     | Source VM failed to resolve destination address        |
-|VFP Port Counter     | Returns if packets get dropped due to throttling in past 30 mins. (Any Packets, not restricted to Source/Destination)        |
-|IP Flow Verify Heuristic     | Check NSG applied on all VMs in the path from source to destination (Nic & Subnet)        |
-|Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|
-
-## Results
+## Response
 
 The following table shows the properties returned when a connectivity test has finished running.
 
@@ -55,12 +41,42 @@ The following table shows the properties returned when a connectivity test has f
 |Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource, ResourceID is **Internet** |
 |Hops[].NextHopIds | The unique identifier of the next hop taken.|
 |Hops[].Issues | A collection of issues that were encountered during the test at that hop. If there were no issues, the value is blank.|
-|Hops[].Issues[].Origin | At the current hop, where issue occurred. Possible values are **Inbound** or **Outbound**.|
+|Hops[].Issues[].Origin | At the current hop, where issue occurred. Possible values are:<br/> **Inbound** - Issue is on the link from the previous hop to the current hop<br/>**Outbound** - Issue is on the link from the current hop to the next hop<br/>**Local** - Issue is on the current hop.|
 |Hops[].Issues[].Severity | The severity of the issue detected. Possible values are **Error** and **Warning**. |
-|Hops[].Issues[].Type |The type of issue found. Possible values are: <br/>**Unknown**<br/>**AgentStopped**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**SocketBind**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute**<br/>**PortThrottled**<br/> **Platform** |
+|Hops[].Issues[].Type |The type of issue found. Possible values are: <br/>**CPU**<br/>**Memory**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hops[].Issues[].Context |Details regarding the issue found.|
 |Hops[].Issues[].Context[].key |Key of the key value pair returned.|
 |Hops[].Issues[].Context[].value |Value of the key value pair returned.|
+
+The following is an example of an issue found on a hop.
+
+```json
+"Issues": [
+    {
+    	"Origin": "Outbound",
+    	"Severity": "Error",
+    	"Type": "NetworkSecurityRule",
+    	"Context": [
+            {
+        		"key": "RuleName",
+        		"value": "UserRule_Port80"
+    	    }
+        ]
+    }
+]
+```
+## Fault types
+
+The connectivity test returns fault types about the connection. The following table provides a list of the current fault types returned.
+
+|Type  |Description  |
+|---------|---------|
+|CPU     | High CPU utilization.       |
+|Memory     | High Memory utilization.       |
+|GuestFirewall     | Traffic is blocked due to a virtual machine firewall configuration.        |
+|DNSResolution     | DNS resolution failed for the destination address.        |
+|NetworkSecurityRule    | Traffic is blocked by an NSG Rule (Rule is returned)        |
+|UserDefinedRoute|Traffic is dropped due to a user defined or system route. |
 
 ### Next steps
 
