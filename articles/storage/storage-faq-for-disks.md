@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 
 ---
@@ -241,6 +241,41 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 **Is there any repercurssions on using TRIM on Premium Disks?**
 
 There is no downside of using TRIM on Azure Disks on either Premium or Standard Disks.
+
+## New Disk Sizes - both managed and unmanaged
+
+**What is the largest disk size supported for OS and Data Disks?**
+
+The partition type Azure supports for OS Disks is MBR(Master Boot Record). The MBR format supports up to 2TB disk size. So the largest OS Disks Azure support is 2TB. For Data Disks, Azure supports up to 4TB. 
+
+**What is the largest page blob size supported?**
+
+The largest page blob size Azure supports is 8TB (8191GB). We don't support attaching any page blobs larger than 4TB (4095GB) to a VM as Data or OS disks.
+
+**Do I need to use a new version of Azure tools to create, attach, resize and upload disks larger than 1TB?**
+
+You do not need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1TB. If you would like to directly upload your VHD file from on-premises to Azure as a page blob/unManaged Disks. You would need to pick up the latest toolsets listed below.
+
+|Azure Tools      | Supported Versions                                |
+|-----------------|---------------------------------------------------|
+|Azure Powershell | Version number v4.1.0 – June 2017 Release or above|
+|Azure CLI v1     | Version number 0.10.13 – May 2017 Release or above|
+|AzCopy	          | Version number v6.1.0 – June 2017 Release or above|
+
+The support for Azure CLI v2 and Storage Explorer is coming soon. 
+
+**Are P4 and P6 disk sizes supported for unmanaged Disks or Page Blob?**
+
+No, P4(32GB) and P6(64GB) disk sizes are only supported for Managed Disks. The support for unmanged Disks and Page Blob is coming soon.
+
+**How is my existing Premium Managed disks with size less than 64 GB that is created before small disk is enabled (Around June 15th) billed?**
+
+Existing small Premium disks with size less than 64 GB will continue be billed as per P10 pricing tier. 
+
+**How can I switch the disk tier of small Premium Disks with size less than 64 GB from P10 to P4 or P6?**
+
+You can take a snapshot of your small disks and then create a disk which will automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+
 
 ## What if my question isn't answered here?
 
