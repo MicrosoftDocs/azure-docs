@@ -24,7 +24,7 @@ This document provides information on the logging capability of Machine Learning
 
 You enable logging from the [Azure Machine Learning Web Services](https://services.azureml.net) portal. 
 
-1. Sign in to the Azure Machine Learning Web Services portal at [https://services.azureml.net](https://services.azureml.net). For a Classic web service, you can also get to the portal by clicking **New Web Services Experience** on the Machine Learning Web Services page in Machine Learning Studio .
+1. Sign in to the Azure Machine Learning Web Services portal at [https://services.azureml.net](https://services.azureml.net). For a Classic web service, you can also get to the portal by clicking **New Web Services Experience** on the Machine Learning Web Services page in Machine Learning Studio.
 
    ![New Web Services Experience link](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
 
@@ -42,31 +42,31 @@ You enable logging from the [Azure Machine Learning Web Services](https://servic
 
 6. Click **Save**.
 
-All web service logs are kept in a blob container named **ml-diagnostics** in the storage account associated with the web service. For New web services, this container is created the first time you access the web service.
+7. For Classic web services, create the **ml-diagnostics** container.
 
-For Classic web services, you'll need to create the container if it doesn't already exist. 
+   All web service logs are kept in a blob container named **ml-diagnostics** in the storage account associated with the web service. For New web services, this container is created the first time you access the web service. For Classic web services, you need to create the container if it doesn't already exist. 
 
-1. In the [Azure Management portal](https://portal.azure.com), go to the storage account associated with the web service.
+   1. In the [Azure portal](https://portal.azure.com), go to the storage account associated with the web service.
 
-2. Under **Blob Service**, click **Containers**.
+   2. Under **Blob Service**, click **Containers**.
 
-3. If the container **ml-diagnostics** doesn't exist, click **+Container**, give the container the name "ml-diagnostics", and select the **Access type** as "Blob". Click **OK**.
+   3. If the container **ml-diagnostics** doesn't exist, click **+Container**, give the container the name "ml-diagnostics", and select the **Access type** as "Blob". Click **OK**.
 
-   ![Select logging level](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
+      ![Select logging level](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> The Web Services Dashboard in Machine Learning Studio has a switch to enable logging. However, you need to enable logging from the Web Services Portal. If you already enabled logging in Studio, then in the Web Services Portal, just disable logging and then enable it again.
-
+> For a Classic web service, the Web Services Dashboard in Machine Learning Studio also has a switch to enable logging. However, because logging is now managed through the Web Services portal, you need to enable logging through the portal as described in this article. If you already enabled logging in Studio, then in the Web Services Portal, disable logging and enable it again.
 
 
 ## The effects of enabling logging
-When logging is enabled, all the diagnostics and errors from the selected endpoint are logged to the Azure Storage Account linked with the user’s workspace. You can see this storage account in the Azure classic portal Dashboard view (bottom of the Quick Glance section) of their workspace.  
+When logging is enabled, the diagnostics and errors from the web service endpoint are logged in the **ml-diagnostics** blob container in the Azure Storage Account linked with the user’s workspace. 
+This container holds all the diagnostics information for all the web service endpoints for all the workspaces associated with this Storage account.
 
-The logs can be viewed using any of the several tools available to explore an Azure Storage Account. The easiest may be to simply navigate to the Storage Account in the Azure classic portal and then click **CONTAINERS**. There you'll see the container **ml-diagnostics** container. This container holds all the diagnostics information for all the web service endpoints for all the workspaces associated with this Storage account. 
+The logs can be viewed using any of the several tools available to explore an Azure Storage Account. The easiest may be to navigate to the storage account in the Azure portal, click **Containers**, and then click the container **ml-diagnostics**.  
 
 ## Log blob detail information
-Each blob in the container holds the diagnostics info for exactly one of the following:
+Each blob in the container holds the diagnostics information for exactly one of the following actions:
 
 * An execution of the Batch-Execution method  
 * An execution of the Request-Response method  
