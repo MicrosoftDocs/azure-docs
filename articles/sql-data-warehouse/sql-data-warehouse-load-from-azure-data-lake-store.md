@@ -212,7 +212,7 @@ The following example is a good starting point for creating statistics. It creat
 ## Achievement unlocked!
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
-##Next Steps
+## Next Steps
 Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
