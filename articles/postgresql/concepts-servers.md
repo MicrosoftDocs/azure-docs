@@ -44,7 +44,7 @@ The following elements help ensure safe access to your database.
 
 ## How do I manage a server?
 
-You can manage Azure Database for PostgreSQL servers by using the Azure portal or the [Azure CLI](/cli/azure/mysql).
+You can manage Azure Database for PostgreSQL servers by using the Azure portal or the [Azure CLI](/cli/azure/postgres).
 
 ## Next steps
 
