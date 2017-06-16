@@ -106,12 +106,42 @@ If needed, scale the front-end pod out so that multiple instances are running. T
 kubectl scale --replicas=4 deployment/azure-vote-front
 ```
 
-Update the application.
+If you’ve scaled out the front-end nodes, make sure that they are running before updating the application.
+
+```bash
+kubectl get pod
+```
+
+Update the application. If using Azure Container Registry to store container images, you need the ACR login server name. This name can be retrieved using the [az acr list](/cli/azure/acr#list) command.
+
+```bash
+az acr list --resource-group myResourceGroup --query [0].loginServer -o tsv
+```
+
+Run the following command to update the applicaiton. Update `<acrLoginServer>` with your ACR loging server name.
 
 
 ```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
 ```
+
+To monitor the deployment, run the following command. Exit the wait loop by pressing `control + c`.
+
+```bash
+kubectl get pod -w
+```
+
+```bash
+
+```
+
+Get the external IP address of the service.
+
+```bash
+kubectl get service
+```
+
+Browse to the IP address to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
