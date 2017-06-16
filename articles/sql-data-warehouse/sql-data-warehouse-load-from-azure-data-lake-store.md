@@ -88,7 +88,7 @@ WITH
 
 ### Create the external data source
 Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.
-You can find the ADL URI in the Azure portal and www.portal.azure.com.
+You can find your ADL URI in the Azure portal by navigating to your Azure Data Lake Store and then looking at the Essentials panel.
 
 ```sql
 -- C: Create an external data source
