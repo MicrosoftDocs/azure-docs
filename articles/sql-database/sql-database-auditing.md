@@ -25,8 +25,10 @@ Azure SQL database auditing tracks database events and writes them to an audit l
 
 * Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
+
 ## <a id="subheading-1"></a>Azure SQL database auditing overview
 SQL database auditing allows you to:
+
 
 * **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 * **Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.

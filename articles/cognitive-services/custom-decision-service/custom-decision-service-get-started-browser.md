@@ -60,7 +60,7 @@ Finally, you need to provide the Action Set API, which returns the list of artic
 
 Here each top-level `<item>` element describes an article. `<link>` is mandatory and is used as an action ID by Custom Decision Service. Specify `<date>` (in a standard RSS format) if you have more than 15 articles. The 15 most recent articles are used. `<title>` is optional and is used to create text-related features for the article.
 
-## Next steps
+### Next steps
 
 * Work through a [tutorial](custom-decision-service-tutorial.md) for a more in-depth example.
 * Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.

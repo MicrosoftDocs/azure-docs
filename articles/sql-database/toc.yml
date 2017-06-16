@@ -89,7 +89,7 @@
       href: sql-database-aad-authentication.md
     - name: Logins and users
       href: sql-database-manage-logins.md
-    - name: Multi-factor authentication
+    - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
@@ -139,26 +139,24 @@
       href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
-  - name: Monitor & manage
+  - name: Monitor & tune
     items:
+    - name: Overview
+      href: sql-database-troubleshoot-performance.md
+    - name: Perf monitoring 
+      href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
     - name: Automatic tuning
       href: sql-database-automatic-tuning.md
-    - name: Single databases
-      href: sql-database-single-database-monitor.md
-    - name: Perf guidance
+    - name: Manual tuning
       href: sql-database-performance-guidance.md
     - name: Operate query store
       href: sql-database-operate-query-store.md
-    - name: DMVs
-      href: sql-database-monitoring-with-dmvs.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Compatibility levels
       href: sql-database-compatibility-level-query-performance-130.md
-    - name: Evaluate and tune
-      href: sql-database-troubleshoot-performance.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out apps
@@ -215,7 +213,7 @@
       href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
-    - name: Authenticate App 
+    - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
       href: sql-database-develop-error-messages.md
@@ -249,7 +247,7 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: Configure masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
-    - name: Multi-factor authentication
+    - name: Configure multi-factor auth
       href: sql-database-ssms-mfa-authentication-configure.md
   - name: Business continuity
     items:
@@ -271,7 +269,7 @@
       href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
-  - name: Monitor & manage
+  - name: Monitor & tune
     items:
     - name: Monitor & improve performance
       href: sql-database-performance.md
@@ -281,6 +279,8 @@
       href: sql-database-advisor-portal.md
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
+    - name: Use DMVs to monitor perf
+      href: sql-database-monitoring-with-dmvs.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Extended events - event file

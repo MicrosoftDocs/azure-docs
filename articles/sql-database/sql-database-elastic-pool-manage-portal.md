@@ -48,7 +48,7 @@ Creating an elastic pool from an existing **server** blade in the portal is the 
 
     **-OR-**
 
-    You may see a message saying there are recommended elastic pools for the server. Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
+    You may see a message saying there are recommended elastic pools for the server. Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-elastic-pool-recommendations) later in this topic for how the recommendation is made.
 
     ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -80,7 +80,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     ![Add databases](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
+    If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#understand-elastic-pool recommendations).
 
 3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md) for detailed guidance on right-sizing an elastic pool. For more information about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
@@ -203,7 +203,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
 6. Click **OK**.
 
-For more information, see [create SQL Database alerts in Azure portal](/sql-database-insights-alerts-portal.md).
+For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
 
 ## Move a database into an elastic pool
 
