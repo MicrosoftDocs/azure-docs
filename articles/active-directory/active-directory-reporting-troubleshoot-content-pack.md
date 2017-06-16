@@ -22,12 +22,13 @@ ms.author: markvi
 # Troubleshooting Azure Active Directory Activity logs content pack errors 
 
 
-Following is the list of error messages you might encounter while using the Azure Active Directory Activity content pack 
+When working with the Power BI Content Pack for Azure Active Directory Preview, it is possible that you run into the following errors: 
 
 - [Refresh failed](active-directory-reporting-troubleshoot-content-pack.md#refresh-failed) 
 - [Failed to update data source credentials](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
 - [Importing of data is taking too long](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
  
+This topic provides you with information about the possible causes and how to fix these errors.
  
 ## Refresh failed 
  
