@@ -23,17 +23,17 @@ ms.author: danlep
 
 If you have been following along, you created a Kubernetes cluster and deployed a sample container app. Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
-You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes solution by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
+You can take advantage of several Kubernetes monitoring solutions, either from Microsoft or other providers. In this tutorial, you monitor your Kubernetes cluster by using the Containers solution in [Operations Management Suite](../operations-management-suite/operations-management-suite-overview), Microsoft's cloud-based IT management solution. (The OMS Containers solution is in preview.)
 
 Tasks completed in this tutorial include:
 
 > [!div class="checklist"]
-> * Set up OMS agents on the Kubernetes cluster nodes
+> * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
 
 
 
-If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need later.
+If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
 
 
 ## Set up OMS agents
@@ -114,7 +114,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         0            3           <none>          5m
 ```
 
-After the agents are running, it can take several minutes for OMS to ingest and process the data.
+After the agents are running, it takes several minutes for OMS to ingest and process the data.
 
 ## Access monitoring data
 
@@ -137,9 +137,8 @@ See the [Azure Log Analytics documentation](../log-analytics/) for detailed guid
 In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered included:
 
 > [!div class="checklist"]
-> * 
-> * 
-> * 
+> * Set up OMS agents on the Kubernetes nodes
+> * Access monitoring information in the OMS portal or Azure portal
 
 
 Advance to the next tutorial to learn about ....
