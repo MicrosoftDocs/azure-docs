@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017 
-ms.date: 06/15/2017
+ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor and log diagnostics data for AS2, X12, and EDIFACT messages to check success, errors, and message properties
+# Monitor AS2, X12, and EDIFACT messages and log diagnostics data to check success, errors, and message properties
 
 When you set up B2B communication for your logic app 
 between two running business processes or applications, 
 those entities can exchange messages with each other. 
-After you set up this communication, you can set up message monitoring 
-so that you can confirm that communication works as expected. 
-For richer details and debugging, you can also set up diagnostics 
+After you set up this communication, you can set up message 
+monitoring so you can confirm that communication works as expected. 
+For richer details and debugging, you can also set up diagnostics data 
 logging for your integration account.
 
-Message tracking is available for these B2B protocols: AS2, X12, and EDIFACT. 
+You can monitor and track messages that use these B2B protocols: AS2, X12, and EDIFACT. 
 
 ## Requirements
 

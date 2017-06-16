@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 06/15/2017
+ms.date: 06/23/2017
 ms.author: LADocs; jehollan
 ---
 
@@ -81,8 +81,7 @@ expand the steps that you want. For example:
 6. To view the details for a specific trigger event, like inputs and outputs, 
 select that trigger event.
 
-   
-   
+   ![Trigger event details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics-and-alerts"></a>
 
@@ -138,8 +137,7 @@ Based on the options that you want to set up, make sure that you first
 or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 
 > [!NOTE]
-> You can select a rentention period for your data 
-> only when you choose to use a storage account.
+> Rentention periods apply only when you choose to use a storage account.
 
 ![Send data to Azure storage account or event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 

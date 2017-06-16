@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
@@ -35,7 +35,8 @@ and [how to set up monitoring and logging for that logic app](../logic-apps/logi
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in the OMS portal. 
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
+in the OMS portal. 
 
 ## Create a query in the Operations Management Suite portal
 
