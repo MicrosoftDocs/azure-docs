@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery troubleshooting from Azure to Azure replication issues and errors| Microsoft Docs
+title: Azure Site Recovery troubleshooting for Azure-to-Azure replication issues and errors| Microsoft Docs
 description: Troubleshooting errors and issues when replicating Azure virtual machines for disaster recovery
 services: site-recovery
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 06/10/2017
 ms.author: sujayt
 
 ---
-# Troubleshoot Azure to Azure VM replication issues
+# Troubleshoot Azure-to-Azure VM replication issues
 
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -117,7 +117,7 @@ Ensure that the data disks have been initialized, and then retry the operation:
 If the problem persists, contact support.
 
 
-## Unable to see the Azure VM for selection in "Enable replication"
+## Unable to see the Azure VM for selection in "enable replication"
 
 You might not see your Azure VM for selection in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines). This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 

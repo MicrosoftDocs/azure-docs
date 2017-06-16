@@ -1,6 +1,6 @@
 ---
-title: Replicate Azure VMs between Azure regions Disaster Recovery (DR) needs - Azure to Azure| Microsoft Docs
-description: Summarizes the steps you need for replicating Azure VMs between Azure regions (Azure to Azure DR) with Azure Site Recovery service for Disaster recovery (DR) needs.
+title: 'Replicate Azure VMs between Azure regions for disaster recovery needs: Azure to Azure| Microsoft Docs'
+description: Summarizes the steps you need to replicate Azure VMs between Azure regions (Azure-to-Azure) with the Azure Site Recovery service for disaster recovery needs.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -32,10 +32,10 @@ Post comments and questions at the bottom of this article or on the [Azure Recov
 
 Built-in Azure infrastructure capabilities and features contribute to a robust and resilient availability strategy for workloads that run on Azure VMs. However, there are many reasons why you need to plan for disaster recovery between Azure regions yourself:
 
-- Your compliance guidelines for specific apps and workloads require a Business Continuity and Disaster Recovery (BCDR) strategy.
+- You need to meet compliance guidelines for specific apps and workloads that require a business continuity and disaster recovery (BCDR) strategy.
 - You want the ability to protect and recover Azure VMs based on your business decisions, and not only based on inbuilt Azure functionality.
-- You need to be able to test failover and recovery in accordance with your business and compliance needs, with no impact on production.
-- You need to be able to failover to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
+- You need to test failover and recovery in accordance with your business and compliance needs, with no impact on production.
+- You need to fail over to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
 
 Use Site Recovery for Azure-to-Azure VM replication to help you do all these tasks.
 
@@ -45,10 +45,10 @@ Use Site Recovery for Azure-to-Azure VM replication to help you do all these tas
 Site Recovery provides a simple way to replicate Azure VMs between regions:
 
 - **Automatic deployment**. Unlike an active-active replication model, there's no need for an expensive and complex infrastructure in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on source region settings.
-- **Control regions**. With Site Recovery you can replicate from any region to any region within a continent. Compare this with RA-GRS (read-access geo-redundant storage), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only, and provides read-only access to the data in the target region.
-- **Automated replication**. Site Recovery provides automated continuous replication. Failover and failback can be triggered with just a single click.
-- **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions, to keep RTO and RPO very low.
-- **Testing**. You can run disaster recovery drills with on-demand test failovers, as and when needed, without impacting your production workloads or ongoing replication.
+- **Control regions**. With Site Recovery, you can replicate from any region to any region within a continent. Compare this with read-access geo-redundant storage (RA-GRS), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only. RA-GRS provides read-only access to the data in the target region.
+- **Automated replication**. Site Recovery provides automated continuous replication. Failover and failback can be triggered with a single click.
+- **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions to keep RTO and RPO very low.
+- **Testing**. You can run disaster-recovery drills with on-demand test failovers, as and when needed, without affecting your production workloads or ongoing replication.
 - **Recovery plans**. You can use recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature has rich first-class integration with Azure automation runbooks.
 
 
@@ -122,7 +122,7 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
 ## Run a test failover
 
-After you set up everything, run a test failover to make sure everything is working as expected:
+After you set up everything, run a test failover to make sure everything's working as expected:
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM **+Test Failover** icon.
 
