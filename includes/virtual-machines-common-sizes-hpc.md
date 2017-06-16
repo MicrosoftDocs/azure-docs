@@ -34,9 +34,9 @@ ACU: 225
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8* |8 |56 |382 |16 |16x500 |2 / 4000 |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 / 8000 |
+| Standard_A9* |16 |112 |382 |16 |16x500 |4 / 6000 |
 | Standard_A10 |8 |56 |382 |16 |16x500 |2 / 4000 |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 / 8000 |
+| Standard_A11 |16 |112 |382 |16 |16x500 |4 / 6000 |
 
 *For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 
