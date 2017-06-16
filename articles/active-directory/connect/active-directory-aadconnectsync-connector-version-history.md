@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/15/2017
+ms.date: 06/16/2017
 ms.author: billmath
 
 ---
@@ -34,7 +34,7 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
-## 1.1.551.0
+## 1.1.552.0
 
 ### Fixed issues:
 
