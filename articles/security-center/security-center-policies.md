@@ -66,7 +66,7 @@ Use the following table as a reference to understand each option:
 After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 
 > [!NOTE]
-> The pricing tier is still applicable for the resource group level. For more information visiting the [Pricing](https://azure.microsoft.com/en-us/pricing/details/security-center/) page.
+> The pricing tier is still applicable for the resource group level. For more information visiting the [Pricing](https://azure.microsoft.com/pricing/details/security-center/) page.
 >
 >
 
