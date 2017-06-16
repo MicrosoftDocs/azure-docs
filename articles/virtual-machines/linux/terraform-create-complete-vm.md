@@ -61,12 +61,12 @@ terraform apply terraformscripts
 If you look in the Azure portal now, you should see the new empty resource group called "terraformtest." In the section below, you will add a Virtual Machine and all the supporting infrastructure for that virtual machine to that resource group.
 
 ## Provisioning Ubuntu VM with Terraform
-Let's extend Terraform script we've created above with details necessary to provision a virtual machine running Ubuntu. The list of resources that you will provision in the sections below are: network with a single subnet, a network interface card, a storage account with a storage container, a public IP and a virtual machine utilizing all the resources above. For a thorough documentation of each of the Azure Terraform resources, consult [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
+Let's extend Terraform script we've created above with details necessary to provision a virtual machine running Ubuntu. The list of resources that you will provision in the sections below are: network with a single subnet, a network interface card, a storage account with a storage container, a public IP, and a virtual machine utilizing all the resources above. For a thorough documentation of each of the Azure Terraform resources, consult [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
 
 The full version of the [provisioning script](#terraform101) is also provided for convenience.
 
 ### Extending the Terraform Script
-Extend the script created above with the following resources. 
+Extend the script created above with the following resources: 
 ~~~~
 # create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
@@ -312,4 +312,4 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
 ```
 
 ## Next steps
-You have created basic infrastructure in Azure using Terraform. For more complex scenarios, including examples on using load balancers, VM Scale Sets, take a look at numerous [Terraform examples for Azure](https://github.com/hashicorp/terraform/tree/master/examples). [Terraform docs](https://www.terraform.io/docs/providers/azurerm/index.html) have a full up-to-date list of supported Azure providers.
+You have created basic infrastructure in Azure using Terraform. For more complex scenarios, including examples on using load balancers, virtual machine scale sets, take a look at numerous [Terraform examples for Azure](https://github.com/hashicorp/terraform/tree/master/examples). [Terraform docs](https://www.terraform.io/docs/providers/azurerm/index.html) have a full up-to-date list of supported Azure providers.
