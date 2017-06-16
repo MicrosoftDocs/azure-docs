@@ -6,9 +6,7 @@ author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: jhubbard
-ms.assetid:
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 06/01/2017
 ---
