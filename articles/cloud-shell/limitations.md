@@ -21,7 +21,7 @@ ms.author: juluk
 Azure Cloud Shell has the following known limitations.
 
 ## System state and persistence
-The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 10 minutes. Cloud Shell requires a file share to be mounted.
+The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 10 minutes. Cloud Shell requires a file share to be mounted. As a result your subscription must be able to provision storage resources to access Cloud Shell.
 * With mounted storage only modifications within your `$Home` directory or `clouddrive` directory are persisted
   * File shares can only be mounted from within your [assigned region](persisting-shell-storage.md#pre-requisites-for-manual-mounting)
   * Azure Files only supports LRS and GRS storage accounts
@@ -34,7 +34,7 @@ Certain commands such as `git clone` within the `clouddrive` directory do not ha
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
 ## Copy and paste
-Ctrl-v and Ctrl-c do not function as copy/paste on Windows machines, please us Ctrl-insert and Shift-insert to copy/paste.
+Ctrl-v and Ctrl-c do not function as copy/paste on Windows machines, please use Ctrl-insert and Shift-insert to copy/paste.
 Right-click copy paste options are also available, however this is subject to browser-specific clipboard access.
 
 ## Usage limits

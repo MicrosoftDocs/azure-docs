@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-migrate
+ms.custom: mvc,load & move data
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -33,7 +33,7 @@ Before you get started, be sure you have the following:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. To fix compatibility issues, use [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## Prepare for migration
 
@@ -118,13 +118,16 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:     
 
-   - Server name: Specify a globally unique server name
-   - Server admin login: Provide a name for the Server admin login
-   - Password: Specify the password of your choice
-   - Resource group: Select **Create new** and specify **myResourceGroup**
-   - Location: Select a data center location
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
-    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
+   ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
 
 5. Click **Create** to provision the logical server. Provisioning takes a few minutes. 
 

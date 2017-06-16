@@ -58,7 +58,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resourcesare are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resources are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
 ### Supported programming languages
 
@@ -74,7 +74,9 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 #### Node.js
 
-- [Node.js API reference for Key Vault Managment](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+In Node.js, the vault management API and the vault object API are separate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
+
+- [Node.js API reference for Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
 ### Quick start
@@ -115,8 +117,9 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault security worlds](key-vault-ovw-security-worlds.md)
-- [Key Vault soft-delete](key-vault-ovw-soft-delete.md)
+- [Key Vault security worlds](key-vault-ovw-security-worlds.md) and geographic boundaries details how all HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World).
+- [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+
 
 ## Social
 

@@ -423,7 +423,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
               REALM.COM = .
              }
 
-        **Restart** the KDC service after configuration.
+  **Restart** the KDC service after configuration.
 
 2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
 

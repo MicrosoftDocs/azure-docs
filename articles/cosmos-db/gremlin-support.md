@@ -1,26 +1,26 @@
 ---
 title: Azure Cosmos DB Gremlin support | Microsoft Docs
-description: Learn about the Gremlin language, which features and steps and available in Azure Cosmos DB 
-services: cosmosdb
+description: Learn about the Gremlin language from Apache TinkerPop, which features and steps and available in Azure Cosmos DB 
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: ''
 tags: ''
 
-ms.assetid: 
-ms.service: cosmosdb
+ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: arramac
 
 ---
 
 # Azure Cosmos DB Gremlin graph support
-Azure Cosmos DB supports a [Gremlin]([Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) Graph API for creating graph entities, and performing graph query and traversal operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
+Azure Cosmos DB supports [Apache Tinkerpop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) which is a Graph API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
 
 Azure Cosmos DB brings enterprise-ready features to graph databases. This includes global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, and 99.99% SLAs. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another graph database without having to make code changes. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -45,7 +45,7 @@ We represent the relationships between these entities via the following edge typ
 - RunsOS: Laptop runs the Windows OS
 - Uses: To represent which device a person uses. For example, Robin uses a Motorola phone with serial number 77
 
-Let's run some operations against this graph using the [Gremlin console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET).  Before we look at what's supported in Azure Cosmos DB, let's look at a few examples to get familiar with the syntax.
+Let's run some operations against this graph using the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). You can also perform these operations using Gremlin drivers in the platform of your choice (Java, Node.js, Python, or .NET).  Before we look at what's supported in Azure Cosmos DB, let's look at a few examples to get familiar with the syntax.
 
 First let's look at CRUD. The following Gremlin statement inserts the "Thomas" vertex into the graph:
 
@@ -89,7 +89,7 @@ The following table lists the TinkerPop features that are implemented by Azure C
 
 Azure Cosmos DB uses the [GraphSON format](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) when returning results from Gremlin operations. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON. 
 
-For example, the following snippet shows a GraphSON representation of a vertex in Azure Cosmos DB. 
+For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
 
 ```json
   {
@@ -167,6 +167,7 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | --- | --- | --- | --- |
 | `addE` | Adds an edge between two vertices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adds a vertex to the graph | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | Ensurest that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | A step modulator to assign a variable to the output of a step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | A step modulator used with `group` and `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Returns the first traversal that returns a result | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |

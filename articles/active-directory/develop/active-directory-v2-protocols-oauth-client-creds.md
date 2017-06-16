@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
@@ -23,8 +24,8 @@ You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
@@ -124,6 +125,8 @@ After you've received a successful response from the app provisioning endpoint, 
 ## Get a token
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
 
+### First case: Access token request with a shared secret
+
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
 Host: login.microsoftonline.com
@@ -143,7 +146,27 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
 | grant_type |Required |Must be `client_credentials`. |
 
-##### Successful response
+### Second case: Access token request with a certificate
+
+```
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+```
+
+| Parameter | Condition | Description |
+| --- | --- | --- |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
+| scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
+| grant_type |Required |Must be `client_credentials`. |
+
+Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
+
+### Successful response
 A successful response looks like this:
 
 ```
@@ -160,7 +183,7 @@ A successful response looks like this:
 | token_type |Indicates the token type value. The only type that Azure AD supports is `bearer`. |
 | expires_in |How long the access token is valid (in seconds). |
 
-##### Error response
+### Error response
 An error response looks like this:
 
 ```
@@ -204,4 +227,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Code sample
 To see an example of an application that implements the client credentials grant by using the admin consent endpoint, see our [v2.0 daemon code sample](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

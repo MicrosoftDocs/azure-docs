@@ -29,14 +29,15 @@ Connections require a web socket handshake. To begin this handshake, the client 
 service and includes standard web socket upgrade headers along with other headers that are specific to speech. 
 
 ```HTTP
-GET /ws/api/v1/speech/recognition HTTP/1.1
-Host: speech.bing.com
+GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
+Host: speech.platform.bing.com
 Upgrade: websocket
+Connection: Upgrade
 ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=
 X-ConnectionId: A140CAF92F71469FA41C72C7B5849253  
-Origin: http://speech.bing.com
+Origin: https://speech.platform.bing.com
 ```
 The service responds with
 ```HTTP
@@ -74,7 +75,7 @@ Clients **must** support the standard redirection mechanisms specified by the [H
 
 ## Speech Endpoint
 
-Clients **must** use the path /ws/api/v1/speech/recognition when connecting to the Microsoft Speech Service.
+Clients **must** use a path to the Microsoft Speech Service as outlined in [Endpoints](BingVoiceRecognition.md#endpoints).
 
 ## Reporting Connection Errors
 
@@ -418,7 +419,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 {
   "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 iPhones.",
+  "DisplayText": "Remind me to buy 5 pencils.",
   "Offset": 0,
   "Duration": 12300000
 }
@@ -504,6 +505,10 @@ X-RequestId: 123e4567e89b12d3a456426655440000
   }
 }
 ```
+
+The body of the *turn.start* message is a JSON structure that contains context for the start of the turn. The *context* element
+contains a *serviceTag* property; this property specifies a tag value that the service has associated with the turn. 
+This value can be used by Microsoft if you need help troubleshooting failures in your application.
 
 ## Turn End
 The *turn.end* signals the end of a turn from the perspective of the service. The *turn.end* message is the always the **last** response message you will receive for any request. 

@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Secure an MVC web API
@@ -58,6 +59,7 @@ Now that you’ve registered an app, you need to set up your app to communicate 
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName TodoListService
 ```
 
 ## Configure OAuth authentication

@@ -3,7 +3,7 @@ title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84

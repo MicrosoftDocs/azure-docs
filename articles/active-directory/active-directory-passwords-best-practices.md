@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Roll out password reset for users
@@ -36,7 +38,7 @@ Most customers follow the steps that follow to ensure a smooth rollout of SSPR f
 
 ## Email-based rollout
 
-Many customers find an email campaign, with simple to use instructions, is the easiest way to get users to use SSPR. We have created three simple emails that you can use as templates to help in your rollout.
+Many customers find an email campaign, with simple to use instructions, is the easiest way to get users to use SSPR. [We have created three simple emails that you can use as templates to help in your rollout.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * **Coming Soon** email template to be used in the weeks or days before rollout to let users know they need to do something.
 * **Available Now** email template to be used the day of launch to drive users to register and confirm their authentication data so they can use SSPR when they need it.

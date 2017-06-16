@@ -20,6 +20,7 @@ ms.author: bradsev
 # Provision the Linux Data Science Virtual Machine
 The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine that comes with a collection of pre-installed tools. These tools are commonly used for doing data analytics and machine learning. The key software components included are:
 
+* Operating System: Linux CentOS distribution.
 * Microsoft R Server Developer Edition
 * Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
 * JuliaPro - a curated distribution of Julia language with popular scientific and data analytics libraries

@@ -11,23 +11,26 @@ editor: ''
 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
 
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is a management tool used to create and manage SQL Server resources from the user interface or in scripts. This quick start demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quick start demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
+
+## Prerequisites
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 Before you start, make sure you have installed the newest version of [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
@@ -43,7 +46,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
-## Connect to your database in the SQL Database logical server
+## Connect to your database
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
@@ -54,11 +57,14 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 1. Open SQL Server Management Studio.
 
 2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
+
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server type** | Database engine | This value is required. |
+   | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **Login** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 

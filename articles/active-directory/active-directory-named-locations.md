@@ -18,43 +18,40 @@ ms.author: markvi
 ---
 # Named locations in Azure Active Directory
 
-Named locations is a feature of Azure Active Directory that enables you to label trusted IP address ranges in your organizations. In your environment, you can use named locations in the context of the detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives for the *Impossible travel to atypical locations* risk event type. 
-
-
-
+With the named locations feature of Azure Active Directory, you can label trusted IP address ranges in your organizations. In your environment, you can use named locations in the context of the detection of [risk events](active-directory-reporting-risk-events.md). The feature helps reduce the number of reported false positives for the *Impossible travel to atypical locations* risk event type. 
 
 ## Configuration
 
-**To configure a named location:**
+To configure a named location:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as global administrator.
 
 2. In the left pane, click **Azure Active Directory**.
 
-	![Named locations](./media/active-directory-named-locations/01.png)
+	![The Azure Active Directory link in the left pane](./media/active-directory-named-locations/01.png)
 
-3. On the **Azure Active Directory** blade, in the **Security** section, click **Conditional Access**.
+3. On the **Azure Active Directory** blade, in the **Security** section, click **Conditional access**.
 
-	![Named locations](./media/active-directory-named-locations/05.png)
+	![The Conditional access command](./media/active-directory-named-locations/05.png)
 
 
 4. On the **Conditional Access** blade, in the **Manage** section, click **Named locations**.
 
-	![Named locations](./media/active-directory-named-locations/06.png)
+	![The Named locations command](./media/active-directory-named-locations/06.png)
 
 
-5. On the **Named locations** blade, in the menu on the top, click **New locations**.
+5. On the **Named locations** blade, click **New location**.
 
-	![Named locations](./media/active-directory-named-locations/07.png)
+	![The New location command](./media/active-directory-named-locations/07.png)
 
 
-6. On the **New** blade, perform the following steps:
+6. On the **New** blade, do the following:
 
-	![Named locations](./media/active-directory-named-locations/08.png)
+	![The New blade](./media/active-directory-named-locations/08.png)
 
-    a. In the **Name** textbox, type a name for your named location.
+    a. In the **Name** box, type a name for your named location.
 
-    b. In the **IP range** textbox, type an IP range. The IP range needs to be in the *Classless Inter-Domain Routing* (CIDR) format.  
+    b. In the **IP ranges** box, type an IP range. The IP range needs to be in the *Classless Inter-Domain Routing* (CIDR) format.  
 
     c. Click **Create**.
 
@@ -62,17 +59,15 @@ Named locations is a feature of Azure Active Directory that enables you to label
 
 ## What you should know
 
-**Bulk updates** - When creating or updating named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload adds the IP ranges in the file to the list instead of overwriting the list.
+**Bulk updates**: When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload adds the IP ranges in the file to the list instead of overwriting the list.
 
-![Named locations](./media/active-directory-named-locations/09.png)
+![The Upload and Download links](./media/active-directory-named-locations/09.png)
 
 
-**Limitations** - You can define a maximum of 60 named locations with one IP range assigned to each of them. If you have just one named location configured, you can define up to 500 IP ranges for it.
+**Limitations**: You can define a maximum of 60 named locations, with one IP range assigned to each of them. If you have just one named location configured, you can define up to 500 IP ranges for it.
 
 
 ## Next steps
 
-To learn more about:
-
-- Risk events, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md)
+To learn more about risk events, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
 

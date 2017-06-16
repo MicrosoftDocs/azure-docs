@@ -5,12 +5,9 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.custom: quick start create
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.custom: mvc
 ms.topic: hero-article
 ms.date: 05/10/2017
 ---

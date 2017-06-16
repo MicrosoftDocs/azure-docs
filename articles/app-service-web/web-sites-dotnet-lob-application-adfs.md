@@ -356,7 +356,6 @@ Azure App Service Web Apps supports accessing on-premise databases with two appr
 <a name="bkmk_resources"></a>
 
 ## Further resources
-* [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 * [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
 * [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
 * [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

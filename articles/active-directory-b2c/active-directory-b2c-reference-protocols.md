@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Authentication Protocols | Microsoft Docs'
 description: How to build apps directly by using the protocols supported by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''

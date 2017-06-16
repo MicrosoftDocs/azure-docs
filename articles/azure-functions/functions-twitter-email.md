@@ -1,6 +1,6 @@
 ---
 title: Create a function that integrates with Azure Logic Apps | Microsoft Docs
-description: Create a function that categories tweet sentiment using Azure services.
+description: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to categorize tweet sentiment and send notifications when sentiment is poor.
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -47,7 +48,7 @@ If you haven't already done so, complete these steps now to create your function
 
 A Cognitive Services account is required to detect the sentiment of tweets being monitored.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Click the **New** button found on the upper left-hand corner of the Azure portal.
 

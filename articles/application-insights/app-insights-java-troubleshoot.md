@@ -3,7 +3,7 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
@@ -92,13 +92,13 @@ You can also instruct the logger to output to a file:
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-The files can be found under `%temp%\javasdklogs`.
+The files can be found under `%temp%\javasdklogs` or `java.io.tmpdir` in case of Tomcat server.
 
 
 ## The Azure start screen

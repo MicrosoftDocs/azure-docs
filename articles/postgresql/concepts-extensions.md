@@ -5,12 +5,10 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: postgresql - database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/31/2017
 ---
 # PostgreSQL Extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for multiple related SQL objects to be bundled together in a single package and can be loaded or removed from your database with a single command. Extensions once loaded into the database can function just like features that are built in. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -70,5 +68,5 @@ The following is a list of standard PostgreSQL extensions that are currently sup
 | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
 | [pgrouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
-## Next Steps
+## Next steps
 Don't see an extension you'd like to use? Please let us know. Vote for existing requests or create new feedback and wishes in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

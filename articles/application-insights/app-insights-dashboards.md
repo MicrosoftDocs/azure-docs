@@ -3,7 +3,7 @@ title: Dashboards and navigation in the Azure Application Insights | Microsoft D
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd

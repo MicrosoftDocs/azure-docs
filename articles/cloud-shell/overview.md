@@ -74,4 +74,11 @@ Regular storage costs apply.
 ## Supported browsers
 Cloud Shell is recommended for Chrome, Edge, and Safari. 
 While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
+
+## Troubleshooting
+* When creating storage, I receive Error: 409 MissingSubscriptionRegistration.
+  * This error signifies your subscription has not registered for the storage namespace. Follow [these step-by-step details](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound) and try again when completed.
+* When using an Azure Active Directory subscription, I cannot create storage due to Error: 400 DisallowedOperation.
+  * AD subscriptions are not granted access to create Azure resources, please use an Azure subscription capable of creating storage resources.
+
 For specific known limitations, visit [limitations of Cloud Shell](limitations.md).

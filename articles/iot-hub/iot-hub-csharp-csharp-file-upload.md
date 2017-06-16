@@ -181,6 +181,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-windows-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
 
 

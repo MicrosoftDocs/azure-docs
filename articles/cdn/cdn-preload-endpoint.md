@@ -3,7 +3,7 @@ title: Pre-load assets on an Azure CDN endpoint | Microsoft Docs
 description: Learn how to pre-load cached content on an Azure CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: ''
 
@@ -60,7 +60,9 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
     ![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> There is a limitation of 10 load requests per minute per CDN profile.
+> There is a limitation of 10 load requests per minute per CDN profile. 
+50 paths are allowed per request. 
+Each path has a path-length limit of 1024 characters.
 > 
 > 
 

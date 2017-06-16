@@ -163,7 +163,7 @@ You need to add two Docker steps for each image, one to build the image, and one
 
 4. After you configure the build and push steps for each of the five images, add two more steps in the build workflow.
 
-    a. A command-line task that uses a bash script to replace the *BuildNumber* occurence in the docker-compose.yml file with the current build Id. See the following screen for details.
+    a. A command-line task that uses a bash script to replace the *BuildNumber* occurrence in the docker-compose.yml file with the current build Id. See the following screen for details.
 
     ![Visual Studio Team Services - Update Compose file](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 

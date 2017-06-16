@@ -269,10 +269,6 @@ Before you start, watch a quick video overview
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
-After you enable replication, the Mobility service will be installed if you set up push installation. After the Mobility service is push installed on a VM, a protection job will start and fail. After the failure you need to manually restart each machine. Then the protection job begins again, and initial replication occurs.
-
-
-
 ### View and manage VM properties
 
 We recommend that you verify the VM properties, and make any changes you need to.

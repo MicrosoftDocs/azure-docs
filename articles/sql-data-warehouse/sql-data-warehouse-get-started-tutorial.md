@@ -505,7 +505,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -574,6 +574,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
 7. Run the query again! You should notice a significant difference. 
+
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
 
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of

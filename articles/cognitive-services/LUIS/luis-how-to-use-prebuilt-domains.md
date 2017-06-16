@@ -27,7 +27,9 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 | Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces and addresses.|
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over".|
 
-Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to learn about its intents and entities.
+Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on "learn more" in its tile to learn about its intents and entities.
+
+
 ![Add prebuilt domain](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 Within a domain, look for individual intents and entities that you want to use.
@@ -46,7 +48,7 @@ Prebuilt domains are designed to be general and contain many intents and entitie
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
 > * A best practice is to use related intents from the same domain. For example, if you are customizing the `MakeReservation` intent in the **Places** domain, then select the `Cancel` intent from the **Places** domain instead of the Cancel intent in the **Events** or **Utilities** domains.
 
-### Changing the behavior of an prebuilt domain intent
+### Changing the behavior of a prebuilt domain intent
 You might find that a prebuilt domain contains an intent that is similar to an intent you want to have in your LUIS app but you want it to behave differently. For example, the **Places** prebuilt domain provides an `MakeReservation` intent for making a restaurant reservation, but you want your app to use that intent to make hotel reservations. In that case, you can modify the behavior of that intent by providing utterances to LUIS about making hotel reservations and labeling them using the `MakeReservation` intent, so then LUIS can be retrained to recognize the `MakeReservation` intent in a request to book a hotel.
 
 > [!TIP]

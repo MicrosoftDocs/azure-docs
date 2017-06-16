@@ -1,9 +1,10 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-## [About Azure identity management](fundamentals-identity.md)
+## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md)
+
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -14,12 +15,23 @@
 ### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
-## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
+## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
+## Azure AD Controls
+### [Complete access review](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Create access review](active-directory-azure-ad-controls-create-an-access-review.md)
+### [How to perform access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
+### [Secure email policies and configurations](secure-email-introduction.md)
+#### [Recommended policies](secure-email-recommended-policies.md)
+#### [Deploy policies and configurations](secure-email-deploy-recommended-policies.md)
+#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -41,6 +53,9 @@
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
+### Azure AD Controls
+#### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
@@ -90,7 +105,7 @@
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-###	Programmatic Access
+###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +130,7 @@
 ##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Manage passwords](active-directory-passwords.md)
+## [Manage passwords](active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
@@ -163,6 +178,8 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Azure AD Controls
+####[Manage programs and their controls](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started
@@ -298,6 +315,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevate tenant admin access](role-based-access-control-tenant-admin-access.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
 #### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
