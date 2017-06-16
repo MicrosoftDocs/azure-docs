@@ -1,5 +1,5 @@
 ---
-title: Creating surrogate keys in Azure SQL Data Warehouse | Microsoft Docs
+title: Creating surrogate keys using IDENTITY | Microsoft Docs
 description: Learn how to use IDENTITY to create a surrogate key on your tables.
 services: sql-data-warehouse
 documentationcenter: NA
