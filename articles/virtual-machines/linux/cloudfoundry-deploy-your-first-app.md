@@ -29,7 +29,7 @@ There are several options for creating a Cloud Foundry environment on Azure:
 
 - Use the [Pivotal Cloud Foundry offer][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
 - Create a customized environment by [deploying Pivotal Cloud Foundry manually][pcf-custom].
-- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a BOSH director.
+- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](http://bosh.io) director, a VM that will coordinate the deployment of the Cloud Foundry environment.
 
 > [!IMPORTANT] 
 > If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL will be of the form https://system.*ip-address*.cf.pcfazure.com.
@@ -52,8 +52,6 @@ Cloud Foundry provides *orgs* and *spaces* as namespaces to isolate the teams an
 ## Create an org and space
 
 If you type `cf apps`, you see a set of system applications that have been deployed in the system space within the system org. 
-
-![Default apps in system org][cf-apps-system]
 
 You should keep the *system* org reserved for system applications, so create an org and space to house our sample application.
 
@@ -93,9 +91,6 @@ Build the app using [Apache Maven](http://maven.apache.org).
 ```bash
 mvn clean package
 ```
-
-> [!TIP] 
-> Maven is installed by default in Azure Cloud Shell.
 
 ### Deploy the application with cf push
 
