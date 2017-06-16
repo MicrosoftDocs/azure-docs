@@ -30,7 +30,7 @@ Welcome to Azure IoT Hub. This article provides an overview of Azure IoT Hub and
 
 The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
 
-Refer to [Internet of Things security from the ground up][lnk-security-ground-up] for more information on how Azure and IoT Hub help secure your IoT solution.
+For more information on how Azure and IoT Hub help secure your IoT solution, see [Internet of Things security from the ground up][lnk-security-ground-up] .
 
 ![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
 
@@ -60,7 +60,7 @@ In addition to a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-d
 * **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on routing rules to control where your hub sends device-to-cloud messages. Routing rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
 * **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 * **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
-* **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
+* **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to support for custom protocols by:
   
   * Creating a field gateway with [Azure IoT Edge][lnk-iot-edge] that converts your custom protocol to one of the three protocols understood by IoT Hub.
   * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.

@@ -103,7 +103,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the iot hub connection string placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the target device placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
+5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the "{device id}" placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
    
     ```json
     var connectionString = '{iot hub connection string}';
