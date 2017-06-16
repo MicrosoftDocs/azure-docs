@@ -94,6 +94,27 @@ docker push mycontainerregistry007.azurecr.io/azure-vote-front:v2
 
 ## Deploy updated application
 
+Ensure multiple instances of the front-end pod are running.
+
+```bash
+kubectl get pod
+```
+
+If needed, scale the front-end pod out so that multiple instances are running. This will ensure no down time as the updated application is deployed.
+
+```bash
+kubectl scale --replicas=4 deployment/azure-vote-front
+```
+
+Update the application.
+
+
+```bash
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
+```
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+
 ## Next steps
 
 <complete> Tasks completed include:  
