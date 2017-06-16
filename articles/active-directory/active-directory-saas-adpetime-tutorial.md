@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 06/18/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with ADP eTime, you need the following items:
 
 - An Azure AD subscription
-- An ADP eTime single-sign on enabled subscription
+- An ADP eTime single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,24 +108,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_url.png)
 
-	In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.adp.com/affwebservices/public/saml2assertionconsumer`
+	a. In the **Identifier** textbox, type a URL using the following pattern: 
+	`https://<servername>.adp.com`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<servername>.adp.com/affwebservices/public/saml2assertionconsumer` 
  
 	> [!NOTE] 
-	> This value is not the real. Update this value with the actual Reply URL. Contact [ADP eTime support](https://www.adp.com/contact-us/overview.aspx) to get this value.
+	> These values are not the real. Update these values with the actual Reply URL and Identifier. Contact [ADP eTime support team](https://www.adp.com/contact-us/overview.aspx) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_certificate.png) 
 
-5. The ADP eTime application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for it.
+5. The ADP eTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"PersonImmutableID"** and the value of which we have mapped to ExtensionAttribute2 which contains the EmployeeID of the user. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_attribute.png)
+	Here the user mapping from Azure AD to ADP eTime will be done on the EmployeeID but you can map this to a different value also based on your application settings. So please work with [ADP eTime support team](https://www.adp.com/contact-us/overview.aspx) first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
-	| personalimmutableid | user.extensionattribute2 |
+	| PersonImmutableID | user.extensionattribute2 |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -140,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**.
 
 	> [!NOTE] 
-	> Before you can configure the SAML assertion, you need to contact your [ADP eTime support](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
+	> Before you can configure the SAML assertion, you need to contact your [ADP eTime support team](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
 
 7. On the **ADP eTime Configuration** section, click **Configure ADP eTime** to open **Configure sign-on** window.
 
@@ -150,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_general_400.png)
 
-9. To configure single sign-on on **ADP eTime** side, you need to send the downloaded **Metadata XML** to [ADP eTime support](https://www.adp.com/contact-us/overview.aspx). They set up to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **ADP eTime** side, you need to send the downloaded **Metadata XML** to [ADP eTime support team](https://www.adp.com/contact-us/overview.aspx). 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -188,11 +193,8 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an ADP eTime test user
 
-The objective of this section is to create a user called Britta Simon in ADP eTime. Work with [ADP eTime support](https://www.adp.com/contact-us/overview.aspx) to add the users in the ADP eTime account. 
-
-   >[!NOTE]
-   >If you need to create a user manually, you need to contact the [ADP eTime support](https://www.adp.com/contact-us/overview.aspx).
-    
+The objective of this section is to create a user called Britta Simon in ADP eTime. Work with [ADP eTime support team](https://www.adp.com/contact-us/overview.aspx) to add the users in the ADP eTime account. 
+   
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to ADP eTime.
