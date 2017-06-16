@@ -43,7 +43,7 @@ Open Visual Studio and launch the **New Project** dialog. You'll find the Azure 
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
-Visual Studio creates a project containing a [`local.settings.json`](functions-run-local.md#local-settings-file) and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
+Visual Studio creates a project containing a [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
 Now that you have created a function project, which represents a function app, create an HTTP triggered function.
 
@@ -95,7 +95,9 @@ The table below details the required fields in order to publish your Function Ap
 | App Service Plan | Existing App Service Plan name |  The function's App Service plan.  |
 | Storage Account | Globally unique name |  The storage account for the function. |
 
-Click the **Create** button, and the final confirmation page displays. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function.
+Click the **Create** button, and the final confirmation page displays. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function. 
+
+![Test function in Azure Portal](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish.png)
 
 ## Next steps
 
