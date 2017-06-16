@@ -425,5 +425,4 @@ went through the VPN connection.
    
     ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
 
-## Next steps
-*   
+   
