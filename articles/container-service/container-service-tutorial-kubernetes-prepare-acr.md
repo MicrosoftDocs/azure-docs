@@ -170,7 +170,7 @@ azure-vote-front
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
 ```azurecli-interactive
-az acr repository show-tags --name mycontainerregistry0032 --repository azure-vote-front --output table
+az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
 Output:
