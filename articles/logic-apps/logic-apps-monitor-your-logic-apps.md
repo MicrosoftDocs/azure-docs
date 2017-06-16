@@ -87,9 +87,9 @@ select that trigger event.
 
 ## Set up diagnostic data logging and alerts for your logic app
 
-Along with monitoring in the Azure portal and with the 
+Along with monitoring in the Azure portal and the 
 [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-you can set up up diagnostics data logging for richer debugging 
+you can set up diagnostics data logging for richer debugging 
 with runtime details and events. You can also subscribe to 
 [alerts about logic app events](#add-azure-alerts). 
 
@@ -127,7 +127,7 @@ Along with Azure Log Analytics, you can set up your
 data is archived with [Azure Storage](../storage/storage-introduction.md) 
 or streamed through [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
 That way, you can get real-time monitoring for your workflows by using the telemetry 
-that you send to Azure Storage or Azure Event Hubs with other services like 
+sent to these Azure services with other services like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
 and [Power BI](https://powerbi.microsoft.com). Learn more about 
 [monitoring and diagnostics in Azure](../monitoring-and-diagnostics/monitoring-overview.md). 
@@ -137,7 +137,7 @@ Based on the options that you want to set up, make sure that you first
 or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 
 > [!NOTE]
-> Rentention periods apply only when you choose to use a storage account.
+> Retention periods apply only when you choose to use a storage account.
 
 ![Send data to Azure storage account or event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
@@ -151,7 +151,7 @@ that are crossed while your logic app runs, you can set up
 Learn more about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
    > [!TIP]
-   > To run a logic app based on a alert, you can include the 
+   > To run a logic app from an alert, you can include the 
    > [request trigger](../connectors/connectors-native-reqres.md) in your workflow, 
    > which lets you perform tasks like these examples:
    > 
@@ -224,8 +224,9 @@ are especially useful for tracking and monitoring:
 and correlates events across a logic app run, 
 including any nested workflows that are called from the logic app. 
 You can manually specify this ID from a trigger by passing a 
-`x-ms-client-tracking-id` header with the custom ID value 
-in the trigger request for a request trigger, HTTP trigger, or webhook trigger.
+`x-ms-client-tracking-id` header with your custom ID value 
+in the trigger request. You can use a request trigger, 
+HTTP trigger, or webhook trigger.
 
 * `trackedProperties`: To track inputs or outputs in diagnostics data, 
 you can add tracked properties to actions in the workflow definition. 
