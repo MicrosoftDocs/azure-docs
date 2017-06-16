@@ -137,7 +137,7 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | RemovePolicyCredentials |Remove policy credentials. |
 
 ## Audit report retention
-Events in the Azure AD Audit report are retained for 180 days. For more information about retention on reports, see [Azure Active Directory Report Retention Policies](active-directory-reporting-retention.md).
+The Event retention in the Azure AD Audit report varies depending on the type of license associated with the tenant. For more information about retention on reports, see [Azure Active Directory Report Retention Policies](active-directory-reporting-retention.md).
 
 For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store. See [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) for details.
 
