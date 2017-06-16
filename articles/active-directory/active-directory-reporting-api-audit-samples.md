@@ -33,9 +33,6 @@ For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aa
 ## Prerequisites
 Before you can use the samples in this topic, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
 
-## Known issue
-App Auth will not work if your tenant is in the EU region. Please use User Auth for accessing the Audit API as a workaround until we fix the issue. 
-
 ## PowerShell script
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
