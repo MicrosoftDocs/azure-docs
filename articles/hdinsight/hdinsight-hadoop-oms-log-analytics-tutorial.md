@@ -42,15 +42,15 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 3. In the right pane, click **Enable**, and then select an existing Log Analytics workspace. Click **Save**.
 
-    ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-operations-management-suite/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
+    ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
 4. Once the cluster is configured to use Log Analytics for monitoring, you will see an **Open OMS Dashboard** option at the top of the tab. Click the button.
 
-    ![Open OMS dashboard](./media/hdinsight-hadoop-operations-management-suite/hdinsight-enable-monitoring-open-workspace.png "Open OMS dashboard")
+    ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "Open OMS dashboard")
 
-5. Enter your Azure credentials if prompted. You will be directed to the Microsoft Operations Management Suite.
+5. Enter your Azure credentials if prompted. You will be directed to the Microsoft OMS dashboard.
 
-    ![Operations Management Suite portal](./media/hdinsight-hadoop-operations-management-suite/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite portal")
+    ![Operations Management Suite portal](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite portal")
 
-## See also
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+## Next steps
+* [Create custom views in Log Analytics for HDInsight clusters](hdinsight-hadoop-oms-log-analytics-custom-views.md)
