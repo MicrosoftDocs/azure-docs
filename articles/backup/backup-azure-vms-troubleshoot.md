@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/15/2017
 ms.author: trinadhk;markgal;jpallavi;
 
 ---
@@ -31,7 +31,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | --- | --- |
 | Could not perform the operation as VM no longer exists. - Stop protecting virtual machine without deleting backup data. More details at http://go.microsoft.com/fwlink/?LinkId=808124 |This happens when the primary VM is deleted, but the backup policy continues looking for a VM to back up. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)</li><li> Stop protecting virtual machine with or without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state" |
-| Unable to perform the operation as the VM agent is not responsive |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. For Windows VMs, check the VM agent service status in services and whether the agent appears in programs in control panel. Try removing the program from control panel and re-installing the agent by gett ing the latest versions as mentioned [below](#vm-agent). After re-installing the agent, trigger an adhoc backup to verify. |
+| Unable to perform the operation as the VM agent is not responsive |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. For Windows VMs, check the VM agent service status in services and whether the agent appears in programs in control panel. Try removing the program from control panel and re-installing the agent as mentioned [below](#vm-agent). After re-installing the agent, trigger an adhoc backup to verify. |
 | Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup on the VM is running, and a new job cannot be started while the existing job is running. |
@@ -78,7 +78,9 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup Service does not have authorization to access resources in your subscription. |To resolve this, first Restore Disks using steps mentioned in section **Restore backed up disks** in [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). After that, use PowerShell steps mentioned in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create full VM from restored disks. |
 
 ## Backup or Restore taking time
-If you see your backup(>12 hours) or restore taking time(>6 hours), please make sure that you follow [Backup best practices](backup-azure-vms-introduction.md#best-practices). Please also make sure that your applications are using [Azure storage in an optimal way](backup-azure-vms-introduction.md#total-vm-backup-time) for backup.
+If you see your backup(>12 hours) or restore taking time(>6 hours):
+* Understand [factors contributing to backup time](backup-azure-vms-introduction.md#total-vm-backup-time) and [factors contributing to restore time](backup-azure-vms-introduction.md#total-restore-time).
+* Make sure that you follow [Backup best practices](backup-azure-vms-introduction.md#best-practices). 
 
 ## VM Agent
 ### Setting up the VM Agent
@@ -87,12 +89,12 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 For Windows VMs:
 
 * Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
-* [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* for classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 For Linux VMs:
 
 * Install latest from distribution repository. We **strongly recommend** installing agent only through distribution repository. For details on package name, please refer to [Linux agent repository](https://github.com/Azure/WALinuxAgent) 
-* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed
+* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 ### Updating the VM Agent
 For Windows VMs:
