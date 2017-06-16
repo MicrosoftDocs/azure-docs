@@ -30,6 +30,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A Github tenant with the [Business plan](https://help.github.com/articles/organization-billing-plans/#business-plan) or better enabled 
 *   A user account in GitHub with Team Admin permissions 
 
+Note: The Azure AD provisioning integration relies on the [GitHub SCIM API](https://api.slack.com/scim) which is available to Slack teams on the Plus plan or better.
+
 ## Assigning users to GitHub
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD will be synchronized. 
