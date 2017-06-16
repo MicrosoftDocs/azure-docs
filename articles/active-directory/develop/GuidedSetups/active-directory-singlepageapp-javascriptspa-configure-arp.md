@@ -37,7 +37,7 @@ Configure the `Redirect URL` field above with the URL for your index.html page b
 
 ### Configure your JavaScript SPA application
 
-1.	Create a `config.js` file containing the application registration information. If you are using Visual Studio, follow the steps below to create config.js:
+1.	Create a `msalconfig.js` file containing the application registration information. If you are using Visual Studio, follow the steps below to create config.js:
 a.	Select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`.
 2.	Add the following code to your `msalconfig.js` file:
 
