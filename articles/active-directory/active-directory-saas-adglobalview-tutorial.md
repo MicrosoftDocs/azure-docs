@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/18/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with ADP Globalview, you need the following items:
 
 - An Azure AD subscription
-- An ADP Globalview single-sign on enabled subscription
+- An ADP Globalview single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -131,7 +131,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| email 			  | user.mail |
 	| userid              | user.userprincipalname|
 	
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-adglobalview-tutorial/tutorial_attribute_04.png)
