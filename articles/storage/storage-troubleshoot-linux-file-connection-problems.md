@@ -137,6 +137,6 @@ Use the storage account user for copying the files:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## Support
+## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
