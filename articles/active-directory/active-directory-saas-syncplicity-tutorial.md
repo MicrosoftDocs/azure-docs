@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 06/16/2017
 ms.author: jeedes
 
 ---
@@ -108,10 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-syncplicity-tutorial/tutorial_syncplicity_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `http://company.syncplicity.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.syncplicity.com`
+
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.syncplicity.com/sp`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Syncplicity Client support team](https://www.syncplicity.com/contact-us) to get the value. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Syncplicity Client support team](https://www.syncplicity.com/contact-us) to get these values. 
  
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
@@ -131,25 +133,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the menu on the top, click **admin**, select **settings**, and then click **Custom domain and single sign-on**.
    
-    ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769545.png "Syncplicity")
+    ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/ic769545.png "Syncplicity")
 
 9. On the **Single Sign-On (SSO)** dialog page, perform the following steps:
    
-    ![Single Sign-On \(SSO\)](./media/active-directory-saas-syncplicity-tutorial/IC769550.png "Single Sign-On \\\(SSO\\\)")   
+    ![Single Sign-On \(SSO\)](./media/active-directory-saas-syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")   
 
     a. In the **Custom Domain** textbox, type the name of your domain.
   
     b. Select **Enabled** as **Single Sign-On Status**.
 
-    c. paste the **SAML Entity ID** value into the **Entity Id** textbox.
+    c. In the **Entity Id** textbox, Paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
-    d. paste the **SAML Single Sign-On Service URL** into the **Sign-in page URL** textbox.
+    d. In the **Sign-in page URL** textbox, Paste the **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-    e. paste the **Sign-Out URL** into the **Logout page URL** textbox.
+    e. In the **Logout page URL** textbox, Paste the **Sign-Out URL** which you have copied from Azure portal.
 
-    f. In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate you have downloaded from the Azure portal. 
+    f. In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate which you have downloaded from the Azure portal. 
 
-    g. Click **Save Changes**.
+    g. Click **SAVE CHANGES**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -191,33 +193,33 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
 
 **To provision a user account to Syncplicity, perform the following steps:**
 
-1. Log in to your **Syncplicity** tenant (for example: *https://company.Syncplicity.com*).
+1. Log in to your **Syncplicity** tenant (for example: `https://company.Syncplicity.com`).
 
-2. Click **Admin** and select **user accounts**.
+2. Click **admin** and select **user accounts**.
 
-3. Click **Add a user**.
+3. Click **ADDAUSER**.
    
-    ![Manage Users](./media/active-directory-saas-syncplicity-tutorial/IC769764.png "Manage Users")
+    ![Manage Users](./media/active-directory-saas-syncplicity-tutorial/ic769764.png "Manage Users")
 
-4. Type the **Email address** of an AAD account you want to provision, select **User** as **Role**, and then click **Next**.
+4. Type the **Email addressess** of an AAD account you want to provision, select **User** as **Role**, and then click **NEXT**.
    
-    ![Account Information](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Account Information")
+    ![Account Information](./media/active-directory-saas-syncplicity-tutorial/ic769765.png "Account Information")
    
     >[!NOTE]
     >The AAD account holder  gets an email including a link to confirm and activate the account. 
     > 
 
-5. Select a group in your company that your new user should become a member of, and then click **Next**.
+5. Select a group in your company that your new user should become a member of, and then click **NEXT**.
    
-    ![Group Membership](./media/active-directory-saas-syncplicity-tutorial/IC769772.png "Group Membership")
+    ![Group Membership](./media/active-directory-saas-syncplicity-tutorial/ic769772.png "Group Membership")
    
     >[!NOTE]
-    >If there are no groups listed, click **Next**. 
+    >If there are no groups listed, click **NEXT**. 
     > 
 
-6. Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **Next**.
+6. Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **NEXT**.
    
-    ![Syncplicity Folders](./media/active-directory-saas-syncplicity-tutorial/IC769773.png "Syncplicity Folders")
+    ![Syncplicity Folders](./media/active-directory-saas-syncplicity-tutorial/ic769773.png "Syncplicity Folders")
 
 >[!NOTE]
 >You can use any other Syncplicity user account creation tools or APIs provided by Syncplicity to provision AAD user accounts. 
@@ -254,8 +256,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
+When you click the Syncplicity tile in the Access Panel, you should get automatically signed-on to your Syncplicity application.
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
