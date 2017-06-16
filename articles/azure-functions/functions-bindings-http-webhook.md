@@ -54,7 +54,7 @@ An HTTP trigger is defined by including a JSON object similar to the following i
     "type": "httpTrigger",
     "direction": "in",
     "authLevel": "function",
-    "methods": [ "GET" ],
+    "methods": [ "get" ],
     "route": "values/{id}"
 },
 ```
