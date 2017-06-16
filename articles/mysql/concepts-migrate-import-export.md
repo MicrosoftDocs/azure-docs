@@ -46,7 +46,7 @@ Use MySQL tools to import and export databases into Azure MySQL Database in the 
 
 Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MySQL. Azure Database for MySQL supports only the InnoDB storage engine, so it doesn't support alternative storage engines. If your tables require alternative storage engines, be sure to convert them to use the InnoDB engine format before the migration to Azure Database for MySQL. 
 
-For example, if you have a WordPress or web app that uses the MyISAM engine, first convert the tables by migrating the data into InnoDB tables. Then restore to Azure Database for MySQL. Use the clause `ENGINE=INNODB` to set the engine for creating a new table, and then transfer the data into the compatible table before the migration. 
+For example, if you have a WordPress or web app that uses the MyISAM engine, first convert the tables by migrating the data into InnoDB tables. Then restore to Azure Database for MySQL. Use the clause `ENGINE=INNODB` to set the engine for creating a table, and then transfer the data into the compatible table before the migration. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
@@ -78,7 +78,7 @@ The following example exports the table to a CSV file:
 5. On the **Export data** page, click **Next**.
 
 #### Table Data Import Wizard
-The following example imports the table from a CSV file.
+The following example imports the table from a CSV file:
 1. Right-click the table of the database to be imported. 
 2. Browse to and select the CSV file to be imported, and then click **Next**. 
 3. Select the destination table (new or existing), and select or clear the **Truncate table before import** check box. Click **Next**.
