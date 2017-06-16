@@ -20,7 +20,7 @@ ms.date: 04/14/2017
 ms.author: larryfr
 
 ---
-# Use Apache Sqoop to import and export data between Hadoop in HDInsight and SQL Database
+# Use Apache Sqoop to import and export data between Hadoop on HDInsight and SQL Database
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 

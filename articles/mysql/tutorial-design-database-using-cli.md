@@ -5,12 +5,10 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
+ms.devlang: azure-cli
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 06/01/2017
+ms.date: 06/13/2017
 ms.custom: mvc
 ---
 
@@ -33,7 +31,7 @@ You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /c
 
 ## Log in to Azure
 If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli-interactive
+```azurecli
 az login
 ```
 

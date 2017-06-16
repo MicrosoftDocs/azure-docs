@@ -19,7 +19,7 @@ ms.author: msfussell
 ---
 # Service Fabric and containers
 > [!NOTE]
-> This feature is in preview for Linux . 
+> This feature is in preview for Linux.  Deploying containers to a Service Fabric cluster in Windows 10 isn't supported yet (coming soon). 
 >   
 
 ## Introduction

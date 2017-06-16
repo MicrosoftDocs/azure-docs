@@ -9,7 +9,7 @@ editor: giladm
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,10 +24,6 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
-
-* [Azure SQL Database Auditing overview]
-* [Set up auditing for your database]
-* [Analyze audit logs and reports]
 
 ## <a id="subheading-1"></a>Azure SQL Database auditing overview
 SQL Database Auditing allows you to:
@@ -45,9 +41,11 @@ Audit logs are written to Azure Blob Storage on your Azure subscription.
 
 An auditing policy can be defined for a specific database or as a default server policy.
 
-1. If **Server Blob auditing is enabled**, it **always applies to the database** (i.e. the database will be audited), regardless of the database auditing settings.
+1. A server policy will apply to all existing and newly created databases on the server.
 
-2. Enabling Blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server Blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the Server policy and once by the Database policy).
+2. If **Server Blob auditing is enabled**, it **always applies to the database** (i.e. the database will be audited), regardless of the database auditing settings.
+
+3. Enabling Blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server Blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the Server policy and once by the Database policy).
 
     > [!NOTE]
     > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
@@ -78,7 +76,7 @@ The following section describes the configuration of auditing using the Azure po
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
 6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
-7. Once you've configured your auditing settings, you can turn on the new **Threat Detection** (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Getting Started with Threat Detection](sql-database-threat-detection-get-started.md) for more details.
+7. Once you've configured your auditing settings, you can turn on the new **Threat Detection** feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Getting Started with Threat Detection](sql-database-threat-detection-get-started.md) for more details.
 8. Click **Save**.
 
 
@@ -123,7 +121,9 @@ There are several methods to view Blob Auditing logs:
 
 4. We have created a **sync application** that runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard ([more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-5. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
+5. Power BI - you can view & analyze audit log data in Power BI ([additional info and downloadable template can be found here](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/))
+
+6. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
 
     Once you have downloaded the log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
 

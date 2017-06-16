@@ -6,11 +6,8 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
 ms.date: 06/06/2017
 ms.custom: mvc
 ---
@@ -29,8 +26,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Update data
 > * Restore data
 
-## Log in to the Azure portal
-Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
+## Sign in to the Azure portal
+Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL server
 An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
@@ -64,6 +61,7 @@ Azure Databases for MySQL are protected by a firewall. By default, all connectio
 2. You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
 You can now connect to the server using mysql command-line tool or MySQL Workbench GUI tool.
 
+> [!TIP]
 > Azure Database for MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you cannot connect to Azure MySQL server unless your IT department opens port 3306.
 
 ## Get connection information
@@ -77,7 +75,9 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command line tool from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the `>_` icon in the top right toolbar of the Azure portal and follow the prompt to log in to Azure. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
+Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell in the browser or from your own machine using mysql tools installed locally. To launch the Azure Cloud Shell, click the `Try It` button on a code block in this article, or visit the Azure portal and click the `>_` icon in the top right toolbar. 
+
+Type the command to connect:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
@@ -146,9 +146,9 @@ Imagine you have accidentally deleted an important database table, and cannot re
    - **Location**: The region is same as the source server, and cannot be changed.
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
-3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, within the retention period for your service tier.
+3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify. 
 
-## Next Steps
+## Next steps
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
