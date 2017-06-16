@@ -40,10 +40,10 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 | Parameter |  Remark |
 | --- | --- | --- |
 | `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
-| `exp` | Expiration date |
+| `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
 | `iss` | Issuer: should be the client_id (Application Id of the client service) |
 | `jti` | GUID: the JWT ID |
-| `nbf` | Not Before: date before which the token cannot be used |
+| `nbf` | Not Before: the date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
 | `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
 
 #### Signature

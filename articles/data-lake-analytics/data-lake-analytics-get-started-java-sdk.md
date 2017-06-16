@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Tutorial: Get started with Azure Data Lake Analytics using Java SDK
+# Get started with Azure Data Lake Analytics using Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs. For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).
