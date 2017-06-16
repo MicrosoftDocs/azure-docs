@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Deploy application to Kubernetes cluster
 
-If you have been following along with this tutorial set, an application has been tested and container images created. These images have been pushed to an Azure Container Registry. Finally, and Azure Container Service Kubernetes cluster has been deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and monitored.
+In previous tutorials of this set, an application has been tested and container images created. These images have been pushed to an Azure Container Registry. Finally, and Azure Container Service Kubernetes cluster has been deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and monitored.
 
 Tasks completed in this tutorial include:
 

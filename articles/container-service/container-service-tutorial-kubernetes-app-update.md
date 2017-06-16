@@ -42,7 +42,13 @@ To complete the steps in this tutorial, you must have cloned a copy of the Azure
 git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
-Open up the file `/azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg` with and code or text editor. The file looks liek the following.
+Open up the file with any code or text editor.
+
+```bash
+code /azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg
+```
+
+The file will look like the following:
 
 ```bash
 # UI Configurations
@@ -78,9 +84,15 @@ Browse to `http://localhost:8080` to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-## Recreate container images
+```bash
+docker tag azure-vote-front mycontainerregistry007.azurecr.io/azure-vote-front:v2
+```
 
-## Re-deplopy application
+```bash
+docker push mycontainerregistry007.azurecr.io/azure-vote-front:v2
+```
+
+## Deploy updated application
 
 ## Next steps
 
