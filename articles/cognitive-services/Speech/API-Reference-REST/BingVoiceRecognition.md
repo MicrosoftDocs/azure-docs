@@ -49,7 +49,7 @@ There are three modes of recognition: interactive, conversational, and dictation
 The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a maximum limit of 15 seconds for any single utterance.
 
 ### Interactive mode
-In **interactive** mode, a user makes short requests and expects the application to perform an action in response. 
+In *interactive* mode, a user makes short requests and expects the application to perform an action in response. 
 
 The following characteristics are typical of interactive mode applications:
 * Users know they are speaking to a machine and not to another human.
@@ -57,7 +57,7 @@ The following characteristics are typical of interactive mode applications:
 * Utterances typically last about 2-3 seconds.
 
 ### Conversational mode
-In **conversational** mode, users are engaged in a human-to-human conversation.
+In *conversational* mode, users are engaged in a human-to-human conversation.
 
 The following characteristics are typical of conversational mode applications:
 
@@ -67,7 +67,7 @@ The following characteristics are typical of conversational mode applications:
 * Users frequently use slang and other informal speech.
 
 ### Dictation mode
-In **dictation**  mode, users recite longer utterances to the application for further processing.
+In *dictation*  mode, users recite longer utterances to the application for further processing.
 
 The following characteristics are typical of dictation mode applications:
 * Users know that they are talking to a machine.
@@ -96,7 +96,7 @@ https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservic
 ```
 
 ### Interactive and dictation mode
-The Microsoft Speech Recognition API supports the following languages in **interactive** and **dictation** modes. 
+The Microsoft Speech Recognition API supports the following languages in *interactive* and *dictation* modes. 
 
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -117,7 +117,7 @@ The Microsoft Speech Recognition API supports the following languages in **inter
 | fr-FR | French (France) | ||
 
 ### Conversational mode
-The Microsoft Speech Recognition API supports the following languages in **conversation** modes. 
+The Microsoft Speech Recognition API supports the following languages in *conversation* modes. 
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -137,7 +137,7 @@ You can control the phrase result format by specifying the `format` URL query pa
 | simple | A simplified phrase result containing the recognition status and the recognized text in display form. |
 | detailed | A recognition status and N-best list of phrase results where each phrase result contains all four recognition forms and a confidence score. |
 
-The **detailed** format contains the following four recognition forms:
+The *detailed* format contains the following four recognition forms:
 
 ### Lexical form
 The lexical form is the recognized text, exactly how it occurred in the utterance and without punctuation or capitalization. For example, the lexical form of the address "1020 Enterprise Way" would be *ten twenty enterprise way*, assuming that it was spoken that way. The lexical form of the sentence "Remind me to buy 5 pencils" is *remind me to buy five pencils*.
@@ -149,7 +149,7 @@ Profanity is never masked in the lexical form.
 ### Inverse text normalization (ITN) form
 Text normalization is the process of converting text from one form to another "canonical" form. For example, the phone number "555-1212" might be converted to the canonical form *five five five one two one two*. *Inverse* text normalization (ITN) reverses this process, converting the words "five five five one two one two" to the inverted canonical form *555-1212*. The ITN form of a recognition result does not include capitalization or punctuation. 
 
-The ITN form is most appropriate for applications that act on the recognized text. For example, an application that allows a user to speak search terms and then uses these terms in a web query would use the ITN form. Profanity is never masked in the ITN form; to mask profanity, use the **Masked ITN form**.
+The ITN form is most appropriate for applications that act on the recognized text. For example, an application that allows a user to speak search terms and then uses these terms in a web query would use the ITN form. Profanity is never masked in the ITN form; to mask profanity, use the *Masked ITN form*.
 
 ### Masked inverse text normalization (ITN) form
 Because profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes such words and phrases when they are spoken. Profanity might not, however, be appropriate for all applications, especially those applications with a restricted, non-adult user audience.
@@ -206,7 +206,7 @@ Listeners, whether human or machine, can never be certain that they heard *exact
 
 In normal conditions, when speaking to others with whom they frequently interact, people have a high probability of recognizing the words that were spoken. Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, [they achieve parity with humans](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
-The algorithms that are used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of alternate possible interpretations. The top *N* alternatives in this list are called the *N-best list**. Each alternative is assigned a [confidence score](#confidence). Confidence scores range from 0 to 1. A score of 1 represents the highest level of confidence. A score of 0 represents the lowest level of confidence.
+The algorithms that are used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of alternate possible interpretations. The top *N* alternatives in this list are called the *N-best list*. Each alternative is assigned a [confidence score](#confidence). Confidence scores range from 0 to 1. A score of 1 represents the highest level of confidence. A score of 0 represents the lowest level of confidence.
 
 > [!NOTE]
 > The number of entries in the N-best list vary across multiple utterances. The number of entries can vary across multiple recognitions of the *same* utterance. This variation is a natural and expected outcome of the probabilistic nature of the speech recognition algorithm.
