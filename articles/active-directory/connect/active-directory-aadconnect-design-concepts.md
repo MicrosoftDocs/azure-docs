@@ -127,25 +127,25 @@ If you have an existing Azure AD Connect deployment which is using objectGUID as
 
 To switch from objectGUID to ConsistencyGuid as the Source Anchor attribute:
 
-1. Start the Azure AD Connect wizard and click Configure to go to the Tasks screen.
+1. Start the Azure AD Connect wizard and click **Configure** to go to the Tasks screen.
 
-2. Select the "Configure Source Anchor" task option and click Next.
+2. Select the **Configure Source Anchor** task option and click **Next**.
 
-![Enable ConsistencyGuid for existing deployment - step 2](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment01.png)
+   ![Enable ConsistencyGuid for existing deployment - step 2](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment01.png)
 
-3. Enter your Azure AD Administrator credentials and click Next.
+3. Enter your Azure AD Administrator credentials and click **Next**.
 
-4. Azure AD Connect wizard analyzes the state of the msDS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any object in the directory, Azure AD Connect concludes that no other application is currently using the attribute and is safe to use it as the Source Anchor attribute. Click Next to continue.
+4. Azure AD Connect wizard analyzes the state of the msDS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any object in the directory, Azure AD Connect concludes that no other application is currently using the attribute and is safe to use it as the Source Anchor attribute. Click **Next** to continue.
 
-![Enable ConsistencyGuid for existing deployment - step 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
+   ![Enable ConsistencyGuid for existing deployment - step 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. In the Ready to Configure screen, click Configure to make the configuration change.
+5. In the **Ready to Configure** screen, click **Configure** to make the configuration change.
 
-![Enable ConsistencyGuid for existing deployment - step 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
+   ![Enable ConsistencyGuid for existing deployment - step 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
 6. Once the configuration completes, the wizard indicates that msDS-ConsistencyGuid is now being used as the Source Anchor attribute.
 
-![Enable ConsistencyGuid for existing deployment - step 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
+   ![Enable ConsistencyGuid for existing deployment - step 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
 During the analysis (step 4), if the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by another application and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
 
