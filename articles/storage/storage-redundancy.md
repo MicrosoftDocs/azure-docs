@@ -138,33 +138,33 @@ Considerations:
 * RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](storage-performance-checklist.md).
 
 ## Frequently asked questions
-**1. How can I change the geo replication type of my storage account?**
+#### 1. How can I change the geo replication type of my storage account?
 
    You can change the geo replication type of your storage account between LRS, GRS, and RA-GRS using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) or programmatically using one of our many Storage Client Libraries. 
 Please note that ZRS accounts cannot be converted LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
 
-**2. Will there be any down time if I change the replication type of my storage account?**
+#### 2. Will there be any down time if I change the replication type of my storage account?
 
    No, there won’t be any down time.
 
-**3. Will there be any additional cost if I change the replication type of my storage account?**
+#### 3. Will there be any additional cost if I change the replication type of my storage account?
 
    Yes. If you change from LRS to GRS (or RA-GRS) for your storage account, it would incur an additional charge for egress involved in copying existing data from primary location to the secondary location. Once the initial data is copied there is no further additional egress charge for geo replicating the data from the primary to secondary location. The details for bandwidth charges can be found on the [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/). 
 If you change from GRS to LRS, there is no additional cost, but your data will be deleted from the secondary location.
 
-**4. How can RA-GRS help me?**
+#### 4. How can RA-GRS help me?
    
    GRS storage provides replication of your data from a primary to a secondary region that is hundreds of miles away from the primary region. In such case, your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable. RA-GRS storage includes this plus it adds the ability to read the data from the secondary location. For some ideas about how to leverage this ability, please refer to [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md). 
 
-**5. Is there a way for me to figure out how long it takes to replicate my data from the primary to the secondary region?**
+#### 5. Is there a way for me to figure out how long it takes to replicate my data from the primary to the secondary region?
    
    If you are using RA-GRS storage, you can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value; all primary writes before the Last Sync Time have been successfully written to the secondary location, which mean they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or programmatically using the REST API or one of the Storage Client Libraries. 
 
-**6. How can I switch to the secondary region if there is an outage in the primary region?**
+#### 6. How can I switch to the secondary region if there is an outage in the primary region?
    
    Please refer to the article [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md) for more details.
 
-**7. What is the RPO and RTO with GRS?**
+#### 7. What is the RPO and RTO with GRS?
    
    Recover Point Objective (RPO): In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. If there is a major regional disaster and a failover has to be performed, then recent delta changes that have not been geo-replicated may be lost. The number of minutes of potential data lost is referred to as the RPO (which means the point in time to which data can be recovered). We typically have a RPO less than 15 minutes, although there is currently no SLA on how long geo-replication takes.
 

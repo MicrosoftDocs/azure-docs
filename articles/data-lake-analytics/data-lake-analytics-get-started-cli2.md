@@ -16,7 +16,7 @@ ms.date: 04/06/2017
 ms.author: jgao
 
 ---
-# Tutorial: get started with Azure Data Lake Analytics using Azure CLI 2.0
+# Get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use Azure CLI 2.0 to create Azure Data Lake Analytics accounts, define Data Lake Analytics
