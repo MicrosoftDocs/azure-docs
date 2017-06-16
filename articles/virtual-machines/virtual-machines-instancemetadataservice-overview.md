@@ -399,4 +399,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 ## Next Steps
 
-- Learn more about the [scheduledevents](virtual-machines-scheduled-events.md) API[Currently in Public Preview] provided by the Instance Metadata Service.
+- Learn more about the [scheduledevents](virtual-machines-scheduled-events.md) API **In Public Preview** provided by the Instance Metadata Service.
