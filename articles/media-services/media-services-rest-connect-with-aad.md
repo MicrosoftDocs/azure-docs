@@ -88,11 +88,14 @@ Here are the mappings between the attributes in the JWT token and the 4 applicat
 
 ## Steps for Setup
 
-Please follow the following steps to register and configure an Azure AD application for AAD authentication and obtaining access token for calling Azure Media Services REST API endpoint.
+Follow the following steps to register and configure an Azure AD application for AAD authentication and obtaining access token for calling Azure Media Services REST API endpoint.
 
-1.	Register an Azure AD application (I named it as wzmediaservice) to the Azure AD tenant (the tenant I use is microsoft.onmicrosoft.com). You need to do this in the production Azure Portal. It does not matter whether you registered as web app or native app. Also, you can choose any sign-on URL and reply URL (I just chose http://wzmediaservice.com for both).
-2.	In the Configure tab, again in the production Azure Portal, take note of client ID and generate a client key (client secret) under Keys section. Take a note of it upon saving since client secret will not be shown again.
-3.	Go to Preview Azure Portal (Ibiza), open the media service account/Access Control (IAM) pane. Add a new member with either Owner or Contributor role. For the principal, you should search for the application name you registered in Step 1 (in my case, wzmediaservice).
+1.	In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), register an Azure AD application (for example, wzmediaservice) to the Azure AD tenant (for example, microsoft.onmicrosoft.com). It does not matter whether you registered as web app or native app. Also, you can choose any sign-on URL and reply URL (for example, http://wzmediaservice.com for both).
+2. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), navigate to the **Configure** tab of your application and take a note of **client ID** and also generate a **client key** (client secret) under Keys section. 
+
+	>[!NOTE] You need to take a note of the client secret since it will not be shown again.
+	
+3.	Go to the [Azure](http://ms.portal.azure.com) portal and navigate to the Media Services account -> Access Control (IAM) pane. Add a new member with either Owner or Contributor role. For the principal, you should search for the application name you registered in Step 1 (in the case of this example, wzmediaservice).
 
 ## Info to Collect
 
@@ -102,29 +105,37 @@ To prepare REST coding, we need to collect the following data points to be inclu
 2.	Azure Media Services REST API as resource or audience: https://rest.media.azure.net.
 3.	Client ID: see step 2 in Steps for Setup
 4.	Client secret: see step 2 in Steps for Setup
-5.	Your media service account REST API endpoint: this is in the following format: https://[media_service_account_name].restv2.[data_center].media.azure.net/API. This is the endpoint against which all Azure Media Services REST API calls are made in your application. For example, in my case, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+5.	Your media service account REST API endpoint in the following format:
+
+	https://[media_service_account_name].restv2.[data_center].media.azure.net/API. 
+
+	This is the endpoint against which all Azure Media Services REST API calls are made in your application. For example, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+
 You can then put these 5 parameters in your web.config or app.config to be used by your code.
 
 ## Sample Code
 
+You can find the sample code in [Azure Media Services sample repo](https://azure.microsoft.com/resources/samples/?service=media-services)
+
 The sample code has 2 parts:
 
 1.	A DLL library project containing all the REST API code for Azure AD authentication/authorization. It also contains a method for making REST API calls to Azure Media Services REST API endpoint, with access_token.
-2.	A console test client which initiates Azure AD authentication and calls different AMS REST API.
-The sample project demonstrates/contains 3 features:
+2.	A console test client, which initiates Azure AD authentication and calls different AMS REST API.
+
+The sample project demonstrates/contains three features:
+
 1.	Azure AD authentication via Client Credentials grant through only REST API;
 2.	Azure Media Services access through only REST API;
 3.	Azure Storage access through only REST API (as used for creating a media service account, again via REST API).
 
-The sample code is shared in [Azure Media Services sample repo](https://azure.microsoft.com/resources/samples/?service=media-services)
 
 ## Where is the Refresh Token?
 
 Some readers might ask: Where is the refresh token? Why is refresh token not used?
 
-The purpose of a refresh token is not for refreshing any access token. Instead it is designed to bypass end user authentication/user intervention and still get a valid access token when the previous token expires. In other words, a better name of refresh token should be something like “bypass user re-login token”.
+The purpose of a refresh token is not for refreshing any access token. Instead it is designed to bypass end-user authentication/user intervention and still get a valid access token when the previous token expires. In other words, a better name of refresh token should be something like "bypass user re-login token".
 
-If you are using OAuth 2.0 authorization (username/password) grant flow, i.e. acting on behalf of a user, a refresh token will help you getting a renewed access token without asking user intervention. However, for OAuth 2.0 client credentials grant flow as we are using, the client is acting on its own behalf, and you don't need user intervention at all, and the authorization server doesn't need to (and won't) give you a refresh token either. If you debug the GetUrlEncodedJWT method, you will notice that the response from token endpoint contains an access token, but no refresh token.
+If you are using OAuth 2.0 authorization (username/password) grant flow, i.e. acting on behalf of a user, a refresh token helps you get a renewed access token without asking user intervention. However, for OAuth 2.0 client credentials grant flow as we are using, the client is acting on its own behalf, and you don't need user intervention at all, and the authorization server doesn't need to (and won't) give you a refresh token either. If you debug the GetUrlEncodedJWT method, you notice that the response from token endpoint contains an access token, but no refresh token.
 
 ## Next steps
 
