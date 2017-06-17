@@ -41,7 +41,7 @@ You can choose your real or simulated device to get started.
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 | Simulated device on PC          | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
-| Online device simulator         | [Raspberry Pi(Node.js)][Ol_Sim] |
+| Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub.
 
