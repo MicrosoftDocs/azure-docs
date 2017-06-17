@@ -110,6 +110,8 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. Create a new function in the Function App.
    1. Click **New Function**.
    1. Select **JavaScript** for **Language**, and **Data Processing** for **Scenario**.
+   1. Click **create this function**, then click **New Function**.
+   1. Select **JavaScript** for the language, and **Data Processing** for the scenario.
    1. Click the **EventHubTrigger-JavaScript** template.
    1. Enter the necessary information for the template.
 
