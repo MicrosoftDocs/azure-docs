@@ -61,7 +61,7 @@ In addition to these four basic attribute mapping types, custom attribute mappin
 ## Understanding attribute mapping properties
 
 In the previous section, you have already been introduced to the attribute mapping type property.
-In addition to this property, attribute mapping do also support the following attributes:
+In addition to this property, attribute mappings do also support the following attributes:
 
 - **Source attribute** - The user attribute from the source system (e.g.: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (e.g.: ServiceNow).
