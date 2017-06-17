@@ -116,7 +116,7 @@ The sample project demonstrates/contains 3 features:
 2.	Azure Media Services access through only REST API;
 3.	Azure Storage access through only REST API (as used for creating a media service account, again via REST API).
 
-The sample code is shared in (Azure Media Services sample repo)[https://azure.microsoft.com/resources/samples/?service=media-services]
+The sample code is shared in [Azure Media Services sample repo](https://azure.microsoft.com/resources/samples/?service=media-services)
 
 ## Where is the Refresh Token?
 
