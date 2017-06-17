@@ -82,7 +82,7 @@ Select the filter, and choose **+Add**.
 
 6. Now return to the query that you're building. 
 Your query has been updated with your selected filter event and value. 
-Also, your previous results are now filtered too.
+Your previous results are now filtered too.
 
    ![Return to your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
