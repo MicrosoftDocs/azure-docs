@@ -45,7 +45,7 @@ You can customize existing **Attribute Mappings** by clicking a mapping. This op
 
   
 
-## Understanding Attribute Mapping Types
+## Understanding attribute mapping types
 With attribute mappings, you control how attributes are populated in a third-party SaaS application. 
 There are four different mapping types supported:
 
@@ -55,15 +55,33 @@ There are four different mapping types supported:
   For more information, see [Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it is populated with the Default value that you specify.
 
-In addition to these four basic attribute mapping types, custom attribute mappings support the concept of a **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there is neither a value in Azure AD nor on the target object.
+In addition to these four basic attribute mapping types, custom attribute mappings support the concept of an optional **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there is neither a value in Azure AD nor on the target object. The most common configuration is to leave this blank.
+
+
+## Understanding attribute mapping properties
+
+In the previous section, you have already been introduced to the attribute mapping type property.
+In addition to this property, attribute mapping do also support the following attributes:
+
+- **Source attribute** - The user attribute from the source system (e.g.: Azure Active Directory).
+- **Target attribute** – The user attribute in the target system (e.g.: ServiceNow).
+- **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between the source and target systems. This is typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
+- **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
+- **Apply this mapping**
+    - **Always** – Apply this mapping on both user creation and update actions
+    - **Only during creation** - Apply this mapping only on user creation actions
+
+
+## What you should know
 
 Microsoft Azure AD provides an efficient implementation of a synchronization process. 
- In an initialized environment, only objects requiring updates are processed during a synchronization cycle. 
- Updating attribute mappings has an impact on the performance of a synchronization cycle. 
- An update to the attribute mapping configuration requires all managed objects to be reevaluated. 
- It is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.
+In an initialized environment, only objects requiring updates are processed during a synchronization cycle. 
+Updating attribute mappings has an impact on the performance of a synchronization cycle. 
+An update to the attribute mapping configuration requires all managed objects to be reevaluated. 
+It is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.
 
-## Related Articles
+## Next steps
+
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
 * [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
