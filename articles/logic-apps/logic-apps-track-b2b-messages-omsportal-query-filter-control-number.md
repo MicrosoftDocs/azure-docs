@@ -104,12 +104,10 @@ choose **Favorites**.
    ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
 
 3. Under **Saved Searches** list, 
-select your query so that you can view the results.
+select your query so that you can view the results. 
+To update the query so you can find different results, edit the query.
 
    ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
-
-4. To update the query so you can find different results, 
-edit the query.
 
 ## Find and run saved queries in the Operations Management Suite portal
 
@@ -127,7 +125,8 @@ and choose **Log Search**.
    ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
 
 3. Under **Saved Searches** list, 
-select your query so that you can view the results.
+select your query so that you can view the results. 
+To update the query so you can find different results, edit the query.
 
    ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
