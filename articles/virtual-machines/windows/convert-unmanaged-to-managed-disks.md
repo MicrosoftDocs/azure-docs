@@ -41,7 +41,7 @@ Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
 
 ### Troubleshooting
 
-**Error: The specified fault domain count 3 must fall in the range 1 to 2.**
+Error: The specified fault domain count 3 must fall in the range 1 to 2.
 
 Above error is thrown if the region where your availability set is located has only 2 managed fault domain but number of unmanaged fault domain is 3. To resolve the error, update the fault domain to 2 along with updating sku to aligned as shown below:
 
