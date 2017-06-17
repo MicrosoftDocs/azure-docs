@@ -35,6 +35,10 @@ Some customers need to develop their Azure Media Services solutions under the fo
 
 Some customers have developed applications using REST API for both ACS authentication and Azure Media Services access. For these customers, we need a way to use only REST API for Azure AD authentication and subsequent Azure Media Services access, without relying on any of Azure AD libraries or Azure Media Services .NET SDK. This document presents such a solution and sample code. Since the code is all REST API calls without dependency on any Azure AD or Azure Media Services library, the code can be easily translated to any other programming languages.
 
+>[!IMPORTANT]
+>AMS currently supports ACS authentication model. However, ACS auth is going to be deprecated on June 1st, 2018. We recommend that you migrate to AAD authentication model as soon as possible.
+
+
 ## Design
 
 We use the following authentication/authorization design:
@@ -93,9 +97,10 @@ Follow the following steps to register and configure an Azure AD application for
 1.	In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), register an Azure AD application (for example, wzmediaservice) to the Azure AD tenant (for example, microsoft.onmicrosoft.com). It does not matter whether you registered as web app or native app. Also, you can choose any sign-on URL and reply URL (for example, http://wzmediaservice.com for both).
 2. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), navigate to the **Configure** tab of your application and take a note of **client ID** and also generate a **client key** (client secret) under Keys section. 
 
-	>[!NOTE] You need to take a note of the client secret since it will not be shown again.
+	>[!NOTE] 
+	>Take a note of the client secret since it will not be shown again.
 	
-3.	Go to the [Azure](http://ms.portal.azure.com) portal and navigate to the Media Services account -> Access Control (IAM) pane. Add a new member with either Owner or Contributor role. For the principal, you should search for the application name you registered in Step 1 (in the case of this example, wzmediaservice).
+3.	Go to the [Azure](http://ms.portal.azure.com) portal and navigate to the Media Services account -> Access Control (IAM) pane. Add a new member with either Owner or Contributor role. For the principal, you should search for the application name you registered in Step 1 (in this example, wzmediaservice).
 
 ## Info to Collect
 
@@ -111,20 +116,20 @@ To prepare REST coding, we need to collect the following data points to be inclu
 
 	This is the endpoint against which all Azure Media Services REST API calls are made in your application. For example, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
 
-You can then put these 5 parameters in your web.config or app.config to be used by your code.
+You can then put these five parameters in your web.config or app.config to be used by your code.
 
 ## Sample Code
 
 You can find the sample code in [Azure Media Services sample repo](https://azure.microsoft.com/resources/samples/?service=media-services)
 
-The sample code has 2 parts:
+The sample code has two parts:
 
 1.	A DLL library project containing all the REST API code for Azure AD authentication/authorization. It also contains a method for making REST API calls to Azure Media Services REST API endpoint, with access_token.
 2.	A console test client, which initiates Azure AD authentication and calls different AMS REST API.
 
 The sample project demonstrates/contains three features:
 
-1.	Azure AD authentication via Client Credentials grant through only REST API;
+1.	Azure AD authentications via Client Credentials grant through only REST API;
 2.	Azure Media Services access through only REST API;
 3.	Azure Storage access through only REST API (as used for creating a media service account, again via REST API).
 
