@@ -21,7 +21,7 @@ ms.author: arijitt
 
 # YARN troubleshooting
 
-## How do I - Create a new Yarn queue on a cluster
+## How do I: Create a new Yarn queue on a cluster
 
 ### Issue:
 
@@ -60,7 +60,7 @@ Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
 ---
 
-## How do I - Download Yarn logs from HDInsight cluster
+## How do I: Download Yarn logs from HDInsight cluster
 
 #### Issue:
 

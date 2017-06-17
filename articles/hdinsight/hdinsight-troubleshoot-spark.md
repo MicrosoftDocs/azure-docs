@@ -21,7 +21,7 @@ ms.author: arijitt
 
 # Spark troubleshooting
 
-## How do I - Configure a Spark application through Ambari on clusters
+## How do I: Configure a Spark application through Ambari on clusters
 
 ### Issue:
 
@@ -97,7 +97,7 @@ Note: These changes are cluster wide but can be overridden at actual Spark job s
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I - Configure a Spark application through a Jupyter notebook on clusters
+## How do I: Configure a Spark application through a Jupyter notebook on clusters
 
 ### Issue:
 
@@ -107,14 +107,14 @@ Need to configure the amount of memory and number of cores that a Spark applicat
 which Spark configurations need to be set and to what values.
 1.  Specify the Spark configurations in valid JSON format in the first cell of the Jupyter notebook after the %%configure directive (change the actual values as applicable): 
 
->![Alt text](media/hdinsight-spark-troubleshooting/spark-application-configuration-through-jupyter/add-configuration-cell.png)
+>![Alt text](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
 
 ### Further Reading:
 
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I - Configure a Spark application through LIVY on clusters
+## How do I: Configure a Spark application through LIVY on clusters
 
 ### Issue:
 
@@ -133,7 +133,7 @@ curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POS
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I - Configure a Spark application through spark-submit on clusters
+## How do I: Configure a Spark application through spark-submit on clusters
 
 ### Issue: 
 
@@ -153,7 +153,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 
 
-## Why does it - Spark application fails with an OutOfMemoryError
+## What causes it: Spark application fails with an OutOfMemoryError
 
 ### Error:
 
