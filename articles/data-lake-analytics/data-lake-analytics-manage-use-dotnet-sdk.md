@@ -58,7 +58,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 There are several ways of authenticating to Azure Data Lake. Below is the most simple method, which uses interactive user authentication with a pop-up.
 
 
-## Authenticate and connect to Azure Data Lake Analytics
+### Authenticate and connect to Azure Data Lake Analytics
 You have multiple options for logging on to Azure Data Lake Analytics. The following snippet shows an example of authentication with interactive user authentication with a pop-up.
 
 ```
