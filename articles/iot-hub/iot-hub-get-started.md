@@ -40,7 +40,8 @@ You can choose your real or simulated device to get started.
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
-| Simulated device                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Simulated device on PC          | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Online device simulator         | [Raspberry Pi(Node.js)][Ol_Sim]]
 
 In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub.
 
@@ -66,3 +67,4 @@ In addition, you can use an IoT Edge gateway to enable devices to connect to you
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
 [Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: iot-hub-windows-iot-edge-get-started.md
+[Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md
