@@ -52,7 +52,7 @@ For this tutorial, Kubernetes object will be deployed using Kubernetes manifest 
 The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
 
 ```bash
-git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
 Once downloaded, change to the kubernetes-manifests directory.

@@ -46,19 +46,19 @@ This is one tutorial of a multi-part series. You do not need to complete the ful
 To complete the steps in this tutorial, you must have cloned a copy of the Azure Vote application. If needed, do so with the following command:
 
 ```bash
-git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
 Change directories such that you are working from the root of the cloned repository.
 
 ```bash
-cd azure-kubernetes-samples
+cd azure-voting-app
 ```
 
 Open the `config_file.cfg` file with any code or text editor.
 
 ```bash
-code /azure-kubernetes-samples/azure-vote/azure-vote/config_file.cfg
+code /azure-vote/azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.

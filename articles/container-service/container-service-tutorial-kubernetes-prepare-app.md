@@ -47,7 +47,7 @@ The sample application used in this tutorial is a basic voting app. The applicat
 Use git to download a copy of the application to your development environment.
 
 ```bash
-git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
 Inside the cloned directory, is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
@@ -55,7 +55,7 @@ Inside the cloned directory, is pre-created Docker and Kubernetes configuration 
 Change directories so that you are in the cloned directory.
 
 ```bash
-cd ./azure-kubernetes-samples/
+cd ./azure-voting-app/
 ```
 Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
