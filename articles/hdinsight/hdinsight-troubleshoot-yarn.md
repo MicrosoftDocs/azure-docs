@@ -19,7 +19,9 @@ ms.author: arijitt
 
 ---
 
-## How do I create new Yarn queue on HDInsight cluster
+# YARN troubleshooting
+
+## How do I? - Create a new Yarn queue on a cluster
 
 ### Issue:
 
@@ -58,7 +60,7 @@ Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
 ---
 
-## How do I download Yarn logs from HDInsight cluster
+## How do I? - Download Yarn logs from HDInsight cluster
 
 #### Issue:
 
@@ -67,13 +69,11 @@ Need to download Yarn application master and other container logs from HDInsight
 #### Resolution Steps: 
 
 1. Connect to the HDInsight cluster with an Secure Shell (SSH) client (check Further Reading section below).
-
 1. List all the application ids of the currently running Yarn applications with the following command:
 
 ```apache
 yarn top
 ```
-
 Note the application id from the `APPLICATIONID` column whose logs are to be downloaded.
 
 ```apache

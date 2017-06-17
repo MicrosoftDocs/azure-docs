@@ -16,7 +16,9 @@ ms.date: 6/8/2017
 ms.author: nitinver
 ---
 
-# How Do I? - Run hbck command reports with multiple unassigned regions
+# HBASE troubleshooting
+
+## How do I? - Run hbck command reports with multiple unassigned regions
 
 It is a common issue to see 'multiple regions being unassigned or holes in the chain of regions' when the HBase user runs 'hbase hbck' command.
 

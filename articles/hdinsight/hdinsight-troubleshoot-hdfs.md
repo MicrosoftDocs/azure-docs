@@ -18,7 +18,9 @@ ms.date: 6/8/2017
 ms.author: arijitt
 ---
 
-## How do I? - Access local HDFS from inside an HDInsight cluster
+# HDFS troubleshooting
+
+## How do I? - Access local HDFS from inside a cluster
 
 ### Issue:
 
@@ -75,7 +77,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 
 ---
 
-## How do I? - Force disable HDFS safe mode in an HDInsight cluster
+## How do I? - Force disable HDFS safe mode in a cluster
 
 ### Issue:
 

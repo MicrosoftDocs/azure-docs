@@ -19,7 +19,10 @@ ms.author: dharmeshkakadia
 
 ---
 
-## How do I export a Hive metastore and import it on another HDInsight cluster
+# HIVE troubleshooting
+
+
+## How do I? - Export a Hive metastore and import it on another cluster
 
 ### Issue:
 
@@ -50,9 +53,8 @@ Note: This assumes that data paths on new cluster are same as on old. If not, yo
 
 1) [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 
----
 
-## Where are the Hive logs on an HDInsight cluster
+## How do I? - Locate Hive logs on a cluster
 
 ### Issue:
 
@@ -87,7 +89,7 @@ Need to find the Hive client, metastore and hiveserver logs on HDInsight cluster
 
 ---
 
-## How do I launch Hive shell with specific configurations on HDInsight cluster
+## How do I? - Launch Hive shell with specific configurations on a cluster
 
 ### Issue:
 
@@ -117,9 +119,8 @@ hive -hiveconf hive.root.logger=ALL,console
 
 1) [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
----
 
-## How do I analyze Tez Directed Acyclic Graph critical path on HDInsight cluster
+## How do I? - Aanalyze Tez DAG data on a cluster's critical path
 
 ### Issue:
 
@@ -163,7 +164,7 @@ Valid program names are:
 
 ---
 
-## How do I download Tez Directed Acyclic Graph data from HDInsight cluster
+## How do I? - Download Tez DAG data from a cluster
 
 #### Issue:
 
