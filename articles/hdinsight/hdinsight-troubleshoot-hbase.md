@@ -37,7 +37,7 @@ Check the output of command in step 6 and ensure that all regions are being assi
 
 ---
 
-## How do I fix timeout issue with hbase hbck command when fixing region assignments
+## How do I fix timeout issue with hbase hbck command when fixing region assignments?
 
 ### Probable Cause
 
@@ -59,7 +59,7 @@ Below are the steps to fix the hbck timeout problem:
 
 ---
 
-## Why is the HBase Master failing to start up
+## Why is the HBase Master failing to start up?
 
 ### Error: 
 
@@ -155,7 +155,7 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
 
 ---
 
-## Why is the restart operation on HBase Region Server failing to complete
+## Why is the restart operation on HBase Region Server failing to complete?
 
 ### Probable Cause:
 
@@ -248,7 +248,7 @@ worker nodes using following commands:
 
 ---
 
-## How do I troubleshoot JDBC or sqlline connectivity issues with Apache Phoenix
+## How do I troubleshoot JDBC or sqlline connectivity issues with Apache Phoenix?
 
 ### Resolution Steps:
 
@@ -299,6 +299,7 @@ below, continue to follow the troubleshooting guide below:
     It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. 
 1. After few minutes of wait, repeat the steps 3) and 4) to confirm that system catalog table is up and can be queried. 
 1. Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
+
 
 
 

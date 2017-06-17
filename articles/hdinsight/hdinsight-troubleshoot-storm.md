@@ -18,7 +18,7 @@ ms.date: 6/8/2017
 ms.author: raviperi
 ---
 
-## How do I access Storm UI on HDInsight cluster
+## How do I access Storm UI on HDInsight cluster?
 
 ### Issue:
 There are two ways to access Storm UI from a browser:
@@ -35,7 +35,7 @@ https://\<ClusterDnsName\>/stormui
 
 example: https://stormcluster.azurehdinsight.net/stormui
 
-## How can I transfer Storm eventhub spout checkpoint information from one topology to another
+## How can I transfer Storm eventhub spout checkpoint information from one topology to another?
 
 ### Issue:
 When developing topologies that read from event hubs using HDInsight's Storm eventhub spout jar, 
@@ -86,7 +86,7 @@ The export command will write the metadata to a HDFS Path (BLOB or ADLS store) a
    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
 ```
 
-## Where are the Storm Binaries on HDInsight cluster
+## Where are the Storm Binaries on HDInsight cluster?
 
 ### Issue:
  Know location of binaries for Storm services on HDInsight cluster
@@ -107,7 +107,7 @@ But the /usr/hdp/current/storm-client is sym-linked to the latest version that i
  [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
  [Storm](http://storm.apache.org/)
  
-## What is the deployment topology of HDInsight Storm cluster
+## What is the deployment topology of HDInsight Storm cluster?
  
 ### Issue:
  
@@ -141,7 +141,7 @@ Storm head nodes run the following services:
 1. Worker JVMs for running topologies
 1. Ambari Agent
  
-## Where can I find Storm-EventHub-Spout binaries for development
+## Where can I find Storm-EventHub-Spout binaries for development?
  
 ### Issue:
 How can I find out more about using Storm eventhub spout jars for use with my topology.
@@ -160,7 +160,7 @@ Review https://github.com/hdinsight/mvn-repo/blob/master/README.md for how to us
 ##### Source Code examples:
 https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
  
-## Where are Storm Log4J configuration files on HDInsight clusters
+## Where are Storm Log4J configuration files on HDInsight clusters?
  
 ### Issue:
  
@@ -180,6 +180,7 @@ Worker Log4J configuration file is read from:
 Example:
  /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml
  /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
+
 
 
 
