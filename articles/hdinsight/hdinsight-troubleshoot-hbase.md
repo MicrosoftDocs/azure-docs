@@ -18,7 +18,7 @@ ms.author: nitinver
 
 # HBASE troubleshooting
 
-## How do I: Run hbck command reports with multiple unassigned regions
+## How do I run hbck command reports with multiple unassigned regions
 
 It is a common issue to see 'multiple regions being unassigned or holes in the chain of regions' when the HBase user runs 'hbase hbck' command.
 
@@ -39,7 +39,7 @@ Check the output of command in step 6 and ensure that all regions are being assi
 
 ---
 
-## How do I: Fix timeout issues with hbck commands for region assignments
+## How do I fix timeout issues with hbck commands for region assignments
 
 ### Probable Cause
 
@@ -59,7 +59,7 @@ Below are the steps to fix the hbck timeout problem:
 1. Open Ambari UI and restart Active HBase Master service from Ambari.
 1. Run 'hbase hbck -fixAssignments' command again and it should not timeout any further.
 
-## How do I: Force disable HDFS safe mode in an HDInsight cluster
+## How do I force disable HDFS safe mode in an cluster
 
 ### Issue:
 
@@ -217,7 +217,7 @@ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```
 
 
-## How do I: Fix JDBC or sqlline connectivity issues with Apache Phoenix
+## How do I fix JDBC or sqlline connectivity issues with Apache Phoenix
 
 ### Resolution Steps:
 
@@ -270,7 +270,7 @@ below, continue to follow the troubleshooting guide below:
 1. Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
 
 
-## What causes it: HBase master server fails to start
+## What causes a master server to fail to start
 
 ### Error: 
 
@@ -353,7 +353,7 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
 
 
 
-## What causes it: Restart operation fails on HBase region server
+## What causes a restart failure on a region server
 
 ### Probable Cause:
 

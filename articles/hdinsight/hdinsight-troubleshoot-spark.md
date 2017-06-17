@@ -21,7 +21,7 @@ ms.author: arijitt
 
 # Spark troubleshooting
 
-## How do I: Configure a Spark application through Ambari on clusters
+## How do I configure a Spark application through Ambari on clusters
 
 ### Issue:
 
@@ -97,7 +97,7 @@ Note: These changes are cluster wide but can be overridden at actual Spark job s
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I: Configure a Spark application through a Jupyter notebook on clusters
+## How do I configure a Spark application through a Jupyter notebook on clusters
 
 ### Issue:
 
@@ -114,7 +114,7 @@ which Spark configurations need to be set and to what values.
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I: Configure a Spark application through LIVY on clusters
+## How do I configure a Spark application through LIVY on clusters
 
 ### Issue:
 
@@ -133,7 +133,7 @@ curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POS
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I: Configure a Spark application through spark-submit on clusters
+## How do I configure a Spark application through spark-submit on clusters
 
 ### Issue: 
 
@@ -153,7 +153,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 
 
-## What causes it: Spark application fails with an OutOfMemoryError
+## What causes a Spark application OutOfMemoryError exception
 
 ### Error:
 

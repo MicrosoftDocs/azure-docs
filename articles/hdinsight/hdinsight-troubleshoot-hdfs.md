@@ -20,7 +20,7 @@ ms.author: arijitt
 
 # HDFS troubleshooting
 
-## How do I: Access local HDFS from inside a cluster
+## How do I access local HDFS from inside a cluster
 
 ### Issue:
 
@@ -77,7 +77,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 
 ---
 
-## How do I: Force disable HDFS safe mode in a cluster
+## How do I force disable HDFS safe mode in a cluster
 
 ### Issue:
 
