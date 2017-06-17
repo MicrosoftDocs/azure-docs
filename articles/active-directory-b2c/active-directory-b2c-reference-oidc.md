@@ -122,8 +122,8 @@ error=access_denied
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
 | state |See the full description in the first table in this section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
-## Validate the id_token
-Just receiving an id_token is not enough to authenticate the user--you must validate the id_token's signature and verify the claims in the token as per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
+## Validate the ID token
+Just receiving an ID token is not enough to authenticate the user--you must validate the ID token's signature and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
 There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic. The information here will be useful in figuring out how to properly use those libraries.
 
@@ -135,26 +135,26 @@ One of the properties of this configuration document is `jwks_uri`, whose value 
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
-In order to determine which policy was used in signing an id_token (and where to fetch the metadata from), you have two options. First, the policy name is included in the `acr` claim in the id_token. For information on how to parse the claims from an id_token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is perfectly valid.
+In order to determine which policy was used in signing an ID token (and from where to fetch the metadata), you have two options. First, the policy name is included in the `acr` claim in the ID token. For information on how to parse the claims from an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
-After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys (which are located at this endpoint) to validate the signature of the id_token. There might be multiple keys listed at this endpoint at any given point in time, each identified by a `kid` claim. The header of the id_token also contains a `kid` claim, which indicates which of these keys was used to sign the id_token. See the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md) for more information, including [validating tokens](active-directory-b2c-reference-tokens.md#token-validation).
+After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys (which are located at this endpoint) to validate the signature of the ID token. There might be multiple keys listed at this endpoint at any given point in time, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token. For more information, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md) (the section on [validating tokens](active-directory-b2c-reference-tokens.md#token-validation), in particular).
 <!--TODO: Improve the information on this-->
 
-After you've validated the signature of the id_token, there are several claims that you need to verify. For instance:
+After you've validated the signature of the ID token, there are several claims that you need to verify. For instance:
 
 * You should validate the `nonce` claim to prevent token replay attacks. Its value should be what you specified in the sign-in request.
-* You should validate the `aud` claim to ensure that the id_token was issued for your app. Its value should be the application ID of your app.
-* You should validate the `iat` and `exp` claims to ensure that the id_token has not expired.
+* You should validate the `aud` claim to ensure that the ID token was issued for your app. Its value should be the application ID of your app.
+* You should validate the `iat` and `exp` claims to ensure that the ID token has not expired.
 
-There are also several more validations that you should perform, described in detail in the [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html).  You might also want to validate additional claims, depending on your scenario. Some common validations include:
+There are also several more validations that you should perform. These are described in detail in the [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html).  You might also want to validate additional claims, depending on your scenario. Some common validations include:
 
 * Ensuring that the user/organization has signed up for the app.
 * Ensuring that the user has proper authorization/privileges.
 * Ensuring that a certain strength of authentication has occurred, such as Azure Multi-Factor Authentication.
 
-For more information on the claims in an id_token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
+For more information on the claims in an ID token, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
 
-After you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorization, and so on.
+After you have completely validated the ID token, you can begin a session with the user, and use the claims in the ID token to obtain information about the user in your app. This information can be used for display, records, authorization, and so on.
 
 ## Get a token
 If all that your web app needs to do is execute policies, you can skip the next few sections. These sections are applicable only to web apps that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
@@ -283,7 +283,7 @@ Error responses will look like:
 ## Send a sign-out request
 When you want to sign the user out of the app, it is not enough to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to Azure AD to sign out. If you fail to do so, the user might be able to reauthenticate to your app without entering their credentials again. This is because they will have a valid single sign-on session with Azure AD.
 
-You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in the earlier section "Validate the id_token":
+You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in the earlier section "Validate the ID token":
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
