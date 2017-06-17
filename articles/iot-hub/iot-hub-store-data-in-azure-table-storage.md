@@ -43,7 +43,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## Create an Azure storage account
 
-1. In the Azure portal, click **New** > **Storage** > **Storage account**.
+1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account**.
 1. Enter the necessary information for the storage acount:
 
    ![Create an storage account in the Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
