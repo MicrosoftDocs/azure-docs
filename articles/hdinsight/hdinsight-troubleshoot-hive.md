@@ -22,7 +22,7 @@ ms.author: dharmeshkakadia
 # HIVE troubleshooting
 
 
-## How do I? - Export a Hive metastore and import it on another cluster
+## How do I - Export a Hive metastore and import it on another cluster
 
 ### Issue:
 
@@ -54,7 +54,7 @@ Note: This assumes that data paths on new cluster are same as on old. If not, yo
 1) [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 
 
-## How do I? - Locate Hive logs on a cluster
+## How do I - Locate Hive logs on a cluster
 
 ### Issue:
 
@@ -89,7 +89,7 @@ Need to find the Hive client, metastore and hiveserver logs on HDInsight cluster
 
 ---
 
-## How do I? - Launch Hive shell with specific configurations on a cluster
+## How do I - Launch Hive shell with specific configurations on a cluster
 
 ### Issue:
 
@@ -120,7 +120,7 @@ hive -hiveconf hive.root.logger=ALL,console
 1) [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## How do I? - Aanalyze Tez DAG data on a cluster's critical path
+## How do I - Aanalyze Tez DAG data on a cluster's critical path
 
 ### Issue:
 
@@ -164,7 +164,7 @@ Valid program names are:
 
 ---
 
-## How do I? - Download Tez DAG data from a cluster
+## How do I - Download Tez DAG data from a cluster
 
 #### Issue:
 
