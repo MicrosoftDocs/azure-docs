@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 06/19/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SpringCM, you need the following items:
 
 - An Azure AD subscription
-- A SpringCM single-sign on enabled subscription
+- A SpringCM single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -252,8 +252,6 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
