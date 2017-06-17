@@ -105,6 +105,7 @@
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
+#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)

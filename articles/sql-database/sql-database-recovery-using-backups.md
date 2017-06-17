@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2017
+ms.date: 06/15/2017
 ms.author: carlrab
 
 ---
@@ -47,7 +47,9 @@ The recovery time to restore a database using automated database backups is impa
 
 ## Point-In-Time Restore
 
-You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+
+For a sample PowerShell script, see [Point-in-time database restore](scripts/sql-database-restore-database-powershell.md).
 
 > [!IMPORTANT]
 > You cannot overwrite the existing database during restore.
@@ -67,7 +69,9 @@ To recover to a point in time using the Azure portal, open the page for your dat
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## Deleted database restore
-You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](scripts/sql-database-restore-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+
+For a sample PowerShell script, see [Restore deleted database](scripts/sql-database-restore-database-powershell.md).
 
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.

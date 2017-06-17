@@ -39,11 +39,11 @@ Install the following NuGet packages:
 ## Common variables
 
 ```
-string tenantId = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
+string subid = "<Subscription ID>";
+string tenantid = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
 string rg == "<value>"; // resource  group name
-string clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID for interactive auth
-string webApp_clientId = "<AAD-application-clientid>"; // client ID for non-interactive auth
-
+string interactive_clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID for interactive auth
+string noninteractive_clientid = "<AAD-application-clientid>"; // client ID for non-interactive auth
 ```
 
 ## Authenticate and connect to Azure Data Lake Analytics
@@ -53,12 +53,10 @@ You have multiple options for logging on to Azure Data Lake Analytics.
 The following snippet shows the easiest authentication by the user providing credentials, such as a username and password or a pin number.
 
 ```
-// User login via interactive popup
-// Use the client ID of an existing AAD "native nlient" application.
 SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-var activeDirectoryClientSettings = 
-    ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-var creds = UserTokenProvider.LoginWithPromptAsync(_tenantId, activeDirectoryClientSettings).Result;
+var uri = new Uri("urn:ietf:wg:oauth:2.0:oob");
+var activeDirectoryClientSettings =  ActiveDirectoryClientSettings.UsePromptOnly( interactive_clientid, uri );
+var creds = UserTokenProvider.LoginWithPromptAsync( tenantid, activeDirectoryClientSettings).Result;
 ```
 We recommend creating your own application and service principal within your Azure Active Directory tenant, then using the client ID for that application, rather than the sample ID used here.
 
@@ -66,12 +64,9 @@ We recommend creating your own application and service principal within your Azu
 You can use the following snippet to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this authentication option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```
-// Service principal / application authentication with client secret / key
-// Use the client ID and certificate of an existing AAD "Web App" application.
 SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-var webApp_clientId = "<AAD-application-clientid>";
-var clientSecret = "<AAD-application-client-secret>";
-var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
+var noninteractive_clientsecret = "<AAD-application-client-secret>";
+var clientCredential = new ClientCredential(noninteractive_clientid, clientSecret);
 var creds = ApplicationTokenProvider.LoginSilentAsync(tenantId, clientCredential).Result;
 ```
 
@@ -79,22 +74,20 @@ var creds = ApplicationTokenProvider.LoginSilentAsync(tenantId, clientCredential
 As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this authentication option with an existing [Azure AD "Web App" Application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```
-// Service principal / application authentication with certificate
-// Use the client ID and certificate of an existing AAD "Web App" application.
 SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
-var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantId, clientAssertionCertificate).Result;
+System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>;
+var clientAssertionCertificate = new ClientAssertionCertificate(noninteractive_clientid, clientCert);
+var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantid, clientAssertionCertificate).Result;
 ```
 
 ## Create the client management objects
 
 ```
 var adlsClient = new DataLakeStoreAccountManagementClient(creds);
-adlsClient.SubscriptionId = <Subscription-ID>;
+adlsClient.SubscriptionId = subId;
 
 var adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-adlaClient.SubscriptionId = <Subscription-ID>;
+adlaClient.SubscriptionId = subId;
 
 var adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 var adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(creds);
@@ -106,9 +99,9 @@ var adlaJobClient = new DataLakeAnalyticsJobManagementClient(creds);
 If you haven't already created one, you must have an Azure Resource Group to create your Data Lake Analytics components. You will need your authentication credentials, subscription ID, and a location. The following code shows how to create a resource group:
 
 ```
- var resourceManagementClient = new ResourceManagementClient(credential) { SubscriptionId = subscriptionId };
+ var resourceManagementClient = new ResourceManagementClient(credential) { SubscriptionId = subscriptionid };
  var resourceGroup = new ResourceGroup { Location = location };
- resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rgName);
+ resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
 For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
 
@@ -117,7 +110,7 @@ The following code shows how to create a Data Lake Store account. Before you use
 
 ```
 var adlsParameters = new DataLakeStoreAccount(location: _location);
-adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
+adlsClient.Account.Create(rg, adls, adlsParameters);
 ```
 
 ### Create a Data Lake Analytics account
@@ -128,13 +121,14 @@ For any Data Lake Analytics account, you only need to include the Data Lake Stor
 ```
 var adlaAccount = new DataLakeAnalyticsAccount()
 {
-   DefaultDataLakeStoreAccount = “Accounting”,
-   Location = _location,
+   DefaultDataLakeStoreAccount = adls,
+   Location = location,
    DataLakeStoreAccounts = new DataLakeStoreAccountInfo[]{
-       new DataLakeStoreAccountInfo(“Expenditures”),
-       new DataLakeStoreAccountInfo(“Accounting”)
+       new DataLakeStoreAccountInfo("Expenditures"),
+       new DataLakeStoreAccountInfo("Accounting")
    }
 };
+
 adlaClient.Account.Create(_resourceGroupName, newAccountName, adlaAccount);
 ```
 
@@ -147,14 +141,13 @@ The following code lists the Data Lake Store accounts in a subscription. List op
 var adlsAccounts = adlsClient.Account.List().ToList();
 foreach (var adls in adlsAccounts)
 {
-  Console.WriteLine($"\t{adls.Name});
-
+   Console.WriteLine("ADLS: {0}", adls.Name);
 }
 
 var adlaAccounts = adlaClient.Account.List().ToList();
 for (var adla in AdlaAccounts)
 {
-  Console.WriteLine($"\t{adla.Name}");
+   Console.WriteLine("ADLA: {0}, adla.Name");
 }
 ```
 
@@ -162,11 +155,10 @@ for (var adla in AdlaAccounts)
 The following code uses a DataLakeAnalyticsAccountManagementClient to get a Data Lake Analytics account. First a check is made to see if the account exists.
 
 ```
-DataLakeAnalyticsAccount adlaGet;
 if (adlaClient.Account.Exists(_resourceGroupName, accountName))
 {
-  adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
-  Console.WriteLine($"{adlaGet.Name}\tCreated: {adlaGet.CreationTime}");
+   var adla_accnt = adlaClient.Account.Get(_resourceGroupName, accountName);
+   Console.WriteLine($"{adla_accnt.Name}\tCreated: {adla_accnt.CreationTime}");
 }
 ```
 
@@ -176,14 +168,10 @@ Similarly, you can use DataLakeStoreAccountManagementClient (adlsClient) in the 
 The following code deletes a Data Lake Analytics account if it exists.
 
 ```
-if (adlaClient.Account.Exists(_resourceGroupName, accountName))
+if (adlaClient.Account.Exists(_resourceGroupName, adla))
 {
-  adlaClient.Account.Delete(_resourceGroupName, accountName);
-  Console.WriteLine($"{accountName} Deleted");
-}
-else
-{
-  Console.WriteLine($"{accountName} does not exist.");
+   adlaClient.Account.Delete(_resourceGroupName, adla);
+   Console.WriteLine($"{adla} Deleted");
 }
 ```
 
@@ -193,10 +181,10 @@ You can also delete a Data Lake Store account in the same way with a DataLakeSto
 Every Data Lake Analytics account requires a default Data Lake Store account. Use this code to determine the default Store account for an Analytics account.
 
 ```
-if (adlaClient.Account.Exists(_resourceGroupName, accountName))
+if (adlaClient.Account.Exists(_resourceGroupName, adla))
 {
-  var adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
-  Console.WriteLine($"{adlaGet.Name} default DL store account: {adlaGet.DefaultDataLakeStoreAccount}");
+  var adla_accnt = adlaClient.Account.Get(rg, adla);
+  Console.WriteLine("default DL store: {0}", adla_accnt.DefaultDataLakeStoreAccount");
 }
 ```
 
@@ -215,31 +203,30 @@ You can create links to Azure Storage accounts.
 
 ```
 var addParams = new AddStorageAccountParameters(<storage key value>);            
-adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
+adlaClient.StorageAccounts.Add(rg, adla, "<Azure Storage Account Name>", addParams);
 ```
 
 ### List Data Lake Store data sources
 The following code lists the Data Lake Store accounts and the Azure Storage accounts used for a specified Data Lake Analytics account.
 
 ```
-var sAccnts = adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
+var stg_accounts = adlaClient.StorageAccounts.ListByAccount(rg, adla);
 
-if (sAccnts != null)
+if (stg_accounts != null)
 {
   Console.WriteLine("Azure Storage accounts:");
-  foreach (var a in sAccnts)
+  foreach (var stg_account in stg_accounts)
   {
-      Console.WriteLine($"\t{a.Name}");
+      Console.WriteLine("Storage account: {0}", stg_account.Name);
   }
 }
 
-var stores = adlsClient.Account.List();
-if (stores != null)
+var adls_accounts = adlsClient.Account.List();
+if (adls_accounts != null)
 {
-  Console.WriteLine("\nData stores:");
-  foreach (var s in stores)
+  foreach (var adls_accnt in adls_accounts)
   {
-      Console.WriteLine($"\t{s.Name}");
+      Console.WriteLine("ADLS account: {0}", adls_accnt.Name);
   }
 }
 ```
@@ -258,12 +245,11 @@ The following example shows how to download a folder in the Data Lake Store.
 
 
 ```
-adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
+adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
 
 
 ### Create a file in a Data Lake Store account
-You can use .NET Framework IO operations to create content for a file in a Data Lake Store. The following code writes the first four values of 100 random byte arrays to .csv file.
 
 ```
 using (var azMem = new MemoryStream())
@@ -271,29 +257,11 @@ using (var azMem = new MemoryStream())
    using (var sw = new StreamWriter(azMem, UTF8Encoding.UTF8))
    {
 
-      for (int i = 0; i < 100; i++)
-      {
-        byte[] gA = Guid.NewGuid().ToByteArray();
-        string dataLine = string.Format($"{gA[0].ToString()},{gA[1].ToString()},{gA[2].ToString()},{gA[3].ToString()},{gA[4].ToString()}");
-        sw.WriteLine(dataLine);
-      }
+      sw.WriteLine("Hello World");
       sw.Flush();
-      azMem.Position = 0;
 
-      adlsFileSystemClient.FileSystem.Create(adlsAccoutName, "/Samples/Output/randombytes.csv", azMem);
+      adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", azMem);
    }
-}
-```
-### List blob containers of an Azure Storage account
-The following code lists the containers for a specified Azure Storage account.
-
-```
-string ADLAName = "<specify Data Lake Analytics account name>";
-string azStorageName = "<specify Azure Storage account name>";
-var containers = adlaClient.StorageAccounts.ListStorageContainers(_resourceGroupName, ADLAName, azStorageName);
-foreach (var c in containers)
-{
- Console.WriteLine(c.Name);
 }
 ```
 
@@ -356,11 +324,11 @@ foreach (USqlTableColumn utc in columns)
 The following code lists information about jobs that failed.
 
 ```
-var jobs = adlaJobClient.Job.List(adlaClient,
-  new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" });
+var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
+var jobs = adlaJobClient.Job.List(adlaClient, odq );
 foreach (var j in jobs)
 {
-  Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
+   Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
 }
 ```
 
