@@ -63,7 +63,7 @@ If you look in the Azure portal now, you should see the new empty resource group
 ## Provisioning Ubuntu VM with Terraform
 Let's extend Terraform script we've created above with details necessary to provision a virtual machine running Ubuntu. The list of resources that you will provision in the sections below are: network with a single subnet, a network interface card, a storage account with a storage container, a public IP, and a virtual machine utilizing all the resources above. For a thorough documentation of each of the Azure Terraform resources, consult [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-The full version of the [provisioning script](#terraform101) is also provided for convenience.
+The full version of the [provisioning script](#complete-terraform-script) is also provided for convenience.
 
 ### Extending the Terraform Script
 Extend the script created above with the following resources: 
@@ -187,7 +187,7 @@ terraform apply terraformscripts
 ```
 After some time, you should see the resources, including a virtual machine, appearing in the "terraformtest" resource group in the Azure portal.
 
-## <a name="terraform101"></a>Complete Terraform Script
+## Complete Terraform Script
 
 ```
 variable "resourcesname" {

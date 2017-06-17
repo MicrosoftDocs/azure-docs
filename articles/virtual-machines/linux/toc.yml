@@ -139,6 +139,12 @@
       href: move-vm.md
     - name: Create highly available VMs
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Install and configure
+        href: terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Install and configure
