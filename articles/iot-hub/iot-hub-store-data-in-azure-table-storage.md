@@ -131,7 +131,8 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
       
       **Table name**: Use `deviceData` for the name.
 
-      **Storage account connection**: Click **new** and select or input your storage account.
+      **Storage account connection**: Click **new** and select or input your storage account. If you cannot see the storage account, please refer to [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      
    1. Click **Save**.
 1. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
 1. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
