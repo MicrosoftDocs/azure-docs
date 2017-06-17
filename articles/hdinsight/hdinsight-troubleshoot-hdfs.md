@@ -18,7 +18,7 @@ ms.date: 6/8/2017
 ms.author: arijitt
 ---
 
-## How do I access local HDFS from inside an HDInsight cluster?
+## How do I? - Access local HDFS from inside an HDInsight cluster
 
 ### Issue:
 
@@ -75,7 +75,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 
 ---
 
-## How do I force disable HDFS safe mode in an HDInsight cluster?
+## How do I? - Force disable HDFS safe mode in an HDInsight cluster
 
 ### Issue:
 
@@ -230,6 +230,7 @@ following command to take the name node out of safe mode:
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```
+
 
 
 

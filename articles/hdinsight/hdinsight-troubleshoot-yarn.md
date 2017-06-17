@@ -19,7 +19,7 @@ ms.author: arijitt
 
 ---
 
-## How do I create new Yarn queue on HDInsight cluster?
+## How do I create new Yarn queue on HDInsight cluster
 
 ### Issue:
 
@@ -58,7 +58,7 @@ Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
 ---
 
-## How do I download Yarn logs from HDInsight cluster?
+## How do I download Yarn logs from HDInsight cluster
 
 #### Issue:
 
@@ -136,6 +136,7 @@ This will create the log file named `containerlogs.txt` in text format.
 - [Apache Hadoop Yarn concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 ---
+
 
 
 

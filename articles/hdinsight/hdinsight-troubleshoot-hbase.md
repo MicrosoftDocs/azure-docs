@@ -16,7 +16,7 @@ ms.date: 6/8/2017
 ms.author: nitinver
 ---
 
-# Running hbase hbck command reports multiple unassigned regions
+# How Do I? - Run hbck command reports with multiple unassigned regions
 
 It is a common issue to see 'multiple regions being unassigned or holes in the chain of regions' when the HBase user runs 'hbase hbck' command.
 
@@ -37,7 +37,7 @@ Check the output of command in step 6 and ensure that all regions are being assi
 
 ---
 
-## How do I fix timeout issue with hbase hbck command when fixing region assignments?
+## How do I? - Fix timeout issues with hbck commands for region assignments
 
 ### Probable Cause
 
@@ -57,9 +57,218 @@ Below are the steps to fix the hbck timeout problem:
 1. Open Ambari UI and restart Active HBase Master service from Ambari.
 1. Run 'hbase hbck -fixAssignments' command again and it should not timeout any further.
 
----
+## How do I? - Force disable HDFS safe mode in an HDInsight cluster
 
-## Why is the HBase Master failing to start up?
+### Issue:
+
+Local HDFS is stuck in safe mode on HDInsight cluster.   
+
+### Detailed Description:
+
+Fail to run simple HDFS command as follows:
+
+```apache
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```
+
+The error encountered trying to run the above command is as follows:
+
+```apache
+hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
+org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
+It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
+        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
+        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
+        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
+        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
+        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
+        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
+        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
+        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
+        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
+        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
+        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
+mkdir: Cannot create directory /temp. Name node is in safe mode.
+```
+
+### Probable Cause:
+
+HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
+
+### Resolution Steps: 
+
+1. Report on the status of HDFS on the HDInsight cluster with the following commands:
+
+```apache
+hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+```
+
+```apache
+hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+Safe mode is ON
+Configured Capacity: 3372381241344 (3.07 TB)
+Present Capacity: 3138625077248 (2.85 TB)
+DFS Remaining: 3102710317056 (2.82 TB)
+DFS Used: 35914760192 (33.45 GB)
+DFS Used%: 1.14%
+Under replicated blocks: 0
+Blocks with corrupt replicas: 0
+Missing blocks: 0
+Missing blocks (with replication factor 1): 0
+
+-------------------------------------------------
+Live datanodes (8):
+
+Name: 10.0.0.17:30010 (10.0.0.17)
+Hostname: 10.0.0.17
+Decommission Status : Normal
+Configured Capacity: 421547655168 (392.60 GB)
+DFS Used: 5288128512 (4.92 GB)
+Non DFS Used: 29087272960 (27.09 GB)
+DFS Remaining: 387172253696 (360.58 GB)
+DFS Used%: 1.25%
+DFS Remaining%: 91.85%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 2
+Last contact: Wed Apr 05 16:22:00 UTC 2017
+...
+
+```
+
+2. Check on the integrity of HDFS on the HDInsight cluster with the following commands:
+
+```apache
+hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+```
+
+```apache
+Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
+FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
+....................................................................................................
+
+....................................................................................................
+..................Status: HEALTHY
+ Total size:    9330539472 B
+ Total dirs:    37
+ Total files:   2618
+ Total symlinks:                0 (Files currently being written: 2)
+ Total blocks (validated):      2535 (avg. block size 3680686 B)
+ Minimally replicated blocks:   2535 (100.0 %)
+ Over-replicated blocks:        0 (0.0 %)
+ Under-replicated blocks:       0 (0.0 %)
+ Mis-replicated blocks:         0 (0.0 %)
+ Default replication factor:    3
+ Average block replication:     3.0
+ Corrupt blocks:                0
+ Missing replicas:              0 (0.0 %)
+ Number of data-nodes:          8
+ Number of racks:               1
+FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
+
+
+The filesystem under path '/' is HEALTHY
+```
+
+3. If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the 
+following command to take the name node out of safe mode:
+
+```apache
+hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
+```
+
+
+## How do I? - Fix JDBC or sqlline connectivity issues with Apache Phoenix
+
+### Resolution Steps:
+
+Below are the steps that can be followed to troubleshoot connectivity issue with Apache phoenix. 
+
+1. In order to connect with Apache phoenix, the user needs to provide the IP of active zookeeper 
+node. Ensure that zookeeper service to which sqlline.py is trying to connect is up and running.
+1. Perform SSH login to the HDInsight cluster.
+1. Try following command:
+        
+```apache
+        "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
+```     
+    Note: The IP of Active Zooker node can be identified from Ambari UI, by following the links 
+    to HBase -> "Quick Links" -> "ZK* (Active)" -> "Zookeeper Info". 
+1. If the sqlline.py connects to Apache Phoenix and does not timeout, run following command to 
+validate the availability and health of Apache Phoenix:
+
+```apache
+        !tables
+        !quit
+```      
+If the above commands works, then there is no issue. The IP provided by user could be incorrect.
+   
+1. On the other hand, if the command pauses for too long and then throws the error mentions 
+below, continue to follow the troubleshooting guide below:
+
+```apache
+        Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
+```
+1. Run following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
+
+```apache
+        hbase shell
+        
+        count 'SYSTEM.CATALOG'
+```        
+    The command should return an error similar to following: 
+
+```apache
+        ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
+```
+1. Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
+
+    A. Go to "HBase -> Active HBase Master" link in summary section of HBase. 
+    B. In Components section, restart the HBase Master service.
+    C. Repeat the above steps for remaining "Standby HBase Master" services. 
+    It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. 
+1. After few minutes of wait, repeat the steps 3) and 4) to confirm that system catalog table is up and can be queried. 
+1. Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
+
+
+## What cause it? - HBase master server fails to start
 
 ### Error: 
 
@@ -67,10 +276,9 @@ Atomic renaming failure
 
 ### Detailed Description:
 
-During startup process HMaster does lot of initialization steps including moving data from scratch (.tmp) folder to 
-data folder; also looks at WALs (Write Ahead Logs) folder to see if there are any dead region servers and so on. 
-During all these situations it does a basic 'list' command on these folders. If at anytime it sees an unexpected file 
-in any of these folders it will throw an exception and hence not start.  
+During startup process HMaster does lot of initialization steps including moving data from scratch (.tmp) folder to data folder; also looks at WALs (Write Ahead Logs) folder to see if there are any dead region servers and so on. 
+
+During all these situations it does a basic 'list' command on these folders. If at anytime it sees an unexpected file in any of these folders it will throw an exception and hence not start.  
 
 ### Probable Cause:
 
@@ -80,13 +288,9 @@ to avoid hitting this bug and ensure graceful process shutdowns.
 
 ### Resolution Steps:
 
-In such a situation try to check the call stack and see which folder might be causing problem (for instance is it WALs 
-folder or .tmp folder). Then via Cloud Explorer or via hdfs commands try to locate the problem file - usually this is a 
-*-renamePending.json file (a journal file used to implement Atomic Rename operation in WASB driver; due to bugs in this 
-implementation such files can be left over in cases of process crash etc). Force delete this either via Cloud Explorer. 
-In addition sometimes there might also be a temporary file of the nature $$$.$$$ in this location, this cannot be seen 
-via cloud explorer and only via hdfs ls command. You can use hdfs command "hdfs dfs -rm /<the path>/\$\$\$.\$\$\$" to 
-delete this file.  
+In such a situation try to check the call stack and see which folder might be causing problem (for instance is it WALs folder or .tmp folder). Then via Cloud Explorer or via hdfs commands try to locate the problem file - usually this is a *-renamePending.json file (a journal file used to implement Atomic Rename operation in WASB driver; due to bugs in this implementation such files can be left over in cases of process crash etc). Force delete this either via Cloud Explorer. 
+
+In addition sometimes there might also be a temporary file of the nature $$$.$$$ in this location, this cannot be seen via cloud explorer and only via hdfs ls command. You can use hdfs command "hdfs dfs -rm /<the path>/\$\$\$.\$\$\$" to delete this file.  
 
 Once this is done, HMaster should start up immediately. 
 
@@ -96,10 +300,7 @@ No server address listed in hbase: meta for region xxx
 
 ### Detailed Description:
 
-Customer met an issue on their Linux cluster that hbase: meta table was not online. Running hbck reported that 
-"hbase: meta table replicaId 0 is not found on any region". After restarting HBase, the symptom became that the hmaster 
-could not initialize. In the hmaster logs, it reported that "No server address listed in hbase: meta for region 
-hbase: backup <region name>".  
+Customer met an issue on their Linux cluster that hbase: meta table was not online. Running hbck reported that "hbase: meta table replicaId 0 is not found on any region". After restarting HBase, the symptom became that the hmaster could not initialize. In the hmaster logs, it reported that "No server address listed in hbase: meta for region hbase: backup <region name>".  
 
 ### Resolution Steps:
 
@@ -113,7 +314,7 @@ hbase: backup <region name>".
 > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
 ```
 
-1. Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table
+1. Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table.
 1. Restart the active HMaster from Ambari UI to bring up HBase in running state.  
 1. Run the following command on HBase shell to bring up all offline tables:
 
@@ -125,23 +326,18 @@ hbase hbck -ignorePreCheckPermission -fixAssignments
 
 [Unable to process HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
-- - -
 
 ### Error:
 
-HMaster times out with fatal exception like java.io.IOException: Timedout 300000ms waiting for namespace table to be 
-assigned
+HMaster times out with fatal exception like java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned
 
 ### Detailed Description:
 
-Customer ran into this issue when apparently they had a lot of tables and regions and had not flushed when they 
-restarted their HMaster services. Restart was failing with above message. No other error found.  
+Customer ran into this issue when apparently they had a lot of tables and regions and had not flushed when they restarted their HMaster services. Restart was failing with above message. No other error found.  
 
 ### Probable Cause:
 
-This is a known "defect" with the HMaster - general cluster startup tasks can take a long time and the HMaster shuts 
-down because of the namespace table isn’t yet assigned - which is hit only in this scenario where large amount of 
-unflushed data exists and a timeout of five minutes is not sufficient
+This is a known "defect" with the HMaster - general cluster startup tasks can take a long time and the HMaster shuts down because of the namespace table isn’t yet assigned - which is hit only in this scenario where large amount of unflushed data exists and a timeout of five minutes is not sufficient
   
 ### Resolution Steps:
 
@@ -153,9 +349,9 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
 
 2. Restart required services (Mainly HMaster and possibly other HBase services).  
 
----
 
-## Why is the restart operation on HBase Region Server failing to complete?
+
+## What cause it? - Restart operation fails on HBase region server
 
 ### Probable Cause:
 
@@ -245,66 +441,5 @@ worker nodes using following commands:
       sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
       sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
 ```
-
----
-
-## How do I troubleshoot JDBC or sqlline connectivity issues with Apache Phoenix?
-
-### Resolution Steps:
-
-Below are the steps that can be followed to troubleshoot connectivity issue with Apache phoenix. 
-
-1. In order to connect with Apache phoenix, the user needs to provide the IP of active zookeeper 
-node. Ensure that zookeeper service to which sqlline.py is trying to connect is up and running.
-1. Perform SSH login to the HDInsight cluster.
-1. Try following command:
-        
-```apache
-        "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
-```     
-    Note: The IP of Active Zooker node can be identified from Ambari UI, by following the links 
-    to HBase -> "Quick Links" -> "ZK* (Active)" -> "Zookeeper Info". 
-1. If the sqlline.py connects to Apache Phoenix and does not timeout, run following command to 
-validate the availability and health of Apache Phoenix:
-
-```apache
-        !tables
-        !quit
-```      
-If the above commands works, then there is no issue. The IP provided by user could be incorrect.
-   
-1. On the other hand, if the command pauses for too long and then throws the error mentions 
-below, continue to follow the troubleshooting guide below:
-
-```apache
-        Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
-```
-1. Run following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
-
-```apache
-        hbase shell
-        
-        count 'SYSTEM.CATALOG'
-```        
-    The command should return an error similar to following: 
-
-```apache
-        ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
-```
-1. Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
-
-    A. Go to "HBase -> Active HBase Master" link in summary section of HBase. 
-    B. In Components section, restart the HBase Master service.
-    C. Repeat the above steps for remaining "Standby HBase Master" services. 
-    It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. 
-1. After few minutes of wait, repeat the steps 3) and 4) to confirm that system catalog table is up and can be queried. 
-1. Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
-
-
-
-
-
-
-
 
 

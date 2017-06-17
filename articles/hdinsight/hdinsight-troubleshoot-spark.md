@@ -19,7 +19,7 @@ ms.author: arijitt
 
 ---
 
-## Why did my Spark application fail with an OutOfMemoryError?
+## Why did my Spark application fail with an OutOfMemoryError
 
 ### Error:
 
@@ -105,7 +105,7 @@ spark.driver.memory + spark.yarn.driver.memoryOverhead
 
 ---
 
-## How do I configure a Spark application through Ambari on HDInsight clusters?
+## How do I configure a Spark application through Ambari on HDInsight clusters
 
 ### Issue:
 
@@ -182,7 +182,7 @@ Note: These changes are cluster wide but can be overridden at actual Spark job s
 
 ---
 
-## How do I configure a Spark application through a Jupyter notebook on HDInsight clusters?
+## How do I configure a Spark application through a Jupyter notebook on HDInsight clusters
 
 ### Issue:
 
@@ -200,7 +200,7 @@ which Spark configurations need to be set and to what values.
 
 ---
 
-## How do I configure a Spark application through LIVY on HDInsight clusters?
+## How do I configure a Spark application through LIVY on HDInsight clusters
 
 ### Issue:
 
@@ -220,7 +220,7 @@ curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POS
 
 ---
 
-## How do I configure a Spark application through spark-submit on HDInsight clusters?
+## How do I configure a Spark application through spark-submit on HDInsight clusters
 
 ### Issue: 
 
@@ -237,6 +237,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 ### Further Reading:
 
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+
 
 
 

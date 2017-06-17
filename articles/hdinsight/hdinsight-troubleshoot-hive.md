@@ -19,7 +19,7 @@ ms.author: dharmeshkakadia
 
 ---
 
-## How do I export a Hive metastore and import it on another HDInsight cluster?
+## How do I export a Hive metastore and import it on another HDInsight cluster
 
 ### Issue:
 
@@ -52,7 +52,7 @@ Note: This assumes that data paths on new cluster are same as on old. If not, yo
 
 ---
 
-## Where are the Hive logs on an HDInsight cluster?
+## Where are the Hive logs on an HDInsight cluster
 
 ### Issue:
 
@@ -87,7 +87,7 @@ Need to find the Hive client, metastore and hiveserver logs on HDInsight cluster
 
 ---
 
-## How do I launch Hive shell with specific configurations on HDInsight cluster?
+## How do I launch Hive shell with specific configurations on HDInsight cluster
 
 ### Issue:
 
@@ -119,7 +119,7 @@ hive -hiveconf hive.root.logger=ALL,console
 
 ---
 
-## How do I analyze Tez Directed Acyclic Graph critical path on HDInsight cluster?
+## How do I analyze Tez Directed Acyclic Graph critical path on HDInsight cluster
 
 ### Issue:
 
@@ -163,7 +163,7 @@ Valid program names are:
 
 ---
 
-## How do I download Tez Directed Acyclic Graph data from HDInsight cluster?
+## How do I download Tez Directed Acyclic Graph data from HDInsight cluster
 
 #### Issue:
 
@@ -190,6 +190,7 @@ Go to Ambari --> Go to Tez view (hidden under tiles icon in upper right corner) 
 #### Further Reading:
 
 1) [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+
 
 
 
