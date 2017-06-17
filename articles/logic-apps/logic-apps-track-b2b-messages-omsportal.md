@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: LADocs; padmavc
-
 ---
-# Track B2B messages for your integration account and logic apps in the Operations Management Suite (OMS) with Azure Log Analytics
+
+# Track AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS) with Azure Log Analytics
 
 When you set up B2B communication in your integration account 
 between two running business processes or applications, 
@@ -37,11 +37,12 @@ these web-based tracking capabilities to track your messages:
 
 ## Requirements
 
-* A logic app that's set up with monitoring and logging for debugging and diagnostics. 
+* A logic app that's set up with monitoring and logging. 
 Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
 and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-* An integration account that's set up with monitoring and logging for debugging and diagnostics. Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+* An integration account that's set up with monitoring and logging. 
+Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
 * If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS.
@@ -90,8 +91,7 @@ choose **Solutions Gallery**.
 
 ## Track message status and details in the Operations Management Suite portal
 
-1. After your B2B messages are processed, you can view the status and details for those messages. 
-On the OMS home page, choose the **Logic Apps B2B Messages** tile.
+1. After your B2B messages are processed, you can view the status and details for those messages. On the OMS home page, choose the **Logic Apps B2B Messages** tile.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
@@ -103,23 +103,30 @@ On the OMS home page, choose the **Logic Apps B2B Messages** tile.
 3. To view more details for a message type, 
 choose the tile for **AS2**, **X12**, or **EDIFACT**. 
 
-   The message list appears for the tile that you chose, for example: 
+   The message list appears for the tile that you chose. For example: 
 
    ![View message list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
    > [!TIP]
-   > To download the message list, choose **Download**. 
+   > To export the message list, choose **Download**. 
    > To find the descriptions for message list properties, 
    > see [Message list property descriptions](#message-list-property-descriptions).
 
 4. To view all the actions that have the same run ID, 
    select a row in the message list. 
 
-5. On the **Log Search** page, you can sort these actions by column. You can also 
-[build queries with filters](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md), 
-or manually edit the query in the search box:
+5. On the **Log Search** page, you can sort these actions by column, 
+or search for specific results.
 
    ![Log Search page](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+
+   * To search results with prebuilt queries, choose **Favorites**.
+
+   * Learn [how to build queries by adding filters](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
+   Or learn more about [how to find data with log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+
+   * To change query in the search box, update the query with the 
+   columns and values that you want to use as filters.
 
 <a name="message-list-property-descriptions"></a>
 
@@ -174,7 +181,7 @@ or manually edit the query in the search box:
 ## Next steps
 
 * [Track B2B messages with queries in Operations Management Suite](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
-* [Custom Tracking Schema](logic-apps-track-integration-account-custom-tracking-schema.md "Learn about Custom Tracking Schema") 
-* [AS2 Tracking Schema](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
-* [X12 Tracking Schema](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
-* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
+* [Custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)
+* [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

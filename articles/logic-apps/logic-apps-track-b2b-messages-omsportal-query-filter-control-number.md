@@ -1,6 +1,6 @@
 ---
-title: Track AS2, X12, EDIFACT messages with queries in OMS - Azure Logic Apps  | Microsoft Docs
-description: Create queries to track business-to-business (B2B) messages in the Operations Management Suite portal 
+title: Query for B2B messages in OMS - Azure Logic Apps  | Microsoft Docs
+description: Create queries to track AS2, X12, EDIFACT messages in the Operations Management Suite 
 author: padmavc
 manager: anneta
 editor: ''
@@ -17,95 +17,123 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Query for B2B messages in the Operations Management Suite portal
+# Query for AS2, X12, and EDIFACT messages in the Operations Management Suite
 
-To find business-to-business (B2B) messages that you're tracking with 
+To find the B2B messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), 
 you can create queries that filter actions based on specific criteria, 
-for example, an interchange control number.
+for example, the interchange control number for the messages that you want to find.
 
 ## Requirements
 
-* A logic app that's set up with monitoring and logging for debugging and diagnostics. 
+* A logic app that's set up with monitoring and logging. 
 Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
 and [how to set up monitoring and logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
-* An integration account that's set up with monitoring and logging for debugging and diagnostics. 
+* An integration account that's set up with monitoring and logging. 
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS. 
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
+and [set up tracking for your messages in OMS](logic-apps-track-b2b-messages-omsportal). 
 
-## Create a query in the Operations Management Suite portal
+After you've met these requirements, you should also have an OMS workspace for Log Analytics.
 
-You can either create a query on the Log Search page after
+## Create queries with filters in the Operations Management Suite portal
 
-* [Follow the steps for tracking and viewing message status and details](logic-apps-track-b2b-messages-omsportal.md#message-status-details) in the OMS portal 
-until you've opened the **Log Search** page for the actions that you want to filter.
+This example shows how you can find messages based on their interchange control number.
 
-   1. To create queries manually on the **Log Search** page, 
-   in the search box, enter `Type="AzureDiagnostics"` plus the 
-   columns and values that you want to use as query filters.
+1. Open your OMS workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
+and choose **Log Search**.
 
-   1.    
+   ![On your OMS home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
+   -or-
 
-1. On the **Log Search** page, create a query. 
+   ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-    a. In the search box, enter `Type="AzureDiagnostics"`, 
-    then choose **+ Add** so you can add a filter.
-    
-   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
+2. In the search box, enter a field that you want to find, and press **ENTER**. 
+When you start typing, OMS shows you possible matches.
 
-When you're ready, choose **Save**.
+   This example searches for the **Type=AzureDiagnostics** field.
 
-2. On the **Save Search** pane, add a name and category for your query. 
-When you're done, choose **Save**.
+   ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
+3. To add a filter to your query, choose **+Add**.
 
-3. To view the query, choose **Favorites**.
+   The example's **Type=AzureDiagnostics** filter returns 213 results.
 
-   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
+   ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-   ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
+4. Under **Add Filters**, enter the filter name so you can find the filter you want. 
+Select the filter, and choose **+Add**.
 
-## Run a saved query in the Operations Management Suite portal
+   This example uses the word "interchange" to find the interchange control number. We then select **event_record_messageProperties_interchangeControlNumber_s** 
+   as our filter.
 
-* In the log search, select **favorites** to view saved queries.  To view query results, select a query.
-![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
+   ![Select filter event ](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-## Search for an interchange control number
+5. Select the filter value that you want to use. Choose **Apply**.
 
-1. On the OMS home page, choose **Log Search**.
+   For this example, we select the interchange control number that we want.
 
-   ![Choose Log Search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-2. In the search box, type **Type="AzureDiagnostics"**. To filter data, select **Add**.  
-![Select query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+6. Now return to the query that you're building. 
+Your query has been updated with your selected filter event and value. 
+Also, your previous results are now filtered too.
 
-3. Type **interchange**, select **event_record_messageProperties_interchangeControlNumber_s**, and then select **Add**.  
-![Add filter](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
+   ![Return to your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
-4. Select the control number that you want to filter data for, and then select **Apply**.  
-![Search on the control number](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
+   Learn more about [how to find data with log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-5. Find the query that you created to filter data for the selected control number.   
-![Find the query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
+7. To reuse your query later, 
+save your query to your **Favorites**.
 
-6. Type a name for the query, and then save it.   
-![Save the query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query5.png)
+## Save your query as a favorite
 
-7. To view the query, and to use it in future searches, select **Favorites**.  
-![View the query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
+1. From your query, choose **Save**. 
+Give your query a name, and select a category. 
 
-8. You can update the query to search for a new interchange control number.  
-![Update the query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query6.png)
+   ![Give your query a name and category](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
 
+2. To view your query, 
+choose **Favorites**.
+
+   ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
+
+3. Under **Saved Searches** list, 
+select your query so that you can view the results.
+
+   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+
+4. To update the query so you can find different results, 
+edit the query.
+
+## Find and run saved queries in the Operations Management Suite portal
+
+1. Open your OMS workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
+and choose **Log Search**.
+
+   ![On your OMS home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+
+   -or-
+
+   ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+
+2. On the **Log Search** home page, choose **Favorites**.
+
+   ![Choose "Favorites"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
+
+3. Under **Saved Searches** list, 
+select your query so that you can view the results.
+
+   ![Select your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
 ## Next steps
-* Learn more about [custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md).   
-* Learn more about [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md).    
-* Learn more about [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md).  
-* Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
+
+* [Custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)   
+* [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
