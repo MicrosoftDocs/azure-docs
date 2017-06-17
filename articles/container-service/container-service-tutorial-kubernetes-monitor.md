@@ -33,9 +33,9 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Azure Container Service Kubernetes cluster** -  See [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster and setting up the `kubectl` command line tool.
+**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
 **OMS account** - If you don't already have an account, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
 

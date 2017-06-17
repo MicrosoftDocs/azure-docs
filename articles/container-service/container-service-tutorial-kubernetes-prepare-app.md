@@ -34,7 +34,7 @@ In this first tutorial, a sample application is tested and packed up into portab
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
 
-**Docker environment** - to complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
+**Docker environment** - to complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
 
 [Docker for Mac]( https://docs.docker.com/docker-for-mac/)
 
@@ -133,7 +133,7 @@ Browse to `http://localhost:8080` to see the running application. The applicatio
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
-## Delete Resources
+## Delete resources
 
 Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
 

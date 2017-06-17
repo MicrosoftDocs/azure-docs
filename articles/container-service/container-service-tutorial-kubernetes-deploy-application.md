@@ -33,13 +33,13 @@ Tasks completed in this tutorial include:
 
 ## Prerequisites
 
-This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
+**ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
 **Azure Container Registry** – if you would like to integrate Azure Container registry, an ACR instance is needed. See, [Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md) for information on the deployment steps.
 
-## Understand Kubernetes Objects
+## Introduction to Kubernetes objects
 
 When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim, which is a request to use a persistent volume, and a deployment, which manages the state of the application. 
 

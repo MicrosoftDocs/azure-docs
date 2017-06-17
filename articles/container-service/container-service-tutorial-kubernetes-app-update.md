@@ -33,11 +33,13 @@ In this tutorial, the sample Azure Vote app is updated. Tasks completed in this 
 
 ## Prerequisites
 
-This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
 **Azure Container Registry** – if you would like to integrate Azure Container registry (optional), an ACR instance is needed. See, [Deploy container registry]() for information on the deployment steps.
+
+**App deployed** - This tutorial assumes you deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
 
 ## Update application
 

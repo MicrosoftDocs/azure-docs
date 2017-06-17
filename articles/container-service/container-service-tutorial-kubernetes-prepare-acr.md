@@ -34,9 +34,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Prerequisites
 
-This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Container Images** - in the previous tutorial, two container images were created. These images are stored in an Azure Container Registry. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
+**Container Images** - in the previous section, two container images were created and are used in this tutorial. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
 
 ## Deploy Azure Container Registry
 

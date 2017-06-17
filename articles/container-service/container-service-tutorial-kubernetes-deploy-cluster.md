@@ -32,7 +32,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Prerequisites
 
-This tutorial is one part of a series. While you do not need to complete the full series to work through this tutorial, the following items are required.
+This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created. This tutorial assumes that the resource group exists. If needed, create a resource group named *myResourceGroup*.
 
