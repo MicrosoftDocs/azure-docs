@@ -129,7 +129,7 @@ The preceding CREATE TABLE statements involve the **REFERENCES** keyword to crea
 
 Next is an ERD that displays the relationship between the two tables. The values in the #tabEmployee.DepartmentCode *child* column are limited to the values present in the #tabDepartment.Department *parent* column.
 
-![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query/erd-dept-empl-fky-2.png)
+![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
