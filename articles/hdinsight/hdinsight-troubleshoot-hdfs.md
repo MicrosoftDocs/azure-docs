@@ -75,7 +75,6 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
 hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 ```
 
----
 
 ## How do I force disable HDFS safe mode in a cluster
 

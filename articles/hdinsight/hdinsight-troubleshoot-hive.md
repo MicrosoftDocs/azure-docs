@@ -120,7 +120,7 @@ hive -hiveconf hive.root.logger=ALL,console
 1) [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## How do I aanalyze Tez DAG data on a cluster's critical path
+## How do I aanalyze Tez DAG data on a cluster critical path
 
 ### Issue:
 
