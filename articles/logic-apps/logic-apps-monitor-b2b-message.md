@@ -33,8 +33,8 @@ You can monitor and track messages that use these B2B protocols: AS2, X12, and E
 ## Requirements
 
 * A logic app that's set up with monitoring and logging. 
-Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
-and [how to set up monitoring and logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
+and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link your logic app](logic-apps-enterprise-integration-create-integration-account.md).

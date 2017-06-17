@@ -28,15 +28,15 @@ for example, the interchange control number for the messages that you want to fi
 ## Requirements
 
 * A logic app that's set up with monitoring and logging. 
-Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
-and [how to set up monitoring and logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
+and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
 
 * An integration account that's set up with monitoring and logging. 
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
 * If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
-and [set up tracking for your messages in OMS](logic-apps-track-b2b-messages-omsportal). 
+and [set up tracking for your messages in OMS](logic-apps-track-b2b-messages-omsportal.md). 
 
 After you've met these requirements, you should also have an OMS workspace for Log Analytics.
 
@@ -135,4 +135,4 @@ To update the query so you can find different results, edit the query.
 * [Custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)   
 * [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
