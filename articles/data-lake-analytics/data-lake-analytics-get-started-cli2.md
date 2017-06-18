@@ -3,8 +3,8 @@ title: Get started with Azure Data Lake Analytics using Azure CLI 2.0 | Microsof
 description: 'Learn how to use the Azure Command-line Interface 2.0 to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
 documentationcenter: ''
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.service: data-lake-analytics
@@ -19,10 +19,6 @@ ms.author: jgao
 # Get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use Azure CLI 2.0 to create Azure Data Lake Analytics accounts, define Data Lake Analytics
-jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more
-information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-
 In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma
 separated values (CSV) file. To go through the same tutorial using other supported tools, use the dropdown list on the top of this section.
 
@@ -36,7 +32,8 @@ Before you begin this tutorial, you must have the following items:
 
 To log in to your Azure subscription:
 
-```azurecli
+```
+azurecli
 az login
 ```
 
@@ -46,7 +43,7 @@ Once you have logged in, the login command lists your subscriptions.
 
 To use a specific subscription:
 
-```azurecli
+```
 az account set --subscription <subscription id>
 ```
 
@@ -57,13 +54,13 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
 
     To list the existing resource groups under your subscription:
 
-    ```azurecli
+    ```
     az group list
     ```
 
     To create a new resource group:
 
-    ```azurecli
+    ```
     az group create --name "<Resource Group Name>" --location "<Azure Location>"
     ```
 
@@ -73,7 +70,7 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
 
     To list the existing Data Lake Store account:
 
-    ```azurecli
+    ```
     az dls account list
     ```
 
@@ -85,13 +82,13 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
 
 Use the following syntax to create a Data Lake Analytics account:
 
-```azurecli
+```
 az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 ```
 
 After creating an account, you can use the following commands to list the accounts and show account details:
 
-```azurecli
+```
 az dla account list
 az dla account show --account "<Data Lake Analytics Account Name>"            
 ```
@@ -103,7 +100,7 @@ The Azure portal provides a user interface for copying some sample data files to
 
 To upload files using CLI 2,0, use the following commands:
 
-```azurecli
+```
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
@@ -117,20 +114,18 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 Create a text file with following U-SQL script, and save the text file to your workstation:
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-
-    OUTPUT @searchlog   
-        TO "/Output/SearchLog-from-Data-Lake.csv"
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
     USING Outputters.Csv();
+```
 
 This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
 
@@ -153,13 +148,13 @@ You must use absolute paths to access files in linked Storage accounts.  The syn
 
 Use the following syntax to submit a job.
 
-```azurecli
+```
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
 For example:
 
-```azurecli
+```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
@@ -172,7 +167,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 
 **To cancel jobs**
 
-```azurecli
+```
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
@@ -180,7 +175,7 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 
 After a job is completed, you can use the following commands to list the output files, and download the files:
 
-```azurecli
+```
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
@@ -195,11 +190,6 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 
 ## Next steps
 
-* To see the same tutorial using other tools, click the tab selectors on the top of the page.
 * To see the Data Lake Analytics CLI 2.0 reference document, see[Data Lake Analytics - az dla](https://docs.microsoft.com/cli/azure/dla).
 * To see the Data Lake Store CLI 2.0 reference document, see[Data Lake Store - az dls](https://docs.microsoft.com/cli/azure/dls).
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
-* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
