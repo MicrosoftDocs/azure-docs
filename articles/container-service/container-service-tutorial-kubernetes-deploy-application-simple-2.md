@@ -61,9 +61,7 @@ The manifest files are found in the following directory of the cloned repo.
 /azure-voting-app/kubernetes-manifests
 ```
 
-## Deploy the Azure Vote app
-
-### All in one deployment
+## All in one deployment
 
 To quickly deploy the application and skip the step-by-step explanation, run the following command. When complete, just ahead to the **Test application** section of this document.
 
@@ -72,6 +70,8 @@ kubectl create -f azure-vote-all-in-one.yaml
 ```
 
 For details on each object created in this deployment, continue reading.
+
+## Step-by-step deployment
 
 ### Storage objects
 
