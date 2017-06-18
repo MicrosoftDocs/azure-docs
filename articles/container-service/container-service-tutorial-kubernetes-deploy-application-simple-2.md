@@ -63,25 +63,37 @@ The manifest files are found in the following directory of the cloned repo.
 
 ## Deploy the Azure Vote app
 
+### All in one deployment
+
+To quickly deploy the application and skip the step-by-step explanation, run the following command. When complete, just ahead to the **Test application** section of this document.
+
+```bash
+kubectl create -f azure-vote-all-in-one.yaml
+```
+
+For details on each object created in this deployment, continue reading.
+
 ### Storage objects
 
 Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact.
 
-The `storage-resources.yaml` manifest file creates a [storage class object](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#storageclasses), which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the Azure disk plug-in is used. A [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is also created, which configures a piece of storage (using a storage class), and assigns it to a pod.
+The `storage-resources.yaml` manifest file creates a [storage class object](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#storageclasses), which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the Azure disk plug-in is used. 
 
-Run the following to create the storge objects.
+A [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is also created, which configures a piece of storage (using a storage class), and assigns it to a pod.
+
+Run the following to create the storage objects.
 
 ```bash
 kubectl create -f storage-resources.yaml
 ```
 
-Once completed, a virtual disk is created in an Azure storage account, and attached to the resulting Kubernetes pods. The virtual disk is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
+Once completed, a virtual disk is created in an Azure storage account and attached to the resulting Kubernetes pods. The virtual disk is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
 
 ### Secure sensitive values
 
-Kubernetes secrets provide a secure storage environment for sensitive information. These secrets can then be used inside the pods, when deploying application in a Kubernetes cluster.+
+[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage environment for sensitive information. These secrets can then be used inside the pods, when deploying application in a Kubernetes cluster.
 
-In this example, the Azure Vote database credentials are stored in a secret, and used in the application deployment. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this educational example, notes have been placed inside the manifest with the decoded values.
+Using the `pod-secrets.yaml`, the Azure Vote database credentials are stored in a secret, and used in the application deployment. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this educational example, notes have been placed inside the manifest with the decoded values.
 
 Run the following to create the secrets objects.
 
@@ -91,13 +103,11 @@ kubectl create -f pod-secrets.yaml
 
 ### Create back-end deployment
 
-A Kubernetes deployment object manages the state of pods. This includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
+A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manages the state of pods. This includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
 
-The following example creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
+The `backend-deployment.yaml` manifest file creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
 
-Note, if using Azure Container Registry, update the container image name in the backend-deployment.yaml file with the loginServer of the ACR instance.
-
-Update the container image name in the `backend-deployment.yaml` file.
+Note, if using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance.
 
 ```yaml
 containers:
@@ -113,9 +123,9 @@ kubectl create -f backend-deployment.yaml
 
 ### Create front-end deployment
 
-The front-end deployment is like the back-end.
+The front-end deployment is configured in the `frontend-deployment.yaml` manifest file.
 
-Again, if using ACR, update the container image name in the **frontend-deployment.yaml** file to reference the ACR loginServer name.
+Again, if using ACR, update the container image name in the `frontend-deployment.yaml` file to reference the ACR loginServer name.
 
 ```yaml
 containers:
@@ -131,7 +141,7 @@ kubectl create -f frontend-deployment.yaml
 
 ### Expose application
 
-A Kubernetes service defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. Giving the service a type of LoadBalancer crates an externally accessible IP address over which the application can be accessed.
+A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. The Azure Vote app service configuration is defined in the `services.yaml` manifest file.
 
 Run the following to create the services.
 
