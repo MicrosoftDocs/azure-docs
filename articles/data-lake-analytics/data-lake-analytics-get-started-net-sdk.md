@@ -17,7 +17,7 @@ ms.date: 10/26/2016
 ms.author: edmaca
 
 ---
-# Tutorial: get started with Azure Data Lake Analytics using .NET SDK
+# Get started with Azure Data Lake Analytics using .NET SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use the Azure .NET SDK to submit jobs written in [U-SQL](data-lake-analytics-u-sql-get-started.md) to Data Lake Analytics. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).

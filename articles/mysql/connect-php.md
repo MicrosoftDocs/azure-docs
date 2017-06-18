@@ -6,10 +6,8 @@ author: mswutao
 ms.author: wuta
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: mysql-database
 ms.custom: mvc
-ms.devlang: php
 ms.topic: article
 ms.date: 06/08/2017
 ---
@@ -25,7 +23,7 @@ This quickstart uses the resources created in either of these guides as a starti
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) that includes PHP.
 
-### macOS
+### MacOS
 - Download [PHP 7.1.4 version](http://php.net/downloads.php)
 - Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration
 
@@ -53,18 +51,18 @@ Use the following code to connect and create a table using **CREATE TABLE** SQL 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code call methods [mysqli_init](http://php.net/manual/mysqli.init.php) and [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method 
 [mysqli_query](http://php.net/manual/mysqli.query.php) to run the query. Then it calls method [mysqli_close](http://php.net/manual/mysqli.close.php) to close the connection.
 
-Replace the db_host, db_username, db_password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$db_host = 'your_server.mysql.database.azure.com';
-$db_username = 'your_username';
-$db_password = 'your_password';
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
 $db_name = 'your_database';
 
 //Establishes the connection
 $conn = mysqli_init();
-mysqli_real_connect($conn, $db_host, $db_username, $db_password, $db_name, 3306);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
@@ -73,7 +71,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 if (mysqli_query($conn, '
 CREATE TABLE Products (
 `Id` INT NOT NULL AUTO_INCREMENT ,
-`Name` VARCHAR(200) NOT NULL ,
+`ProductName` VARCHAR(200) NOT NULL ,
 `Color` VARCHAR(50) NOT NULL ,
 `Price` DOUBLE NOT NULL ,
 PRIMARY KEY (`Id`)
@@ -92,18 +90,18 @@ Use the following code to connect and insert data using an **INSERT** SQL statem
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
-Replace the db_host, db_username, db_password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$db_host = 'your_server.mysql.database.azure.com';
-$db_username = 'your_username';
-$db_password = 'your_password';
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
 $db_name = 'your_database';
 
 //Establishes the connection
 $conn = mysqli_init();
-mysqli_real_connect($conn, $db_host, $db_username, $db_password, $db_name, 3306);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
@@ -112,7 +110,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 $product_name = 'BrandNewProduct';
 $product_color = 'Blue';
 $product_price = 15.5;
-if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (Name, Color, Price) VALUES (?, ?, ?)")) {
+if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Color, Price) VALUES (?, ?, ?)")) {
 mysqli_stmt_bind_param($stmt, 'ssd', $product_name, $product_color, $product_price);
 mysqli_stmt_execute($stmt);
 printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
@@ -127,18 +125,18 @@ mysqli_close($conn);
 ## Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement.  The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_query](http://php.net/manual/mysqli.query.php) perform the sql query, and uses [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) method to fetch the resulting rows.
 
-Replace the db_host, db_username, db_password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$db_host = 'your_server.mysql.database.azure.com';
-$db_username = 'your_username';
-$db_password = 'your_password';
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
 $db_name = 'your_database';
 
 //Establishes the connection
 $conn = mysqli_init();
-mysqli_real_connect($conn, $db_host, $db_username, $db_password, $db_name, 3306);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
@@ -160,18 +158,18 @@ Use the following code to connect and update the data using a **UPDATE** SQL sta
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared update statement, then binds the parameters for each updated column value using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
-Replace the db_host, db_username, db_password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$db_host = 'your_server.mysql.database.azure.com';
-$db_username = 'your_username';
-$db_password = 'your_password';
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
 $db_name = 'your_database';
 
 //Establishes the connection
 $conn = mysqli_init();
-mysqli_real_connect($conn, $db_host, $db_username, $db_password, $db_name, 3306);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
@@ -179,7 +177,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 //Run the Update statement
 $product_name = 'BrandNewProduct';
 $new_product_price = 15.1;
-if ($stmt = mysqli_prepare($conn, "UPDATE Products SET Price = ? WHERE Name = ?")) {
+if ($stmt = mysqli_prepare($conn, "UPDATE Products SET Price = ? WHERE ProductName = ?")) {
 mysqli_stmt_bind_param($stmt, 'ds', $new_product_price, $product_name);
 mysqli_stmt_execute($stmt);
 printf("Update: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
@@ -198,25 +196,25 @@ Use the following code to connect and read the data using a **DELETE** SQL state
 
 The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) to create a prepared delete statement, then binds the parameters for the where clause in the statement using method [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement using method [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement using method [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
-Replace the db_host, db_username, db_password, and db_name parameters with your own values. 
+Replace the host, username, password, and db_name parameters with your own values. 
 
 ```php
 <?php
-$db_host = 'your_server.mysql.database.azure.com';
-$db_username = 'your_username';
-$db_password = 'your_password';
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
 $db_name = 'your_database';
 
 //Establishes the connection
 $conn = mysqli_init();
-mysqli_real_connect($conn, $db_host, $db_username, $db_password, $db_name, 3306);
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
 //Run the Delete statement
 $product_name = 'BrandNewProduct';
-if ($stmt = mysqli_prepare($conn, "DELETE FROM Products WHERE Name = ?")) {
+if ($stmt = mysqli_prepare($conn, "DELETE FROM Products WHERE ProductName = ?")) {
 mysqli_stmt_bind_param($stmt, 's', $product_name);
 mysqli_stmt_execute($stmt);
 printf("Delete: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));

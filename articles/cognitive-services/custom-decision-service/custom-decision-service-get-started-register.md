@@ -31,7 +31,7 @@ To use Custom Decision Service for your application, register it on the portal. 
 
 5. To register your application in the [application-specific learning mode](custom-decision-service-overview.md#application-specific-learning-mode), select the **Custom App** check box in the lower-left corner. Enter a [connection string](../../storage/storage-configure-connection-string.md) for the Azure storage account where your application data is logged. For more information on how to create a storage account, see [How to create, manage, or delete a storage account](../../storage/storage-create-storage-account.md).
 
-## Next steps
+### Next steps
 
 * Get started to optimize [a webpage](custom-decision-service-get-started-browser.md) or [a smartphone app](custom-decision-service-get-started-app.md).
 * Work through a [tutorial](custom-decision-service-tutorial.md) for a more in-depth example.

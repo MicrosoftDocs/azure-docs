@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 
 ---
@@ -63,11 +63,13 @@ For more information about data gateways for other Microsoft services, see these
 * You must have already 
 [installed the data gateway on a local computer](logic-apps-gateway-install.md).
 
-* You need the Azure account that has the work or school email address used 
-to [install the on-premises data gateway](logic-apps-gateway-install.md#requirements).
+* When you sign in to the Azure portal, you have to use the same 
+work or school account that was used to [install the on-premises data gateway](logic-apps-gateway-install.md#requirements). Your sign-in account must also 
+have an Azure subscription to use when you create a gateway 
+resource in the Azure portal for your gateway installation.
 
-* Your gateway installation can't be already claimed by another Azure gateway resource. 
-You can associate your gateway installation only to one gateway resource. 
+* Your gateway installation can't already be claimed by an Azure gateway resource. 
+You can associate your gateway installation to only one Azure gateway resource. 
 Claim happens when you create the gateway resource so that the installation 
 is unavailable for other resources.
 
