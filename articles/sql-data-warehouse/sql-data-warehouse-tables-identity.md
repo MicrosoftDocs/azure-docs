@@ -17,7 +17,7 @@ ms.date: 06/13/2017
 ms.author: jrj;barbkess
 
 ---
-# Creating surrogate keys in SQL Data Warehouse
+# Creating surrogate keys using IDENTITY
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Data Types][Data Types]
