@@ -19,30 +19,24 @@ ms.author: saveenr
 ---
 # Manage  Azure Data Lake Analytics using Java SDK
 
-Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs. For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-In this tutorial, you will develop a Java console application which contains samples of common administrative tasks as well as creating test data and submitting a job.  To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+In this tutorial, you will develop a Java console application, which contains samples of common administrative tasksand, creating test data, and submitting a job.  To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
 ## Prerequisites
 * Java Development Kit (JDK) 8 (using Java version 1.8).
-* IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
+* IntelliJ or another suitable Java development environment. This step is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
 
 ## How do I authenticate using Azure Active Directory?
 
-The code snippet below provides code for **non-interactive** authentication, where the application provides its own credentials.
+The code following snippet provides code for **non-interactive** authentication, where the application provides its own credentials.
 
-You will need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application Contributor permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
+You need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application `Contributor` permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
 
 ## Create a Java application
-1. Open IntelliJ and create a new Java project using the **Command Line App** template.
+1. Open IntelliJ and create a Java project using the **Command-Line App** template.
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
-
->[!NOTE]
->This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
->
 
 ```
 <repositories>
@@ -102,7 +96,7 @@ Open **Main.java** and replace the existing code block with the following code. 
 This code goes through the process of creating Data Lake Store and Data Lake Analytics accounts, creating files in the store, running a job, getting job status, downloading job output, and finally deleting the account.
 
 > [!NOTE]
-> There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.
+> There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md) guide gets you started.
 >
 >
 
@@ -348,5 +342,5 @@ Follow the prompts to run and complete the application.
 ## Next steps
 
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
