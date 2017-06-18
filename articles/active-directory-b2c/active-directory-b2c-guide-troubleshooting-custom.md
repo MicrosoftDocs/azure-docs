@@ -78,7 +78,7 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 In GitHub, download the [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.
 
-### Built-in
+## Built-in policies
 
 The extensible policy framework of Azure AD B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in, and profile editing. For example, with a sign-up policy, you can manage factors by using the following settings:
 
