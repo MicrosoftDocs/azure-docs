@@ -61,13 +61,13 @@ The manifest files are found in the following directory of the cloned repo.
 
 ## All in one deployment
 
-To quickly deploy the application and skip the step-by-step explanation, run the following command. When complete, jump ahead to the [Test application](#test-application) section of this document.
+To quickly deploy the application and skip the step-by-step explanation, run the following command. To step through a detailed deployment, object by object, skip to the [step-by-step deployment](#step-by-step deployment) section of this document. 
 
 ```bash
 kubectl create -f azure-vote-all-in-one.yaml
 ```
 
-For details on each object created in this deployment, continue reading.
+When complete, jump ahead to the [Test application](#test-application) section of this document to test the deployment.
 
 ## Step-by-step deployment
 
