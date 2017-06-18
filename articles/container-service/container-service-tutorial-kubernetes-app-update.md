@@ -49,16 +49,10 @@ To complete the steps in this tutorial, you must have cloned a copy of the Azure
 git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
-Change directories such that you are working from the root of the cloned repository.
+Open the `config_file.cfg` file with any code or text editor. This file is found under the following directory of the cloned repo.
 
 ```bash
-cd azure-voting-app
-```
-
-Open the `config_file.cfg` file with any code or text editor.
-
-```bash
-code /azure-vote/azure-vote/config_file.cfg
+ /azure-voting-app/azure-vote/azure-vote/config_file.cfg
 ```
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.
@@ -71,19 +65,13 @@ VOTE2VALUE = 'Half Empty'
 SHOWHOST = 'false'
 ```
 
-Run `docker-compose build` to re-create the front-end container image.
+Use `docker-compose` to re-create the front-end image and run the application.
 
 ```bash
-docker-compose build
+docker-compose up --build -d
 ```
 
-Run `docker-compose up -d` to run the application.
-
-```bash
-docker-compose up -d
-```
-
-Browse to `http://localhost:8080` to see the updated application.
+Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -103,7 +91,9 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## Deploy updated application
 
-To provide for a staged deployment, ensure that you have multiple running instances of the azure-vote-front container.
+### Verify multiple replicas
+
+To ensure a staged deployment, ensure that you have multiple running instances of the azure-vote-front container.
 
 ```bash
 kubectl get pod
@@ -112,14 +102,26 @@ kubectl get pod
 If needed, scale the front-end deployment so that multiple instances are running.
 
 ```bash
-kubectl scale --replicas=4 deployment/azure-vote-front
+kubectl scale --replicas= deployment/azure-vote-front
 ```
 
-Make sure that the pods are running before updating the application.
+In a state where the front-end deployment has been scaled to three, the pods should look like the following.
 
 ```bash
 kubectl get pod
 ```
+
+Output:
+
+```bash
+NAME                               READY     STATUS    RESTARTS   AGE
+azure-vote-back-217588096-5w632    1/1       Running   0          10m
+azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
+azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
+azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
+```
+
+### Update application
 
 To update the application, run the following command. Update `<acrLoginServer>` with your ACR logging server name.
 

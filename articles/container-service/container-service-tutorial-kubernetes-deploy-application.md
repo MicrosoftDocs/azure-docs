@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app.git
 Once downloaded, change to the kubernetes-manifests directory.
 
 ```bash
-cd kubernetes-manifests
+cd ./azure-voting-app/kubernetes-manifests
 ```
 
 ## Deploy the Azure Vote app
@@ -157,7 +157,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: neilpeterson/azure-vote-back:v1
+        image: <acrLoginServer>/azure-vote-back:v1
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306
@@ -223,7 +223,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: neilpeterson/azure-vote-front:v1
+        image: <acrLoginServer>/azure-vote-front:v1
         resources:
           requests:
             cpu: 250m
