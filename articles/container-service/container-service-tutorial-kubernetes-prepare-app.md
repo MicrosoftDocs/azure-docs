@@ -129,7 +129,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Test application
 
-Browse to `http://localhost:8080` to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
+Browse to [http://localhost:8080](http://localhost:8080) to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 

@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying and Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster, for securely running container images. The steps in this tutorial include:
+Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial walks through deploying an Azure Container Registry instance, and pushing container images to it.  In subsequent tutorials, this ACR instance is integrated with an Azure Container Service Kubernetes cluster for securely running container images. The steps in this tutorial include:
 
 > [!div class="checklist"]
 > * Deploying an Azure Container Registry instance
@@ -36,7 +36,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Container Images** - in the previous section, two container images were created and are used in this tutorial. If you need to create the images, see [Create container images](container-service-tutorial-kubernetes-prepare-app.md).
+**Container Images** - in the [previous tutorial](container-service-tutorial-kubernetes-prepare-app.md) two container images were created and will now be pushed to ACR. That said, the commands in this tutorial can be used to push container images of your choice. 
 
 ## Deploy Azure Container Registry
 
@@ -48,7 +48,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry must be unique, update the name below with some random characters.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**, update the name below with some random characters.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
@@ -60,19 +60,19 @@ Once the ACR instance has been created, the name, login server name, and authent
 
 ACR Name:
 
-```bash
+```azurecli-interactive
 az acr list --resource-group myResourceGroup --query [0].name -o tsv
 ```
 
 ACR Login Server:
 
-```bash
+```azurecli-interactive
 az acr list --resource-group myResourceGroup --query [0].loginServer -o tsv
 ```
 
 ACR Password - update with the ACR name.
 
-```bash
+```azurecli-interactive
 az acr credential show --name <acrName> --query passwords[0].value -o tsv
 ```
 
@@ -152,7 +152,9 @@ Do the same to the *azure-vote-back* image.
 docker push <acrLoginServer>/azure-vote-back:v1
 ```
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command.
+## List images in ACR 
+
+To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
 
 ```azurecli-interactive
 az acr repository list --name <acrName> --output table
