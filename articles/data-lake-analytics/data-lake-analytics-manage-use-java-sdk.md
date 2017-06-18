@@ -19,18 +19,16 @@ ms.author: saveenr
 ---
 # Manage  Azure Data Lake Analytics using Java SDK
 
-In this tutorial, you will develop a Java console application, which contains samples of common administrative tasksand, creating test data, and submitting a job.  To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.
 
 ## Prerequisites
 * **Java Development Kit (JDK) 8**** (using Java version 1.8).
 * **IntelliJ** or another suitable Java development environment. The instructions in this document use IntelliJ.
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
+* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
 
 ## Authenticating using Azure Active Directory
 
 The code following snippet provides code for **non-interactive** authentication, where the application provides its own credentials.
-
-You need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application `Contributor` permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
 
 ## Create a Java application
 1. Open IntelliJ and create a Java project using the **Command-Line App** template.
@@ -90,7 +88,7 @@ You need to give your application permission to create resources in Azure for th
 
 Go to **File > Settings > Build > Execution > Deployment**. Select **Build Tools > Maven > Importing**. Then check **Import Maven projects automatically**.
 
-Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as `localFolderPath`, `_adlaAccountName`, `_adlsAccountName`, `_resourceGroupName` and replace placeholders for `CLIENT-ID`, `CLIENT-SECRET`, `TENANT-ID`, and `SUBSCRIPTION-ID`.
+Open **Main.java** and replace the existing code block with the following code snippet. Also, provide the values for parameters called out in the code snippet, such as `localFolderPath`, `_adlaAccountName`, `_adlsAccountName`, `_resourceGroupName` and replace placeholders for `CLIENT-ID`, `CLIENT-SECRET`, `TENANT-ID`, and `SUBSCRIPTION-ID`.
 
 This code creates a Data Lake Store account, creates a Data Lake Analytics account, creates files in the store, runs a U-SQL job, retrieves job status, and downloads job outputs.
 
