@@ -36,9 +36,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Azure Container Service Kubernetes cluster** -  See [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster and setting up the `kubectl` command line tool.
+**ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
-**App deployed** - This tutorial assumes you deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
+**App deployed** - This tutorial assumes you’ve deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
 
 ## Manually scale pods
 

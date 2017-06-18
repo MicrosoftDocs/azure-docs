@@ -37,11 +37,9 @@ This is one tutorial of a multi-part series. You do not need to complete the ful
 
 **ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
-**Azure Container Registry** – if you would like to integrate Azure Container registry, an ACR instance is needed. See, [Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md) for information on the deployment steps.
+## Kubernetes objects
 
-## Introduction to Kubernetes objects
-
-When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
+When deploying a containerized application into Kubernetes, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
 
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
@@ -61,15 +59,53 @@ The manifest files are found in the following directory of the cloned repo.
 /azure-voting-app/kubernetes-manifests
 ```
 
-## Deploy the Azure Vote app
+## All in one deployment
 
-### Update the deployment manifest
+To quickly deploy the application and skip the step-by-step explanation, run the following command. When complete, jump ahead to the [Test application](#test-application) section of this document.
 
-Because your images are stored in an Azure Container Registry, or any other registry service, the deployment manifest must be updated to reference this location. 
+```bash
+kubectl create -f azure-vote-all-in-one.yaml
+```
 
-Open up the ` azure-vote-all-in-one.yaml` file, locate the two container images inside of the deployment object, and updated the image name to include the ACR login server name. If this step is skipped, pre-created images will be pulled from a public registry. 
+For details on each object created in this deployment, continue reading.
 
-Example of the azure-vote back-end deployment configuration:
+## Step-by-step deployment
+
+### Storage objects
+
+Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact.
+
+The `storage-resources.yaml` manifest file creates a [storage class object](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#storageclasses), which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug-in is used. 
+
+A [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is also created, which configures a piece of storage (using a storage class), and assigns it to a pod.
+
+Run the following to create the storage objects.
+
+```bash
+kubectl create -f storage-resources.yaml
+```
+
+Once completed, a virtual disk is created and attached to the resulting Kubernetes pods. The virtual disk is automatically created in a storage account residing in the same resource group as the Kubernetes cluster, and of the same configuration as the storage class object (Standard_LRS).
+
+### Secure sensitive values
+
+[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage environment for sensitive information. These secrets can then be used inside of Kubernetes deployments.
+
+Using the `pod-secrets.yaml`, the Azure Vote database credentials are stored in a secret. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this educational example, notes have been placed inside the manifest with the decoded values.
+
+Run the following to create the secrets objects.
+
+```bash
+kubectl create -f pod-secrets.yaml
+```
+
+### Create back-end deployment
+
+A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manages the state of Kubernetes pods. This includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
+
+The `backend-deployment.yaml` manifest file creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
+
+Note, if using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance. If you do not update the container image name, a pre-created image will be pulled from a public registry.
 
 ```yaml
 containers:
@@ -77,7 +113,17 @@ containers:
         image: <acrLoginServer>/azure-vote-back:v1
 ```
 
-Example of the azure-vote front-end deployment configuration:
+Run the following to create the back-end deployment.
+
+```bash
+kubectl create -f backend-deployment.yaml
+```
+
+### Create front-end deployment
+
+The front-end deployment is configured in the `frontend-deployment.yaml` manifest file.
+
+Again, if using ACR, update the container image name in the `frontend-deployment.yaml` file to reference the ACR loginServer name. If you do not update the container image name, a pre-created image will be pulled from a public registry.
 
 ```yaml
 containers:
@@ -85,24 +131,20 @@ containers:
         image: <acrLoginServer>/azure-vote-front:v1
 ```
 
-### Deploy the application
-
-The all in one deployment manifest deploys all Kubernetes objects. Collectively these create the application.  
+Run the following to create the front-end deployment.
 
 ```bash
-kubectl create -f azure-vote-all-in-one.yaml
+kubectl create -f frontend-deployment.yaml
 ```
 
-Output:
+### Expose application
+
+A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) defines how a deployment is accessed. With the Azure Vote app, the back-end deployment must be internal accessible by deployment name. The font-end deployment must be accessible over the internet. The Azure Vote app service configuration is defined in the `services.yaml` manifest file.
+
+Run the following to create the services.
 
 ```bash
-storageclass "slow" created
-persistentvolumeclaim "mysql-pv-claim" created
-secret "azure-vote" created
-deployment "azure-vote-back" created
-service "azure-vote-back" created
-deployment "azure-vote-front" created
-service "azure-vote-front" created
+kubectl create -f services.yaml
 ```
 
 ## Test application
