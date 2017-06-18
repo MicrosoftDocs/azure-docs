@@ -63,40 +63,13 @@ The manifest files are found in the following directory of the cloned repo.
 
 ## Deploy the Azure Vote app
 
-### Create storage resources
+### Storage objects
 
-Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact. 
+Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact.
 
-The following manifest file creates a **storage class** object, which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug-in is used.
+The `storage-resources.yaml` manifest file creates a [storage class object](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#storageclasses), which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the Azure disk plug-in is used. A [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is also created, which configures a piece of storage (using a storage class), and assigns it to a pod.
 
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
- name: slow
-provisioner: kubernetes.io/azure-disk
-parameters:
- skuName: Standard_LRS
- location: eastus
-
-```
-
-A *persistent volume claim* is also created, which configures a piece of storage (using a storage class), and assigns it to a pod. 
-
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-```
-
-Create the storage objects with the following command:
+Run the following to create the storge objects.
 
 ```bash
 kubectl create -f storage-resources.yaml
@@ -106,30 +79,11 @@ Once completed, a virtual disk is created in an Azure storage account, and attac
 
 ### Secure sensitive values
 
-Kubernetes secrets provide a secure storage environment for sensitive information. These secrets can then be used inside the pods, when deploying application in a Kubernetes cluster.
+Kubernetes secrets provide a secure storage environment for sensitive information. These secrets can then be used inside the pods, when deploying application in a Kubernetes cluster.+
 
 In this example, the Azure Vote database credentials are stored in a secret, and used in the application deployment. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this educational example, notes have been placed inside the manifest with the decoded values.
 
-```bash
-apiVersion: v1
-kind: Secret
-metadata:
-  name: azure-vote
-type: Opaque
-data:
-  # dbuser
-  MYSQL_USER: ZGJ1c2Vy
-  # Password12
-  MYSQL_PASSWORD: UGFzc3dvcmQxMg==
-  # azurevote
-  MYSQL_DATABASE: YXp1cmV2b3Rl
-  # azure-vote-back
-  MYSQL_HOST: YXp1cmUtdm90ZS1iYWNr
-  # Password12
-  MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
-```
-
-Create the secret objects with the following command:
+Run the following to create the secrets objects.
 
 ```bash
 kubectl create -f pod-secrets.yaml
@@ -141,58 +95,17 @@ A Kubernetes deployment object manages the state of pods. This includes things l
 
 The following example creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
 
-Note, if using Azure Container Registry, update the container image name in the **backend-deployment.yaml** file with the loginServer of the ACR instance.
+Note, if using Azure Container Registry, update the container image name in the backend-deployment.yaml file with the loginServer of the ACR instance.
+
+Update the container image name in the `backend-deployment.yaml` file.
 
 ```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
+containers:
       - name: azure-vote-back
         image: <acrLoginServer>/azure-vote-back:v1
-        args: ["--ignore-db-dir=lost+found"]
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_DATABASE
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
 ```
 
-Create the deployment with the following command:
+Run the following to create the back-end deployment.
 
 ```bash
 kubectl create -f backend-deployment.yaml
@@ -200,67 +113,17 @@ kubectl create -f backend-deployment.yaml
 
 ### Create front-end deployment
 
-The front-end deployment is like the back-end. 
+The front-end deployment is like the back-end.
 
-Again, if using ACR, update the container image name in the **frontend-deployment.yaml** file to reference the ACR loginServer name. 
+Again, if using ACR, update the container image name in the **frontend-deployment.yaml** file to reference the ACR loginServer name.
 
 ```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5 
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      containers:
+containers:
       - name: azure-vote-front
         image: <acrLoginServer>/azure-vote-front:v1
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
-        imagePullPolicy: Always
-        env:
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_DATABASE
-        - name: MYSQL_HOST
-          valueFrom:
-            secretKeyRef:
-              name: azure-vote
-              key: MYSQL_HOST
 ```
 
-Create the deployment with the following command:
+Run the following to create the front-end deployment.
 
 ```bash
 kubectl create -f frontend-deployment.yaml
@@ -268,32 +131,9 @@ kubectl create -f frontend-deployment.yaml
 
 ### Expose application
 
-A Kubernetes service defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. Giving the service a type of *LoadBalancer* crates an externally accessible IP address over which the application can be accessed.
+A Kubernetes service defines how a pod is accessed. With the Azure Vote app, the back-end pod must be internal accessible by name. The font-end pod must be accessible over the internet. Giving the service a type of LoadBalancer crates an externally accessible IP address over which the application can be accessed.
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 3306
-  selector:
-    app: azure-vote-back
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-```
-
-Create the services with the following command:
+Run the following to create the services.
 
 ```bash
 kubectl create -f services.yaml

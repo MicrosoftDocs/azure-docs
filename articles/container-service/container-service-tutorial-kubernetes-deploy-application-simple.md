@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
+ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
@@ -41,13 +41,13 @@ This is one tutorial of a multi-part series. You do not need to complete the ful
 
 ## Introduction to Kubernetes objects
 
-When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage that is used for data storage, persistent volume claim, which is a request to use a persistent volume, and a deployment, which manages the state of the application. 
+When deploying a containerized application into a Kubernetes cluster, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
 
 For details on all Kubernetes object, see [Kubernetes Concepts]( https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
 ## Get manifest files
 
-For this tutorial, Kubernetes object will be deployed using Kubernetes manifest files. Manifest files are YAML files that contain the configuration instructions.
+For this tutorial, Kubernetes object will be deployed using Kubernetes manifest files. Manifest files are YAML files that contain configuration instructions.
 
 The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
 
@@ -55,10 +55,10 @@ The manifest files for each object in this tutorial are available in the Azure V
 git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
-Once downloaded, change to the kubernetes-manifests directory.
+The manifest files are found in the following directory of the cloned repo.
 
 ```bash
-cd kubernetes-manifests
+/azure-voting-app/kubernetes-manifests
 ```
 
 ## Deploy the Azure Vote app
