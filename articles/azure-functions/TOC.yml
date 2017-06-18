@@ -13,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
     - name: Timer
