@@ -162,7 +162,7 @@ az acr repository list --name <acrName> --output table
 
 Output:
 
-```azurecli-interactive
+```azurecli
 Result
 ----------------
 azure-vote-back
