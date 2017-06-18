@@ -19,36 +19,36 @@ ms.author: joroja
 ---
 # Troubleshoot Azure Active Directory B2C custom policies and Identity Experience Framework
 
-If you use Azure Active Directory (Azure AD) B2C custom policies, you might experience challenges setting the Identity Experience Framework in its policy language XML format.  Learning to write custom policies is like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
+If you use Azure Active Directory (Azure AD) B2C custom policies, you might experience challenges setting up the Identity Experience Framework in its policy language XML format.  Learning to write custom policies can be like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
 
 > [!NOTE]
-> This article focuses on troubleshooting your Azure AD B2C custom policy configuration. It doesn't cover the relying party application or its identity library.
+> This article focuses on troubleshooting your Azure AD B2C custom policy configuration. It doesn't address the relying party application or its identity library.
 
 ## XML editing
 
-The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. A good XML editor displays XML natively, it color-codes content, it prefills common terms, it keeps XML elements indexed, and it can validate with schema. Here are two of our favorite XML editors:
+The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. A good XML editor displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and it can validate with schema. Here are two of our favorite XML editors:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Notepad++](https://notepad-plus-plus.org/)
 
 XML schema validation identifies errors before you upload your XML file. In the root folder of the starter pack, get the XML schema definition TrustFrameworkPolicy_0.3.0.0.xsd. For more information, in the documentation of your XML editor, look for *XML tools* and *XML validation*.
 
-A quick review of XML rules might be helpful. Azure AD B2C rejects any XML formatting errors that it detects. Occasionally, incorrectly formatted XML might cause error messages that are misleading.
+You might find a review of XML rules helpful. Azure AD B2C rejects any XML formatting errors that it detects. Occasionally, incorrectly formatted XML might cause error messages that are misleading.
 
 ## Upload policies and policy validation
 
- **Upload** validation is automatic. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to. (The relying party policy file, the extensions file, and the base file.) 
+ XML file upload validation is automatic. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to. (The relying party policy file, the extensions file, and the base file.) 
  
  Common validation errors include:
 
 Error snippet: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* The ClaimType value might be misspelled, or it does not exist in the schema.
+* The ClaimType value might be misspelled, or does not exist in the schema.
 * ClaimType values must be defined in at least one of the files in the policy. 
     For example: ` <ClaimType Id="socialIdpUserId">`
-* If ClaimType is defined in the extensions file, but it's used in a technical profile in the base file, uploading the base file results in an error.
+* If ClaimType is defined in the extensions file, but it's also used in a TechnicalProfile value in the base file, uploading the base file results in an error.
 
 Error snippet: `...makes a reference to a ClaimsTransformation with id...`
-* Same as for the ClaimType error.
+* The causes for the error might be the same as for the ClaimType error.
 
 Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * Check that the TenantId value in the **\<TrustFrameworkPolicy\>** and the **\<BasePolicy\>** elements match your target Azure AD B2C tenant.  
@@ -62,7 +62,7 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
     * Web App/Web API: No
     * Native client: No
 
-* To trace the exchange of messages between your client browser and Azure AD B2C, use [fiddler](http://www.telerik.com/fiddler). You can get an indication of where your user journey is failing in your orchestration steps.
+* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](http://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
 * In **Development mode**, use **Application Insights** to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor-Authentication.  
 
@@ -70,9 +70,9 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 **Keep multiple versions of your scenarios. Group them in a project with your application.** The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
 
-**Develop and test technical profiles with known user journeys.** Use tested starter pack policies to configure your technical profiles. Test them separately before you incorporate them into your own user journeys.
+**Develop and test technical profiles with known user journeys.** Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
 
-**Develop and test user journeys with tested technical profiles** Change the orchestration steps of a user journey step by step. Progressively build your intended scenarios.
+**Develop and test user journeys with tested technical profiles**. Change the orchestration steps of a user journey incrementally. Progressively build your intended scenarios.
 
 ## Get started
 
@@ -85,12 +85,12 @@ The extensible policy framework of Azure AD B2C is the core strength of the serv
 * Account types (social accounts like Facebook, or local accounts like email addresses) that consumers can use to sign up for the application.
 * Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
 * Multi-factor authentication.
-* The appearance and usability of all sign-up pages.
+* The appearance ("look and feel") of all sign-up pages.
 * Information (which manifests as claims in a token) that the application receives when the policy run finishes.
 
 You can create multiple policies of different types in your tenant. You can use the policies in your applications as needed, and reuse them across applications. This way, you can define and modify consumer identity experiences with minimal or no changes to your code.
 
-Policies are available for use via a simple developer interface. Your application triggers a policy by using a standard HTTP authentication request (passing a policy parameter in the request). It receives a customized token as a response. For example, the only difference between requests that invoke a sign-up policy and those that invoke a sign-in policy is the policy name used in the `p` query string parameter. Here are two examples:
+Policies are available to use via a simple developer interface. Your application triggers a policy by using a standard HTTP authentication request (passing a policy parameter in the request). It receives a customized token as a response. For example, the only difference between requests that invoke a sign-up policy and those that invoke a sign-in policy is the policy name used in the `p` query string parameter. Here are two examples:
 
 ```
 
@@ -123,19 +123,19 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 For more information about the policy framework, see the blog post [A look inside Azure AD B2C](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up policy
-To add sign-up to your application, you must create a sign-up policy. This policy describes the experiences that consumers experience during sign-up. It also describes the contents of tokens that the application receives in successful sign-ups.
+To add sign-up to your application, create a sign-up policy. This policy describes the consumer experience during sign-up. It also describes the contents of tokens that the application receives in successful sign-ups.
 
 1. In the Azure portal, go to the [Azure AD B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. At the top of the blade, click **+Add**.
-4. The **Name** determines the sign-up policy name used by your application. For example, enter **SiUp**.
+4. The **Name** determines the sign-up policy name for your application. For example, enter **SiUp**.
 5. Click **Identity providers**, and then select **Email signup**. Optionally, you can select social identity providers, if they are already configured. Click **OK**.
 6. Click **Sign-up attributes**. Choose attributes that you want to collect from the consumer during sign-up. For example, select **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 7. Click **Application claims**. Choose claims that you want returned in the tokens that are sent back to your application after a successful sign-up experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new**, and **User's Object ID**.
 8. Click **Create**. The new policy appears as **B2C_1_SiUp** (the **B2C\_1\_** fragment is automatically added) on the **Sign-up policies** blade.
 9. To open the policy, click **B2C_1_SiUp**.
 10. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select **https://localhost:44321/**.
-11. Click **Run now**. A new browser tab opens, and you can go through the consumer experience of signing up for your application.
+11. Click **Run now**. A new browser tab opens, and you can step through the consumer experience of signing up for your application.
     
     > [!NOTE]
     > It might take up to a minute for policy creation and updates to take effect.
@@ -149,13 +149,13 @@ To add sign-in to your application, create a sign-in policy. This policy describ
 1. In the Azure portal, go to the [Azure AD B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-in policies**.
 3. At the top of the blade, click **+Add**.
-4. The **Name** determines the sign-in policy name used by your application. For example, enter **SiIn**.
+4. The **Name** determines the sign-in policy name for your application. For example, enter **SiIn**.
 5. Click **Identity providers**, and then select **Local Account SignIn**. Optionally, you can select social identity providers, if they are already configured. Click **OK**.
 6. Click **Application claims**. Choose claims that you want returned in the tokens that are sent back to your application after a successful sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**,  and **User's Object ID**. Click **OK**.
 7. Click **Create**. The new policy appears as **B2C_1_SiIn** (the **B2C\_1\_** fragment is automatically added) on the **Sign-in policies** blade.
 8. To open the policy, click **B2C_1_SiIn**.
 9. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select **https://localhost:44321/** .
-10. Click **Run now**. A new browser tab opens, and you can go through the consumer experience of signing into your application.
+10. Click **Run now**. A new browser tab opens, and you can step through the consumer experience of signing into your application.
     
     > [!NOTE]
     > It might take up to a minute for policy creation and updates to take effect.
@@ -163,19 +163,19 @@ To add sign-in to your application, create a sign-in policy. This policy describ
     > 
 
 ## Create a sign-up or sign-in policy
-This policy handles consumer sign-up and sign-in experiences with a single configuration. Consumers are given a choice (sign-up or sign-in) depending on the context. The policy also describes the contents of tokens that the application will receive upon successful sign-up or sign-in. For a code sample for the sign-up or sign-in policy, see [Azure AD B2C sign-up and sign-in in an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+This policy handles consumer sign-up *and* sign-in experiences with a single configuration. Consumers are given a choice, sign-up or sign-in, depending on the context. The policy also describes the contents of tokens that the application receives after successful sign-up or sign-in. For a code sample for the sign-up or sign-in policy, see [this ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. In the Azure portal, go to the [Azure AD B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up or sign-in policies**.
 3. At the top of the blade, click **+Add**.
-4. The **Name** determines the sign-up policy name that's used by your application. For example, enter **SiUpIn**.
-5. Click **Identity providers**, and then select **Email signup**. Optionally, you can select social identity providers, if already configured. Click **OK**.
+4. The **Name** determines the sign-up policy name for your application. For example, enter **SiUpIn**.
+5. Click **Identity providers**, and then select **Email signup**. Optionally, you can select social identity providers, if they are already configured. Click **OK**.
 6. Click **Sign-up attributes**. Choose attributes that you want to collect from the consumer during sign-up. For example, select **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 7. Click **Application claims**. Choose claims that you want returned in the tokens that are sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new**, and **User's Object ID**.
 8. Click **Create**. The new policy appears as **B2C_1_SiUpIn** (the **B2C\_1\_** fragment is automatically added) on the **Sign-up or sign-in policies** blade.
 9. To open the policy, click **B2C_1_SiUpIn**.
 10. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select  **https://localhost:44321/**.
-11. Click **Run now**. A new browser tab opens, and you can go through the sign-up or sign-in consumer experience.
+11. Click **Run now**. A new browser tab opens, and you can step through the sign-up or sign-in consumer experience.
     
     > [!NOTE]
     > It might take up to a minute for policy creation and updates to take effect.
@@ -183,18 +183,18 @@ This policy handles consumer sign-up and sign-in experiences with a single confi
     > 
 
 ## Create a profile editing policy
-To enable profile editing on your application, you must create a profile editing policy. This policy describes the consumer experience during profile editing. It also describes the contents of tokens that the application receives on successful completion.
+To add profile editing to your application, create a profile editing policy. This policy describes the consumer experience during profile editing. It also describes the contents of tokens that the application receives on successful completion.
 
 1. In the Azure portal, go to the [Azure AD B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Profile editing policies**.
 3. At the top of the blade, click **+Add**.
-4. The **Name** determines the profile editing policy name that's used by your application. For example, enter **SiPe**.
+4. The **Name** determines the profile editing policy name for your application. For example, enter **SiPe**.
 5. Click **Identity providers**, and then select **Local Account Signin**. Optionally, you can select social identity providers, if they are already configured. Click **OK**.
 6. Click **Profile attributes**. Choose attributes that the consumer can view and edit. For example, select **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 7. Click **Application claims**. Choose claims that you want returned in the tokens that are sent back to your application after a successful profile editing experience. For example, select **Display Name** and **Postal Code**.
 8. Click **Create**. The new policy appears as **B2C_1_SiPe** (the **B2C\_1\_** fragment is automatically added) on the **Profile editing policies** blade.
 9. To open the policy, click **B2C_1_SiPe**.
-10. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select **https://localhost:44321/** .
+10. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select **https://localhost:44321/**.
 11. Click **Run now**. A new browser tab opens, and you can go through the profile editing consumer experience in your application.
     
     > [!NOTE]
@@ -203,18 +203,18 @@ To enable profile editing on your application, you must create a profile editing
     > 
 
 ## Create a password reset policy
-To enable fine-grained password reset on your application, you must create a password reset policy. Note that the tenant-wide [self-service password reset](active-directory-b2c-reference-sspr.md) option is still applicable for sign-in policies. This policy describes the consumer experience during password reset. It also describes the contents of tokens that the application receives on successful completion.
+To add fine-grained password reset to your application, create a password reset policy. Note that the tenant-wide [self-service password reset](active-directory-b2c-reference-sspr.md) option is still applicable for sign-in policies. This policy describes the consumer experience during password reset. It also describes the contents of tokens that the application receives on successful completion.
 
 1. In the Azure portal, go to the [Azure AD B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Password reset policies**.
 3. At the top of the blade, click **+Add**.
-4. The **Name** determines the password reset policy name used by your application. For example, enter **SSPR**.
+4. The **Name** determines the password reset policy name for your application. For example, enter **SSPR**.
 5. Click **Identity providers**, and then select **Reset password using email address**. Click **OK**.
 6. Click **Application claims**. Choose claims that you want returned in the tokens that are sent back to your application after a successful password reset experience. For example, select **User's Object ID**.
 7. Click **Create**. The new policy appears as **B2C_1_SSPR** (the **B2C\_1\_** fragment is automatically added) on the **Password reset policies** blade.
 8. To open the policy, click **B2C_1_SSPR**.
 9. In the **Applications** box, select **Contoso B2C app**. In the **Reply URL / Redirect URI** box, select **https://localhost:44321/**.
-10. Click **Run now**. A new browser tab opens, and you can go through the password reset consumer experience in your application.
+10. Click **Run now**. A new browser tab opens, and you can step through the password reset consumer experience in your application.
     
     > [!NOTE]
     > It might take up to a minute for policy creation and updates to take effect.
@@ -223,7 +223,7 @@ To enable fine-grained password reset on your application, you must create a pas
 
 ## How to link a sign-up or sign-in policy with a password reset policy
 
-When you create a sign-up or sign-in policy (with local accounts), the consumer sees a **Forgot password?** link on the sign-in page. Clicking this link doesn't automatically initiate a password reset policy. Instead, the error code `AADB2C90118` is returned to your app. Your app must handle this error, and invoke a specific password reset policy. For a sample that demonstrates how to link these policies is [this simple ASP.NET web application](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+When you create a sign-up or sign-in policy (with local accounts), the consumer sees a **Forgot password?** link on the sign-in page. Clicking this link doesn't automatically initiate a password reset policy. Instead, the error code `AADB2C90118` is returned to your app. Your app must handle this error, and invoke a specific password reset policy. For a sample that demonstrates how to link these policies, see [this ASP.NET web application](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ## Next steps
 * Learn about [token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md).
