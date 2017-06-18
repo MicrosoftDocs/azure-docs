@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
@@ -46,7 +46,7 @@ The following example creates a cluster named *myK8sCluster* with one Linux mast
 az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
 ```
 
-After several minutes, the command completes, and shows you information about your deployment.
+After several minutes, the command completes, and returns information about the ACS deployment.
 
 ## Install kubectl
 
@@ -85,6 +85,8 @@ k8s-agent-98dc3136-1    Ready                      5m        v1.6.2
 k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
+
+At tutorial competition, you have an ACS Kubernetes cluster ready for workload. In subsequent tutorials a multi-container application will be deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 

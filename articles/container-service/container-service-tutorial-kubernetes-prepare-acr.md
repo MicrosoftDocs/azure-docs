@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/21/2017
 ms.author: nepeters
 ---
 

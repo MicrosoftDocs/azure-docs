@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
