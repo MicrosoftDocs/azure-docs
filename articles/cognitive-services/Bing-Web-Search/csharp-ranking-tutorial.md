@@ -109,7 +109,7 @@ Next, add a method that queries the API and displays the results:
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<YOUR_SUBSCRIPTION_KEY_GOES_HERE>");
                 var queryString = HttpUtility.ParseQueryString(string.Empty);
                 queryString["q"] = userQuery;
-                var query = "https://api.cognitive.microsoft.com/bing/v5.0/search?" + queryString;
+                var query = "https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search?" + queryString;
 
                 // Run the query
                 HttpResponseMessage httpResponseMessage = client.GetAsync(query).Result;
