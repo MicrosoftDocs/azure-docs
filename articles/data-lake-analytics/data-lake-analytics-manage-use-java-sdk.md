@@ -88,11 +88,7 @@ The code following snippet provides code for **non-interactive** authentication,
 
 Go to **File > Settings > Build > Execution > Deployment**. Select **Build Tools > Maven > Importing**. Then check **Import Maven projects automatically**.
 
-Open **Main.java** and replace the existing code block with the following code snippet. Also, provide the values for parameters called out in the code snippet, such as `localFolderPath`, `_adlaAccountName`, `_adlsAccountName`, `_resourceGroupName` and replace placeholders for `CLIENT-ID`, `CLIENT-SECRET`, `TENANT-ID`, and `SUBSCRIPTION-ID`.
-
-This code creates a Data Lake Store account, creates a Data Lake Analytics account, creates files in the store, runs a U-SQL job, retrieves job status, and downloads job outputs.
-
-The following code is the overall program structure.
+Open `Main.java` and replace the existing code block with the following code snippet:
 
 ```
 package com.company;
@@ -201,6 +197,18 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
     }
 }
 ```
+
+Provide the values for parameters called out in the code snippet:
+* `localFolderPath`
+* `_adlaAccountName`
+* `_adlsAccountName`
+* `_resourceGroupName`
+
+Replace the placeholders for:
+* `CLIENT-ID`,
+* `CLIENT-SECRET`,
+* `TENANT-ID`
+* `SUBSCRIPTION-ID`
 
 ## Helper functions
 
