@@ -7,61 +7,63 @@ author: saveenr
 manager: saveenr
 editor: cgronlun
 
-ms.assetid: b9da9e5e-7703-43eb-8542-6d4025a82754
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/3/2017
-ms.author: jgao
+ms.author: saveenr
 
 ---
 
 
 # Manage Azure Data Lake Analytics using Python
 
-Learn how to use Python to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytic accounts. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+## Python versions
 
-In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated-values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
-
-## Prerequisites
-
-Before you begin this tutorial, you must have the following items:
-
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [End-user authentication](../data-lake-store/data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
-- **[Python](https://www.python.org/downloads/)**. You must use the 64-bit version. This article uses Python version 3.5.2.
-
+* You must use a 64-bit version of Python.
+* You can use the standard python distribution found at **[Python.org downloads](https://www.python.org/downloads/)**. 
+* Many developers find it  convenient to use the **[Anaconda Python distribution](https://www.continuum.io/downloads)**.  
+* This article was written using Python version 3.6 from the standard Python distribution
 
 ## Install Azure Python SDK
 
-To work with Data Lake Store using Python, you need to install the following modules.
+You need to install the following modules.
 
-* The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
 * The **azure-mgmt-resource** module includes other Azure modules for Active Directory, etc.
+* The **azure-mgmt-datalake-store** module includes the Azure Data Lake Store account management operations.
 * The **azure-datalake-store** module includes the Azure Data Lake Store filesystem operations. 
 * The **azure-datalake-analytics** module includes the Azure Data Lake Analytics operations. 
 
-Use the following `pip` commands to install the modules.
+First, ensure you have the latest `pip` by running the following command.
+
+```
+python -m pip install --upgrade pip
+```
+
+This document was written using `pip version 9.0.1`.
+
+Use the following `pip` commands to install the modules from the commandline.
 
 ```
 pip install azure-mgmt-resource
+pip install azure-datalake-store
 pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
-pip install azure-datalake-store
 ```
 
-## Create a Python application
+## Create a new Python script
 
-Use the IDE of your choice to create a new Python script, for example, mysample.py. Initialize the python script with the following code to load the required modules.
+Paste the following code into the script.
 
 ```
 ## Use this only for Azure AD service-to-service authentication
-from azure.common.credentials import ServicePrincipalCredentials
+#from azure.common.credentials import ServicePrincipalCredentials
 
 ## Use this only for Azure AD end-user authentication
-from azure.common.credentials import UserPassCredentials
+#from azure.common.credentials import UserPassCredentials
 
 ## Required for Azure Resource Manager
 from azure.mgmt.resource.resources import ResourceManagementClient
@@ -89,13 +91,15 @@ from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManage
 import logging, getpass, pprint, uuid, time
 ```
 
+Run this script to verify that the modules can be imported.
+
 ## Authentication
 
-Use one of the following methods to authenticate:
+### Interactive user authentication with a pop-up
 
-### End-user authentication for account management
+This method is not supported.
 
-Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. The user account cannot be configured for multi-factor authentication, and the account can't be a Microsoft account / Live ID, for example, @outlook.com, and @live.com.
+### Interactice user authentication with a device code
 
 ```
 user = input('Enter the user to authenticate with that has permission to subscription: ')
@@ -103,13 +107,15 @@ password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
 
-### Service-to-service authentication with client secret for account management
-
-Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
+### Noninteractive authentication with a SPI and a secret
 
 ```
 credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 ```
+
+### Noninteractive authentication with a API and a cetificate
+
+This method is not supported.
 
 ## Common script variables
 
@@ -126,8 +132,8 @@ adls = '<Azure Data Lake Analytics Account Name>'
 ## Create the clients
 
 ```
-resourceClient = ResourceManagementClient(credentials, subId)
-adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subId)
+resourceClient = ResourceManagementClient(credentials, subid)
+adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subid)
 adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
 ```
 
@@ -137,11 +143,22 @@ adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalak
 armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGroup( location=location ) )
 ```
 
-## Create Data Lake Store account
+## Create Data Lake Analytics account
 
-Each Data Lake Analytics account requires a Data Lake Store account. For instructions, see [Create a Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
+First create a store account.
 
-## Create an Azure Data Lake Analytics account
+```
+adlaAcctResult = adlaAcctClient.account.create(
+	rg,
+	adla,
+	DataLakeAnalyticsAccount(
+		location=location,
+		default_data_lake_store_account=adls,
+		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+	)
+).wait()
+```
+Then create an ADLA account that uses that store.
 
 ```
 adlaAcctResult = adlaAcctClient.account.create(
@@ -156,8 +173,6 @@ adlaAcctResult = adlaAcctClient.account.create(
 ```
 
 ## Submit Data Lake Analytics jobs
-
-The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 ```
 script = """
