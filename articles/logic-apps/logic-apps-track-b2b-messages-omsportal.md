@@ -37,9 +37,9 @@ these web-based tracking capabilities to track your messages:
 
 ## Requirements
 
-* A logic app that's set up with monitoring and logging. 
+* A logic app that's set up with diagnostics logging. 
 Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
@@ -61,7 +61,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Under **Log Analytics**, select your OMS workspace. 
+2. Under **Log Analytics**, find and select your OMS workspace. 
 
    ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 

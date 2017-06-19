@@ -27,16 +27,16 @@ for example, the interchange control number for the messages that you want to fi
 
 ## Requirements
 
-* A logic app that's set up with monitoring and logging. 
+* A logic app that's set up with diagnostics logging. 
 Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up monitoring and logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+and [how to set up diagnostics logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
 * If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
-and [set up tracking for your messages in OMS](logic-apps-track-b2b-messages-omsportal.md). 
+and [set up message tracking in OMS](logic-apps-track-b2b-messages-omsportal.md).
 
 After you've met these requirements, you should also have an OMS workspace for Log Analytics.
 
@@ -44,8 +44,25 @@ After you've met these requirements, you should also have an OMS workspace for L
 
 This example shows how you can find messages based on their interchange control number.
 
-1. Open your OMS workspace home page (`https://{your-workspace-name}.portal.mms.microsoft.com`), 
-and choose **Log Search**.
+> [!TIP] 
+> If you know your OMS workspace name, go to your workspace home page 
+(`https://{your-workspace-name}.portal.mms.microsoft.com`), 
+> and start at Step 4. Otherwise, start at Step 1.
+
+1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
+Search for "log analytics", and then choose **Log Analytics** as shown here:
+
+   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+
+2. Under **Log Analytics**, find and select your OMS workspace.
+
+   ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+
+3. Choose **OMS Portal**.
+
+   ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+
+4. On your OMS home page, choose **Log Search**.
 
    ![On your OMS home page, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
@@ -53,20 +70,23 @@ and choose **Log Search**.
 
    ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-2. In the search box, enter a field that you want to find, and press **ENTER**. 
-When you start typing, OMS shows you possible matches.
+5. In the search box, enter a field that you want to find, and press **ENTER**. 
+When you start typing, OMS shows you possible matches and operations that you can use. 
+Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    This example searches for the **Type=AzureDiagnostics** field.
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-3. To add a filter to your query, choose **+Add**.
+6. In the left bar, choose the timeframe that you want to view.
+
+7. To add a filter to your query, choose **+Add**.
 
    The example's **Type=AzureDiagnostics** filter returns 213 results.
 
    ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-4. Under **Add Filters**, enter the filter name so you can find the filter you want. 
+8. Under **Add Filters**, enter the filter name so you can find the filter you want. 
 Select the filter, and choose **+Add**.
 
    This example uses the word "interchange" to find the interchange control number. We then select **event_record_messageProperties_interchangeControlNumber_s** 
@@ -74,22 +94,22 @@ Select the filter, and choose **+Add**.
 
    ![Select filter event ](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-5. Select the filter value that you want to use. Choose **Apply**.
+9. In the left bar, select the filter value that you want to use, and choose **Apply**.
 
    For this example, we select the interchange control number that we want.
 
    ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-6. Now return to the query that you're building. 
+10. Now return to the query that you're building. 
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 
    ![Return to your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
-   Learn more about [how to find data with log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
-
-7. To reuse your query later, 
+11. To reuse your query later, 
 save your query to your **Favorites**.
+
+<a name="save-oms-query"></a>
 
 ## Save your query as a favorite
 
