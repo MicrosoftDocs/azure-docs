@@ -26,7 +26,7 @@ ms.author: wesmc
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) is a cryptographic network protocol for using network services securely. It is most commonly used to log into a system remotely securely from a command-line and execute administrative commands remotely.
 
-Web App on Linux provides SSH support with each of the built-in Docker images used for the Runtime Stack of new web apps. 
+Web App on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps. 
 
 ![Runtime Stacks](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
