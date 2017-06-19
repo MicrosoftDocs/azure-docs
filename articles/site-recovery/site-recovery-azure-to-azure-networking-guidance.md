@@ -22,7 +22,7 @@ ms.author: sujayt
 >[!NOTE]
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
-This article details the networking guidance for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md) article.
+This article details the networking guidance for Azure Site Recovery when you're replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md) article.
 
 ## Site Recovery architecture
 
@@ -68,9 +68,9 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 If you are using any IP-based firewall proxy or NSG rules to control outbound connectivity, the following IP ranges need to be whitelisted, depending on the source and target locations of the virtual machines:
 
-- All IP ranges corresponding to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)). Whitelisting is required so that data can be written to the cache storage account from the VM.
+- All IP ranges that correspond to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).) Whitelisting is required so that data can be written to the cache storage account from the VM.
 
-- All IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+- All IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
     >[!NOTE]
     > If new IPs get added to Office 365 IP ranges in the future, you need to create new NSG rules.
@@ -103,39 +103,39 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
    UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
    UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
-## Sample network security group (NSG) configuration
+## Sample NSG configuration
 This section explains the steps to configure NSG rules so that Site Recovery replication can work on a virtual machine. If you are using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP ranges.
 
 >[!Note]
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
-For example, if your VM's source location is "East US" and your replication target location is "Central US", follow the steps in the next two sections.
+For example, if your VM's source location is "East US" and your replication target location is "Central US," follow the steps in the next two sections.
 
 >[!IMPORTANT]
 > * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
 > * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription. 
 
-### NSG rules on East US network security group
+### NSG rules on the East US network security group
 
-* Create rules corresponding to [East US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
+* Create rules that correspond to [East US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
 
-* Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+* Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Create rules corresponding to the target location:
+* Create rules that correspond to the target location:
 
    **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
     --- | --- | ---
    Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
 
-### NSG rules on Central US network security group
+### NSG rules on the Central US network security group
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
-* Rules corresponding to [Central US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). These are required so that data can be written to the cache storage account from the VM.
+* Rules that correspond to [Central US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). These are required so that data can be written to the cache storage account from the VM.
 
-* Rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+* Rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Rules corresponding to the source location:
+* Rules that correspond to the source location:
 
    **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
     --- | --- | ---
@@ -163,17 +163,17 @@ Follow these guidelines for connections between the target location and the on-p
 Follow these best practices for ExpressRoute configuration:
 
 - You need to create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
-  - The source Virtual Network and the ExpressRoute circuit.
-  - The target Virtual Network and the ExpressRoute circuit.
+  - The source virtual network and the ExpressRoute circuit.
+  - The target virtual network and the ExpressRoute circuit.
 
 - As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
-- We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure Virtual Networks of the same IP ranges at the same time.
+- We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure virtual networks of the same IP ranges at the same time.
 
-- You can create Virtual Networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source Virtual Network, and connect the circuit in the target Virtual Network.
+- You can create virtual networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source virtual network, and connect the circuit in the target virtual network.
 
  >[!IMPORTANT]
- > If the primary region is completely down, the disconnect operation can fail. That will prevent the target Virtual Network from getting ExpressRoute connectivity.
+ > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
 
 ## Next steps
 Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
