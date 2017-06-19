@@ -13,7 +13,7 @@ ms.date: 06/19/2017
 ms.author: mlearned
 ---
 <div class="content">
-    <img src="media/Cloud Foundry.png" alt="Cloud Foundry Logo">
+    <img src="media/cloudfoundry.png" alt="Cloud Foundry Logo">
     <h1>Cloud Foundry on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
