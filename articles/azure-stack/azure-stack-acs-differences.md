@@ -51,6 +51,42 @@ The following versions are supported with Azure Stack Storage:
 * Azure Storage management services: 
     * [2015-05-01-preview and 2015-06-15](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN) 
 
+## Azure client library
+The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t have full parity with the latest version of Azure Storage REST API. So for the storage client libraries, you need to be aware of the version which is compatible with REST API 2015-04-05.
+
+
+|Client Library|Azure Stack supported version|Link|Endpoint specification|
+|---------|---------|---------|---------|
+|.NET     |6.2.0|[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config file|
+|Node.js     |1.1.0|[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|declaration of service instance|
+|Python     |0.30.0|[https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|declaration of service instance|
+
+### Endpoint declaration
+An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
+In the Azure Stack POC, the default endpoint is **local.azurestack.external**.
+Contact your service administrator if you’re not sure of what your endpoint is.
+
+The following are example configuration settings for Azure Stack storage services:
+
+#### .NET
+
+```
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;EndpointSuffix=local.azurestack.external;" />
+```
+
+#### Node.js
+
+```
+var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’, ‘myaccount.blob.local.azurestack.external’);
+```
+
+#### Python
+
+```
+block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey', endpoint_suffix='local.azurestack.external')
+```
+
+
 ## Next steps
 
 
