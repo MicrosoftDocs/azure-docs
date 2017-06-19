@@ -49,7 +49,7 @@ When creating a tabular model project, you create roles and add users or groups 
     |**Process**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
     |**Administrator**|Members can modify the model schema and query all data.|   
   
-5.  If the role you are creating has Read or Read and Process permission, you can add row filters by using a DAX formula. Click the **Row Filters** tab, then select a table, then click the **DAX Filter** field, and then type a DAX formula. To learn more, see [Row filters](analysis-services-manage-users.md#bkmk_rowfliters). 
+5.  If the role you are creating has Read or Read and Process permission, you can add row filters by using a DAX formula. Click the **Row Filters** tab, then select a table, then click the **DAX Filter** field, and then type a DAX formula.
   
 6.  Click **Members** > **Add External**.  
   
@@ -122,7 +122,7 @@ The [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module prov
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remove a member from a database role.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute a TMSL script.|
 
-##  <a name="bkmk_rowfliters"></a> Row filters  
+## Row filters  
 Row filters define which rows in a table can be queried by members of a particular role. Row filters are defined for each table in a model by using DAX formulas.  
   
 Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members of a role that has Read or Read and Process permission can query all rows in the table unless cross-filtering applies from another table.  
@@ -140,9 +140,6 @@ Row filters apply to the specified rows and related rows. When a table has multi
  The net effect is members can query rows of data where the customer is in the USA, the product category is bicycles, and the year is 2016. Users cannot query transactions outside of the USA, transactions that are not bicycles, or transactions not in 2016 unless they are a member of another role that grants these permissions.    
   
  You can use the filter, *=FALSE()*, to deny access to all rows for an entire table.
-
-  
-
 
 ## Next steps
   [Manage server administrators](analysis-services-server-admins.md)   

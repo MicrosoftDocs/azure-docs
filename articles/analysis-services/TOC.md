@@ -7,6 +7,8 @@
 ## [Create a server - portal](analysis-services-create-server.md)
 ## [Deploy a model - SSDT](analysis-services-deploy.md)
 
+# Samples
+## [Analysis Services samples on GitHub](https://github.com/Microsoft/Analysis-Services)
 
 # Tutorials
 ## Create and deploy a model
