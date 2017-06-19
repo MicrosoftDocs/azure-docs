@@ -97,7 +97,7 @@ The changes you make by using PowerShell are reflected in the Backup Server Admi
 ## Next steps
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
 
