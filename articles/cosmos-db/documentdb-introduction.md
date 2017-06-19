@@ -64,11 +64,11 @@ A database account consists of a set of databases, each containing multiple coll
 
 ## <a name="develop"></a> How can I develop apps with the DocumentDB API?
 
-Azure Cosmos DB exposes resources through the DocumentDB REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
+Azure Cosmos DB exposes resources through the REST APIs that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
