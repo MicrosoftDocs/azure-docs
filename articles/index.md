@@ -29,17 +29,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="/azure/architecture/guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="/media/common/i_overview.svg" src="/media/common/i_overview.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Get Started Guide for Azure IT Operators</span>
+                                    <span class="likeAnH3">Azure Application Architecture Guide</span>
                                 </div>
                             </div>
                         </div>
@@ -199,10 +199,18 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <ul class="noBullet">
-                                                    <li><a class="barLink" href="https://www.visualstudio.com/team-services/devops/">Visual Studio Team Services</a></li>
-                                                    <li><a class="barLink" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins">Jenkins</a></li>
-                                                </ul>
+                                                <div class="ico48Link">
+                                                    <a href="https://www.visualstudio.com/team-services/devops/">
+                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <span>Visual Studio Team Services</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins">
+                                                        <img src="/media/common/jenkins.svg" alt="">
+                                                        <span>Jenkins</span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
