@@ -112,7 +112,7 @@
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Get data](active-directory-reporting-api-with-certificates.md)
+#### [Using certificates](active-directory-reporting-api-with-certificates.md)
 ### [Classic portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
