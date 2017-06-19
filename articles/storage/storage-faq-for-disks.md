@@ -162,7 +162,7 @@ Starting June 10th 2017, new data written to existing Managed Disks will be auto
 
 Yes. All managed snapshots and images created after June 9th, 2017 are automatically encrypted. 
 
-**Can I convert VMs with unmanaged disks that are located on storage accounts that are or have previously been encrypted to managed disks?
+**Can I convert VMs with unmanaged disks that are located on storage accounts that are or have previously been encrypted to managed disks?**
 
 No. This feature is not supported yet. It is expected to come out by end of July. 
 
