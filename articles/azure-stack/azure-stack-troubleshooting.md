@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 06/19/2017
 ms.author: helaw
 
 ---
 # Microsoft Azure Stack troubleshooting
 This document provides common troubleshooting information for Azure Stack. 
 
-Because the Azure Stack Technical Preview 3 POC is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services.  The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.
+Because the Azure Stack Technical Preview 3 POC is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services.  If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
 
 For the best experience, make sure that your deployment environment meets all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md) before installing.  
 
-Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
 * You may notice deployment taking longer than previous releases. 
@@ -33,15 +33,15 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * Opening Storage Explorer from the storage account blade will result in an error.
 * Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
-* There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
+* There is no marketplace experience for creating virtual machine scale sets, though they can be created via template.
 * All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The restart action on Compute controller infrastructure role (MAS-XRP01 instance) should not be used.  
 * You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * You should avoid restarting the one-node environment because Azure Stack infrastructure services do not start in the proper order.
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
-* VM Scale Set scale-in operations may fail.
-* VM Scale Set resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
+* Virtual machine scale set scale-in operations may fail.
+* Virtual machine resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
 * You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB.
 * You may see a blank dashboard in the portal.  If this happens, recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
  
