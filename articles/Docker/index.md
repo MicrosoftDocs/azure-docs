@@ -18,7 +18,7 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>
-              Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux. In Azure, there are various ways you can deploy Docker according to your needs. Use teh below How-To Guides to work through various scenarios for Docker on Azure.
+              Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux. In Azure, there are various ways you can deploy Docker according to your needs. Use the below How-To Guides to work through various scenarios for Docker on Azure.
 	    </p>
         </div>
     </div>
@@ -26,7 +26,7 @@ ms.author: mlearned
 <p>Learn how to quickly deploy Docker on Azure.</p>
 <ol>
   <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build a Python and PosgreSQL app with Docker in Azure.</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension">Create a Docker hosts with VM extension.</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension">Create Docker hosts with VM extension.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine">Create Docker host VMs with Docker Machine.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">Create a private Docker container registry in Azure.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-deployment">Deploy a Docker container hosting solution on Azure.</a></li>
