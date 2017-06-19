@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 06/18/2017
 ms.author: jgao
 
 ---
