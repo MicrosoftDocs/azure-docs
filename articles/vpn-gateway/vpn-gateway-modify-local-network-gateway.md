@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Modify local network gateway settings using PowerShell
 
-Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. This article shows you how to modify your local network gateway settings. You can also modify these settings in the Azure portal or using the Azure CLI.
+Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. This article shows you how to modify your local network gateway settings. You can also modify these settings using a different method by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
