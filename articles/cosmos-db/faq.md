@@ -214,7 +214,7 @@ Yes, you can connect by creating two separate instances of the CloudTableClient,
 To take advantage of the new Table API offering on your existing Table storage data, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ### What is the roadmap for this service, and when will you offer other standard Table API functionality?
-We plan to add support for SAS tokens, ServiceContext, Stats, Encryption, Analytics, and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/263030-documentdb). 
+We plan to add support for SAS tokens, ServiceContext, Stats, Client side Encryption, Analytics and other features as we proceed toward GA. You can give us feedback on [Uservoice](https://feedback.azure.com/forums/263030-documentdb). 
 
 ### How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time? 
 Azure Cosmos DB is designed to provide unlimited storage via the use of horizontal scaling. The service can monitor and effectively increase your storage. 

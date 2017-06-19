@@ -6,7 +6,6 @@ author: sanagama
 ms.author: sanagama
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
 ms.devlang: azure-cli
 ms.topic: hero-article
