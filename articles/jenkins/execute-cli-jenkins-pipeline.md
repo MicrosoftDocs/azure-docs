@@ -143,6 +143,7 @@ def webAppName = '<app_name>'
 
 ```
 * Change line 23 to update credential ID in your Jenkins instance
+
 ```java
 withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
 
