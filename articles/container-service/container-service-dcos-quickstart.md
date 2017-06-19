@@ -19,7 +19,7 @@ ms.date: 06/05/2017
 ms.author: nepeters
 ---
 
-# Deploy a DC/OS Cluster
+# Deploy a DC/OS cluster
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
