@@ -80,31 +80,31 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bynder.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CAPPM.png)| [CA PPM](active-directory-saas-cappm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.png)| [Canvas LMS](active-directory-saas-canvas-lms-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza](https://go.microsoft.com/fwLink/?LinkID=708671&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.png)| [Central Desktop](https://go.microsoft.com/fwLink/?LinkID=403249&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.png)| [Ceridian Dayforce HCM](https://go.microsoft.com/fwLink/?LinkID=733445&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza](active-directory-saas-caprizaplatform-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.png)| [Central Desktop](active-directory-saas-central-desktop-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.png)| [Ceridian Dayforce HCM](active-directory-saas-ceridiandayforcehcm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_cernercentral.png)| [Cerner Central - Single Sign On](active-directory-saas-cernercentral-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_cernercentral.png)| [Cerner Central - User Provisioning](active-directory-saas-cernercentral-provisioning-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Certify.png)| [Certify](http://go.microsoft.com/fwlink/?LinkID=708681&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CezanneHR_Software.png)| [Cezanne HR Software](https://go.microsoft.com/fwLink/?LinkID=823734&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.png)| [Cherwell](https://go.microsoft.com/fwLink/?LinkID=530225&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.png)| [Chromeriver](https://go.microsoft.com/fwLink/?LinkID=530233&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cimpl.png)| [Cimpl](https://go.microsoft.com/fwLink/?LinkID=708685&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cisco_Spark.png)| [Cisco Spark](https://go.microsoft.com/fwLink/?LinkID=828382&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CiscoWebEx.png)| [Cisco Webex](https://go.microsoft.com/fwLink/?LinkID=403253&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixGoToMeeting.png)| [Citrix GoToMeeting](https://go.microsoft.com/fwLink/?LinkID=309579&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixShareFile.png)| [Citrix ShareFile](https://go.microsoft.com/fwLink/?LinkID=403238&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.png)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.png)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.png)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Certify.png)| [Certify](active-directory-saas-certify-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CezanneHR_Software.png)| [Cezanne HR Software](active-directory-saas-cezannehrsoftware-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.png)| [Cherwell](active-directory-saas-cherwell-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.png)| [Chromeriver](active-directory-saas-chromeriver-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cimpl.png)| [Cimpl](active-directory-saas-cimpl-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cisco_Spark.png)| [Cisco Spark](active-directory-saas-cisco-spark-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CiscoWebEx.png)| [Cisco Webex](active-directory-saas-cisco-webex-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixGoToMeeting.png)| [Citrix GoToMeeting](active-directory-saas-citrix-gotomeeting-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixShareFile.png)| [Citrix ShareFile](active-directory-saas-citrix-sharefile-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.png)| [Clever](active-directory-saas-clever-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.png)| [ClickTime](active-directory-saas-clicktime-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.png)| [Cloud Management Portal for Microsoft Azure](https://go.microsoft.com/fwLink/?LinkID=708680&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.png)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.png)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.png)| [Condeco](https://go.microsoft.com/fwLink/?LinkID=708660&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Convercent.png)| [Convercent](https://go.microsoft.com/fwLink/?LinkID=286005&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.png)| [Cornerstone OnDemand](https://go.microsoft.com/fwLink/?LinkID=512745&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.png)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.png)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.png)| [CloudPassage](active-directory-saas-cloudpassage-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.png)| [Concur](active-directory-saas-concur-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.png)| [Condeco](active-directory-saas-condeco-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Convercent.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.png)| [Cornerstone OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.png)| [Coupa](active-directory-saas-coupa-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.png)| [CS Stars](active-directory-saas-cs-stars-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_datahug.png)| [Datahug](active-directory-saas-datahug-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Degreed.png)| [Degreed](https://go.microsoft.com/fwLink/?LinkID=733455&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Deputy.png)| [Deputy](https://go.microsoft.com/fwLink/?LinkID=823727&clcid=0x409)|
