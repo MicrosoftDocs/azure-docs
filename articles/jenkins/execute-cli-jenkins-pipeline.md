@@ -1,25 +1,24 @@
 ---
-title: Execute Azure CLI in Jenkins Pipeline | Microsoft Docs
+title: Deploy to Azure App Service with Jenkins and the Azure CLI | Microsoft Docs
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
-services: jenkins
-documentationcenter: jenkins
+services: app-service\web
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: mlearned
-tags: jenkins
+editor: ''
 
 ms.assetid: 
-ms.service: na			
+ms.service: multiple
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: jenkins		
-ms.workload: infrastructure
-ms.date: 06/16/2017
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: mvc
 ---
 
-# Execute Azure CLI in Jenkins Pipeline
+# Deploy to Azure App Service with Jenkins and the Azure CLI
 To deploy a Java web app to Azure, you can use Azure CLI in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]
@@ -32,22 +31,26 @@ To deploy a Java web app to Azure, you can use Azure CLI in [Jenkins Pipeline](h
 
 This tutorial requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](/azure/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create Jenkins instance
+## Create and Configure Jenkins instance
 If you do not already have a Jenkins master, start with the [Solution Template](install-jenkins-solution-template.md), which includes the required [Azure Credentials](https://plugins.jenkins.io/azure-credentials) plugin by default. 
 
-JDK and Maven are required in the Jenkins master. To install JDK and Maven, log in to Jenkins master using SSH and run the following commands:
+The Azure Credential plugin allows you to store Microsoft Azure service principal credentials in Jenkins. In version 1.2, we added the support so that Jenkins Pipeline can get the Azure credentials. 
+
+To make sure you have version 1.2 or later:
+* Within the Jenkins dashboard, click **Manage Jenkins -> Plugin Manager ->** and search for **Azure Credential**. 
+* Update the plugin if the version is earlier than 1.2.
+
+Java JDK and Maven are also required in the Jenkins master. To install, log in to Jenkins master using SSH and run the following commands:
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-Make sure you have version 1.2 or later:
-* Within the Jenkins dashboard, click **Manage Jenkins -> Plugin Manager ->** and search for **Azure Credential**. 
-* Update the plugin if the version is earlier than 1.2.
-
 ## Add Azure service principal to Jenkins credential
+
+An Azure credential is needed to execute Azure CLI.
 
 * Within the Jenkins dashboard, click **Credentials -> System ->**. Click **Global credentials(unstricted)**.
 * Click **Add Credentials** to add a [Microsoft Azure service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint. Provide an ID for use in subsequent step.
@@ -141,30 +144,32 @@ def webAppName = '<app_name>'
 ```
 * Change line 23 to update credential ID in your Jenkins instance
 ```java
-withCredentials([azureServicePrincipal('<azsrvprincipal>')])
+withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
 
 ```
 
 ## Create Jenkins pipeline:
-* Open Jenkins in browser, click **New Item**. 
+Open Jenkins in a web browser, click **New Item**. 
+
 * Provide a name for the job and select **Pipeline**. Click **OK**.
 * Click the **Pipeline** tab next. 
 * For **Definition**, select **Pipeline script from SCM**.
 * For **SCM**, select **Git**.
-* Enter the GitHub URL for your forked repo: https://&lt;your forked repo&gt;.git
-* Save
+* Enter the GitHub URL for your forked repo: https:\<your forked repo\>.git
+* Click **Save**
 
 ## Test your pipeline:
 * Go to the pipeline you created, click **Build Now**
 * A build should succeed in a few seconds, and you can go to the build and click **Console Output** to see the details
 
 ## Verify your web app
-* Go to http://<app_name>.azurewebsites.net/api/calculator/ping in a web browser
-* You will see a response “pong”
-* Go to http://<app_name>.azurewebsites.net/api/calculator/add?x=<x>&y=<y> (substitute <x> and <y> with any numbers), you will get the sum of x and y.
+To verify the WAR file is deployed successfully to your web app. Open a web browser:
+
+* go to http://<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
+* go to http://<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
 
 ## Next steps
-In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo; runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:
+In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo. Runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:
 
 > [!div class="checklist"]
 > * Create a Jenkins VM
