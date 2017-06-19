@@ -1,6 +1,6 @@
 ---
-title:  CloudFoundry on Azure
-description: CloudFoundry on Azure
+title:  Cloud Foundry on Azure
+description: Cloud Foundry on Azure
 services: multiple
 author: mlearned
 manager: douge
@@ -13,8 +13,8 @@ ms.date: 06/19/2017
 ms.author: mlearned
 ---
 <div class="content">
-    <img src="media/cloudfoundry.png" alt="CloudFoundry Logo">
-    <h1>CloudFoundry on Azure</h1>
+    <img src="media/Cloud Foundry.png" alt="Cloud Foundry Logo">
+    <h1>Cloud Foundry on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>
@@ -23,12 +23,12 @@ ms.author: mlearned
         </div>
     </div>
 <h2>How-to Guides</h2>
-<p>CloudFoundry</p>
+<p>Cloud Foundry</p>
 <ol>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with CloudFoundry on Azure</a></li>  
+  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/Cloud Foundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
 </ol>
 <h2>Resources</h2>
-<p>See the following links for additional reference materials and tools for working with CloudFoundry on Azure.</p>
+<p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.</p>
 <ul>  
    <li></li>   
  </ul>
