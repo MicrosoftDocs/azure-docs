@@ -1,8 +1,6 @@
-Outline: XamFormsVisualSearch Docs
-==================================
+#Outline: XamFormsVisualSearch Docs
 
-Intro
------
+##Intro
 Description of the app:
 * What APIs are used
 * Statement of intended audience
@@ -10,16 +8,14 @@ Description of the app:
     * Using this app as a case study, we will step through the codebase file by file and explore how each contributes to the function of the app as a whole 
 
 
-Required Libraries:
-------------------
+##Required Libraries:
 * Xamarin Media Plugin
 * Newtonsoft JSON
 * Additionally, the app makes use of the ImageResizer class.
     * Found @ <https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize>
 
 
-OcrSelectPage:
---------------
+##OcrSelectPage:
 ![OcrSelectPage Example](./media/OcrSelectPage.png)
 
 **Description of the OcrSelectPage**
@@ -29,8 +25,7 @@ OcrSelectPage:
     * Found @ <https://components.xamarin.com/view/mediaplugin> 
 
 
-OcrResultsPage
---------------
+##OcrResultsPage
 ![OcrResultsPage Example](./media/OcrResultsPage.png)
 
 **Description of OcrResultsPage**
@@ -38,13 +33,13 @@ OcrResultsPage
 * Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
     * Description of APIs: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
     * QuickStarts for API use: <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp>
+    * Api Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
 * Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
     * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
     * Note that later, an alternative object deserializing method will be used to obtain a richer set of data per object
 
 
-WebResultsPage
--------------
+##WebResultsPage
 ![WebResultsPage Example](./media/WebResultsPage.png)
 
 **Description of WebResultsPage**
@@ -53,8 +48,7 @@ WebResultsPage
     * Found @ <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
     * Page ranking tutorial found @ <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
 
-Opening a Webview
------------------
+##Opening a Webview
 **Example of opening a webview**
 
 ![WebViewPage Example](./media/WebViewPage.png)
