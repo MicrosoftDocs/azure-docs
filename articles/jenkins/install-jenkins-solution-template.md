@@ -20,7 +20,16 @@ ms.custom: mvc
 
 # Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
 
-This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the following tools and plugins configured to work with Azure. In this tutorial you learn how to:
+This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. This includes:
+<ul>
+<li>Git for source control</li>
+<li>Azure credential plugin for connecting securely</li>
+<li>Azure VM Agents plugin for elastic build, test, and continuous integration</li>
+<li>Azure Storage plugin for storing artifacts></li>
+<li>Azure CLI to deploy apps using scripts</li>
+</ul>
+
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a free Azure account.
@@ -34,7 +43,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Azure quickstart templates allow you to quickly and reliably deploy complex technology on Azure.  Azure Resource Manager allows you to provision your applications using a [declarative template.](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins) In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
 
-View [plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) information for this template to understand cost options.  Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins), click **GET IT NOW**  
+View [plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) information for this template to understand cost options.
+
+Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview), click **GET IT NOW**  
 
 In Azure Portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
    
@@ -111,20 +122,23 @@ To get a token, SSH into the VM and run `sudo cat /var/lib/jenkins/secrets/initi
 
 You are asked to install the suggested plugins.
 
-![Install plugins](./media/install-jenkins-solution-template/jenkins-plugins.png)
-
 Next, create an admin user for your Jenkins master.
 
-Your Jenkins instance is now ready to use! You can access a read-only view by going to http://&lt;Public DNS name of instance you just created>.
+Your Jenkins instance is now ready to use! You can access a read-only view by going to http://\<Public DNS name of instance you just created\>.
 
 ![Jenkins is ready!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
 ## Next Steps
 
 In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created a Jenkins Master with the solution template.
+> * Performed intial configuration of Jenkins.
+> * Installed plugins.
+
+Follow this link to see how to use Azure VM Agents for continuous integration with Jenkins.
+
 > [!div class="nextstepaction"]
->*Created a Jenkins Master with the solution template.
->*Performed intial configuration of Jenkins.
->*Installed plugins.
 > [Azure VMs as Jenkins agents](jenkins-azure-vm-agents.md)
 
