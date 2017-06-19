@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 06/19/2017
 ms.author: jeedes
 
 ---
@@ -114,17 +114,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Blackboard Learn Client support team](https://www.blackboard.com/support/index.aspx) to get these values. 
- 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_certificate.png) 
-
-5. Blackboard Learn application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
+4. Blackboard Learn application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
  The following screenshot shows an example about it.
 
 	![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_attribute.png)
 
-6. On the **SAML token attributes** dialog, for each row shown in the following table, perform the following steps: We have map the Userprincipalname as the unique user attribute here but you can map it to the appropriate value, which uniquely distinguishes the user in the organization and that maps to Blackboard learn username field.
+5. In the **User Attributes** section on **Single sign-on** dialog, configure SAML token attributes as shown in the image and perform the following steps. We have mapped the Userprincipalname as the unique user attribute here but you can map it to the appropriate value, which uniquely distinguishes the user in the organization and that maps to Blackboard Learn username field.
       	   
 	| Attribute Name | Attribute Value |   
     | ---------------| ----------------|
@@ -141,6 +137,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**.
+
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_certificate.png)
 
 7. Click **Save** button.
 
@@ -189,7 +189,7 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a Blackboard Learn test user
 In this section, you create a user called Britta Simon in Blackboard Learn. 
 
-Blackboard Learn application support just in time user provisioning. make sure that you have configured the claims as described in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**
+Blackboard Learn application support just in time user provisioning. Make sure that you have configured the claims as described in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Blackboard Learn.
