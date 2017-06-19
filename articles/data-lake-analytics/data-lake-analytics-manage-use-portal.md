@@ -111,7 +111,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Add users or security groups to a Data Lake Analytics account
 
 1. Open the Data Lake Analytics account in the portal.
-2. Click **Settings** > **Users** > **Add**.
+2. Click **Access control (IAM)** > **Add**.
 3. Select a role.
 4. Add a user.
 5. Click **OK**.
@@ -143,7 +143,54 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 2. Click **View All Jobs**. Now you can see a list of all the active and recently finished jobs in the account.
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author**. 
 
-## See also
+## Manage Policies
+
+### Account Level Policies
+
+These policies broadly apply to all jobs in a Data Lake Analytics account.
+
+#### Maximum number of AUs in a Data Lake Analytics account
+This policy controls how many AUs this Data Lake Analytics account can use in total. By default, this value is set to 250. For example, if this value is set to 250 AUs. You can have 1 job running with 250 AUs assigned to it, or 10 jobs running with 25 AUs each. Additional jobs submitted will be queued until the running jobs complete and free up enough AUs for the queued jobs to run.
+
+1. Open the Data Lake Analytics account in the portal.
+
+2. Click on **Properties** (located on the left side)
+
+3. You will see a setting called **Maximum AUs**. Move the slider or type the value in the text box directly to change this value. 
+
+4. Click **Save**
+
+>[!NOTE]
+>If you need more AUs than the default (250), please open a support ticket using the "Help+Support" option in the Azure Portal. We can increase this number for you.
+>
+
+#### Control how many jobs can run simultaneously
+The policy controls how many jobs can run at the same time. By default, this value is set to 20. If there are AUs available, new jobs will be scheduled for immediate execution until the total number of running jobs reaches the value of this setting. After this point, any subsequent jobs that are submitted will be placed in a queue in priority order until one or more running jobs complete (depending on AU availability).
+
+1. Open the Data Lake Analytics account in the portal.
+
+2. Click on **Properties** (located on the left side)
+
+3. You will see a setting called **Maximum Number of Running Jobs**. Move the slider or type the value in the text box directly to change this value. 
+
+4. Click **Save**
+
+>[!NOTE]
+>If you need to run more jobs than the default (20), please open a support ticket using the "Help+Support" option in the Azure Portal. We can increase this number for you.
+>
+
+#### Amount of time to keep Job metadata and resources 
+When your users run U-SQL jobs, the ADLA service keeps all related files like the U-SQL script, the DLLs referenced in the U-SQL script, compiled resources, and statistics etc. in the /system/ folder of the default ADLS account. This policy controls how long to keep these resources stored before automatically cleaning them up (default 30 days). These files can be used for debugging, and performance tuning of the jobs in the future.
+
+1. Open the Data Lake Analytics account in the portal.
+
+2. Click on **Properties** (located on the left side)
+
+3. You will see a setting called **Days to Retain Job Queries**. Move the slider or type the value in the text box directly to change this value. 
+
+4. Click **Save**
+
+## Next steps
 
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Get started with Data Lake Analytics by using Azure portal](data-lake-analytics-get-started-portal.md)
