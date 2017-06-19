@@ -4,7 +4,7 @@ description:  Describes Microsoft recommendations and core concepts for deployin
 author: jeffgilb
 ms.service: guidance
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/14/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
@@ -23,7 +23,7 @@ This document is intended for enterprise infrastructure architects and IT Pros f
 
 ### Customer environment
 
-The policies recommended in this document apply to enterprise organizations operating both entirely in the Microsoft cloud. It is also for customers with their infrastructure deployed both on-premises and in the Microsoft cloud. 
+The policies recommended in this document are applicable to enterprise organizations operating both entirely within the Microsoft cloud and for customers with infrastructure deployed across on-premises and the Microsoft cloud. 
 
 ### Assumptions
 
