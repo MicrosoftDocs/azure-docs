@@ -28,7 +28,7 @@ Azure Backup Server backs up system state and provides bare-metal recovery (BMR)
     * Computer that runs certificate services: Certificate data
 * **Bare-metal backup**: Backs up operating system files and all data on critical volumes (except user data). By definition, a BMR backup includes a system state backup. It provides protection when a computer won't start and you have to recover everything.
 
-The following table summarizes what you can back up and recover. For detailed information about app versions that can be protected with system state and BMR, see [What does Azure Backup Server back up](backup-mabs-protection-matrix.md).
+The following table summarizes what you can back up and recover. For detailed information about app versions that can be protected with system state and BMR, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md).
 
 |Backup|Issue|Recover from Azure Backup Server backup|Recover from system state backup|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
@@ -98,8 +98,8 @@ When the backup is finished, the file is transferred to the Backup Server comput
 ## Before you begin
 
 1.  **Deploy Azure Backup Server**. Verify that Backup Server is correctly deployed. For more information, see:
-    * [System requirements for Azure Backup Server](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
-    * [Backup Server protection matrix](backup-mabs-protection-matrix.md).
+    * [System requirements for Azure Backup Server](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Backup Server protection matrix](backup-mabs-protection-matrix.md)
 
 2.  **Set up storage**. You can store backup data on disk, on tape, and in the cloud with Azure. For more information, see [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
@@ -135,7 +135,7 @@ Set up a protection group as described in [Deploy protection groups](http://docs
 
     1. **Total Data size** is the size of the data you want to back up.
     2. **Disk space to be provisioned on Azure Backup Server** is the space that Backup Server recommends for the protection group. Backup Server chooses the ideal backup volume based on the settings. However, you can edit the backup volume choices in **Disk allocation details**. 
-    3. For workloads, in the drop-down menu, select the preferred storage. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage Backup Server suggests you add to the volume, to ensure smooth backups.
+    3. For workloads, in the drop-down menu, select the preferred storage. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage that Backup Server suggests you add to the volume, to ensure smooth backups.
 
 8.  On the **Choose Replica Creation Method** page, select how you want to handle the initial full data replication. If you choose to replicate over the network, we recommend that you choose an off-peak time. For large amounts of data or for network conditions that are less than optimal, consider replicating the data offline by using removable media.
 
@@ -165,7 +165,7 @@ Run recovery on the Backup Server computer:
 
 4.  On the **Specify Destination** page, select where you want to copy the data to. Remember that the selected destination needs to have enough room. We recommend that you create a new folder.
 
-5.  On the **Specify Recovery Options** page, select the security settings to apply. Then, select whether you want to use storage area network (SAN)-based hardware snapshots, for quicker recovery. (This is only an option if you have a SAN with this functionality available, and the ability to create and split a clone to make it writable. In addition, the protected computer and Backup Server computer must be connected to the same network.)
+5.  On the **Specify Recovery Options** page, select the security settings to apply. Then, select whether you want to use storage area network (SAN)-based hardware snapshots, for quicker recovery. (This is an option only if you have a SAN with this functionality available, and the ability to create and split a clone to make it writable. In addition, the protected computer and Backup Server computer must be connected to the same network.)
 
 6.  Set up notification options. On the **Confirmation** page, select **Recover**.
 
@@ -193,11 +193,11 @@ Restore the system:
 
 Run recovery in Backup Server:
 
-1.  In the **Recovery** pane, find the computer you want to recovery, and then select **Bare Metal Recovery**.
+1.  In the **Recovery** pane, find the computer that you want to recover, and then select **Bare Metal Recovery**.
 
 2.  Available recovery points are indicated in bold on the calendar. Select the date and time for the recovery point that you want to use.
 
-3.  On the  **Select Recovery Type** page, select **Copy to a network folder.**
+3.  On the  **Select Recovery Type** page, select **Copy to a network folder**.
 
 4.  On the **Specify Destination** page, select where you want to copy the data. Remember that the selected destination needs enough room. We recommend that you create a new folder.
 
@@ -207,7 +207,7 @@ Run recovery in Backup Server:
 
 Run Windows Server Backup:
 
-1.  Select **Actions** > **Recover** > **This Server** > **Next.**
+1.  Select **Actions** > **Recover** > **This Server** > **Next**.
 
 2.  Select **Another Server**, select the **Specify Location Type** page, and then select **Remote shared folder**. Enter the path to the folder that contains the recovery point.
 
