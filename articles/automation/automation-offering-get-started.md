@@ -1,6 +1,6 @@
 --- 
 title:  Get Started with Azure Automation | Microsoft Docs
-description: This article provides an overview of Azure Automation service by reviewing the core concepts and implementation details in preparation to onboard the offering from Azure Marketplace. 
+description: This article provides an overview of Azure Automation service by reviewing the design and implementation details in preparation to onboard the offering from Azure Marketplace. 
 services: automation
 documentationcenter: ''
 author: mgoedtel
@@ -13,38 +13,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/01/2017
+ms.date: 06/16/2017
 ms.author: magoedte
 ---
 
-## Getting Started with Azure Automation
+# Getting Started with Azure Automation
 
-This getting started guide introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, this guide helps you get started with concepts and deployment details. 
+This getting started guide introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, this guide helps you understand how to prepare and onboard Automation.  Afterwards, you will be prepared to begin developing runbooks in support of your process automation needs. 
 
-## Key concepts
 
-### Automation service
-Automation is an Azure service that uses Windows PowerShell and Azure technologies to help you control the management of your Azure, cloud, and on-premises infrastructure and applications.  Azure Automation helps you manage the full life-cycle of your services and application with automated deployment using process automation, operating system configuration using PowerShell Desired State Configuration, continued update and monitoring with update management and change tracking, and automated troubleshooting and remediation.
+## Automation architecture overview
 
-### Automation account
-An Automation account is an Azure resource that you create.  You can manage all your Azure, cloud, and on-premises resources with a single Automation account.  An Automation account is a container for the items you need to make your automation work: these are runbooks, modules, assets like credentials and schedules, and configurations. You can use multiple Automation accounts to separate resources into separate logical environments like development, test, and production or across geographic regions.  
-
-### Hybrid Runbook Worker
-To run runbooks on physical or virtual systems in your local data center, Azure, or other cloud provider, the Hybrid Runbook Worker feature allows you to access and manage those local resources.     
-
-### Automation Desired State Configuration
-Automation Desired State Configuration (DSC), built on PowerShell DSC, configures, monitors, and automatically updates the desired state of your operating systems hosted in Azure, on-premise, or in another cloud.  
-
-### Management solutions
-Management solutions, like Update Management and Change Tracking, extend the functionality of Azure Automation and are used with Log Analytics.  They can include multiple resources that support a particular management scenario, such as Automation runbooks, pre-defined Log Analytics search queries and alerts, and visualizations.  
-
-## Architecture overview
+![Azure Automation overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
 Azure Automation is a software as a service (SaaS) application that provides a scalable and reliable, multi-tenant environment to automate processes with runbooks and manage configuration changes to Windows and Linux systems using Desired State Configuration (DSC) in Azure, other cloud services, or on-premises. Entities contained within your Automation account, such as runbooks, assets, Run As accounts are isolated from other Automation accounts within your subscription and other subscriptions.  
 
 Runbooks that you run in Azure are executed on Automation sandboxes, which are hosted in Azure platform as a service (PaaS) virtual machines.  Automation sandboxes provide tenant isolation for all aspects of runbook execution – modules, storage, memory, network communication, job streams, etc. This role is managed by the service and is not accessible from your Azure or Azure Automation account for you to control.         
 
-To automate the deployment and management of resources in your local data center or other cloud services, you can designate one or more machines to run the Hybrid Runbook Worker (HRW) role.  Each HRW requires the Microsoft Management Agent (MMA) with a connection to a Log Analytics workspace and an Automation account.  Log Analytics is used to bootstrap the installation, maintain the MMA agent, and monitor the functionality of the HRW.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
+To automate the deployment and management of resources in your local data center or other cloud services, after creating an Automation account, you can designate one or more machines to run the [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md)  role.  Each HRW requires the Microsoft Management Agent (MMA) with a connection to a Log Analytics workspace and an Automation account.  Log Analytics is used to bootstrap the installation, maintain the MMA agent, and monitor the functionality of the HRW.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
 
 You can deploy multiple HRW to provide high availability for your runbooks, load balance runbook jobs, and in some cases dedicate them for particular workloads or environments.  HRW communicates with the Automation service over TCP outbound port 443.  Once you have runbook running on an HRW within your datacenter, and you want the runbook to perform management tasks against other machines or services within the datacenter, then there may be other ports that the runbook needs access to.  If your IT security policies do not allow computers on your network to connect to the Internet, review the article [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md), which acts as a proxy for the HRW to collect job status and receive configuration information from your Automation account.
 
@@ -52,9 +38,7 @@ Runbooks running on an HRW run in the context of the local System account on the
 
 DSC configurations stored in Azure Automation can be directly applied to Azure virtual machines. Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.  For managing configurations of your on-premise physical or virtual Windows and Linux systems, you don't need to deploy any infrastructure to support the Automation DSC pull server, only outbound Internet access from each system to be managed by Automation DSC, communicating over TCP port 443 to the OMS service.   
 
-![Azure Automation overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
-
-## Prerequisites
+## Requirements
 
 ### Automation DSC
 Azure Automation DSC can be used to manage various machines:
@@ -75,11 +59,18 @@ When designating a computer to run hybrid runbook jobs, this computer must have 
 * Minimum of two cores
 * Minimum of 4 GB of RAM
 
-## Security
+## Authentication planning
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers.  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.  
 
-### Automation Account 
-All the automation tasks you perform against resources using the Azure cmdlets in Azure Automation authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  An Automation account is separate from the account you use to sign in to the portal to configure and use Azure resources.  
+### What is an Automation Account 
+All the automation tasks you perform against resources using the Azure cmdlets in Azure Automation authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  An Automation account is separate from the account you use to sign in to the portal to configure and use Azure resources.  Automation resources included with an account are the following:
+
+* **Certificates** - contains a certificate used for authentication from a runbook or DSC configuration or add them.
+* **Connections** - contains authentication and configuration information required to connect to an external service or application from a runbook or DSC configuration.
+* **Credentials** - is a PSCredential object which contains security credentials such as a username and password required to authenticate from a runbook or DSC configuration.
+* **Integration modules** - are PowerShell modules included with an Azure Automation account to make use of cmdlets within runbooks and DSC configurations.
+* **Schedules** - contains schedules that starts or stops a runbook at a specified time, including recurring frequencies.
+* **Variables** - contain values that are available from a runbook or DSC configuration.
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. Create Automation accounts in different regions if you have policies that require data and resources to be isolated to a specific region.
 
@@ -106,7 +97,7 @@ The following table summarizes the different authentication methods for each env
 
 Under the **How to\Authentication and security** section, are supporting articles providing overview and implementation steps to configure authentication for those environments, either with an existing or new account you dedicate for that environment.  For the Azure Run As and Classic Run As account, the topic [Update Automation Run As account](automation-create-runas-account.md) describes how to update your existing Automation account with the Run As accounts from the portal or using PowerShell if it was not originally configured with a Run As or Classic Run As account. If you want to create a Run As and a Classic Run As account with a certificate issued by your enterprise certification authority (CA), review this article to learn how to create the accounts using this configuration.     
  
-## Network
+## Network planning
 For the Hybrid Runbook Worker to connect to and register with Microsoft Operations Management Suite (OMS), it must have access to the port number and the URLs described below.  This is in addition to the [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
 
 The information below list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
@@ -137,10 +128,7 @@ For a list of IP addresses instead of names, download and review the [Azure Data
 > This file contains the IP address ranges (including Compute, SQL and Storage ranges) used in the Microsoft Azure Datacenters. An updated file is posted weekly which reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges appearing in the file will not be used in the datacenters for at least one week. Please download the new xml file every week and perform the necessary changes on your site to correctly identify services running in Azure. Express Route users may note this file used to update the BGP advertisement of Azure space in the first week of each month. 
 > 
 
-
-## Implementation
-
-### Creating an Automation account
+## Creating an Automation account
 
 There are different ways you can create an Automation account in the Azure portal.  The following table introduces each type of deployment experience and differences between them.  
 
@@ -191,10 +179,10 @@ The recommended method to onboard Automation is by selecting the Automation & Co
 
 8. Click **Create** to proceed with onboarding Automation and an OMS workspace. All settings are validated and then it attempts to deploy the offering in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu. 
 
-After the offering is onboarded, you can begin creating runbooks, working with the management solutions you enabled, or start working with [Log Analytics](https://docs.microsoft.com/azure/log-analytics) to collect data generated by resources in your cloud or on-premises environments.   
+After the offering is onboarded, you can begin creating runbooks, work with the management solutions you enabled, deploy a [Hybrid Runbook worker](automation-hybrid-runbook-worker.md) role, or start working with [Log Analytics](https://docs.microsoft.com/azure/log-analytics) to collect data generated by resources in your cloud or on-premises environment.   
 
 ## Next steps
 * You can confirm your new Automation account can authenticate against Azure resources by reviewing [test Azure Automation Run As account authentication](automation-verify-runas-authentication.md).
-* To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
-* To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+* To get started with creating runbooks, first review the [Automation runbook types](automation-runbook-types.md) supported and related considerations before you begin authoring.
+
 
