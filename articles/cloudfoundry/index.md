@@ -25,7 +25,7 @@ ms.author: mlearned
 <h2>How-to Guides</h2>
 <p>Cloud Foundry</p>
 <ol>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/Cloud Foundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
+  <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.</p>
