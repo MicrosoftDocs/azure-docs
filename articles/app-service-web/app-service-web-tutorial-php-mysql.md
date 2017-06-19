@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -223,11 +223,11 @@ CREATE DATABASE sampledb;
 
 ### Create a user with permissions
 
-Create a database user and give it all privileges in the `sampledb` database. Replace the placeholders *&lt;phpapp_user>* and *&lt;phpapp_password>*.
+Create a database user and give it all privileges in the `sampledb` database.
 
 ```sql
-CREATE USER '<phpapp_user>' IDENTIFIED BY '<phpapp_password>'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO '<phpapp_user>';
+CREATE USER 'phpappuser' IDENTIFIED BY '$tr0ngPa$$w0rd!'; 
+GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
 ```
 
 Exit the server connection by typing `quit`.
@@ -243,7 +243,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 <a name="devconfig"></a>
 ### Configure the connection 
 
-In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholders _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>.
 
 ```
 APP_ENV=production
@@ -253,8 +253,8 @@ APP_KEY=SomeRandomString
 DB_CONNECTION=mysql
 DB_HOST=<mysql_server_name>.database.windows.net
 DB_DATABASE=sampledb
-DB_USERNAME=<phpapp_user>@<mysql_server_name>
-DB_PASSWORD=<phpapp_password>
+DB_USERNAME=phpappuser@<mysql_server_name>
+DB_PASSWORD=$tr0ngPa$$w0rd!
 MYSQL_SSL=true
 ```
 
@@ -262,7 +262,7 @@ Save the changes.
 
 ### Configure SSL certificate
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must specify a _.pem_ certificate.
+By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use a _.pem_ SSL certificate.
 
 Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `connections.mysql`, as shown in the following code.
 
@@ -276,7 +276,7 @@ Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `co
 ],
 ```
 
-To learn how to generate _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md).
+To learn how to generate this _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
 > [!TIP]
 > The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
@@ -361,13 +361,13 @@ As pointed out previously, you can connect to your Azure MySQL database using en
 
 In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. 
 
-The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
+The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set \
     --name <app_name> \
     --resource-group myResourceGroup \
-    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="<phpapp_user>@<mysql_server_name>" DB_PASSWORD="<phpapp_password>" MYSQL_SSL="true"
+    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="$tr0ngPa$$w0rd!" MYSQL_SSL="true"
 ```
 
 You can use the PHP [getenv](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
@@ -410,7 +410,7 @@ Set the virtual application path for the web app. This step is required because 
 
 Set the virtual application path by using the [az resource update](/cli/azure/resource#update) command. Replace the _&lt;appname>_ placeholder.
 
-```bash
+```azurecli-interactive
 az resource update \
     --name web \
     --resource-group myResourceGroup \
