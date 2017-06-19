@@ -15,19 +15,19 @@ ms.date: 06/12/2017
 ms.author: cfreeman
 ---
 
-# Investigate and share usage data with interactive Workbooks in Application Insights
+# Investigate and share usage data with interactive workbooks in Application Insights
 
 Workbooks combine [Azure Application Insights](app-insights-overview.md) data visualizations, [Analytics queries](app-insights-analytics.md), and text into interactive documents. Workbooks are editable by other team members with access to the same Azure resource. This means the queries and controls used to create a workbook are available to other people reading the workbook, making them easy to explore, extend, and check for mistakes.
 
 Workbooks are helpful for scenarios like:
 
-* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, conversion rates, etc. Unlike other usage analytics tools in Application Insights, Workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.
+* Exploring the usage of your app when you don't know the metrics of interest in advance: numbers of users, retention rates, conversion rates, etc. Unlike other usage analytics tools in Application Insights, workbooks let you combine multiple kinds of visualizations and analyses, making them great for this kind of free-form exploration.
 * Explaining to your team how a newly released feature is performing, by showing user counts for key interactions and other metrics.
 * Sharing the results of an A/B experiment in your app with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and Analytics query used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your app, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use Workbooks. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
+> Your Application Insights resource must contain page views or custom events to use workbooks. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
 > 
 > 
 
@@ -79,7 +79,7 @@ Each of these three section types offers the same sets of controls and visualiza
 
 To add an Application Insights Analytics query section to your workbook, use the **Add Analytics query** button at the bottom of the workbook, or at the bottom of any section.
 
-Analytics query sections let you add arbitrary queries over your Application Insights data into Workbooks. This flexibility means Analytics query sections should be your go-to for answering any questions about your site other than the four listed above for Users, Sessions, Events, and Retention, like:
+Analytics query sections let you add arbitrary queries over your Application Insights data into workbooks. This flexibility means Analytics query sections should be your go-to for answering any questions about your site other than the four listed above for Users, Sessions, Events, and Retention, like:
 
 * How many exceptions did your site throw during the same time period as a decline in usage?
 * What was the distribution of page load times for users viewing some page?
@@ -89,11 +89,11 @@ Use the [Analytics query language reference](app-insights-analytics-reference.md
 
 ## Adding text and Markdown sections
 
-Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Text sections in Workbooks support the [Markdown syntax](https://daringfireball.net/projects/markdown/) for text formatting, like headings, bold, italics, and bulleted lists.
+Adding headings, explanations, and commentary to your workbooks helps turn a set of tables and charts into a narrative. Text sections in workbooks support the [Markdown syntax](https://daringfireball.net/projects/markdown/) for text formatting, like headings, bold, italics, and bulleted lists.
 
 To add a text section to your workbook, use the **Add text** button at the bottom of the workbook, or at the bottom of any section.
 
-## Saving and sharing Workbooks with your team
+## Saving and sharing workbooks with your team
 
 Workbooks are saved within an Application Insights resource, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the Application Insights resource. To view all the workbooks in the resource, click the **Open** button in the action bar.
 
