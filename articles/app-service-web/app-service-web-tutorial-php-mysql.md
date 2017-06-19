@@ -634,7 +634,7 @@ To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail)
 ```azurecli-interactive 
 az webapp log tail \
     --name <app_name> \
-    --resource-group myResourceGroup 
+    --resource-group myResourceGroup
 ``` 
 
 Once log streaming has started, refresh the Azure web app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
