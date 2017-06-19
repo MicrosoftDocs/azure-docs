@@ -35,12 +35,13 @@ You can choose your real or simulated device to get started.
 
 | IoT device                       | Programming language |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]           |
 | Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
-| Simulated device                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Simulated device on PC          | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
+| Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub.
 
@@ -54,6 +55,7 @@ In addition, you can use an IoT Edge gateway to enable devices to connect to you
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
@@ -66,3 +68,4 @@ In addition, you can use an IoT Edge gateway to enable devices to connect to you
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
 [Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: iot-hub-windows-iot-edge-get-started.md
+[Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md
