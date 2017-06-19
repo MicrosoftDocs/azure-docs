@@ -185,7 +185,7 @@ You can also configure Auditing in Azure SQL Database using the following automa
    * [Set-AzureRMSqlServerAuditingPolicy][106]
    * [Use-AzureRMSqlServerAuditingPolicy][107]
 
-   For an script example, see [Configure auditing and threat detectoin using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+   For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 2. **REST API - Blob Auditing**
 
