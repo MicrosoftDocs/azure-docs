@@ -38,32 +38,32 @@ Client applications like Excel and Power BI Desktop, and tools like SSMS and SSD
 ### SQL Server Management Studio (SSMS)
 Azure Analysis Services servers support connections from [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and higher by using Windows Authentication, Active Directory Password Authentication, and Active Directory Universal Authentication. In general, it's recommended you use Active Directory Universal Authentication because:
 
-*  Supports interative and non-interactive authentication methods.
+*  Supports interactive and non-interactive authentication methods.
 
 *  Supports Azure B2B guest users invited into the Azure AS tenant. When connecting to a server, guest users must select Active Directory Universal Authentication when connecting to the server.
 
 *  Supports Multi-Factor Authentication (MFA). Azure MFA helps safeguard access to data and applications with a range of verification options: phone call, text message, smart cards with pin, or mobile app notification. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 ### SQL Server Data Tools (SSDT)
-SSDT connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first deployment by using their organizational ID (email). Users must sign in to Azure with an account with server administrator permissions on the server they are deploying to. When signing in to Azure the first time, a token is assigned. SSDT caches the token in-memory for future reconnects. The in-memory token is not shared across processes. A new or second instance of SSDT will not have the cached credentials. SSDT supports Multi-Factor Authentication (MFA).
+SSDT connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first deployment by using their organizational ID (email). Users must sign in to Azure with an account with server administrator permissions on the server they are deploying to. When signing in to Azure the first time, a token is assigned. SSDT caches the token in-memory for future reconnects. SSDT supports Multi-Factor Authentication (MFA).
 
 ### Power BI Desktop
-Power BI Desktop connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first connection by using their organizational ID (email). Users must sign in to Azure with an account that is included in a server administrator or database role. When signing in to Azure the first time, a token is assigned. Power BI Desktop caches the token in-memory for future reconnects. The in-memory token is not shared across processes. A new or second instance of SSDT will not have the cached credentials. SSDT supports Multi-Factor Authentication (MFA).
+Power BI Desktop connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first connection by using their organizational ID (email). Users must sign in to Azure with an account that is included in a server administrator or database role. When signing in to Azure the first time, a token is assigned. Power BI Desktop caches the token in-memory for future reconnects. SSDT supports Multi-Factor Authentication (MFA).
 
 ### Excel
-Excel users can connect to an Azure Analysis Services server by using a Windows account if the on-premises Active Directory is synchronized with Azure Active Directory, with an organization id (email address) or an external email address provided that email has been added to the Azure AD as a guest user.
+Excel users can connect to a server by using a Windows account, an organization ID (email address), or an external email address. External email identities must exist in the Azure AD as a guest user.
 
 ## User permissions
 
 **Server administrators** are specific to an Azure Analysis Services server instance. They connect with tools like Azure portal, SSMS, and SSDT to perform tasks like adding databases and managing user roles. By default, the user that creates the server is automatically added as an Analysis Services server administrator. Other administrators can be added by using Azure portal or SSMS. Server administrators must have an account in the Azure AD tenant in the same subscription. To learn more, see [Manage server administrators](analysis-services-server-admins.md). 
 
 > [!NOTE]
-> Currently, Server administrators does not support Microsoft accounts (@hotmail, @live, @outlook).
+> Currently, server administrators do not support Microsoft accounts (@hotmail, @live, @outlook).
 > 
 
 **Database users** connect to model databases by using client applications like Excel or Power BI. Users must be added to database roles. Database roles define administrator, process, or read permissions for a database. It's important to understand database users in a role with administrator permissions is different than server administrators. However, by default, server administrators are also database administrators. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
 
-**Azure resource owners**. Resource owners manage resources for an Azure subscription. They can add Azure AD user identities to Owner or Contributor Roles within a subscription by using **Access control** in Azure portal or with Azure Resource Manager templates. 
+**Azure resource owners**. Resource owners manage resources for an Azure subscription. Resource owners can add Azure AD user identities to Owner or Contributor Roles within a subscription by using **Access control** in Azure portal, or with Azure Resource Manager templates. 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 

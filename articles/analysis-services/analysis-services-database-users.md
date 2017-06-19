@@ -78,7 +78,7 @@ To add roles and users to a deployed model database, you must be connected to th
 
      ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
-5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. To learn more, see [Row filters](analysis-services-manage-users.md#bkmk_rowfliters). 
+5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 
 ## To add roles and users by using a TMSL script
 You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) object.
