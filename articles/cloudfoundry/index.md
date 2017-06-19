@@ -28,7 +28,7 @@ ms.author: mlearned
   <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
 </ol>
 <h2>Resources</h2>
-<p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.</p>
+See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.
 <ul>  
    <li><a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Microsoft Azure</a></li>   
    <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry">Azure Marketplace Cloud Foundry template</a></li>
