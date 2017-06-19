@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/6/2017
+ms.date: 06/8/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -95,7 +95,6 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 
 >[!NOTE]
 > For a classic account set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
-
 
 ### Storage account onboarding 
 
