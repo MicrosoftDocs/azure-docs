@@ -27,7 +27,6 @@ The objective of this tutorial is to show you the steps you need to perform in X
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A Xmatters tenant with the [Business plan](https://www.xmatters.com/products/business-continuity-management/) or better enabled 
 *   A user account in Xmatters with Team Admin permissions 
 
 Note: The Azure AD provisioning integration relies on the [Xmatters REST API](https://help.xmatters.com/xmAPI/#xmatters-rest-api) which is available to Xmatters teams on the Business plan or better.

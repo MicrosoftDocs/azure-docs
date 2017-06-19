@@ -27,7 +27,7 @@ The objective of this tutorial is to show you the steps you need to perform in V
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A Velpic tenant with the [Business plan](https://www.velpic.com/pricing.html) or better enabled 
+*   A Velpic tenant with the [Basic plan](https://www.velpic.com/pricing.html) or better enabled 
 *   A user account in Velpic with Team Admin permissions 
 
 ## Assigning users to Velpic

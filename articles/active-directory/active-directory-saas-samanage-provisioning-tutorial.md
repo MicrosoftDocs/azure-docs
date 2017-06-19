@@ -27,10 +27,10 @@ The objective of this tutorial is to show you the steps you need to perform in S
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A Samanage tenant with the [Business plan](https://www.samanage.com/pricing/) or better enabled 
+*   A Samanage tenant with the [Professional plan](https://www.samanage.com/pricing/) or better enabled 
 *   A user account in Samanage with Team Admin permissions 
 
-Note: The Azure AD provisioning integration relies on the [Samanage API](https://www.samanage.com/api/) which is available to Samanage teams on the Business plan or better.
+Note: The Azure AD provisioning integration relies on the [Samanage REST API](https://www.samanage.com/api/) which is available to Samanage teams on the Professional plan or better.
 
 ## Assigning users to Samanage
 

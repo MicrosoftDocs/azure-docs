@@ -27,10 +27,10 @@ The objective of this tutorial is to show you the steps you need to perform in T
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A ThousandEyes tenant with the [Business plan](https://www.thousandeyes.com/pricing) or better enabled 
+*   A ThousandEyes tenant with the [Standard plan](https://www.thousandeyes.com/pricing) or better enabled 
 *   A user account in ThousandEyes with Team Admin permissions 
 
-Note: The Azure AD provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK) which is available to ThousandEyes teams on the Business plan or better.
+Note: The Azure AD provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK) which is available to ThousandEyes teams on the Standard plan or better.
 
 ## Assigning users to ThousandEyes
 
