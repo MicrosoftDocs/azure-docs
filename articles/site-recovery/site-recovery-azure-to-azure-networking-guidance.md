@@ -27,7 +27,7 @@ This article details the networking guidance for Azure Site Recovery when replic
 
 ## Site Recovery architecture
 
-Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the even of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture.md).
+Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the event of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture.md).
 
 ## Prepare your network infrastructure
 
@@ -54,7 +54,7 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 
 **URL** | **Purpose**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in source region form the VM.
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in source region from the VM.
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can happen from the VM.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data  can be written from the VM.
@@ -72,7 +72,7 @@ If you are using any IP-based firewall proxy or Network Security Group (NSG) rul
 > 1. It is recommended that you create the required NSG rules on a test NSG and verify that everything is fine before you create the rules on a production NSG.
 > 2. Ensure that your subscription is whitelisted to create the required number of NSG rules. You can contact support to increase the NSG rule limit in your subscription.
 
-- Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
+- Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
@@ -123,7 +123,7 @@ For example, if your VM's source location is 'East US' and your replication is t
 
 ### NSG rules on 'East US' NSG
 
-1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
+1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
 
 2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
@@ -137,7 +137,7 @@ Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
 
 These rules are required so that replication can be enabled from target region to source region post failover.
 
-1. Create rules corresponding to 'Central US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653. This is required so that data can be written to the cache storage account form the VM.
+1. Create rules corresponding to 'Central US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653. This is required so that data can be written to the cache storage account from the VM.
 
 2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
@@ -169,7 +169,7 @@ If you have an ExpressRoute or a VPN connection between on-premises and the sour
   - source VNet and the ExpressRoute circuit
   - target VNet and the ExpressRoute circuit
 
-- As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) for more details.
+- As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRoute circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) for more details.
 
 - It is recommended to use different IP ranges in source and target regions. ExpressRoute circuit won't be able to connect with two VNETs of same IP ranges at the same time.
 
