@@ -1,42 +1,52 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
+
 ## C# program example
 
-This section presents a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The program performs the following action sequence:
+The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
 
-1. [Connects to our SQL database, by using ADO.NET](#cs_1_connect).
-    - The database product can be either Microsoft SQL Server, or our cloud version of it named Azure SQL Database.
-2. [Creates temporary tables](#cs_2_createtemptables).
-    - You have the option of editing the T-SQL to remove the leading **#**, to create the tables in your own database instead of in **tempdb**. The tables would persist until you drop them.
+1. [Connects to our SQL database using ADO.NET](#cs_1_connect).
+2. [Creates tables](#cs_2_createtables).
 3. [Populates the tables with data, by issuing T-SQL INSERT statements](#cs_3_insert).
 4. [Updates data by use of a join](#cs_4_updatejoin).
 5. [Deletes data by use of a join](#cs_5_deletejoin).
 6. [Selects data rows by use of a join](#cs_6_selectrows).
-7. Closes the connection, which causes the database system to drop the temporary tables from tempdb.
+7. Closes the connection (which drops any temporary tables from tempdb).
 
 The C# program contains:
 
 - C# code to connect to the database.
 - Methods that return the T-SQL source code.
 - Two methods that submit the T-SQL to the database.
-    - Optionally, you can copy and paste the T-SQL code into SQL Server Management Studio (SSMS), and then submit the T-SQL to the database.
 
-#### One program logically, several blocks physically
+#### To compile and run
 
-This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. You can recreate the .cs file by copy and pasting each block into a file, in the same sequence that the blocks are presented here.
+This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following:
 
-#### To compile
+1. Create a C# project in Visual Studio.
+    - The project type should be a *console* application, from something like the following hierarchy:
+    **Templates** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+3. In the file **Program.cs**, erase the small starter lines of code.
+3. Into Program.cs, copy and paste each of the following blocks, in the same sequence they are presented here.
+4. In Program.cs, edit the following values in the **Main** method:
 
-You can compile and run this C# program. The following minor tasks would be required:
+   - **cb.DataSource**
+   - **cd.UserID**
+   - **cb.Password**
+   - **InitialCatalog**
 
-- Edit the **Main** method, to assign actual values to **cb.DataSource** and to the other connection properties.
-- Reference the assembly **System.Data.dll**.
+5. Verify that the assembly **System.Data.dll** is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
+6. To build the program in Visual Studio, click the **Build** menu.
+7. To run the program from Visual Studio, click the **Start** button. The report output is displayed in a cmd.exe window.
 
+> [!NOTE]
+> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in **tempdb**. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any REFERENCES for foreign keys are not enforced for temporary tables.
+>
 
 <a name="cs_1_connect"/>
 ### C# block 1: Connect by using ADO.NET
 
-- [Next](#cs_2_createtemptables)
+- [Next](#cs_2_createtables)
 
 
 ```csharp
@@ -62,8 +72,8 @@ namespace csharp_db_test
             {
                connection.Open();
 
-               Submit_Tsql_NonQuery(connection, "2 - Create-Temp-Tables",
-                  Build_2_Tsql_CreateTempTables());
+               Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
+                  Build_2_Tsql_CreateTables());
 
                Submit_Tsql_NonQuery(connection, "3 - Inserts",
                   Build_3_Tsql_Inserts());
@@ -83,41 +93,40 @@ namespace csharp_db_test
          {
             Console.WriteLine(e.ToString());
          }
+         Console.WriteLine("View the report output here, then press any key to end the program...");
+         Console.ReadKey();
       }
 ```
 
 
-<a name="cs_2_createtemptables"/>
-### C# block 2: T-SQL to create the temporary tables
+<a name="cs_2_createtables"/>
+### C# block 2: T-SQL to create tables
 
 - [Previous](#cs_1_connect) &nbsp; / &nbsp; [Next](#cs_3_insert)
 
-The leading **#** in front of the table names makes them be *temporary* tables, and they are created in the **tempdb** database. For our demonstration purposes, the temporary aspect is handy. This temporary aspect spares us from creating a database we can pollute, and from worrying about cleaning up after the demo. 
-
-
 ```csharp
-      static string Build_2_Tsql_CreateTempTables()
+      static string Build_2_Tsql_CreateTables()
       {
          return @"
-DROP TABLE IF EXISTS #tabEmployee;
-DROP TABLE IF EXISTS #tabDepartment;  -- Drop parent table last.
+DROP TABLE IF EXISTS tabEmployee;
+DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
 
 
-CREATE TABLE #tabDepartment
+CREATE TABLE tabDepartment
 (
    DepartmentCode  nchar(4)          not null
       PRIMARY KEY,
    DepartmentName  nvarchar(128)     not null
 );
 
-CREATE TABLE #tabEmployee
+CREATE TABLE tabEmployee
 (
    EmployeeGuid    uniqueIdentifier  not null  default NewId()
       PRIMARY KEY,
    EmployeeName    nvarchar(128)     not null,
    EmployeeLevel   int               not null,
    DepartmentCode  nchar(4)              null
-      --REFERENCES #tabDepartment (DepartmentCode) -- REF disallowed on #temp tables.
+      REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
 );
 ";
       }
@@ -125,7 +134,7 @@ CREATE TABLE #tabEmployee
 
 #### Entity Relationship Diagram (ERD)
 
-The preceding CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables.  In our case the `--REFERENCES` keyword is commented out by a pair of leading dashes, only because REFERENCES is not supported in the special case of temporary tables. Regardless, everything else in this demo about the tables, the data, and the joining is exactly the same in respecting the foreign key.
+The preceding CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables.  If you are using tempdb, comment out the `--REFERENCES` keyword using a pair of leading dashes.
 
 Next is an ERD that displays the relationship between the two tables. The values in the #tabEmployee.DepartmentCode *child* column are limited to the values present in the #tabDepartment.Department *parent* column.
 
@@ -135,7 +144,7 @@ Next is an ERD that displays the relationship between the two tables. The values
 <a name="cs_3_insert"/>
 ### C# block 3: T-SQL to insert data
 
-- [Previous](#cs_2_createtemptables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
+- [Previous](#cs_2_createtables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
 
 
 ```csharp
@@ -143,7 +152,7 @@ Next is an ERD that displays the relationship between the two tables. The values
       {
          return @"
 -- The company has these departments.
-INSERT INTO #tabDepartment
+INSERT INTO tabDepartment
    (DepartmentCode, DepartmentName)
       VALUES
    ('acct', 'Accounting'),
@@ -151,7 +160,7 @@ INSERT INTO #tabDepartment
    ('legl', 'Legal');
 
 -- The company has these employees, each in one department.
-INSERT INTO #tabEmployee
+INSERT INTO tabEmployee
    (EmployeeName, EmployeeLevel, DepartmentCode)
       VALUES
    ('Alison'  , 19, 'acct'),
@@ -182,9 +191,9 @@ UPDATE empl
    SET
       empl.EmployeeLevel += 1
    FROM
-      #tabEmployee   as empl
+      tabEmployee   as empl
       INNER JOIN
-      #tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
    WHERE
       dept.DepartmentName = @DName1;
 ";
@@ -209,14 +218,14 @@ SET @DName2 = @csharpParmDepartmentName;  --'Legal';
 -- Right size the Legal department.
 DELETE empl
    FROM
-      #tabEmployee   as empl
+      tabEmployee   as empl
       INNER JOIN
-      #tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
    WHERE
       dept.DepartmentName = @DName2
 
 -- Disband the Legal department.
-DELETE #tabDepartment
+DELETE tabDepartment
    WHERE DepartmentName = @DName2;
 ";
       }
@@ -242,9 +251,9 @@ SELECT
       empl.DepartmentCode,
       dept.DepartmentName
    FROM
-      #tabEmployee   as empl
+      tabEmployee   as empl
       LEFT OUTER JOIN
-      #tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
    ORDER BY
       EmployeeName;
 ";
@@ -339,7 +348,7 @@ This section captures the output that the program sent to the console. Only the 
 >> csharp_db_test.exe
 
 =================================
-Now, CreateTempTables (10)...
+Now, CreateTables (10)...
 
 =================================
 Now, Inserts (20)...

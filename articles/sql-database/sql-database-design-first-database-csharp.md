@@ -1,6 +1,6 @@
 ---
-title: Use C# to connect to your first Azure SQL database | Microsoft Docs
-description: Learn to design your first Azure SQL database, and continue by connecting to your database with a C# program using ADO.NET.
+title: Design your first Azure SQL database - C# | Microsoft Docs
+description: Learn to design your first Azure SQL database and connect to it with a C# program using ADO.NET.
 services: sql-database
 documentationcenter: ''
 author: MightyPen
@@ -22,11 +22,11 @@ ms.author: genemi
 
 This article first explains the steps necessary to create an Azure SQL Database. Then it describes the C# source code necessary to connect and query by use of ADO.NET (of the .NET Framework). 
 
-<!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-ssms-1.md, is long.
+<!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
 -->
 
-[!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-ssms-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-ssms-1.md)]
+[!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
 
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.

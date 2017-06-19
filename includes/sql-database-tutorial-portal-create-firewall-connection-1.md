@@ -118,32 +118,3 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
    ![connection information](../articles/sql-database/media/sql-database-connect-query-ssms/connection-information.png) 
-
-## Connect using Management Studio
-
-Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
-
-1. Open SQL Server Management Studio.
-
-2. In the **Connect to Server** dialog box, enter the following information:
-
-   | Setting | Suggested value | Description |
-   | --------| --------------- | ----------- | 
-   | Server type | Database engine. | This value is required. |
-   | Server name | The fully qualified server name. | The name should be something like this example: **mynewserver20170313.database.windows.net**. |
-   | Authentication | SQL Server Authentication. | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | Login | The server admin account. | This is the account that you specified when you created the server. |
-   | Password | The password for your server admin account. | This is the password that you specified when you created the server. |
-   ||||
-
-   ![connect to server](../articles/sql-database/media/sql-database-connect-query-ssms/connect.png)
-
-3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
-
-   ![connect to db on server](../articles/sql-database/media/sql-database-connect-query-ssms/options-connect-to-db.png)  
-
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
-
-5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
-
-   ![database objects](../articles/sql-database/media/sql-database-connect-query-ssms/connected.png)  

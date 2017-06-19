@@ -33,8 +33,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB
+  - name: 1 - Create/design new SQL DB using SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Create/design new SQL DB using .NET
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
