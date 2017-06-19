@@ -16,6 +16,7 @@
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 
 ## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
