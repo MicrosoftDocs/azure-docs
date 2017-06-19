@@ -25,7 +25,7 @@ ms.author: mlearned
 <h2>How-to Guides</h2>
 <p>OpenShift</p>
 <ol>
-  <li><a href="https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/openshift-get-started?branch=pr-en-us-15237">Get started with with OpenShift Origin on Azure.</a></li>  
+  <li><a href="https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/openshift-get-started?branch=pr-en-us-15237">Get started with OpenShift Origin on Azure.</a></li>  
 </ol>
 <h2 style="margin-top: 36px">Resources</h2>
 <p>See the following links for additional reference materials and tools for working with OpenShift on Azure.</p>
