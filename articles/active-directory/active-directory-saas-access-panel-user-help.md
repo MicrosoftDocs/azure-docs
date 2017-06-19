@@ -1,5 +1,5 @@
 ---
-title: Common Access Panel tasks | Microsoft Docs
+title: Do you need help with the MyApps portal | Microsoft Docs
 description: Get instructions to perform common tasks when working with the access panel.
 services: active-directory
 documentationcenter: ''
@@ -13,76 +13,101 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/19/2017
 ms.author: markvi
 
 ---
-# Do you need help with MyApps?
+# Do you need help with the MyApps portal?
 
-You have probably reached this page because you were unfortunately running into an issue when using the MyApps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, we are capturing in this topic steps to common questions you can try out yourself, first.
+You have probably reached this page because you were unfortunately running into an issue when using the My Apps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, here are some troubleshooting topics that might be able to help, first:
 
-If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md).
+- I cannot sign in to myapps.microsoft.com
 
+- How do I update my password
 
-## What is the MyApps portal?
+- How do I register for password reset
 
+- I am having trouble installing the My Apps portal browser extension
 
-MyApps is a web portal that allows you to:
+- How do I add a new app
 
-- Manage and launch cloud-based applications
-- Manage your group memberships
-- Manage your profile settings
+- How do I manage my group membership
 
-![Access Panel][1]
+## I cannot sign in to myapps.microsoft.com
 
+General issues to check:
 
+- Check to see if you are signing into the correct URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
+- Try adding the URL to your browser’s trusted sites.
 
-## How can I change my password?
+- Make sure your password is not expired or forgotten. Check [here](active-directory-passwords-update-your-own-password.md) for more details on how to update your password.
 
-1.	In **MyApps**, click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Change password**.
-3.	Type your old password, and then type a new password and confirm it.
-4.	Click **Submit**.
+- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
 
-For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
+- Try clearing your browser’s cookies, and then try to sign in again.
 
-
-## How do I setup password reset?
-
-1.	In **MyApps**, click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Set up self service password reset**.
-3.	Follow the steps in the dialogue box and submit.
-
-For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md).
+If you are still encountering issues while trying to sign in, please contact your administrator for further help.
 
 
-## How can I add a new app?
 
-1.	In **MyApps**, click **Add App**.
-2.	Search or find an app you want to add, and then click **Add**.
+## I am having trouble installing the My Apps portal browser extension
+
+Check to see if you are meeting browser requirements:
+
+- The portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you launch an application that is configured for password-based single sign-on apps.
+
+- The browser requirements for the extension are:
+    - Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+    - Edge on Windows 10 Anniversary Edition or later
+    - Chrome -- on Windows 7 or later, and on MacOS X or later
+    - Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+
+You can also download the extension for Chrome, Edge, and Firefox from the direct links below:
+
+- [Chrome Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+
+- [Edge Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+
+- [Firefox Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+
+After installation try the following steps if you are encountering issues:
+
+- Check to see in your browser extension settings that the extension is enabled.
+
+- Try to restart your browser and sign in to the My Apps portal.
+
+- Try clearing your browser’s cookies and trying to sign in again.
+
+## How do I add a new app
+
+1.	On the **Apps** page, click **Add App**.
+
+2.	Search the app you want to add, and then click **Add**.
 
 **Remarks:**
 
 - You only have access to this option if your admin has enabled this for your account.
-- If the app requires permission you may need to wait for admin approval.
+
+- If the app requires permission, you may need to wait for admin approval.
 
 
+## How do I manage my group memberships
 
-## How can I manage group memberships?
-
-1.	In **MyApps**, click the **Groups** app tile.
-2.	To create a group, under **Groups I own**, click **Create group**, and then follow the instructions.
-3.	To join a group, under **Groups I'm in**, click **Join group**, and then follow the instructions.
+1. Click the Groups app tile. 
+2. To create a group, under Groups I own, click Create group, and then follow the instructions.
+3. To join a group, under Groups I'm in, click Join group, and then follow the instructions.
 
 **Remarks:**
 
-- Clicking a group you are a member of allows you to view details and leave the group.
-- Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
+- You only have access to this option if your admin has enabled this for your account.
+
+- Groups you are a member of allow you to view details and leave the group.
+
+- Groups you are an owner of allows you to view details, add or remove members, and leave the group.
+
 
 ## Next steps
 
 For troubleshooting related information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-access-panel-user-help/01.png
