@@ -34,7 +34,7 @@ ms.author: mlearned
   <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">CI/CD with Docker, Jenkins, and Linux VMs.</a></li>
 </ol>
 <h2 style="margin-top: 36px">Resources</h2>
-<p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>
+See the following links for additional reference materials and tools for working with Docker on Azure.
 <ul>  
    <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker on Ubuntu Quickstart template</a></li>
    <li><a href="https://www.docker.com/docker-azure">Docker Azure site</a></li>
