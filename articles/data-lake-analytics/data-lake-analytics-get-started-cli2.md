@@ -51,33 +51,33 @@ You need a Data Lake Analytics account before you can run any jobs. To create a 
 
 * **Azure Resource Group**. A Data Lake Analytics account must be created within an Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update, or delete all of the resources for your application in a single, coordinated operation.  
 
-    To list the existing resource groups under your subscription:
+To list the existing resource groups under your subscription:
 
-    ```
-    az group list
-    ```
+```
+az group list
+```
 
-    To create a new resource group:
+To create a new resource group:
 
-    ```
-    az group create --name "<Resource Group Name>" --location "<Azure Location>"
-    ```
+```
+az group create --name "<Resource Group Name>" --location "<Azure Location>"
+```
 
 * **Data Lake Analytics account name**. Each Data Lake Analytics account has a name.
 * **Location**. Use one of the Azure data centers that supports Data Lake Analytics.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account.
 
-    To list the existing Data Lake Store account:
+To list the existing Data Lake Store account:
 
-    ```
-    az dls account list
-    ```
+```
+az dls account list
+```
 
-    To create a new Data Lake Store account:
+To create a new Data Lake Store account:
 
-    ```azurecli
-    az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
-    ```
+```azurecli
+az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
+```
 
 Use the following syntax to create a Data Lake Analytics account:
 
@@ -132,16 +132,20 @@ Don't modify the two paths unless you copy the source file into a different loca
 
 It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example:
 
-    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+```
+adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+```
 
 You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
 
-    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+```
+wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+```
 
-  > [!NOTE]
-  > Azure Blob container with public blobs are not supported.      
-  > Azure Blob container with public containers are not supported.      
-  >
+> [!NOTE]
+> Azure Blob container with public blobs are not supported.      
+> Azure Blob container with public containers are not supported.      
+>
 
 **To submit jobs**
 
@@ -159,7 +163,8 @@ az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:
 
 **To list jobs and show job details**
 
-```azurecli
+```
+azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
@@ -183,7 +188,7 @@ az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Out
 
 For example:
 
-```azurecli
+```
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
 ```
 
