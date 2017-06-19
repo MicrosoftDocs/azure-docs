@@ -20,6 +20,8 @@ ms.author: raviperi
 
 # STORM troubleshooting
 
+This article describes the top issues and their resolutions for working with Storm payloads in Apache Ambari.
+
 ## How do I access Storm UI on a cluster
 
 ### Issue:

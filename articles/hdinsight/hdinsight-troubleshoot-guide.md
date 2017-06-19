@@ -17,6 +17,7 @@ ms.author: arijitt
 
 # Azure HDInsight troubleshooting
 
+
 The following questions and their resolutions provide help for using Apache Ambari to troubleshoot common HDInsight cluster issues. 
 
 | Apache Workload | Top questions |
