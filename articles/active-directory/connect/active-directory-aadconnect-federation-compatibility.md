@@ -6,14 +6,13 @@ documentationcenter: ''
 author: billmath
 manager: femila
 editor: curtand
-
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 06/09/2017
 ms.author: billmath
 
 ---
@@ -42,6 +41,7 @@ For information on how you can get your third-party identity provider listed her
 * [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+* [DigitalPersona Composite Authentication](#digitalpersona-composite-authentication)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -56,7 +56,7 @@ For information on how you can get your third-party identity provider listed her
 * [Sign&go 5.3](#signgo-53) 
 * [SoftBank Technology Online Service Gate](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
-* [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
+
 
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ The following is the scenario support matrix for this sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 | Modern Applications using ADAL such as Office 2016 |Supported |None |
 
-For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
 For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 
@@ -91,7 +91,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
 
 ## BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x
@@ -106,7 +106,7 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about BIG-IP Access Policy Manager, see [BIG-IP Access Policy Manager.](https://f5.com/products/modules/access-policy-manager) 
 
-For the BIG-IP Access Policy Manager instructions on how to configure this STS to provide the single sign-on experience to your Active Directory Users, download the pdf [here.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
+For the BIG-IP Access Policy Manager instructions on how to configure this STS to provide the single sign-on experience to your Active Directory Users, download the pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
 
 ## BitGlass
 
@@ -118,7 +118,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about BitGlass see [here.](http://www.bitglass.com )
+For more information about BitGlass see [BitGlass](http://www.bitglass.com).
 
 ## CA Secure Cloud
 
@@ -130,7 +130,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about CA Secure Cloud, see [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
+For more information about CA Secure Cloud, see [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx).
 
 ## CA SiteMinder 12.52 SP1 Cumulative Release 4
 
@@ -142,7 +142,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about CA SiteMinder, see [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 
+For more information about CA SiteMinder, see [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html). 
 
 ## Centrify
 
@@ -154,7 +154,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |Client Access Control is not supported |
 
-For more information about Centrify, see [here.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+For more information about Centrify, see [Centrify](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp).
 
 ## Dell One Identity Cloud Access Manager v7.1
 
@@ -166,9 +166,22 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
+For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
 
- For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
+ For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
+
+## DigitalPersona Composite Authentication  
+
+The following is the scenario support matrix for this single sign-on experience:
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |Supported |None |
+
+For more information see [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
+
 
 ## IBM Tivoli Federated Identity Manager 6.2.2
 
@@ -180,7 +193,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about IBM Tivoli Federated Identity Manager, see [IBM Security Access Manager for Microsoft Applications.](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+For more information about IBM Tivoli Federated Identity Manager, see [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517).
 
 ## IceWall Federation Version 3.0
 
@@ -192,7 +205,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about IceWall Federation, see [here](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) and [here.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
+For more information about IceWall Federation, see [IceWall Federation Version 3.0](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) and [IceWall Federation with Office 365](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html).
 
 ## Memority
 
@@ -204,7 +217,7 @@ The following is the scenario support matrix for this sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about using Memority see [Memority](http://www.memority.com)
+For more information about using Memority see [Memority](http://www.memority.com).
 
 
 ## NetIQ Access Manager 4.x
@@ -217,7 +230,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None|
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information, see [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
+For more information, see [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m).
 
 ## Okta
 
@@ -229,7 +242,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about Okta, see [Okta.](https://www.okta.com/)
+For more information about Okta, see [Okta](https://www.okta.com/).
 
 ## OneLogin
 
@@ -241,7 +254,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about OneLogin, see [OneLogin.](https://www.onelogin.com/)
+For more information about OneLogin, see [OneLogin](https://www.onelogin.com/).
 
 ## Optimal IDM Virtual Identity Server Federation Services
 
@@ -253,7 +266,7 @@ The following is the scenario support matrix this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
 | Email-rich clients such as Outlook and ActiveSync |Supported |
 
-For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx) |
+For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx).
 
 
 
@@ -285,7 +298,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about RadiantOne CFS, see [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
+For more information about RadiantOne CFS, see [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/).
 
 ## Sailpoint IdentityNow
 
@@ -297,7 +310,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information, see [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
+For more information, see [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/).
 
 ## SecureAuth IdP 7.2.0
 
@@ -334,7 +347,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-Sign&go 5.3 supports Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact Ilex or view the setup guide [here.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Sign&go 5.3 supports Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact Ilex or view the setup guide [Sign&go](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 ## SoftBank Technology Online Service Gate
 
@@ -346,7 +359,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about SoftBank Technology Online Service Gate see [here.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
+For more information about SoftBank Technology Online Service Gate see [Softbank](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
 ## VMware Workspace One
 
@@ -358,16 +371,5 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about see [here.](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
+For more information about see [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-## VMware  Workspace Portal version 2.1
-
-The following is the scenario support matrix for this single sign-on experience:
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported |
-| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
-| Email-rich clients such as Outlook and ActiveSync |Supported |None |
-
-For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)

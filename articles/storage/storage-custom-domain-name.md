@@ -22,7 +22,7 @@ ms.author: marsma
 You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. If you map a custom domain and subdomain like **www.contoso.com** to the blob endpoint for your storage account, your users can then access blob data in your storage account using that domain.
 
 > [!IMPORTANT]
-> Azure Storage does not yet support HTTPS with custom domains. While we do not have a specific timeline we can share for this feature, we are aware of customer interest.
+> Azure Storage does not yet natively support HTTPS with custom domains. You can currently [Use the Azure CDN to access blobs with custom domains over HTTPS](./storage-https-custom-domain-cdn.md).
 >
 
 The following table shows a few sample URLs for blob data located in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
@@ -140,7 +140,7 @@ Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage
 Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet and specify an empty string (`""`) for the `-CustomDomainName` argument value to remove a custom domain registration.
 
 * Command format:
-  
+
   ```powershell
   Set-AzureRmStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
@@ -159,4 +159,4 @@ Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azure
 
 ## Next steps
 * [Map a custom domain to an Azure Content Delivery Network (CDN) endpoint](../cdn/cdn-map-content-to-custom-domain.md)
-
+* [Using the Azure CDN to access blobs with custom domains over HTTPS](./storage-https-custom-domain-cdn.md)

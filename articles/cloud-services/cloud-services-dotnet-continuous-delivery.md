@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 06/12/2017
 ms.author: tarcher
 
 ---
@@ -31,7 +31,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Azure target environments.
 
-You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services] .
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
@@ -64,7 +64,7 @@ TFS Build Definition, as described in the next section. For more
 information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 1. If Visual Studio is installed on the build server, locate and choose
-   **Visual Studio Commmand Prompt** in the **Visual Studio Tools**
+   **Visual Studio Command Prompt** in the **Visual Studio Tools**
    folder in Windows.
 
    If Visual Studio is not installed on the build server, open a
@@ -186,7 +186,7 @@ your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
 1. Install the [Azure PowerShell cmdlets][Azure PowerShell cmdlets] (v0.6.1 or higher).
-   During the cmdlet setup phase choose to install as a snap-in. Note
+   During the cmdlet setup phase, choose to install as a snap-in. Note
    that this officially supported version replaces the older version
    offered through CodePlex, although the previous versions were numbered 2.x.x.
 2. Start Azure PowerShell using the Start menu or Start page. If you start in this way,
@@ -219,13 +219,13 @@ Template workflow activities in Visual Studio TFS Team Build.
    deployment is being created.
 
    * To create a new cloud service, you can call this script or use
-     the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The cloud service name
+     the [Azure portal](https://portal.azure.com). The cloud service name
      will be used as a prefix in a fully qualified domain name and
      hence it must be unique.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
    * To create a new storage account, you can call this script or use
-     the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The storage account name
+     the [Azure portal](https://portal.azure.com). The storage account name
      will be used as a prefix in a fully qualified domain name and
      hence it must be unique. You can try using the same name as the
      cloud service.
@@ -249,7 +249,7 @@ Template workflow activities in Visual Studio TFS Team Build.
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
    This is typically followed up by test run verification and a VIP
-   swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or
+   swap. The VIP swap can be done via the [Azure portal](https://portal.azure.com) or
    by using the Move-Deployment cmdlet.
 
    **Example scenario 2:** continuous deployment to the production
@@ -285,7 +285,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
    Alternatively you can export the certificate file PFX with private
    key and upload certificates to each target cloud service using the
-   [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+   [Azure portal](https://portal.azure.com).
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.

@@ -32,6 +32,7 @@ service and includes standard web socket upgrade headers along with other header
 GET /speech/recognize/interactive/cognitiveservices/v1 HTTP/1.1
 Host: speech.platform.bing.com
 Upgrade: websocket
+Connection: Upgrade
 ProtoSec-WebSocket-Key: wPEE5FzwR6mxpsslyRRpgP==
 Sec-WebSocket-Version: 13
 Authorization: t=EwCIAgALBAAUWkziSCJKS1VkhugDegv7L0eAAJqBYKKTzpPZOeGk7RfZmdBhYY28jl&p=
@@ -504,6 +505,10 @@ X-RequestId: 123e4567e89b12d3a456426655440000
   }
 }
 ```
+
+The body of the *turn.start* message is a JSON structure that contains context for the start of the turn. The *context* element
+contains a *serviceTag* property; this property specifies a tag value that the service has associated with the turn. 
+This value can be used by Microsoft if you need help troubleshooting failures in your application.
 
 ## Turn End
 The *turn.end* signals the end of a turn from the perspective of the service. The *turn.end* message is the always the **last** response message you will receive for any request. 

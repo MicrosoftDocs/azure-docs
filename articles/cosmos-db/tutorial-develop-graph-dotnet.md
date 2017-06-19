@@ -1,21 +1,21 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Graph API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
-
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Graph API in .NET
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
@@ -40,7 +40,7 @@ Gremlin is a functional programming language that supports write operations (DML
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure DocumentDB Emulator](local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create database account
@@ -50,11 +50,11 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
 > * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
-> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
+> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 > 
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** on your computer.
@@ -93,7 +93,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Create a database 
 
-Now, create an Azure Cosmos DB [database](../documentdb/documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md).  
+Now, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

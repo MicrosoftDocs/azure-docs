@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
 
 > [!IMPORTANT]
-> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding additional storage accounts during cluster creation, see the __Use additional storage__ section of the [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) document.
+> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## How it works
 
@@ -118,7 +118,7 @@ To work around this problem, you must remove the existing entry for the storage 
 
 2. From the list of services on the left of the page, select __HDFS__. Then select the __Configs__ tab in the center of the page.
 
-3. In the __Filter...__ field, enter a value of __fs.azure.account__. This returns entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both contain the name of the storage account as part of the key name. 
+3. In the __Filter...__ field, enter a value of __fs.azure.account__. This returns entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both contain the name of the storage account as part of the key name.
 
     The following are example entries for a storage account named __mystorage__:
 

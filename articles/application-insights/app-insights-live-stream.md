@@ -18,7 +18,7 @@ ms.author: cfreeman
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency 
 
-Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](app-insights-profiler.md) and [Snapshot debugger](app-insights-snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](app-insights-profiler.md), [Snapshot debugger](app-insights-snapshot-debugger.md), and [performance testing](app-insights-monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -135,6 +135,15 @@ However, if you recognize and trust all the connected servers, you can try the c
 >[!NOTE]
 >We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 >
+
+## Generating a performance test load
+
+If you want to watch the effect of a load increase, use the Performance Test blade. It simulates requests from a number of simultaneous users. It can run either "manual tests" (ping tests) of a single URL, or it can run a [multi-step web performance test](app-insights-monitor-web-app-availability.md#multi-step-web-tests) that you upload (in the same way as an availability test).
+
+> [!TIP]
+> After you create the performance test, open the test and the Live Stream blade in separate windows. You can see when the queued performance test starts, and watch live stream at the same time.
+>
+
 
 ## Troubleshooting
 

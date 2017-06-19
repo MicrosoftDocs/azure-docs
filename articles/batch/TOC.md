@@ -22,6 +22,8 @@
 ### [Low-priority VMs](batch-low-pri-vms.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
 ### [Persist job and task output](batch-task-output.md)
+#### [Persist output with Batch API](batch-task-output-files.md)
+#### [Persist output with File Conventions library](batch-task-output-file-conventions.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
 ### [Task dependencies](batch-task-dependencies.md)
 ### [User accounts for running tasks](batch-user-accounts.md)

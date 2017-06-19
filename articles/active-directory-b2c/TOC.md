@@ -3,6 +3,7 @@
 # Get started
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
+## [Built-In policies](active-directory-b2c-reference-policies.md)
 ## Mobile & desktop apps
 ### [Overview](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Call a .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
 ### Customize login
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Troubleshooting
@@ -74,7 +77,6 @@
 ## Glossary
 ### [Types of applications](active-directory-b2c-apps.md)
 ### [Authentication protocols](active-directory-b2c-reference-protocols.md)
-### [Built-In policies](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)

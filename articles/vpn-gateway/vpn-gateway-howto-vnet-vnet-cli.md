@@ -23,10 +23,10 @@ ms.author: cherylmc
 This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and uses the Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -316,7 +316,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
   ```
 
-### Step 6 - Create the connections
+### Step 8 - Create the connections
 
 We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 

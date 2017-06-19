@@ -20,6 +20,8 @@ ms.author: tomfitz
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple instances of a property on a resource.
 
+If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).
+
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 
 
@@ -431,6 +433,29 @@ The following example shows the implementation:
     ...
 }]
 ```
+
+## Conditionally deploy resource
+
+To specify whether a resource is deployed, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+For an example of using a new or existing resource, see [New or existing condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+For an example of using a password or SSH key to deploy virtual machine, see [Username or SSH condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## Next steps
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).

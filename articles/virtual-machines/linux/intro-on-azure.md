@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
 
 ---
@@ -22,13 +22,13 @@ ms.author: szark
 This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery.
 
 ## Authentication: Usernames, Passwords and SSH Keys
-When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
+When creating a Linux virtual machine using the Azure portal, you are asked to provide a either username and password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
 * See [Create a Virtual Machine Running Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * See [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Obtaining Superuser Privileges Using `sudo`
-The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax
+The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax:
 
     # sudo <COMMAND>
 
@@ -37,7 +37,7 @@ You can optionally obtain a root shell using **sudo -s**.
 * See [Using root privileges on Linux virtual machines in Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Firewall Configuration
-Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure classic portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure classic portal:
+Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure portal:
 
 * See: [How to Set Up Endpoints to a Virtual Machine](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -65,9 +65,9 @@ The Azure Linux Agent includes functionality to automatically detect this name c
 ## Virtual Machine Image Capture
 Azure provides the ability to capture the state of an existing virtual machine into an image that can subsequently be used to deploy additional virtual machine instances. The Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
 
-1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally, delete the user account specified during provisioning and all associated data.
+1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally delete the user account specified during provisioning and all associated data.
 2. Shut down/power off the virtual machine.
-3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
+3. Click **Capture** in the Azure portal or use the PowerShell or CLI tools to capture the virtual machine as an image.
    
    * See: [How to Capture a Linux Virtual Machine to Use as a Template](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 

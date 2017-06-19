@@ -37,9 +37,10 @@ The Basic plan is the default when a new Application Insights resource is create
 
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
+For [tabular data imported into Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
-* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan, although it is free until early March 2017.
+* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan.
 
 ### Enterprise plan
 
@@ -50,8 +51,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
  * Development machines, client browsers, and mobile devices are not counted as nodes.
  * If your app has several components that send telemetry, such as a web service and a back-end worker, they are counted separately.
- * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
-* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
+ * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge / 744 (the number of hours in a 31-day month).
 * A data volume allocation of 200 MB per day is given for each node detected (with hourly granularity). Unused data allocation is not carried over from one day to the next.
  * If you choose the Enterprise pricing option, each subscription gets a daily allowance of data based on the number of nodes sending telemetry to the Application Insights resources in that subscription. So if you have 5 nodes sending data all day, you will have a pooled allowance of 1 GB applied to all the Application Insights resources in that subscription. It doesn't matter if certain nodes are sending more data than other nodes because the included data is shared across all nodes. If, on a given day, the Application Insights resources receive more data than is included in the daily data allocation for this subscription, the per-GB overage data charges apply. 

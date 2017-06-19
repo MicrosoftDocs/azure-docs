@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code to a staging environment
@@ -23,6 +24,10 @@ ms.author: cephalin
 This sample script creates a web app in App Service with an additional deployment slot called "staging", and then deploys a sample app to the "staging" slot.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

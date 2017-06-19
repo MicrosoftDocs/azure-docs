@@ -9,11 +9,11 @@ editor: raynew
 
 ms.assetid: 6ac509ad-5024-43d8-b621-d8fec019b9a9
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
 
 ---

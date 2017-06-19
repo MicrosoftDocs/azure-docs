@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 05/05/2017
+ms.date: 05/25/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -60,13 +60,13 @@ startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
-$TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
+$TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
 With this autoscale formula, the pool is initially created with a single VM. The $PendingTasks metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. The formula ensures that TargetDedicated never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
 
 ## Variables
-You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the example formula shown in the previous section, `$TargetDedicated` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the example formula shown in the previous section, `$TargetDedicatedNodes` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
 
 > [!NOTE]
 > Service-defined variables are always preceeded by a dollar sign ($). For user-defined variables, the dollar sign is optional.
@@ -79,7 +79,8 @@ You can **get** and **set** the values of these service-defined variables to man
 
 | Read-write service-defined variables | Description |
 | --- | --- |
-| $TargetDedicated |The **target** number of **dedicated compute nodes** for the pool is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. For example, if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the target number of nodes. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached. |
+| $TargetDedicatedNodes |The **target** number of **dedicated compute nodes** for the pool. The number of nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the desired number of nodes. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. |
+| $TargetLowPriorityNodes |The **target** number of **low-priority compute nodes** for the pool. For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
@@ -97,12 +98,13 @@ You can **get** the value of these service-defined variables to make adjustments
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks in an active state. |
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Tasks that are in the active state but whose dependencies are not satisfied are not included in the $ActiveTasks count.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
-| $CurrentDedicated |The current number of dedicated compute nodes. |
+| $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
+| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
@@ -266,8 +268,11 @@ You can use both **resource** and **task** metrics when you're defining a formul
     <td><p><b>Resource metrics</b> are based on the CPU, bandwidth, and memory usage of compute nodes, as well as the number of nodes.</p>
         <p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
-      <li>$TargetDedicated</li>
-            <li>$CurrentDedicated</li>
+            <li>$TargetDedicatedNodes</li>
+            <li>$TargetLowPriorityNodes</li>
+            <li>$CurrentDedicatedNodes</li>
+            <li>$CurrentLowPriorityNodes</li>
+            <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
     <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
@@ -310,7 +315,7 @@ To *increase* the number of nodes during high CPU usage, we define the statement
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
 To *decrease* the number of nodes during low CPU usage, the next statement in our formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was under 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
@@ -318,13 +323,13 @@ To *decrease* the number of nodes during low CPU usage, the next statement in ou
 ```
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
 ```
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
 
 ```
-$TargetDedicated = min(400, $totalNodes)
+$TargetDedicatedNodes = min(400, $totalNodes)
 ```
 
 Here's the complete formula:
@@ -332,11 +337,11 @@ Here's the complete formula:
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
-$TargetDedicated = min(400, $totalNodes)
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
+$TargetDedicatedNodes = min(400, $totalNodes)
 ```
 
 ## Create an autoscale-enabled pool
@@ -359,7 +364,7 @@ The following code snippet creates an autoscale-enabled pool by using the [Batch
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 pool.AutoScaleEnabled = true;
-pool.AutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
+pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
@@ -408,7 +413,7 @@ This C# code snippet uses the [Batch .NET][net_api] library to enable autoscalin
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
 // to 5 on Mondays, and 1 on every other day of the week
-string myAutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
+string myAutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 
 // Set the autoscale formula on the existing pool
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -437,7 +442,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ## Evaluate an autoscale formula
 You can evaluate a formula before applying it to a pool. In this way, you can perform a "test run" of the formula to see how its statements evaluate before you put the formula into production.
 
-To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
+To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicatedNodes = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
 
@@ -459,7 +464,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     pool.EnableAutoScale(
-        autoscaleFormula: $"$TargetDedicated = {pool.CurrentDedicated};",
+        autoscaleFormula: $"$TargetDedicatedNodes = {pool.CurrentDedicated};",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScale calls to once every 30 seconds.
@@ -484,7 +489,7 @@ if (pool.AutoScaleEnabled == true)
         $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
         $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
         $isWorkingWeekdayHour = $workHours && $isWeekday;
-        $TargetDedicated = $isWorkingWeekdayHour ? 20:10;
+        $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
     ";
 
     // Perform the autoscale formula evaluation. Note that this does not
@@ -516,7 +521,7 @@ Successful evaluation of the formula in this snippet will result in output simil
 
 ```
 AutoScaleRun.Results:
-    $TargetDedicated=10;
+    $TargetDedicatedNodes=10;
     $NodeDeallocationOption=requeue;
     $curTime=2016-10-13T19:18:47.805Z;
     $isWeekday=1;
@@ -549,7 +554,7 @@ Sample output of the preceding snippet:
 ```
 Last execution: 10/14/2016 18:36:43
 Result:
-  $TargetDedicated=10;
+  $TargetDedicatedNodes=10;
   $NodeDeallocationOption=requeue;
   $curTime=2016-10-14T18:36:43.282Z;
   $isWeekday=1;
@@ -571,7 +576,7 @@ $curTime = time();
 $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
-$TargetDedicated = $isWorkingWeekdayHour ? 20:10;
+$TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
 ### Example 2: Task-based adjustment
@@ -585,10 +590,10 @@ $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
-$targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicated/2);
+$targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
-$TargetDedicated = max(0, min($targetVMs, 20));
+$TargetDedicatedNodes = max(0, min($targetVMs, 20));
 // Set node deallocation mode - keep nodes active only until tasks finish
 $NodeDeallocationOption = taskcompletion;
 ```
@@ -604,12 +609,12 @@ $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.Ge
 // Set the number of nodes to add to one-fourth the number of active tasks (the
 // MaxTasksPerComputeNode property on this pool is set to 4, adjust this number
 // for your use case)
-$cores = $TargetDedicated * 4;
+$cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;
-$targetVMs = ($TargetDedicated + $extraVMs);
+$targetVMs = ($TargetDedicatedNodes + $extraVMs);
 // Attempt to grow the number of compute nodes to match the number of active
 // tasks, with a maximum of 3
-$TargetDedicated = max(0,min($targetVMs,3));
+$TargetDedicatedNodes = max(0,min($targetVMs,3));
 // Keep the nodes active until the tasks finish
 $NodeDeallocationOption = taskcompletion;
 ```
@@ -628,13 +633,13 @@ The formula in the following code snippet:
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
 string formula = string.Format(@"
-    $TargetDedicated = {1};
+    $TargetDedicatedNodes = {1};
     lifespan         = time() - time(""{0}"");
     span             = TimeInterval_Minute * 60;
     startup          = TimeInterval_Minute * 10;
     ratio            = 50;
 
-    $TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+    $TargetDedicatedNodes = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicatedNodes) : {1});
     ", now, 4);
 ```
 

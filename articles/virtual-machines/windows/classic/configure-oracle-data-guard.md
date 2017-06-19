@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 05/31/2017
 ms.author: rclaus
 
 ---
@@ -28,7 +28,7 @@ In addition, the tutorial assumes that you have already implemented the followin
 
 * You’ve already reviewed the High Availability and Disaster Recovery Considerations section in the [Oracle Virtual Machine images - Miscellaneous Considerations](oracle-considerations.md) topic. Azure supports standalone Oracle Database instances but not Oracle Real Application Clusters (Oracle RAC) currently.
 * You have created two Virtual Machines (VMs) in Azure using the same platform provided Oracle Enterprise Edition image. Make sure the Virtual Machines are in the [same cloud service](../../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and in the same Virtual Network to ensure they can access each other over the persistent private IP address. Additionally, it is recommended to place the VMs in the same [availability set](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to allow Azure to place them into separate fault domains and upgrade domains. Oracle Data Guard is only available with Oracle Database Enterprise Edition. Each machine must have at least 2 GB of memory and 5 GB of disk space. For the most up-to-date information on the platform provided VM sizes, see [Virtual Machine Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). If you need additional disk volume for your VMs, you can attach additional disks. For information, see [How to Attach a Data Disk to a Virtual Machine](attach-disk.md).
-* You’ve set the Virtual Machine names as “Machine1” for the primary VM and “Machine2” for the standby VM at the Azure classic portal.
+* You’ve set the Virtual Machine names as “Machine1” for the primary VM and “Machine2” for the standby VM in the Azure portal.
 * You’ve set the **ORACLE_HOME** environment variable to point to the same oracle root installation path in the primary and standby Virtual Machines, such as `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
 * You log on to your Windows server as a member of the **Administrators** group or a member of the **ORA_DBA** group.
 
@@ -299,7 +299,7 @@ Then, use the startup command to start an instance:
 ## Create a physical standby database
 This section focuses on the steps that you must perform in Machine2 to prepare the physical standby database.
 
-First, you need to remote desktop to Machine2 via the Azure classic portal.
+First, you need to remote desktop to Machine2 via the Azure portal.
 
 Then, on the Standby Server (Machine2), create all the necessary folders for the standby database, such as C:\\\<YourLocalFolder\>\\TEST. While following this tutorial, make sure that the folder structure matches the folder structure on Machine1 to keep all the necessary files, such as controlfile, datafiles, redologfiles, udump, bdump, and cdump files. In addition, define the ORACLE\_HOME and ORACLE\_BASE environment variables in Machine2. If not, define them as an environment variable using the Environment Variables dialog box. To access this dialog box, start the **System** utility by double-clicking the System icon in the **Control Panel**; then click the **Advanced** tab and choose **Environment Variables**. To set the environment variables, click the **New** button under the **System Variables**. After setting up the environment variables, you need to close the existing Windows command prompt and open up a new one to see the changes.
 

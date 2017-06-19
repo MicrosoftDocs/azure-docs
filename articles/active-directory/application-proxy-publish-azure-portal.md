@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2017
+ms.date: 05/23/2017
 ms.author: kgremban
 ---
 
 
-# Publish applications using Azure AD Application Proxy - Public Preview
+# Publish applications using Azure AD Application Proxy
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-proxy-publish-azure-portal.md)
