@@ -19,7 +19,7 @@ ms.author: owend
 
 ---
 # Manage server administrators
-Server administrators must be valid users in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** in the control blade for your server in Azure portal, or Server Properties in SSMS to manage server administrators. 
+Server administrators must be a valid user or group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** in the control blade for your server in Azure portal, or Server Properties in SSMS to manage server administrators. 
 
 ### To add server administrators by using Azure portal
 1. In the control blade for your server, click **Analysis Services Admins**.

@@ -27,7 +27,7 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SSDT. When deployed to a server, you use SSMS, [Analysis Services PowerShell cmdlets](https://msdn.microsoft.com/library/hh758425.aspx) or [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SSDT. When deployed to a server, you use SSMS, [Analysis Services PowerShell cmdlets](https://msdn.microsoft.com/library/hh758425.aspx), or [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) to add or remove roles and user members.
 
 ## To add or manage roles and users in SSDT  
   
@@ -37,17 +37,17 @@ When creating a tabular model project, you create roles and add users or groups 
   
 3.  Type a name for the role.  
   
-     By default, the name of the default role will be incrementally numbered for each new role. It is recommended you type a name that clearly identifies the member type, for example, Finance Managers or Human Resources Specialists.  
+     By default, the name of the default role is incrementally numbered for each new role. It's recommended you type a name that clearly identifies the member type, for example, Finance Managers or Human Resources Specialists.  
   
-4.  In the **Permissions** field, select one of the following:  
+4.  Select one of the following permissions:  
   
     |Permission|Description|  
     |----------------|-----------------|  
-    |**None**|Members cannot make any modifications to the model schema and cannot query data.|  
-    |**Read**|Members are allowed to query data (based on row filters) but cannot make any changes to the model schema.|  
-    |**Read and Process**|Members are allowed to query data (based on row-level filters) and run Process and Process All operations, but cannot make any changes to the model schema.|  
+    |**None**|Members cannot modify the model schema and cannot query data.|  
+    |**Read**|Members can query data (based on row filters) but cannot modify to the model schema.|  
+    |**Read and Process**|Members can query data (based on row-level filters) and run Process and Process All operations, but cannot modify model schema.|  
     |**Process**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
-    |**Administrator**|Members can make modifications to the model schema and can query all data.|   
+    |**Administrator**|Members can modify the model schema and query all data.|   
   
 5.  If the role you are creating has Read or Read and Process permission, you can add row filters by using a DAX formula. Click the **Row Filters** tab, then select a table, then click the **DAX Filter** field, and then type a DAX formula. To learn more, see [Row filters](analysis-services-manage-users.md#bkmk_rowfliters). 
   
@@ -61,7 +61,7 @@ When creating a tabular model project, you create roles and add users or groups 
 
 
 ## To add or manage roles and users in SSMS
-In order to add roles and users to a deployed model database, you must be connected to the server as a Server administrator or already in a database role with administrator permissions.
+To add roles and users to a deployed model database, you must be connected to the server as a Server administrator or already in a database role with administrator permissions.
 
 1. In Object Exporer, right-click **Roles** > **New Role**.
 
@@ -70,9 +70,9 @@ In order to add roles and users to a deployed model database, you must be connec
 3. Select a permission.
    |Permission|Description|  
    |----------------|-----------------|  
-   |**Full control (Administrator)**|Members can make modifications to the model schema, process, and can query all data.| 
+   |**Full control (Administrator)**|Members can modify the model schema, process, and can query all data.| 
    |**Process database**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
-   |**Read**|Members are allowed to query data (based on row filters) but cannot make any changes to the model schema.|  
+   |**Read**|Members can query data (based on row filters) but cannot modify the model schema.|  
   
 4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address.
 
@@ -114,13 +114,34 @@ In this sample, a B2B external user and a group are added to the Analyst role wi
 ```
 
 ## To add roles and users by using PowerShell
-The [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module provides task-specific database management cmdlets as well as the general purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SQLASCMDLETS module are used for managing database roles and users.
+The [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module provides task-specific database management cmdlets and the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SQLASCMDLETS module are used for managing database roles and users.
   
 |Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Add a member to a database role.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remove a member from a database role.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute a TMSL script.|
+
+##  <a name="bkmk_rowfliters"></a> Row filters  
+Row filters define which rows in a table can be queried by members of a particular role. Row filters are defined for each table in a model by using DAX formulas.  
+  
+Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members of a role that has Read or Read and Process permission can query all rows in the table unless cross-filtering applies from another table.  
+  
+ Row filters require a DAX formula, which must evaluate to a TRUE/FALSE value, to define the rows that can be queried by members of that particular role. Rows not included in the DAX formula cannot be queried. For example, the Customers table with the following row filters expression, *=Customers [Country] = “USA”*, members of the Sales role can only see customers in the USA.  
+  
+Row filters apply to the specified rows and related rows. When a table has multiple relationships, filters apply security for the relationship that is active. Row filters are intersected with other row filers defined for related tables, for example:  
+  
+|Table|DAX expression|  
+|-----------|--------------------|  
+|Region|=Region[Country]=”USA”|  
+|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
+|Transactions|=Transactions[Year]=2016|  
+  
+ The net effect is members can query rows of data where the customer is in the USA, the product category is bicycles, and the year is 2016. Users cannot query transactions outside of the USA, transactions that are not bicycles, or transactions not in 2016 unless they are a member of another role that grants these permissions.    
+  
+ You can use the filter, *=FALSE()*, to deny access to all rows for an entire table.
+
+  
 
 
 ## Next steps

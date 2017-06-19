@@ -14,133 +14,69 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/14/2016
+ms.date: 06/19/2016
 ms.author: owend
 
 ---
 # Authentication and user permissions
-Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication. Any user creating, managing, or connecting to an Azure Analysis Services server must have a user account in an Azure AD tenant in the same subscription.
+Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication. Any user creating, managing, or connecting to an Azure Analysis Services server must have a valid user identity in an [Azure AD tenant](../active-directory/active-directory-administer.md) in the same subscription.
 
-Azure Analysis Services also supports [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). With B2B, users from outside an organization can be invited as guest users in an Azure AD tenant. Guests can be from another Azure AD tenant or any valid email address, including Microsoft accounts. Once invited and added to the tenant directory, they can then be added to security groups or as members to a server or model database role.
+Azure Analysis Services supports [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). With B2B, users from outside an organization can be invited as guest users in an Azure AD directory. Guests can be from another Azure AD tenant directory or any valid email address. Once invited and the user accepts the invitation sent by email from Azure, the user identity is added to the tenant directory. Those identities can then be added to security groups or as members of a server administrator or database role.
 
 ![Azure Analysis Services authentication architecture](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## Authentication
-All client applications and tools use one or more of the Analysis Services [client libraries](analysis-services-data-providers.md) (AMO, MSOLAP, ADOMD) to connect to a server. Client applications like Excel and Power BI Desktop, and tools like SSMS and SSDT install the latest versions of the libraries when updated to the latest release. SSMS and SSDT are updated monthly. Excel, however, is [updated with Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Some organizations use the deferred channel, meaning updates are deferred up to three months.
+All client applications and tools use one or more of the Analysis Services [client libraries](analysis-services-data-providers.md) (AMO, MSOLAP, ADOMD) to connect to a server. 
 
- Depending on client application or tool you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services. 
+All three client libraries support both Azure AD interactive flow, and non-interactive authentication methods. The two non-interactive methods, Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes.
+
+Client applications like Excel and Power BI Desktop, and tools like SSMS and SSDT install the latest versions of the libraries when updated to the latest release. Power BI Desktop, SSMS, and SSDT are updated monthly. Excel is [updated with Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365 updates are less frequent, and some organizations use the deferred channel, meaning updates are deferred up to three months.
+
+ Depending on the client application or tool you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services.
 
 
 ### SQL Server Management Studio (SSMS)
 Azure Analysis Services servers support connections from [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and higher by using Windows Authentication, Active Directory Password Authentication, and Active Directory Universal Authentication. In general, it's recommended you use Active Directory Universal Authentication because:
 
-*  Supports the two non-interactive authentication methods: Active Directory Password Authentication and Active Directory Integrated Authentication. Non-interactive Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes.
+*  Supports interative and non-interactive authentication methods.
 
 *  Supports Azure B2B guest users invited into the Azure AS tenant. When connecting to a server, guest users must select Active Directory Universal Authentication when connecting to the server.
 
 *  Supports Multi-Factor Authentication (MFA). Azure MFA helps safeguard access to data and applications with a range of verification options: phone call, text message, smart cards with pin, or mobile app notification. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
 ### SQL Server Data Tools (SSDT)
-Azure Analysis Services servers support connections from [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and higher. Users are be prompted to log in to Azure on the first deployment. Users must log in to Azure with an account with server administrator permissions on the server they are deploying to. Multi-Factor Authentication (MFA) is not supported when connecting to and deploying model projects from SSDT.
+SSDT connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first deployment by using their organizational ID (email). Users must sign in to Azure with an account with server administrator permissions on the server they are deploying to. When signing in to Azure the first time, a token is assigned. SSDT caches the token in-memory for future reconnects. The in-memory token is not shared across processes. A new or second instance of SSDT will not have the cached credentials. SSDT supports Multi-Factor Authentication (MFA).
 
-### Client applications
+### Power BI Desktop
+Power BI Desktop connects to Azure Analysis Services using Active Directory Universal Authentication. Users are prompted to sign in to Azure on the first connection by using their organizational ID (email). Users must sign in to Azure with an account that is included in a server administrator or database role. When signing in to Azure the first time, a token is assigned. Power BI Desktop caches the token in-memory for future reconnects. The in-memory token is not shared across processes. A new or second instance of SSDT will not have the cached credentials. SSDT supports Multi-Factor Authentication (MFA).
 
+### Excel
+Excel users can connect to an Azure Analysis Services server by using a Windows account if the on-premises Active Directory is synchronized with Azure Active Directory, with an organization id (email address) or an external email address provided that email has been added to the Azure AD as a guest user.
 
-## User permissions - administrators and users
-In Azure Analysis Services, **Server administrators** connect with tools like Azure portal, SSMS, and SSDT to perform tasks like adding databases and managing user roles. By default, the user that creates the server is automatically added as an Analysis Services server administrator. Other administrators can be added by using Azure portal or SSMS. To learn more, see [Manage server administrators](analysis-services-server-admins.md).
+## User permissions
 
-**Database users** connect to model databases by using client applications like Excel or Power BI. Users must be added to database roles. Those roles define administrator, process, or read permissions for a database. It's important to understand database users in a role with administrator permissions is different than server administrators. However, by default, server administrators are also database administrators. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
+**Server administrators** are specific to an Azure Analysis Services server instance. They connect with tools like Azure portal, SSMS, and SSDT to perform tasks like adding databases and managing user roles. By default, the user that creates the server is automatically added as an Analysis Services server administrator. Other administrators can be added by using Azure portal or SSMS. Server administrators must have an account in the Azure AD tenant in the same subscription. To learn more, see [Manage server administrators](analysis-services-server-admins.md). 
 
-In addition to database users and server administrators, that are specific to an Analysis Services server, there are also **Azure resource administrators**. Resource administrators manage resources for an Azure subscription. They can add Azure AD user identities to Owner or Contributor Roles within a subscription by using Access control in Azure portal. 
+> [!NOTE]
+> Currently, Server administrators does not support Microsoft accounts (@hotmail, @live, @outlook).
+> 
+
+**Database users** connect to model databases by using client applications like Excel or Power BI. Users must be added to database roles. Database roles define administrator, process, or read permissions for a database. It's important to understand database users in a role with administrator permissions is different than server administrators. However, by default, server administrators are also database administrators. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
+
+**Azure resource owners**. Resource owners manage resources for an Azure subscription. They can add Azure AD user identities to Owner or Contributor Roles within a subscription by using **Access control** in Azure portal or with Azure Resource Manager templates. 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
 Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md). 
-
-By having separate resource administrators and server administrators, you can segregate duties between Azure resource management and Analysis Services database management by using XMLA, TMSL, and RBAC. 
 
 
 ## Database roles
 
  Roles defined for a tabular model are database roles. That is, the roles contain members consisting of users or groups that have specific permissions that define the action those members can take on the model database. A database role is created as a separate object in the database, and applies only to the database in which that role is created.   
   
- By default, when you create a new tabular model project, the model project does not have any roles. Roles can be defined by using the Role Manager dialog box in SSDT. When roles are defined during model project design, they are applied only to the model workspace database. When the model is deployed, the same roles are applied to the deployed model. After a model has been deployed, server and database administrators can manage roles and members by using SSMS.  
+ By default, when you create a new tabular model project, the model project does not have any roles. Roles can be defined by using the Role Manager dialog box in SSDT. When roles are defined during model project design, they are applied only to the model workspace database. When the model is deployed, the same roles are applied to the deployed model. After a model has been deployed, server and database administrators can manage roles and members by using SSMS. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
   
-###  <a name="bkmk_permissions"></a> Permissions  
-Each role has a single permission (except for the combined Read and Process permission). By default, a new role in SSDT has the None permission. That is, once members are added to the role with the None permission, they cannot modify the database, run a process operation, query data, or see the database unless a different permission is granted.  
-  
-A group or user can be a member of any number of roles, each role with a different permission. When a user is a member of multiple roles, the permissions defined for each role are cumulative. For example, if a user is a member of a role with the Read permission, and also a member of a role with None permission, that user has Read permissions.  
-  
-By using Role Manager in SSDT, each role can have one the following permissions:  
-  
-|Permissions|Description|Row filters using DAX|  
-|-----------------|-----------------|----------------------------|  
-|None|Members cannot modify the model database schema and cannot query data.|Row filters do not apply. No data is visible to users in this role|  
-|Read|Members can query data, but cannot see the model database in SSMS, cannot modify the model database schema, and cannot process the model.|Row filters can be applied. Only data specified in the row filter DAX formula is visible to users.|  
-|Read and Process|Members can query data and run process operations by running a script or package that contains a process command. Cannot modify the database schema. Cannot view the model database in SSMS.|Row filters can be applied. Only data specified in the row filter DAX formula can be queried.|  
-|Process|Members can run process operations by running a script or package that contains a process command. Cannot modify the model database schema. Cannot query data. Cannot query the model database in SSMS.|Row filters do not apply. No data can be queried in this role|  
-|Administrator|Members can modify the model schema and can query all data in the model designer, reporting client, and SSMS.|Row filters do not apply. All data can be queried in this role.|  
-  
-###  <a name="bkmk_rowfliters"></a> Row filters  
-Row filters define which rows in a table can be queried by members of a particular role. Row filters are defined for each table in a model by using DAX formulas.  
-  
-Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members of a role that has Read or Read and Process permission can query all rows in the table unless cross-filtering applies from another table.  
-  
- Row filters require a DAX formula, which must evaluate to a TRUE/FALSE value, to define the rows that can be queried by members of that particular role. Rows not included in the DAX formula cannot be queried. For example, the Customers table with the following row filters expression, *=Customers [Country] = “USA”*, members of the Sales role can only see customers in the USA.  
-  
-Row filters apply to the specified rows and related rows. When a table has multiple relationships, filters apply security for the relationship that is active. Row filters are intersected with other row filers defined for related tables, for example:  
-  
-|Table|DAX expression|  
-|-----------|--------------------|  
-|Region|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
-|Transactions|=Transactions[Year]=2016|  
-  
- The net effect is members can query rows of data where the customer is in the USA, the product category is bicycles, and the year is 2016. Users cannot query transactions outside of the USA, transactions that are not bicycles, or transactions not in 2016 unless they are a member of another role that grants these permissions.    
-  
- You can use the filter, *=FALSE()*, to deny access to all rows for an entire table.  
-  
-### Dynamic security  
- Dynamic security provides a way to define row level security based on the identity of the user currently logged on, or the CustomData property returned from a connection string. To implement dynamic security, you must include a table with login (email address) values for users or groups and a field that can be used to define a particular permission. For example, a dimEmployees table with a login ID (email address) and a department value for each employee.  
-  
-Use the following functions as part of a DAX formula to return the user name of the user currently logged on, or the CustomData property in a connection string:  
-  
-|Function|Description|  
-|--------------|-----------------|  
-|[USERNAME Function (DAX)](http://msdn.microsoft.com/en-us/22dddc4b-1648-4c89-8c93-f1151162b93f)|Returns the domain\username of the user currently logged on.|  
-|[CUSTOMDATA Function (DAX)](http://msdn.microsoft.com/en-us/58235ad8-226c-43cc-8a69-5a52ac19dd4e)|Returns the CustomData property in a connection string.|  
-  
- Use the LOOKUPVALUE function to return values for a column in which the Windows user name is the same as the user name returned by the USERNAME function or a string returned by the CustomData function. Queries can then be restricted where the values returned by LOOKUPVALUE match values in the same or related table.  
-  
- For example, using this formula:  
-  
- `='dimDepartmentGroup'[DepartmentGroupId]=LOOKUPVALUE('dimEmployees'[DepartmentGroupId], 'dimEmployees'[LoginId], USERNAME(), 'dimEmployees'[LoginId], 'dimDepartmentGroup'[DepartmentGroupId])`  
-  
- The LOOKUPVALUE function returns values for the dimEmployees[DepartmentId] column where the dimEmployees[LoginId] is the same as the LoginID of the user currently logged on, returned by USERNAME, and values for dimEmployees[DepartmentId] are the same as values for dimDepartmentGroup[DepartmentId]. The values in DepartmentId returned by LOOKUPVALUE are then used to restrict the rows queried in the dimDepartment table, and any tables related by DepartmentId. Only rows where DepartmentId are also in the values for the DepartmentId returned by LOOKUPVALUE function are returned.  
-  
- **dimEmployees**  
-  
-|LastName|FirstName|LoginID|DepartmentName|DepartmentId|  
-|--------------|---------------|-------------|--------------------|------------------|  
-|Brown|Kevin|Adventure-works\kevin0|Marketing|7|  
-|Bradley|David|Adventure-works\david0|Marketing|7|  
-|Dobney|JoLynn|Adventure-works\JoLynn0|Production|4|  
-|Baretto DeMattos|Paula|Adventure-works\Paula0|Human Resources|2|  
-  
- **dimDepartment**  
-  
-|DepartmentId|DepartmentName|  
-|------------------|--------------------|  
-|1|Corporate|  
-|2|Executive General and Administration|  
-|3|Inventory Management|  
-|4|Manufacturing|  
-|5|Quality Assurance|  
-|6|Research and Development|  
-|7|Sales and Marketing|  
-  
-###  <a name="bkmk_testroles"></a> Testing roles  
- When creating a model project in SSDT, you can use the Analyze in Excel feature to test the efficacy of the roles you have defined.
+
 
 ## Next steps
 [Manage server administrators](analysis-services-server-admins.md)  
