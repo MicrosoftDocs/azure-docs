@@ -18,7 +18,7 @@
   ms.date: 06/01/2017
   ms.author: curtand
 
-  ms.custom: H1Hack27Feb2017; piotrci 
+  ms.custom: H1Hack27Feb2017; piotrci
 
 ---
 
@@ -30,19 +30,19 @@
 >
 >
 
-Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in different service editions: 
+Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in different service editions:
 
 * Azure AD Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune, and Azure. Azure AD does not generate any consumption charges in this mode.
 
-* Azure AD paid editions such as 
+* Azure AD paid editions such as
   - Enterprise Mobility + Security (EMS)
   - Azure AD Premium (P1 and P2)
   - Azure AD Basic
-  - Azure Multi-Factor Authentication (MFA). 
+  - Azure Multi-Factor Authentication (MFA).
 
 Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented with one or more subscriptions, and each subscription includes a pre-purchase number of licenses in your tenant. Per-user entitlements are achieved by:
 
-* Assigning a license 
+* Assigning a license
 * Creating a link between the user and the product
 * Enabling the service components for the user
 * Consuming one of the prepaid licenses
@@ -72,23 +72,23 @@ Each subscription consists of one or more service plans, such as Azure AD, Azure
 
 While obtaining a subscription is all you need to configure paid capabilities, you must still distribute licenses for Azure AD paid features to users. Any user who should have access to or who is managed through an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
 
-Managing which users in your directory should have a license can be accomplished by 
+Managing which users in your directory should have a license can be accomplished by
 
-* Assigning licenses to groups in Azure portal
-* Assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. 
+* Assigning licenses to groups in Azure portal (Read more about it [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal))
+* Assigning licenses directly to the right individuals through the portal, PowerShell, or APIs.
 
-When assigning licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is assigned or removed. Group assignment can utilize any group management available to you, and it is consistent with group-based assignment to applications. 
+When assigning licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is assigned or removed. Group assignment can utilize any group management available to you, and it is consistent with group-based assignment to applications.
 
-Use this approach to set up rules such that 
-* All users in your directory are automatically assigned
-* Everyone with the appropriate job title has a license
-* You can delegate the decision to other managers in the organization
+[Group-based license assignment](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal) allows you to set up rules such as:
+* All users in your directory automatically get a license
+* Everyone with the appropriate job title gets a license
+* You can delegate the decision to other managers in the organization (by using [self-service groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management))
 
 For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## Getting started with Azure AD licensing
 
-Getting started with Azure AD is easy; you can always create your directory as a part of signing up for a free Azure trial. [Learn more about signing up as an organization](https://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/). 
+Getting started with Azure AD is easy; you can always create your directory as a part of signing up for a free Azure trial. [Learn more about signing up as an organization](https://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/).
 
 The following best practices can help you make sure that your tenant is aligned with other Microsoft services you may be consuming, and with your goals in obtaining the service:
 
@@ -97,7 +97,7 @@ The following best practices can help you make sure that your tenant is aligned 
 - If you are planning any of the following, we recommend that you use a new tenant in the Azure portal:
   - To use Azure AD for a different set of users (such as partners or customers)
   - To evaluate Azure AD services in isolation from your production service
-  - To set up a sandbox environment for your services 
+  - To set up a sandbox environment for your services
 
   The new directory is created with your account as an external user with global administrator permissions. When you sign in to the Azure portal with this account, you can see this tenant and access all administration tasks.
 

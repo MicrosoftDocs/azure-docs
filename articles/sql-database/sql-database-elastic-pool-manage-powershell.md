@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
-ms.custom: scale out apps
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -24,14 +24,14 @@ This topic shows you how to create and manage scalable [elastic pools](sql-datab
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## Create an elastic pool
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet creates an elastic pool. The values for eDTU per pool, min, and max DTUs are constrained by the service tier value (Basic, Standard, Premium, or Premium RS). See [eDTU and storage limits for elastic pools and pooled databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+The [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool) cmdlet creates an elastic pool. The values for eDTU per pool, min, and max DTUs are constrained by the service tier value (Basic, Standard, Premium, or Premium RS). See [eDTU and storage limits for elastic pools and pooled databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ```PowerShell
 New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 ```
 
 ## Create a pooled database in an elastic pool
-Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into an elastic pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
+Use the [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into an elastic pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
 ```PowerShell
 New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -89,14 +89,14 @@ Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1
 ```
 
 ## Get the status of pool operations
-Creating an elastic pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx) cmdlet.
+Creating an elastic pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity) cmdlet.
 
 ```PowerShell
 Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 ```
 
 ## Get the status of moving a database into and out of an elastic pool
-Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687\(v=azure.300\).aspx) cmdlet.
+Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) cmdlet.
 
 ```PowerShell
 Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -172,7 +172,7 @@ $alertName = $poolName + "- DTU consumption rule"
 Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 ```
 
-For more information, see [create SQL Database alerts in Azure portal](/sql-database-insights-alerts-portal.md).
+For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
 
 ## Add alerts to all databases in an elastic pool
 You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert.

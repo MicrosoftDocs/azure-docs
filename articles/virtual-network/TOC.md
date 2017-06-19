@@ -41,9 +41,6 @@
 #### [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 ### [Virtual network peering](virtual-network-create-peering.md)
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address

@@ -1,5 +1,5 @@
 ---
-title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs 
+title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs
 description: "Learn how to restore a single tenants SQL database after accidentally deleting data"
 keywords: sql database tutorial
 services: sql-database
@@ -8,9 +8,9 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: develop apps
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -52,7 +52,7 @@ In the second pattern, which assumes that the tenant has suffered a loss or corr
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Simulate a tenant accidentally deleting data
 
