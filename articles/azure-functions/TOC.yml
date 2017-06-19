@@ -59,6 +59,8 @@
       href: functions-reference-node.md    
   - name: Performance considerations
     href: functions-best-practices.md 
+  - name: Function Proxies
+    href: functions-proxies.md 
   - name: Functions Runtime
     href: functions-runtime-overview.md
 - name: How-to guides
