@@ -19,7 +19,7 @@ ms.author: cfreeman
 Do you find yourself repeatedly running the same queries on your telemetry data to check that
 your service is functioning properly? Looking to automate these queries for finding trends and
 anomalies and build your own workflows around them? Well, Application Insights Connector (preview) for Microsoft Flow is just what you need!
-With this integration, numerous processes can now be automated without writing a single line of code. After you create a flow using an Application Insights action it automatically runs your Application Insights Analytics query. You can add additional actions as well. Flow makes hundreds of actions available. For example, you could use Flow to automatically send an email notification, or create a bug in Visual Studio Team Services. 
+With this integration, numerous processes can now be automated without writing a single line of code. After you create a flow using an Application Insights action it automatically runs your Application Insights Analytics query. You can add additional actions as well. Flow makes hundreds of actions available. For example, you could use Flow to automatically send an email notification, or create a bug in Visual Studio Team Services. You can also use one of the many [templates](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) available for the Connector for Microsoft Flow. These templates speed up the process of creating a flow. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/?v=17.23h). --> 
 
@@ -74,10 +74,11 @@ requests
 ![Analytics query configuration screen](./media/app-insights-automate-with-flow/flow4.png)
 
 ### Step 6: Configure the flow to send email
+![Office 365 Outlook selection](./media/app-insights-automate-with-flow/flow2b.png)
 1. Click *New step* and then select *Add an action*.
 2. Search for Office 365 Outlook.
 3. Click Office 365 Outlook – Send an email.
-![Office 365 Outlook selection](./media/app-insights-automate-with-flow/flow5.png)
+![Office 365 Outlook configuration](./media/app-insights-automate-with-flow/flow5.png)
 4. In the email action add the following data:
  - Specify the email address of the recipient
  - Provide a subject for the email
