@@ -125,6 +125,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regional availability
