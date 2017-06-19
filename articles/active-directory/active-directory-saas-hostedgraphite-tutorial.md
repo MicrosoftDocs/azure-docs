@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -104,14 +104,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
 
-3. On the **Hosted Graphite Domain and URLs** section, perform the following steps:
+3. On the **Hosted Graphite Domain and URLs** section,If you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.hostedgraphite.com/complete/saml/<user id>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: 
+	`https://www.hostedgraphite.com/metadata/<user id>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.hostedgraphite.com/metadata/<user id>`
-
+	b. In the **Reply URL** textbox, type a URL using the following pattern: 
+    `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. On the **Hosted Graphite Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
    
@@ -122,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://www.hostedgraphite.com/login/saml/<user id>/`	
 
     > [!NOTE] 
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign On URL. Contact [Hosted Graphite support team](mailto:help@hostedgraphite.com) to get these values.
+    > Please note that these are not the real values. You have to update these values with the actual Identifier, Reply URL and Sign On URL. To get these values, you can go to Access->SAML setup on your Application side or Contact [Hosted Graphite support team](mailto:help@hostedgraphite.com).
     >
  
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
@@ -143,21 +144,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
-10. Confirm these URls match your configuration in step 3.
+10. Confirm these URls match your configuration done on the **Hosted Graphite Domain and URLs** section of the Azure portal.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
-11. Copy **Issuer URL** and **SAML SSO URL** from Azure AD to **Entity or Issuer ID** and **SSO Login URL** in Hosted Graphite.
+11. In  **Entity or Issuer ID** and **SSO Login URL** textboxes, paste the value of **SAML Entity ID** and **SAML Single Sign-On Service URL** which you have copied from Azure portal. 
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
    
-    ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_003.png)
 
 12. Select "**Read-only**" as **Default User Role**.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
-13. Copy the content of the downloaded certificate file, and then paste it into the **X.509 Certificate** textbox.
+13. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
