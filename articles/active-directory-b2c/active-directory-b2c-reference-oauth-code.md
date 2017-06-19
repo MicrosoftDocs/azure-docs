@@ -18,23 +18,25 @@ ms.author: dastrock
 
 ---
 # Azure Active Directory B2C: OAuth 2.0 authorization code flow
-You can use the OAuth 2.0 authorization code grant in apps that are installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory (Azure AD) B2C implementation of OAuth 2.0, you can add sign-up, sign-in,
-and other identity management tasks to your mobile and desktop apps. This article is language independent. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory (Azure AD) B2C implementation of OAuth 2.0, you can add sign-up, sign-in,
+and other identity management tasks to your mobile and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries.
 
 <!-- TODO: Need link to libraries -->
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most app types, including [web apps](active-directory-b2c-apps.md#web-apps) and [natively installed apps](active-directory-b2c-apps.md#mobile-and-native-apps). You can use the OAuth 2.0 authorization code flow to securely acquire *access tokens* for your apps, which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics).
 
-This article focuses on a specific flavor of the OAuth 2.0 authorization code flow, **public clients**. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop apps, and basically any application that runs on a device and needs to get access tokens. If you want to add identity management to a web app by using Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) instead of OAuth 2.0.
+This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop apps, and essentially any application that runs on a device and needs to get access tokens. 
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [**policy parameter**](active-directory-b2c-reference-policies.md),
-with which you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and policies to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
+> [!NOTE]
+> To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) instead of OAuth 2.0.
 
-The following example HTTP requests use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**, and our sample application and policies. You can try the requests yourself by using these values, or you can replace them with your own values.
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [policy parameter](active-directory-b2c-reference-policies.md). With built-in policies, you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and policies to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
+
+In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our sample application and policies. You can try the requests yourself by using these values, or you can replace them with your own values.
 Learn how to [get your own Azure AD B2C directory, application, and policies](#use-your-own-b2c-directory).
 
 ## 1. Get an authorization code
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. This is the interactive part of the flow, where the user actually takes action. In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the policy to execute in the `p` parameter. The following three examples (with line breaks for readability) each using a different policy.
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint. This is the interactive part of the flow, where the user takes action. In this request, the client indicates in the `scope` parameter the permissions that it needs to acquire from the user. In the `p` parameter, it indicates the policy to execute. The following three examples (with line breaks for readability) each use a different policy.
 
 ### Use a sign-in policy
 ```
@@ -74,18 +76,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | Required? | Description |
 | --- | --- | --- |
-| client_id |Required |The application ID that the [Azure portal](https://portal.azure.com) assigned to your app. |
+| client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. |
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
 | scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources. You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
-| state |Recommended |A value included in the request that is returned in the token response. It can be a string of any content that you want. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the policy that was being executed. |
-| p |Required |The policy that is executed. It is the name of a policy that is created in your Azure AD B2C directory. The policy name value should begin with **b2c\_1\_**. To learn more about policies, see [Extensible policy framework](active-directory-b2c-reference-policies.md). |
+| state |Recommended |A value included in the request that is returned in the token response. It can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the policy that was being executed. |
+| p |Required |The policy that is executed. It's the name of a policy that is created in your Azure AD B2C directory. The policy name value should begin with **b2c\_1\_**. To learn more about policies, see [Azure AD B2C built-in policies](active-directory-b2c-reference-policies.md). |
 | prompt |Optional |The type of user interaction that is required. Currently, the only valid value is `login`, which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 
-At this point, the user is asked to complete the policy's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps. The process depends on how the policy is defined.
+At this point, the user is asked to complete the policy's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps. User actions depend on how the policy is defined.
 
-After the user completes the policy, Azure AD returns a response to your app at the value for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the cases listed here, independent of the policy that was executed.
+After the user completes the policy, Azure AD returns a response to your app at the value you used for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the user action scenarios, independent of the policy that was executed.
 
 A successful response that uses `response_mode=query` looks like this:
 
@@ -111,12 +113,12 @@ error=access_denied
 
 | Parameter | Description |
 | --- | --- |
-| error |An error code string that you can use to classify the types of errors that occur. You can also use the string to react to errors. |
+| error |An error code string that you can use to classify the types of errors that occur. You also can use the string to react to errors. |
 | error_description |A specific error message that can help you identify the root cause of an authentication error. |
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## 2. Get a token
-Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, the only resource that you can request a token for is your app's own back-end web API. The convention that's used for requesting a token to yourself is to use your app's client ID as the scope:
+Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, the only resource that you can request a token for is your app's own back-end web API. The convention that's used for requesting a token to yourself is to use your app's client ID as the scope:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -130,7 +132,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | Parameter | Required? | Description |
 | --- | --- | --- |
 | p |Required |The policy that was used to acquire the authorization code. You cannot use a different policy in this request. Note that you add this parameter to the *query string*, not in the POST body. |
-| client_id |Required |The application ID that the [Azure portal](https://portal.azure.com) assigned to your app. |
+| client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
 | scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in the first leg of the flow. |
@@ -153,7 +155,7 @@ A successful token response looks like this:
 | not_before |The time at which the token is considered valid, in epoch time. |
 | token_type |The token type value. The only type that Azure AD supports is Bearer. |
 | access_token |The signed JSON Web Token (JWT) that you requested. |
-| scope |The scopes that the token is valid for. You can also use them to cache tokens for later use. |
+| scope |The scopes that the token is valid for. You also can use scopes to cache tokens for later use. |
 | expires_in |The length of time that the token is valid (in seconds). |
 | refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived. You can use them to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
 
@@ -181,7 +183,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## 4. Refresh the token
-Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. To do this, submit another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
+Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. To do this, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -194,9 +196,9 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | Parameter | Required? | Description |
 | --- | --- | --- |
 | p |Required |The policy that was used to acquire the original refresh token. You cannot use a different policy in this request. Note that you add this parameter to the *query string*, not in the POST body. |
-| client_id |Recommended |The application ID that the [Azure portal](https://portal.azure.com) assigned to your app. |
+| client_id |Recommended |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | grant_type |Required |The type of grant. For this leg of the authorization code flow, the grant type must be `refresh_token`. |
-| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app will need a refresh token for long-lived access to resources.  You can also use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app will need a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | redirect_uri |Optional |The redirect URI of the application where you received the authorization code. |
 | refresh_token |Required |The original refresh token that you acquired in the second leg of the flow. |
 
@@ -217,7 +219,7 @@ A successful token response looks like this:
 | not_before |The time at which the token is considered valid, in epoch time. |
 | token_type |The token type value. The only type that Azure AD supports is Bearer. |
 | access_token |The signed JWT that you requested. |
-| scope |The scopes that the token is valid for, which can be used for caching tokens for later use. |
+| scope |The scopes that the token is valid for. You also can use the scopes to cache tokens for later use. |
 | expires_in |The length of time that the token is valid (in seconds). |
 | refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
 
@@ -232,13 +234,13 @@ Error responses look like this:
 
 | Parameter | Description |
 | --- | --- |
-| error |An error code string that you can use to classify types of errors that occur. You can also use the string to react to errors. |
+| error |An error code string that you can use to classify types of errors that occur. You also can use the string to react to errors. |
 | error_description |A specific error message that can help you identify the root cause of an authentication error. |
 
 ## Use your own Azure AD B2C directory
-To try these requests for yourself, you must complete the following three steps. Then, replace the example values we used in this article with your own values:
+To try these requests yourself, complete the following steps. Replace the example values we used in this article with your own values.
 
-1. [Create an Azure AD B2C directory](active-directory-b2c-get-started.md) and use the name of your directory in the requests.
+1. [Create an Azure AD B2C directory](active-directory-b2c-get-started.md). Use the name of your directory in the requests.
 2. [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID and a redirect URI. Include a native client in your app.
 3. [Create your policies](active-directory-b2c-reference-policies.md) to obtain your policy names.
 
