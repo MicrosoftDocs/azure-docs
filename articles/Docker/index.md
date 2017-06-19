@@ -33,7 +33,7 @@ ms.author: mlearned
   <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and VSTS.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">CI/CD with Docker, Jenkins, and Linux VMs.</a></li>
 </ol>
-<h2">Resources</h2>
+<h2>Resources</h2>
 See the following links for additional reference materials and tools for working with Docker on Azure.
 <ul>  
    <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker on Ubuntu Quickstart template</a></li>
