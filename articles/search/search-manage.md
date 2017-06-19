@@ -126,7 +126,9 @@ Although we can salvage your data, Azure Search does not provide instant failove
 
 If continuous service is required in the event of catastrophic failures outside of Microsoft’s control, you could [provision an additional service](search-create-service-portal.md) in a different region and implement a geo-replication strategy to ensure indexes are fully redundant across all services.
 
-Customers who use indexers to populate and refresh indexes handle disaster recovery through geo-specific indexers leveraging the same data source. In lieu of indexers, you would use your application code to push objects and data to different services in parallel. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
+Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index from the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Search indexers can only perform incremental indexing from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
+
+If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
 
 ## Backup and restore
 
