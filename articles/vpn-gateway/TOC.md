@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
 ## Modify local network gateway settings
+### [PowerShell](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
