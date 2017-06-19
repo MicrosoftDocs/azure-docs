@@ -9,7 +9,7 @@
 #### To remove address prefixes:
 
 1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
+2. Click the **'...'** on the line containing the prefix you want to remove.
 3. Click **Remove**.
 4. Click **Save** to save your settings.
 
@@ -25,13 +25,13 @@ If you have a gateway connection and want to add or remove the IP address prefix
 
 #### 2. Modify the address prefixes.
 
-**To add additional address prefixes:**
+To add additional address prefixes:
 
 1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
 2. Add the IP address space.
 3. Click **Save** to save your settings.
 
-**To remove address prefixes:**
+To remove address prefixes:
 
 1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
 2. Click the **...** on the line containing the prefix you want to remove.

@@ -29,14 +29,16 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 >
 >
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. In the portal, navigate to the Local Network Gateway resource that you want to modify.
 
-## To modify IP address prefixes
+## Modify IP address prefixes
+
+From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## To modify the gateway IP address
+## Modify the gateway IP address
+
+From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 
