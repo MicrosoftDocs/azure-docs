@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Stack storage  | Microsoft Docs
+title: Introduction to Azure Stack storage
 description: Learn about Azure Stack storage
 services: azure-stack
 documentationcenter: ''
@@ -37,7 +37,8 @@ Azure Stack storage provides the following three services:
 
 An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
 
--- diagram --
+![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+
 
 ### Blob storage
 
