@@ -51,7 +51,7 @@ To complete this tutorial:
 In this step, you create a database in your local MySQL server for your use in this tutorial.
 
 ### Connect to MySQL server
-In a terminal window, connect to your local MySQL server.
+In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
 
 ```bash
 mysql -u root -p
@@ -82,7 +82,7 @@ In this step, you get a Laravel sample application, configure its database conne
 
 ### Clone the sample
 
-Open the terminal window and `cd` to a working directory.  
+In the terminal window, `cd` to a working directory.  
 
 Run the following command to clone the sample repository. 
 

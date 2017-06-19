@@ -12,4 +12,7 @@ The user name must be unique. The password must be at least eight characters lon
 
 You only need to create this deployment user once; you can use it for all your Azure deployments.
 
-Record the user name and password for use in later steps when you deploy the app.
+> [!NOTE]
+> Record the user name and password for use in later steps when you deploy the app.
+>
+>
