@@ -28,6 +28,7 @@ You can take advantage of several Kubernetes monitoring solutions, either from M
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
+> * Get OMS Workspace settings
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
 
@@ -39,6 +40,9 @@ This tutorial is one of a multi-part series. You do not need to complete the ful
 
 **OMS account** - If you don't already have an account, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
 
+## Get Workspace settings
+
+When you can access the [OMS portal](https://mms.microsoft.com), go to **Settings** > **Connected Sources** > **Linux Servers**. There, you can find the *Workspace ID* and a primary or secondary *Workspace Key*. Take note of these values, which you need to set up OMS agents on the cluster.
 
 ## Set up OMS agents
 
@@ -141,6 +145,7 @@ See the [Azure Log Analytics documentation](../log-analytics/index.md) for detai
 In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered included:
 
 > [!div class="checklist"]
+> * Get OMS Workspace settings
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
 
