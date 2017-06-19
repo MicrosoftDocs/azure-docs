@@ -19,7 +19,7 @@ ms.author: masaran;markgal
 
 # Install Azure Backup Server v2
 
-Azure Backup Server protects your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server v2 builds on Azure Backup Server v1, and gives you new features that are not available in v1. For a comparison of features between v1 and v2, see [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). 
+Azure Backup Server helps protect your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server v2 builds on Azure Backup Server v1, and gives you new features that are not available in v1. For a comparison of features between v1 and v2, see [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). 
 
 The additional features in Backup Server v2 are an upgrade from Backup Server v1. However, Backup Server v1 is not a prerequisite for installing Backup Server v2. If you want to upgrade from Backup Server v1 to Backup Server v2, install Backup Server v2 on the Backup Server protection server. Your existing Backup Server settings remain intact.
 
@@ -145,7 +145,7 @@ To create a protection group:
 
   ![Select Protection Group Type page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. On the **Select Group Members** page, in the **Available members** pane, the members with protection agents are listed. For this example, select volume D:\ and E:\ and add them to the **Selected members** pane. Select**Next**.
+5. On the **Select Group Members** page, in the **Available members** pane, the members with protection agents are listed. For this example, select volume D:\ and E:\ and add them to the **Selected members** pane. Select **Next**.
 
   ![Select Group Members page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -178,11 +178,11 @@ Updating protection groups to use Modern Backup Storage is optional. To update t
 
   ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. In the **Remove from Group** dialog, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
+2. In the **Remove from Group** dialog box, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
 
   If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
 
-  ![Remove from Group dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Remove from Group dialog box](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Create a protection group that uses Modern Backup Storage. Include the unprotected data sources.
 
@@ -246,8 +246,8 @@ When you install Azure Backup Server v2, two new cmdlets are available:
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
-- [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md).
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+- [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md)
 
