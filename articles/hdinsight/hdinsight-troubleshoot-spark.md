@@ -35,60 +35,59 @@ This procedure configuration values previously set in HDInsight Spark clusters. 
 
 1. Choose **Spark2** from the list of clusters.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-1.png)
+    ![Select cluster from list](media/hdinsight-troubleshoot-spark/update-config-1.png)
 
 1. Click the **Configs** tab.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-2.png)
+    ![Choose Configs tab](media/hdinsight-troubleshoot-spark/update-config-2.png)
 
 1. In the list of configurations, choose **Custom-spark2-defaults**.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-3.png)
+    ![Choose custom-spark-defaults](media/hdinsight-troubleshoot-spark/update-config-3.png)
 
 1. Look for the value setting that you need to adjust, such as **spark.executor.memory**. In this case, the value of 4608m is too high.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-4.png)
+    ![Select the spark.executor.memory field](media/hdinsight-troubleshoot-spark/update-config-4.png)
 
 1. Set the value as reccommended. In this case, 2048 is reccommended for this setting.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-5.png)
+    ![Change vaue to 2048m](media/hdinsight-troubleshoot-spark/update-config-5.png)
 
 1. Save the setting value and then save the configuration. 
 
     Click **Save** on the toolbar.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-6a.png)
+    ![Save the setting and configuration](media/hdinsight-troubleshoot-spark/update-config-6a.png)
 
     You are notified if any configurations need attention. Take note of them and click **Proceed Anyway**. 
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-6b.png)
-
+    ![Click Proceed Anyway](media/hdinsight-troubleshoot-spark/update-config-6b.png)
 
     Write a note about the configuration changes and click **Save**.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-6c.png)
+    ![Type a note about the changes you made](media/hdinsight-troubleshoot-spark/update-config-6c.png)
 
 1. Whenever a configuration is saved, you are prompted to restart the service. Click **Restart**.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-7a.png)
+    ![Click restart](media/hdinsight-troubleshoot-spark/update-config-7a.png)
 
     Confirm the restart.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-7b.png)
+    ![Click Confirm Reatart All](media/hdinsight-troubleshoot-spark/update-config-7b.png)
 
     You can review the running processes.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-7c.png)
+    ![Review running processes](media/hdinsight-troubleshoot-spark/update-config-7c.png)
 
 1. You can also add configurations. In the list of configurations, choose **Custom-spark2-defaults** as you did in Step 3, and then choose **Add Property**.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-8.png)
+    ![Click add property](media/hdinsight-troubleshoot-spark/update-config-8.png)
 
 1. Define a new property. You can either define a single property, with a dialog for specific settings such as the data type, or you can define multiple properties with with one definition per line. 
 
     In this example, the **spark.driver.memory** property is defined with a value of 4g.
 
-    ![Alt text](media/hdinsight-troubleshoot-spark/update-config-9.png)
+    ![Define new property](media/hdinsight-troubleshoot-spark/update-config-9.png)
 
 1. Save the configuration and restart the service as described in steps 6 and 7.
 
@@ -109,7 +108,7 @@ Need to configure the amount of memory and number of cores that a Spark applicat
 which Spark configurations need to be set and to what values.
 1.  Specify the Spark configurations in valid JSON format in the first cell of the Jupyter notebook after the %%configure directive (change the actual values as applicable): 
 
->![Alt text](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
+>![Add a configuration](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
 
 ### Further Reading:
 

@@ -40,19 +40,19 @@ In this example, two existing queues (default and thriftsvr) are both changed fr
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 1. Click the Abari Views icon, the grid pattern, and choose **Yarn Queue Manager**.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Click the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
 1. Select the **default** queue.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Select default queue](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
 1. Change the **Capacity** from 50% to 25% for the **default** queue and also change it to 25% for the **thriftsvr** queue.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Change the Capcity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
 1. Click **Add Queue** to create a new queue.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Click Add Queue](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
 1. Name the new queue.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Name the queue Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
 1. Leave the **Capacity** values at 50% and click the **Actions** button.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Click the Actions button](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
 1. Choose **Save and Refresh Queues**.
-    ![Alt text](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Choose Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
 Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
@@ -60,7 +60,6 @@ Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
 - [Yarn Capacity Scheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
----
 
 ## How do I download Yarn logs from a cluster
 
@@ -137,7 +136,6 @@ This will create the log file named `containerlogs.txt` in text format.
 
 - [Apache Hadoop Yarn concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
----
 
 
 
