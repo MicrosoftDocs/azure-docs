@@ -63,7 +63,7 @@ You can use the Data Explorer to browse data sources and perform basic file mana
 ### Add a data source
 
 1. Open the Data Lake Analytics account in the portal.
-2. Click **Settings** > **Data Sources**.
+2. Click **Data Sources**.
 3. Click **Add Data Source**.
     
    * To add a Data Lake Store account, you need the account name and access to the account to be able to query it.
@@ -78,7 +78,7 @@ If other Azure services, such as Azure Data Factory, or VMs connect to the Data 
 ### Set up a firewall rule
 
 1. Open the Data Lake Analytics account in the portal.
-2. On the menu on the left, click  **Settings** >  **Firewall**.
+2. On the menu on the left, click **Firewall**.
 
 ## Add a new user
 
@@ -156,7 +156,7 @@ This policy controls how many AUs this Data Lake Analytics account can use in to
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a setting called **Maximum AUs**. Move the slider or type the value in the text box directly to change this value. 
+3. You will see a section called **Maximum AUs**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
 
@@ -165,13 +165,13 @@ This policy controls how many AUs this Data Lake Analytics account can use in to
 >
 
 #### Control how many jobs can run simultaneously
-The policy controls how many jobs can run at the same time. By default, this value is set to 20. If there are AUs available, new jobs will be scheduled for immediate execution until the total number of running jobs reaches the value of this setting. After this point, any subsequent jobs that are submitted will be placed in a queue in priority order until one or more running jobs complete (depending on AU availability).
+The policy controls how many jobs can run at the same time. By default, this value is set to 20. If there are AUs available, new jobs will be scheduled for immediate execution until the total number of running jobs reaches the value of this policy. After this point, any subsequent jobs that are submitted will be placed in a queue in priority order until one or more running jobs complete (depending on AU availability).
 
 1. Open the Data Lake Analytics account in the portal.
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a setting called **Maximum Number of Running Jobs**. Move the slider or type the value in the text box directly to change this value. 
+3. You will see a section called **Maximum Number of Running Jobs**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
 
@@ -186,9 +186,46 @@ When your users run U-SQL jobs, the ADLA service keeps all related files like th
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a setting called **Days to Retain Job Queries**. Move the slider or type the value in the text box directly to change this value. 
+3. You will see a section called **Days to Retain Job Queries**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
+
+### Job Level Policies
+With job-level policies, you can control the maximum AUs and the maximum priority that individual users (or members of security groups) can set on the jobs that they submit. This allows you to not only control the costs incurred by your users but also control the impact they might have on high priority production jobs running in the same ADLA account.
+
+There are two policies that can be set at a job level:
+* **AU Limit per job**: Users can only submit jobs with up to this number of AUs. By default, this limit is the same as the maximum AU limit at the account level.
+* **Priority**: Users can only submit jobs with priority lower than or equal to this value. Please note that a higher number means lower priority. By default, this is set to 1 which is the highest possible priority.
+
+There is a "Default" policy set on every account. The default policy applies to all users of the account. Additional policies can be set for specific users and groups. 
+
+>[!NOTE]
+> The previously mentioned Account Level Policies work in conjunction with Job Level Policies.
+>
+
+#### Adding a policy for a specific user/group
+1. Open the Data Lake Analytics account in the portal.
+
+2. Click on **Properties** (located on the left side)
+
+3. You will see a section called **Job Submission Limits**, click the **Add Policy** button.
+* **Compute Policy Name**: Give the policy a name to remind you what this policy is about
+* **Select User or Group**: Select the user or group this policy will apply to
+* **Set the Job AU Limit**: Set the AU Limit that will apply to the previously selected user or group
+* **Set the Priority Limit**: Set the Priority limit that will apply to the previously selected user or group
+
+4. Click **Ok**
+
+5. You will see the policy you created under the "Default" policy table under **Job Submission Limits** 
+
+#### Delete/Edit an existing policy
+1. Open the Data Lake Analytics account in the portal.
+
+2. Click on **Properties** (located on the left side)
+
+3. You will see a section called **Job Submission Limits**, find the policy you want to edit.
+
+4. Click the **...** option in the right most column of the table to see the **Delete** and **Edit** options.
 
 ## Next steps
 
