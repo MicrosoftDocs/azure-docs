@@ -90,18 +90,13 @@ No, but you can deploy other application gateways in the subnet
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
-Network Security Groups are supported on the Application Gateway subnet. The following restrictions should be put on the subnet in the following order of priority:
+Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* If whitelisting IPs on the NSG, allow incoming traffic from source IPs.
+* Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
 
-* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+* Outbound internet connectivity should not be blocked.
 
-* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
-
-* Block all other incoming traffic (if whitelisting IPs)
-
-* Allow outbound traffic to the internet for all destinations.
-
+* Traffic from the AzureLoadBalancer tag must be allowed.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
@@ -129,7 +124,21 @@ Custom probes do not support wildcard or regex on response data.
 
 **Q. What does the Host field for custom probes signify?**
 
-Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>. 
+Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
+
+**Q. Can I whitelist Application Gateway access to a few source IPs?**
+
+This can be done using NSGs on Application Gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
+
+* Allow incoming traffic from source IP/IP range.
+
+* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+
+* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Block all other incoming traffic with a Deny all rule.
+
+* Allow outbound traffic to the internet for all destinations.
 
 ## Performance
 
