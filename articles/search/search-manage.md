@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/05/2017
+ms.date: 06/18/2017
 ms.author: heidist
 
 ---
@@ -33,10 +33,11 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 
 **Not in scope** 
 
-*Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. Content management is beyond the scope of this article. For instructions on how to gain insights into internal operations at the index level, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md).
+*Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For help in this area, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md).
 
 *Query performance* is also beyond the scope of this article. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
 
+*Upgrade* is not an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires creating a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
 
 <a id="admin-rights"></a>
 
