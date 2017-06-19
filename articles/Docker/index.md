@@ -22,7 +22,7 @@ ms.author: mlearned
 	    </p>
         </div>
     </div>
-<h2>How-To Guides</h2>
+<h2>How-to Guides</h2>
 <p>Learn how to quickly deploy Docker on Azure.</p>
 <ol>
   <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build a Python and PostgreSQL app with Docker in Azure.</a></li>
