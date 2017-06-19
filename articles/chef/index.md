@@ -18,7 +18,7 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>
-            TODO
+            Leverage <a href="https://www.chef.io/chef/">Chef</a> on Azure to implement Infrastructure as Code.  Chef is an automation tool for DevOps that helps automate infrastructure and mange state for your Azure solutions.  Chef can be used with Azure to configure and deploy Azure VMs.  See below for a how-to guide for automating deployment of Virtual Machines on Azure.
 	    </p>
         </div>
     </div>
