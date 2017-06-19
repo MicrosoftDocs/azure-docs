@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 06/19/2017
 ms.author: jeedes
 
 ---
@@ -114,42 +114,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Kronos support team](https://www.kronos.in/contact/en-in/form) to get these values.
- 
-4. Your Kronos application expects the SAML assertions in a specific format. Work with [Kronos support team](https://www.kronos.in/contact/en-in/form) first to identify the correct user identifier, which is mapped into the application. Also please take the guidance about the attribute, which they want to use for this mapping.
- 
-     Microsoft recommends using the **"NameIdentifier"** attribute as user identifier. You can manage the values of these attributes from the **"User Attributes"** section on application integration page.
-	 
-	 The following screenshot shows an example for this. Here we have mapped the **User Identifier (nameid)** with **ExtractMailPrefix()** function of **user.userprincipalname**. This will give the prefix value of email of the user which is the unique User ID. This is sent to the Kronos application in every successful response 
-	 
-	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
-	| NameIdentifier      | ExtractMailPrefix (userprincipalname) |	
-
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-			
-	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_attribute_04.png)
-
-	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_attribute_05.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
-
-6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_certificate.png) 
 
-7. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Kronos** side, you need to send the downloaded **Metadata XML** to [Kronos support team](https://www.kronos.in/contact/en-in/form). 
+6. To configure single sign-on on **Kronos** side, you need to send the downloaded **Metadata XML** to [Kronos support team](https://www.kronos.in/contact/en-in/form). 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
