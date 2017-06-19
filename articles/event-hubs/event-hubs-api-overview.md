@@ -3,7 +3,7 @@ title: Azure Event Hubs API overview | Microsoft Docs
 description: Overview of available Azure Event Hubs APIs
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
-ms.author: jotaub
+ms.author: sethm
+
 ---
 
 # Available Event Hubs APIs

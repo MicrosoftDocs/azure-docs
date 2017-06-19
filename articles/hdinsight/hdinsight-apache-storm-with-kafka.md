@@ -1,10 +1,10 @@
 ---
-title: Use Apache Kafka with Storm on HDInsight | Microsoft Docs
+title: Use Apache Kafka with Storm on HDInsight - Azure | Microsoft Docs
 description: Apache Kafka is installed with Apache Storm on HDInsight. Learn how to write to Kafka, and then read from it, using the KafkaBolt and KafkaSpout components provided with Storm. Also learn how to use the Flux framework to define and submit Storm topologies.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/20/2017
+ms.date: 06/13/2017
 ms.author: larryfr
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
@@ -53,7 +53,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.1.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**.
 
@@ -97,11 +97,11 @@ The code for the example described in this document is available at [https://git
 This project contains two topologies:
 
 * **KafkaWriter**: Defined by the **writer.yaml** file, this topology writes random sentences to Kafka using the KafkaBolt provided with Apache Storm.
-  
+
     This topology uses a custom **SentenceSpout** component to generate random sentences.
 
 * **KafkaReader**: Defined by the **reader.yaml** file, this topology reads data from Kafka using the KafkaSpout provided with Apache Storm, then logs the data to stdout.
-  
+
     This topology uses a custom **PrinterBolt** component to log data read from Kafka.
 
 ### Flux
@@ -121,11 +121,13 @@ The steps in this document demonstrate how to set these environment variables.
 ## Create a Kafka topic
 
 1. Connect to the Kafka cluster using SSH. Replace `USERNAME` with the SSH user name used when creating the cluster. Replace `BASENAME` with the base name used when creating the cluster.
-   
-        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
+    ```
+
     When prompted, enter the password you used when creating the clusters.
-   
+
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH connection to the Kafka cluster, use the following commands to set variables for the HTTP login and cluster name. These values are used by other steps in this section.
@@ -191,8 +193,6 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 ## Download and compile the project
 
 1. On your development environment, download the project from [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), open a command-line, and change directories to the location that you downloaded the project.
-
-    Take a few moments to look over the code and understand how the project works.
 
 2. From the **hdinsight-storm-java-kafka** directory, use the following command to compile the project and create a package for deployment:
 
@@ -346,4 +346,3 @@ Since the steps in this document create both clusters in the same Azure resource
 For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](hdinsight-storm-example-topology.md).
 
 For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-

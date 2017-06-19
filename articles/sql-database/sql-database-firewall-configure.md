@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -64,11 +64,16 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 
 ## Creating and managing firewall rules
 The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](/cli/azure/sql/server/firewall-rule#create), or the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
+
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL. 
 >
 
 To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
+
+> [!TIP]
+> You can use [SQL Database Auditing](sql-database-auditing.md) to audit server-level and database-level firewall changes.
+>
 
 ### Azure portal
 

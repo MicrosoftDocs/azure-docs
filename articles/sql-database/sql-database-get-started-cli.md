@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create, mvc
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
@@ -33,7 +33,7 @@ This quick start requires the Azure CLI version 2.0.4 or later. Run `az --versio
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

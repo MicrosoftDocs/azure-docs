@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 
@@ -372,6 +372,7 @@ multipath ID.
 
 	Wait until the script finishes. If the master target is successfully registered, the master target is listed on the Site Recovery Infrastructure page of the portal.
 
+
 #### Install the master target by using interactive install
 
 1. Run the following command to install the master target. Choose agent role as **Master Target**.
@@ -400,6 +401,16 @@ multipath ID.
 7. Go to **Quit** in the menu.
 
 8. Let the installation and registration finish.
+
+### Upgrade the master target
+
+Run the installer. It automatically detects that the agent is installed on the master target. Select 'Y' to upgrade. Once the setup completes, you can check the version of the master target installed using the following command.
+
+    ```
+        cat /usr/local/.vx_version
+    ```
+
+You can see that the VERSION field gives the master target version number.
 
 ### Install VMware tools on the master target server
 

@@ -17,11 +17,21 @@
 ## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
+## Azure AD Controls
+### [Complete access review](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Create access review](active-directory-azure-ad-controls-create-an-access-review.md)
+### [How to perform access review](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
+### [Secure email policies and configurations](secure-email-introduction.md)
+#### [Recommended policies](secure-email-recommended-policies.md)
+#### [Deploy policies and configurations](secure-email-deploy-recommended-policies.md)
+#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -43,6 +53,9 @@
 ### Add users
 #### [Azure portal](active-directory-users-create-azure-portal.md)
 #### [Classic portal](active-directory-create-users.md)
+### Azure AD Controls
+#### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
@@ -92,13 +105,14 @@
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
+#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Get data](active-directory-reporting-api-with-certificates.md)
+#### [Using certificates](active-directory-reporting-api-with-certificates.md)
 ### [Classic portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
@@ -165,6 +179,8 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Azure AD Controls
+####[Manage programs and their controls](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started

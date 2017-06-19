@@ -1,17 +1,14 @@
 ---
 title: Design your first Azure Database for MySQL database - Azure CLI | Microsoft Docs
-description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0.
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/23/2017
+ms.date: 06/13/2017
 ms.custom: mvc
 ---
 
@@ -28,14 +25,19 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Update data
 > * Restore data
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## Log in to Azure
-
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
+If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
 ```azurecli
 az login
+```
+
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the **command prompt**.
 
@@ -44,7 +46,7 @@ Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-re
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
@@ -53,7 +55,7 @@ Create an Azure Database for MySQL server with the az mysql server create comman
 
 The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
 --location westus --user myadmin --password Password01!
 --performance-tier Basic --compute-units 50
@@ -64,16 +66,14 @@ Create an Azure Database for MySQL server-level firewall rule with the az mysql 
 
 The following example creates a firewall rule for a predefined address range. This example shows the entire possible range of IP addresses.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource
---server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
---end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## Get the connection information
 
 To connect to your server, you need to provide host information and access credentials.
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -166,7 +166,7 @@ For the Restore you need the following information:
 - Source server: Provide the name of the server you want to restore from
 - Location: You cannot select the region, by default it is same as the source server
 
-```azurecli
+```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
@@ -183,4 +183,5 @@ In this tutorial you learned to:
 > * Update data
 > * Restore data
 
-For additional CLI script samples, try [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)
+> [!div class="nextstepaction"]
+> [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)

@@ -155,7 +155,7 @@
 #### [Retrain an existing web service](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Troubleshoot](machine-learning-troubleshooting-retraining-models.md)
 ### Consume models
-#### [Overview](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Overview](machine-learning-consume-web-services.md)
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)

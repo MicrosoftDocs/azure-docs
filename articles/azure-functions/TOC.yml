@@ -4,8 +4,6 @@
   items:
   - name: About Functions
     href: functions-overview.md
-  - name: Functions Runtime
-    href: functions-runtime-overview.md
   - name: Choose between Flow, Logic Apps, Functions, and WebJobs
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
     - name: Timer
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
 - name: Tutorials
   items:
   - name: 1 - Functions with Logic Apps
     href: functions-twitter-email.md
   - name: 2 - Create a serverless API
     href: functions-create-serverless-api.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Concepts
   items:
   - name: Consumption and App Service plans
@@ -51,36 +49,46 @@
     href: functions-triggers-bindings.md
   - name: Languages
     items:
-    - name: C# functions concepts
+    - name: C# script 
       href: functions-reference-csharp.md
-    - name: F# functions concepts
+    - name: .NET class library
+      href: functions-dotnet-class-library.md
+    - name: F#
       href: functions-reference-fsharp.md
-    - name: JavaScript functions concepts
+    - name: JavaScript
       href: functions-reference-node.md    
+  - name: Performance considerations
+    href: functions-best-practices.md 
+  - name: Functions Runtime
+    href: functions-runtime-overview.md
 - name: How-to guides
   items:
-  - name: Developer guide
-    href: functions-reference.md
-  - name: Testing Azure Functions
-    href: functions-test-a-function.md
-  - name: Develop and debug locally
-    href: functions-run-local.md
-  - name: Configure settings for a function app
+  - name: Develop
+    items: 
+     - name: Developer guide
+       href: functions-reference.md
+     - name: Testing functions
+       href: functions-test-a-function.md
+     - name: Develop and debug locally
+       href: functions-run-local.md
+  - name: Deploy
+    items:
+    - name: Continuous deployment
+      href: functions-continuous-deployment.md
+    - name: Automate resource deployment
+      href: functions-infrastructure-as-code.md
+    - name: On-premises functions
+      href: functions-runtime-install.md
+  - name: Configure
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Continuous deployment for Azure Functions
-    href: functions-continuous-deployment.md
-  - name: Automate resource deployment
-    href: functions-infrastructure-as-code.md
-  - name: Monitoring Azure Functions
+  - name: Monitor
     href: functions-monitoring.md
-  - name: Install Functions Runtime
-    href: functions-runtime-install.md
-  - name: Connect to SQL Database
-    href: functions-scenario-database-table-cleanup.md
-  - name: Create an Open API 2.0 definition
-    href: functions-api-definition-getting-started.md     
-  - name: Best practices for Azure Functions
-    href: functions-best-practices.md     
+  - name: Integrate
+    items:   
+    - name: Connect to SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Create an Open API 2.0 definition
+      href: functions-api-definition-getting-started.md         
 - name: Reference
   items:
   - name: Bindings
@@ -117,6 +125,8 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow

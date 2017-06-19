@@ -37,14 +37,14 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -56,17 +56,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Get started with a simulated device</h3>
                     </div>
                 </div>
             </div>
@@ -74,17 +74,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Get started with a physical device</h3>
                     </div>
                 </div>
             </div>
@@ -92,35 +92,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-devguide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-device-sdk-c-intro">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/c.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using C</h3>
+                        <h3>Read the developer guide</h3>
                     </div>
                 </div>
             </div>
@@ -139,7 +121,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI 2.0</a></p>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -180,5 +162,3 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
     </li>
 </ul>
-
-

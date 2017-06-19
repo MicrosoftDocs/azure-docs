@@ -26,7 +26,6 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
 Check out this video to learn how Azure Analysis Services fits in with Microsoft's overall BI capabilities, and how you can benefit from getting your data models into the cloud.
 
 
->
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >

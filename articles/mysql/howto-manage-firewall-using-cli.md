@@ -1,17 +1,15 @@
 ---
 title: Create and manage Azure Database for MySQL firewall rules using Azure CLI | Microsoft Docs
-description: Describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI.
+description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/13/2017
 ---
 
 # Create and manage Azure Database for MySQL firewall rules using Azure CLI
@@ -46,37 +44,39 @@ This command will output a code to use in the next step.
 
 3. At the prompt, log in using your Azure credentials.
 
-4. Once your login is authorized, a list of subscriptions will be printed in the console.
+4. Once your login is authorized, a list of subscriptions will be printed in the console. Copy the id of the desired subscription to set the current subscription to be used moving forward.
+   ```azurecli-interactive
+   az account set --subscription {your subscription id}
+   ```
 
-Copy the id of the desired subscription to set the current subscription to be used moving forward.
-```azurecli
-az account set --subscription {your subscription id}
-```
 5. List the Azure Databases for MySQL servers for your subscription and resource group if you are unsure of the names.
-```azurecli
-az mysql server list --resource-group myResourceGroup
-```
-Note the name attribute in the listing, which will be used to specify which MySQL server to work on. If needed, confirm the details for that server in order to check the validity of the name using the name attribute.
-```azurecli
-az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
-```
+
+   ```azurecli-interactive
+   az mysql server list --resource-group myResourceGroup
+   ```
+
+   Note the name attribute in the listing, which will be used to specify which MySQL server to work on. If needed, confirm the details for that server to using the name attribute to confirm name is correct:
+
+   ```azurecli-interactive
+   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   ```
 
 ## List Firewall Rules on Azure Database for MySQL Server 
 Using the server name and the resource group name, list the existing server firewall rules on the server. Notice that the server name attribute is specified in the **--server** switch and not the **--name** switch.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo
 ```
 The output will list the rules if any, by default in JSON format. You may use the switch **--output table** for a more readable table format as the output.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo --output table
 ```
 ## Create Firewall Rule on Azure Database for MySQL Server
 Using the Azure MySQL server name and the resource group name, create a new firewall rule on the server. Provide a name for the rule, the start IP, and end IP for the rule to cover a range of IP addresses to allow access.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 For a singular IP address to be allowed access, provide the same address as the Start IP and End IP, as in this example.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  
 --server mysql --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
@@ -84,7 +84,7 @@ Upon success, the command output will list the details of the firewall rule you 
 
 ## Update Firewall Rule on Azure Database for MySQL server 
 Using the Azure MySQL server name and the resource group name, update an existing firewall rule on the server. Provide the name of the existing firewall rule as input, and the start IP and end IP attributes to update.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule update --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Upon success, the command output will list the details of the firewall rule you have updated, by default in JSON format. If there is a failure, the output will show error message text instead.
@@ -94,14 +94,14 @@ Upon success, the command output will list the details of the firewall rule you 
 
 ## Show Firewall Rule Details on Azure Database for MySQL Server
 Using the Azure MySQL server name and the resource group name, show the existing firewall rule details from the server. Provide the name of the existing firewall rule as input.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule show --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 Upon success, the command output will list the details of the firewall rule you have specified, by default in JSON format. If there is a failure, the output will show error message text instead.
 
 ## Delete Firewall Rule on Azure Database for MySQL Server
 Using the Azure MySQL server name and the resource group name, remove an existing firewall rule from the server. Provide the name of the existing firewall rule.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule delete --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 Upon success, there is no output. Upon failure, the error message text will be returned.
