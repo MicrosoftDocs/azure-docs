@@ -92,8 +92,9 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
-#### [Retention](app-insights-usage-retention.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analytics
 
