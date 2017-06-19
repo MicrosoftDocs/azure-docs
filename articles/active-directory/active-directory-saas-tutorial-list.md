@@ -41,7 +41,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeCreateiveCloud.png)| [Adobe Creative Cloud](active-directory-saas-adobe-creative-cloud-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeEchoSign.png)| [Adobe EchoSign](active-directory-saas-adobe-echosign-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPeTime.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPGlobalView.png)| [ADP GlobalView](active-directory-saas-adpglobalview-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ADPGlobalView.png)| [ADP GlobalView](active-directory-saas-adglobalview-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.png)| [Aha!](active-directory-saas-aha-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.png)| [AirWatch](active-directory-saas-airwatch-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
