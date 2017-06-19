@@ -63,7 +63,6 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
-   | Azure.IoT.IoTHub.DeviceId             | Obtained from iothub-explorer                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
@@ -76,15 +75,12 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
 We made available a web application on GitHub which displays real-time sensor data from your IoT hub. All you need to do is to configure the web app to work with a Git repository, download the web application from GitHub and upload it to Azure for the web app to host.
 
-1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**.
+1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.
 
    ![Configure your Azure web app deployment to use local git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-1. Click **Setup connection**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
+1. Click **Deployment Credentials**, create a user name and password that will be used to connect to the Git repository in Azure, and then click **OK**.
 
-   ![Set user name and password for the git repository in Azure for your web app](media/iot-hub-live-data-visualization-in-web-apps/6_web-app-set-user-password-git-repo-azure.png)
-
-1. Click **OK** to finish the configuration.
 1. Click **Overview** and make a note of the value of **Git clone url**.
 
    ![Get the git clone URL of your Azure web app](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
