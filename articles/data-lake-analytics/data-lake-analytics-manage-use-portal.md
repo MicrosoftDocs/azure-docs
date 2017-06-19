@@ -227,6 +227,11 @@ There is a "Default" policy set on every account. The default policy applies to 
 
 4. Click the **...** option in the right most column of the table to see the **Delete** and **Edit** options.
 
+### Additional resources for Job Policies
+* [Policy overview blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
+* [Account-level Policy blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
+* [Job-level Policy blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
+
 ## Next steps
 
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
