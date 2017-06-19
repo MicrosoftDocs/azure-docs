@@ -88,8 +88,8 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 1.  Switch to the *oracle* superuser, then initialize the listener for logging:
 
     ```bash
-    sudo su - oracle
-    lsnrctl start
+    $ sudo su - oracle
+    $ lsnrctl start
     ```
 
     The output is similar to the following:
@@ -123,96 +123,96 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 2.  Create the database:
 
     ```bash
-    dbca -silent \
-        -createDatabase \
-        -templateName General_Purpose.dbc \
-        -gdbname cdb1 \
-        -sid cdb1 \
-        -responseFile NO_VALUE \
-        -characterSet AL32UTF8 \
-        -sysPassword OraPasswd1 \
-        -systemPassword OraPasswd1 \
-        -createAsContainerDatabase true \
-        -numberOfPDBs 1 \
-        -pdbName pdb1 \
-        -pdbAdminPassword OraPasswd1 \
-        -databaseType MULTIPURPOSE \
-        -automaticMemoryManagement false \
-        -storageType FS \
-        -ignorePreReqs
+    $ dbca -silent \
+           -createDatabase \
+           -templateName General_Purpose.dbc \
+           -gdbname cdb1 \
+           -sid cdb1 \
+           -responseFile NO_VALUE \
+           -characterSet AL32UTF8 \
+           -sysPassword OraPasswd1 \
+           -systemPassword OraPasswd1 \
+           -createAsContainerDatabase true \
+           -numberOfPDBs 1 \
+           -pdbName pdb1 \
+           -pdbAdminPassword OraPasswd1 \
+           -databaseType MULTIPURPOSE \
+           -automaticMemoryManagement false \
+           -storageType FS \
+           -ignorePreReqs
     ```
 
     It takes a few minutes to create the database.
 
-## Prepare for connectivity 
-To make sure that the database initialized correctly, test for local connectivity. **Wait, is this step the first of the next H2? That's then to set up ports for something else to connect in, not to test the database is initialized correctly?** The easiest way to do this is to connect with `sqlplus`.  
+3. Set Oracle variables
 
 Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
 
 ```bash
-ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-ORACLE_SID=cdb1; export ORACLE_SID
+$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+$ ORACLE_SID=cdb1; export ORACLE_SID
+```
+You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would saved the environment variables for future sign-ins. Adding the followings statements to the .bashrc file using editor of your choice.
+
+```
+# Add ORACLE_HOME. 
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
+# Add ORACLE_SID. 
+export ORACLE_SID=cdb1 
 ```
 
 ## Oracle EM Express connectivity
 
 For a GUI management tool that you can use to explore the database, set up Oracle EM Express. To connect to Oracle EM Express, you must first set up the port in Oracle. 
 
-1. Connect to your database as follows:
+1. Connect to your database using sqlplus:
 
     ```bash
-    sqlplus / as sysdba
+    $ sqlplus / as sysdba
     ```
 
-2. Once connected, set up the port in Oracle:
+2. Once connected, set the port 5502 for EM Express
 
     ```bash
-    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+    SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
-3. Open the container PDB1 if not already opened:
+3. Open the container PDB1 if not already opened, but first check the status:
 
     ```bash
-    select con_id, name, open_mode from v$pdbs;
+    SQL> select con_id, name, open_mode from v$pdbs;
+ 
+      CON_ID NAME                           OPEN_MODE 
+      ----------- ------------------------- ---------- 
+      2           PDB$SEED                  READ ONLY 
+      3           PDB1                      MOUNT
     ```
 
-4. No idea here:
+4. If the OPEN_MODE is not READ WRITE, then run the followings commands to open PDB1:
 
-    ```bash
-    alter session set container=pdb1;
-    ```
-
-5. Whatever this is:
-
-    ```bash
-    alter database open;
-    ```
-
-6. Now exit I guess:
-
-    ```bash
-    exit
-    ```
-
-7. Exit the *oracle* user session:
-
-    ```bash
-    logout
-    ```
+   ```bash
+    SQL> alter session set container=pdb1;
+    SQL> alter database open;
+   ```
 
 ## Automate database startup and shutdown
 
-The Oracle database by default doesn't automatically start when you start the VM. To set up the Oracle database to start when you start the VM, first sign in as root. Then, create and update some system files.
+The Oracle database by default doesn't automatically start when you restart the VM. To set up the Oracle database to start automatically, first sign in as root. Then, create and update some system files.
 
-1.  Edit the file */etc/oratab* and change the default `N` to `Y`:
+1. Sign on as root
+    ```bash
+    $ sudo su -
+    ```
+
+2.  Edit the file */etc/oratab* and change the default `N` to `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-2.  Create a file named */etc/init.d/dbora* and paste the following contents:
+3.  Create a file named */etc/init.d/dbora* and paste the following contents:
 
-    ```bash
+    ```
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
@@ -241,25 +241,25 @@ The Oracle database by default doesn't automatically start when you start the VM
     esac
     ```
 
-3.  Change permissions on files with *chmod* as follows:
+4.  Change permissions on files with *chmod* as follows:
 
     ```bash
-    sudo chgrp dba /etc/init.d/dbora
-    sudo chmod 750 /etc/init.d/dbora
+    # chgrp dba /etc/init.d/dbora
+    # chmod 750 /etc/init.d/dbora
     ```
 
-4.  Create symbolic links for startup and shutdown as follows:
+5.  Create symbolic links for startup and shutdown as follows:
 
     ```bash
-    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    sudo ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    # ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    # ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    # ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-5.  To test your changes, restart the VM (Really? Reboot?):
+6.  To test your changes, restart the VM:
 
     ```bash
-    sudo reboot
+    # reboot
     ```
 
 ## Open ports for connectivity
@@ -300,13 +300,13 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --output tsv
     ```
 
-3.  Connect EM Express from your browser: 
+4.  Connect EM Express from your browser: 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-You can log in by using the *SYS* account, and check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation. **Dude, this requires Flash... But, it does work and I could log in with IE (the only browser that didn't have Flash disabled...)**
+You can log in by using the *SYS* account, and check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation. Make sure your browser is compliable with EM Express (Flash install may be required)
 
 ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
