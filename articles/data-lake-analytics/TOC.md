@@ -3,13 +3,9 @@
 
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [REST API](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # How to
 
