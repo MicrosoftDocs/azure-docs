@@ -105,7 +105,7 @@ A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controll
 
 The `backend-deployment.yaml` manifest file creates a deployment for the back-end portion of the Azure Vote application.
 
-Note, if using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance. If you do not update the container image name, a pre-created image is pulled from a public registry.
+If using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance. If you do not update the container image name, a pre-created image is pulled from a public registry.
 
 ```yaml
 containers:

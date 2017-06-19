@@ -98,7 +98,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 }
 ```
 
-Use the DC/OS CLI to run the application. Note, by default Marathon deploys the the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
+Use the DC/OS CLI to run the application. By default Marathon deploys the the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json
