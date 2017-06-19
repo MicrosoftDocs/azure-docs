@@ -1,6 +1,6 @@
 ---
-title: Create a Python web app in Azure | Microsoft Docs
-description: Deploy your first Python Hello World in Azure App Service Web Apps in minutes.
+title: Cree una aplicación web Python en Azure | Microsoft Docs
+description: Implemente su primer "Hello World"  en Azure App Service Web Apps en cuestión de minutos.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -17,82 +17,83 @@ ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a Python web app in Azure
+# Cree una aplicación web Python en Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
+[Aplicaciones Azure web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) proporciona un servicio de alojamiento web altamente escalable y auto-reparable. Este inicio rápido explica cómo desarrollar e implementar una aplicación de Python en Azure Web Apps. Crea la aplicación web utilizando la [CLI de Azure] (https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), y utiliza Git para implementar código de ejemplo de Python en la aplicación web.
 
-![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
-## Prerequisites
+![Ejemplo de aplicación que se ejecuta en Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-To complete this tutorial:
+Puede seguir los pasos que se indican a continuación utilizando una máquina Mac, Windows o Linux. Una vez que se han instalado los requisitos previos, se tardan unos cinco minutos en completar los pasos.
+## Requisitos previos
 
-1. [Install Git](https://git-scm.com/)
-1. [Install Python](https://www.python.org/downloads/)
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Para completar este tutorial:
+
+1. [Instalar Git](https://git-scm.com/)
+1. [Instalar Python](https://www.python.org/downloads/)
+1. [Instalar Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Download the sample
+## Descargar la muestra
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+En una ventana de terminal, ejecute el comando siguiente para clonar el repositorio de ejemplo de la aplicación en su máquina local.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Change to the directory that contains the sample code.
+Cambie el directorio que contiene el código abierto.
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-## Run the app locally
+## Ejecute la aplicación locamente
 
-Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.
+Ejecute la aplicación localmente abriendo una ventana de terminal y utilizando el comando `Python` para iniciar el servidor web Python incorporado.
 
 ```bash
 python main.py
 ```
 
-Open a web browser, and navigate to the sample app at http://localhost:5000.
+Abra un navegador web y navegue hasta la aplicación de ejemplo en http://localhost:5000.
 
-You can see the **Hello World** message from the sample app displayed in the page.
+Puede ver el mensaje ** Hello World ** de la aplicación de ejemplo que se muestra en la página.
 
-![Sample app running locally](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
+![Ejemplo de aplicación que se ejecuta localmente](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
-In your terminal window, press **Ctrl+C** to exit the web server.
+En la ventana del terminal, presione ** Ctrl + C ** para salir del servidor web.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Inicio de sesión en Azure](../../includes/login-to-azure.md)] 
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configurar usuario de implementación](../../includes/configure-deployment-user.md)] 
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Crear grupo de recursos](../../includes/app-service-web-create-resource-group.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Crear un plan de servicio de aplicaciones](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Crear una aplicación web](../../includes/app-service-web-create-web-app.md)] 
 
-![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
+![Página de aplicación web vacía](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-You’ve created an empty new web app in Azure.
+Has creado una nueva aplicación web vacía en Azure.
 
-## Configure to use Python
+## Configurar para utilizar Python
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
+Utilizar el [az appservice web config update](/cli/azure/app-service/web/config#update) comando para configurar la aplicación web para usar la versión de Python `3.4`.
 
 ```azurecli-interactive
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+Establecer la versión de Python de esta manera utiliza un contenedor predeterminado proporcionado por la plataforma. Para usar su propio contenedor, consulte la referencia CLI [Actualización de az appservice web config container](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
 
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+[!INCLUDE [Configurar el git local](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Empuje a Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
@@ -136,56 +137,56 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Browse to the app
+## Navegar a la aplicación
 
-Browse to the deployed application using your web browser.
+Vaya a la aplicación implementada utilizando su navegador web.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-The Python sample code is running in an Azure App Service web app.
+El código de ejemplo de Python se está ejecutando en una aplicación web de Azure App Service.
 
-![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Ejemplo de aplicación que se ejecuta en Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first Python app to App Service.
+**Felicitaciones!** Has implementado tu primera aplicación de Python en el servicio de aplicaciones.
 
-## Update and redeploy the code
+## Actualizar y desplegar el código
 
-Using a local text editor, open the `main.py` file in the Python app, and make a small change to the text next to the `return` statement:
+Utilizando un editor de texto local, abra el archivo `main.py` en la aplicación Python y realice un pequeño cambio en el texto junto a la instrucción` return`:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+Configure sus cambios en Git y luego presione los cambios de código en Azure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#browse-to-the-app) step, and refresh the page.
+Una vez que se haya completado la implementación, vuelva a la ventana del navegador que se abrió en el paso [Examinar a la aplicación] (# exploración a la aplicación) y actualice la página.
 
-![Updated sample app running in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![Aplicación de ejemplo actualizada que se ejecuta en Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## Manage your new Azure web app
+## Administrar tu nueva aplicación web de Azure
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Ir a la [Portal de Azure](https://portal.azure.com) Para administrar la aplicación web que creaste.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+En el menú de la izquierda, haga clic en **App Services**, y luego haga clic en el nombre de su aplicación web Azure.
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Navegación por el portal a la aplicación web de Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+Verá su página de descripción de las aplicaciones web. Aquí, puede realizar tareas básicas de administración como examinar, detener, iniciar, reiniciar y eliminar. 
 
-![App Service blade in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![App Service blade en el portal de Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-The left menu provides different pages for configuring your app. 
+El menú de la izquierda contiene distintas páginas para configurar la aplicación.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Next steps
+## Próximos pasos
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)
+> [Python con PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)
