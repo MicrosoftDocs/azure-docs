@@ -187,7 +187,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## Run internet accessable app
+## Run internet accessible app
 
 The ACS DC/OS cluster consists of two node sets, one public which is accessible on the internet, and one private which is not accessible on the internet. The default set is the private nodes, which was used in the last example.
 
