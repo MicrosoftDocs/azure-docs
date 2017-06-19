@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 06/02/2017
+ms.date: 06/19/2017
 ms.author: mimig
 
 ---
@@ -78,7 +78,7 @@ Create a [resource group](../azure-resource-manager/resource-group-overview.md) 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, click **Try it**, follow the onscreen prompts to login, then copy the command into the command prompt.
+If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
