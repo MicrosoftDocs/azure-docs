@@ -38,10 +38,10 @@ To remove address prefixes:
 3. Click **Remove**.
 4. Click **Save** to save your settings.
 
-#### 3. Recreate the connections.
+#### 3. Recreate the connection.
 
-1. Navigate to the Virtual Network Gateway resource. (Not the Local Network Gateway resource.)
-2. On the Virtual Network Gateway resource, in the **Settings** section, click **Connections**.
+1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
+2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
 3. Click the **+ Add** to open the **Add connection** blade.
 4. Recreate your connection.
 5. Click **OK** to create the connection.
