@@ -74,24 +74,29 @@ requests
 ![Analytics query configuration screen](./media/app-insights-automate-with-flow/flow4.png)
 
 ### Step 6: Configure the flow to send email
-![Office 365 Outlook selection](./media/app-insights-automate-with-flow/flow2b.png)
+
 1. Click *New step* and then select *Add an action*.
 2. Search for Office 365 Outlook.
 3. Click Office 365 Outlook – Send an email.
-![Office 365 Outlook configuration](./media/app-insights-automate-with-flow/flow5.png)
+![Office 365 Outlook selection](./media/app-insights-automate-with-flow/flow2b.png)
+
 4. In the email action add the following data:
  - Specify the email address of the recipient
  - Provide a subject for the email
  - Place your cursor in the *Body* field, and from the dynamic content menu that opens on the right, select *Body*.
  - Click on Show advanced options.
-![Office 365 email configuration screen](./media/app-insights-automate-with-flow/flow7.png)
+
+ ![Office 365 Outlook configuration](./media/app-insights-automate-with-flow/flow5.png)
+
 5. From the dynamic content menu do the following:
 - Select Attachment Name
 - Select Attachment Content
 - Select Yes in the *Is HTML* field
 
+![Office 365 email configuration screen](./media/app-insights-automate-with-flow/flow7.png)
 ### Step 7: Save and test your flow
 - Add a name to your flow and click *Create flow*.
+
 ![Microsoft Flow creation screen](./media/app-insights-automate-with-flow/flow8.png)
 
 You can either wait for the trigger to run this action, or you can run the flow immediately by [running the trigger on demand](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
