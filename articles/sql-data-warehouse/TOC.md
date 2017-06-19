@@ -48,6 +48,7 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)

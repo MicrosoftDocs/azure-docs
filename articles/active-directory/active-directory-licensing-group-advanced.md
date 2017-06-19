@@ -107,7 +107,10 @@ Directly assigned licenses can be removed, and don’t affect inherited licenses
 
 Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
 
-For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in different locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+
+> [!NOTE]
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set  usage location during user creation in Azure AD - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use PowerShell to see who has inherited and direct licenses
 While group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, you can use it to discover basic information about user state, and see whether licenses are inherited from a group or assigned directly. The following code example shows how an administrator can produce a basic report about license assignments.
@@ -119,7 +122,7 @@ While group-based licensing is in public preview, PowerShell cannot be used to f
   ![Screenshot of the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. In this example, you want to find out which users have the Enterprise Mobility + Security license assigned directly, from a group, or both. You can use the following script:
-  
+
   ```
   #Returns TRUE if the user has the license assigned directly
   function UserHasLicenseAssignedDirectly
@@ -180,7 +183,7 @@ While group-based licensing is in public preview, PowerShell cannot be used to f
   ```
 
 4. The rest of the script gets all users, and runs these functions on each user. Then it formats the output into a table.
-    
+
   ```
   #the license SKU we are interested in
   $skuId = "reseller-account:EMS"

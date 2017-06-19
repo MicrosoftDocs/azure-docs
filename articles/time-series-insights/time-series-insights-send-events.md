@@ -159,7 +159,6 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-
 ### Sample 3
 
 #### Input
@@ -192,6 +191,8 @@ Note that the property "location" is copied over to each of the event.
 ### Sample 4
 
 #### Input
+
+A JSON object with a nested JSON array containing two JSON objects. This input demonstrates that the global properties may be represented by the complex JSON object.
 
 ```json
 {
@@ -227,7 +228,7 @@ Note that the property "location" is copied over to each of the event.
 |location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
 

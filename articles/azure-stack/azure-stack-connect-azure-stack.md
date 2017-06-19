@@ -47,26 +47,21 @@ The following sections describe the steps that are required to establish VPN con
 
 ### Prerequisites
 
-* [Install Azure Stack compatible Azure PowerShell on your local computer.](azure-stack-powershell-install.md)  
-* [Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)  
+* Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md) to your local computer.  
 
 ### Import the Connect PowerShell module
 
-After you download the tools, navigate to the downloaded folder and import the **Connect** PowerShell module by using the following command:
+After you download the tools, navigate to the downloaded folder and import the **Connect** PowerShell module onto your local Windows-based computer by using the following command:
 
 ```PowerShell
+Set-ExecutionPolicy RemoteSigned
 Import-Module .\Connect\AzureStack.Connect.psm1 
-```
-When importing the module, if you receive an error that says "AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
 ```
 
 ### Configure VPN to Azure Stack PoC computer
 
-To create a VPN connection to the Azure Stack PoC computer, use the following steps:
-
+To create a VPN connection to the Azure Stack PoC computer, run the following steps on your local Windows-based computer:
 
 1. Add the Azure Stack PoC computer’s host IP address & certificate authority (CA) to the list of trusted hosts on your client computer by running the following script in an elevated PowerShell session:
 

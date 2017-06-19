@@ -1,5 +1,5 @@
 ﻿---
-title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
+title: Configure Domain-joined HDInsight clusters using PowerShell - Azure | Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight
 documentationcenter: ''
@@ -21,6 +21,9 @@ ms.author: saurinsh
 ---
 # Configure Domain-joined HDInsight clusters (Preview) using Azure PowerShell
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) using Azure PowerShell. An Azure PowerShell script is provided to make the configuration faster and less error prone. Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
+
+> [!IMPORTANT]
+> Oozie is not enabled on domain-joined HDInsight.
 
 A typical Domain-joined HDInsight cluster configuration involves the following steps:
 

@@ -149,7 +149,7 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 1. Open the *Contact.java* model file, which is located in the *src/gen/java/io/swagger/model* folder, using [Visual Studio Code] or your favorite text editor. 
    
     ![Open Contact Model File][open-contact-model-file]
-2. Add the following constructor to the **Contact** class. 
+2. Add the following constructor within the **Contact** class. 
    
         public Contact(Integer id, String name, String email) 
         {
@@ -287,7 +287,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[Online Swagger Editor]: http://editor.swagger.io/
+[Online Swagger Editor]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
