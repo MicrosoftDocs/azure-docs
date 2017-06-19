@@ -137,7 +137,7 @@ In the **Configure SQL Database** dialog, click **New** next to **SQL Server**.
 
 A unique server name is generated. This name is used as part of the default URL for your logical server, `<server_name>.database.windows.net`. It must be unique across all logical server instances in Azure. You can change the server name, but for this tutorial, keep the generated value.
 
-Add an administrator username and password, and then select **OK**. For password complexity requirements, see [Password Policy](../sql/relational-databases/security/password-policy.md).
+Add an administrator username and password, and then select **OK**. For password complexity requirements, see [Password Policy](/sql/relational-databases/security/password-policy).
 
 Remember this username and password. You need them to manage the logical server instance later.
 

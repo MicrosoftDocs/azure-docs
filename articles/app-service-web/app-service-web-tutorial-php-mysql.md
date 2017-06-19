@@ -287,7 +287,7 @@ To learn how to generate this _certificate.pem_, see [Configure SSL connectivity
 
 ### Test the application
 
-Run Laravel database migrations with _.env.production_ as the environment file to create the tables in your MySQL database in Azure Database for MySQL (Preview).
+Run Laravel database migrations with _.env.production_ as the environment file to create the tables in your MySQL database in Azure Database for MySQL (Preview). Remember that _.env.production_ has the connection information to your MySQL database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -338,7 +338,6 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 ### Create an App Service plan
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)] 
-
 
 ### Create a web app
 
@@ -486,7 +485,7 @@ Congratulations, you're running a data-driven PHP app in Azure App Service.
 
 ## Update model and redeploy
 
-In this step, you make changes to the `task` data model and publish the changes to Azure.
+In this step, you make a simple change to the `task` data model and the webapp, and then publish the update to Azure.
 
 For the tasks scenario, you modify the application so that you can mark a task as complete. 
 
