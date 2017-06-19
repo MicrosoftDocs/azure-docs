@@ -81,13 +81,13 @@ Next, get the FQDN of the DC/OS master and store it in a variable.
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Copy your private key to the master node. This key is needed to create an ssh connection with all nodes in the cluster. Note, update the user name if a non-default value was used when creating the cluster. 
+Copy your private key to the master node. This key is needed to create an ssh connection with all nodes in the cluster. Update the user name if a non-default value was used when creating the cluster. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Note, update the user name if a non-default value was used when creating the cluster.
+Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Update the user name if a non-default value was used when creating the cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN

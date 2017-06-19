@@ -92,7 +92,7 @@ First, get the FQDN of the DC/OS master and store it in a variable.
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Note, update the user name if a non-default value was used when creating the cluster.
+Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Update the user name if a non-default value was used when creating the cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN

@@ -15,6 +15,7 @@
 ### [3 - Deploy Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
 ### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
 ### [5 - Scale application](container-service-tutorial-kubernetes-scale.md)
+### [6 - Update application](container-service-tutorial-kubernetes-app-update.md)
 ### [7 - Monitor with OMS](container-service-tutorial-kubernetes-monitor.md)
 
 ## DC/OS

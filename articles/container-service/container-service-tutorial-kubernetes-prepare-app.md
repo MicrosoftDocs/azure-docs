@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
@@ -34,7 +34,7 @@ In this first tutorial, a sample application is tested and packed up into portab
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
 
-**Docker environment** - to complete this tutorial, you also need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
+**Docker environment** - to complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
 
 [Docker for Mac]( https://docs.docker.com/docker-for-mac/)
 
@@ -47,7 +47,7 @@ The sample application used in this tutorial is a basic voting app. The applicat
 Use git to download a copy of the application to your development environment.
 
 ```bash
-git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
+git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
 Inside the cloned directory, is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
@@ -55,7 +55,7 @@ Inside the cloned directory, is pre-created Docker and Kubernetes configuration 
 Change directories so that you are in the cloned directory.
 
 ```bash
-cd ./azure-kubernetes-samples/
+cd ./azure-voting-app/
 ```
 Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
@@ -129,11 +129,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Test application
 
-Browse to `http://localhost:8080` to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
+Browse to [http://localhost:8080](http://localhost:8080) to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
-## Delete Resources
+## Delete resources
 
 Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
 

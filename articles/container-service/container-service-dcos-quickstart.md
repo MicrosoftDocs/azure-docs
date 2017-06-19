@@ -71,7 +71,7 @@ Once a DC/OS cluster has been created, it can be accesses through an SSH tunnel.
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-To create the SSH tunnel, run the following command and follow the on-screen instructions. Note, if port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
+To create the SSH tunnel, run the following command and follow the on-screen instructions. If port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
 
 ```azurecli-interactive
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
