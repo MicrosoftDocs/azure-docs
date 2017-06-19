@@ -87,12 +87,12 @@ function Select-Subscription {
 
             $count = 1
             foreach ($subscription in $allSubscriptions) {
-                $uiPrompt += "$count. " + $subscription.SubscriptionName + " (" + $subscription.SubscriptionId + ")`n"
+                $uiPrompt += "$count. " + $subscription.Name + " (" + $subscription.Id + ")`n"
                 $count++
             }
             $answer = (Read-Host -Prompt $uiPrompt) - 1
             $subscription = $allSubscriptions[$answer]
-             Write-Host $subscription.SubscriptionId
+             Write-Host $subscription.Id
         }  
     }
     return $subscription
