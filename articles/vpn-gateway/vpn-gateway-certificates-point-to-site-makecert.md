@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 06/19/2017
 ms.author: cherylmc
 
 ---
@@ -45,7 +45,7 @@ While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certifica
 The following steps show you how to create a self-signed certificate using MakeCert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
 1. Download and install [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. After installation, you can find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example:
+2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Although, it's possible that you installed it in another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example:
 
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
@@ -53,7 +53,7 @@ The following steps show you how to create a self-signed certificate using MakeC
 3. Create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Replace 'P2SRootCert' and 'P2SRootCert.cer' with the name that you want to use for the certificate. The certificate will be located in your 'Certificates - Current User\Personal\Certificates'.
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My "P2SRootCert.cer"
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>Export the public key (.cer)
