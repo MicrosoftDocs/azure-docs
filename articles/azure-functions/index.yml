@@ -53,6 +53,17 @@ sections:
         src: media/index/storage.svg
       text: Queue
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+- title: Develop and debug locally
+  items:
+  - type: paragraph
+    text: 'Use Visual Studio 2017 to develop and debug Azure Functions'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/common/placeholder.svg
+      text:  VS
+      href: /azure-functions/function-create-your-first-function-visual-studio
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
