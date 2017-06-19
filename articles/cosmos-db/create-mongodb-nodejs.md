@@ -60,15 +60,15 @@ npm start
 
 ## Log in to Azure
 
-If you are using the Azure Cloud Shell, click **Try It** in the code block below, follow the on-screen prompts to log in, then proceed to the next command. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
-```azurecli-interactive
+```azurecli
 az login 
 ``` 
    
 ## Add the Azure Cosmos DB module
 
-If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. 
+If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
 
 If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -77,6 +77,8 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /c
 Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
+
+If you are using Azure Cloud Shell, click **Try it**, follow the onscreen prompts to login, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
