@@ -28,7 +28,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure Active Active directory tenant
 *   A Velpic tenant with the [Basic plan](https://www.velpic.com/pricing.html) or better enabled 
-*   A user account in Velpic with Team Admin permissions 
+*   A user account in Velpic with Admin permissions 
 
 ## Assigning users to Velpic
 

@@ -27,8 +27,8 @@ The objective of this tutorial is to show you the steps you need to perform in L
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A LucidChart tenant with the [Business plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) or better enabled 
-*   A user account in LucidChart with Team Admin permissions 
+*   A LucidChart tenant with the [Payment Account](https://www.lucidchart.com/user/117598685#/subscriptionLevel) or better enabled 
+*   A user account in LucidChart with Admin permissions 
 
 ## Assigning users to LucidChart
 

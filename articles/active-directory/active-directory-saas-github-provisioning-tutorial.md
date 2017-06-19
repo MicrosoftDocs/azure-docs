@@ -28,7 +28,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 *   An Azure Active Active directory tenant
 *   A Github tenant with the [Business plan](https://help.github.com/articles/organization-billing-plans/#business-plan) or better enabled 
-*   A user account in GitHub with Team Admin permissions 
+*   A user account in GitHub with Admin permissions 
 
 Note: The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/) which is available to Slack teams on the Plus plan or better.
 
