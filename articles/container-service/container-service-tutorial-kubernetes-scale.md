@@ -34,7 +34,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
@@ -42,7 +42,7 @@ This is one tutorial of a multi-part series. You do not need to complete the ful
 
 ## Manually scale pods
 
-The previous tutorial deployed the Azure Vote front end and back end each in a single pod. To verify, run the following command:
+The previous tutorial deployed the Azure Vote front-end and back-end each in a single pod. To verify, run the following command:
 
 ```bash
 kubectl get pods

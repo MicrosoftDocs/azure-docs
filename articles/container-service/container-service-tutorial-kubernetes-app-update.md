@@ -33,7 +33,7 @@ In this tutorial, the sample Azure Vote app is updated. Tasks completed in this 
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 

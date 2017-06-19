@@ -33,7 +33,7 @@ Tasks completed in this tutorial include:
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
@@ -45,7 +45,7 @@ For details on all Kubernetes object, see [Kubernetes Concepts](https://kubernet
 
 ## Get manifest files
 
-For this tutorial, Kubernetes object will be deployed using Kubernetes manifest files. Manifest files are YAML files that contain configuration instructions.
+For this tutorial, Kubernetes object are deployed using Kubernetes manifest files. Manifest files are YAML files that contain configuration instructions.
 
 The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
 
@@ -89,7 +89,7 @@ Once completed, a virtual disk is created and attached to the resulting Kubernet
 
 ### Secure sensitive values
 
-[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage environment for sensitive information. These secrets can then be used inside of Kubernetes deployments.
+[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage environment for sensitive information. These secrets can then be used inside Kubernetes deployments.
 
 Using the `pod-secrets.yaml` file, the Azure Vote database credentials are stored in a secret. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this sample, notes have been placed inside the manifest with the decoded values.
 
@@ -101,11 +101,11 @@ kubectl create -f pod-secrets.yaml
 
 ### Create back-end deployment
 
-A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manages the state of Kubernetes pods. This includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
+A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manages the state of Kubernetes pods. This management includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
 
-The `backend-deployment.yaml` manifest file creates a deployment for the back-end portion of the Azure Vote application. This includes configuring the Azure disk volume, passing through the MySQL connection secrets, and providing arguments to the back-end container image.
+The `backend-deployment.yaml` manifest file creates a deployment for the back-end portion of the Azure Vote application.
 
-Note, if using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance. If you do not update the container image name, a pre-created image will be pulled from a public registry.
+Note, if using Azure Container Registry, update the container image name in the `backend-deployment.yaml` file with the loginServer of the ACR instance. If you do not update the container image name, a pre-created image is pulled from a public registry.
 
 ```yaml
 containers:
@@ -123,7 +123,7 @@ kubectl create -f backend-deployment.yaml
 
 The front-end deployment is configured in the `frontend-deployment.yaml` manifest file.
 
-Again, if using ACR, update the container image name in the `frontend-deployment.yaml` file to reference the ACR loginServer name. If you do not update the container image name, a pre-created image will be pulled from a public registry.
+Again, if using ACR, update the container image name in the `frontend-deployment.yaml` file to reference the ACR loginServer name. If you do not update the container image name, a pre-created image is pulled from a public registry.
 
 ```yaml
 containers:

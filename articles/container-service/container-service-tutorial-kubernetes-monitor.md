@@ -33,7 +33,7 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
 
@@ -145,7 +145,7 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 > * Access monitoring information in the OMS portal or Azure portal
 
 
-Folowing this link to see pre-built script samples for Container Service.
+Follow this link to see pre-built script samples for Container Service.
 
 > [!div class="nextstepaction"]
 > [Azure Container Service script samples](./cli-samples.md)

@@ -34,9 +34,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
-**Container Images** - in the [previous tutorial](container-service-tutorial-kubernetes-prepare-app.md) two container images were created and will now be pushed to ACR. That said, the commands in this tutorial can be used to push container images of your choice. 
+**Container Images** - in the [previous tutorial](container-service-tutorial-kubernetes-prepare-app.md) two container images were created to be used here. That said, the commands in this tutorial can be used to push container images of your choice. 
 
 ## Deploy Azure Container Registry
 
@@ -48,7 +48,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**, update the name below with some random characters.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
@@ -56,7 +56,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
 
 ## Get ACR information 
 
-Once the ACR instance has been created, the name, login server name, and authentication password are needed. The code below returns each of these values. Note each value down, they will be referenced throughout this tutorial.  
+Once the ACR instance has been created, the name, login server name, and authentication password are needed. The following code returns each of these values. Note each value down, they are referenced throughout this tutorial.  
 
 ACR Name:
 
@@ -78,7 +78,7 @@ az acr credential show --name <acrName> --query passwords[0].value -o tsv
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation. When running `docker login` you need to provide a login server, this is the ACR loginServer name. You also need to provide ACR credentials.
+You must log in to your ACR instance before pushing images to it. Use the `docker login` command to complete the operation. When running `docker login` you need to provide th ACR login server name. You also need to provide ACR credentials.
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
@@ -183,7 +183,7 @@ Result
 v1
 ```
 
-At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These images will be deployed from ACR to a Kubernetes cluster in subsequent tutorials.
+At tutorial completion, the two container images for the Azure Vote app have been stored in a private Azure Container Registry instance. These images are deployed from ACR to a Kubernetes cluster in subsequent tutorials.
 
 ## Next steps
 

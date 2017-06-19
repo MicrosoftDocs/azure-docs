@@ -32,7 +32,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Prerequisites
 
-This is one tutorial of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
 
 **Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created. This tutorial assumes that the resource group exists. If needed, create a resource group named *myResourceGroup*.
 
@@ -86,7 +86,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-At tutorial competition, you have an ACS Kubernetes cluster ready for workload. In subsequent tutorials a multi-container application will be deployed to this cluster, scaled out, updated, and monitored.
+At tutorial competition, you have an ACS Kubernetes cluster ready for workload. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 
