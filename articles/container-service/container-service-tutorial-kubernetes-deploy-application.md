@@ -19,7 +19,7 @@ ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
-# Run applications on Kubernetes cluster
+# Run applications in Kubernetes
 
 In previous tutorials, an application has been tested and container images created. These images have been pushed to an Azure Container Registry. Finally, and Azure Container Service Kubernetes cluster has been deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and the Kubernetes cluster monitored.
 
