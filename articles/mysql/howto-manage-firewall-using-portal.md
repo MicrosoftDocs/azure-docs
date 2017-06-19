@@ -6,9 +6,7 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 06/13/2017
 ---
@@ -31,14 +29,14 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
    ![Bing for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
-
-   ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
-
-## IP Addresses and Ranges
-In the rules for the Azure Database for MySQL firewall, you can specify a single IP address, or a range of addresses. If you want to limit the rule to one single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators and users to log in to any database on the MySQL server to which they have valid credentials.
+4. Add additional address ranges. In the rules for the Azure Database for MySQL firewall, you can specify a single IP address, or a range of addresses. If you want to limit the rule to one single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators and users to access any database on the MySQL server to which they have valid credentials.
 
    ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/5-specify-addresses.png)
+
+
+5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
+
+   ![Azure portal - click Save](./media/howto-manage-firewall-using-portal/4-save-firewall-rule.png)
 
 ## Manage existing server-level firewall rules through the Azure portal
 Repeat the steps to manage the firewall rules.

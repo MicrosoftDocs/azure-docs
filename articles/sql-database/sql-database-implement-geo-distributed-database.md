@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: business continuity
+ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

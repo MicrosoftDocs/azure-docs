@@ -15,7 +15,6 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.custom: aaddev
 ---
 # Azure Active Directory for developers
 Azure Active Directory is a cloud identity service that allows developers to securely sign-in any user with a work or school account backed by Microsoft.  The documentation here shows you how to add Azure AD support to your application using industry standard authentication protocols, OAuth & OpenID Connect.
@@ -63,6 +62,7 @@ These are the best places to get help with developing on Azure Active Directory.
 |---|
 |[Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
 |[Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [Try out Microsoft Dev Chat (free for a limited time)](http://aka.ms/devchat) |
 
 <br />
 

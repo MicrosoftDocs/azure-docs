@@ -3,15 +3,21 @@
 
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [REST API](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # How to
+
+## Manage Data Lake Analytics accounts
+### [Azure portal](data-lake-analytics-manage-use-portal.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 
 ## Develop U-SQL programs
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
@@ -26,14 +32,6 @@
 ### [U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
 ### [Use the U-SQL Interactive tutorial](data-lake-analytics-use-interactive-tutorials.md)
-
-## Manage
-### [Azure portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
-### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

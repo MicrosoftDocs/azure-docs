@@ -12,16 +12,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
 # Reprotect from Azure to an on-premises site
 
-> [!div class="op_single_selector"]
-> * [Azure to Azure](site-recovery-how-to-reprotect-azure-to-azure.md)
-> * [On-premises to Azure](site-recovery-how-to-reprotect.md)
+
 
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).

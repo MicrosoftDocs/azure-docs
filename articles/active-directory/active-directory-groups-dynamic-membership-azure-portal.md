@@ -50,10 +50,10 @@ The advanced rule that you can create for the dynamic memberships for groups is 
 A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are optional for the entire binary expression, double quotes are optional as well, only required for the right constant when it is string, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
 
 The following are examples of a properly constructed advanced rule:
-
-* (user.department -eq "Sales") -or (user.department -eq "Marketing")
-* (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
-
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
 For the complete list of supported parameters and expression rule operators, see sections below. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
 
 The total length of the body of your advanced rule cannot exceed 2048 characters.
@@ -93,19 +93,19 @@ All operators can be used with or without hyphen prefix.
 
 Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
 For example:
-
+```
    user.department –eq "Marketing" –and user.country –eq "US"
-
+```
 is equivalent to:
-
+```
    (user.department –eq "Marketing") –and (user.country –eq "US")
-
+```
 ## Using the -In and -notIn operators
 
 If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
-
+```
 	user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
-
+```
 Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
 
 
@@ -187,49 +187,80 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Multi-value properties
+Allowed operators
+
+* -any (satisfied when at least one item in the collection matches the condition)
+* -all (satisfied when all items in the collection match the condition)
+
+| Properties | Values | Usage |
+| --- | --- | --- |
+| assigendPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
+
+assignedPlans is a multi-value property that lists all service plans assigned to the user. The below expression will select users who have the Exchange Online (Plan 2) service plan that is also in Enabled state:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(The Guid identifier identifies the Exchange Online (Plan 2) service plan.)
+
+> [!NOTE]
+> This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
+
+The following expression will select all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
 ## Use of Null values
 
 To specify a null value in a rule, you can use "null" or $null. Example:
-
+```
    user.mail –ne null
+```
 is equivalent to
+```
    user.mail –ne $null
+   ```
 
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
 Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
-
+```
 (user.extensionAttribute15 -eq "Marketing")
-
+```
 Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
-
+```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
-
+```
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
-## Support for multi-value properties
+## "Direct Reports" Rule
+You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
 
-To include a multi-value property in a rule, use the "-any" operator, as in
+> [!NOTE]
+> 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
+> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy, e.g. a group that includes direct reports and their reports.
 
-  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+**To configure the group**
 
-## Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user.
-
-**To configure a group as a “Manager” group**
-
-1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
+1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
+    *Direct Reports for "{obectID_of_manager}"*
 
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
-3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+    An example of a valid rule:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
