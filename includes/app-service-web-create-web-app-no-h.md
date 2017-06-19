@@ -1,4 +1,4 @@
-Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
+Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
 
 The web app provides a hosting space for your code and provides a URL to view the deployed app.
 

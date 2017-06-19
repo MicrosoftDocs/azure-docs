@@ -169,7 +169,7 @@ az mysql server create \
     --resource-group myResourceGroup \
     --location "North Europe" \
     --user adminuser \
-    --password $tr0ngPa$$w0rd!
+    --password MySQLAzure2017
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -228,7 +228,7 @@ CREATE DATABASE sampledb;
 Create a database user called _phpappuser_ and give it all privileges in the `sampledb` database.
 
 ```sql
-CREATE USER 'phpappuser' IDENTIFIED BY '$tr0ngPa$$w0rd!'; 
+CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
 GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
 ```
 
@@ -256,7 +256,7 @@ DB_CONNECTION=mysql
 DB_HOST=<mysql_server_name>.database.windows.net
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
-DB_PASSWORD=$tr0ngPa$$w0rd!
+DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
 
@@ -369,7 +369,7 @@ The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_
 az webapp config appsettings set \
     --name <app_name> \
     --resource-group myResourceGroup \
-    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="$tr0ngPa$$w0rd!" MYSQL_SSL="true"
+    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 You can use the PHP [getenv](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
@@ -602,6 +602,8 @@ To see the task status change, navigate to `http://localhost:8000` and select th
 
 ![Added check box to task](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
+To stop PHP, type `Ctrl + C` in the terminal. 
+
 ### Publish changes to Azure
 
 In the terminal, run Laravel database migrations with the production connection string to make the change in the Azure database.
@@ -636,7 +638,7 @@ az webapp log tail \
     --resource-group myResourceGroup 
 ``` 
 
-Once log streaming has started, refresh the Azure web app in the browser to get some web traffic. You can now see console logs piped to the terminal.
+Once log streaming has started, refresh the Azure web app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
 
 To stop log streaming at anytime, type `Ctrl`+`C`. 
 

@@ -8,4 +8,4 @@ The following example creates a resource group named *myResourceGroup* in the *w
 az group create --name myResourceGroup --location westeurope
 ```
 
-To see the available locations, run the `az appservice list-locations` command. You generally create resources in a region near you.
+To see the supported locations for Azure Web Apps, run the `az appservice list-locations` command. You generally create resources in a region near you.
