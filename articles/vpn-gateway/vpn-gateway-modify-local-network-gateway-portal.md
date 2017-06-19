@@ -32,7 +32,7 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 
 ## Modify IP address prefixes
 
-When you modify IP addresses, the steps you follow depend on whether your local network gateway has a connection.
+When you modify IP address prefixes, the steps you follow depend on whether your local network gateway has a connection.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
