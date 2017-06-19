@@ -30,7 +30,7 @@ ms.author: mlearned
 <ol>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Setting up CI/CD with Jenkins on a Linux VM.</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes.</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI as part of a Jenkins pipeline.</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service with Jenkins and the Azure CLI.</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
