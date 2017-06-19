@@ -27,7 +27,7 @@ ms.author: mlearned
 <ol>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows/chef-automation">Automate Azure Virtual Machine deployment with Chef.</a></li>
 </ol>
-<h2 style="margin-top: 36px">Resources</h2>
+<h2>Resources</h2>
 See the following links for additional reference materials and tools for working with Chef on Azure.
 <ul>  
   <li><a href="https://azure.microsoft.com/en-us/blog/chef-server-in-marketplace-chef-azure-provisioning-and-more/">Chef server in the Azure marketplace</a></li>
