@@ -1,6 +1,6 @@
 ---
-title: 'Modify the local network gateway IP address prefixes and the VPN Gateway IP address| Azure| PowerShell| Microsoft Docs'
-description: This article walks you through changing IP address prefixes for your local network gateway using PowerShell
+title: 'Modify the local network gateway IP address prefixes and the VPN Gateway IP address| Azure| Portal| Microsoft Docs'
+description: This article walks you through changing IP address prefixes for your local network gateway using the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
+ms.assetid:
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -18,7 +18,7 @@ ms.date: 06/19/2017
 ms.author: cherylmc
 
 ---
-# Modify local network gateway settings using PowerShell
+# Modify local network gateway settings using the Azure portal
 
 Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. This article shows you how to modify your local network gateway settings. You can also modify these settings using a different method by selecting a different option from the following list:
 
@@ -29,17 +29,18 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 >
 >
 
-## Before you begin
-
-Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## Modify IP address prefixes
 
-[!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
+When you modify IP address prefixes, the steps you follow depend on whether your local network gateway has a connection.
+
+[!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
 ## Modify the gateway IP address
 
-[!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. When you change the public IP address, the steps you follow depend on whether your local network gateway has a connection.
+
+[!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 
 ## Next steps
 
