@@ -58,10 +58,10 @@ Check to see if you are meeting browser requirements:
 - The portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you launch an application that is configured for password-based single sign-on apps.
 
 - The browser requirements for the extension are:
-    - Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+    - Internet Explorer 8, 9, 10, 11 on Windows 7 or later
     - Edge on Windows 10 Anniversary Edition or later
-    - Chrome -- on Windows 7 or later, and on MacOS X or later
-    - Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+    - Chrome on Windows 7 or later, and on MacOS X or later
+    - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
 You can also download the extension for Chrome, Edge, and Firefox from the direct links below:
 
