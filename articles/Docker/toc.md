@@ -1,5 +1,5 @@
 # [Overview](index.md)
-# How-To guides
+# How-to guides
 ##[Python, PostgreSQL, Docker](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ##[Create Docker Hosts on Azure VMs](/azure/virtual-machines/linux/docker-machine)
 ##[Private Docker container registry](/azure/container-registry/container-registry-get-started-portal)
