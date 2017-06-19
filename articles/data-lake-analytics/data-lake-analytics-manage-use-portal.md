@@ -156,7 +156,7 @@ This policy controls how many AUs this Data Lake Analytics account can use in to
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a section called **Maximum AUs**. Move the slider or type the value in the text box directly to change this value. 
+3. In the section titled **Maximum AUs**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
 
@@ -171,7 +171,7 @@ The policy controls how many jobs can run at the same time. By default, this val
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a section called **Maximum Number of Running Jobs**. Move the slider or type the value in the text box directly to change this value. 
+3. In the section titled **Maximum Number of Running Jobs**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
 
@@ -186,7 +186,7 @@ When your users run U-SQL jobs, the ADLA service keeps all related files like th
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a section called **Days to Retain Job Queries**. Move the slider or type the value in the text box directly to change this value. 
+3. In the section titled **Days to Retain Job Queries**. Move the slider or type the value in the text box directly to change this value. 
 
 4. Click **Save**
 
@@ -208,7 +208,7 @@ There is a "Default" policy set on every account. The default policy applies to 
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a section called **Job Submission Limits**, click the **Add Policy** button.
+3. In the section titled **Job Submission Limits**, click the **Add Policy** button.
 * **Compute Policy Name**: Give the policy a name to remind you what this policy is about
 * **Select User or Group**: Select the user or group this policy will apply to
 * **Set the Job AU Limit**: Set the AU Limit that will apply to the previously selected user or group
@@ -223,7 +223,7 @@ There is a "Default" policy set on every account. The default policy applies to 
 
 2. Click on **Properties** (located on the left side)
 
-3. You will see a section called **Job Submission Limits**, find the policy you want to edit.
+3. In the section titled **Job Submission Limits**, find the policy you want to edit.
 
 4. Click the **...** option in the right most column of the table to see the **Delete** and **Edit** options.
 
