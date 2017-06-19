@@ -25,13 +25,10 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
 ## Define and use a user-defined operator in U-SQL
 **To create and submit a U-SQL job**
 
-1. From the Visual Studio **File** menu, click **New**, and then click **Project**.
-2. Select the **U-SQL Project** type.
-
-    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Click **OK**. Visual Studio creates a solution with a Script.usql file.
-4. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
-5. Paste the following code into the file:
+1. From the Visual Studio select **File > New > Project > U-SQL Project**.
+2. Click **OK**. Visual Studio creates a solution with a Script.usql file.
+3. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
+4. Paste the following code into the file:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
