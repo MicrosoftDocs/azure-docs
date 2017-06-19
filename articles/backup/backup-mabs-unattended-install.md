@@ -63,7 +63,7 @@ You can use these flags for the installation:</br>
 ## Next steps
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
-- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md).
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md)
