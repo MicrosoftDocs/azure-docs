@@ -17,8 +17,7 @@ ms.author: arijitt
 
 # Azure HDInsight troubleshooting
 
-
-The following questions and their resolutions provide help for using Apache Ambari to troubleshoot common HDInsight cluster issues. 
+The following top issues and their resolutions may help troubleshoot any HDInsight cluster problems by using Apache Ambari. 
 
 | Apache Workload | Top questions |
 |---|---|

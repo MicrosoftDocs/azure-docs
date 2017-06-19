@@ -31,7 +31,7 @@ HDInsight cluster.
 
 ### Resolution Steps:
 
-1. From command line use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally as in 
+- From command line use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally as in 
 the following command:
 
 ```apache
@@ -42,7 +42,7 @@ drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
 drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 ```
 
-From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
+- From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
 
 ```csharp
 import java.io.IOException;
@@ -66,8 +66,7 @@ public class JavaUnitTests {
     }
 }
 ```
-
-Run the compiled JAR (for example named `java-unit-tests-1.0.jar`) on HDInsight cluster with the following command:
+- Run the compiled JAR (for example named `java-unit-tests-1.0.jar`) on HDInsight cluster with the following command:
 
 ```apache
 hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests

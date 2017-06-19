@@ -135,7 +135,7 @@ HDInsight cluster has been scaled down to very few nodes below or close to HDFS 
 
 ### Resolution Steps: 
 
-1. Report on the status of HDFS on the HDInsight cluster with the following commands:
+- Report on the status of HDFS on the HDInsight cluster with the following commands:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -176,8 +176,7 @@ Last contact: Wed Apr 05 16:22:00 UTC 2017
 ...
 
 ```
-
-You can also check on the integrity of HDFS on the HDInsight cluster with the following commands:
+- You can also check on the integrity of HDFS on the HDInsight cluster with the following commands:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -211,7 +210,7 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
+- If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
@@ -238,28 +237,27 @@ If the sqlline.py connects to Apache Phoenix and does not timeout, run following
         !tables
         !quit
 ```      
-If the above commands works, then there is no issue. The IP provided by user could be incorrect.
+- If the above commands works, then there is no issue. The IP provided by user could be incorrect.
    
-However, if the command pauses for too long and then throws the error mentions 
-below, continue to follow the troubleshooting guide below:
+    However, if the command pauses for too long and then throws the error mentions below, continue to follow the troubleshooting guide below:
 
 ```apache
         Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
 ```
 
-un following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
+- Run following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
 
 ```apache
         hbase shell
         
         count 'SYSTEM.CATALOG'
 ```        
-    The command should return an error similar to following: 
+- The command should return an error similar to following: 
 
 ```apache
         ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
 ```
-Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
+- Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
 
     a. Go to "HBase -> Active HBase Master" link in summary section of HBase. 
     a. In Components section, restart the HBase Master service.
@@ -305,7 +303,7 @@ Customer met an issue on their Linux cluster that hbase: meta table was not onli
 
 ### Resolution Steps:
 
-1. Type the following on HBase shell (change actual values as applicable),  
+- Type the following on HBase shell (change actual values as applicable),  
 
 ```apache
 > scan 'hbase:meta'  
@@ -315,11 +313,11 @@ Customer met an issue on their Linux cluster that hbase: meta table was not onli
 > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
 ```
 
-Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table.
+- Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table.
 
-Restart the active HMaster from Ambari UI to bring up HBase in running state.  
+- Restart the active HMaster from Ambari UI to bring up HBase in running state.  
 
-Run the following command on HBase shell to bring up all offline tables:
+- Run the following command on HBase shell to bring up all offline tables:
 
 ```apache 
 hbase hbck -ignorePreCheckPermission -fixAssignments 
@@ -344,13 +342,13 @@ This is a known "defect" with the HMaster - general cluster startup tasks can ta
   
 ### Resolution Steps:
 
-1. Access Ambari UI, go to HBase -> Configs, in custom hbase-site.xml add the following setting: 
+- Access Ambari UI, go to HBase -> Configs, in custom hbase-site.xml add the following setting: 
 
 ```apache
 Key: hbase.master.namespace.init.timeout Value: 2400000  
 ```
 
-Restart required services (Mainly HMaster and possibly other HBase services).  
+- Restart required services (Mainly HMaster and possibly other HBase services).  
 
 
 
