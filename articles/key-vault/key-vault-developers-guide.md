@@ -37,7 +37,7 @@ This preview includes our new Storage Account Keys feature, available through th
 
 For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
 
-## Soft-delete - May 10, 2017
+### Soft-delete - May 10, 2017
 
 >[!NOTE]
 >For this update of Azure Key Vault only the **soft-delete** feature is in preview.

@@ -77,9 +77,9 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
  
  ### Developer best practices 
 
-1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management interferes with Key Vault's processes. 
-2. Do not allow ASA keys to be managed by more than one key vault object. 
-3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
+- Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management interferes with Key Vault's processes. 
+- Do not allow ASA keys to be managed by more than one key vault object. 
+- If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
 
 ## Getting started
 
@@ -123,5 +123,5 @@ The OBO token will only work when you use first-party, native client application
 
 ## See Also
 
-[About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/)
-[Key Vault Team Blog](https://blogs.technet.microsoft.com/kv/)
+- [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/)
+- [Key Vault Team Blog](https://blogs.technet.microsoft.com/kv/)
