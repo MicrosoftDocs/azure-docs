@@ -74,7 +74,7 @@ IoT Hub enforces other operational limits:
 | Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Latency
 IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency. When designing your solution, you should:
@@ -84,7 +84,7 @@ IoT Hub strives to provide low latency for all operations. However, due to netwo
 * Consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
 
 Multiple IoT Hub units affect throttling as described previously, but do not provide any additional latency benefits or guarantees.
-If you see unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+If you see unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
