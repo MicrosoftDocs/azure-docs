@@ -21,6 +21,8 @@ ms.author: arijitt
 
 # Spark troubleshooting
 
+This article describes the top issues and their resolutions for working with Spark payloads in Apache Ambari.
+
 ## How do I configure a Spark application through Ambari on clusters
 
 ### Issue:
@@ -120,8 +122,7 @@ which Spark configurations need to be set and to what values.
 
 Need to configure at submit time through LIVY, the amount of memory and number of cores that a Spark application can use on HDInsight clusters. 
 
-1. Refer to the topic [Why did my Spark application fail with OutOfMemoryError?](#spark-application-failure-outofmemory) to determine 
-which Spark configurations need to be set and to what values.
+1. Refer to the topic [Why did my Spark application fail with OutOfMemoryError?](#spark-application-failure-outofmemory) to determine which Spark configurations need to be set and to what values.
 1. Submit the Spark application to LIVY using a REST client like CURL with a command similar to the following (change the actual values as applicable):
 
 ```apache

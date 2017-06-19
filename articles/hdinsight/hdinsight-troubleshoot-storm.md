@@ -26,9 +26,9 @@ ms.author: raviperi
 There are two ways to access Storm UI from a browser:
 
 #### Ambari UI
-1) Navigate to Ambari Dashboard
-2) Select Storm from List of services in the left
-3) Select Storm UI option from Quick Links drop-down menu
+1. Navigate to Ambari Dashboard
+1. Select Storm from List of services in the left
+1. Select Storm UI option from Quick Links drop-down menu
 
 #### Direct Link
 Storm UI is accessible from URL:
@@ -82,7 +82,7 @@ The export command will write the metadata to a HDFS Path (BLOB or ADLS store) a
    
 ##### Delete Offset metadata so topologies can start processing data from (either beginning or timestamp of user choice)
 1. SSH into the zookeeper cluster on old cluster from which checkpoint offset needs to be exported.
-2. Run below command (after updating the hdp version string) to delete all zookeeper offset data for current cluster.
+1. Run below command (after updating the hdp version string) to delete all zookeeper offset data for current cluster.
 
 ```apache
    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout

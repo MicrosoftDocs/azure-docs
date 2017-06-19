@@ -17,6 +17,8 @@ ms.author: arijitt
 
 # Azure HDInsight troubleshooting
 
+The following questions and their resolutions provide help for using Apache Ambari to troubleshoot common HDInsight cluster issues. 
+
 | Apache Workload | Top questions |
 |---|---|
 |![HBASE](./media/hdinsight-troubleshoot-guide/HBASE.png)<br>[HBASE troubleshooting](hdinsight-troubleshoot-HBASE.md)|<br>[How do I run hbck command reports with multiple unassigned regions](hdinsight-troubleshoot-hbase.md#how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions)<br><br>[How do I fix timeout issues with hbck commands for region assignments](hdinsight-troubleshoot-hbase.md#how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments)<br><br>[How do I force disable HDFS safe mode in an cluster](hdinsight-troubleshoot-hbase.md#how-do-i-force-disable-hdfs-safe-mode-in-an-cluster)<br><br>[How do I fix JDBC or sqlline connectivity issues with Apache Phoenix](hdinsight-troubleshoot-hbase.md#how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix)<br><br>[What causes a master server to fail to start](hdinsight-troubleshoot-hbase.md#what-causes-a-master-server-to-fail-to-start)<br><br>[What causes a restart failure on a region server](hdinsight-troubleshoot-hbase.md#what-causes-a-restart-failure-on-a-region-server)|

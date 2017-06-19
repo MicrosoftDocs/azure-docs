@@ -21,6 +21,8 @@ ms.author: arijitt
 
 # YARN troubleshooting
 
+This article describes the top issues and their resolutions for working with YARN payloads in Apache Ambari.
+
 ## How do I create a new Yarn queue on a cluster
 
 ### Issue:
@@ -56,7 +58,7 @@ Note: These changes will be visible immediately on the Yarn Scheduler UI.
 
 ### Further Reading:
 
-1) [Yarn Capacity Scheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Yarn Capacity Scheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 ---
 
@@ -89,7 +91,7 @@ Queue(s) Containers: 2 allocated, 0 pending, 0 reserved
  application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
 ```
 
-3. Download Yarn containers logs for all application masters with the following command:
+Download Yarn containers logs for all application masters with the following command:
    
 ```apache
 yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -97,7 +99,7 @@ yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.
 
 This will create the log file named `amlogs.txt` in text format. 
 
-4. Download Yarn container logs for only the latest application master with the following command:
+Download Yarn container logs for only the latest application master with the following command:
 
 ```apache
 yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
@@ -105,7 +107,7 @@ yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestam
 
 This will create the log file named `latestamlogs.txt` in text format. 
 
-5. Download YARN container logs for first two application masters with the following command:
+Download YARN container logs for first two application masters with the following command:
 
 ```apache
 yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
@@ -113,7 +115,7 @@ yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2a
 
 This will create the log file named `first2amlogs.txt` in text format. 
 
-6. Download all Yarn container logs with the following command:
+Download all Yarn container logs with the following command:
 
 ```apache
 yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
@@ -121,7 +123,7 @@ yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
 
 This will create the log file named `logs.txt` in text format. 
 
-7) Download yarn container log for a particular container with the following command:
+Download yarn container log for a particular container with the following command:
 
 ```apache
 yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 

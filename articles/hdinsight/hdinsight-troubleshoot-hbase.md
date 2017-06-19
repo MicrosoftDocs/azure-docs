@@ -18,6 +18,8 @@ ms.author: nitinver
 
 # HBASE troubleshooting
 
+This article describes the top issues and their resolutions for working with HBASE payloads in Apache Ambari.
+
 ## How do I run hbck command reports with multiple unassigned regions
 
 It is a common issue to see 'multiple regions being unassigned or holes in the chain of regions' when the HBase user runs 'hbase hbck' command.
@@ -175,7 +177,7 @@ Last contact: Wed Apr 05 16:22:00 UTC 2017
 
 ```
 
-2. Check on the integrity of HDFS on the HDInsight cluster with the following commands:
+You can also check on the integrity of HDFS on the HDInsight cluster with the following commands:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -209,8 +211,7 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-3. If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the 
-following command to take the name node out of safe mode:
+If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
@@ -221,9 +222,7 @@ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 
 ### Resolution Steps:
 
-Below are the steps that can be followed to troubleshoot connectivity issue with Apache phoenix. 
-
-1. In order to connect with Apache phoenix, the user needs to provide the IP of active zookeeper 
+To connect with Apache phoenix, you must provide the IP of active zookeeper 
 node. Ensure that zookeeper service to which sqlline.py is trying to connect is up and running.
 1. Perform SSH login to the HDInsight cluster.
 1. Try following command:
@@ -231,10 +230,9 @@ node. Ensure that zookeeper service to which sqlline.py is trying to connect is 
 ```apache
         "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
 ```     
-    Note: The IP of Active Zooker node can be identified from Ambari UI, by following the links 
-    to HBase -> "Quick Links" -> "ZK* (Active)" -> "Zookeeper Info". 
-1. If the sqlline.py connects to Apache Phoenix and does not timeout, run following command to 
-validate the availability and health of Apache Phoenix:
+    Note: The IP of Active Zooker node can be identified from Ambari UI, by following the links to HBase -> "Quick Links" -> "ZK* (Active)" -> "Zookeeper Info". 
+
+If the sqlline.py connects to Apache Phoenix and does not timeout, run following command to validate the availability and health of Apache Phoenix:
 
 ```apache
         !tables
@@ -242,13 +240,14 @@ validate the availability and health of Apache Phoenix:
 ```      
 If the above commands works, then there is no issue. The IP provided by user could be incorrect.
    
-1. On the other hand, if the command pauses for too long and then throws the error mentions 
+However, if the command pauses for too long and then throws the error mentions 
 below, continue to follow the troubleshooting guide below:
 
 ```apache
         Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
 ```
-1. Run following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
+
+un following commands from headnode (hn0) to diagnose the condition of phoenix SYSTEM.CATALOG table:
 
 ```apache
         hbase shell
@@ -260,14 +259,15 @@ below, continue to follow the troubleshooting guide below:
 ```apache
         ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
 ```
-1. Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
+Restart the HMaster service on all the zookeeper nodes from Ambari UI by following steps below:
 
-    A. Go to "HBase -> Active HBase Master" link in summary section of HBase. 
-    B. In Components section, restart the HBase Master service.
-    C. Repeat the above steps for remaining "Standby HBase Master" services. 
-    It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. 
-1. After few minutes of wait, repeat the steps 3) and 4) to confirm that system catalog table is up and can be queried. 
-1. Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
+    a. Go to "HBase -> Active HBase Master" link in summary section of HBase. 
+    a. In Components section, restart the HBase Master service.
+    a. Repeat the above steps for remaining "Standby HBase Master" services. 
+
+It can take up to five minutes for HBase Master service to stabilize and finish the recovery. After few minutes of wait, repeat the sqlline.py commands to confirm that system catalog table is up and can be queried. 
+
+When Once the 'SYSTEM.CATALOG' table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
 
 
 ## What causes a master server to fail to start
@@ -284,8 +284,7 @@ During all these situations it does a basic 'list' command on these folders. If 
 
 ### Probable Cause:
 
-Try to identify the timeline of the file creation and see if there was a process crash at around that time in region 
-server logs (Contact any of the HBase crew to assist you in doing this). This helps us provide more robust mechanisms 
+Try to identify the timeline of the file creation and see if there was a process crash at around that time in region server logs (Contact any of the HBase crew to assist you in doing this). This helps us provide more robust mechanisms 
 to avoid hitting this bug and ensure graceful process shutdowns.
 
 ### Resolution Steps:
@@ -316,9 +315,11 @@ Customer met an issue on their Linux cluster that hbase: meta table was not onli
 > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
 ```
 
-1. Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table.
-1. Restart the active HMaster from Ambari UI to bring up HBase in running state.  
-1. Run the following command on HBase shell to bring up all offline tables:
+Delete the entry of hbase: namespace as the same error may be reported while scan hbase: namespace table.
+
+Restart the active HMaster from Ambari UI to bring up HBase in running state.  
+
+Run the following command on HBase shell to bring up all offline tables:
 
 ```apache 
 hbase hbck -ignorePreCheckPermission -fixAssignments 
@@ -349,7 +350,7 @@ This is a known "defect" with the HMaster - general cluster startup tasks can ta
 Key: hbase.master.namespace.init.timeout Value: 2400000  
 ```
 
-2. Restart required services (Mainly HMaster and possibly other HBase services).  
+Restart required services (Mainly HMaster and possibly other HBase services).  
 
 
 
@@ -357,25 +358,17 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
 
 ### Probable Cause:
 
-First of all, the situation like this could be prevented by following best practices. It is 
-advisable to pause the heavy workload activity when planning to restart HBase Region Servers. If 
-the application continues to connect with region servers when shutdown is in progress, it will 
-slow down the region server restart operation by several minutes. Also, it is advised the users 
-to flush all the tables by following [HDInsight HBase: How to Improve HBase cluster restart time 
+First of all, the situation like this could be prevented by following best practices. It is advisable to pause the heavy workload activity when planning to restart HBase Region Servers. If the application continues to connect with region servers when shutdown is in progress, it will slow down the region server restart operation by several minutes. Also, it is advised the users to flush all the tables by following [HDInsight HBase: How to Improve HBase cluster restart time 
 by Flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) as a reference.
 
-If a user initiates the restart operation on HBase region server's from Ambari UI. He would 
-immediately see the region servers went down, but not coming back up for too long. 
+If a user initiates the restart operation on HBase region server's from Ambari UI. He would immediately see the region servers went down, but not coming back up for too long. 
 
 Below is what happens behind the scenes: 
 
 1. Ambari agent will send a stop request to region server.
-
-2. The Ambari agent then waits for 30 seconds for region server to shutdown gracefully. 
-
-3. If the customer's application continues to connect with region server, it will not shutdown immediately and hence 30 seconds timeout will expire sooner. 
-
-4. After expiration of 30 seconds, Ambari agent will send a force kill (kill -9) to region server. One can observe this in ambari-agent log (in /var/log/ directory of respective workernode) as below:
+1. The Ambari agent then waits for 30 seconds for region server to shutdown gracefully. 
+1. If the customer's application continues to connect with region server, it will not shutdown immediately and hence 30 seconds timeout will expire sooner. 
+1. After expiration of 30 seconds, Ambari agent will send a force kill (kill -9) to region server. One can observe this in ambari-agent log (in /var/log/ directory of respective workernode) as below:
 
 ```apache
          2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
@@ -390,7 +383,7 @@ Below is what happens behind the scenes:
          2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
 ```
 
-5. Due to this abrupt shutdown, although the region server process gets killed, the port associated with the process may not be released, which eventually leads to AddressBindException as shown in the logs below while starting region server. One can verify this in region-server.log in /var/log/hbase directory on the worker nodes where region server start fails. 
+ue to this abrupt shutdown, although the region server process gets killed, the port associated with the process may not be released, which eventually leads to AddressBindException as shown in the logs below while starting region server. One can verify this in region-server.log in /var/log/hbase directory on the worker nodes where region server start fails. 
 
 ```apache
 
@@ -436,8 +429,7 @@ During such cases, the workaround below can be tried:
 
 - Try to reduce the load on the HBase region servers before initiating a restart. 
 
-- Alternatively (if step above doesn't help), try and manually restart region servers on the 
-worker nodes using following commands:
+- Alternatively (if step above doesn't help), try and manually restart region servers on the worker nodes using following commands:
 
 ```apache
       sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

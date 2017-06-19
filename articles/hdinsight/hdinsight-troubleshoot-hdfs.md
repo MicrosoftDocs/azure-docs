@@ -20,6 +20,8 @@ ms.author: arijitt
 
 # HDFS troubleshooting
 
+This article describes the top issues and their resolutions for working with HDFS payloads in Apache Ambari.
+
 ## How do I access local HDFS from inside a cluster
 
 ### Issue:
@@ -40,7 +42,7 @@ drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
 drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 ```
 
-2. From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
+From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
 
 ```csharp
 import java.io.IOException;
@@ -150,7 +152,7 @@ HDInsight cluster has been scaled down to very few nodes below or close to HDFS 
 
 ### Resolution Steps: 
 
-1. Report on the status of HDFS on the HDInsight cluster with the following commands:
+- Report on the status of HDFS on the HDInsight cluster with the following commands:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -191,7 +193,7 @@ Last contact: Wed Apr 05 16:22:00 UTC 2017
 ...
 ```
 
-2. Check on the integrity of HDFS on the HDInsight cluster with the following commands:
+- Check on the integrity of HDFS on the HDInsight cluster with the following commands:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -225,8 +227,7 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-3. If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the 
-following command to take the name node out of safe mode:
+- If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

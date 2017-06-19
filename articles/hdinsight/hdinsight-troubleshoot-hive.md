@@ -21,6 +21,7 @@ ms.author: dharmeshkakadia
 
 # HIVE troubleshooting
 
+This article describes the top issues and their resolutions for working with HIVE payloads in Apache Ambari.
 
 ## How do I export a Hive metastore and import it on another cluster
 
