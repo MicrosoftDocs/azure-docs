@@ -142,9 +142,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: terraform-install-configure.md
+        href: ../terraform-install-configure.md
       - name: Create basic infrastructure
-        href: terraform-create-complete-vm.md
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Install and configure

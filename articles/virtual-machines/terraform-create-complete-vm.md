@@ -52,7 +52,7 @@ In the above, we assume "terraformscripts" is the folder where the script was sa
 
 You should see something like the following screen after you execute the command above
 
-![Image of Terraform Plan](media/terraform/tf_plan2.png)
+![Image of Terraform Plan](linux/media/terraform/tf_plan2.png)
 
 Everything looks correct, go ahead and provision this new resource group in Azure by executing 
 ```
