@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Support for creating tenants | Microsoft Docs'
+title: 'Azure Active Directory B2C: Troubleshoot creating tenants | Microsoft Docs'
 description: 'Issues and resolutions for creating an Azure Active Directory or Azure Active Directory B2C tenant.'
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/06/2016
 ms.author: swkrish
 
 ---
-# Issues and resolutions for creating an Azure Active Directory or Azure Active Directory B2C tenant 
+# Troubleshoot creating an Azure Active Directory or Azure Active Directory B2C tenant 
 
 ## Create an Azure AD tenant
 If you can't create an Azure Active Directory (Azure AD) tenant on the first attempt, try again. If the problem persists, contact Azure Support.
