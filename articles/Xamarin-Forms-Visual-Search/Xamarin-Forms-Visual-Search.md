@@ -35,9 +35,9 @@ Description of the app:
 **Description of OcrResultsPage**
 * Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
-    * Description of APIs: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
-    * QuickStarts for API use: <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp>
+    * General Description: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
     * Api Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
+    * QuickStarts for API use: <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp>
 * Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
     * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
     * Note that later, an alternative object deserializing method will be used to obtain a richer set of data per object
@@ -50,8 +50,9 @@ Description of the app:
 **Description of WebResultsPage**
 * Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Uses the Web Search API:
-    * Found @ <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
-    * Page ranking tutorial found @ <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
+    * General descripton: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
+    * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
+    * Page ranking tutorial: <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
 
 ## Opening a Webview
 
