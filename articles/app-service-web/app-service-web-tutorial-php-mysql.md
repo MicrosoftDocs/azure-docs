@@ -100,7 +100,7 @@ composer install
 
 ### Configure MySQL connection
 
-In the repository root, create a file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the root user's password.
+In the repository root, create a file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the MySQL root user's password.
 
 ```
 APP_ENV=local
@@ -161,22 +161,22 @@ az login
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
 
-In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder. This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. Similarly, substitute _&lt;admin_user>_ and _&lt;admin_password>_ with your values.
+In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder. This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. 
 
 ```azurecli-interactive
 az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
     --location "North Europe" \
-    --user <admin_user> \
-    --password <admin_password>
+    --user adminuser \
+    --password $tr0ngPa$$w0rd!
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
-  "administratorLogin": "<admin_user>",
+  "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
   "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
@@ -207,11 +207,13 @@ az mysql server firewall-rule create \
 
 ### Connect to production MySQL server
 
-In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;admin_user>_ and _&lt;mysql_server_name>_.
+In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
+
+When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database.
 
 ### Create a production database
 
@@ -223,7 +225,7 @@ CREATE DATABASE sampledb;
 
 ### Create a user with permissions
 
-Create a database user and give it all privileges in the `sampledb` database.
+Create a database user called _phpappuser_ and give it all privileges in the `sampledb` database.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY '$tr0ngPa$$w0rd!'; 
