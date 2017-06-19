@@ -22,7 +22,7 @@ ms.author: v-jysur
 
 You can use the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
-The IT Service Management Connector integrates your existing IT service management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.
+The IT Service Management Connector integrates your existing IT Service Management (ITSM) products and services with OMS Log Analytics.  The solution has bidirectional integration with ITSM products/services, where it provides the OMS users an option to create incidents, alerts, or events in ITSM solution. The connector also  imports data such as incidents, and change requests from ITSM solution into OMS Log Analytics.
 
 With IT Service Management Connector, you can:
 
@@ -262,7 +262,7 @@ The work item will be created in the ITSM, which you can also view in OMS.
 
 ## Troubleshoot ITSM connections in OMS
 1.	If connection fails from connected source's UI and you get the **Error in saving connection** message, do the following:
- - In case of ServiceNow, Cherwell and Provance connections, verify the username/password and ensure client Id/client Secret are correctly entered. If the error persists, check if you have sufficient privileges  in the corresponding ITSM product to make the connection.
+ - In case of ServiceNow, Cherwell and Provance connections, ensure you correctly entered  the username/password and  client ID/client secret  for each of the connections. If the error persists, check if you have sufficient privileges  in the corresponding ITSM product to make the connection.
  - In case of Service Manager, ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
 
 2.	If data from ServiceNow is not getting synced in OMS, ensure that the ServiceNow instance is not sleeping. This might sometime happen in the ServiceNow Dev instances, when idle. Else, report the issue.
@@ -273,7 +273,7 @@ The work item will be created in the ITSM, which you can also view in OMS.
 ## Troubleshoot Service Manager Web App deployment
 1.	In case of any trouble with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
 2.	If **Object reference not set to instance of an object** error message appears while running the [script](log-analytics-itsmc-service-manager-script.md) ensure that you entered valid values  under **User Configuration** section.
-3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create it from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connector-role)) from the Azure portal.
+3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create it from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
 
 
 ## Contact us
