@@ -66,20 +66,20 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Benefitssolver.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BenSelect.png)| [BenSelect](active-directory-saas-benselect-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BetterWorks.png)| [BetterWorks](active-directory-saas-betterworks-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BGS_Online.png)| [BGS Online](https://go.microsoft.com/fwLink/?LinkID=828379&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bime.png)| [Bime](https://go.microsoft.com/fwLink/?LinkID=510240&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Birst.png)| [Birst Agile Business Analytics](https://go.microsoft.com/fwLink/?LinkID=708672&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearnShibboleth.png)| [Blackboard Learn - Shibboleth](https://go.microsoft.com/fwLink/?LinkID=708662&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearn.png)| [Blackboard Learn](https://go.microsoft.com/fwLink/?LinkID=733451&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlueJeans.png)| [BlueJeans](https://go.microsoft.com/fwLink/?LinkID=510246&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bonus.ly.png)| [Bonus.ly](https://go.microsoft.com/fwLink/?LinkID=403240&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Boomi.png)| [Boomi](https://go.microsoft.com/fwLink/?LinkID=510263&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Box.png)| [Box](https://go.microsoft.com/fwLink/?LinkID=286013&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bridge.png)| [Bridge](https://go.microsoft.com/fwLink/?LinkID=837421&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Brightspace.png)| [Brightspace by Desire2Learn](https://go.microsoft.com/fwLink/?LinkID=522561&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bynder.png)| [Bynder](https://go.microsoft.com/fwLink/?LinkID=808011&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CAPPM.png)| [CA PPM](http://go.microsoft.com/fwlink/?LinkID=708674&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.png)| [Canvas LMS](https://go.microsoft.com/fwLink/?LinkID=510249&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BGS_Online.png)| [BGS Online](active-directory-saas-bgsonline-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bime.png)| [Bime](active-directory-saas-bime-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Birst.png)| [Birst Agile Business Analytics](active-directory-saas-birst-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearnShibboleth.png)| [Blackboard Learn - Shibboleth](active-directory-saas-blackboard-learn-shibboleth-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlackboardLearn.png)| [Blackboard Learn](active-directory-saas-blackboard-learn-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BlueJeans.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bonus.ly.png)| [Bonus.ly](active-directory-saas-bonus-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Boomi.png)| [Boomi](active-directory-saas-boomi-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Box.png)| [Box](active-directory-saas-box-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bridge.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Brightspace.png)| [Brightspace by Desire2Learn](active-directory-saas-brightspace-desire2learn-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bynder.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CAPPM.png)| [CA PPM](active-directory-saas-cappm-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.png)| [Canvas LMS](active-directory-saas-canvas-lms-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza](https://go.microsoft.com/fwLink/?LinkID=708671&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.png)| [Central Desktop](https://go.microsoft.com/fwLink/?LinkID=403249&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.png)| [Ceridian Dayforce HCM](https://go.microsoft.com/fwLink/?LinkID=733445&clcid=0x409)|
