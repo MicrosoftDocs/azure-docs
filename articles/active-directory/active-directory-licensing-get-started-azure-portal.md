@@ -137,7 +137,7 @@ When assigning a license to a group, it can take some time before all users inhe
 
 Assignment errors can occur during Azure AD license assignment but are relatively rare when managing Azure AD and Enterprise Mobility + Security products. Potential assignment errors are limited to:
 - Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license requires removing the current one.
-- Exceeded available licenses: When the number of users in assigned groups exceeds the available licenses, an user's assignment status reflects a failure to assign due to missing licenses.
+- Exceeded available licenses: When the number of users in assigned groups exceeds the available licenses, a user's assignment status reflects a failure to assign due to missing licenses.
 
 Detailed information about group license assignment is available in this article.
 
