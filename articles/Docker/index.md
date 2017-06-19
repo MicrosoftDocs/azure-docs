@@ -25,7 +25,7 @@ ms.author: mlearned
 <h2>How-To Guides</h2>
 <p>Learn how to quickly deploy Docker on Azure.</p>
 <ol>
-  <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build a Python and PosgreSQL app with Docker in Azure.</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build a Python and PostgreSQL app with Docker in Azure.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension">Create Docker hosts with VM extension.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine">Create Docker host VMs with Docker Machine.</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">Create a private Docker container registry in Azure.</a></li>
@@ -39,5 +39,5 @@ ms.author: mlearned
    <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker on Ubuntu Quickstart template</a></li>
    <li><a href="https://www.docker.com/docker-azure">Docker Azure site</a></li>
    <li><a href="https://docs.docker.com/machine/drivers/azure/">Docker site, Docker drivers</a></li>
- </ul>
+</ul>
 </div>
