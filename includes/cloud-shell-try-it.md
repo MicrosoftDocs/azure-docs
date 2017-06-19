@@ -1,7 +1,7 @@
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a bash shell that you can run directly within the Azure Portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the [Azure portal](https://portal.azure.com).
+The Azure Cloud Shell is a free bash shell that you can run directly within the Azure Portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the [Azure portal](https://portal.azure.com).
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
