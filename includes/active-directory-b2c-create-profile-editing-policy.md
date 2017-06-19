@@ -21,8 +21,7 @@ Open the policy by clicking "**B2C_1_SiPe**".
 Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
 
 Click **Run now**. A new browser tab opens, and you can run through the profile editing consumer experience in your application.
-    
-    > [!NOTE]
-    > It takes up to a minute for policy creation and updates to take effect.
-    > 
-    > 
+
+> [!NOTE]
+> It takes up to a minute for policy creation and updates to take effect.
+>
