@@ -48,7 +48,7 @@ The following applications support conditional access for Office 365 and other A
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
 | PowerBI service |Windows 10, Windows 8.1, Windows 7, and iOS | PowerBI app. The Power BI app for Android does not currently support device-based conditional access. |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
-| Any My Apps app service |Android and iOS |Any My Apps app service |
+| Any My Apps app service |Android and iOS |MFA and location policy for apps. Device based policies are not supported. |
 
 ## Applications that do not use modern authentication
 Currently, you must use other methods to block access to apps that do not use modern authentication. Access rules for apps that don't use modern authentication are not enforced by conditional access. This primarily is a consideration for Exchange and SharePoint access. Most earlier versions of apps use older access control protocols.
