@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # How to use Docker Machine to create hosts in Azure
-This article details how to use [Docker Machine](https://docs.docker.com/machine/) to create Docker hosts in Azure. The `docker-machine` command creates a Linux virtual machine (VM) in Azure and configures it as a Docker host. You can then manage your Docker hosts in Azure using the same local tools and workflows.
+This article details how to use [Docker Machine](https://docs.docker.com/machine/) to create hosts in Azure. The `docker-machine` command creates a Linux virtual machine (VM) in Azure then installs Docker. You can then manage your Docker hosts in Azure using the same local tools and workflows.
 
 ## Create VMs with Docker Machine
 First, obtain your Azure subscription ID with [az account show](/cli/azure/account#show) as follows:
@@ -90,7 +90,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvmdocker)
 ```
 
-To define the connection settings you can either run the suggested configuration command (`eval $docker-machine env myvmdocker)`), or you can set the environment variables manually. 
+To define the connection settings you can either run the suggested configuration command (`eval $(docker-machine env myvmdocker)`), or you can set the environment variables manually. 
 
 ## Run a container
 To see a container in action, lets run a basic NGINX webserver. Create a container with `docker run` and expose port 80 for web traffic as follows:
@@ -115,8 +115,8 @@ Status: Downloaded newer image for nginx:latest
 View running containers with `docker ps`. The following example output shows the NGINX container running with port 80 exposed:
 
 ```bash
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
-d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   festive_mirzakhani
+CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
+d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
 ## Test the container
@@ -127,7 +127,7 @@ Obtain the public IP address of Docker host as follows:
 docker-machine ip myvmdocker
 ```
 
-To see the container in action, open a web browser and enter the public IP address:
+To see the container in action, open a web browser and enter the public IP address noted in the output of the preceding command:
 
 ![Running ngnix container](./media/docker-machine/nginx.png)
 
