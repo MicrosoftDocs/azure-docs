@@ -35,15 +35,15 @@ This tutorial assumes you are already familiar with using Azure PowerShell. In p
 
 To log in with a subscription name:
 
-'''
+```
 Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
-'''
+```
 
 Instead of the subscription name, you can also use a subscription id to log in:
 
-'''
+```
 Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-'''
+```
 
 If  successful, the output of this command looks like the following text:
 
@@ -58,7 +58,7 @@ CurrentStorageAccount :
 
 ## Preparing for the tutorial
 
-The PowerShell snippets in this tutorial use these variables to store this information
+The PowerShell snippets in this tutorial use these variables to store this information:
 
 ```
 $rg = "<ResourceGroupName>"
@@ -75,7 +75,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## Submit a U-SQL job
 
-Create a variable to folde the script
+Create a PowerShell variable to hold the U-SQL script.
 
 ```
 $script = @"
@@ -96,19 +96,22 @@ OUTPUT @a
 Submit the script.
 
 ```
-Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
 Alternatively, you could save the script as a file and submit with the following command:
 
 ```
-Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"
+$filename = "d:\test.usql"
+$script | out-File $filename
+$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
+
 
 Get the status of a specific job. Keep using this cmdlet until you see the job is done.
 
 ```
-Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you can use the Wait-AdlJob cmdlet.
