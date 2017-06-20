@@ -1,6 +1,6 @@
 ---
-title: Import and export a domain zone file to Azure DNS using CLI| Microsoft Docs
-description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI
+title: Import and export a domain zone file to Azure DNS using Azure CLI 1.0 | Microsoft Docs
+description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 1.0 
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,9 +16,9 @@ ms.date: 08/16/2016
 ms.author: gwallace
 ---
 
-# Import and export a DNS zone file using the Azure CLI
+# Import and export a DNS zone file using the Azure CLI 1.0 
 
-This article will walk you through how to import and export DNS zone files for Azure DNS using the Azure CLI.
+This article will walk you through how to import and export DNS zone files for Azure DNS using the Azure CLI 1.0.
 
 ## Introduction to DNS zone migration
 
@@ -26,7 +26,7 @@ A DNS zone file is a text file that contains details of every Domain Name System
 
 Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
 
-The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+The Azure CLI 1.0 is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
 > [!NOTE]
 > There are currently two versions of the Azure CLI. CLI1.0 is based on Node.js, and has commands beginning with "azure".
@@ -100,7 +100,7 @@ To verify the format of a zone file without actually importing it, use the `--pa
 
 To import a zone file for the zone **contoso.com**.
 
-1. Sign in to your Azure subscription by using the Azure CLI.
+1. Sign in to your Azure subscription by using the Azure CLI 1.0.
 
     ```azurecli
     azure login
