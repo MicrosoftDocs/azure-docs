@@ -41,7 +41,7 @@ Due to the Storage services differences between Azure and Azure Stack, there mig
 
 Microsoft Azure Storage Explorer (Preview) is a standalone app from Microsoft that allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
 
-For more information about configuring Storage Explorer to work with Azure Stack, see 
+For more information about configuring Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
 
 ## AzCopy
 Azcopy is a Windows Command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.

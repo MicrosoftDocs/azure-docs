@@ -26,7 +26,7 @@ After you connect to your Azure Stack subscription, you can use the [Azure Stora
 
 ## Connect to an Azure Stack subscription
 
-You need a VPN connection for Storage Explorer to access the Azure Stack subscription remotely. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
+You need a VPN connection for Storage Explorer to access the Azure Stack subscription remotely. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
 For Azure Stack Proof of Concept (POC), you need to export the Azure Stack authority root certificate. To do so:
 
