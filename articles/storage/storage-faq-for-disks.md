@@ -19,7 +19,7 @@ ms.author: robinsh
 ---
 # Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
-In this article, you'll find answers to some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
+This article answers some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
 
 ## Managed Disks
 
@@ -123,7 +123,7 @@ No. This feature is not supported currently.
 
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
 
-No, you can't update the computer name property. The new VM will inherit it from the parent VM, which was used to create the operating system disk. 
+No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -153,7 +153,7 @@ You can find out the time when a managed disk was created from the Azure portal,
 
 **How can I encrypt my existing disks that were created before June 10, 2017?**
 
-As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data as well, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
+As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
 
 * [Copy managed disks by using the Azure CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 
@@ -169,7 +169,7 @@ No. This feature is not supported yet. It is expected to come out by the end of 
 
 **Will an exported VHD from a managed disk or a snapshot also be encrypted?**
 
-No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it will be encrypted. 
+No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted. 
 
 ## Premium disks: Managed and unmanaged
 
@@ -181,7 +181,7 @@ Yes
 
 No. You can attach only standard data disks to VMs that don't use a size series that supports Premium Storage.
 
-**If I create a premium data disk from an existing VHD that was 80 GB in size, how much will that cost?**
+**If I create a premium data disk from an existing VHD that was 80 GB, how much will that cost?**
 
 A premium data disk created from an 80-GB VHD is treated as the next-available premium disk size, which is a P10 disk. You're charged according to the P10 disk pricing.
 
@@ -233,7 +233,7 @@ Existing small premium disks less than 64 GB continue to be billed according to 
 
 **How can I switch the disk tier of small premium disks less than 64 GB from P10 to P4 or P6?**
 
-You can take a snapshot of your small disks and then create a disk that will automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
 
 
 ## What if my question isn't answered here?
