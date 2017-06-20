@@ -31,7 +31,7 @@ ms.author: mlearned
   <li><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">Create a private Docker container registry</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-deployment">Docker container hosting solution</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Visual Studio Team Services</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">CI/CD with Docker, Jenkins, and Linux VMs</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>
