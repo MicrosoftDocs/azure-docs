@@ -319,7 +319,6 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
-This should point to actual Oracle docs...
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 

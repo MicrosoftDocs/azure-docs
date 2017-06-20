@@ -339,7 +339,7 @@ scp *.zip <publicIpAddress>:<folder>
 # service iptables stop
 ```
 
-### 7.  Check available swap space, you need at lease 6.8 GB of swap space to install Grid, by default Linux Azure VMs will not have swap enabled and configured by default.
+### 7.  Check available swap space. You need at lease 6.8 GB of swap space to install Grid, by default Linux Azure VMs will not have swap enabled and configured by default.
 
 It is highly recommended that you use the waagent to configure swap space so it is always created within the ephemeral disk (temporary disk), for more information about the steps, please check the link below: 
 
