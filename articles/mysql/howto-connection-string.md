@@ -1,6 +1,6 @@
 ---
 title: Connect applications to Azure Database for MySQL | Microsoft Docs
-description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.Net (C#), JDBC, Node.JS, ODBC, PHP, Python, Ruby.
+description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
 services: mysql
 author: mswutao 
 ms.author: wuta
@@ -33,7 +33,7 @@ Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; U
 String url ="jdbc:mysql://%s:%s/%s[?verifyServerCertificate=true&useSSL=true&requireSSL=true]",{your_host},{your_port},{your_database}"; myDbConn = DriverManager.getConnection(url, {username@servername}, {your_password}";
 ```
 
-## Node.JS
+## Node.js
 ```node.js
 var conn = mysql.createConnection({host: {your_host}, user: {username@servername}, password: {your_password}, database: {your_database}, Port: {your_port}[, ssl:{ca:fs.readFileSync({ca-cert filename})}}]);
 ```
@@ -59,7 +59,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## Get the connection string details from the Azure portal
-In [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL, and then click **Connection strings** to get your string list for your instance:
+In the [Azure portal](https://portal.azure.com), go to Azure Database for MySQL, and then click **Connection strings** to get your string list for your instance:
 ![The Connection strings pane in the Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 The string provides details such as the driver, server, and other database connection parameters. Modify these examples by using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
