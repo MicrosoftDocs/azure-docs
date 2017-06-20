@@ -27,13 +27,13 @@ This document provides a rough overview of various optimization features and whe
 > [!NOTE]
 > Your “optimized for” menu options can vary based on the provider you select. CDN providers apply enhancement in different ways, depending on the scenario. 
 
-## Provider Options
+> ### Provider Options
 
-Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming and large file download. 
+> Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming and large file download. 
 
-Azure CDN from Verizon supports general web delivery only, which can be used with video on demand and large file download without selecting an optimization type.
+> Azure CDN from Verizon supports general web delivery only, which can be used with video on demand and large file download without selecting an optimization type.
 
-It is highly recommended that you test  performance variations between different providers to select the optimal provider for your delivery.
+> It is highly recommended that you test  performance variations between different providers to select the optimal provider for your delivery.
 
 ## Selecting and Configuring Optimization Types
 
@@ -62,12 +62,12 @@ The four scenario optimization configurations type are explained below.
 
 General web delivery is the most common option. It is designed for general web content optimization, such as web pages and web applications. This optimization can also be used for file and video downloads.
 
-A typical website usually contains both static and dynamic content. Static content includes images, JavaScript libraries, and style sheets, that can be cached and delivered to different users. Dynamic content is personalized to for individual user, such as news items tailored to a user profile. Dynamic content does not need to be cached because it is unique to each user, such as shopping cart contents. General web delivery can optimize your entire website.  
+A typical website usually contains both static and dynamic content. Static content includes images, JavaScript libraries, and style sheets, that can be cached and delivered to different users. Dynamic content is personalized to individual user, such as news items tailored to a user profile. Dynamic content does not need to be cached because it is unique to each user, such as shopping cart contents. General web delivery can optimize your entire website.  
 
 > [!NOTE]
 > When do I use this?
 
-If you use Azure CDN from Akamai, you might want to use this optimization when the average file size is smaller than 10MB. Use "optimized for: large file download" when average file size is larger than 10MB.
+> If you use Azure CDN from Akamai, you might want to use this optimization when the average file size is smaller than 10MB. Use "optimized for: large file download" when average file size is larger than 10MB.
 
 ## 2. General Media Streaming Optimization
 
@@ -92,7 +92,7 @@ Learn more about Media Streaming Optimization [here](cdn-media-streaming-optimiz
 > [!NOTE]
 > When do I use this?
 
-When the endpoint primarily serves VOD content. The major difference between this optimization and general media streaming optimization is the connection retry timeout being much shorter to work with live streaming scenarios.
+> When the endpoint primarily serves VOD content. The major difference between this optimization and general media streaming optimization is the connection retry timeout being much shorter to work with live streaming scenarios.
 
 ## 4. Large File Download Optimization
 
