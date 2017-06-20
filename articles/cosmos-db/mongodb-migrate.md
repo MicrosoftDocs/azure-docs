@@ -64,7 +64,7 @@ Example:
 
 ## Import data to the API for MongoDB by using mongorestore
 
-To restore data to your API for MongoDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values specific to your account.
+To restore data to your API for MongoDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.
 
 Template:
 
@@ -90,7 +90,7 @@ Example:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Following the insert, run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response like this one:
+    c. Run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response like this one:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -136,7 +136,7 @@ Example:
     |RU charged for 1 doc write | 10 RUs |
     |numInsertionWorkers | ? |
     
-    *numInsertionWorkers = (10000RUs x 0.1s) / (24 x 10 RUs) = 4.1666*
+    *numInsertionWorkers = (10000 RUs x 0.1 s) / (24 x 10 RUs) = 4.1666*
 
 6. Run the final migration command:
 
