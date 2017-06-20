@@ -1,5 +1,5 @@
 ---
-title: Add conditional logic and start workflows - Azure Logic Apps | Microsoft Docs
+title: Add conditions and start workflows - Azure Logic Apps | Microsoft Docs
 description: Control how workflows run in Azure Logic Apps by adding conditional logic, triggers, actions, and parameters.
 author: stepsic-microsoft-com
 manager: anneta
@@ -51,41 +51,50 @@ For example, suppose you have a logic app that sends you too many emails
 for posts on a website's RSS feed. You can add a condition so that your 
 logic app sends email only when the new post belongs to a specific category.
 
-1. In the Azure portal, find and open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), 
+find and open your logic app in Logic App Designer.
 
 2. Add a condition to the workflow location that you want. 
-To add the condition between existing steps in the logic app workflow, 
-move the pointer over the arrow where you want to add the condition. 
-Choose the **plus sign** (**+**) that appears.
 
-   If you want to add the condition at the bottom of your logic app workflow, 
-   choose **+ New step**.
+   To add the condition between existing steps in the logic app workflow, 
+   move the pointer over the arrow where you want to add the condition. 
+   Choose the **plus sign** (**+**), then choose **Add a condition**. For example:
 
-   Then, choose **Add a condition**. For example:
+   ![Add condition to logic app](./media/logic-apps-use-logic-app-features/add-condition.png)
+
+   > [!NOTE]
+   > If you want to add the condition at the bottom of your logic app workflow, 
+   > choose **+ New step**.
 
 3. Now define the condition. Specify the source field that you want to evaluate, 
 the operation to perform, and the target value or field. 
-To add existing fields to your condition, choose from the Add dynamic content list.
+To add existing fields to your condition, choose from the **Add dynamic content list**.
 
    For example:
 
+   ![Edit condition in basic mode](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
+
    Here's the complete condition:
 
+   ![Complete condition](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
    > To define the condition in code, choose **Edit in advanced mode**. 
    > For example:
    > 
-   > 
+   > ![Edit condition in code](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
-4. Under **IF YES** and **IF NO**, specify the steps to perform based 
+4. Under **IF YES** and **IF NO**, add the steps to perform based 
 on whether the condition is met.
 
    For example:
 
+   ![Condition with YES and NO paths](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 
    > [!TIP]
    > You can drag existing actions into the **IF YES** and **IF NO** paths.
+
+5. When you're done, save your logic app.
 
 Now you get emails only when the posts meet your condition.
 
