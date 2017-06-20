@@ -36,7 +36,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), createStatement(), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, drop, and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values, and method executeUpdate() to run the command for each set of parameters. 
+Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), createStatement(), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, drop, and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
