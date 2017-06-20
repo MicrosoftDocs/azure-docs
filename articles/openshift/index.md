@@ -13,7 +13,7 @@ ms.date: 06/19/2017
 ms.author: mlearned
 ---
 <div class="content">
-    <img src="media/origin.png" alt="Origin Logo">
+    <img src="" alt="">
     <h1>OpenShift on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
@@ -29,8 +29,6 @@ ms.author: mlearned
 </ol>
 <h2 style="margin-top: 36px">Resources</h2>
 <p>See the following links for additional reference materials and tools for working with OpenShift on Azure.</p>
-<ul>  
-   <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.redhatopenshift">Red Hat OpenShift</a></li>   
-   <li><a href="https://docs.openshift.org/latest/getting_started/index.html">Getting started with OpenShift</a>
- </ul>
+   <li><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.redhatopenshift">Red Hat OpenShift</a><br/>  
+   <li><a href="https://docs.openshift.org/latest/getting_started/index.html">Getting started with OpenShift</a><br/>
 </div>
