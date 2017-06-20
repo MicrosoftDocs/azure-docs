@@ -21,14 +21,17 @@ ms.author: LADocs; jehollan
 # Monitor performance, set up logging, and turn on alerts for logic apps
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
-you can check its performance and full run history in the Azure portal. 
+you can check its status, performance, and history in the Azure portal. 
 You can also set up [logging](#azure-diagnostics) and [alerts](#add-azure-alerts) 
 for monitoring real-time events, richer debugging, and notifications about events 
-that might indicate failures or other problems. 
+that might indicate failures or other problems.
 
 For example, you could create an alert for "when more than five runs fail within an hour." 
 After your logic app runs, you can [find the events](#find-events) 
 that happened in your logic app run.
+
+Along with monitoring in the Azure portal, you can also set up monitoring with the 
+[REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
 ## View runs and triggers history for your logic app
 
@@ -56,7 +59,8 @@ choose **Overview**.
    To learn more about the statuses for each run and trigger, 
    see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
-4. To view the steps that ran for a specific run, select that run. 
+4. You can view the steps for a specific run. 
+Under **Runs history**, select that run. 
 The monitor view shows each step in that run.
 
    ![Actions for a specific run](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
@@ -81,13 +85,10 @@ expand the steps that you want. For example:
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
-6. To view the details for a specific trigger event, like inputs and outputs, 
-select that trigger event.
+6. You can view details for a specific trigger event, like inputs and outputs. 
+Go back to the **Overview** pane. Under **Trigger history**, select the trigger event.
 
    ![Trigger event details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
-
-Along with monitoring in the Azure portal, you can also set up monitoring with the 
-[REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
 <a name="azure-diagnostics"></a>
 
