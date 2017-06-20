@@ -43,7 +43,7 @@ You learn how to create an Azure storage account and an Azure Function App to st
 
 ## Create an Azure storage account
 
-1. In the Azure portal, click **New** > **Storage** > **Storage account**.
+1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account**.
 1. Enter the necessary information for the storage acount:
 
    ![Create an storage account in the Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
@@ -110,6 +110,8 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
 1. Create a new function in the Function App.
    1. Click **New Function**.
    1. Select **JavaScript** for **Language**, and **Data Processing** for **Scenario**.
+   1. Click **create this function**, then click **New Function**.
+   1. Select **JavaScript** for the language, and **Data Processing** for the scenario.
    1. Click the **EventHubTrigger-JavaScript** template.
    1. Enter the necessary information for the template.
 
@@ -129,7 +131,8 @@ IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications 
       
       **Table name**: Use `deviceData` for the name.
 
-      **Storage account connection**: Click **new** and select or input your storage account.
+      **Storage account connection**: Click **new** and select or input your storage account. If you cannot see the storage account, please refer to [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      
    1. Click **Save**.
 1. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
 1. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
