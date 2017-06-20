@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 06/20/2017
 ms.author: jeedes
 
 ---
@@ -197,7 +197,7 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
 
 2. Click **admin** and select **user accounts**.
 
-3. Click **ADDAUSER**.
+3. Click **ADD A USER**.
    
     ![Manage Users](./media/active-directory-saas-syncplicity-tutorial/ic769764.png "Manage Users")
 
