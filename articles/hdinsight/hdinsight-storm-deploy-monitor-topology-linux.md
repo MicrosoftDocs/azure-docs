@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -150,7 +150,7 @@ Deactivating a topology pauses it until it is killed or reactivated. Use the fol
 
 Storm topologies, once started, continue running until stopped. To stop a topology, use the following command:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### Rebalance
 

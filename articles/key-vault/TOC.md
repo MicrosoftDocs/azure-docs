@@ -21,6 +21,9 @@
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
+### [Security worlds overview](key-vault-ovw-security-worlds.md)
+### [Soft-delete overview](key-vault-ovw-soft-delete.md)
+### [Storage account keys overview](key-vault-ovw-storage-keys.md)
 
 ## Automate
 ### [Azure automation](automation-manage-key-vault.md)
