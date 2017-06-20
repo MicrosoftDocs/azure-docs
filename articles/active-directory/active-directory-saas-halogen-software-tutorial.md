@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://global.hgncloud.com/<companyname>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://global.halogensoftware.com/<companyname>`, `halogensoftware/primary`, `https://global.hgncloud.com/*`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Halogen Software Client support team](https://support.halogensoftware.com/) to get these values. 
