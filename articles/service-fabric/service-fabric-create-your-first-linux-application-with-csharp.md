@@ -22,8 +22,8 @@ ms.author: subramar
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we look at how to create an application for Linux and build a service using C# (.NET Core).
 
@@ -36,32 +36,32 @@ A Service Fabric application can contain one or more services, each with a speci
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.
 3. Choose the type of your first service and name it. For the purposes of this tutorial, we choose a Reliable Actor Service.
-   
+
    ![Service Fabric Yeoman generator for C#][sf-yeoman]
 
 > [!NOTE]
 > For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
-> 
-> 
+>
+>
 
 ## Build the application
 The Service Fabric Yeoman templates include a build script that you can use to build the app from the terminal (after navigating to the application folder).
 
   ```sh
- cd myapp 
- ./build.sh 
+ cd myapp
+ ./build.sh
   ```
 
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster using the Azure CLI.
 
 1. Connect to the local Service Fabric cluster.
-   
+
     ```sh
     azure servicefabric cluster connect
     ```
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
-   
+
     ```bash
     ./install.sh
     ```
@@ -72,13 +72,13 @@ Once the application is built, you can deploy it to the local cluster using the 
 Actor projects do not do anything on their own. They require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
 
 1. Run the script using the watch utility to see the output of the actor service.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 2. In Service Fabric Explorer, locate node hosting the primary replica for the actor service. In the screenshot below, it is node 3.
-   
+
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one node in your local cluster forcing a failover to a secondary replica running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
@@ -87,6 +87,11 @@ Actor projects do not do anything on their own. They require another service or 
 To add another service to an application already created using `yo`, perform the following steps: 
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfcsharp:AddService`
+
+## Migrating from project.json to .csproj
+1. Running 'dotnet migrate' in project root directory will migrate all the project.json to csproj format.
+2. Update the project references accordingly to csproj files in project files.
+3. Update the project file names to csproj files in build.sh.
 
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
