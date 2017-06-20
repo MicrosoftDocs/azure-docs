@@ -121,7 +121,9 @@ az network application-gateway create \
 --location eastus \
 --resource-group AdatumAppGatewayRG \
 --vnet-name AdatumAppGatewayVNET \
+---vnet-address-prefix 10.0.0.0/16 \
 --subnet Appgatewaysubnet \
+---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
