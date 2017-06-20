@@ -141,7 +141,7 @@ This example shows how to update your existing logic app
 so that you can use parameters for the query term.
 
 1. In code view, find the `parameters : {}` object, 
-and add a topic object:
+and add a `currentFeedUrl` object:
 
 		"currentFeedUrl" : {
 			"type" : "string",
@@ -159,7 +159,7 @@ find the `queries` section, and replace the query value with
 3.	When you're done, choose **Save**. 
 
 	Now you can change the website's RSS feed by 
-	passing a different URL through the `currentFeedURL` property.
+	passing a different URL through the `currentFeedURL` object.
 
 Learn more about [how to Author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
 
