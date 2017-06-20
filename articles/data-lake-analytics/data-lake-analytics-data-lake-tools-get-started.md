@@ -1,10 +1,10 @@
 ---
-title: Develop U-SQL scripts using Data Lake Tools for Visual Studio | Microsoft Docs
-description: 'Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. '
+title: Develop U-SQL scripts by using Data Lake Tools for Visual Studio | Microsoft Docs
+description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
@@ -17,40 +17,40 @@ ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 
 ---
-# Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
+# Develop U-SQL scripts by using Data Lake Tools for Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Learn how to use the Visual Studio to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
+Learn how to use Visual Studio to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 
 ## Prerequisites
 
-* **Visual Studio**: all editions except Express are supported
-    * Visual Studio 2017 (under data storage and processing workload)
-    * Visual Studio 2015 update 4
+* **Visual Studio**: All editions except Express are supported.
+    * Visual Studio 2017
+    * Visual Studio 2015 Update 4
     * Visual Studio 2013
-* **Microsoft Azure SDK for .NET** version 2.7.1 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* A **Data Lake Analytics Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
+* **Microsoft Azure SDK for .NET** version 2.7.1 or later.  Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* A **Data Lake Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 
-## Install Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
+## Install Azure Data Lake Tools for Visual Studio 
 
-Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After installation, you will see:
-* A **Data Lake Analytics** node in** Server Explorer > Azure** node. 
-* A **Tools > Data Lake** menu item.
+Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](http://aka.ms/adltoolsvs). After installation, note that:
+* The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node. 
+* The **Tools** menu has a **Data Lake** item.
 
 ## Connect to an Azure Data Lake Analytics account
 
 1. Open Visual Studio.
-2. From the **View > Server Explorer** to open Server Explorer.
-3. Right-click **Azure**. Select **Connect to Microsoft Azure Subscription**, and then follow the instructions.
-4. In **Server Explorer**, select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any.
+2. Open Server Explorer by selecting **View** > **Server Explorer**.
+3. Right-click **Azure**. Then select **Connect to Microsoft Azure Subscription** and follow the instructions.
+4. In Server Explorer, select **Azure** > **Data Lake Analytics**. You see a list of your Data Lake Analytics accounts.
 
 
-## Your first U-SQL script
+## Write your first U-SQL script
 
-The following text is a very simply U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+The following text is a simple U-SQL script. It defines a small dataset and writes that dataset to the default Data Lake Store as a file called `/data.csv`.
 
 ```
 @a  = 
@@ -65,79 +65,48 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-**Create and submit a Data Lake Analytics job**
+### Submit a Data Lake Analytics job
 
-1. Click **File > New > Project**.
-2. Select the **U-SQL Project** type.
+1. Select **File** > **New** > **Project**.
 
-    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
-4. Paste the previous script into the **Script.usql** window.
-5. Specify the Data Lake Analytics account, Database, and Schema. 
+2. Select the **U-SQL Project** type, and then click **OK**. Visual Studio creates a solution with a **Script.usql** file.
+
+3. Paste the previous script into the **Script.usql** window.
+
+4. In the upper-left corner of the **Script.usql** window, specify the Data Lake Analytics account.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-6. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
-7. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
-8. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+5. In the upper-left corner of the **Script.usql** window, select **Submit**.
+6. Verify the **Analytics Account**, and then select **Submit**. Submission results are available in the Data Lake Tools for Visual Studio Results after the submission is complete.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-9. You must click the Refresh button to see the latest job status and refresh the screen. When the job successes, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
+7. To see the latest job status and refresh the screen, click **Refresh**. When the job succeeds, it shows the **Job Graph**, **MetaData Operations**, **State History**, and **Diagnostics**:
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   * Job Summary. Show the summary information of current job: State, Progress, Execution Time, Runtime Name, Submitter etc.   
-   * Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-   * Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-   * Metadata Operations. It shows all the metadata operations.
-   * State History.
-   * Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information.
+   *  **Job Summary** shows the summary of the job.   
+   * **Job Details** shows more specific information about the job, including the script, resources, and vertices.
+   *  **Job Graph** visualizes the progress of the job.
+   *  **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
+   * **Data** shows all the inputs and outputs.
+   * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
-**To check job state**
+### To check job state
 
-1. From Server Explorer, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
-2. Double-click **Jobs** to list the jobs.
-3. Click a job to see the status.
+1. In Server Explorer, select **Azure** > **Data Lake Analytics**. 
+2. Expand the Data Lake Analytics account name.
+3. Double-click **Jobs**.
+4. Select the job that you previously submitted.
 
-**To see the job output**
+### To see the output of a job
 
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
-2. Double-click **output** to open the folder
-3. Double-click **SearchLog-From-adltools.csv**.
+1. In Server Explorer, browse to the job you submitted.
+2. Click the **Data** tab.
+3. In the **Job Outputs** tab, select the `"/data.csv"` file.
 
-### Job Playback
-Job playback enables you to watch job execution progress and visually detect out performance anomalies and bottlenecks. This feature can be used before the job completes execution and also after the execution has completed. Doing playback during job execution allows the user to play back the progress up to the current time.
+## Next steps
 
-**To view job execution progress**  
-
-1. Click **Load Profile** on the upper right corner. See the previous screen shot.
-2. Click the Play button on the bottom left corner to review the job execution progress.
-3. During the playback, click **Pause** to stop it or directly drag the progress bar to specific positions.
-
-### Heat Map
-Data Lake Tools for Visual Studio provides user-selectable color-overlays on job view to indicate progress, data I/O, execution time, I/O throughput of each stage. Through this, users can figure out potential issues and distribution of job properties directly and intuitively. You can choose a data source to display from the drop-down list.  
-
-## Run U-SQL locally
-
-You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
-
-* [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
-
-
-## See also
-To get started with Data Lake Analytics using different tools, see:
-
-* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-* [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+* Get started with Data Lake Analytics using: [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) 
 * [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
-
-To learn Data Lake Tools for Visual Studio code, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
-
-To see more development topics:
-
-* [Analyze weblogs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
+* [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

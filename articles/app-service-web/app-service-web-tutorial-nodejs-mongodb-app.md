@@ -41,13 +41,16 @@ To complete this tutorial:
 1. [Install Node.js and NPM](https://nodejs.org/)
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<!--[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]-->
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
 ## Test local MongoDB
 
-Open the terminal window and `cd` to the `bin` directory of your MongoDB installation. 
+Open the terminal window and `cd` to the `bin` directory of your MongoDB installation. You can use this terminal window to run all the commands in this tutorial.
 
 Run `mongo` in the terminal to connect to your local MongoDB server.
 
@@ -57,7 +60,7 @@ mongo
 
 If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Often, MongoDB is installed, but you still need to start it by running `mongod`. 
 
-When you're done testing your MongoDB database, type Ctrl+C in the terminal. 
+When you're done testing your MongoDB database, type `Ctrl+C` in the terminal. 
 
 ## Create local Node.js app
 
@@ -65,7 +68,7 @@ In this step, you set up the local Node.js project.
 
 ### Clone the sample application
 
-Open the terminal window and `cd` to a working directory.  
+In the terminal window, `cd` to a working directory.  
 
 Run the following command to clone the sample repository. 
 
@@ -107,7 +110,7 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Select **Admin > Manage Articles** to add some articles.
 
-To stop Node.js at any time, press Ctrl+C in the terminal. 
+To stop Node.js at any time, press `Ctrl+C` in the terminal. 
 
 ## Create production MongoDB
 
@@ -119,7 +122,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 You'll use the Azure CLI 2.0 to create the resources needed to host your app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli
+```azurecli-interactive
 az login
 ```   
 
@@ -131,7 +134,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group in the West Europe region.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
 ```
 
@@ -143,7 +146,7 @@ Create a Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#cre
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
-```azurecli
+```azurecli-interactive
 az cosmosdb create \
     --name <cosmosdb_name> \
     --resource-group myResourceGroup \
@@ -178,7 +181,7 @@ In this step, you connect your MEAN.js sample application to the Cosmos DB datab
 
 To connect to the Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
-```azurecli
+```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
@@ -249,7 +252,7 @@ MEAN.JS version: 0.5.0
 
 Navigate to http://localhost:8443 in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
 
-In the terminal, stop Node.js by typing Ctrl+C. 
+In the terminal, stop Node.js by typing `Ctrl+C`. 
 
 ## Deploy app to Azure
 
@@ -263,7 +266,7 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
@@ -293,7 +296,7 @@ The web app gives you a hosting space to deploy your code and provides a URL for
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is used as the part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
 
-```azurecli
+```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -322,7 +325,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
-```azurecli
+```azurecli-interactive
 az webapp config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -354,7 +357,7 @@ You can deploy your application to Azure App Service in various ways including F
 
 In the following command, replace *\<user-name>* and *\<password>* with a new user name and password. The user name must be unique. The password must be at least eight characters long, with two of the following three elements:  letters, numbers, symbols. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
@@ -362,7 +365,7 @@ Record the user name and password for use in later steps when you deploy the app
 
 Use the [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#config-local-git) command to configure local Git access to the Azure web app. 
 
-```azurecli
+```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
@@ -547,7 +550,7 @@ You see the new `Comment` textbox now.
 
 ![Added comment field to Articles](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-In the terminal, stop Node.js by typing Ctrl+C. 
+In the terminal, stop Node.js by typing `Ctrl+C`. 
 
 ### Publish changes to Azure
 
@@ -570,13 +573,13 @@ While your Node.js application runs in Azure App Service, you can get the consol
 
 To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail) command.
 
-```azurecli 
+```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
 Once log streaming has started, refresh your Azure web app in the browser to get some web traffic. You now see console logs piped to your terminal.
 
-Stop log streaming at any time by typing Ctrl+C. 
+Stop log streaming at any time by typing `Ctrl+C`. 
 
 ## Manage your Azure web app
 
@@ -586,9 +589,9 @@ From the left menu, click **App Services**, then click the name of your Azure we
 
 ![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
+By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service page in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

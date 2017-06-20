@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -27,3 +27,7 @@ ms.author: carlrab
 - [SnelStart](sql-database-implementation-snelstart.md): SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
 - [Umbraco](sql-database-implementation-umbraco.md): To simplify customer deployments, Umbraco added Umbraco-as-a-Service (UaaS): a software-as-a-service (SaaS) offering that eliminates the need for on-premises deployments, provides built-in scaling, and removes management overhead by enabling developers to focus on product innovation rather than solution management. Umbraco is able to provide all those benefits by relying on the flexible platform-as-a-service (PaaS) model offered by Microsoft Azure.
+
+- [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database.
+
+- [Quest](https://customers.microsoft.com/en-US/story/quest): Quest offers its Spotlight on SQL Server Enterprise service with one goal in mind: to give database professionals the best tools available for securing data, moving that data around, and monitoring database operations. With Spotlight, using Microsoft Azure and Azure SQL Database, SQL Server database administrators can monitor, detect, diagnose, and provide a way to resolve performance issues in SQL Server, whether they're sitting at their desks or are working from home.

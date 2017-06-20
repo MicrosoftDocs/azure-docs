@@ -54,6 +54,7 @@ If you know these conditions already exist in your environment then proceed to t
 Before you prepare your environment, please understand the limitations.
 
 * Backing up virtual machines with more than 16 data disks is not supported.
+* Backing up virtual machines with 4TB disks is not supported. 
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backup of VMs encrypted using just BEK is not supported. Backup of Linux VMs encrypted using LUKS encryption is not supported.
 * Backup of Linux virtual machines with Docker extension is not supported.
