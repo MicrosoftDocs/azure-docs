@@ -58,7 +58,7 @@ Create HTML content with your product's brand name in the title.
 ## Create an Azure Blob storage account
 
 >[!NOTE]
-> In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable Cross-Origin Resource Sharing (CORS) on your web server](https://enable-cors.org/server.html).
+> In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
 To host this HTML content in Blob storage, do the following:
 
@@ -88,7 +88,7 @@ To create a public container in Blob storage, do the following:
 5. Click **$root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
-8. Go to **customize-ui.html**, which you created earlier in the ["Page UI customization"](#the-page-ui-customization-feature) section.
+8. Go to **customize-ui.html**, which you created earlier in the [Page UI customization](#the-page-ui-customization-feature) section.
 9. Click **Upload**.
 10. Select the customize-ui.html blob that you uploaded.
 11. Next to **URL**, click **Copy**.
@@ -96,10 +96,10 @@ To create a public container in Blob storage, do the following:
 
 ## Configure CORS
 
-Configure Blob storage for Cross-Origin Resource Sharing (CORS) by doing the following:
+Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 >[!NOTE]
->Want to try out the UI customization feature by using our sample HTML and CSS content? We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Blob storage account. If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy)
+>Want to try out the UI customization feature by using our sample HTML and CSS content? We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Blob storage account. If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy).
 
 1. On the **Storage** blade, under **Settings**, open **CORS**.
 2. Click **Add**.
@@ -139,7 +139,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
 3. Click **Upload Policy**.
 4. Upload `SignUpOrSignin.xml` with the *\<ContentDefinitions\>* tag that you added previously.
 
-## Test the custom policy using "Run now"
+## Test the custom policy by using **Run now**
 
 1. On the **Azure AD B2C** blade, go to **All polices**.
 2. Select the custom policy that you uploaded, and click the **Run now** button.
@@ -173,7 +173,7 @@ In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-
 | *api.localaccountpasswordreset* | **Forgot password page**. This page contains a form that the user must complete to initiate a password reset.  |
 | *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form for signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
 | *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form for signing up for a local account that is based on an email address or a user name. The form can contain various input controls, such as a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
-| *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
+| *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. |
 | *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that users must complete when they sign up by using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the preceding social account sign-up page, except for the password entry fields. |
 | *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that users can use to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
 | *api.signuporsignin* | **Unified sign-up or sign-in page**. This page handles both the sign-up and sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
