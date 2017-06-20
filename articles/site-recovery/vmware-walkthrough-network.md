@@ -29,7 +29,7 @@ Post any comments at the bottom of this article, or ask questions in the [Azure 
 
 When planning your replication and failover strategy, one of the key questions is how to connect to the Azure VM after failover. There are a couple of choices when designing your network strategy for replica Azure VMs:
 
-- **Different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required. [Learn more](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover)
+- **Different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required. [Learn more](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
 - **Same IP address**: You might want to use the same IP address range in Azure after failover, as you have in your primary on-premises site. In a normal scenario, you would have to update routes with the new location of the IP addresses. However, if you have a stretched VLAN deployed between the primary site and Azure, retaining the IP addresses for the virtual machines becomes a valid option. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover.
 
 
