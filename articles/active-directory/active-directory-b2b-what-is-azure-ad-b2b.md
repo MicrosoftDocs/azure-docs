@@ -16,6 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
+ms.custom: aaddev
 
 ---
 

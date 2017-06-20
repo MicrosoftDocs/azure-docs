@@ -30,11 +30,12 @@ You can follow the steps below using a Mac, Windows, or Linux machine. Once the 
 To complete this quickstart:
 
 - [Install Git](https://git-scm.com/)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
 
@@ -43,6 +44,8 @@ In a terminal window, run the following command to clone the sample app reposito
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
+
+You use this terminal window to run all the commands in this quickstart.
 
 ## View the HTML
 
@@ -125,7 +128,7 @@ Once deployment has completed, refresh your browser to see the changes.
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 
