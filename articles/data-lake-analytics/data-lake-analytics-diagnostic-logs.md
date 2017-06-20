@@ -19,9 +19,7 @@ ms.author: larryfr
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
-Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
-
-Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These logs provide information such as:
+Diagnostic logging allows you to collect data access audit trails. These logs provide information such as:
 
 * A list of users that accessed the data.
 * How frequently the data is accessed.
@@ -60,11 +58,6 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 Once you have enabled diagnostic settings, you can return to the __Diagnostics logs__ blade to view the logs.
 
 ## View logs
-
-There are two ways to view the log data for your Data Lake Analytics account.
-
-* From the Data Lake Analytics account settings
-* From the Azure Data Lake Storage account where the data is stored
 
 ### Use the Data Lake Analytics view
 
@@ -243,5 +236,5 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## See also
+## Next steps
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)

@@ -13,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
     - name: Timer
@@ -59,6 +59,8 @@
       href: functions-reference-node.md    
   - name: Performance considerations
     href: functions-best-practices.md 
+  - name: Functions Proxies
+    href: functions-proxies.md 
   - name: Functions Runtime
     href: functions-runtime-overview.md
 - name: How-to guides
@@ -131,6 +133,8 @@
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
