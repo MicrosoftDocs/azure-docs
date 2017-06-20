@@ -14,9 +14,9 @@ ms.author: mlearned
 ---
 <div class="content">
    <h1>Docker on Azure</h1>
-     <div>
+     
         <img src="media/Docker.png" style="float:right;" alt="Docker Logo">
-     </div>
+  
     <div class="introHolder" style="justify-content: space-between;">
 	  
         <div class="intro" style="min-width: 200px">
