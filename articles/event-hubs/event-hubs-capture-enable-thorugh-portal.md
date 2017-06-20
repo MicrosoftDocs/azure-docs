@@ -20,7 +20,7 @@ ms.author: sethm
 
 # Enable Event Hubs Capture using the Azure portal
 
-You can configure Capture at the event hub creation time via the [Azure portal](https://portal.azure.com). You enable Capture by clicking the **On** button in the **Create Event Hub** portal blade. You then configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Capture uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
+You can configure Capture at the event hub creation time using the [Azure portal](https://portal.azure.com). You enable Capture by clicking the **On** button in the **Create Event Hub** portal blade. You then configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Capture uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
 
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
@@ -37,4 +37,4 @@ Capture can be configured on existing event hubs that are in Event Hubs namespac
 
 ## Next steps
 
-You can also configure Event Hubs Capture via Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
