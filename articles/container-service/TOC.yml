@@ -5,6 +5,7 @@
   - name: About Container Service
     href: container-service-intro.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Kubernetes Linux
     href: container-service-kubernetes-walkthrough.md
