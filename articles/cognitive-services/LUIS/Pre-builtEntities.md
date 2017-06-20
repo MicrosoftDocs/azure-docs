@@ -8,13 +8,16 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 06/19/2017
 ms.author: cahann
 ---
 
 # Prebuilt entities
 
 LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). Below is a table of prebuilt entities supported per culture.
+
+> [!NOTE]
+> **builtin.datetime** is deprecated. It is replaced by **builtin.datetimeV2**, which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 Pre-built entity   |   en-US   |   fr-FR   |   it-IT   |   es-ES   |   zh-CN   |   de-DE   |   pt-BR   |   ja-JP   |   ko-kr
 ------|------|------|------|------|------|------|------|------|------|
@@ -414,9 +417,9 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 
 ## builtin.datetime
 
-The **builtin.datetime** pre-built entity has awareness of the current date and time. In the following examples, the current date is 2015-08-14. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. 
+The **builtin.datetime** prebuilt entity is aware of the current date and time. In the following examples, the current date is 2015-08-14. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. 
 
-#### This pre-built entity has 3 subtypes:
+This entity has 3 subtypes:
 
 Pre-built entity   |   Example utterance   |   JSON
 ------|------|------|
