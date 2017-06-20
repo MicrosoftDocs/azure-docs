@@ -40,8 +40,8 @@ After downloading and installing the [Azure CLI 2.0](https://docs.microsoft.com/
 > az login
 ```
 
-[!NOTE]
-If you're using the China, German or Government Azure Clouds, you need to first configure the Azure CLI to work with that Cloud. You can do this by running:
+>[!NOTE]
+>If you're using the China, German or Government Azure Clouds, you need to first configure the Azure CLI to work with that Cloud. You can do this by running:
 
 ```
 $ az cloud set --name AzureChinaCloud|AzureGermanCloud|AzureUSGovernment
@@ -64,7 +64,7 @@ Query the account to get the Subscription Id and Tenant Id values.
 Next, create separate credentials for Terraform.
 
 ```
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
+> az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
 This outputs your client_id, client_secret (password), sp_name, and tenant. Take note of the **client_id** and **client_secret**.
