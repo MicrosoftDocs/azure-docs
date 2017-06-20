@@ -38,7 +38,7 @@ You can enable the "Secure transfer required" setting both when you create a sto
 
   ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
-### Require secure transfer for a existing storage account
+### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
 2. Select **Configuration** under **SETTINGS** in the storage account menu blade.
