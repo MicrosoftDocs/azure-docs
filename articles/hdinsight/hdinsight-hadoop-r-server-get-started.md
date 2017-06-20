@@ -98,7 +98,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
 6. The quick create transitions you to the **Storage** blade to select the storage account settings to be used for the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
 
-   1. If you select an Azure Storage account, an existing storage account is selected by choosing **Select a storage account** and then selecting the relevant account. Create a new account using the **Create New** link in the **Select a storage account** section.
+	- If you select an Azure Storage account, an existing storage account is selected by choosing **Select a storage account** and then selecting the relevant account. Create a new account using the **Create New** link in the **Select a storage account** section.
 
       > [!NOTE]
       > If you select **New** you must enter a name for the new storage account. A green check appears if the name is accepted.
@@ -112,7 +112,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
       > [!IMPORTANT]
       > Selecting the location for the default data source  also sets the location of the HDInsight cluster. The cluster and default data source must be in the same region.
 
-   2. If you want to use an existing Data Lake Store, then select the ADLS storage account to use and add the cluster *ADD* identity to your cluster to allow access to the store. For more information on this process, see [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+	- If you want to use an existing Data Lake Store, then select the ADLS storage account to use and add the cluster *ADD* identity to your cluster to allow access to the store. For more information on this process, see [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
    	Use the **Select** button to save the data source configuration.
 
@@ -126,7 +126,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
    >
    >
 
-    Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
+   Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
 
    * The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
 
@@ -188,9 +188,10 @@ Once connected, you arrive at a prompt similar to the following:
 
 1. From the SSH session, use the following command to start the R console:  
 
-	R
+		R
 
-	You should see output similar to the following:
+2. You should see output similar to the following:
+	
 	R version 3.2.2 (2015-08-14) -- "Fire Safety"
 	Copyright (C) 2015 The R Foundation for Statistical Computing
 	Platform: x86_64-pc-linux-gnu (64-bit)
@@ -215,11 +216,11 @@ Once connected, you arrive at a prompt similar to the following:
 	Type 'readme()' for release notes.
 	>
 
-2. From the `>` prompt, you can enter R code. R server includes packages that allow you to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster:
+3. From the `>` prompt, you can enter R code. R server includes packages that allow you to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster:
 
 	rxHadoopListFiles("/")
 
-3. You can also use the WASB style addressing.
+4. You can also use the WASB style addressing.
 
 	rxHadoopListFiles("wasbs:///")
 
