@@ -2365,8 +2365,9 @@ The series_outliers() function takes a column containing dynamic array as input 
 
 **Syntax**  
 
+```
 series_outliers(x,kind)  
-
+```
 **Arguments** 
 * *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
 * *kind:* Algorithm of outlier detection. Currently supports "tukey".  
