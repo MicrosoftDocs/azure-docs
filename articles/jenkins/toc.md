@@ -1,5 +1,5 @@
 # [Jenkins Documentation](index.md)
-## Deploy and Configure Jenkins on Azure
+## Deploy and Configure Jenkins
 ### [Deploy a Jenkins master on a VM](/azure/jenkins/install-jenkins-solution-template)
 # Tutorials
 ## [CI/CD with VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
