@@ -347,6 +347,12 @@
       href: docker-machine.md
     - name: Use Docker Compose with Azure
       href: docker-compose-quickstart.md
+  - name: Cloud Foundry on VMs
+    items:
+    - name: Cloud Foundry Overview
+      href: cloudfoundry-get-started.md
+    - name: Deploy your first app to Cloud Foundry
+      href: cloudfoundry-deploy-your-first-app.md
   - name: Migrate VMs
     items:
     - name: Overview of migration
