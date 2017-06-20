@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
 
-This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. This includes:
+This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. The tools include:
 <ul>
 <li>Git for source control</li>
 <li>Azure credential plugin for connecting securely</li>
@@ -47,18 +47,18 @@ View [plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplac
 
 Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview), click **GET IT NOW**  
 
-In the Azure Portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
+In the Azure portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
    
-![Azure Portal dialog](./media/install-jenkins-solution-template/ap-create.png)
+![Azure portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
 In the **Configure basic settings** tab:
 
 ![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
 * Provide a name to your Jenkins instance.
-* Select a VM disk type.  For production workloads choose a larger VM and SSD for better performance.  You can read more about Azure disk types [here.](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
-* User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.  See [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq) for more information on user name and password requirements.
-* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, it must satisfy 3 of the following requirementsl: one lower case character, one upper case character, one number, and one special character.
+* Select a VM disk type.  For production workloads, choose a larger VM and SSD for better performance.  You can read more about Azure disk types [here.](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
+* User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.  For more information, see [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq) for user name and password requirements.
+* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, it must satisfy 3 of the following requirements: one lower case character, one upper case character, one number, and one special character.
 * Select a subscription.
 * Create a resource group or use an existing one.
 * Select a location.
@@ -87,9 +87,9 @@ Install PuTTY and run this command if you use password to secure Jenkins:
 ```
 putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to log in.
+* To log in, enter the password.
 
-![Enter password to log in](./media/install-jenkins-solution-template/jenkins-pwd.png)
+![To log in, enter the password.](./media/install-jenkins-solution-template/jenkins-pwd.png)
 
 If you use SSH, run this command:
 ```
@@ -102,7 +102,7 @@ If you use a password to secure your Jenkins master, run this command:
 ```
 ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to log in.
+* To log in, enter the password.
 
 If you use SSH, run this command:
 ```
