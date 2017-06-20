@@ -95,13 +95,14 @@ choose **Solutions Gallery**.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-   The status for AS2, X12, EDIFACT messages between your partners appear here. 
-   This data is based on a single day.
+2. After the dashboard for AS2, X12, EDIFACT message status appears, 
+you can view more details for a specific message type. 
+Choose the tile for **AS2**, **X12**, or **EDIFACT**. 
+
+   > [!NOTE]
+   > This data is based on a single day.
 
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
-
-3. To view more details for a message type, 
-choose the tile for **AS2**, **X12**, or **EDIFACT**. 
 
    The message list appears for the tile that you chose. For example: 
 
