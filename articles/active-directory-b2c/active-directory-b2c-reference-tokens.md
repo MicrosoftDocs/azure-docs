@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Token Reference | Microsoft Docs'
-description: The types of tokens issued in the Azure Active Directory B2C.
+title: 'Azure Active Directory B2C: Token reference | Microsoft Docs'
+description: The types of tokens issued in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
@@ -62,21 +62,21 @@ When your API receives an access token, it must [validate the signature](#token-
 ### Claims in ID and access tokens
 When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [policies](active-directory-b2c-reference-policies.md) to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID and access token that you receive will contain a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
 
-Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims will be determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [calebb.net](http://calebb.net). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID and access tokens issued by Azure AD B2C. Any additional claims are determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [calebb.net](http://calebb.net). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |
-| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's Application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
-| Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. |
+| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
+| Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the Azure Active Directory v2.0 endpoint. |
 | Issued at |`iat` |`1438535543` |This claim is the time at which the token was issued, represented in epoch time. |
 | Expiration time |`exp` |`1438539443` |The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |
 | Not before |`nbf` |`1438535543` |This claim is the time at which the token becomes valid, represented in epoch time. This is usually the same as the time the token was issued. Your app should use this claim to verify the validity of the token lifetime. |
 | Version |`ver` |`1.0` |This is the version of the ID token, as defined by Azure AD. |
-| Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
-| Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
+| Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more details on how to perform this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).  |
+| Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more details on how to perform this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce |`nonce` |`12345` |A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
-| Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
-| Authentication context class reference |`acr` |Not applicable |Not used currently, except in the case of older policies. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
+| Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. To learn more, see [Azure Active Directory B2C: Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md). |
+| Authentication context class reference |`acr` |Not applicable |Not used currently, except in the case of older policies. To learn more, see [Azure Active Directory B2C: Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md). |
 | Trustframework policy |`tfp` |`b2c_1_sign_in` |This is the name of the policy that was used to acquire the ID token. |
 | Authentication time |`auth_time` |`1438535543` |This claim is the time at which a user last entered credentials, represented in epoch time. |
 
@@ -125,7 +125,7 @@ The metadata document is a JSON object that contains several useful pieces of in
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
-The JSON document located at this URL contains all of the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
+The JSON document located at this URL contains all the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
 
 A description of how to perform signature validation is outside the scope of this document. Many open source libraries are available to help you with this if you need it.
 
@@ -137,7 +137,7 @@ When your app or API receives an ID token, it should also perform several checks
 * The **issuer** claim: This verifies that the token was issued to your app by Azure AD.
 * The **nonce**: This is a strategy for token replay attack mitigation.
 
-For a full list of validations your app should perform, please refer to the [OpenID Connect specification](https://openid.net). Details of the expected values for these claims are included in the preceding [token section](#types-of-tokens).  
+For a full list of validations your app should perform, refer to the [OpenID Connect specification](https://openid.net). Details of the expected values for these claims are included in the preceding [token section](#types-of-tokens).  
 
 ## Token lifetimes
 The following token lifetimes are provided to further your knowledge. They can help you when you develop and debug apps. Note that your apps should not be written to expect any of these lifetimes to remain constant. They can and will change. Read more about the [customization of token lifetimes](active-directory-b2c-token-session-sso.md) in Azure AD B2C.
