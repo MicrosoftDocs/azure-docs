@@ -45,7 +45,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 >All these steps must be completed on the host computer, not the console computer.
 >
 
-1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator.
+1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator (e.g. AzureStack\AzureStackAdmin).
 2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
 3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
 4. Start PowerShell ISE as an administrator.
@@ -64,7 +64,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
     ```
     
 6. At the two prompts, press Enter.
-7. In the pop-up log in window, enter your Azure subscription credentials
+7. In the pop-up log in window, enter your Azure subscription credentials.
 
 ## Verify the registration
 
