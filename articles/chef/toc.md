@@ -1,4 +1,4 @@
-# [Overview](index.md)
+# [Chef on Azure Documentation](index.md)
 # How-to guides
 ##[Automate Azure Virtual Machine deployment with Chef](/azure/virtual-machines/windows/chef-automation)
 # Resources
