@@ -394,7 +394,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     Console.ReadLine();
     ```
 
-## Perform managment tasks
+## Perform management tasks
 
 During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create code to automate repetitive or complex tasks.
 
