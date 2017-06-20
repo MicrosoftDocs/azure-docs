@@ -257,41 +257,83 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 ## builtin.datetimeV2
 
-The **builtin.datetimeV2** pre-built entity has awareness of the current date and time, and provides a resolution field that includes recognition of date ranges. 
+The **builtin.datetimeV2** prebuilt entity automatically recognizes dates and times in user utterances. This entity provides both past and future dates as possible values when an utterance contains an ambiguous date, and provides a resolution field that includes recognition of date ranges. 
 > [!NOTE]
 > **builtin.datetimeV2** is available only in the en-us and zh-cn locales.
 
-### Date range resolution
+### Recognition of date values
 
-The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". Note that the LUIS includes **daterange** values for both the current week and the following week.
+When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `timex` fields to represent the date and time extracted from the utterance.
+
+```
+{
+  "query": "set a reminder 8am May 2nd 2017",
+  "topScoringIntent": {
+    "intent": "SetAlarm",
+    "score": 0.49119997
+  },
+  "intents": [
+    {
+      "intent": "SetReminder",
+      "score": 0.49119997
+    },
+    {
+      "intent": "None",
+      "score": 0.1198492
+    }
+  ],
+  "entities": [
+    {
+      "entity": "8am on may 2nd 2017",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 13,
+      "endIndex": 31,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2017-05-02T08",
+            "type": "datetime",
+            "value": "2017-05-02 08:00:00"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### Ambiguous dates
+
+Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance. For the utterance "May 2nd", LUIS provides both a value for May 2nd in the following year and the preceding year. The `XXXX` in the `timex` field represents the ambiguous year.
 
 ```
   "entities": [
     {
-      "entity": "tuesday to thursday",
-      "type": "builtin.datetimeV2.daterange",
-      "startIndex": 17,
-      "endIndex": 35,
+      "entity": "may 2nd",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 13,
+      "endIndex": 19,
       "resolution": {
         "values": [
           {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
+            "timex": "XXXX-05-02",
+            "type": "date",
+            "value": "2017-05-02"
           },
           {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "timex": "XXXX-05-02",
+            "type": "date",
+            "value": "2018-05-02"
           }
         ]
       }
     }
   ]
 ```
-For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year:
+
+### Date range resolution
+
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year:
 
 ```
 "entities": [
@@ -313,6 +355,35 @@ For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for b
             "type": "daterange",
             "start": "2018-05-02",
             "end": "2018-05-05"
+          }
+        ]
+      }
+    }
+  ]
+```
+
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example the current date is June 19th. Note that LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
+
+```
+  "entities": [
+    {
+      "entity": "tuesday to thursday",
+      "type": "builtin.datetimeV2.daterange",
+      "startIndex": 17,
+      "endIndex": 35,
+      "resolution": {
+        "values": [
+          {
+            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+            "type": "daterange",
+            "start": "2017-06-13",
+            "end": "2017-06-15"
+          },
+          {
+            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+            "type": "daterange",
+            "start": "2017-06-20",
+            "end": "2017-06-22"
           }
         ]
       }
