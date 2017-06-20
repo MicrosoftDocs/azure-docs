@@ -23,24 +23,20 @@ ms.author: mlearned
 <h2>Quickstarts</h2>
 <p>Learn how to quickly deploy Jenkins on Azure.</p>
 <ol>
-  <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
+  <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a></li>
 </ol>
 <h2 style="margin-top: 36px">Tutorials</h2>
 <p>Use the following guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
-    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Setting up CI/CD with Jenkins on a Linux VM.</a></li>
-    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes.</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service with Jenkins and the Azure CLI.</a></li>
+    <li><a href="https://opsstaging.www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins?branch=devopsdocs%2Fahomer%2Flinux-rm">CI/CD with Jenkins and Visual Studio Team Services</a></li>
+    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service with Jenkins and the Azure CLI</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
 <p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p>
-<ul>
-  <li>Azure Jenkins plugins:</li>
-  <ul>
-    <li><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents</a></li>
-    <li><a href="https://github.com/jenkinsci/windows-azure-storage-plugin">Azure Storage</a></li>
-  </ul>
-</ul>
+<a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
+<a href="https://github.com/jenkinsci/windows-azure-storage-plugin">Azure Storage plugin</a><br/>
+
  
 </div>
