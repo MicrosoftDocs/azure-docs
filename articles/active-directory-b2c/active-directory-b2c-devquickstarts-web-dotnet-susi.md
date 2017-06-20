@@ -54,11 +54,11 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 From your settings, select **Identity Providers** and choose User ID Sign up or Email signup.
 
-### Create a Sign-up and sign-in policy
+### Create a sign-up and sign-in policy
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### Create a Profile editing policy
+### Create a profile editing policy
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
