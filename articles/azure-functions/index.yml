@@ -54,7 +54,7 @@ sections:
       text: Queue
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
   - type: paragraph
-    text: 'Develop and Debug Azure Functions locally using the tools you love'
+    text: 'Learn how to develop and debug locally'
   - type: list
     style: icon48
     items: 
