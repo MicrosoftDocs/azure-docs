@@ -34,7 +34,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## Script explanation
+## Script explanation 
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
