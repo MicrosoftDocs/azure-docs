@@ -98,7 +98,7 @@ The default Complete Cache Fill behavior can be disabled through Rules Engine in
 
 This is a default feature of Azure CDN from Verizon, in which a sophisticated proprietary algorithm may leverage additional edge caching servers based on metrics such as bandwidth and aggregate requests to fulfill client requests for large, highly popular objects. This prevents a situation in which large numbers of extra requests would be sent to a customer’s origin server. 
 
-## Conditions for large file optimization
+### Conditions for large file optimization
 
 The optimization features for Verizon are turned on by default, and there are no limits on maximum file size. 
 
