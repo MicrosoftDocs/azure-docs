@@ -21,7 +21,7 @@ ms.author: cephalin
 You can connect an Azure App Service app to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. This article shows you how to create a hybrid connection between App Service and an on-premises SQL Server database.
 
 > [!NOTE]
-> The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
+> The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection outside of a Web App, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
 > 
 > This content also applies to Mobile Apps in Azure App Service. 
 > 
@@ -44,7 +44,7 @@ You can connect an Azure App Service app to any on-premises resource that uses a
 
 ## Create a web app in the Azure Portal
 > [!NOTE]
-> If you have already created a web app or Mobile App backend in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
+> If you have already created a web app or Mobile App backend in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a Service Bus](#CreateHC) and start from there.
 > 
 > 
 
@@ -63,11 +63,11 @@ You can connect an Azure App Service app to any on-premises resource that uses a
    
     ![Default web app page][DefaultWebSitePage]
 
-Next, you will create a hybrid connection and a BizTalk service for the web app.
+Next, you will create a hybrid connection and a Service Bus for the web app.
 
 <a name="CreateHC"></a>
 
-## Create a Hybrid Connection and a BizTalk Service
+## Create a Hybrid Connection and a Service Bus
 1. In your web app blade click on **All settings** > **Networking** > **Configure your hybrid connection endpoints**.
    
     ![Hybrid connections][CreateHCHCIcon]
@@ -77,38 +77,25 @@ Next, you will create a hybrid connection and a BizTalk service for the web app.
    -->
 3. The **Add a hybrid connection** blade opens.  Since this is your first hybrid connection, the **New hybrid connection** option is preselected, and the **Create hybrid connection** blade opens for you.
    
-    ![Create a hybrid connection][TwinCreateHCBlades]
+    ![Create a hybrid connection][CreateHCBlade]
    
     On the **Create hybrid connection blade**:
    
-   * For **Name**, provide a name for the connection.
-   * For **Hostname**, enter the name of the on-premises computer that hosts your resource.
-   * For **Port**, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).
-   * Click **Biz Talk Service**
-4. The **Create BizTalk Service** blade opens. Enter a name for the BizTalk service, and then click **OK**.
+   * For **Endpoint Name**, enter the friendly name for the Hybrid Manager you will be connecting.
+   * For **Endpoint Host**, enter the FQDN or IP of the Hybrid Manager installation.
+   * For **Endpoint Port**, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).
+   * For **Servicebus Namespace**, you can choose to create a new Servicebus or select an existing one to utilize.
+   * For **Location**, you will select where you are deploying your Servicebus. You should locate the ServiceBus and web application in the same region to minimize latency.
+   * For **Name**, enter the name you would like for the Servicebus.
+   * Click **OK**
+  
+
+4. When the process completes, the notifications area in the Portal informs you that the connection has been successfully created.
    
-    ![Create BizTalk service][CreateHCCreateBTS]
-   
-    The **Create BizTalk Service** blade closes and you are returned to the **Create hybrid connection** blade.
-5. On the Create hybrid connection blade, click **OK**. 
-   
-    ![Click OK][CreateBTScomplete]
-6. When the process completes, the notifications area in the Portal informs you that the connection has been successfully created.
-   
-    <!--- TODO
-   
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-    (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-    Create hybrid conn step, you get the following error
-    Failed to create hybrid connection RelecIoudHC. The 
-    resource type could not be found in the namespace 
-    'Microsoft.BizTaIkServices for api version 2014-06-01'.
-   
-    The error indicates it couldn't find the type, not the instance.
-    ![Success notification][CreateHCSuccessNotification]
-    -->
-7. On the web app's blade, the **Hybrid connections** icon now shows that 1 hybrid connection has been created.
-   
+5. On the web app's blade, the **Hybrid connections** icon now shows that 1 hybrid connection has been created.
+   	<!--- TODO
+	I don't think it actually says 1 out of 1 connected until the Manager is setup, but I'm unable to verify that
+	--->
     ![One hybrid connection created][CreateHCOneConnectionCreated]
 
 At this point, you have completed an important part of the cloud hybrid connection infrastructure. Next, you will create a corresponding on-premises piece.
@@ -118,7 +105,13 @@ At this point, you have completed an important part of the cloud hybrid connecti
 ## Install the on-premises Hybrid Connection Manager to complete the connection
 1. On the web app's blade, click **All settings** > **Networking** > **Configure your hybrid connection endpoints**. 
    
+
+
     ![Hybrid connections icon][HCIcon]
+
+	<!--- TODO
+	I can't find this blade again that is pictured, but there are a lot of different ways to display it. The same information still applies either way.
+	--->
 2. On the **Hybrid connections** blade, the **Status** column for the recently added endpoint shows **Not connected**. Click the connection to configure it.
    
     ![Not connected][NotConnected]
@@ -175,7 +168,7 @@ For Mobile Apps, you also need to define a connection string for the on-premises
 2. Click **Save** in Visual Studio to save the Web.config file.
    
    > [!NOTE]
-   > This connection setting is used when running on the local computer. When running in Azure, this setting is overriden by the connection setting defined in the portal.
+   > This connection setting is used when running on the local computer. When running in Azure, this setting is overridden by the connection setting defined in the portal.
    > 
    > 
 3. Expand the **Models** folder and open the data model file, which ends in *Context.cs*.
@@ -235,6 +228,7 @@ At this point you can republish the server project and test the new connection w
 [CreateHCHCIcon]:./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
 [CreateHCAddHC]:./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
 [TwinCreateHCBlades]:./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
+[CreateHCBlade]: ./media/web-sites-hybrid-connection-get-started/CreateHCBlade.png
 [CreateHCCreateBTS]:./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
 [CreateBTScomplete]:./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
 [CreateHCSuccessNotification]:./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
