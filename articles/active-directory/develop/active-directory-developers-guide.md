@@ -15,7 +15,6 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.custom: aaddev
 ---
 # Azure Active Directory for developers
 Azure Active Directory is a cloud identity service that allows developers to securely sign-in any user with a work or school account backed by Microsoft.  The documentation here shows you how to add Azure AD support to your application using industry standard authentication protocols, OAuth & OpenID Connect.

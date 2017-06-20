@@ -91,6 +91,10 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+  - name: Configure server parameters
+    items:
+    - name: Azure portal
+      href: howto-server-parameters.md
 - name: Reference
   items:
   - name: Azure CLI
