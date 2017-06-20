@@ -18,7 +18,7 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>
-              OpenShift Origin is an open-source container platform build on Kubernetes which simplifies the process of deploying, scaling, and operating multi-tenant applications.  Learn how to deploy and configure and OpenShift solution with quickstarts and tutorials from Microsoft and OpenShift. 
+              OpenShift Origin is an open-source container platform built on Kubernetes that simplifies the process of deploying, scaling, and operating multi-tenant applications.  Learn how to deploy and configure and OpenShift solution with quickstarts and tutorials from Microsoft and OpenShift. 
 	    </p>
         </div>
     </div>
