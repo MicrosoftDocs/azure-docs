@@ -19,7 +19,7 @@ ms.author: genli
 
 # Troubleshoot Azure Site-to-Site VPN disconnection problem
 
-You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection is not stable. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem. 
+You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection disconnects randomly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
