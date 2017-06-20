@@ -80,7 +80,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bynder.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CAPPM.png)| [CA PPM](active-directory-saas-cappm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.png)| [Canvas LMS](active-directory-saas-canvas-lms-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza](active-directory-saas-caprizaplatform-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.png)| [Capriza](active-directory-saas-capriza-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.png)| [Central Desktop](active-directory-saas-central-desktop-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.png)| [Ceridian Dayforce HCM](active-directory-saas-ceridiandayforcehcm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_cernercentral.png)| [Cerner Central - Single Sign On](active-directory-saas-cernercentral-tutorial.md)
