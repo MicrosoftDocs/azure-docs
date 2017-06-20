@@ -120,7 +120,7 @@ Additionally, in case of cloud services within a VNet, a private IP address is a
 Static private IP addresses are commonly used for:
 
 * VMs that act as domain controllers or DNS servers.
- * VMs that require firewall rules using IP addresses.
+* VMs that require firewall rules using IP addresses.
 * VMs running services accessed by other apps through an IP address.
 
 #### Internal DNS hostname resolution
