@@ -150,10 +150,10 @@ and add a topic object:
 
 2. Go to the `When_a_feed-item_is_published` action, 
 find the `queries` section, and replace the query value with 
-: "feedUrl": "#@{parameters('currentFeed')}"`. 
+: `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
 	To join two or more strings, you can also use the `concat` function. 
-	For example, `"@concat('#',parameters('currentFeed'))"` 
+	For example, `"@concat('#',parameters('currentFeedUrl'))"` 
 	works the same as the above.
 
 3.	When you're done, choose **Save**. 
