@@ -332,7 +332,7 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 
 ## Get a thumbnail with Computer Vision API using JavaScript <a name="GetThumbnail"> </a>
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a thumbnail JavaScript example request
 
