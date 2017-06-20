@@ -95,6 +95,6 @@ block_blob_service = BlockBlobService(account_name='myaccount', account_key='myk
 
 ## Next steps
 
-
+* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
 * [Introduction to Azure Stack storage](azure-stack-storage-overview.md)
 
