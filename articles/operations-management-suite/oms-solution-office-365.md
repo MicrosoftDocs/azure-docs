@@ -29,18 +29,18 @@ The Office 365 solution for Operations Management Suite (OMS) allows you to moni
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using OMS Search on top of Office 365 activity data of your organization.
 
-
-
 ## Prerequisites
-The only prerequisite for this solution is an Office 365 subscription and the credentials for a user account that is a Global Administrator. 
+The following is required prior to this solution being installed and configured.
+
+- Office 365 subscription and  credentials for a user account that is a Global Administrator. 
 
 
 ## Management packs
-
+This solution does not install any management packs in connected management groups.
   
 
 ## Configuration
-Once you add the Office 365 solution to your subscription, you have to connect it to your Office 365 subscription.
+Once you [add the Office 365 solution to your subscription](/log-analytics/log-analytics-add-solutions.md), you have to connect it to your Office 365 subscription.
 
 1. Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md).
 2. Go to **Settings** in the OMS portal.
@@ -52,14 +52,7 @@ Once you add the Office 365 solution to your subscription, you have to connect i
 
 ## Data collection
 ### Supported agents
-The following table describes the connected sources that are supported by this solution.
-
-| Connected Source | Supported | Description |
-| --- | --- | --- |
-| Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents and initiates installation of required updates on supported distros. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
-| Azure storage account |No |Azure storage does not include information about system updates. |
+The Office 365 solution doesn't data from any of the [OMS agents](../log-analytics/log-analytics/data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
 For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated.  For each managed Linux computer, a scan is performed every 3 hours.
@@ -71,65 +64,6 @@ When you add the Update Management solution to your OMS workspace, the **Update 
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
-## Viewing update assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard.<br><br> ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard.png)<br>
-
-This dashboard provides a detailed breakdown of update status categorized by type of operating system and update classification - critical, security, or other (such as a definition update). The **Update Deployments** tile when selected, redirects you to the Update Deployments page where you can view schedules, deployments currently running, completed deployments, or schedule a new deployment.  
-
-You can run a log search that returns all records by clicking on the specific tile or to run a query of a particular category and pre-defined criteria , select one from the list  available under the **Common Update Queries** column.    
-
-## Installing updates
-Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more  computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment.  To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md).  When you include computer groups in your update deployment, group memnbership is evaluated only once at the time of schedule creation.  Subsequent changes to a group are not reflected.  To work around this, delete the scheduled update deployment and recreate it.
-
-> [!NOTE]
-> Windows VMs deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service.  This behavior does not change after adding this solution or Windows VMs to your workspace.  If you do not actively managed updates with this solution, the default behavior (automatically apply updates) will apply.  
-
-For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
-
-### Viewing update deployments
-Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
-
-The properties displayed for each Update Deployment are described in the following table.
-
-| Property | Description |
-| --- | --- |
-| Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  Options available are *One Time*, *Recurring Weekly*, or *Recurring Monthly*. |
-| Start Time |Date and time that the Update Deployment is scheduled to start. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment.  |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>- Not Started<br>- Running<br>- Finished |
-
-Select a completed Update Deployment to view the detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
-
-| Column | Description |
-| --- | --- |
-| **Computers View** | |
-| Windows Computers |Lists the number of Windows computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Linux Computers |Lists the number of Linux computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Updates View** | |
-| Windows Updates |Lists Windows updates included in the Update Deployment and their installation status per each update.  Select an update to run a log search returning all update records for that specific update or click on the status to run a log search returning all update records for the deployment. |
-| Linux Updates |Lists Linux updates included in the Update Deployment and their installation status per each update.  Select an update to run a log search returning all update records for that specific update or click on the status to run a log search returning all update records for the deployment. |
-
-### Creating an Update Deployment
-Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
-
-| Property | Description |
-| --- | --- |
-| Name |Unique name to identify the update deployment. |
-| Time Zone |Time zone to use for the start time. |
-| Schedule Type | Type of schedule.  Options available are *One Time*, *Recurring Weekly*, or *Recurring Monthly*.  
-| Start Time |Date and time to start the update deployment. **Note:** The soonest a deployment can run is 30 minutes from current time if you need to deploy immediately. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include and target in the Update Deployment.  Select one or more entries from the drop down list. |
-
-<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
-
-### Time range
-By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day.
-
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.
 
 ## Log Analytics records
 The Update Management solution creates two types of records in the OMS repository.
@@ -163,40 +97,14 @@ A record with a type of **Update** is created for each update that is either ins
 | UpdateID |GUID to uniquely identify the update. |
 | UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
 
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br>
 
-![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
-
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br>
-
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
-
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
-
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
-
-### UpdateSummary records
-A record with a type of **UpdateSummary** is created for each Windows agent computer. This record is updated each time the computer is scanned for updates. **UpdateSummary** records have the properties in the following table.
 
 | Property | Description |
 | --- | --- |
-| Type |UpdateSummary |
-| SourceSystem |OpsManager |
-| Computer |Name of the computer. |
-| CriticalUpdatesMissing |Number of critical updates missing on the computer. |
-| ManagementGroupName |Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>. |
-| NETRuntimeVersion |Version of the .NET runtime installed on the computer. |
-| OldestMissingSecurityUpdateBucket |Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-    180 days ago<br>- 150 days ago<br>-    120 days ago<br>- 90 days ago<br>- 60 days ago<br>-    30 days go<br>-    Recent |
-| OldestMissingSecurityUpdateInDays |Number of days since the oldest missing security update on this computer was published. |
-| OsVersion |Version of the operating system installed on the computer. |
-| OtherUpdatesMissing |Number of other updates missing on the computer. |
-| SecurityUpdatesMissing |Number of security updates missing on the computer. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| TotalUpdatesMissing |Total number of updates missing on the computer. |
-| WindowsUpdateAgentVersion |Version number of the Windows Update agent on the computer. |
-| WindowsUpdateSetting |Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation |
-| WSUSServer |URL of WSUS server if the computer is configured to use one. |
+| Type |*OfficeActivity* |
+| 
+
+
 
 ## Sample log searches
 The following table provides sample log searches for update records collected by this solution.
@@ -238,3 +146,102 @@ For further information, see [Automation runbook output and messages](../automat
 * Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
 * [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
+
+
+
+https://blogs.technet.microsoft.com/msoms/2016/05/13/oms-office-365-management-solution-now-in-public-preview/
+
+
+| Property | Description |
+|:--- |:--- |
+| Type |*OfficeActivity* |
+| AADTarget | |
+| Actor | |
+| ActorContextId | |
+| ActorIpAddress | |
+| AffectedItems | |
+| Application | |
+| AzureActiveDirectory_EventType | |
+| Client | |
+| ClientInfoString | |
+| ClientIP | IP address of the client that performed the operation. |
+| ClientMachineName | |
+| ClientProcessName | |
+| ClientVersion | |
+| Client_IPAddress | |
+| CrossMailboxOperations | |
+| CustomEvent | |
+| DataCenterSecurityEventType | |
+| DestFolder | |
+| DestinationFileExtension | |
+| DestinationFileName | |
+| DestinationRelativeUrl | |
+| DestMailboxId | |
+| DestMailboxOwnerMasterAccountSid | |
+| DestMailboxOwnerSid | |
+| DestMailboxOwnerUPN | |
+| EffectiveOrganization | |
+| evationApprovedTime | |
+| ElevationApprover | |
+| ElevationDuration | |
+| ElevationRequestId | |
+| ElevationRole | |
+| ElevationTime | |
+| EventSource | |
+| Event_Data | |
+| ExtendedProperties | |
+| ExternalAccess | |
+| Folder | |
+| Folders | |
+| GenericInfo | |
+| InternalLogonType | |
+| InterSystemsId | |
+| IntraSystemId | |
+| Item | |
+| ItemType | |
+| LoginStatus | |
+| LogonUserDisplayName | |
+| LogonUserSid | |
+| Logon_Type | |
+| MachineDomainInfo | |
+| MachineId | |
+| MailboxGuid | |
+| MailboxOwnerMasterAccountSid | |
+| MailboxOwnerSid | |
+| MailboxOwnerUPN | |
+| ModifiedObjectResolvedName | |
+| ModifiedProperties | |
+| OfficeId | Guid for the record in Office 365 |
+| OfficeObjectId | |
+| OfficeTenantId | |
+| OfficeWorkload | |
+| Operation | Description of the operation that was performed. |
+| OrganizationId | ID of the Office 365 organization. |
+| OrganizationName | |
+| OriginatingServer | |
+| Parameters | |
+| RecordType | Type of the record for Office 365.<br><br>AzureActiveDirectory<br>SharePoint<br>SharePointFileOperation |
+| ResultStatus | |
+| SendAsUserMailboxGuid | |
+| SendAsUserSmtp | |
+| SendonBehalfOfUserMailboxGuid | |
+| SendOnBehalfOfUserSmtp | |
+| SharingType | |
+| Site_ | |
+| Site_Url | |
+| SourceFileExtension | |
+| SourceFileName | |
+| SourceRelativeUrl | |
+| SourceSystem | |
+| Source_Name | |
+| Start_Time | |
+| SupportTicketId | |
+| TargetContextId | |
+| TimeGenerated | Date and time the record was created. |
+| Type | |
+| UserAgent | |
+| UserDomain | |
+| UserId | |
+| UserKey | |
+| UserSharedWith | |
+| UserType | Type of the user  |
