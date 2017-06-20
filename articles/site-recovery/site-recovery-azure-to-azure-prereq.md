@@ -27,7 +27,7 @@ The Azure Site Recovery service contributes to your business continuity and disa
 * Replication of Azure virtual machines to another Azure region.
 * Replication of on-premises physical servers and virtual machines to Azure or to a secondary datacenter. 
 
-When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md)
+When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
 
 This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
 
@@ -49,6 +49,5 @@ Post any comments at the bottom of the article, or ask technical questions on th
 >For more details about support for specific configurations, read the [support matrix](site-recovery-support-matrix-azure-to-azure.md).
 
 ## Next steps
-- Learn more about [networking guidance for replicating Azure virtual machines.](site-recovery-azure-to-azure-networking-guidance.md)
-
-- Start protecting your workloads by [replicating Azure virtual machines.](site-recovery-azure-to-azure.md)
+- Learn more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
+- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
