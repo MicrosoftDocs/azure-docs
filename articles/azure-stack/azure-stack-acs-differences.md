@@ -31,18 +31,20 @@ considerations to keep in mind when you deploy Azure Stack. To learn about high-
 | --- | --- | --- |
 |File storage|Cloud-based SMB file shares supported|Not yet supported
 |Data at rest encryption|Offers 256-bit AES encryption|Not yet supported
-|Internal or external network bandwidth storage metrics|Supported|Not yet supported
+|Storage account type|General-purpose and Blob storage accounts|General-purpose only
 |Replication options|LRS,GRS, RAGRS, and ZRS|LRS
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
-|Storage account type|General-purpose and Blob storage accounts|General-purpose only
-|Blob name|1024 characters (2048 bytes)|Limited to 880 characters (1760 bytes)
 |Managed disks|Premium and standard supported|Not yet supported
-|Large block blob|4.75 TB (100 MB X 50,000 blocks)|Max size of a block blob is 50,000 X 4 MB (approx. 195 GB)
+|Blob name|1024 characters (2048 bytes)|880 characters (1760 bytes)
+|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
 |Page blob incremental snapshot copy|Premium and Standard Azure Page Blobs supported|Not yet supported
-|Page blob granularity|512 bytes|4 KB
-|Virtual machine access to mounted disks metrics|Supported|Not yet supported
-|Partition key and row key size|1024 characters (2048 bytes)|400 characters (800 bytes)
+|Page blob page size|512 bytes|4 KB
+|Table partition key and row key size|1024 characters (2048 bytes)|400 characters (800 bytes)
 
+### Metrics
+There are also some differences with storage metrics:
+* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
+* The transaction data in storage metrics does not include the virtual machine access to the mounted disks.
 
 ## API version
 The following versions are supported with Azure Stack Storage:
@@ -58,8 +60,8 @@ The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t h
 |Client Library|Azure Stack supported version|Link|Endpoint specification|
 |---------|---------|---------|---------|
 |.NET     |6.2.0|[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config file|
-|Node.js     |1.1.0|[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|declaration of service instance|
-|Python     |0.30.0|[https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|declaration of service instance|
+|Node.js     |1.1.0|[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Declaration of service instance|
+|Python     |0.30.0|[https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Declaration of service instance|
 
 ### Endpoint declaration
 An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
