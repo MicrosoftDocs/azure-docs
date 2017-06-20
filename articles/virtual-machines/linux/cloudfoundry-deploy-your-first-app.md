@@ -29,14 +29,14 @@ There are several options for creating a Cloud Foundry environment on Azure:
 
 - Use the [Pivotal Cloud Foundry offer][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
 - Create a customized environment by [deploying Pivotal Cloud Foundry manually][pcf-custom].
-- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](http://bosh.io) director, a VM that will coordinate the deployment of the Cloud Foundry environment.
+- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](http://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
 
 > [!IMPORTANT] 
-> If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL will be of the form https://system.*ip-address*.cf.pcfazure.com.
+> If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL is in the form https://system.*ip-address*.cf.pcfazure.com.
 
 ## Connect to the Cloud Controller
 
-The Cloud Controller is the primary entrypoint to a Cloud Foundry environment for deploying and managing applications. The core Cloud Controller API (CCAPI) is a REST API, but it is accessible through various tools. In this case, we interact with it through the [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
+The Cloud Controller is the primary entry point to a Cloud Foundry environment for deploying and managing applications. The core Cloud Controller API (CCAPI) is a REST API, but it is accessible through various tools. In this case, we interact with it through the [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 To log in, prepend `api` to the SYSTEMDOMAINURL that you obtained from the marketplace deployment. Since the default deployment uses a self-signed certificate, you should also include the `skip-ssl-validation` switch.
 
@@ -44,7 +44,7 @@ To log in, prepend `api` to the SYSTEMDOMAINURL that you obtained from the marke
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 ```
 
-You will be prompted to log in to the Cloud Controller. Use the admin account credentials that you acquired from the marketplace deployment steps.
+You are prompted to log in to the Cloud Controller. Use the admin account credentials that you acquired from the marketplace deployment steps.
 
 Cloud Foundry provides *orgs* and *spaces* as namespaces to isolate the teams and environments within a shared deployment. The PCF marketplace deployment includes the default *system* org and a set of spaces created to contain the base components, like the autoscaling service and the Azure service broker. For now, choose the *system* space.
 
@@ -66,10 +66,10 @@ Use the target command to switch to the new org and space:
 cf target -o testorg -s dev
 ```
 
-Now, when you deploy an application, it will automatically be created in the new org and space. To confirm that there are currently no apps in the new org/space, type `cf apps` again.
+Now, when you deploy an application, it is automatically created in the new org and space. To confirm that there are currently no apps in the new org/space, type `cf apps` again.
 
 > [!NOTE] 
-> To learn more about orgs and spaces and how they can be used for role-based access control (RBAC), please see the [Cloud Foundry documentation][cf-orgs-spaces-docs].
+> For more information about orgs and spaces and how they can be used for role-based access control (RBAC), see the [Cloud Foundry documentation][cf-orgs-spaces-docs].
 
 ## Deploy an application
 
@@ -104,7 +104,7 @@ When you *push* an application, Cloud Foundry detects the type of application (i
 
 ![Output from cf push command][cf-push-output]
 
-If you open the provided URL in your browser, you should see the hello-spring-cloud application:
+To see the hello-spring-cloud application, open the provided URL in your browser:
 
 ![Default UI for Hello Spring Cloud][hello-spring-cloud-basic]
 
@@ -119,7 +119,7 @@ You can use the Cloud Foundry CLI to view logs for an application by its name:
 cf logs hello-spring-cloud
 ```
 
-By default, the logs command will *tail* the application, showing new logs as they are written. To see new logs appear, refresh the hello-spring-cloud app in the browser.
+By default, the logs command uses *tail*, which shows new logs as they are written. To see new logs appear, refresh the hello-spring-cloud app in the browser.
 
 To view logs that have already been written, add the `recent` switch:
 
@@ -129,7 +129,7 @@ cf logs --recent hello-spring-cloud
 
 ## Scale the application
 
-By default, `cf push` will only create a single instance of your application. To ensure high availability and enable scale out for higher throughput, you will generally want to run more than one instance of your applications. You can easily scale out already deployed applications using the `scale` command:
+By default, `cf push` only creates a single instance of your application. To ensure high availability and enable scale out for higher throughput, you generally want to run more than one instance of your applications. You can easily scale out already deployed applications using the `scale` command:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
