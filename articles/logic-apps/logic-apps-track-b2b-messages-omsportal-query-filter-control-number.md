@@ -78,21 +78,18 @@ Learn more about [how to find data in Log Analytics](../log-analytics/log-analyt
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. In the left bar, choose the timeframe that you want to view.
-
-7. To add a filter to your query, choose **+Add**.
-
-   The example's **Type=AzureDiagnostics** filter returns 213 results.
+6. In the left bar, choose the timeframe that you want to view. 
+To add a filter to your query, choose **+Add**.
 
    ![Add filter to query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-8. Under **Add Filters**, enter the filter name so you can find the filter you want. 
+7. Under **Add Filters**, enter the filter name so you can find the filter you want. 
 Select the filter, and choose **+Add**.
 
    This example uses the word "interchange" to find the interchange control number. We then select **event_record_messageProperties_interchangeControlNumber_s** 
    as our filter.
 
-   ![Select filter event ](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+   ![Select filter event](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
 9. In the left bar, select the filter value that you want to use, and choose **Apply**.
 
@@ -104,7 +101,7 @@ Select the filter, and choose **+Add**.
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 
-   ![Return to your query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+   ![Return to your query with filtered results](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
 11. To reuse your query later, 
 save your query to your **Favorites**.

@@ -117,8 +117,9 @@ choose **Diagnostics** > **Diagnostic Settings**.
    2. Under **Log Analytics**, choose **Configure**. 
    3. Under **OMS Workspaces**, select the OMS workspace in Log Analytics 
    that you want to use for sending diagnostics data to a log.
-   4. Under **Log**, select **IntegrationAccountTrackingEvents**.
-   5. When you're done, choose **Save**.
+   4. Under **Log**, select **WorkflowRuntime**.
+   5. Choose your metric interval.
+   6. When you're done, choose **Save**.
 
    ![Set up Azure Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -153,8 +154,8 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 When you start typing, OMS shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-   For example, to find the top 10 events that happened in your logic app, 
-   search for this query: **Category=WorkflowRuntime | top 10**
+   For example, to find the top 10 events that happened, 
+   enter this search query: **Category=WorkflowRuntime | top 10**
 
    ![Start typing query string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
@@ -166,16 +167,23 @@ To refine your query by adding a filter, choose **+Add**.
 7. Under **Add Filters**, enter the filter name so you can find the filter you want. 
 Select the filter, and choose **+Add**.
 
+   This example uses the word "status" to find failed events under **AzureDiagnostics**.
+   Here the filter for **status_s** is already selected.
+
+   ![Select filter](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+
 8. In the left bar, select the filter value that you want to use, and choose **Apply**.
+
+   ![Select filter value, choose "Apply"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
 9. Now return to the query that you're building. 
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 
+   ![Return to your query with filtered results](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
+
 10. To reuse your query later, save your query to your **Favorites**. 
 Learn [how to save your query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
-
-Learn more about [how to find events with log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 ## Extend how and where you use diagnostic data with other services
 
