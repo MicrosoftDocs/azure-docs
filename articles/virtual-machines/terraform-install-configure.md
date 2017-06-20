@@ -37,7 +37,7 @@ There are several ways to create AAD Application and AAD Service Principal. The 
 After downloading and installing the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), login to administer your azure subscription by issuing the following command
 
 ```
-> az login
+az login
 ```
 
 >[!NOTE]
