@@ -18,6 +18,7 @@ LUIS includes a set of prebuilt entities. When a prebuilt entity is included in 
 
 Pre-built entity   |   en-US   |   fr-FR   |   it-IT   |   es-ES   |   zh-CN   |   de-DE   |   pt-BR   |   ja-JP   |   ko-kr
 ------|------|------|------|------|------|------|------|------|------|
+DatetimeV2   |   :ballot_box_with_check:   |   -   |   -   |   -   |   :ballot_box_with_check:   |   -   |   -   |   -   |   -   |
  Datetime   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   -   |
 Number   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   -   |
 Ordinal   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   :ballot_box_with_check:   |   -   |
@@ -254,10 +255,95 @@ The following example shows the resolution of the **builtin.currency** entity.
 }
 ```
 
+## builtin.datetimeV2
+
+The **builtin.datetimeV2** pre-built entity has awareness of the current date and time, and provides a resolution field that includes recognition of date ranges. 
+> [!NOTE]
+> **builtin.datetimeV2** is available only in the en-us and zh-cn locales.
+
+### Date range resolution
+
+The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". Note that the LUIS includes **daterange** values for both the current week and the following week.
+
+```
+  "entities": [
+    {
+      "entity": "tuesday to thursday",
+      "type": "builtin.datetimeV2.daterange",
+      "startIndex": 17,
+      "endIndex": 35,
+      "resolution": {
+        "values": [
+          {
+            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+            "type": "daterange",
+            "start": "2017-06-13",
+            "end": "2017-06-15"
+          },
+          {
+            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+            "type": "daterange",
+            "start": "2017-06-20",
+            "end": "2017-06-22"
+          }
+        ]
+      }
+    }
+  ]
+```
+For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year:
+
+```
+"entities": [
+    {
+      "entity": "may 2nd to may 5th",
+      "type": "builtin.datetimeV2.daterange",
+      "startIndex": 17,
+      "endIndex": 34,
+      "resolution": {
+        "values": [
+          {
+            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+            "type": "daterange",
+            "start": "2017-05-02",
+            "end": "2017-05-05"
+          },
+          {
+            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+            "type": "daterange",
+            "start": "2018-05-02",
+            "end": "2018-05-05"
+          }
+        ]
+      }
+    }
+  ]
+```
+<!--
+ ```
+  "entities": [
+    {
+      "entity": "9pm tomorrow",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 17,
+      "endIndex": 28,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2017-06-21T21",
+            "type": "datetime",
+            "value": "2017-06-21 21:00:00"
+          }
+        ]
+      }
+    }
+  ]
+```
+-->
 
 ## builtin.datetime
 
-The **builtin.datetime** pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. 
+The **builtin.datetime** pre-built entity has awareness of the current date and time. In the following examples, the current date is 2015-08-14. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. 
 
 #### This pre-built entity has 3 subtypes:
 
