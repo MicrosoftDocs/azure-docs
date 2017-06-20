@@ -116,6 +116,7 @@
 ### [Shared key authentication](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Require secure transfer](storage-require-secure-transfer.md)
 ### Client-side encryption
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
