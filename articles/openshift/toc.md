@@ -1,5 +1,5 @@
-# [OpenShift on Azure Documentation](index.md)
+# [OpenShift Documentation](index.md)
 # How-to guides
-## [Get started with OpenShift on Azure](/azure/articles/virtual-machines/linux/openshift-get-started)
+## [Get started with OpenShift](/azure/articles/virtual-machines/linux/openshift-get-started)
 # Resources
-## [Pivotal Cloud Foundry - Azure](https://pivotal.io/partners/microsoft)
+## [OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
