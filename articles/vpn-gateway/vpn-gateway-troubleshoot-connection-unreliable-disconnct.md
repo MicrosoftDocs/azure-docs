@@ -25,21 +25,21 @@ You configure the Site-to-Site VPN connection between the on-premise network and
 
 ## Troubleshooting steps
 
-### Step 1 Check if a validated on-premises VPN device is used
+### Step 1 Check if a validated device is used
 
-1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#validated-vpn-devices-and-device-configuration-guides). If it is not a valiated VPN device, you may need to contact device manufacturer to check if there is any compatibility issue.
-2. Make sure that the VPN device is in a correct confirguatin. For more informaton, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing)
+1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namevalidated-vpn-devices-and-device-configuration-guides). If it is not a valiated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
+2. Make sure that the VPN device is in a correct confirguatin. For more informaton, see [Editing device configuration samples](a-namevpn-gateway-about-vpn-devices.md#editing)
 
-### Step 2 Check Security Association Mismatches (for policy-based Azure Gateways)
+### Step 2 Check if Security Association Mismatches (for policy-based Azure virtual network gateways)
 
 1. Make sure that the virtual network, subnets and ranges in the **Local network** definition in Microsoft Azure are same as the confirguation on the on-premises VPN device.
 2. Make sure that the Security Association settings are matching.
 
-### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based Azure Gateways)
+### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based gateways)
 
-Make sure that the VPN device is set to have **one VPN tunnel per subnet pair** for policy-based gateways.
+Make sure that the VPN device is set to have **one VPN tunnel per subnet pair** for policy-based virtual network gateways.
 
-### Step 4 Check for Security Association Limitation (for policy-based Azure Gateways)
+### Step 4 Check for Security Association Limitation (for policy-based gateways)
 
 The Policy-based Azure gateway has limit of 200 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times the number of local subnets is greater than 200, you will see sporadic subnets disconnecting.
 
