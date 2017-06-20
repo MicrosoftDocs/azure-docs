@@ -28,42 +28,42 @@ You configure the Site-to-Site VPN connection between the on-premise network and
 ### Step 1 Check if a validated device is used
 
 1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
-2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing)
+2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
-### Step 2 Check if Security Association Mismatches (for policy-based Azure virtual network gateways)
+### Step 2 Check if Security Association is consistent (for policy-based Azure virtual network gateways)
 
 1. Make sure that the virtual network, subnets and, ranges in the **Local network** definition in Microsoft Azure are same as the configuration on the on-premises VPN device.
 2. Make sure that the Security Association settings are matching.
 
-### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based gateways)
+### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based virtual network gateways)
 
 Make sure that the VPN device is set to have **one VPN tunnel per subnet pair** for policy-based virtual network gateways.
 
-### Step 4 Check for Security Association Limitation (for policy-based gateways)
+### Step 4 Check for Security Association Limitation (for policy-based virtual network gateways)
 
-The Policy-based Azure gateway has limit of 200 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times the number of local subnets is greater than 200, you will see sporadic subnets disconnecting.
+The Policy-based virtual network gateway has limit of 200 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times the number of local subnets is greater than 200, you will see sporadic subnets disconnecting.
 
 ### Step 5 Check on-premises VPN device External Interface Address
 
-- If the VPN device internet facing IP address is included within the "local network" definition in Azure, you may experience sporadic disconnects.
-- The device external interface must be directly on the internet. There should be no Network Address Translation or firewall between the Internet and the device.
--  If you configure Firewall Clustering with Virtual IP,  you must break the cluster and expose the VPN appliance directly to a public interface that our Azure Gateway can interface with.
+- If the VPN device Internet facing IP address is included within the "local network" definition in Azure, you may experience sporadic disconnects.
+- The device external interface must be directly on the Internet. There should be no Network Address Translation or firewall between the Internet and the device.
+-  If you configure Firewall Clustering with virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
 
-### Step 6 Check if the Azure Gateway is Over Utilized
+### Step 6 Check if the virtual network gateway is Over utilized
 
-Check CPU and Bandwidth Utilization of the Azure VPN Gateway instances:
+Check CPU and Bandwidth Utilization of the virtual network gateway instances:
 
 - Network and CPU utilization on VM instances
 - Site-to-Site Tunnel Bandwidth
-- With high utilization, it may resolve to resize to [higher SKU gateway](vpn-gateway-about-vpngateways.md#gwsku)
+- With high utilization, it may resolve to resize to [higher SKU gateway](vpn-gateway-about-vpngateways.md#gwsku).
 
-### Step 7 Check Azure Gateway Upgrade
+### Step 7 Check virtual network gateway upgrade
 
-If the VPN connection disconnects just one time, but then immediately comes back on. It may be caused by the Azure Gateway Upgrade.
+If the VPN connection disconnects just one time, but then immediately comes back on. It may be caused by thevirtual network gateway upgrade.
 
  ### Step 8 Check if the on-premises VPN device has Perfect forward Secrecy enabled
 
-The **Perfect forward Secrecy** feature can cause the disconnection problems. If the VPN device has **Perfect forward Secrecy** enabled, disable the feature. Then [update the Azure Gateway IPsec policy](vpn-gateway-ipsecikepolicy-rm-powershell.md).
+The **Perfect forward Secrecy** feature can cause the disconnection problems. If the VPN device has **Perfect forward Secrecy** enabled, disable the feature. Then [update the virtual network gateway IPsec policy](vpn-gateway-ipsecikepolicy-rm-powershell.md).
 
 ### Step 9 Check for User-Defined Routes or Network Security Groups on Gateway Subnet
 
