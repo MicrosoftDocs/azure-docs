@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -108,15 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.mc.eval.kontiki.com`
-
-	b. In the **Identifier** textbox, type the URL: 
-	| |
-	|--|
-	| `https://lx.kdms.kontiki.com/sso` |
-	| `https://lx.wg1.kontiki.com/sso` |
-	| `https://lx.eu1.kontiki.com/sso` |
-	| `https://lx.eval.kontiki.com/sso` |
+     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.mc.eval.kontiki.com`
 
 	> [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-On URL. Contact [Kontiki Client support team](http://customersupport.kontiki.com/enterprise/contactsupport.html) to get the value. 
