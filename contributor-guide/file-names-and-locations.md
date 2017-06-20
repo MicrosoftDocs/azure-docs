@@ -26,7 +26,7 @@ Acronyms and initialisms in file names - specific guidelines:
 ## Pattern
 
 >NOTE
-> Service names are in the URL path element that follows the brand, and aren't necessary in the file name. 
+> Service names are in the URL path element that follows the brand, and aren't needed in the file name. 
 > Example: /azure/**mobile-services**/dotnet-backend-get-started-settings-sync
 >
 
@@ -34,13 +34,13 @@ Here's the general pattern:
 
  **platform-language-content-product-version.md**
 
-Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
+Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. 
 
 >IMPORTANT
->Use updated file name guidance for *new* articles. You don't need to rename and redirect other articles at this time. 
+>Use this updated file name guidance for *new* articles. You don't need to rename and redirect other articles at this time. 
 
 ## Standard examples
-Here are a few examples of valid names that follow the pattern:
+Here are a few examples of valid file names that follow the pattern:
 
 * dotnet-continuous-delivery.md
 * ios-get-started.md
@@ -56,7 +56,7 @@ The service names aren't in the file name examples, but are an element in each U
 
 * /azure/**cloud-service**/dotnet-continuous-delivery
 * /azure/**mobile-services**/ios-get-started
-* /azure/**documentdb**/manage-account
+* /azure/**cosmos-db**/manage-account
 
 ## A/B testing
 
