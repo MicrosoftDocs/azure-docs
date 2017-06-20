@@ -74,19 +74,18 @@ Here are the steps:
         Retype new password:
         Current Kerberos password:
 
-When prompted for **Current Kerberos password**, press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster.
 
-If your password is successfully set, you should see the following message:
+7. When prompted for **Current Kerberos password**, press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster. If your password is successfully set, you should see the following message:
 
         passwd: password updated successfully
 
-Exit the SSH session.
+	Exit the SSH session.
 
-7. Create an SSH tunnel to the cluster by mapping `ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
+8. Create an SSH tunnel to the cluster by mapping `ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
 
    * On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/), open a terminal session and use the following command:
 
-           ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+             ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
        Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster.
        You can also use an SSH key rather than a password by adding `-i id_rsa_key`.        
@@ -99,28 +98,29 @@ Exit the SSH session.
         * **Source port** - The port on the client that you wish to forward. For example, **8787**.
         * **Destination** - The destination that must be mapped to the local client machine. For example, **localhost:8787**.
 
-        ![Create an SSH tunnel](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
+        	![Create an SSH tunnel](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
+
      4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
      5. When prompted, log in to the server to establish an SSH session and enable the tunnel.
 
-8. Open a web browser and enter the following URL based on the port you entered for the tunnel:
+9. Open a web browser and enter the following URL based on the port you entered for the tunnel:
 
         http://localhost:8787/ 
 
-9. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5.
+10. You are prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5.
 
     ![Connect to R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
 
-10. To test whether the RStudio installation was successful, you can run a test script that executes R-based MapReduce and Spark jobs on the cluster. To download the test script to run in RStudio, go back to the SSH console and enter the following commands:
+11. To test whether the RStudio installation was successful, you can run a test script that executes R-based MapReduce and Spark jobs on the cluster. To download the test script to run in RStudio, go back to the SSH console and enter the following commands:
 
-*    If you created a Hadoop cluster with R, use this command.
+	*    If you created a Hadoop cluster with R, use this command:
 
-           wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
-*    If you created a Spark cluster with R, use this command.
+        	wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
+	*    If you created a Spark cluster with R, use this command:
 
-                    wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
+        	wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-11. In RStudio, you see the test script you downloaded. Double-click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
+12. In RStudio, you see the test script you downloaded. Double-click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane:
 
    ![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
 

@@ -25,7 +25,7 @@ Microsoft R Server on Azure HDInsight controls how calls are executed by setting
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
 ## Microsoft R Server on Azure HDInsight
-[Microsoft R Server on Azure HDInsight](hdinsight-hadoop-r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://msdn.microsoft.com/en-us/microsoft-r/scaler/scaler), Microsoft’s big data analytics package that is included with R Server.  
+[Microsoft R Server on Azure HDInsight](hdinsight-hadoop-r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), Microsoft’s big data analytics package that is included with R Server.  
 
 ## Compute contexts for an edge node
 In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a ScaleR function. The ScaleR calls run in a compute environment that is determined by how you set the ScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:
@@ -50,11 +50,11 @@ The following table summarizes the various compute context options to set how ca
 
 Which of the three options you choose that provide parallelized execution depends on the nature of your analytics work, the size, and the location of your data. There is no simple formula that tells you which compute context to use. There are, however, some guiding principles that can help you make the right choice, or, at least, help you narrow down your choices before you run a benchmark. These guiding principles include:
 
-1. The local Linux file system is faster than HDFS.
-2. Repeated analyses are faster if the data is local, and if it's in XDF.
-3. It's preferable to stream small amounts of data from a text data source. If the amount of data is larger, convert it to XDF before analysis.
-4. The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
-5. Spark is faster than Map Reduce for analysis in Hadoop.
+- The local Linux file system is faster than HDFS.
+- Repeated analyses are faster if the data is local, and if it's in XDF.
+- It's preferable to stream small amounts of data from a text data source. If the amount of data is larger, convert it to XDF before analysis.
+- The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
+- Spark is faster than Map Reduce for analysis in Hadoop.
 
 Given these principles, the following sections offer some general rules of thumb for selecting a compute context.
 

@@ -56,7 +56,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 4. Select **Cluster type** to open the **Cluster configuration** blade. On the **Cluster Configuration** blade, select the following options:
 
    * **Cluster Type**: R Server
-   * **Version**: select the version of R Server to install on the cluster. The version currently available is ***R Server 9.1 (HDI 3.6)***. Release notes for the available versions of R Server are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
+   * **Version**: select the version of R Server to install on the cluster. The version currently available is ***R Server 9.1 (HDI 3.6)***. Release notes for the available versions of R Server are available [here](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
    * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node. If you would prefer to not have it installed, then uncheck the check box. If you choose to have it installed, the URL for accessing the RStudio Server login is found on a portal application blade for your cluster once it’s been created.
 
    Leave the other options at the default values and use the **Select** button to save the cluster type.
@@ -83,7 +83,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
    ![SSH dir](./media/hdinsight-getting-started-with-r/dir.png)
 
-   * Then specify the public key file (*.pub) when assigning HDI cluster credentials and finally confirm your resource group and region and select **Next**
+   * Then specify the public key file (&#42;.pub) when assigning HDI cluster credentials and finally confirm your resource group and region and select **Next**.
 
    ![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
 
@@ -91,7 +91,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
    `chmod 600 <private-key-filename>`
 
-   * use the private key file with SSH for remote login
+   * Use the private key file with SSH for remote login:
 
    `ssh –i <private-key-filename> remoteuser@<hostname public ip>`
 
