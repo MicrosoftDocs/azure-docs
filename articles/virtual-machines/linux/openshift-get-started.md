@@ -74,7 +74,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 For more information on SSH keys on Windows, [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## Store SSH private key in Key Vault
-The OpenShift deployment will use the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command:
+The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command.
 
 # Enabled for template deployment
 ```azurecli
@@ -153,7 +153,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this tutorial, you've done the following:
+In this tutorial, learned how to:
 > [!div class="checklist"]
 > * Create a KeyVault to manage SSH keys for the OpenShift cluster.
 > * Deploy an OpenShift cluster on Azure VMs. 
