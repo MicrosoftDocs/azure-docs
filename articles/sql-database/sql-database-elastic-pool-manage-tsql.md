@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: scale out apps
+ms.custom: DBs & servers
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

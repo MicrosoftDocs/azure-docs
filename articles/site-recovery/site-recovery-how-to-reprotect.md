@@ -12,16 +12,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
 # Reprotect from Azure to an on-premises site
 
-> [!div class="op_single_selector"]
-> * [Azure to Azure](site-recovery-how-to-reprotect-azure-to-azure.md)
-> * [On-premises to Azure](site-recovery-how-to-reprotect.md)
+
 
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
@@ -101,6 +99,10 @@ Click the following links to read about how to install a master target server:
 * [How to install Windows master target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
+
+### What datastore types are supported on the on-premises ESXi host during failback?
+
+Currently ASR only supports failing back to a VMFS datastore. A vSAN or NFS datastore is not supported. Note that you can protect virtual machines running on a vSAN or NFS datastore. Due to this limitation, the datastore selection input in the reprotect screen will be empty in case of NFS datastores or show the vSAN datastore but fail during the job. If you intend to failback, then you can create a VMFS datastore on-premises and failback to it. This failback will be cause a full download of the VMDK. We are adding support for NFS and vSAN datastores in the upcoming releases.
 
 #### Common things to check after completing installation of the master target server
 

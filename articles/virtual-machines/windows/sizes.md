@@ -14,24 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/06/2017
+ms.date: 06/07/2017
 ms.author: cynthn
 ---
 
 # Sizes for Windows virtual machines in Azure
 
 This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources.  This article is also available for [Linux virtual machines](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-> [!IMPORTANT]
->* For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
->* To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
->* Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
-> * Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
->
->
-<br>    
-
-
 
 
 | Type                     | Sizes           |    Description       |
@@ -43,9 +32,29 @@ This article describes the available sizes and options for the Azure virtual mac
 | [GPU](sizes-gpu.md)            | NV, NC            | Specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs.       |
 | [High performance compute](sizes-hpc.md) | H, A8-11          | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
 
-<br>
+<br> 
+
+- For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
+- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+- Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+
+
+## Rest API
+
+For information on using the REST API to query for VM sizes, see the following:
+
+- [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)
+- [List available virtual machine sizes in an availability set](
+https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)
+
+## ACU
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+## Next steps
 
 Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)

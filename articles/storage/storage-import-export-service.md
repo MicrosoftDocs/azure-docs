@@ -47,8 +47,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from Blob storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.
-
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
 When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
@@ -72,7 +71,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >
 
 ### Hard disk drives
-Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
+Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
@@ -80,6 +79,13 @@ For import jobs, only the first data volume on the drive will be processed. The 
 > External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
 > 
 > 
+
+Below is a list of external USB adaptors used to copy data to internal HDDs. 
+Anker 68UPSATAA-02BU
+Anker 68UPSHHDS-BU
+Startech SATADOCK22UE
+Orico 6628SUS3-C-BK (6628 Series)
+Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
 
 ### Encryption
 The data on the drive must be encrypted using BitLocker Drive Encryption. This protects your data while it is in transit.
@@ -467,9 +473,12 @@ No. All drives are encrypted with BitLocker.
 
 No. You will need to ship your own drives for both import and export jobs.
 
+** How can I access data that is imported by this service**
+The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
 
-When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
+When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
 
 **If the drive has files that already exist in my storage account, will the service overwrite existing blobs in my storage account?**
 

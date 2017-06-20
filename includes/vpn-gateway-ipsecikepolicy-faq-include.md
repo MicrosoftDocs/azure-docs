@@ -16,7 +16,7 @@ The table below lists the supported cryptographic algorithms and key strengths c
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                   |
 | DH Group         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
 | PFS Group        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
 | QM SA Lifetime*  | Seconds (integer) and KBytes (integer)                                      |
 | Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False)                             |

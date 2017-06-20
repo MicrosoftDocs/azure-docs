@@ -31,7 +31,7 @@ If you already deployed in SAP CAL and created an SAP CAL account that could dep
 
 The first screen after logging in to SAP CAL usually leads you to the solutions page of SAP CAL. The solutions offered on SAP CAL are growing month over month. So you might need to scroll quite a bit to find the solution you are looking for.
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
 Some of the solutions that are available on Microsoft Azure are shown above. The highlighted
 Windows-based SAP IDES solution that is only available exclusively on Azure was chosen to demonstrate the deployment process.
@@ -53,33 +53,33 @@ First, create a new SAP CAL account. In **Accounts**, you see three choices for 
 
 Since we want to deploy in the Azure Resource Manager deployment model in the future, our new SAP CAL account needs to associated with **Microsoft Azure**.
 
-![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
 Then, enter the Azure subscription ID that can be found on the Azure portal. 
 
-![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 The next step is to authorize SAP CAL to deploy into the Azure subscription you just defined. To initiate that process, press the button 'Authorize' as seen in the screenshot above.
 
 Check your Internet Browser since the next screen, which should appear in the same tab in the browser should look like
 
-![Screenshot of IE Cloud Service Login Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
+![Screenshot of IE Cloud Service Login Screen](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
 There might be more than one user listed. You need to choose the Microsoft account that is linked to be co-admin of the Azure subscription you picked.
 
 As next step, a screen like that should show up in the browser tab:
 
-![Screenshot of IE Cloud Service Confirmation Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
+![Screenshot of IE Cloud Service Confirmation Screen](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
 Press the button 'Accept'. As the Authorization is successful, SAP CAL account definition is displayed again, a message is displayed for short time confirming that the authorization process was successful.
 
 To proceed with the CAL account creation, you need to assign the newly created SAP CAL account to your user. In the screen shown below
 
-![Screenshot of Account to User Association](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
+![Screenshot of Account to User Association](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
 type your User ID (lower red circle) into the field on the right marked in red and press the button 'add'. this step should associate your SAP CAL account with your user that you use to log in to SAP CAL. **You now must press the button 'Review'** to progress with the account association. In the 'Review' page, you need to press the button 'Create' (marked in red below to create the association between your CAL user and the newly created account.
 
-![Screenshot of SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
+![Screenshot of SAP Cloud Appliance Library Accounts window](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
 You succeeded now to create an SAP CAL account that is able to:
 
@@ -96,26 +96,26 @@ After the setup of an SAP CAL account, you select The SAP IDES solution on Windo
 - Choose an Azure region. Keep in mind that you might need an SAP CAL subscription to get multiple Azure regions offered.
 -  Define the master password for the solution as shown below.
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 After pressing the button 'Create', you see a screen like bellow that gives you the status of the deployment. You need to wait until the status is 'Active'. Below you see the state within the deployment
 
 After some time depending on the size and complexity of the solution (an estimation is given by SAP CAL), it's shown as "active" and ready for usage. 
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
 If you check on the Azure portal, you can find the Resource Group and all its objects that were created by SAP CAL in an Azure Resource Group that was created by SAP CAL. The virtual machine can be found starting with the same instance name that was given in SAP CAL.
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
 Jumping back to SAP CAL, you can go to the deployed instances and press he button 'Connect'. Th pop-up below shows up. 
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
 
 Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log in to the deployed system.
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
+![](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 As you can see a perfectly healthy SAP IDES system deployed in Microsoft Azure within a few hours.
 

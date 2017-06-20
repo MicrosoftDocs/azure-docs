@@ -33,11 +33,12 @@ To complete this tutorial:
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
 1. [Install Docker Community Edition](https://www.docker.com/community-edition)
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Test local PostgreSQL installation and create a database
 
@@ -541,7 +542,7 @@ From the left menu, click **App Services**, then click the name of your Azure we
 
 By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
+![App Service page in Azure portal](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
 
 ## Next steps
 
