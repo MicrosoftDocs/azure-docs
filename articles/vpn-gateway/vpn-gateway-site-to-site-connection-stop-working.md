@@ -39,7 +39,7 @@ To view the PSK for the Azure VPN connection, use one of the following methodsï¼
 
 **Azure portal**
 
-1. Go to virtual network gateway >site to site conection you created.
+1. Go to virtual network gateway >site to site connection you created.
 2. In the **Settings** section, click **Shared Key**.
 
 **Azure PowerShell**
