@@ -23,7 +23,8 @@ This quickstart uses the resources created in either of these guides as a starti
 
 You also need to:
 - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Put the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. 
+- Put the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath.
+- Ensure connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -36,7 +37,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. Methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters. 
+Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. Methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters to insert the values. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -175,7 +176,7 @@ public class CreateTableInsertRows {
 ```
 
 ## Read data
-Use the following code to read the data with a **SELECT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and executeQuery() are used to connect, prepare, and run the select statement. The results are processed using a [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html) object. 
+Use the following code to read the data with a **SELECT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and executeQuery() are used to connect and run the select statement. The results are processed using a [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html) object. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
