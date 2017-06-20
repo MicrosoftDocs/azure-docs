@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 06/20/2017
 ms.author: juluk
 ---
 
@@ -39,16 +39,6 @@ Right-click copy paste options are also available, however this is subject to br
 
 ## Editing .bashrc
 Take caution when editing .bashrc as it can cause unexpected errors for Cloud Shell.
-
-## Reset Cloud Shell to default state
-> [!Warning]
-> Deleting your file share will permanantly erase all files in your file share including your user image persisting your $Home directory.
-
-You may reset Cloud Shell to the default state by:
-1. Deleting your associated file share
-2. Restart Cloud Shell from the toolbar icon
-
-You will be prompted to attach a file share on next session start.
 
 ## Usage limits
 Cloud Shell is intended for interactive use cases, as a result any long-running non-interactive sessions are ended without warning.
