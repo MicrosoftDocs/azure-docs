@@ -85,7 +85,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+      html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST
