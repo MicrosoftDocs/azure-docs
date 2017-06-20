@@ -3,7 +3,7 @@ title: Azure AD AngularJS Getting Started | Microsoft Docs
 description: How to build an AngularJS single-page application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ''
-author: v
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
