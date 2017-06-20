@@ -115,10 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
-	| |
-	|--|
-	| `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`|
-	| `https://<companyname>.desire2learn.com/<companyname>`|
+	`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brightspace by Desire2Learn support team](https://www.d2l.com/en-apac/contact/) to get these values.
