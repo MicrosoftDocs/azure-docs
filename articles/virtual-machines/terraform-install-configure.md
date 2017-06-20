@@ -44,7 +44,7 @@ After downloading and installing the [Azure CLI 2.0](https://docs.microsoft.com/
 >If you're using the China, German or Government Azure Clouds, you need to first configure the Azure CLI to work with that Cloud. You can do this by running:
 
 ```
-$ az cloud set --name AzureChinaCloud|AzureGermanCloud|AzureUSGovernment
+az cloud set --name AzureChinaCloud|AzureGermanCloud|AzureUSGovernment
 ```
 
 If you have multiple Azure Subscriptions, their details are returned by the `az login` command. Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the Subscription you want to use. 
@@ -52,19 +52,19 @@ If you have multiple Azure Subscriptions, their details are returned by the `az 
 Set the Subscription that you want to use for this session.
 
 ```
-> az account set --subscription="${SUBSCRIPTION_ID}"
+az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
 Query the account to get the Subscription Id and Tenant Id values.
 
 ```
-> az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
 Next, create separate credentials for Terraform.
 
 ```
-> az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
 This outputs your client_id, client_secret (password), sp_name, and tenant. Take note of the **client_id** and **client_secret**.
@@ -72,8 +72,8 @@ This outputs your client_id, client_secret (password), sp_name, and tenant. Take
 You can confirm your credentials (service principal) by opening a new shell and running the following commands substituting in the returned values for **sp_name**, **client_secret**, and **tenant**:
 
 ```
-> az login --service-principal -u SP_NAME -p CLIENT_SECRET --tenant TENANT
-> az vm list-sizes --location westus
+az login --service-principal -u SP_NAME -p CLIENT_SECRET --tenant TENANT
+az vm list-sizes --location westus
 ```
 
 ### Windows Users using Powershell
@@ -106,4 +106,4 @@ export ARM_TENANT_ID=your_tenant_id
 Additionally, if you are using Terraform with either Azure Government, Azure Germany or Azure China, you need to set the ENVIRONMENT variable appropriately.
 
 ## Next steps
-You now have Terraform installed and credentials defined deploy infrastructure into your subscription. Learn how to [create infrastructure with Terraform](terraform-create-complete-vm.md).
+You have now installed Terraform and configured Azure credentials to start deploying infrastructure into your Azure subscription. Next, learn how to [create infrastructure with Terraform](terraform-create-complete-vm.md).
