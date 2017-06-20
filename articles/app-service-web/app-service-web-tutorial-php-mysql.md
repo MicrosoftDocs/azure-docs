@@ -161,7 +161,7 @@ az login
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
 
-In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder. This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. 
+In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. 
 
 ```azurecli-interactive
 az mysql server create \
