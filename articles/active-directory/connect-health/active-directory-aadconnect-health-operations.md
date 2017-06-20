@@ -92,16 +92,16 @@ Azure AD Connect Health supports the following built-in roles:
 
 | Role | Permissions |
 | --- | --- |
-| Owner |Owners can ***manage access*** (e.g. assign role to a user/group), ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health. <br>By default, Azure AD global administrators are assigned this role and this cannot be changed. |
-| Contributor |Contributors can ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health. |
-| Reader |Readers can ***view all information*** (e.g. view alerts) from the portal within Azure AD Connect Health. |
+| Owner |Owners can ***manage access*** (for example, assign role to a user/group), ***view all information*** (for example, view alerts) from the portal and ***change settings*** (for example, email notifications) within Azure AD Connect Health. <br>By default, Azure AD global administrators are assigned this role and this cannot be changed. |
+| Contributor |Contributors can ***view all information*** (for example, view alerts) from the portal and ***change settings*** (for example, email notifications) within Azure AD Connect Health. |
+| Reader |Readers can ***view all information*** (for example, view alerts) from the portal within Azure AD Connect Health. |
 
 All other roles (such as ‘User Access Administrators’ or ‘DevTest Labs Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
 
 #### Access Scope
 Azure AD Connect supports managing access at two levels:
 
-* ***All service instances***: This is the recommended path for most customers and controls access for all service instances (e.g. an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
+* ***All service instances***: This is the recommended path for most customers and controls access for all service instances (for example, an ADFS farm) across all role types that are being monitored by Azure AD Connect Health.
 * ***Service Instance***: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
 
 Permission is granted if an end user has access either at the Directory or Service Instance level.
