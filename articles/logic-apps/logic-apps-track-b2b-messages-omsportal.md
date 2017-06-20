@@ -95,16 +95,14 @@ choose **Solutions Gallery**.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. After the dashboard for AS2, X12, EDIFACT message status appears, 
-you can view more details for a specific message type. 
-Choose the tile for **AS2**, **X12**, or **EDIFACT**. 
-
-   > [!NOTE]
-   > This data is based on a single day.
+2. After the message status dashboard appears, 
+you can view more details for a specific message type, 
+which shows data based on a single day. 
+Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-   The message list appears for the tile that you chose. 
+   The message list for your chosen tile appears. 
    To export the message list, choose **Download**. For example: 
 
    ![View or download message list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
