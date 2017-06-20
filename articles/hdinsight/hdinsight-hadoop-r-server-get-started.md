@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/19/2017
+ms.date: 06/20/2017
 ms.author: bradsev
 
 ---
@@ -47,11 +47,11 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
 2. Select **NEW**, **Intelligence+ Analytics**, and then **HDInsight**.
 
-    ![Image of creating a new cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
+    ![Image of creating a new cluster](./media/hdinsight-hadoop-r-server-get-started/newcluster.png)
 
 3. In the **Quick create** experience, enter a name for the cluster in the **Cluster Name** field. If you have multiple Azure subscriptions, use the **Subscription** entry to select the one you want to use.
 
-    ![Cluster name and subscription selections](./media/hdinsight-getting-started-with-r/clustername.png)
+    ![Cluster name and subscription selections](./media/hdinsight-hadoop-r-server-get-started/clustername.png)
 
 4. Select **Cluster type** to open the **Cluster configuration** blade. On the **Cluster Configuration** blade, select the following options:
 
@@ -60,7 +60,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
    	* **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node. If you would prefer to not have it installed, then uncheck the check box. If you choose to have it installed, the URL for accessing the RStudio Server login is found on a portal application blade for your cluster once it’s been created.
    	* Leave the other options at the default values and use the **Select** button to save the cluster type.
 
-   		![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
+   		![Cluster type blade screenshot](./media/hdinsight-hadoop-r-server-get-started/clustertypeconfig.png)
 
 5. Enter a **Cluster login username** and **Cluster login password**.
 
@@ -76,15 +76,15 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
    	* Follow the prompt to name a key file and then enter a passphrase for added security. Your screen should look something like the following:
 
-   		![SSH cmd line in Windows](./media/hdinsight-getting-started-with-r/sshcmdline.png)
+   		![SSH cmd line in Windows](./media/hdinsight-hadoop-r-server-get-started/sshcmdline.png)
 
    	* This creates a private key file and a public key file under the name <private-key-filename>.pub, for example furiosa and furiosa.pub.
 
-   		![SSH dir](./media/hdinsight-getting-started-with-r/dir.png)
+   		![SSH dir](./media/hdinsight-hadoop-r-server-get-started/dir.png)
 
    	* Then specify the public key file (&#42;.pub) when assigning HDI cluster credentials and finally confirm your resource group and region and select **Next**.
 
-   		![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
+   		![Credentials blade](./media/hdinsight-hadoop-r-server-get-started/publickeyfile.png)  
 
    * Change permissions on the private keyfile on your laptop:
 
@@ -119,7 +119,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
 7. The **Summary** blade then displays to validate all your settings. Here you can change your **Cluster size** to modify the number of servers in your cluster and also specify any **Script actions** you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster is shown within the blade.
 
-   	![cluster summary](./media/hdinsight-getting-started-with-r/clustersummary.png)
+   	![cluster summary](./media/hdinsight-hadoop-r-server-get-started/clustersummary.png)
 
    > [!NOTE]
    > If needed, you can resize your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
@@ -135,7 +135,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
      * For small to modest data, performance is best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best, see  Compute context options for R Server on HDInsight.<br>
      * If you log in to the edge node and run your R script, then all but the ScaleR rx-functions are executed <strong>locally</strong> on the edge node. So the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
 
-     ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
+     ![Node pricing tiers blade](./media/hdinsight-hadoop-r-server-get-started/pricingtier.png)
 
      Use the **Select** button to save the node pricing configuration.
 
@@ -172,7 +172,7 @@ Connect to R Server edge node of the HDInsight cluster using SSH:
 > [!NOTE]
 > You can also find the `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster then **All Settings**, **Apps**, and **RServer**. This displays the SSH Endpoint information for the edge node.
 >
-> ![Image of the SSH Endpoint for the edge node](./media/hdinsight-getting-started-with-r/sshendpoint.png)
+> ![Image of the SSH Endpoint for the edge node](./media/hdinsight-hadoop-r-server-get-started/sshendpoint.png)
 >
 >
 
@@ -456,7 +456,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
 2. From the **Settings** blade, select **Script Actions** and then **Submit New** to submit a new Script Action.
 
-   ![Image of script actions blade](./media/hdinsight-getting-started-with-r/scriptaction.png)
+   ![Image of script actions blade](./media/hdinsight-hadoop-r-server-get-started/scriptaction.png)
 
 3. From the **Submit script action** blade, provide the following information:
 
