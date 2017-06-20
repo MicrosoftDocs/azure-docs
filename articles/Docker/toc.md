@@ -3,7 +3,7 @@
 ## [Python, PostgreSQL, Docker](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [Create Docker Hosts on Azure VMs](/azure/virtual-machines/linux/docker-machine)
 ## [Private Docker container registry](/azure/container-registry/container-registry-get-started-portal)
-## [Docker hosting solution on Azure](/azure/container-service/container-service-deployment)'
+## [Docker hosting solution on Azure](/azure/container-service/container-service-deployment)
 ## [CI/CD with Docker Swarm and VSTS](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)
 ## [CI/CD with Docker, Jenkins, and Linux VMs](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 # Resources
@@ -11,3 +11,6 @@
 ## [Docker Azure Site](https://github.com/jenkinsci/windows-azure-storage-plugin)
 ## [Jenkins site](https://www.docker.com/docker-azure)
 ## [Docker Azure driver](https://docs.docker.com/machine/drivers/azure/)
+
+
+
