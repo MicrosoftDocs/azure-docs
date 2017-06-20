@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/15/2017
+ms.date: 06/19/2017
 ms.author: bradsev
 
 ---
