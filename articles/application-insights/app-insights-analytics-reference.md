@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -39,7 +39,7 @@ Additional sources of information:
 **Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Numeric series** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -314,7 +314,7 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) 
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
 #### evaluate autocluster
      T | evaluate autocluster()
@@ -499,7 +499,39 @@ Note that the patterns are not distinct: they may be overlapping, and usually do
   
     `requests | evaluate autocluster("weight_column=itemCount")`
 
+#### evaluate extractcolumns
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
 
+Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
+
+* `max_columns=` *int* (default: 10) 
+  
+    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
+  
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+* `min_percent=` *double* (default: 10.0) 
+  
+    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
+  
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+* `add_prefix=` *bool* (default: true) 
+  
+    If true the name of the complex column will be added as a prefix to the extracted columns names.
+* `prefix_delimiter=` *string* (default: "_") 
+  
+    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
+  
+    `T | evaluate extractcolumns("json_column_name=json",` <br/>
+    `"add_prefix=true", "prefix_delimiter=@")`
+* `keep_original=` *bool* (default: false) 
+  
+    If true the original (json) columns will be kept in the output table.
+* `output=query | table` 
+  
+    The format of the results. 
+  
+  * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
+  * `query` - The output is a string representing the query you would make to get the result as table. 
 
 ### extend operator
      T | extend duration = stopTime - startTime
@@ -2327,7 +2359,29 @@ range t from 1 to 1 step 1
 |2.0|3.0|
 |3.0|6.0|
 |4.0|10.0|
+### series_outliers 
 
+The series_outliers() function takes a column containing dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
+
+**Syntax**  
+
+series_outliers(x,kind)  
+
+**Arguments** 
+* *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
+Most convenient way of using this function is applying it to results of make-series operator.  
+
+**Examples** 
+
+For the following input   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() returns  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+meaning the 5 is an anomaly on decline and 80 is an anomaly on rise compared to the rest of the series. 
 
 ### series_periods
 
