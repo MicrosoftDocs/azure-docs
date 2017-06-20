@@ -43,14 +43,14 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 *	It is recommended that a single Azure AD user be assigned to Xmatters to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Xmatters, you must select the **User** or "Group" role in the assignment dialog. The "Default Access" role does not work for provisioning.
+*	When assigning a user to Xmatters, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. Note that the **Default Access** role does not work for provisioning, and these users will be skipped.
 
 
 ## Configuring user provisioning to Xmatters 
 
 This section guides you through connecting your Azure AD to Xmatters's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Xmatters based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Xmatters, following the instructions provided in (Azure portal)[https://portal.azure.com]. Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+**Tip:** You may also choose to enabled SAML-based Single Sign-On for Xmatters, following the instructions provided in [Azure portal][https://portal.azure.com]. Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 
 ### To configure automatic user account provisioning to Xmatters in Azure AD:
@@ -82,7 +82,7 @@ This section guides you through connecting your Azure AD to Xmatters's user acco
 
 12) Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to Xmatters in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 10 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
+This will start the initial synchronization of any users and/or groups assigned to Xmatters in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
