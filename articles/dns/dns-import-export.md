@@ -130,7 +130,7 @@ To import a zone file for the zone **contoso.com**.
     azure group create myresourcegroup westeurope
     ```
 
-6. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.<BR>This command loads the zone file and parse it. The command executes a series of commands on the Azure DNS service to create the zone and all of the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
+6. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.<BR>This command loads the zone file and parse it. The command executes a series of commands on the Azure DNS service to create the zone and all the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
 
     ```azurecli
     azure network dns zone import myresourcegroup contoso.com contoso.com.txt
@@ -140,14 +140,14 @@ To import a zone file for the zone **contoso.com**.
 
 To verify the DNS zone after you import the file, you can use any one of the following methods:
 
-* You can list the records by using the following Azure CLI command.
+* You can list the records by using the following Azure CLI command:
 
     ```azurecli
     azure network dns record-set list myresourcegroup contoso.com
     ```
 
 * You can list the records by using the PowerShell cmdlet `Get-AzureRmDnsRecordSet`.
-* You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The sample below shows how to retrieve the name server names assigned to the zone. IT also shows how to query the "www" record by using `nslookup`.
+* You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The following sample shows how to retrieve the name server names assigned to the zone. IT also shows how to query the "www" record by using `nslookup`.
 
         C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
         info:Executing command network dns record-set show
