@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -51,4 +51,4 @@ To resolve this error, either:
 * Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 ## Next steps
-Additional resources about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+For monitoring guidance, see [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md).

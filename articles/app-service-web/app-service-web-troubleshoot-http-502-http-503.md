@@ -4,7 +4,7 @@ description: Troubleshoot 502 bad gateway and 503 service unavailable errors in 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: top-support-issue
 keywords: 502 bad gateway, 503 service unavailable, error 503, error 502

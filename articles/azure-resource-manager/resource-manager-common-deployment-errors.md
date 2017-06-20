@@ -12,10 +12,10 @@ keywords: deployment error, azure deployment, deploy to azure
 ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 
 ---
@@ -45,6 +45,7 @@ The following error codes are described in this topic:
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -64,6 +65,95 @@ The following error codes are described in this topic:
 This error code indicates a general deployment error, but it is not the error code you need to start troubleshooting. The error code that actually helps you resolve the issue is usually one level below this error. For example, the following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
 
 ![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
+
+### SkuNotAvailable
+
+When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use either the portal or a REST operation to find available SKUs.
+
+- To use the [portal](https://portal.azure.com), log in to the portal and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
+
+    ![available SKUs](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- To use the REST API for virtual machines, send the following request:
+
+  ```HTTP 
+  GET
+  https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
+  ```
+
+  It returns available SKUs and regions in the following format:
+
+  ```json
+  {
+    "value": [
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A0",
+        "tier": "Standard",
+        "size": "A0",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A1",
+        "tier": "Standard",
+        "size": "A1",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      ...
+    ]
+  }    
+  ```
+
+If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+
+### DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+If you receive this error, you are using a subscription that is not permitted to access any Azure services other than Azure Active Directory. You might have this type of subscription when you need to access the classic portal but are not permitted to deploy resources. To resolve this issue, you must use a subscription that has permission to deploy resources.  
+
+To view your available subscriptions with PowerShell, use:
+
+```powershell
+Get-AzureRmSubscription
+```
+
+And, to set the current subscription, use:
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+To view your available subscriptions with Azure CLI 2.0, use:
+
+```azurecli
+az account list
+```
+
+And, to set the current subscription, use:
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### InvalidTemplate
 This error can result from several different types of errors.
@@ -191,7 +281,7 @@ If you are attempting to deploy the missing resource in the template, check whet
 
 For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
-You also see this error when the resource exists in a different resource group than the one being deployed to. In that case, use the [resourceId function](resource-group-template-functions.md#resourceid) to get the fully qualified name of the resource.
+You also see this error when the resource exists in a different resource group than the one being deployed to. In that case, use the [resourceId function](resource-group-template-functions-resource.md#resourceid) to get the fully qualified name of the resource.
 
 ```json
 "properties": {
@@ -200,7 +290,7 @@ You also see this error when the resource exists in a different resource group t
 }
 ```
 
-If you attempt to use the [reference](resource-group-template-functions.md#reference) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
+If you attempt to use the [reference](resource-group-template-functions-resource.md#reference) or [listKeys](resource-group-template-functions-resource.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
 
 ```
 Code=ResourceNotFound;
@@ -245,7 +335,7 @@ Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions-string.md#uniquestring) function.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -255,7 +345,7 @@ You can create a unique name by concatenating your naming convention with the re
 If you deploy a storage account with the same name as an existing storage account in your subscription, but provide a different location, you receive an error indicating the storage account already exists in a different location. Either delete the existing storage account, or provide the same location as the existing storage account.
 
 ### AccountNameInvalid
-You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The [uniqueString](resource-group-template-functions.md#uniquestring) function returns 13 characters. If you concatenate a prefix to the **uniqueString** result, provide a prefix that is 11 characters or less.
+You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The [uniqueString](resource-group-template-functions-string.md#uniquestring) function returns 13 characters. If you concatenate a prefix to the **uniqueString** result, provide a prefix that is 11 characters or less.
 
 ### BadRequest
 
@@ -267,7 +357,7 @@ When deploying resource, you may receive the following error code and message:
 
 ```
 Code: NoRegisteredProviderFound
-Message: No registered resource provider found for location {ocation}
+Message: No registered resource provider found for location {location}
 and API version {api-version} for type {resource-type}.
 ```
 
@@ -329,19 +419,19 @@ To get the supported API versions for a particular type of resource, use:
 To see whether the provider is registered, use the `azure provider list` command.
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-To see the supported locations and API versions for a resource provider, use:
+To see the supported locations and API versions for a resource type, use:
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -352,18 +442,23 @@ For complete quota information, see [Azure subscription and service limits, quot
 To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a free trial account is 4:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Which returns:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
@@ -421,13 +516,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-In **Azure CLI**, provide the name of the policy definition:
+In **Azure CLI 2.0**, provide the name of the policy definition:
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
@@ -436,23 +531,6 @@ For more information about policies, see [Use Policy to manage resources and con
 You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
 
 For more information about role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
-
-### SkuNotAvailable
-
-When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
-
-```
-Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
-```
-
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
-
-- Log in to the portal and add a resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
-
-    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
-
-- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 ## Troubleshooting tricks and tips
 
@@ -481,21 +559,13 @@ You can discover valuable information about how your deployment is processed by 
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
-- Azure CLI
+- Azure CLI 2.0
 
-   In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Examine the logged request and response content with the following command:
+   Examine the deployment operations with the following command:
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   This information can help you determine whether a value in the template is being incorrectly set.
 
 - Nested template
 
@@ -552,7 +622,7 @@ Or, suppose you are encountering deployment errors that you believe are related 
 
 Many deployment errors happen when resources are deployed in an unexpected sequence. These errors arise when dependencies are not correctly set. When you are missing a needed dependency, one resource attempts to use a value for another resource but the other does not yet exist. You get an error stating that a resource is not found. You may encounter this type of error intermittently because the deployment time for each resource can vary. For example, your first attempt to deploy your resources succeeds because a required resource randomly completes in time. However, your second attempt fails because the required resource did not complete in time. 
 
-But, you want to avoid setting dependencies that are not needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that are not dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions.md#reference) function creates an implicit dependency on the resource you specify as a parameter in the function, if that resource is deployed in the same template. Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](resource-group-template-functions.md#resourceid) function does not create an implicit dependency or validate that the resource exists.
+But, you want to avoid setting dependencies that are not needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that are not dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions-resource.md#reference) function creates an implicit dependency on the resource you specify as a parameter in the function, if that resource is deployed in the same template. Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](resource-group-template-functions-resource.md#resourceid) function does not create an implicit dependency or validate that the resource exists.
 
 When you encounter dependency problems, you need to gain insight into the order of resource deployment. To view the order of deployment operations:
 
@@ -605,13 +675,13 @@ The following table lists troubleshooting topics for Virtual Machines.
 
 | Error | Articles |
 | --- | --- |
-| Custom script extension errors |[Windows VM extension failures](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Linux VM extension failures](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| OS image provisioning errors |[New Windows VM errors](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[New Linux VM errors](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Allocation failures |[Windows VM allocation failures](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Linux VM allocation failures](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Secure Shell (SSH) errors when attempting to connect |[Secure Shell connections to Linux VM](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errors connecting to application running on VM |[Application running on Windows VM](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Application running on a Linux VM](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Remote Desktop connection errors |[Remote Desktop connections to Windows VM](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Connection errors resolved by redeploying |[Redeploy Virtual Machine to new Azure node](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Custom script extension errors |[Windows VM extension failures](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Linux VM extension failures](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| OS image provisioning errors |[New Windows VM errors](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[New Linux VM errors](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Allocation failures |[Windows VM allocation failures](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Linux VM allocation failures](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Secure Shell (SSH) errors when attempting to connect |[Secure Shell connections to Linux VM](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errors connecting to application running on VM |[Application running on Windows VM](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Application running on a Linux VM](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Remote Desktop connection errors |[Remote Desktop connections to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Connection errors resolved by redeploying |[Redeploy Virtual Machine to new Azure node](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Cloud service errors |[Cloud service deployment problems](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 The following table lists troubleshooting topics for other Azure services. It focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
@@ -621,7 +691,7 @@ The following table lists troubleshooting topics for other Azure services. It fo
 | Automation |[Troubleshooting tips for common errors in Azure Automation](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting](../azure-stack/azure-stack-troubleshooting.md) |
 | Data Factory |[Troubleshoot Data Factory issues](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Troubleshoot common issues when you deploy services on Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Monitor and diagnose Azure Service Fabric applications](../service-fabric/service-fabric-diagnostics-overview.md) |
 | Site Recovery |[Monitor and troubleshoot protection for virtual machines and physical servers](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Storage |[Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Troubleshoot StorSimple device deployment issues](../storsimple/storsimple-troubleshoot-deployment.md) |

@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs & servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---
@@ -23,7 +23,7 @@ ms.author: carlrab
 This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-overview.md).
 
 ## What is an Azure SQL Database logical server?
-An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
+An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features.  
 
 An Azure Database logical server:
 
@@ -38,8 +38,8 @@ An Azure Database logical server:
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases: logins, firewall, audit, threat detection, etc. 
 - Is restricted by a quota within the parent subscription (six servers per subscription - [see Subscription limits here](../azure-subscription-service-limits.md))
-- Provides the scope for database quota and DTU quota for the resources it contains (such as 45000 DTU in V12)
-- Is the versioning scope for capabilities enabled on contained resources (latest version is V12)
+- Provides the scope for database quota and DTU quota for the resources it contains (such as 45000 DTU)
+- Is the versioning scope for capabilities enabled on contained resources 
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
 
@@ -53,7 +53,7 @@ For more information, see [Managing Databases and Logins in Azure SQL Database](
 
 ## What collations are supported?
 
-The default database collation used by Microsoft Azure SQL Database (including the master database) is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is not recommended to alter the collation for V12 databases after creation. For more information about collations, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+The default database collation used by Microsoft Azure SQL Database (including the master database) is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is not recommended to alter the collation after databases are created. For more information about collations, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## What are the naming requirements for database objects?
 
@@ -66,8 +66,8 @@ For information about supported features, see [Features](sql-database-features.m
 ## How do I manage a logical server?
 
 You can manage Azure SQL Database logical servers using several methods:
-- [Azure portal](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [Azure portal](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST](/rest/api/sql/)
 
 ## Next steps

@@ -19,7 +19,7 @@ ms.author: mbaldwin
 ---
 # Azure RemoteApp FAQ
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -80,6 +80,7 @@ You can find good client information, including steps for installing the differe
   * Windows RT
   * Android tablets
   * iPads
+
     And the phones:
   * iPhone
   * Android Phone

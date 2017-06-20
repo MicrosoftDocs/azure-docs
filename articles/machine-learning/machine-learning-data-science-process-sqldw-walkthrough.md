@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
 
 ---
@@ -81,7 +81,7 @@ Follow the documentation at [Create a SQL Data Warehouse](../sql-data-warehouse/
 * **Username**
 * **Password**
 
-**Install Visual Studio 2015 and SQL Server Data Tools.** For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connect to your Azure SQL DW with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -101,7 +101,7 @@ Follow the documentation at [Create a SQL Data Warehouse](../sql-data-warehouse/
 **Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Load the data into SQL Data Warehouse
-Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on Github to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
+Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on GitHub to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
 
 > [!NOTE]
 > You might need to **Run as Administrator** when executing the following PowerShell script if your *DestDir* directory needs Administrator privilege to create or to write to it.
@@ -336,7 +336,7 @@ After a successful execution, you will see screen like below:
 ![][20]
 
 ## <a name="dbexplore"></a>Data exploration and feature engineering in Azure SQL Data Warehouse
-In this section, we perform data exploration and feature generation by running SQL queries against Azure SQL DW directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named *SQLDW_Explorations.sql*. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in Github does not have the Azure SQL DW information plugged in.
+In this section, we perform data exploration and feature generation by running SQL queries against Azure SQL DW directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named *SQLDW_Explorations.sql*. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in GitHub does not have the Azure SQL DW information plugged in.
 
 Connect to your Azure SQL DW using Visual Studio with the SQL DW login name and password and open up the **SQL Object Explorer** to confirm the database and tables have been imported. Retrieve the *SQLDW_Explorations.sql* file.
 

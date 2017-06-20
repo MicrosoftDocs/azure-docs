@@ -1,10 +1,10 @@
 ---
-title: Disaster recovery and device failover for Microsoft Azure StorSimple Virtual Array| Microsoft Docs
+title: StorSimple Virtual Array disaster recovery and device failover | Microsoft Docs
 description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Disaster recovery and device failover for your StorSimple Virtual Array
+# Disaster recovery and device failover for your StorSimple Virtual Array via Azure portal
 
 ## Overview
 This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array including the detailed steps to fail over to another virtual array. A failover allows you to move your data from a *source* device in the datacenter to a *target* device. The target device may be located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
@@ -49,7 +50,7 @@ For a device failover, ensure that the following prerequisites are satisfied:
   > Do not attempt to configure the registered virtual device through the service. No device configuration should be performed through the service.
   > 
   > 
-* The target device cannot have the same name as the source device. You can always rename the target device once the failover is complete.
+* The target device cannot have the same name as the source device.
 * The source and target device have to be the same type. You can only fail over a virtual array configured as a file server to another file server. The same is true for an iSCSI server.
 * For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain.
 * The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space are not available as target devices.
@@ -150,7 +151,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
     1. Select and click the StorSimple device that was used as the target device for the failover process.
     2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. You can now rename the device (same as the old source device) so that the application servers can directly connect to this device. If you do not want to rename the device, you will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
+14. You will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR
 

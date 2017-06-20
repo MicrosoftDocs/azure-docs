@@ -24,7 +24,7 @@ After creating your key vault, you will be able to start using that vault to sto
 This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It also demonstrates implementation of a scheduled rotation of that storage account key. Finally, it walks through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
 > [!NOTE]
-> This tutorial is not intended to explain in detail the initial setup of your key vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). For Cross-Platform Command-Line Interface instructions, see [Manage Key Vault using CLI](key-vault-manage-with-cli.md).
+> This tutorial is not intended to explain in detail the initial setup of your key vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). For Cross-Platform Command-Line Interface instructions, see [Manage Key Vault using CLI](key-vault-manage-with-cli2.md).
 >
 >
 
@@ -221,7 +221,7 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -StorageAccountName $StorageAccountName -KeyName "key2" -Verbose
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
 $SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
@@ -414,7 +414,7 @@ At this point, the function is ready. Make sure to switch back to the **Develop*
 ### Azure logic app
 Next you must create an Azure logic app that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to **New > Logic App**.
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) by going to **New > Logic App**.
 
 Once the logic app is created, navigate to it and choose **edit**. Within the logic app editor, choose **Service Bus Queue** and enter your Service Bus credentials to connect it to the queue.
 

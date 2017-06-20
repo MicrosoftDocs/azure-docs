@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
-ms.author: femila
+ms.date: 05/16/2017
+ms.author: markvi
 
 ---
 # Managing access to apps

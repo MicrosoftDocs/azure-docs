@@ -4,7 +4,7 @@ description: Learn how to build WebJobs to run background tests, interact with s
 services: app-service
 documentationcenter: ''
 author: christopheranderson
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 85975432-04c9-4b83-b937-b30c082d52a1

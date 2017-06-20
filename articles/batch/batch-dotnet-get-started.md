@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Get started with the Azure Batch .NET library | Microsoft Docs
-description: Learn the basic concepts of Azure Batch and how to develop for the Batch service with an example scenario.
+title: Tutorial - Use the Azure Batch client library for .NET | Microsoft Docs
+description: Learn the basic concepts of Azure Batch and build a simple solution using .NET.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,14 +13,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/13/2017
+ms.date: 05/22/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with the Azure Batch library for .NET
+# Get started building solutions with the Batch client library for .NET
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
@@ -42,7 +45,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 >
 
 ### Visual Studio
-You must have **Visual Studio 2015** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio 2015 products][visual_studio].
+You must have **Visual Studio 2015 or newer** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio products][visual_studio].
 
 ### *DotNetTutorial* code sample
 The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you can find the solution in the following folder:
@@ -53,7 +56,7 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code
 The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
-The *DotNetTutorial* code sample is a Visual Studio 2015 solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
+The *DotNetTutorial* code sample is a Visual Studio solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
 
 * **DotNetTutorial** is the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). DotNetTutorial runs on your local workstation.
 * **TaskApplication** is the program that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
@@ -243,7 +246,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
         CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-        await blobData.UploadFromFileAsync(filePath, FileMode.Open);
+        await blobData.UploadFromFileAsync(filePath);
 
         // Set the expiry time and permissions for the blob shared access signature.
         // In this case, no start time is specified, so the shared access signature
@@ -316,7 +319,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -358,7 +361,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
 > [!IMPORTANT]
-> You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
+> You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicatedComputeNodes` to 1 before you run the sample.
 >
 >
 
@@ -475,7 +478,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
         try
         {
                 CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-                blob.UploadFromFile(filePath, FileMode.Open);
+                blob.UploadFromFile(filePath);
 
                 Console.WriteLine("Write operation succeeded for SAS URL " + containerSas);
                 Console.WriteLine();
@@ -551,7 +554,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -561,32 +564,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 
@@ -786,7 +782,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Create containers in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Upload task application and input (data) files to containers"

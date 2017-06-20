@@ -2,7 +2,7 @@
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
@@ -11,33 +11,70 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: abnarain
 published: true
 ---
 # Release notes for Data Management Gateway
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
+One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
-See the following articles for detailed information about Data Management Gateway and how to use it: 
+See the following articles for detailed information about Data Management Gateway and how to use it:
 
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
-*  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
+*  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
-## CURRENT VERSION (2.5.6164.1)
-### Enhancements
-- Improved and more robust Gateway registration experience- Now you can track progress status during the Gateway registration process, which makes the registration experience more responsive.
-- Improvement in Gateway Restore Process- You can still recover gateway even if you do not have the gateway backup file with this update. This would require you to reset Linked Service credentials in Portal.
-- Bug fix.
+
+## CURRENT VERSION (2.10.6347.7)
+
+### Enhancements-
+- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
+- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- Fixed: Issue with gateway offline during update (due to clock skew)
 
 
 
 ## Earlier versions
 
+## 2.9.6313.2
+### Enhancements-
+-	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
+-	You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
+-	Fixed: Out of memory issue while unzipping several small files during copy activity.
+-	Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
+-	Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
+-	Fixed: Column name with space at the end does not work in copy activity.
+
+## 2.8.66283.3
+### Enhancements-
+- Fixed: Issue with missing credentials on gateway machine reboot.
+- Fixed: Issue with registration during gateway restore using a backup file.
+
+
+## 2.7.6240.1
+### Enhancements-
+- Fixed: Incorrect read of Decimal null value from Oracle as source.
+
+## 2.6.6192.2
+### What’s new
+- Customers can provide feedback on gateway registering experience.
+- Support a new compression format: ZIP (Deflate)
+
+### Enhancements-
+- Performance improvement for Oracle Sink, HDFS source.
+- Bug fix for gateway auto update, gateway parallel processing capacity.
+
+
+## 2.5.6164.1
+### Enhancements
+- Improved and more robust Gateway registration experience- Now you can track progress status during the Gateway registration process, which makes the registration experience more responsive.
+- Improvement in Gateway Restore Process- You can still recover gateway even if you do not have the gateway backup file with this update. This would require you to reset Linked Service credentials in Portal.
+- Bug fix.
+
 ## 2.4.6151.1
 
 ### What’s new
 
-- You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on premise. 
+- You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on premise.
 
 ### Enhancements-
 
@@ -61,10 +98,10 @@ See the following articles for detailed information about Data Management Gatewa
 
 ## 2.1.6040.
 
-*  DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
-*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
-*  Supports using DocumentDB as a source or destination for on-premises data stores
-*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
+*  DB2 driver is included in the gateway installation package now. You do not need to install it separately.
+*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows).
+*  Supports using Azure Cosmos DB as a source or destination for on-premises data stores
+*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account.
 *  Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 
 ## 2.0.6013.1
@@ -79,7 +116,7 @@ See the following articles for detailed information about Data Management Gatewa
 
     *  Reorganized and simplified controls.
 
-	*  You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+	*  You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
 *  You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 
 *  Performance improvements
@@ -94,7 +131,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 *  Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
 
-*  A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
+*  A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later.
 
 *  In case auto-update fails, gateway installer retries auto-updating three times at maximum.
 
@@ -200,7 +237,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 ### 1.2.5303.1
 
-*  Fix timeout issue to support more time-consuming data source connections. 
+*  Fix timeout issue to support more time-consuming data source connections.
 
 ### 1.1.5526.8
 

@@ -1,6 +1,6 @@
 ---
-title: 'Installing Mobility Service (VMware/Physical to Azure) | Microsoft Docs'
-description: This article describes how to install the Mobility Service Agent on your on-premises machines to start protecting them.
+title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
+description: Learn how to install the Mobility Service agent to protect your on-premises computers.
 services: site-recovery
 documentationcenter: ''
 author: AnoopVasudavan
@@ -13,64 +13,97 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 5/11/2017
 ms.author: anoopkv
 ---
 
-# Installing Mobility Service (VMware/Physical to Azure)
-Mobility Service needs to be  deployed on every machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine, and forwards them to the process server.  Mobility Service can be deployed onto the servers that require protection in the following methods
-1. [Install Mobility Service using Software deployment tools like System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-2. [Install Mobility Service using Azure Automation and Desired State Configuration(DSC)](site-recovery-automate-mobility-service-install.md)
-3. [Install Mobility Service manually using the Graphical User Interface(GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-the-graphical-user-interface)
-4. [Install Mobility Service manually using Command-line](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-command-line)
-5. [Install Mobility Service using Push Install from Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-using-push-install-from-azure-site-recovery)
+# Install Mobility Service (VMware or physical to Azure)
+Azure Site Recovery Mobility Service captures data writes on a computer, and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
+
+
+* [Install Mobility Service by using software deployment tools like System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+* [Install Mobility Service by using Azure Automation and Desired State Configuration (Automation DSC)](site-recovery-automate-mobility-service-install.md)
+* [Install Mobility Service manually by using the graphical user interface (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
+* [Install Mobility Service manually at a command prompt](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
+* [Install Mobility Service by push installation from Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+
+
+>[!IMPORTANT]
+> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/windows/extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
 
 ## Prerequisites
-Perform these prerequisites before you start manually installing the Mobility Service on your servers.
-1. Login on to your Configuration Server and open up a command prompt in with Administrative privileges.
-2. Change directory to the bin folder and create a passphrase file
+Complete these prerequisite steps before you manually install Mobility Service on your server:
+1. Sign in to your configuration server, and then open a Command Prompt window as an administrator.
+2. Change the directory to the bin folder, and then create a passphrase file:
 
-  ```
-  cd %ProgramData%\ASR\home\svsystems\bin
-  genpassphrase.exe -v > MobSvc.passphrase
-  ```
-3. Store this file in a secure location as we will need to use it during the Mobility Service installation.
-4. The Mobility Service installers for all the supported operating systems can be found under the directory     
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    genpassphrase.exe -v > MobSvc.passphrase
+    ```
+3. Store the passphrase file in a secure location. You use the file during the Mobility Service installation.
+4. Mobility Service installers for all supported operating systems are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder.
 
-  `%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
+### Mobility Service installer-to-operating system mapping
 
-#### Mobility Service installer to Operating System mapping
-
-| Installer file template name| Operating System |
+| Installer file template name| Operating system |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 (64 bit) SP1</br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6 (64 bit only) </br> CentOS 6.4, 6.5, 6.6 (64 bit only) |
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64 bit only)|
-|Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64 bit only)|
-|Microsoft-ASR_UA\*Ubuntu-14.04-64\*release.tar.gz | Ubuntu 14.04 (64 bit only)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (64-bit only) </br> CentOS 7.0, 7.1, 7.2 (64-bit only)</br> CentOs 7.3 (migration only) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64-bit only)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (64-bit only)|
 
-## Install Mobility Service manually using the Graphical User Interface
 
->[!NOTE]
-> The Graphical User Interface based install is supported only for Microsoft Windows Operating Systems.
+## Install Mobility Service manually by using the GUI
+
+>[!IMPORTANT]
+> The GUI-based installation works only with Windows operating systems.
+> If you are using a Configuration Server to replicate Azure IaaS virtual machines from one Azure Subscription/Region to another then use the Command-line based installation method
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
-## Install Mobility Service manually using Command-line
-### Command-line based install on Windows Computers
+## Install Mobility Service manually at a command prompt
+
+### Command-line installation on a Windows computer
 [!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
 
-### Command-line based install on Linux Computers
+### Command-line installation on a Linux computer
 [!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
 
 
-## Install Mobility Service using Push Install from Azure Site Recovery
-To be able to perform push installation of Mobility Service using Azure Site Recovery, you need to ensure the following pre-requisites are met on all target computers.
+## Install Mobility Service by push installation from Azure Site Recovery
+To do a push installation of Mobility Service by using Site Recovery, all target computers must meet the following prerequisites.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## Next steps
-Once the Mobility Service is installed you can use the **+Replicate** button in Azure Portal to start enabling protection for these VMs.
+> [!NOTE]
+After Mobility Service is installed, in the Azure portal, select the **Replicate** button to start protecting these VMs.
+
+## Uninstall Mobility Service on a Windows Server computer
+Use one of the following methods to uninstall Mobility Service on a Windows Server computer.
+
+### Uninstall by using the GUI
+1. In Control Panel, select **Programs**.
+2. Select **Microsoft Azure Site Recovery Mobility Service/Master Target server**, and then select **Uninstall**.
+
+### Uninstall at a command prompt
+1. Open a Command Prompt window as an administrator.
+2. To uninstall Mobility Service, run the following command:
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## Uninstall Mobility Service on a Linux computer
+1. On your Linux server, sign in as a **root** user.
+2. In a terminal, go to /user/local/ASR.
+3. To uninstall Mobility Service, run the following command:
+
+```
+uninstall.sh -Y
+```

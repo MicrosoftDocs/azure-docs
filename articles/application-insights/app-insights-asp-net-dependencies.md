@@ -1,10 +1,10 @@
 ---
-title: Dependency Tracking in Application Insights
+title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: awills
+ms.date: 05/04/2017
+ms.author: cfreeman
 
 ---
 # Set up Application Insights: Dependency tracking
@@ -27,11 +27,13 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
   * SQL databases
   * ASP.NET web and WCF services that use HTTP-based bindings
   * Local or remote HTTP calls
-  * Azure DocumentDb, table, blob storage, and queue
+  * Azure Cosmos DB, table, blob storage, and queue
 * Web pages
   * AJAX calls
 
-You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
+Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around selected methods. Performance overhead is minimal.
+
+You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## Set up dependency monitoring
 Partial dependency information is collected automatically by the [Application Insights SDK](app-insights-asp-net.md). To get complete data, install the appropriate agent for the host server.
@@ -113,9 +115,9 @@ In a different case, there is no dependency call that is particularly long. But 
 
 There seems to be a big gap after the first dependency call, so we should look at our code to see why that is.
 
-### Profiling your live site
+### Profile your live site
 
-No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
+No idea where the time goes? The [Application Insights profiler](app-insights-profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
 
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
@@ -169,7 +171,7 @@ You can track dependencies in the [Analytics query language](app-insights-analyt
 ## Custom dependency tracking
 The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way.
 
-You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) that is used by the standard modules.
+You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
 
 For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
 
@@ -198,6 +200,10 @@ If you want to switch off the standard dependency tracking module, remove the re
 * Upgrade to the latest version of the SDK. If your .NET version is less than 4.6:
   * IIS host: Install [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on the host servers.
   * Azure web app: Open Application Insights tab in the web app control panel, and install Application Insights.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 * [Exceptions](app-insights-asp-net-exceptions.md)

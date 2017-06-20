@@ -33,7 +33,7 @@ The following 4-minute video provides a brief explanation of how App Service rel
 Here are some key features and capabilities of App Service:
 
 * **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [Windows PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
-* **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](../xplat-cli-install.md).
+* **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](../cli-install-nodejs.md).
 * **Global scale with high availability** - Scale [up](../app-service-web/web-sites-scale.md) or [out](../monitoring-and-diagnostics/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
@@ -46,7 +46,7 @@ App Service offers several *app types*, each of which is intended to host a spec
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting RESTful APIs.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
 
 The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. 
 
@@ -69,7 +69,7 @@ App Service plans define:
 
 All applications assigned to an **App Service plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
-Your **App Service plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** and scale count of the VMs.
+Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** and scale count of the VMs.
 
 The **SKU** and **Scale** of the App Service plan determines the cost and not the number of apps hosted in it. 
 
@@ -79,12 +79,12 @@ If you need more scalability and network isolation, you can run your apps in an 
 For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Test-drive App Service
-[Create a sample web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) and play with it for one hour, with no credit card required, no commitments, no hassles.
+[Create a sample web app, mobile app, or logic app](https://azure.microsoft.com/try/app-service/) and play with it for one hour, with no credit card required, no commitments, no hassles.
 
 Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
 
 * [Tutorial: Create a web app](../app-service-web/app-service-web-get-started.md)
 * [Tutorial: Create a mobile app](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Tutorial: Create an API app](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Tutorial: Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Tutorial: Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

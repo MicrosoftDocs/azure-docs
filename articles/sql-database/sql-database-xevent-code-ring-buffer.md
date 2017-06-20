@@ -10,16 +10,17 @@ tags: ''
 
 ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
 
 ---
 # Ring Buffer target code for extended events in SQL Database
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
@@ -41,6 +42,7 @@ This topic presents a Transact-SQL code sample that:
 8. Drops the event session and the demo table.
 
 ## Prerequisites
+
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
   
@@ -52,6 +54,7 @@ This topic presents a Transact-SQL code sample that:
   * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Code sample
+
 With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
 
 * sys.dm_xe**_database**_session_targets
@@ -59,7 +62,7 @@ With very minor modification, the following Ring Buffer code sample can be run o
 
 &nbsp;
 
-```
+```tsql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -213,6 +216,7 @@ GO
 &nbsp;
 
 ## Ring Buffer contents
+
 We used ssms.exe to run the code sample.
 
 To view the results, we clicked the cell under the column header **target_data_XML**.
@@ -312,9 +316,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 
 #### Release resources held by your Ring Buffer
+
 When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -324,7 +329,7 @@ GO
 
 The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -336,6 +341,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 
 ## More information
+
 The primary topic for extended events on Azure SQL Database is:
 
 * [Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.

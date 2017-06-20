@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: mijiang
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
@@ -41,7 +40,10 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
+* [Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [What is the minimum subnet size needed when deploying API Management into a VNET?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Are there restrictions on or known issues with importing my API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### How can I ask the Microsoft Azure API Management team a question?
 You can contact us by using one of these options:
@@ -59,7 +61,7 @@ You have several options to secure the connection between the API Management gat
 * Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
-* Connect your API Management instance to an Azure Virtual Network. For more information, see [How to set up VPN connections in Azure API Management](api-management-howto-setup-vpn.md).
+* Connect your API Management instance to an Azure Virtual Network.
 
 ### How do I copy my API Management service instance to a new instance?
 You have several options if you want to copy an API Management instance to a new instance. You can:
@@ -112,8 +114,8 @@ To set up multiple environments, for example, a test environment and a productio
 At the Standard and Premium tiers, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
 
 * The service is deleted and then re-created.
-* The service subscription is suspended (for example, for nonpayment) and then reinstated.
-* You add or remove Azure Virtual Network (you can use Virtual Network only at the Premium tier).
+* The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
+* You add or remove Azure Virtual Network (you can use Virtual Network only at the Developer and Premium tier).
 
 For multi-region deployments, the regional address changes if the region is vacated and then reinstated (you can use multi-region deployment only at the Premium tier).
 
@@ -125,7 +127,7 @@ You can get your IP address (or addresses, in a multi-region deployment) on the 
 To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### What routing method does API Management use in deployments to multiple geographic locations?
-API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
 Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
@@ -143,6 +145,15 @@ If you use Git Credential Manager, or if you're trying to clone a Git repository
 ### Does API Management work with Azure ExpressRoute?
 Yes. API Management works with Azure ExpressRoute.
 
+### Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?
+The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer doesn't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
+To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### What is the minimum subnet size needed when deploying API Management into a VNET?
+The minimum subnet size needed to deploy API Management is [/29](../virtual-network/virtual-networks-faq.md#configuration), which is the minimum subnet size that Azure supports.
+
 ### Can I move an API Management service from one subscription to another?
 Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
+### Are there restrictions on or known issues with importing my API?
+[Known issues and restrictions](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.

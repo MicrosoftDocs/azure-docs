@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure App Service - API Apps Documentation - Tutorials | Microsoft Docs
 description: Learn how to use API Apps in Azure App Service to develop, host, and consume APIs in the cloud and on-premises. Tutorials, videos, and other documentation.
+services: app-service\api
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # App Service - API Apps Documentation
 

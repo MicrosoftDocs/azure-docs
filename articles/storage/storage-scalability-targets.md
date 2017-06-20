@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 06/15/2017
 ms.author: robinsh
 
 ---
@@ -36,15 +36,19 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for blobs, queues, tables, and files
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## Scalability targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
+See [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
-### Standard storage accounts
+## Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
+
+## Unmanaged virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### Premium storage accounts
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## Scalability targets for Azure resource manager

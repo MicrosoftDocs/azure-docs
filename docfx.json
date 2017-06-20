@@ -67,7 +67,75 @@
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
       "searchScope": ["Azure"],
-      "contributors_to_exclude": ["hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit", "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha"]
+      "contributors_to_exclude": ["PRMerger5", "PRMerger4", "PRMerger3", "PRMerger-2","hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit", "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha", "ktoliver", "itechedit", "MattGLaBelle"],
+      "_op_documentIdPathDepotMapping": {
+        "articles/billing/billing-add-change-azure-subscription-administrator.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-azure-subscription-past-due-balance.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-buy-sign-up-azure-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-cannot-login-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-credit-card-fails-during-azure-sign-up.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-download-azure-invoice-daily-usage-date.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-how-to-cancel-azure-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-how-to-change-azure-account-profile.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-how-to-change-credit-card.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-how-to-switch-azure-offer.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-set-up-alerts.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-subscription-become-disable.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-subscription-transfer.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-troubleshoot-azure-sign-up-issues.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-understand-your-azure-marketplace-charges.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-understand-your-bill.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-upgrade-azure-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-usage-rate-card-overview.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md": {
+          "folder_relative_path_in_docset": "articles"
+        },
+        "articles/billing/billing-use-existing-office-365-account-azure-subscription.md": {
+          "folder_relative_path_in_docset": "articles"
+        }
+      }
     },
     "fileMetadata": {},
     "template": [

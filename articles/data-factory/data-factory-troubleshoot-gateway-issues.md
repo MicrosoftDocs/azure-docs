@@ -2,20 +2,18 @@
 title: Troubleshoot Data Management Gateway issues | Microsoft Docs
 description: Provides tips to troubleshoot issues related to Data Management Gateway.
 services: data-factory
-documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
-
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: jingwang
-
+ms.date: 05/04/2017
+ms.author: abnarain
+published: true
 ---
 # Troubleshoot issues with using Data Management Gateway
 This article provides information on troubleshooting issues with using Data Management Gateway.
@@ -37,7 +35,7 @@ The machine on which you are trying to install the gateway has failed to downloa
 #### Resolution
 Check your firewall proxy server settings to see whether the settings block the network connection from the computer to the [download center](https://download.microsoft.com/), and update the settings accordingly.
 
-Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center. You can then copy the installer file to the gateway host computer and run it manually to install and update the gateway.
+Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) on other machines that can access the download center. You can then copy the installer file to the gateway host computer and run it manually to install and update the gateway.
 
 ### 2. Problem
 You see this error when you're attempting to install a gateway by clicking **install directly on this computer** in the Azure portal.
@@ -88,10 +86,12 @@ You might see the following error message when you're registering a gateway.
 ![Gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### Cause
-The gateway key has been regenerated or the gateway has been deleted in the portal.
+The gateway key has been regenerated or the gateway has been deleted in the Azure portal. It can also happen if the Data Management Gateway setup is not latest.
 
 #### Resolution
-If the gateway still exists, regenerate the gateway key in the portal and use the copy button to copy the whole key. Paste it in the window to register the gateway. Otherwise, re-create the gateway and start over.
+Check if the Data Management Gateway setup is the latest version, you can find the latest version on the Microsoft [download center](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+
+If setup is current/ latest and gateway still exists on Portal, regenerate the gateway key in the Azure portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway. Otherwise, recreate the gateway and start over.
 
 ### 6. Problem
 You might see the following error message when you're registering a gateway.

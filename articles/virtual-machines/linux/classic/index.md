@@ -1,21 +1,20 @@
 ---
-title: To be submitted | Microsoft Azure
-description: To be submitted.
-services: ''
-documentationcenter: ''
-author: squillace
-manager: timlt
-editor: ''
-tags: billing
+layout: LandingPage
+description: Learn how to create a virtual machine using the Linux with a classic deployment.
 
-ms.assetid: 642849b2-d752-4d0b-9e83-976c06259af9
-ms.service: value
-ms.devlang: na
-ms.topic: article
+title: Azure Virtual Machines for Linux (Classic Deployment) Documentation | Microsoft Docs
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: 
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
-ms.author: tysonn
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 
 ---
 

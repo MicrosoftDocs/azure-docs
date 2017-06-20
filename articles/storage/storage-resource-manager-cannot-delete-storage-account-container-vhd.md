@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 06/13/2017
 ms.author: genli
 
 ---
@@ -53,13 +53,13 @@ To resolve these problems, you must identify the VHD that is causing the error a
 ### Step 1: Identify the problem VHD and the associated VM
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **All resources**. Go to the storage account that you want to delete, and then select **Blobs** > **vhds**.
-   
+
     ![Screenshot of the portal, with the storage account and the "vhds" container highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. Check the properties of each VHD in the container. Locate the VHD that is in the **Leased** state. Then, determine which VM is using the VHD. Usually, you can determine which VM holds the VHD by checking name of the VHD:
-   
+
    * OS disks generally follow this naming convention: VMNameYYYYMMDDHHMMSS.vhd
    * Data disks generally follow this naming convention: VMName-YYYYMMDD-HHMMSS.vhd
-     
+
      ![Screenshot of the container info in the portal, with the name of the VM, the lease status of "Locked", and the lease state of "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### Step 2: Remove the lease from the VHD
@@ -93,4 +93,3 @@ A lease is a lock that can be used to control access to a blob (for example, a V
 ## Next steps
 * [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
 * [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-

@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through the CSP Program | Microsoft Docs
+title: Multi-tenant support for VMware VM replication to Azure (CSP program) | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery in a multi-tenant environment to orchestrate replication, failover and recovery of on-premises VMware virtual machines to Azure through the CSP Program using the Azure portal
 services: site-recovery
 documentationcenter: ''
@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: ''
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 
 ---
@@ -41,7 +41,7 @@ The architecture looks as follows:
 
 **Figure 1: Shared hosting scenario with one vCenter**
 
-As seen from the above representation, each customer will have a separate Management Server. This is done to limit tenant access to tenant-specific VMs to enable tenant isolation. VMware virtual machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. We follow the same principles for multi-tenant environments, with the addition of restricting VM discovery through vCenter access control. 
+As seen from the above representation, each customer will have a separate Management Server. This is done to limit tenant access to tenant-specific VMs to enable tenant isolation. VMware virtual machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. We follow the same principles for multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
 
 The data isolation requirement necessitates that all sensitive infrastructure information (such as access credentials) remains disclosed from tenants. For this reason, we recommend that all the components of the management server (Configuration Server (CS), Process Server (PS) and Master Target Server (MT)) remain under the exclusive control of the partner. This includes scale-out PS.
 
@@ -60,7 +60,7 @@ The alternative is to assign the user account and role at the Datacenter object 
 
 The vCenter account access procedure is as follows:
 
-1.	Create a new role by cloning the pre-defined ‘Read-only’ role and give it a convenient name (such as Azure_Site_Recovery used in this example). 
+1.	Create a new role by cloning the pre-defined ‘Read-only’ role and give it a convenient name (such as Azure_Site_Recovery used in this example).
 2.	Assign the following permissions to this role:
  *	Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files
  *	Network -> Network assign
@@ -92,7 +92,7 @@ To restrict DR operations till the failover state that is, without failback capa
 
 ## Other multi-tenant environments
 
-The above guidance described in detail how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these is as below: 
+The above guidance described in detail how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these is as below:
 
 ### Dedicated hosting solution
 
@@ -112,7 +112,7 @@ The architectural difference here is that each tenant’s infrastructure is also
 
 
 ## CSP program overview
-Microsoft’s Cloud Solution Provider (CSP) [program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories with partners for offering all Microsoft cloud services including O365, EMS, and Microsoft Azure. It enables our partners to own the end-to-end relationship with customers and become the primary relationship contact point. Through CSP, a partner can deploy Azure subscriptions for customers, and combine these subscriptions with their own value-added customized offerings. 
+Microsoft’s Cloud Solution Provider (CSP) [program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories with partners for offering all Microsoft cloud services including O365, EMS, and Microsoft Azure. It enables our partners to own the end-to-end relationship with customers and become the primary relationship contact point. Through CSP, a partner can deploy Azure subscriptions for customers, and combine these subscriptions with their own value-added customized offerings.
 
 In the case of Azure Site Recovery, partners can manage the complete Disaster Recovery solution for customers directly through CSP or use CSP to set up the Azure Site Recovery environments and let customers manage their own DR needs in a self-service manner. In both scenarios, the partner is the liaison between Azure Site Recovery and final customers, and the partner services the customer relationship and bills customers for Azure Site Recovery usage.
 
@@ -149,11 +149,11 @@ The VM prerequisites are the same as described in the Azure Site Recovery [docum
 ### Step 2: Access tenant account
 
 1.	You can access the tenant’s subscription from the ‘Customers’ page through your Dashboard as described in step 1. Navigate here and click on the name of the tenant account just created.
-2.	This opens the Subscriptions section of the tenant account and from here you can monitor the existing subscriptions for the account and add more subscriptions as required. To manage the tenant’s DR operations, select the ‘All resources (Azure portal) option on the right side of the page. 
+2.	This opens the Subscriptions section of the tenant account and from here you can monitor the existing subscriptions for the account and add more subscriptions as required. To manage the tenant’s DR operations, select the ‘All resources (Azure portal) option on the right side of the page.
 
 	![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.	Clicking the ‘All resources’ button grants you access to the tenant’s Azure subscriptions and you can verify the same by checking the AAD displayed on the top right corner of the Azure portal. 
+3.	Clicking the ‘All resources’ button grants you access to the tenant’s Azure subscriptions and you can verify the same by checking the AAD displayed on the top right corner of the Azure portal.
 
 	![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
@@ -180,15 +180,13 @@ For the case of self-service DR the account details as mentioned in item 6 of St
 A partner can also add a new user to the tenant subscription through the CSP portal as follows:
 
 1.	Go to the particular tenant’s CSP subscription page and select the ‘Users and licenses’ option.
-	
+
 	![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-	You can now create a new user by entering the relevant details and selecting permissions, or alternatively uploading the list of users though a CSV file. 
-2.	Once the users are created, go back to the Azure portal and under the Subscription blade select the relevant subscription. 
+	You can now create a new user by entering the relevant details and selecting permissions, or alternatively uploading the list of users though a CSV file.
+2.	Once the users are created, go back to the Azure portal and under the Subscription blade select the relevant subscription.
 3.	On the new blade that opens select Access Control (IAM) and click on +Add to add a user with the relevant access level. The users created through CSP portal will automatically be displayed on the blade that opens after clicking an access level.
 
 	![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
 	For most management operations, the Contributor role is sufficient. A user with this access level can do everything on a subscription except change access levels (for which an Owner level access is required). You can also fine-tune the access levels as required.
-
-

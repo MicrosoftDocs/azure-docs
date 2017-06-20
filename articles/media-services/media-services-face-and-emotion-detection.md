@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 
 ---
@@ -79,16 +79,16 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
 
     {
-      "version":"1.0"
+      "version":"1.0",
       "options":{
-          "TrackingMode": "Faster"
+          "TrackingMode": "Fast"
       }
     }
 
 #### Attribute descriptions
 | Attribute name | Description |
 | --- | --- |
-| Mode |Faster: faster processing speed, but less accurate (default). <br/>Quality: better accuracy tracking, but takes longer. |
+| Mode |Fast - fast processing speed, but less accurate (default).|
 
 
 ### JSON output
@@ -168,10 +168,10 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 #### Aggregate defaults
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
-| Defaults(s) | Min(s) | Max(s) |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |
-| AggregateEmotionIntervalMs |0.5 |1 |
+|| Defaults(s) | Min(s) | Max(s) |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0.25|
+| AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### JSON output
 JSON output for aggregate emotion (truncated):

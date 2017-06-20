@@ -1,6 +1,6 @@
 ---
-title: Handling State in Resource Manager Templates | Microsoft Docs
-description: Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates
+title: Pass complex values between Azure templates | Microsoft Docs
+description: Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -17,7 +17,7 @@ ms.date: 10/26/2016
 ms.author: tomfitz
 
 ---
-# Sharing state in Azure Resource Manager templates
+# Share state to and from Azure Resource Manager templates
 This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).

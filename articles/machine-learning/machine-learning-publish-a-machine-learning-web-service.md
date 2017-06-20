@@ -47,7 +47,7 @@ To convert your training experiment to a predictive experiment, click **Run** at
 
 ![Convert to scoring experiment](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-For more information on how to perform this conversion, see [Convert a Machine Learning training experiment to a predictive experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+For more information on how to perform this conversion, see [How to prepare your model for deployment in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 The following steps describe deploying a predictive experiment as a New web service. You can also deploy the experiment as Classic web service.
 
@@ -59,6 +59,9 @@ You can deploy the predictive experiment as a New web service or as a Classic we
 Now that the predictive experiment has been prepared, you can deploy it as a new Azure web service. Using the web service, users can send data to your model and the model will return its predictions.
 
 To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Web Service portal opens.
+
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 #### Machine Learning Web Service portal Deploy Experiment Page
 On the Deploy Experiment page, enter a name for the web service.
@@ -110,10 +113,10 @@ Once you deploy your web service from Machine Learning Studio, you can send data
 
 The **Consume** page provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service.
 
-For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
+For more information about accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 #### Manage your New web service
-You can manage your classic web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
+You can manage your New web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
 ### Deploy the predictive experiment as a Classic web service
 
@@ -150,7 +153,7 @@ Once you deploy your web service from Machine Learning Studio, you can send data
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
+For more information about accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 #### Manage your Classic web service
 There are various of actions you can perform to monitor a web service. You can update it, and delete it. You can also add additional endpoints to a Classic web service in addition to the default endpoint that is created when you deploy it.

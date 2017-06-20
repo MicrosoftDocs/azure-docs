@@ -19,15 +19,14 @@ ms.author: marsma
 ---
 # How to use Azure Table storage from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
 This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-* [Create a Node.js web app in Azure App Service](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+* [Create a Node.js web app in Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
@@ -65,7 +64,7 @@ var azure = require('azure-storage');
 ## Set up an Azure Storage connection
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
+For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
@@ -193,9 +192,8 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity-related operation and can be retrieved through `response['.metadata'].etag`.
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
-> `entity2['.metadata'].etag = currentEtag;`
->
-> 1. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
+> 		entity2['.metadata'].etag = currentEtag;
+> 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 >
 >
 
@@ -450,18 +448,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## Next steps
 For more information, see the following resources.
 
-* [Azure Storage Team Blog][Azure Storage Team Blog].
-* [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
 * [Node.js Developer Center](/develop/nodejs/)
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[OData.org]: http://www.odata.org/
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: portal.azure.com
-
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
+* [Create and deploy a Node.js application to an Azure website](../app-service-web/app-service-web-get-started-nodejs.md)

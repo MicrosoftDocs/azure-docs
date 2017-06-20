@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
 ## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
 
@@ -13,22 +13,29 @@
 
 ## Manage
 ### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
+### [Embed a Power BI report](power-bi-embedded-embed-report.md)
 ### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+### [Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)
+### [Save reports](power-bi-embedded-save-reports.md)
+### [Toggle between view and edit](power-bi-embedded-toggle-mode.md)
 
 ## Secure
 ### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
 ### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
-## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
+## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+## [Management REST APIs](/rest/api/powerbiembedded/)
+## [REST APIs](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 
 
 # Resources
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Sample application](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [JavaScript Git repo](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Power BI C# Git repo](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

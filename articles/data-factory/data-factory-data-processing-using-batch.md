@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---
@@ -864,20 +864,18 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 1. Add the following subfolders in the **inputfolder**: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 and place input files in those folders. Change the end time for the pipeline from `2015-11-16T05:00:00Z` to `2015-11-16T10:00:00Z`. In the **Diagram View**, double-click the **InputDataset**, and confirm that the input slices are ready. Double-click **OuptutDataset** to see the state of output slices. If they are in Ready state, check the outputfolder for the output files.
 2. Increase or decrease the **concurrency** setting to understand how it affects the performance of your solution, especially the processing that occurs on Azure Batch. (See Step 4: Create and run the pipeline for more on the **concurrency** setting.)
 3. Create a pool with higher/lower **Maximum tasks per VM**. To use the new pool you created, update the Azure Batch linked service in the Data Factory solution. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
-4. Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+4. Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. 
 
-   One VM per pending task at a time (for example: give pending tasks -> five VMs):
-	
-	```
-	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-	$TargetDedicated = max(pendingTaskSampleVector);
-	```
+	The sample formula here achieves the following behavior: When the pool is initially created, it starts with 1 VM. $PendingTasks metric defines the number of tasks in running + active (queued) state.  The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. So, as new tasks are submitted, pool automatically grows and as tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. startingNumberOfVMs and maxNumberofVMs can be adjusted to your needs.
+ 
+	Autoscale formula:
 
-   Max of one VM at a time irrespective of the number of pending tasks:
-
-	```
-	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-	$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+	``` 
+	startingNumberOfVMs = 1;
+	maxNumberofVMs = 25;
+	pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+	pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+	$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 	```
 
    See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details.
@@ -888,10 +886,10 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 ### Next steps: Consume the data
 After you process data, you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
-* [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
-* [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
-* [Refresh data in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
-* [Azure and Power BI - basic overview](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
+* [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+* [Azure and Power BI - basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## References
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

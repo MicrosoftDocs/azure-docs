@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure virtual machine backup | Microsoft Docs
+title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
-ms.author: trinadhk;jimpark;jpallavi;
+ms.date: 06/15/2017
+ms.author: trinadhk;markgal;jpallavi;
 
 ---
 # Troubleshoot Azure virtual machine backup
@@ -31,6 +31,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | --- | --- |
 | Could not perform the operation as VM no longer exists. - Stop protecting virtual machine without deleting backup data. More details at http://go.microsoft.com/fwlink/?LinkId=808124 |This happens when the primary VM is deleted, but the backup policy continues looking for a VM to back up. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)</li><li> Stop protecting virtual machine with or without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state" |
+| Unable to perform the operation as the VM agent is not responsive |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. For Windows VMs, check the VM agent service status in services and whether the agent appears in programs in control panel. Try removing the program from control panel and re-installing the agent as mentioned [below](#vm-agent). After re-installing the agent, trigger an adhoc backup to verify. |
 | Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup on the VM is running, and a new job cannot be started while the existing job is running. |
@@ -43,8 +44,15 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Azure Virtual Machine Not Found. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform back up. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so the backup jobs will not be created. </ol> |
 | Virtual machine agent is not present on the virtual machine - Please install any prerequisite and the VM agent, and then restart the operation. |[Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 | Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS(Volume Shadow copy Service) writers that are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_. Output contains all VSS writers and their state. For every VSS writer whose state is not "[1] Stable", restart VSS writer by running following commands from an elevated command prompt<br> _net stop serviceName_ <br> _net start serviceName_|
-| Snapshot operation failed due to a parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-List folder / read data <br>-Read attributes <br>-Read extended attributes <br>-Create files / write data <br>-Create folders / append data<br>-Write attributes<br>-Write extended attributes<br>-Read permissions<br><br><li>Delete certificate with field ‘Issued To’ = Windows Azure Service Management for Extensions<ul><li>[Open Certificates console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete certificate (under Personal -> Certificates) with field ‘Issued To’ = “Windows Azure Service Management for Extensions”</ul><li>Trigger VM backup. </ol>|
+| Snapshot operation failed due to a parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-List folder / read data <br>-Read attributes <br>-Read extended attributes <br>-Create files / write data <br>-Create folders / append data<br>-Write attributes<br>-Write extended attributes<br>-Read permissions<br><br><li>Delete all certificates with field ‘Issued To’ = "Windows Azure Service Management for Extensions" or "Windows Azure CRP Certificate Generator”.<ul><li>[Open Certificates(Local computer) console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete all certificates (under Personal -> Certificates) with field ‘Issued To’ = "Windows Azure Service Management for Extensions" or "Windows Azure CRP Certificate Generator”.</ul><li>Trigger VM backup. </ol>|
 | Validation failed as virtual machine is encrypted with BEK alone. Backups can be enabled only for virtual machines encrypted with both BEK and KEK. |Virtual machine should be encrypted using both BitLocker Encryption Key and Key Encryption Key. After that, backup should be enabled. |
+| Azure Backup Service does not have sufficient permissions to Key Vault for Backup of Encrypted Virtual Machines. |Backup service should be provided these permissions in PowerShell using steps mentioned in **Enable Backup** section of [PowerShell documentation](backup-azure-vms-automation.md). |
+|Installation of snapshot extension failed with error - COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | Please try to start windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). <br>If it fails while starting, please follow below steps:<ol><li> Validate that the Logon account of service "Distributed Transaction Coordinator" is "Network Service". If it is not, please change it to "Network Service", restart this service and then try to start service "COM+ System Application".'<li>If it still fails to start, uninstall/install service "Distributed Transaction Coordinator" by following below steps:<br> - Stop the MSDTC service<br> - Open a command prompt (cmd) <br> - Run command “msdtc -uninstall” <br> - Run command “msdtc -install” <br> - Start the MSDTC service<li>Start windows service "COM+ System Application" and after it is started, trigger backup from portal.</ol> |
+|  Snapshot operation failed due to COM+ error | The recommended action is to restart windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). If the issue persists, restart the VM. If restarting the VM doesn't help, try [removing the VMSnapshot Extension](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) and trigger the backup manually |
+| Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot | <ol><li>Check the file-system state of all mounted devices using _'tune2fs'_ command.<br> Eg: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Unmount the devices for which filesystem state is not clean using _'umount'_ command <li> Run FileSystemConsistency Check on these devices using _'fsck'_ command <li> Mount the devices again and try backup.</ol> |
+| Snapshot operation failed due to failure in creating secure network communication channel | <ol><Li> Open Registry Editor by running regedit.exe in an elevated mode. <li> Identify all versions of .NetFramework present in system. They are present under the hierarchy of registry key "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> For each .NetFramework present in registry key, add following key: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
+| Snapshot operation failed due to failure in installation of Visual C++ Redistributable for Visual Studio 2012 | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Make sure that registry key value for allowing this service installation is set to correct value i.e. value of registry key  _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ is set to 3 and not 4. If you are still facing issues with installation, restart installation service by running _MSIEXEC /UNREGISTER_ followed by _MSIEXEC /REGISTER_ from an elevated command prompt.  |
+
 
 ## Jobs
 | Error details | Workaround |
@@ -69,10 +77,10 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Selected subnet does not exist - Please select a subnet which exists |None |
 | Backup Service does not have authorization to access resources in your subscription. |To resolve this, first Restore Disks using steps mentioned in section **Restore backed up disks** in [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). After that, use PowerShell steps mentioned in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create full VM from restored disks. |
 
-## Policy
-| Error details | Workaround |
-| --- | --- |
-| Failed to create the policy - Please reduce the retention choices to continue with policy configuration. |None |
+## Backup or Restore taking time
+If you see your backup(>12 hours) or restore taking time(>6 hours):
+* Understand [factors contributing to backup time](backup-azure-vms-introduction.md#total-vm-backup-time) and [factors contributing to restore time](backup-azure-vms-introduction.md#total-restore-time).
+* Make sure that you follow [Backup best practices](backup-azure-vms-introduction.md#best-practices). 
 
 ## VM Agent
 ### Setting up the VM Agent
@@ -81,12 +89,12 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 For Windows VMs:
 
 * Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
-* [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* for classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 For Linux VMs:
 
-* Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github.
-* [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* Install latest from distribution repository. We **strongly recommend** installing agent only through distribution repository. For details on package name, please refer to [Linux agent repository](https://github.com/Azure/WALinuxAgent) 
+* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 ### Updating the VM Agent
 For Windows VMs:
@@ -95,8 +103,8 @@ For Windows VMs:
 
 For Linux VMs:
 
-* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository. 
+* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository.
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:

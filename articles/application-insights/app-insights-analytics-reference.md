@@ -3,7 +3,7 @@ title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
@@ -12,23 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
 * [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
-* [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
+* [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your own app isn't yet sending data to Application Insights.
  
 
 ## Index
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -36,11 +38,14 @@ ms.author: awills
 
 **Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
+**Numeric series** 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## Let
 ### let clause
@@ -89,18 +94,87 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Convert a table result to a scalar and use in a query:
 
-Self-join:
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+### materialize
 
+Use materialize() to improve the performance where the result of a let clause is used more than once downstream. Materialize() evaluates and caches the result of a tabular let clause at the time of query execution, ensuring that the query isn't executed more than once.
+
+**Syntax**
+
+    materialize(expression)
+
+**Arguments**
+
+* `expresion`: Tabular expression to be evaluated and cached during query execution.
+
+**Tips**
+
+* Use materialize when you have join/union where their operands has mutual sub-queries that can be executed once (see the examples below).
+* Useful also in scenarios when we need to join/union fork legs.
+* Materialize is allowed to be used only in let statements by giving the cached result a name.
+* Materialze has a cache size limit which is 5 GB. This limit is per cluster node and is mutual for all the queries.
+
+**Example: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+The uncached version uses the result `scope` twice:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## Queries and operators
 A query over your telemetry is made up of a reference to a source stream, followed by a pipeline of filters. For example:
@@ -132,6 +206,30 @@ A query may be prefixed by one or more [let clauses](#let-clause), which define 
 > 
 > 
 
+### as operator
+
+Temporarily binds a name to the input tabular expression.
+
+**Syntax**
+
+    T | as name
+
+**Arguments**
+
+* *name:* A temporary name for the table
+
+**Notes**
+
+* Use [let](#let-clause) instead of *as* if you want to use the name in a later subexpression.
+* Use *as* to specify the name of the table as it appears in the result of a [union](#union-operator), [find](#find-operator), or [search](#search-operator).
+
+**Example**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
+
 ### count operator
 The `count` operator returns the number of records (rows) in the input record set.
 
@@ -154,15 +252,74 @@ This function returns a table with a single record and column of type
 requests | count
 ```
 
+### datatable operator
+
+Specify a table inline. The schema and values are defined in the query itself.
+
+Note that this operator does not have a pipeline input.
+
+**Syntax**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* A name for a column.
+* *ColumnType* A [data type](#scalars). 
+* *ScalarValue* A value of the appropriate type. The count of values must be a multiple of the number of columns. 
+
+**Returns**
+
+A table containing the specified values.
+
+**Example**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### distinct operator
+
+Returns a table containing the set of rows that have distinct combinations of values. Optionally projects to a subset of the columns before the operation.
+
+**Syntax**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Example**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Fruit|Price|
+|---|---|
+|Grapes|22|
+|Apples|14|
+|Apples|15|
+
+
 ### evaluate operator
 `evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
 #### evaluate autocluster
      T | evaluate autocluster()
+
+Autocluster is a quick way to find the natural groupings in a set of data. For example, from a mass of request data, you might quickly identify that 80% of the 404 failures were requests for one particular URL, made by a client in a particular city.
 
 AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
 
@@ -213,10 +370,11 @@ Note that the patterns are not disjoint: they may be overlapping, and usually do
   
     Example: `T | evaluate autocluster("weight_column=sample_Count")` 
 
-#### evaluate basket
+#### evaluate basket (deprecated)
+
      T | evaluate basket()
 
-Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+**This version of `basket` is deprecated. Please use [basket_v2](#evaluate-basketv2).**
 
 **Returns**
 
@@ -244,10 +402,55 @@ All patterns appearing in more than a specified fraction (default 0.05) of the e
   * `minimize` - filters out columns with only '*' in the results.
   * `all` - all the columns from the input are output.
 
+<a name="evaluate-basket"></a>
+#### evaluate basket_v2
+
+     T | evaluate basket_v2()
+
+Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+
+Replaces the deprecated `evaluate basket` syntax.
+
+**Returns**
+
+All patterns appearing in more than a specified fraction (default 0.05) of the events. For each pattern, columns that are not set in the pattern (i.e. without restricition on a specific value) will contain a wildcard value which are by default null values (see in the Arguments section below how they can be manually changed).
+
+**Arguments (all optional)**
+
+All arguments are optional, but must be in the following order. To indicate that a default value should be used, use the tilde character '~' (see examples below).
+
+* Threshold: 0.015 < *double* < 1 (default: 0.05) 
+  
+    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
+  
+    Example: `T | evaluate basket(0.02)`
+* Weight column *itemCount*
+  
+    Use this to take into account sampling and metric pre-aggregation. Each row is attributed the weight specified in this column. By default each row has a weight of '1'. This takes into account the bucketing or aggregation of the data that is already embedded into each row.
+  
+    Example: `T | evaluate basket('~', itemCount)`
+* Max dimensions: 1 < *int* (default: 5)
+  
+    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
+
+    Example: `T | evaluate basket('~', '~', 3)`
+* Custom wildcard types: *any value per type*
+  
+    Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *).
+
+    Example: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Example**
+
+``` AIQL
+requests 
+| evaluate basket_v2(0.7, itemCount)
+```
+
 #### evaluate diffpatterns
      requests | evaluate diffpatterns("split=success")
 
-Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
+Diffpatterns identifies the differences between two datasets of the same structure - for example, the request log at the time of an incident, and normal request logs. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
 
 **Syntax**
 
@@ -366,7 +569,10 @@ traces
 
 ### find operator
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 Find rows that match a predicate across a set of tables.
 
@@ -380,13 +586,14 @@ Find rows that match a predicate across a set of tables.
 
 * *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
 * *Predicate* A boolean expression evaluated for every row in the specified tables.
+ * You can use "*" in place of a column name in string comparisons
 * *Column1* The `project` option allows you to specify which columns must always appear in the output. 
 
 **Result**
 
 By default, the output table contains:
 
-* `source_` - An indicator of the source table for each row.
+* `source_` - An indicator of the source table for each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 * Columns explicitly mentioned in the predicate
 * Non-empty columns common to all the input tables.
 * `pack_` - A property bag containing the data from the other columns.
@@ -427,7 +634,19 @@ Find most recent telemetry where any field contains the term 'test':
 * Add time-based terms to the `where` predicate.
 * Use `let` clauses rather than writing queries inline.
 
+### getschema operator
 
+   T | getschema
+   
+Yields a table that shows the column names and types of the input table.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Results of getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -493,7 +712,7 @@ Get extended activities from a log in which some entries mark the start and end 
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -515,6 +734,42 @@ Returns up to the specified number of rows from the input table. There is no gua
 `Take` is a simple and efficient way to see a sample of your results when you're working interactively. Be aware that it doesn't guarantee to produce any particular rows, or to produce them in any particular order.
 
 There's an implicit limit on the number of rows returned to the client, even if you don't use `take`. To lift this limit, use the `notruncation` client request option.
+
+### make-series operator
+
+Performs an aggregation. Unlike [summarize](#summarize-operator), there is one output row for each group. In the result columns, the values in each group are packed into arrays. 
+
+**Syntax**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Arguments**
+
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression.
+* *DefaultValue:* If there is no row with specific values of AxisColumn and GroupExpression then in the results the correponding element of the array will be assigned with a DefaultValue. 
+* *Aggregation:* A numeric expression using an [aggregation function](#aggregations). 
+* *AxisColumn:* A column on which the series is ordered. It can be considered as a timeline, but any numeric types are accepted.
+*start, stop, step:* Defines the list of values of AxisColumn for every row. Every other result aggregation column has an array of the same length. 
+* *GroupExpression:* An expression over the columns, that provides a set of distinct values. There is one row in the output for each value of the GroupExpression. Typically it's a column name that already provides a restricted set of values. 
+
+**Tip**
+
+The result arrays are rendered in an Analytics chart in the same way as the corresponding summarize operation.
+
+**Example**
+
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
+
+![Results of make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### mvexpand operator
     T | mvexpand listColumn 
@@ -569,32 +824,32 @@ Two modes of property-bag expansions are supported:
 * `bagexpansion=bag`: Property bags are expanded into single-entry property bags. This is the default expansion.
 * `bagexpansion=array`: Property bags are expanded into two-element `[`*key*`,`*value*`]` array structures,
   allowing uniform access to keys and values (as well as, for example, running a distinct-count aggregation
-  over property names). 
+  over property names).
 
 **Examples**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Splits an exception record into rows for each item in the details field.
 
 ### parse operator
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Extracts values from a string. Can use simple or regular expression matching.
 
 **Syntax**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
@@ -834,9 +1089,13 @@ For example, the result of `reduce by city` might include:
 | Paris |27163 |
 
 ### render directive
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
+
+For some types of chart, `kind` provides additional options. For example, a `stacked` barchart segments each bar by a chosen dimension, showing the contribution to the total from different values of the dimension. In a `stacked100` chart, every bar is the same height of 100%, so that you can compare the relative contributions.
+
 
 ### restrict clause
 Specifies the set of table names available to operators that follow. For example:
@@ -847,6 +1106,89 @@ Specifies the set of table names available to operators that follow. For example
     restrict access to (e1, e2);
     union * |  take 10 
 
+### sample operator
+
+Returns uniformly distributed random rows from the input table.
+
+
+**Syntax**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* The number of rows to return in the sample.
+
+**Tip**
+
+Use `Take` when you don't need a uniformly distributed sample.
+
+
+### sample-distinct operator
+
+Returns a single column that contains up to the specified number of distinct values of the requested column. Does not currently return a fairly distributed sample.
+
+**Syntax**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* The length of the table you want.
+* *ColumnName* The column you want.
+
+**Tips**
+
+Can be handy to sample a population by putting sample-distinct in a let statement and later filter using the in operator (see example).
+ 
+If you want the top values rather than just a sample, you can use the top-hitters operator.
+
+If you want to sample data rows (rather than values of a specific column), refer to the [sample operator](#sample-operator).
+
+**Example**
+
+Sample a population and do further computation knowing the summarize won't exceed query limits.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+### search operator
+
+Search for strings in multiple tables and columns.
+
+**Syntax**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Finds occurrences of the given token string in any column of any table.
+ 
+* *TableName* Name of a table that is defined globally (requests, exceptions, ...) or by a [let clause](#let-clause). You can use wildcards such as r*.
+* *SearchToken:* A token string, which must match a whole word. You can use trailing wildcards. "Amster*" matches "Amsterdam", but "Amster" does not.
+* *SearchPredicate:* A Boolean expression over the columns in the tables. You can use "*" as a wildcard in column names.
+
+**Examples**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
+
 ### sort operator
     T | sort by country asc, price desc
 
@@ -856,7 +1198,7 @@ Sort the rows of the input table into order by one or more columns.
 
 **Syntax**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Arguments**
 
@@ -889,9 +1231,9 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 **Syntax**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Arguments**
 
@@ -909,9 +1251,34 @@ The input rows are arranged into groups having the same values of the `by` expre
 
 The result has as many rows as there are distinct combinations of `by` values. If you want to summarize over ranges of numeric values, use `bin()` to reduce ranges to discrete values.
 
-**Note**
+> [!NOTE]
+> Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
-Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+### table operator
+
+    table('pageViews')
+
+The table named in the argument string.
+
+**Syntax**
+
+    table(tableName)
+
+**Arguments**
+
+* *tableName:* A string. The name of a table, which can either be static, or the result of a let clause.
+
+**Examples**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
 
 ### take operator
 Alias of [limit](#limit-operator)
@@ -923,7 +1290,7 @@ Returns the first *N* records sorted by the specified columns.
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Arguments**
 
@@ -938,11 +1305,11 @@ Returns the first *N* records sorted by the specified columns.
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
 
 ### top-nested operator
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Produces hierarchical results, where each level is a drill-down from the previous level. It's useful for answering questions that sound like "What are the top 5 requests, and for each of them, what are the top 3 performance buckets, and for each of them, which are the top 3 countries the requests come from?"
 
@@ -977,7 +1344,7 @@ Takes two or more tables and returns the rows of all of them.
   * `inner` - The result has the subset of columns that are common to all of the input tables.
   * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
 * `withsource=`*ColumnName:* If specified, the output will include a column
-  called *ColumnName* whose value indicates which source table has contributed each row.
+  called *ColumnName* whose value indicates which source table has contributed each row. Use [as](#as-operator) at the end of each table expression, if you want to specify the name that appears in this column.
 
 **Returns**
 
@@ -985,39 +1352,29 @@ A table with as many rows as there are in all the input tables, and as many colu
 
 There is no guaranteed ordering in the rows.
 
-**Example**
-
-Union of all tables whose names begin "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Example**
 
 The number of distinct users that have produced
-either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command":
+either a `exceptions` event or a `traces` event over the past 12h. In the result, the 'SourceTable' column will indicate either "exceptions" or "traces":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 This more efficient version produces the same result. It filters each table before creating the union:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Use [as](#as-operator) to specify the name that will appear in the source column.
 
 #### Forcing an order of results
 
@@ -1034,7 +1391,7 @@ To get the same order every time you run the query, append a tag column to each 
 Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Filters a table to the subset of rows that satisfy a predicate.
 
@@ -1078,24 +1435,7 @@ and come from the Source called "Kuskus", and have two columns of the same value
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
 
-### where-in operator
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Syntax**
-
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
-
-**Arguments**
-
-* `col`: A column in the table.
-* `expr1`...: A list of scalar expressions.
-
-Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
-
-Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
 
 ## Aggregations
 Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
@@ -1168,10 +1508,10 @@ The parameter column type should be `dynamic` - an array or property bag.
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1203,11 +1543,11 @@ Assume the input column has three dynamic values:
 
 The resulting schema would be:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 The schema tells us that:
@@ -1224,19 +1564,19 @@ The schema tells us that:
 The syntax of the returned schema is:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 They are equivalent to a subset of the TypeScript type annotations, encoded as a dynamic value. In Typescript, the example schema would be:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1486,6 +1826,12 @@ Check whether a string can be converted to a specific type:
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
 
+
+
+
+
+
+
 ### Scalar comparisons
 |  |  |
 | --- | --- |
@@ -1645,6 +1991,12 @@ The evaluated argument. If the argument is a table, returns the first column of 
     and 
     or 
 
+### Convert to boolean
+
+If you have a string `aStringBoolean` that contains a value "true" or "false", you can convert it to Boolean as follows:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## Numbers
@@ -1706,7 +2058,7 @@ Alias `floor`.
 
 The nearest multiple of *roundTo* below *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Examples**
 
@@ -1791,18 +2143,11 @@ The square root function.
 
 ### toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
-
-### tolong
-    tolong(20.7) == 21 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
 
 
 ### todouble
@@ -1812,9 +2157,340 @@ The square root function.
     todouble(b.c)        // cast from dynamic
 
 
+### tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
+
+## Numeric series
+
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |  [series_periods](#seriesperiods) | [series_stats](#seriesstats)  
+
+### series_fir
+The series_fir() function applies a [Finite Impulse Response](https://wikipedia.org/wiki/Finite_impulse_response) filter on a series (which is represented by a dynamic column containing numeric array).
+
+By specifying the filter coefficients, it can be used for calculating moving average, smoothing, change-detection and many more use cases.
+
+The function takes as input the column containing the dynamic array and a static dynamic array of the filter's coefficients and applies the filter on the column. It outputs a new dynamic array column, containing the filtered output. 
+
+**Syntax**
+
+`series_fir(x, filter [, normalize[, center]])`
+
+**Arguments**
+
+* *x:* Dynamic array cell which is an array of numeric values, typically the resulting output of [make-series](#make-series-operator) or [makelist](#makelist-operator) operators.
+* *filter:* An optional Boolean value indicating whether the filter coefficients should be normalized (i.e. divided by the sum). By default, normalize is true. If filter contains negative values, auto normalization cannot be done and normalize must be explicitly set to false.
+* *normalize:* Optional Boolean value indicating whether the filter should be normalized. By default normalize is true. If filter contains negative values then normalize must be specified as false. 
+* *center:* An optional Boolean value indicating whether the filter is applied symmetrically on a time window before and after the current point, or on a time window from the current point backwards. By default, center is false, which fits the scenario of streaming data, where we can only apply the filter on the current and older points; however, for ad-hoc processing you can set it to true, keeping it synchronized with the time series (see examples below). Technically speaking, this parameter controls the filter’s group delay.
+
+**Examples**
+
+Calculating a moving average of 5 points can be performed by setting filter=[1,1,1,1,1] and normalize=true (default). Note the effect of center=false (default) vs. true:
+
+```AIQL
+range t from bin(now(), 1h)-23h to bin(now(), 1h) step 1h
+| summarize t=makelist(t)
+| project id='TS', val=dynamic([0,0,0,0,0,0,0,0,0,10,20,40,100,40,20,10,0,0,0,0,0,0,0,0]), t
+| extend 5h_MovingAvg=series_fir(val, dynamic([1,1,1,1,1])),
+         5h_MovingAvg_centered=series_fir(val, dynamic([1,1,1,1,1]), true, true)
+| render timechart
+```
+
+This query returns:
+
+* *5h_MovingAvg:* 5 points moving average filter. The spike is smoothed and its peak shifted by (5-1)/2 = 2h.
+* *5h_MovingAvg_centered:* same but with setting center=true, causes the peak to stay in its original location.
+
+![Query results](./media/app-insights-analytics-reference/series-fir-1.png)
+(To see multiple lines, deselect 'split' in the chart controls.)
+
+Calculating the difference between a point and its preceding one can be performed by setting filter=[1,-1]:
+
+```AIQL
+range t from bin(now(), 1h)-11h to bin(now(), 1h) step 1h
+| summarize t=makelist(t)
+| project id='TS',t,value=dynamic([0,0,0,0,2,2,2,2,3,3,3,3])
+| extend diff=series_fir(value, dynamic([1,-1]), false, false)
+| render timechart
+```
+
+
+![Query results](./media/app-insights-analytics-reference/series-fir-2.png)
+
+
+### series\_fit\_line
+The series_fit_line() function takes a column containing dynamic numerical array as input and performs linear regression in order to find the line that best fits it. This function should be used on time series arrays, fitting the output of make-series operator. It generates a dynamic column containing the following fields:
+
+* *slope:* slope of the approximated line (this is `a` from `y=ax+b`).
+* *interception:* interception of the approximated line (this is `b` from `y=ax+b`).
+* *rsquare:* r-square is a standard measure of the fit quality. It's a number in the range [0-1], where 1 is the best possible fit, and 0 means the data is totally unordered and do not fit any line.
+* *variance:* variance of the input data.
+* *rvariance:* residual variance which is the variance between the input data values the approximated ones.
+* *line_fit:* numerical array holding a series of values of the best fitted line. The series length is equal to the length of the input array. It is mainly used for charting.
+
+The most convenient way of using this function is applying it to results of make-series operator.
+
+**Syntax**
+    
+    series_fit_line(x)
+
+**Arguments**
+
+* `x:` Dynamic array of numeric values. Note that the function expects all rows to have equal number of array elements. Otherwise empty results will be returned. 
+
+**Examples**
+
+```AIQL
+range x from 1 to 1 step 1
+| project id=' ', x=range(bin(now(), 1h)-11h, bin(now(), 1h), 1h), y=dynamic([2,5,6,8,11,15,17,18,25,26,30,30])
+| extend (s,i,rs,v,rv,LineFit)=series_fit_line(y)
+| render timechart 
+```
+
+![Query results](./media/app-insights-analytics-reference/series-fit-line.png)
+
+|Slope|Interception|RSquare|Variance|RVariance|LineFit|
+|---|---|---|---|---|---|
+|0.982|2.730|98.628|1.686|-1.666| 1.064, 3.7945, 6.526, 9.256, 11.987, 14.718, 17.449, 20.180, 22.910, 25.641, 28.371, |
+
+### series\_fit\_2lines
+
+The series_fit_2lines() function applies two segments linear regression on a (time) series in order to identify and quantify trend change in a series. The function iterates on the series indexes and in each iteration splits the series to 2 parts, fits a separate line (using series_fit_line()) to each part and calculate the total r-square. The best split is the one that maximized r-square; the function returns its parameters:
+
+* *rsquare:* r-square is a standard measure of the fit quality. It's a number in the range [0-1], where 1 - is the best possible fit, and 0 means the data is totally unordered and do not fit any line
+* *split_idx:* the index of breaking point to 2 segments (zero-based)
+* *variance:* variance of the input data
+* *rvariance:* residual variance which is the variance between the input data values the approximated ones (by the 2 line segments).
+* *line_fit:* numerical array holding a series of values of the best fitted line. The series length is equal to the length of the input array. It is mainly used for charting.
+* *right_rsquare:* r-square of the line on the right side of the split, see series_fit_line()
+* *right_slope:* slope of the right approximated line (this is a from y=ax+b)
+* *right_interception:* interception of the approximated left line (this is b from y=ax+b)
+* *right_variance:* variance of the input data on the right side of the split
+* *right_rvariance:* residual variance of the input data on the right side of the split
+* *left_rsquare:* r-square of the line on the left side of the split, see series_fit_line()
+* *left_slope:* slope of the left approximated line (this is a from y=ax+b)
+* *left_interception:* interception of the approximated left line (this is b from y=ax+b)
+* *left_variance:* variance of the input data on the left side of the split
+* *left_rvariance:* residual variance of the input data on the left side of the split
+
+Note that this function returns multiple columns therefore it cannot be used as an argument for another function.
+
+**Syntax**
+
+    project series_fit_2lines(x)
+
+Will return all mentioned above columns with the following names: 
+`series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx and etc.`
+
+    project (rs, si, v)=series_fit_2lines(x)
+
+Will return the following columns: `rs (r-square), si (split index), v (variance)` and the rest will look like: `series_fit_2lines_x_rvariance, series_fit_2lines_x_line_fit` etc.
+
+    extend (rs, si, v)=series_fit_2lines(x)
+
+Will return only: rs (r-square), si (split index) and v (variance).
+
+**Arguments**
+
+* *x:* Dynamic array of numeric values. 
+
+The most convenient way of using this function is applying it to results of make-series operator.
+
+**Examples**
+
+```AIQL
+range x from 1 to 1 step 1
+| project id=' ', x=range(bin(now(), 1h)-11h, bin(now(), 1h), 1h), y=dynamic([1,2.2, 2.5, 4.7, 5.0, 12, 10.3, 10.3, 9, 8.3, 6.2])
+| extend (Slope,Interception,RSquare,Variance,RVariance,LineFit)=series_fit_line(y), (RSquare2, SplitIdx, Variance2,RVariance2,LineFit2)=series_fit_2lines(y)
+| project id, x, y, LineFit, LineFit2
+| render timechart
+```
+
+
+![Query results](./media/app-insights-analytics-reference/series-fit-2lines.png)
+
+### series_iir
+
+The series_iir() function applies an Infinite Impulse Response filter on a series (which is represented by a dynamic column containing numeric array).
+
+By specifying the filter coefficients, it can be used for example to calculate the cumulative sum of the series, to apply smoothing operations, as well as various high-pass, band-pass and low-pass filters.
+
+The function takes as input the column containing the dynamic array and two static dynamic arrays of the filter's a and b coefficients, and applies the filter on the column. It outputs a new dynamic array column, containing the filtered output. 
+
+**Syntax**
+
+    series_iir(x, b , a)
+
+**Arguments**
+
+
+* *x:* Dynamic array cell which is an array of numeric values, typically the resulting output of make-series or makelist operators.
+* *b:* A constant expression containing the numerator coefficients of the filter (stored as a dynamic array of numeric values).
+* *a:* A constant expression, like b. Containing the denominator coefficients of the filter.
+
+    The first element of a (i.e. a[0]) mustn’t be zero (to avoid division by 0; see the formula below).
+
+**More about the filter’s recursive formula**
+
+Given an input array X and coefficients arrays a, b of lengths `n_a` and `n_b` respectively, the transfer function of the filter, generating the output array Y, is defined by (see also in Wikipedia): 
+
+    Y[i] = 1/a[0] * ( b[0]*X[i] + b[1]*X[i-1] + … 
+                 + b[n_b-1]*X[i-n_b-1] — a[1]*Y[i-1] – a[2]*Y[i-2] – …
+                 – a[n_a-1]*Y[i-n_a-1] )
+
+
+**Examples**
+
+Calculating cumulative sum can be performed by iir filter with coefficients a=[1,-1] and b=[1]: 
+
+```AIQL
+let x = range(1.0, 10, 1);
+range t from 1 to 1 step 1
+| project x=x, y = series_iir(x, dynamic([1]), dynamic([1,-1]))
+| mvexpand x, y
+```
+
+|x|y|
+|---|---|
+|1.0|1.0|
+|2.0|3.0|
+|3.0|6.0|
+|4.0|10.0|
+### series_outliers 
+
+The series_outliers() function takes a column containing dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
+
+**Syntax**  
+
+```
+series_outliers(x,kind)  
+```
+**Arguments** 
+* *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
+Most convenient way of using this function is applying it to results of make-series operator.  
+
+**Examples** 
+
+For the following input   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() returns  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+meaning the 5 is an anomaly on decline and 80 is an anomaly on rise compared to the rest of the series. 
+
+### series_periods
+
+The series_periods() function finds the most significant periods that exist in a time series.
+
+For example, very often a metric measuring an application’s traffic is characterized by two significant cycles: a weekly and a daily. Given such a time series, series_periods() shall detect these 2 dominant periods.
+
+The function takes as input a column containing a dynamic array of time series (typically the resulting output of make-series operator), two real numbers defining the minimal and maximal period size (i.e. number of bins, e.g. for 1h bin the size of a daily period would be 24) to search for, and a long number defining the total number of periods for the function to search. The output is a dynamic array containing the size of the periods which have been found, ordered by the significance of the periods in the data.
+
+**Syntax**
+
+    series_periods(x, min_period, max_period, num_periods)`
+
+**Arguments**
+
+* *x:* Dynamic array cell which is an array of numeric values, typically the resulting output of make-series or makelist operators.
+* *min_period:* A real number specifying the minimal period to search for.
+* *max_period:* A real number specifying the maximal period to search for.
+* *num_periods:* A long number specifying the maximum required number of periods. This will be the length of the output dynamic array.
+
+**Important notes**
+
+* The algorithm behind series\_periods() requires at least 4 points in a period to detect it. Therefore, the minimal value for min_period is 4. If min_period is set to a lower value, the function will replace it by 4.
+* The maximal value for max_period is half of the length of the input series. If max_period is set to a higher value, the function will clip it to that value.
+* As mentioned above, the resulting periods are in the units of the binning, e.g. if the original series has daily period and was aggregated by hourly bins, a daily period in the output will be 24; if the data is aggregated by minute, the output will be 60*24=1440.
+* You should set the min\_period a little below and max\_period a little above the periods you expect to find in the time series. For example, if you have an hourly-aggregated signal, and you look for both daily and weekly periods (that would be 24 & 168 respectively) you can set min\_period=0.824, *max\_period=1.2*168.
+* The length of the output dynamic array is num\_of\_periods; if the function has found less than num\_of\_periods significant periods, the rest of the array entries will be set to 0.
+* The input time series must be regular, i.e. aggregated in constant bins (which is always the case if it has been created using make-series). Otherwise, the output is meaningless.
+
+**Example**
+
+As an example, the following query embeds a snapshot of a month of an application’s traffic, aggregated twice a day (i.e. every 12 hours).
+
+```AIQL
+range x from 1 to 1 step 1
+| project y=dynamic([80,139,87,110,68,54,50,51,53,133,86,141,97,156,94,149,95,140,77,61,50,54,47,133,72,152,94,148,105,162,101,160,87,63,53,55,54,151,103,189,108,183,113,175,113,178,90,71,62,62,65,165,109,181,115,182,121,178,114,170])
+| project x=range(1, arraylength(y), 1), y  
+| render linechart
+```
+
+![Query results](./media/app-insights-analytics-reference/series-periods1.png)
+
+Running series_periods() on this series results in the weekly period (14 points long):
+
+```AIQL
+range x from 1 to 1 step 1
+| project y=dynamic([80,139,87,110,68,54,50,51,53,133,86,141,97,156,94,149,95,140,77,61,50,54,47,133,72,152,94,148,105,162,101,160,87,63,53,55,54,151,103,189,108,183,113,175,113,178,90,71,62,62,65,165,109,181,115,182,121,178,114,170])
+| project x=range(1, arraylength(y), 1), y  
+| project periods = series_periods(y, 4.0, 50.0, 2)
+```
+
+|periods|
+|---|
+|[14.0, 0.0]|
+
+### series_stats
+
+The series_stats() function takes a column containing dynamic numerical array as input and calculates the following columns:
+
+* *min:* minimum value in the input array
+* *min_idx:* maximum value in the input array
+* *max:* maximum value in the input array
+* *max_idx:* maximum value in the input array
+* *average:* average value of the input array
+* *variance:* sample variance of input array
+* *stdev:* sample standard deviation of the input array
+
+Note that this function returns multiple columns therefore it cannot be used as an argument for another function.
+
+**Syntax**
+
+    project series_stats(x)
+
+Returns all mentioned above columns with the following names: serie\_stats\_x\_min, series\_stats\_x\_min\_idx etc.
+
+    project (m, mi)=series_stats(x)
+
+Returns the following columns: `m (min), mi (min_idx)` and the rest will look like `series_stats_x_max, series_stats_x_line_max_idx` etc.
+
+    extend (m, mi)=series_stats(x)
+
+Returns only: m (min) and mi (min_idx).
+
+**Arguments**
+
+* *x:* Dynamic array cell which is an array of numeric values. 
+
+**Examples**
+
+For the following input:
+
+` [1,6,11,16,21,26,31,36,41,46,51,56,61,66,71,76,81,86,91,96]`
+
+series_stats() returns:
+
+|min|min\_idx|max|max\_idx|average|variance|stdev|
+|---|---|---|---|---|---|---|
+|1.0|1|96.0|19|48.5|29.58039891549808|875.0|
+
 
 ## Date and time
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+A timespan represents an interval of time such as 3 hours or 1 year.
+
+A datetime represents a specific calendar/clock date and time in UTC.
+
+There is no separate 'date' type. To remove the time from a datetime, use an expression such as `bin(timestamp, 1d)`.
 
 ### Date and time literals
 |  |  |
@@ -1838,22 +2514,22 @@ The square root function.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### Date and time expressions
-| Expression | Result |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Less |
-| `<=` |Less or Equals |
-| `>` |Greater |
-| `>=` |Greater or Equals |
-| `<>` |Not Equals |
-| `!=` |Not Equals |
+| Expression | Result |Effect|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Time difference|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Add days |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Subtract days|
+| `2h * 24` |`2d` |Timespan multiples|
+| `2d` / `2h` |`24` |Timespan division|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Time from a datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Date from a datetime|
+|  | ||
+| `<` ||Less |
+| `<=` ||Less or Equal |
+| `>` ||Greater |
+| `>=` ||Greater or Equal |
+| `<>` ||Not Equal |
+| `!=` ||Not Equal |
 
 ### ago
 Subtracts the given timespan from the current
@@ -2082,7 +2758,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Equals |Yes |`"aBc" == "aBc"` |
 | `<>` `!=` |Not equals |Yes |`"abc" <> "ABC"` |
-| `=~` |Equals |No |`"abc" =~ "ABC"` |
+| `=~` |Equals |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Not equals |No |`"aBc" !~ "xyz"` |
 | `has` |Right-hand-side (RHS) is a whole term in left-hand-side (LHS) |No |`"North America" has "america"` |
 | `!has` |RHS is not a full term in LHS |No |`"North America" !has "amer"` |
@@ -2099,8 +2775,8 @@ h"hello"
 | `endswith` |RHS is a terminal substring of LHS. |No |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS is not a terminal substring of LHS. |No |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS contains a match for RHS |Yes |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
-| `!in` |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Equal to any of the elements |Yes |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |Not equal to any of the elements |Yes |`"bc" !in ("123", "345", "abc")` |
 
 Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
@@ -2185,6 +2861,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### isempty, isnotempty, notempty
     isempty("") == true
@@ -2393,8 +3071,8 @@ Here's the result of a query on an Application Insights exception. The value in 
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals** To create an explicit array or property-bag object, write it as a JSON string and cast:
@@ -2404,7 +3082,7 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **mvexpand:** To pull apart the properties of an object into separate rows, use mvexpand:
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2412,8 +3090,8 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 **treepath:** To find all the paths in a complex object:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2425,10 +3103,10 @@ Here's the result of a query on an Application Insights exception. The value in 
 
 Result:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2454,11 +3132,13 @@ Notice that `indexer` is used to mark where you should use a numeric index. For 
 To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON string argument:
 
 * `parsejson('[43, 21, 65]')` - an array of numbers
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
-Note that, unlike JavaScript, JSON mandates the use of double-quotes (`"`) around strings. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
+> [!NOTE]
+> Double-quotes (`"`) must be used to enclose labels and string values in JSON. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
+> 
 
 This example creates a dynamic value and then uses its fields:
 
@@ -2473,8 +3153,8 @@ T
 ### Dynamic object functions
 |  |  |
 | --- | --- |
-| *value* `in` *array* |True if there is an element of *array* that == *value*<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *array* |True if there is no element of *array* that == *value* |
+| [*value* `in` *array*](#in) |*array* contains *value* |
+| [*value* `!in` *array*](#in) |*array* does not contain *value* |
 | [`arraylength(`array`)`](#arraylength) |Null if it isn't an array |
 | [`extractjson(`path,object`)`](#extractjson) |Uses path to navigate into object. |
 | [`parsejson(`source`)`](#parsejson) |Turns a JSON string into a dynamic object. |
@@ -2493,7 +3173,57 @@ T
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### in
+    value in (listExpression)
+    value !in (listExpression)
 
+Determines whether there is (not) an item in the list that is equal to the value. Case-sensitive, where the value is a string.
+
+**Arguments**
+
+* `value`: A scalar expression.
+* `listExpression`...: A list of scalar expressions, or an expression that evaluates to a list. 
+
+A nested array is flattened into a single list - for example, `where x in (dynamic([1,[2,3]]))` becomes `where x in (1,2,3)`.  
+
+**Examples**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Computed list:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Using a function call as the list expression:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### arraylength
 The number of elements in a dynamic array.
@@ -2585,11 +3315,11 @@ An object of type `dynamic` specified by *json*.
 
 **Example**
 
-In the following example, when `context_custom_metrics` is a `string`
+In the following example, `customDimensions.person` is a `string`
 that looks like this: 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 then the following fragment retrieves the value of the `duration` slot
@@ -2597,12 +3327,15 @@ in the object, and from that it retrieves two slots, `duration.value` and
  `duration.min` (`118.0` and `110.0`, respectively).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> [!NOTE]
+> Double-quote characters must be used to enclose labels and string values in JSON. 
+>
 
 
 ### range

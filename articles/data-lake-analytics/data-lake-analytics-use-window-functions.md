@@ -4,8 +4,8 @@ title: Using U-SQL window functions for Azure Data Lake Analytics jobs | Microso
 description: 'Learn how to use U-SQL window functions. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: a5e14b32-d5eb-4f4b-9258-e257359f9988
@@ -13,122 +13,77 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data`
+ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Using U-SQL window functions for Azure Data Lake Analytics jobs
+# Use U-SQL window functions for Azure Data Lake Analytics jobs
 Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 
 Window functions are used to do computation within sets of rows called *windows*. Windows are defined by the OVER clause. Window functions solve some key scenarios in a highly efficient manner.
 
-This learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-
 The window functions are categorized into: 
 
-* [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM or AVG
+* [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM and AVG
 * [Ranking functions](#ranking-functions), such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
 * [Analytic functions](#analytic-functions), such as cumulative distribution or percentiles, access data from a previous row (in the same result set) without using a self-join
-
-**Prerequisites:**
-
-* Go through the following two tutorials:
-  
-  * [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-  * [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
-* Create a Data Lake Analytic account as instructed in [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Create a Visual Studio U-SQL project as instructed in [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
 
 ## Sample datasets
 This tutorial uses two datasets:
 
-* QueryLog 
+### QueryLog sample dataset
   
-    QueryLog represents a list of what people searched for in search engine. Each query log includes:
+QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
-    - Query - What the user was searching for.
-    - Latency - How fast the query came back to the user in milliseconds.
-    - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
-  
-    Copy and paste the following script into your U-SQL project for constructing the QueryLog rowset:
-  
-    ```
-    @querylog = 
-        SELECT * FROM ( VALUES
-            ("Banana"  , 300, "Image" ),
-            ("Cherry"  , 300, "Image" ),
-            ("Durian"  , 500, "Image" ),
-            ("Apple"   , 100, "Web"   ),
-            ("Fig"     , 200, "Web"   ),
-            ("Papaya"  , 200, "Web"   ),
-            ("Avocado" , 300, "Web"   ),
-            ("Cherry"  , 400, "Web"   ),
-            ("Durian"  , 500, "Web"   ) )
-        AS T(Query,Latency,Vertical);
-    ```
+* Query - What the user was searching for
+* Latency - How fast the query came back to the user in milliseconds
+* Vertical - What kind of content the user was interested in (Web links, Images, Videos)  
+ 
+```
+@querylog = 
+    SELECT * FROM ( VALUES
+        ("Banana"  , 300, "Image" ),
+        ("Cherry"  , 300, "Image" ),
+        ("Durian"  , 500, "Image" ),
+        ("Apple"   , 100, "Web"   ),
+        ("Fig"     , 200, "Web"   ),
+        ("Papaya"  , 200, "Web"   ),
+        ("Avocado" , 300, "Web"   ),
+        ("Cherry"  , 400, "Web"   ),
+        ("Durian"  , 500, "Web"   ) )
+    AS T(Query,Latency,Vertical);
+```
 
-    In practice, the data is usually stored in a file. You would access the data in a tab-delimited file with the following code: 
+### Employees sample dataset
   
-    ```
-    @querylog = 
-    EXTRACT 
-        Query    string, 
-        Latency  int, 
-        Vertical string
-    FROM "/Samples/QueryLog.tsv"
-    USING Extractors.Tsv();
-    ```
-* Employees
+The Employees dataset includes the following fields:
   
-    The Employee dataset includes the following fields:
-  
-        - EmpID - Employee ID.
-        - EmpName  Employee name.
-        - DeptName - Department name. 
-        - DeptID - Deparment ID.
-        - Salary - Employee salary.
-  
-    Copy and paste the following script into your U-SQL project to construct the Employees rowset:
-  
-        @employees = 
-            SELECT * FROM ( VALUES
-                (1, "Noah",   "Engineering", 100, 10000),
-                (2, "Sophia", "Engineering", 100, 20000),
-                (3, "Liam",   "Engineering", 100, 30000),
-                (4, "Emma",   "HR",          200, 10000),
-                (5, "Jacob",  "HR",          200, 10000),
-                (6, "Olivia", "HR",          200, 10000),
-                (7, "Mason",  "Executive",   300, 50000),
-                (8, "Ava",    "Marketing",   400, 15000),
-                (9, "Ethan",  "Marketing",   400, 10000) )
-            AS T(EmpID, EmpName, DeptName, DeptID, Salary);
-  
-    The following statement demonstrates creating the rowset by extracting it from a data file.
-  
-        @employees = 
-        EXTRACT 
-            EmpID    int, 
-            EmpName  string, 
-            DeptName string, 
-            DeptID   int, 
-            Salary   int
-        FROM "/Samples/Employees.tsv"
-        USING Extractors.Tsv();
+* EmpID - Employee ID
+* EmpName - Employee name
+* DeptName - Department name 
+* DeptID - Department ID
+* Salary - Employee salary
 
-When you test the samples in tutorial, you must include the rowset definitions. U-SQL requires you to define only the rowsets that are used. Some samples only need one rowset.
+```
+@employees = 
+    SELECT * FROM ( VALUES
+        (1, "Noah",   "Engineering", 100, 10000),
+        (2, "Sophia", "Engineering", 100, 20000),
+        (3, "Liam",   "Engineering", 100, 30000),
+        (4, "Emma",   "HR",          200, 10000),
+        (5, "Jacob",  "HR",          200, 10000),
+        (6, "Olivia", "HR",          200, 10000),
+        (7, "Mason",  "Executive",   300, 50000),
+        (8, "Ava",    "Marketing",   400, 15000),
+        (9, "Ethan",  "Marketing",   400, 10000) )
+    AS T(EmpID, EmpName, DeptName, DeptID, Salary);
+```  
 
-Add the following statement to output the result rowset to a data file:
+## Compare window functions to grouping
+Windowing and Grouping are conceptually related. It is helpful to understand this relationship.
 
-    OUTPUT @result TO "/wfresult.csv" 
-        USING Outputters.Csv();
-
- Most of the samples use the variable called **@result** for the results.
-
-## Compare window functions to Grouping
-Windowing and Grouping are conceptually related by also different. It is helpful to understand this relationship.
-
-### Use aggregation and Grouping
+### Use aggregation and grouping
 The following query uses an aggregation to calculate the total salary for all employees:
 
     @result = 
@@ -136,21 +91,12 @@ The following query uses an aggregation to calculate the total salary for all em
             SUM(Salary) AS TotalSalary
         FROM @employees;
 
-> [!NOTE]
-> For instructions for testing and checking the output, see [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
-> 
-> 
-
-The result is a single row with a single column. The $165000 is the sum of the Salary value from the whole table. 
+The result is a single row with a single column. The $165000 is the sum of the Salary values from the whole table. 
 
 | TotalSalary |
 | --- |
 | 165000 |
 
-> [!NOTE]
-> If you are new to windows functions, it is helpful to remember the numbers in the outputs.  
-> 
-> 
 
 The following statement uses the GROUP BY clause to calculate the total salary for each department:
 
@@ -168,7 +114,7 @@ The results are:
 | Executive |50000 |
 | Marketing |25000 |
 
-The sum of the SalaryByDept column is $165000, which matches the amount in the last script.
+The sum of the SalaryByDept column is $165000, which matches the amount in the previous script.
 
 In both these cases the number of there are fewer output rows than input rows:
 
@@ -176,7 +122,7 @@ In both these cases the number of there are fewer output rows than input rows:
 * With GROUP BY, there are N output rows where N is the number of distinct values that appear in the data.  In this case, four rows are output.
 
 ### Use a window function
-The OVER clause in the following sample is empty, so the window includes all rows. The SUM in this example is applied to the OVER clause that it precedes.
+The OVER clause in the following sample is empty, so the window includes all rows. The SUM in this example is applied to the OVER clause.
 
 You could read this query as: “The sum of Salary over a window of all rows.”
 
@@ -314,9 +260,7 @@ The results:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-To see the highest salary of each department, replace MIN with MAX and re-run the query.
-
-## Ranking Functions
+## Ranking functions
 Ranking functions return a ranking value (a LONG) for each row in each partition as defined by the PARTITION BY and OVER clauses. The ordering of the rank is controlled by the ORDER BY in the OVER clause.
 
 The following are supported ranking functions:
@@ -334,12 +278,12 @@ The following are supported ranking functions:
             [ORDER BY <identifier, > …[n] [ASC|DESC]] 
     ) AS <alias>
 
-* The ORDER BY clause is optional for ranking functions. If the ORDER BY is not specified, then U-SQL assigns values based on the order it reads record, resulting in non-deterministic values for ROW_NUMBER, RANK, or DENSE_RANK.
+* The ORDER BY clause is optional for ranking functions. If the ORDER BY is not specified, then U-SQL assigns values based on the order it reads records, resulting in non-deterministic values for ROW_NUMBER, RANK, or DENSE_RANK.
 * NTILE requires an expression that evaluates to a positive integer. This number specifies the number of groups into which each partition must be divided. This identifier is used only with the NTILE ranking function. 
 
 For more information on the OVER clause, see [U-SQL reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-ROW_NUMBER, RANK, and DENSE_RANK all assign numbers to rows in a window. Rather than cover them separately, it’s more intuitive to see how They respond to the same input.
+ROW_NUMBER, RANK, and DENSE_RANK all assign numbers to rows in a window. Rather than cover them separately, it’s more intuitive to see how they respond to the same input.
 
     @result =
     SELECT 
@@ -369,7 +313,7 @@ Within each Window (Vertical, either Image or Web), the row number increases by 
 ![U-SQL window function ROW_NUMBER](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
 ### RANK
-Different from ROW_NUMBER(), RANK() uses the value of the latency, which is specified in the ORDER BY clause for the window.
+Unlike ROW_NUMBER(), RANK() uses the value of the latency, which is specified in the ORDER BY clause for the window.
 
 RANK starts with (1, 1, 3) because the first two values for Latency are the same. Then the next value is 3 because the Latency value has moved on to 500. 
 The key point being that even though duplicate values are given the same rank, the RANK number will skip to the next ROW_NUMBER value. 
@@ -422,12 +366,15 @@ The results:
 NTILE takes a parameter ("numgroups"). Numgroups is a positive int or long constant expression that specifies the number of groups into which each partition must be divided. 
 
 * If the number of rows in the partition is evenly divisible by numgroups, then the groups will have equal size. 
-* If the number of rows in a partition is not divisible by numgroups, this causes groups of two sizes that differ by one member. Larger groups come before smaller groups in the order specified by the OVER clause. 
+* If the number of rows in a partition is not divisible by numgroups, groups will have slightly different sizes. Larger groups come before smaller groups in the order specified by the OVER clause. 
 
 For example:
 
-* 100 rows divided into 4 groups: [ 25, 25, 25, 25 ]
-* 102 rows divided into 4 groups: [ 26, 26, 25, 25 ]
+    100 rows divided into 4 groups: 
+    [ 25, 25, 25, 25 ]
+
+    102 rows divided into 4 groups: 
+    [ 26, 26, 25, 25 ]
 
 ### Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
 Many users want to select only TOP n rows per group, which can't be done with the traditional GROUP BY. 
@@ -549,8 +496,11 @@ Analytic functions are used to understand the distributions of values in windows
 * PERCENTILE_DISC
 
 ### CUME_DIST
+
 CUME_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. 
+
 The CUME_DIST for a row R, assuming ascending ordering, is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition. 
+
 CUME_DIST returns numbers in the range 0 < x <= 1.
 
 **Syntax:**
@@ -583,7 +533,7 @@ The results:
 | Papaya |200 |Web |0.5 |
 | Apple |100 |Web |0.166666666666667 |
 
-There are six rows in the partition where partition key is “Web” (4th row and down):
+There are six rows in the partition where the partition key is "Web".
 
 * There are six rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
 * There are five rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
@@ -603,7 +553,7 @@ Note: If the SELECT statement is not followed by OUTPUT, the ORDER BY clause is 
 ### PERCENT_RANK
 PERCENT_RANK calculates the relative rank of a row within a group of rows. PERCENT_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT_RANK is greater than 0 and less than or equal to 1. Unlike CUME_DIST, PERCENT_RANK is always 0 for the first row.
 
-** Syntax:**
+**Syntax:**
 
     PERCENT_RANK() 
         OVER (
@@ -611,12 +561,12 @@ PERCENT_RANK calculates the relative rank of a row within a group of rows. PERCE
             ORDER BY <identifier, > …[n] [ASC|DESC] 
         ) AS <alias>
 
-**Notes**
+**Usage notes:**
 
 * The first row in any set has a PERCENT_RANK of 0.
 * NULL values are treated as the lowest possible values.
 * PERCENT_RANK requires an ORDER BY clause.
-* CUME_DIST is similar to the PERCENT_RANK function 
+* PERCENT_RANK is similar to the CUME_DIST function. 
 
 The following example uses the PERCENT_RANK function to compute the latency percentile for each query within a vertical. 
 
@@ -651,20 +601,20 @@ These two functions calculate a percentile based on a continuous or discrete dis
 
     [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
-        OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
+        OVER ( [ PARTITION BY <identifier, >…[n] ] ) AS <alias>
 
-**numeric_literal** - The percentile to compute. The value must range between 0.0 and 1.0.
+**numeric_literal** - The percentile to compute. The value must be between 0.0 and 1.0.
 
-WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ]) - Specifies a list of numeric values to sort and compute the percentile over. Only one column identifier is allowed. The expression must evaluate to a numeric type. Other data types are not allowed. The default sort order is ascending.
+    **WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ])** - Specifies a list of numeric values to sort and compute the percentile over. Only a single column identifier is allowed. The expression must evaluate to a numeric type. Other data types are not allowed. The default sort order is ascending.
 
-OVER ([ PARTITION BY <identifier,>…[n] ] ) - Divides the input rowset into partitions as per the partition key to which the percentile function is applied. For more information, see RANKING section of this document.
+    **OVER ([ PARTITION BY <identifier,>…[n] ] )** - Divides the input rowset into partitions as per the partition key to which the percentile function is applied. For more information, see the RANKING section of this document.
 Note: Any nulls in the data set are ignored.
 
 **PERCENTILE_CONT** calculates a percentile based on a continuous distribution of the column value. The result is interpolated and might not be equal to any of the specific values in the column. 
 
 **PERCENTILE_DISC** calculates the percentile based on a discrete distribution of the column values. The result is equal to a specific value in the column. In other words, PERCENTILE_DISC, in contrast to PERCENTILE_CONT, always returns an actual (original input) value.
 
-You can see how both work in the example below which tries to find the median (percentile=0.50) value for Latency within each Vertical
+You can see how both work in the example below which tries to find the median (percentile=0.50) value for Latency within each Vertical.
 
     @result = 
         SELECT 
@@ -698,14 +648,7 @@ For PERCENTILE_CONT because values can be interpolated, the median for web is 25
 PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - which is an actual value found in the input rows.
 
 ## See also
-* [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-* [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
-* [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+* [Learn about the U-SQL language](http://usql.io)
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
-* [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

@@ -4,16 +4,16 @@ description: Quickly access your Application Insights request and exception tele
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/14/2016
-ms.author: daviste
+ms.topic: article
+ms.date: 03/17/2017
+ms.author: cfreeman
 
 ---
 # Application Insights telemetry in Visual Studio CodeLens

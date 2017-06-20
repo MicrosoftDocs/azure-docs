@@ -1,9 +1,9 @@
 ---
 title: Manage permissions to resources per user in Azure Stack (service administrator and tenant) | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage permissions to resources per user.
+description: As a service administrator or tenant, learn how to manage RBAC permissions.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
+author: Heathl17
 manager: byronr
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: erikje
+ms.date: 06/08/2017
+ms.author: helaw
 
 ---
-# Manage user permissions
+# Manage Role-Based Access Control
 A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
 
 * Reader: User can view everything, but can’t make any changes.

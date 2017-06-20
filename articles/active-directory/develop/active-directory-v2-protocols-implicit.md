@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 Implicit Flow | Microsoft Docs
+title: Secure single page applications using the Azure AD v2.0 implicit flow | Microsoft Docs
 description: Building web applications using Azure AD's v2.0 implementation of the implicit flow for single page apps.
 services: active-directory
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # v2.0 Protocols - SPAs using the implicit flow
@@ -216,23 +217,13 @@ If you receive this error in the iframe request, the user must interactively sig
 Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically.  To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior.  If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.
 
 ## Send a sign out request
-The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 endpoint. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
-To sign a user out, your app can simply end its own session with the user, and leave the user's session with the v2.0 endpoint in-tact.  The next time the user tries to sign in, they will see a "choose account" page, with their actively signed-in accounts listed.
-On that page, the user can choose to sign out of any account, ending the session with the v2.0 endpoint.
-
-<!--
-
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
-
-You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+The OpenIdConnect `end_session_endpoint` allows your app to send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.  To fully sign a user out of a web application, your app should end its own session with the user (usually by clearing a token cache or dropping cookies), and then redirect the browser to
 
 ```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
-
--->
+| Parameter |  | Description |
+| --- | --- | --- |
+| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers.  For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
+| post_logout_redirect_uri | recommended | The URL that the user should be returned to after logout completes. This value must match one of the redirect URIs registered for the application. If not included, the user will be shown a generic message by the v2.0 endpoint. |

@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to send device-to-cloud messages to Azure IoT Hub | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Send messages | Microsoft Docs'
 description: Deploy and run a sample application to Intel Edison that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, arduino send data to cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: 1b3b1074-f4d4-42ac-b32c-55f18b304b44
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

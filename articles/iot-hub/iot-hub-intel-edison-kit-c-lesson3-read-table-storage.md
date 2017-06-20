@@ -1,5 +1,5 @@
 ---
-title: Read messages persisted in Azure Storage | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 3: Monitor messages | Microsoft Docs'
 description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'data in the cloud, cloud data collection, iot cloud service, iot data'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: cad545c3-dd88-486c-a663-d587a924ccd4
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

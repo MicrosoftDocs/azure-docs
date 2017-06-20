@@ -1,5 +1,5 @@
----
-title: Link a virtual network to an ExpressRoute circuit by using the classic deployment model and PowerShell | Microsoft Docs
+﻿---
+title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: classic: Azure | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 12/13/2016
 ms.author: ganesr
 
 ---
-# Connect a virtual network to an ExpressRoute circuit
+# Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -29,12 +29,14 @@ ms.author: ganesr
 
 This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the classic deployment model and PowerShell. Virtual networks can either be in the same subscription or can be part of another subscription.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
-1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 2. You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 3. You must have an active ExpressRoute circuit.
    * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have your connectivity provider enable the circuit.

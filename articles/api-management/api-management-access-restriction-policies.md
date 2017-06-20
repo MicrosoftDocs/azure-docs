@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mijiang
+ms.author: apimpm
 ---
 # API Management access restriction policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -365,7 +365,8 @@ This topic provides a reference for the following API Management policies. For i
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -415,7 +416,27 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### Azure Active Directory B2C token validation  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -488,9 +509,10 @@ This topic provides a reference for the following API Management policies. For i
 |id|The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.|No|N/A|  
 |match|The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> -                          `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> -                          `any` - at least one claim value must be present in the token for validation to succeed.|No|all|  
 |query-paremeter-name|The name of the the query parameter holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
-|require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|  
+|require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
+|require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
-|url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
+|url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

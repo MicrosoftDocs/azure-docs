@@ -13,48 +13,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 06/19/2017
 ms.author: helaw
 
 ---
 # Microsoft Azure Stack troubleshooting
-This document provides common troubleshooting information for Azure Stack.
+This document provides common troubleshooting information for Azure Stack. 
 
-For the best experience, make sure that your deployment environment meets all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md) before installing. 
+Because the Azure Stack Technical Preview 3 POC is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services.  If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further support and additional information.
-
-Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may see non-terminating errors during deployment, which do not affect deployment success:
-* You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
-* You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
-  
-       Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
-* You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
-* You can start a deployment of storage resources larger than available quota.  This deployment fails and the account resources will be suspended.  There are two remediation options available:
-  * Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propagate.
-  * Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
-* When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
-* When you delete a plan, offer, or subscription, VMs may not be deleted.
-* You cannot deploy a VM from a saved VM image.
-* Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
-* When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
-* Deployments with static IP network configurations require additional steps to activate the BGPNAT VM before the OS license expires, otherwise your environment may stop working and may require redeploying. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
+* You may notice deployment taking longer than previous releases. 
+* Logging out of portal in AD FS deployment will result in an error message.
+* You may see incorrect cores/minute usage information for Windows and Linux VMs.
+* Opening Storage Explorer from the storage account blade will result in an error.
+* Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
+* Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
+* There is no marketplace experience for creating virtual machine scale sets, though they can be created via template.
+* All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
+* The restart action on Compute controller infrastructure role (MAS-XRP01 instance) should not be used.  
+* You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.
+* VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
+* You should avoid restarting the one-node environment because Azure Stack infrastructure services do not start in the proper order.
+* You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
+* Virtual machine scale set scale-in operations may fail.
+* Virtual machine resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
+* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB.
+* You may see a blank dashboard in the portal.  If this happens, recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
+ 
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
+If you experience a failure during installation, you can use the -rerun parameter of the Azure Stack install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
 
 ```PowerShell
-cd C:\CloudDeployment\Configuration
+cd C:\CloudDeployment\Setup
 .\InstallAzureStackPOC.ps1 -rerun
 ```
-> [!NOTE]  
-> Previous versions of Azure Stack required additional steps to rerun installation.  If the above steps don't restart installation, make sure you are using the updated Azure Stack [download](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
-> 
->
+
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
@@ -64,22 +62,24 @@ This behavior is probably just the result of the default behavior of a PowerShel
 Make sure that:
 
 * The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
-* The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 2, vs the “East US” or “South India” in Azure).
+* The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview 3, vs the “East US” or “South India” in Azure).
 * You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in Azure Resource Manager syntax.
 
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
 ## Virtual machines
-### After starting my Azure Stack TP2 host, some VMs may not automatically start.
+### Default image and gallery item
+You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack TP3.
+
+### After restarting my Azure Stack host, some VMs may not automatically start.
 After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
 
-You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
+You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue, and just requires a few manual steps to bring them online:
 
 1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
 2.  Select the cluster **S-Cluster.azurestack.local**.
 3.  Select **Roles**.
 4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
-
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:
@@ -89,89 +89,35 @@ Yes, this is behavior expected. It was designed this way because:
 
 If you see "orphan" VHDs, it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there.
 
-You can read more about configuring the retention threshold in [manage storage accounts](azure-stack-manage-storage-accounts.md).
+You can read more about configuring the retention threshold and on-demand reclamation in [manage storage accounts](azure-stack-manage-storage-accounts.md).
 
-## Installation steps
-The following information about Azure Stack installation steps may be useful for troubleshooting purposes:  
+## Storage
+### Storage reclamation
+It may take up to fourteen hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
 
-| Index | Name | Description |
-| --- | --- | --- |
-| 0.11 |(DEP) Validate Physical Machines |Validating the hardware and OS configuration on the physical nodes. |
-| 0.12 |(DEP) Configure Physical Machines networking for POC |Configuring virtual network switches and interfaces. |
-| 0.14 |(DEP) Deploy Domain |Deploy Active Directory on Virtual Machine. |
-| 0.15 |(DEP) Configure the Domain server |Configure domain server with security groups etc. |
-| 0.16 |(DEP) Configure Physical Machine |Configure networking, join domain, and setup local admins. |
-| 0.18 |(STO) Configure Storage Cluster |Create storage cluster, create a storage pool and file server. |
-| 0.19 |(CPI) Setup fabric infrastructure |Set up the prerequisites for fabric deployment. |
-| 0.21 |(NET) Setup BGP and NAT |Installs BGP and NAT - needed only for One Node. |
-| 0.22 |(NET) Configure NAT and Time Server |Syncs the time server and configures NAT entries. |
-| 40.41 |(CPI) Create guest VMs |Create the management VMs. |
-| 40.42 |(FBI) Set up PowerShell JEA |Set up PowerShell JEA for all roles. |
-| 40.43 |(FBI) Set up Azure Stack Certification Authority |Installs Azure Stack Certification Authority. |
-| 40.44 |(FBI) Configure Azure Stack Certification Authority |Configures Azure Stack Certification Authority. |
-| 40.45 |(NET) Set up NC on VMs |Installs NC on the guest VMs |
-| 40.46 | (NET) Configure NC on VMs | Configure NC on the guest VMs |
-| 40.47 | (NET) Validate NC on VMs | Validate NC and SLB Configuration |
-| 40.48 | (NET) Configure guest VMs | Configure the management VMs with NC ACLs |
-| 60.61.81 |(FBI) Deploy Azure Stack Fabric Ring Services - FabricRing PreRequisite |Creates VIPs for FabricRing |
-| 60.61.82 |(FBI) Deploy Azure Stack Fabric Ring Services - Deploy Fabric Ring Cluster |Installs and configures Azure Stack Fabric Ring Cluster. |
-| 60.61.83 |(FBI) Deploy Admin Extensions for Resource providers |Installing Admin Extensions for resource providers |
-| 60.61.84 |(ACS) Set up Azure-consistent Storage in node level. |Installs and configures Azure-consistent Storage in node level. |
-| 60.61.85 |(ACS) Set up Azure-consistent Storage in cluster level. |Installs and configures Azure-consistent Storage in cluster level. |
-| 60.61.86 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for InfraServiceController |
-| 60.61.87 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for CPI |
-| 60.61.88 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for ASAppGateway |
-| 60.61.89 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for Storage Controller |
-| 60.61.90 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for HealthMonitoring |
-| 60.61.91 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for ECE |
-| 60.61.92 |(FBI) Deploy Azure Stack Fabric Ring Controller Services - Prerequisite |Prerequisites for PMM |
-| 60.61.93 |(Katal) Create AzureStack Service Principals |Create Azure Graph Applications and Service Principals in AAD. |
-| 60.61.94 |(NET) Setup GW VMs |Installs GW on the guest VMs. |
-| 60.61.95 |(NET) Configure GW VMs |Configures GW on the guest VMs. |
-| 60.61.96 |(NET) Deploy iDNS on hosts |Deploy iDNS on infrastructure hosts |
-| 60.61.97 |(NET) Configure iDNS |Configure iDNS role |
-| 60.61.98 |(FBI) Setup WSUS VMs |Installs WSUS server on the guest VMs. |
-| 60.61.99 |(FBI) Configure WSUS VMs |Configures WSUS server on the guest VMs. |
-| 60.61.100 |(FBI) Setup Azure SQL VMs |Installs Azure SQL server on the guest VMs |
-| 60.61.101 |(Katal) Setup prerequisites for WAS VMs. |Sets up the prerequisites for Microsoft Azure Stack on the guest VMs. |
-| 60.61.102 |(Katal) Setup WAS VMs |Installs Microsoft Azure Stack on the guest VMs. |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.122 |(FBI) Controller Configuration |Configures Controllers |
-| 60.120.123 |(Katal) Configure WAS VMs |Configures Microsoft Azure Stack on the guest VMs. |
-| 60.120.124 |(Katal) Azure Stack AAD Configuration. |Configures Azure Stack with Azure AD. |
-| 60.120.125 |(Katal) Install ADFS |Installs Active Directory Federation Services (ADFS) |
-| 60.120.126 |(Katal) Install ADFS/Graph |Installs Azure Stack Graph |
-| 60.120.127 |(Katal) Configure ADFS |Configures Active Directory Federation Services (ADFS) |
-| 60.140.141 |(FBI) Configure SRP |Configures Storage Resource Provider |
-| 60.140.142 |(ACS) Configure Azure-consistent Storage. |Configures Azure-consistent Storage. |
-| 60.140.143 |(FBI) Create Storage Accounts |Create all storage accounts to be used by different providers. |
-| 60.140.144 |(FBI) Register Usage for SRP |Register Usage for Storage Provider. |
-| 60.140.145 |(CPI) Migrate Created VMs, Hosts, and Cluster to CPI |Migrates objects of the created VMs, Hosts, and Cluster to CPI |
-| 60.140.146 |(FBI) Configure Windows Defender |Configures Windows Defender |
-| 60.160.161 |(MON) Configure Monitoring Agent |Configures Monitoring Agent |
-| 60.160.162 |(FBI) NRP Prerequisite |Installs NRP prerequisites |
-| 60.160.163 |(FBI) NRP Deployment |Installs NRP |
-| 60.160.164 |(FBI) NRP Configuration |Configures NRP |
-| 60.160.165 |(FBI) CRP Prerequisite |Installs CRP prerequisites |
-| 60.160.166 |(FBI) CRP Deployment |Installs CRP |
-| 60.160.167 |(FBI) CRP Configuration |Configures CRP |
-| 60.160.168 |(FBI) FRP Prerequisite |Installs FRP prerequisites |
-| 60.160.169 |(FBI) FRP Deployment |Installs FRP |
-| 60.160.170 |(FBI) FRP Configuration |Configures FRP |
-| 60.160.171 |(FBI) HRP Prerequisite |Installs HRP prerequisites |
-| 60.160.172 |(FBI) HRP Deployment |Installs HRP |
-| 60.160.173 |(FBI) HRP Configuration |Configures HRP |
-| 60.160.174 |(FBI) URP Prerequisite |Installs URP prerequisites |
-| 60.160.175 |(FBI) URP Deployment |Installs URP |
-| 60.160.176 |(FBI) URP Configuration |Configures URP |
-| 60.160.177 |(KV) KeyVault Prerequisite |Installs KeyVault prerequisites |
-| 60.160.178 |(KV) KeyVault Deployment |Installs KeyVault |
-| 60.160.179 |(KV) KeyVault Configuration |Configures KeyVault |
-| 60.190.191 |(FBI) Configure Gallery |Configure Gallery |
-| 60.190.192 |(FBI) Configure Fabric Ring Services |Configure Fabric Ring Services |
-| 60.221 |(FBI) Setup Console VMs |Installs Console server on the guest VMs. |
-| 60.222 |(FBI) Setup Console VMs |Move DVM Contents to the Console VM. |
-| 251 |Prepare for future host reboots |Set reboot policy |
+## PowerShell
+### Resource Providers not registered
+When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+  
+       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
+
+## CLI
+
+* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
+
+* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
+
+* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
+
+* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+
+
+## Windows Azure Pack Connector
+* If you change the password of the azurestackadmin account after you deploy Azure Stack TP3, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
+* After you set up multi-cloud mode:
+    * A user can see the dashboard only after they reset the portal settings. (In the user portal, click the portal settings icon (gear icon in the top-right corner). Under **Restore default settings**, click **Apply**.)
+    * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
+    * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
 ## Next steps
 [Frequently asked questions](azure-stack-faq.md)

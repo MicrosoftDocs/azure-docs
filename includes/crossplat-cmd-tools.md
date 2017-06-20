@@ -41,7 +41,7 @@ To test the installation, type `azure` at the command prompt. If the installatio
 
 To use the Azure Command-Line Tools for Mac and Linux, you will need an Azure account.
 
-Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
+Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free account** in the upper right corner.
 
 ![Azure Web Site][Azure Web Site]
 

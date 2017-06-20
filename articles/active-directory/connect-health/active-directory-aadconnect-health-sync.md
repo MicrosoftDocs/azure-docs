@@ -1,4 +1,3 @@
-
 ---
 title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
@@ -14,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/27/2017
 ms.author: vakarand
-
+ms.custom: H1Hack27Feb2017
 ---
-# Using Azure AD Connect Health for sync
+# Monitor Azure AD Connect sync with Azure AD Connect Health
 The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync-blade.png)
@@ -103,7 +102,7 @@ Following data is available in the detailed view for each error
 ![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### Download the error report as CSV
-This capability is coming soon. Stay tuned for more updates.
+By selecting the "Export" button you can download a CSV file with all the details about all the errors.
 
 ## Related links
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

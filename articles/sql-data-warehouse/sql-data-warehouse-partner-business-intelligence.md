@@ -3,7 +3,7 @@ title: SQL Data Warehouse Business Intelligence partners | Microsoft Docs
 description: Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: partners
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse business intelligence partners

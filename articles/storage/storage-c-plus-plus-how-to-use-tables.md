@@ -3,7 +3,7 @@ title: How to use Table storage (C++) | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,14 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # How to use Table storage from C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
 This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
@@ -48,8 +47,8 @@ To install the Azure Storage Client Library for C++, you can use the following m
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/table.h"
+#include <was/storage_account.h>
+#include <was/table.h>
 ```
 
 ## Set up an Azure storage connection string
@@ -448,9 +447,9 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ## Next steps
 Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:  
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Queue storage from C++](storage-c-plus-plus-how-to-use-queues.md)
 * [List Azure Storage resources in C++](storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
-

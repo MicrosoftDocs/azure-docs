@@ -1,5 +1,5 @@
 ---
-title: What happened to my MVC project (Visual Studio Azure Active Directory connected service) | Microsoft Docs
+title: Changes made to a MVC project when you connect to Azure AD | Microsoft Docs
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
 services: active-directory
 documentationcenter: na
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
+ms.custom: aaddev
 
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
@@ -119,7 +120,7 @@ Additional references have been added.
 Two files were added to support token caching: **Models\ADALTokenCache.cs** and **Models\ApplicationDbContext.cs**.  An additional controller and view were added to illustrate accessing user profile information using Azure graph APIs.  These files are **Controllers\UserProfileController.cs** and **Views\UserProfile\Index.cshtml**.
 
 ### Additional Startup code was added to your project
-In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotifications** object was added to the **Notifications** member of the **OpenIdConnectAuthenticationOptions**.  This is to enable receiving the OAuth code and exchange it for an access token.
+In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotifications** object was added to the **Notifications** member of the **OpenIdConnectAuthenticationOptions**.  This is to enable receiving the OAuth code and exchanging it for an access token.
 
 ### Additional changes were made to your app.config or web.config
 The following additional configuration entries have been added.
@@ -152,5 +153,6 @@ The following configuration sections and connection string have been added.
 ### Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:ClientSecret* in the **web.config** file.
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## Next steps
+- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

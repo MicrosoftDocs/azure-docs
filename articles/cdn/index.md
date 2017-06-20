@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure CDN Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Content Delivery Network (CDN) to deliver content from global data centers to any device. Tutorials, API references, and other documentation.
+services: cdn
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # CDN Documentation
 
@@ -8,7 +19,7 @@ Learn how to use Content Delivery Network (CDN) to deliver high-bandwidth conten
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/best-practices-CDN">
+        <a href="/azure/best-practices-cdn">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -36,7 +47,7 @@ Learn how to use Content Delivery Network (CDN) to deliver high-bandwidth conten
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Azure CDN Video Library</h3>
                     </div>
                 </div>
             </div>

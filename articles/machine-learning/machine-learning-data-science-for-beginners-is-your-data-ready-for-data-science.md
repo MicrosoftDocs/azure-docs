@@ -1,5 +1,5 @@
 ---
-title: Is your data ready for data science? Data evaluation | Microsoft Docs
+title: Is your data ready for data science? Data evaluation - Azure | Microsoft Docs
 description: Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation.
 keywords: relevant data,evaluate data,prepare data,data criteria,data ready
 services: machine-learning
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 
 ---

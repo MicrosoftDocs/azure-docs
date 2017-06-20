@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 5/16/2017
 ms.author: msfussell
 
 ---
-# Preview: Deploy a Windows container to Service Fabric
+# Deploy a Windows container to Service Fabric
 > [!div class="op_single_selector"]
 > * [Deploy Windows Container](service-fabric-deploy-container.md)
 > * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
@@ -25,10 +25,6 @@ ms.author: msfussell
 > 
 
 This article walks you through the process of building containerized services in Windows containers.
-
-> [!NOTE]
-> This feature is in preview for Linux and Windows Server 2016.
->  
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. 
 
@@ -54,18 +50,35 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 
 1. Choose **File** > **New Project**, and create a Service Fabric application.
 2. Choose **Guest Container** as the service template.
-3. Choose **Image Name** and provide the path to the image in your container repository such as at https://hub.docker.com/ E.g. myrepo/myimage:v1 
+3. Choose **Image Name** and provide the path to the image in your container repository such as at https://hub.docker.com/ for example myrepo/myimage:v1 
 4. Give your service a name, and click **OK**.
 5. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    By providing the `UriScheme` this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the example above) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service.
+    By providing the `UriScheme` this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service.
     You also need to configure the container port-to-host port mapping by specifying a `PortBinding` policy in the application manifest as described below.
-6. If your container needs resource governance then add a `ResourceGovernancePolicy`. See below for an example.
-8. If your container needs to authenticate with a private repository then add `RepositoryCredentials`. See below for an example.
+6. If your container needs resource governance then add a `ResourceGovernancePolicy`.
+8. If your container needs to authenticate with a private repository then add `RepositoryCredentials`.
 7. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
 8. When ready, you can publish the application to a remote cluster or check in the solution to source control. 
+
+For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+
+## Creating a Windows Server 2016 cluster
+To deploy your containerized application, you need to create a cluster running Windows Server 2016 with container support enabled. 
+This can either be on your local development machine or deployed via Azure Resource Manager (ARM) in Azure. 
+
+To deploy a cluster using ARM, choose the **Windows Server 2016 with Containers** image option in Azure. 
+See the article [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Ensure that you use the following ARM settings:
+
+```xml
+"vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
+"vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
+"vmImageVersion": { "defaultValue": "latest","type": "string"     },  
+```
+You can also use the [5 Node ARM template here](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+to create a cluster. Alternatively read [Leok's blog post here](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) on using Service Fabric and Windows containers.
 
 <a id="manually"></a>
 
@@ -283,3 +296,5 @@ An example service manifest (specified in the preceding application manifest) fo
 ## Next steps
 Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
+* [Overview of Service Fabric and containers](service-fabric-containers-overview.md)
+* For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

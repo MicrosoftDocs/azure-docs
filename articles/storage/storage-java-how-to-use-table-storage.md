@@ -19,8 +19,7 @@ ms.author: marsma
 ---
 # How to use Table storage from Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
 This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
@@ -561,10 +560,11 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## Next steps
-Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]
 * [Azure Storage REST API][Azure Storage REST API]
