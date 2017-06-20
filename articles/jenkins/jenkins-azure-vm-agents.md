@@ -19,13 +19,13 @@ ms.custom: mvc
 ---
 # Use Azure VM agents for continuous integration with Jenkins.
 
-This quickstart shows how to use the Jenkins Azure VM Agents plugin to create an on demand Linux (Ubuntu) agent in Azure.
+This quickstart shows how to use the Jenkins Azure VM Agents plugin to create an on-demand Linux (Ubuntu) agent in Azure.
 
 ## Prerequisites
 
 To complete this quickstart:
 
-* You can start with the [Solution Template](install-jenkins-solution-template.md) if you do not already have a Jenkins master. 
+* If you do not already have a Jenkins master, you can start with the [Solution Template](install-jenkins-solution-template.md) 
 * Refer to [Create an Azure Service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) if you do not already have an Azure service principal.
 
 ## Install Azure VM Agents plugin
@@ -37,7 +37,7 @@ Otherwise, install the **Azure VM Agents** plugin from within the Jenkins dashbo
 ## Configure the plugin
 
 * Within the Jenkins dashboard, click **Manage Jenkins -> Configure System ->**. Scroll to the bottom of the page and find the section with the dropdown **Add new cloud**. From the menu, select **Microsoft Azure VM Agents**
-* Select an existing account from the Azure Credentials dropdown.  To add a new **Microsoft Azure Service Principal** from the Credentials Management page fill out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
+* Select an existing account from the Azure Credentials dropdown.  To add a new **Microsoft Azure Service Principal** enter a Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
 
 ![Azure Credentials](./media/jenkins-azure-vm-agents/service-principal.png)
 
@@ -51,11 +51,11 @@ Next, configure a template for use to define an Azure VM agent.
 
 * Click **Add** to add a template. 
 * Provide a name for your new template. 
-* For the label, enter  "ubuntu". This label is used during the job configuration.
+* For the label, enter  "ubuntu." This label is used during the job configuration.
 * Select the desired region from the combo box.
 * Select the desired VM size.
 * Specify the Azure Storage account name or leave it blank to use the default name "jenkinsarmst."
-* Specify the retention time in minutes. This defines the number of minutes Jenkins can wait before automatically deleting an idle agent. Specify 0 if you do not want idle agents to be deleted automatically.
+* Specify the retention time in minutes. This setting defines the number of minutes Jenkins can wait before automatically deleting an idle agent. Specify 0 if you do not want idle agents to be deleted automatically.
 
 ![General configuration](./media/jenkins-azure-vm-agents/general-config.png)
 
@@ -103,5 +103,5 @@ sudo apt-get install -y openjdk-7-jdk
 ## Reference
 
 * Azure Friday video: [Continuous Integration with Jenkins using Azure VM agents](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
-* You can refer to [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) for more support information and configuration options.
+* For more support information and configuration options see:  [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
 
