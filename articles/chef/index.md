@@ -17,8 +17,7 @@ ms.author: mlearned
     <h1>Chef on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-            <p>
-            Use <a href="https://www.chef.io/chef/">Chef</a> on Azure to automate and manage Infrastructure as Code.  Use Chef to manage and deploy VMs.
+            <p>Chef is a DevOps automation platform for both Linux and Windows that enables the management of both physical and virtual server configurations. Use it to automate Infrastructure as Code (IaC) recipes as well as manage and deploy VMs on Azure.
 	    </p>
         </div>
     </div>
@@ -30,7 +29,6 @@ ms.author: mlearned
 <h2>Resources</h2>
 See the following links for additional reference materials and tools for working with Chef on Azure.
 <p>
-  <a href="https://azure.microsoft.com/en-us/blog/chef-server-in-marketplace-chef-azure-provisioning-and-more/">Chef server in the Azure marketplace</a><br/>
   <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Chef Automate from Azure marketplace</a><br/>
   <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Getting Started with Chef and VSTS</a><br/>
   <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Chef.io site blog - VSTS and Chef</a><br/>
