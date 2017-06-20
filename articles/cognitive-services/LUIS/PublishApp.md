@@ -29,7 +29,7 @@ You can either publish your app directly to the **Production Slot** where end us
     If you have previously published this app, this page looks like the following screenshot: 
  
     ![Publish page](./Images/PublishApp-RePublish.JPG)
-2. From the **Endpoint Key** list, select an existing endpoint key to assign to the app, or click **Add a new key to your account** to add a new one. For more information on how to create and add endpoint keys to your account, see [Manage your keys](Manage-Keys.md). For pricing information, see [Cognitive Services Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
+2. From the **Endpoint Key** list, select an existing endpoint key to assign to the app, or click **Add a new key to your account** to add a new one. For more information on how to create and add endpoint keys to your account, see [Manage your keys](Manage-Keys.md). For pricing information, see [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
 3. Choose whether to publish to the **Production** or to **Staging** slot by selecting the corresponding value from the **Endpoint Slot** list. 
 4. If you will use an external service with your LUIS app (for example, Bing Spell Check):
     - Click **Add Key Association** to assign the external service key to the app by selecting the key type and key value in the following dialog box.
