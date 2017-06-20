@@ -105,6 +105,3 @@ sudo apt-get install -y openjdk-7-jdk
 * Azure Friday video: [Continuous Integration with Jenkins using Azure VM agents](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
 * You can refer to [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) for more support information and configuration options.
 
-## Next Steps
-
-> [!div class="nextstepaction"]
