@@ -301,7 +301,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-You've learning the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
+You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
