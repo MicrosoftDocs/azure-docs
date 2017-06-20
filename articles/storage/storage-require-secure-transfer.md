@@ -18,9 +18,9 @@ ms.author: fryu
 ---
 # Require secure transfer
 
-The "Require secure transfer" option enhances the security of your storage account by only allowing requests to the storage account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
+The "Secure transfer required" option enhances the security of your storage account by only allowing requests to the storage account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
 
-When you are using the Azure Files service, any connection without encryption fails, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. 
+When you are using the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. 
 
 By default, the "Secure transfer required" option is disabled.
 
