@@ -86,13 +86,13 @@ Application Gateway can talk to instances outside of the virtual network that it
 
 **Q. Can I deploy anything else in the Application Gateway subnet?**
 
-No, but you can deploy other application gateways in the subnet
+No, but you can deploy other application gateways in the subnet.
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
 Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
 
 * Outbound internet connectivity should not be blocked.
 
