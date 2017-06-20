@@ -163,7 +163,7 @@ To enable profile editing on your application, you need to create a profile edit
 
 3. The **Name** determines the profile editing policy name that's used by your application. For example, enter **SiPe**.
 
-4. Select **Identity providers**, and then select **Local Account Signin**. Optionally, you can also select social identity providers, if they're configured. Click **OK**.
+4. Select **Identity providers**, and then select **Local Account Signin**. Optionally, you can also select social identity providers if they're already configured. Click **OK**.
 
 5. Select **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select **Country/Region**, **Display Name**, and **Postal Code**, and then select **OK**.
 
