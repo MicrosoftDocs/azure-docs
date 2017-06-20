@@ -47,7 +47,7 @@ View [plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplac
 
 Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview), click **GET IT NOW**  
 
-In Azure Portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
+In the Azure Portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
    
 ![Azure Portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
@@ -79,7 +79,7 @@ Next, select **Purchase** to provision all the resources.
 
 By default the Jenkins instance is using the http protocol and listens on port 8080. Users shouldn't authenticate over unsecured protocols.
 	
-You need to set up port forwarding to view the Jenkins UI on your local machine.
+Set up port forwarding to view the Jenkins UI on your local machine.
 
 ### If you are using Windows:
 
@@ -89,7 +89,7 @@ putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.
 ```
 * Enter the password to log in.
 
-![Enter password to login](./media/install-jenkins-solution-template/jenkins-pwd.png)
+![Enter password to log in](./media/install-jenkins-solution-template/jenkins-pwd.png)
 
 If you use SSH, run this command:
 ```
@@ -134,11 +134,10 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Created a Jenkins Master with the solution template.
-> * Performed intial configuration of Jenkins.
+> * Performed initial configuration of Jenkins.
 > * Installed plugins.
 
 Follow this link to see how to use Azure VM Agents for continuous integration with Jenkins.
 
 > [!div class="nextstepaction"]
 > [Azure VMs as Jenkins agents](jenkins-azure-vm-agents.md)
-
