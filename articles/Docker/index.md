@@ -19,8 +19,8 @@ ms.author: mlearned
 	
         <div class="intro" style="min-width: 200px">
             <p>
+	      <img src="media/Docker.png" align="right" alt="Docker Logo">
               Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Use the How-to Guides to work through various scenarios for Docker on Azure.
-			  <img src="media/Docker.png" align="right" alt="Docker Logo">
 	    </p>
         </div>
     </div>
