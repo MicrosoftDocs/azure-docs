@@ -63,8 +63,8 @@ find and open your logic app in Logic App Designer.
    ![Add condition to logic app](./media/logic-apps-use-logic-app-features/add-condition.png)
 
    > [!NOTE]
-   > If you want to add the condition at the bottom of your logic app workflow, 
-   > choose **+ New step**.
+   > If you want to add a condition at the end of your current workflow, 
+   > go to the bottom of your logic app, and choose **+ New step**.
 
 3. Now define the condition. Specify the source field that you want to evaluate, 
 the operation to perform, and the target value or field. 
