@@ -17,7 +17,7 @@ ms.author: mlearned
   
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-         <p>Chef is a DevOps automation platform for both Linux and Windows that enables the management of both physical and virtual server configurations. Use it to automate Infrastructure as Code (IaC) recipes and manage and deploy VMs on Azure. <img src="media/chef.png" alt="Chef Logo" style="float:right"></p>           
+         <p>Chef is a DevOps automation platform for both Linux and Windows that enables the management of both physical and virtual server configurations. Use it to automate Infrastructure as Code (IaC) recipes and manage and deploy VMs on Azure. <img src="media/chef.png" alt="Chef Logo" align="right"></p>           
         </div>
     </div>
 <h2>Quickstarts</h2>
