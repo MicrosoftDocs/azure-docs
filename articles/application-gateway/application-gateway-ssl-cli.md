@@ -47,26 +47,67 @@ For SSL certificates configuration, the protocol in **HttpListener** should chan
 ## Configure SSL offload on an existing application gateway
 
 ```azurecli
+#!/bin/bash
+
 # Create a new front end port to be used for SSL
-az network application-gateway frontend-port create --name sslport --port 443 --gateway-name AdatumAppGateway --resource-group AdatumAppGatewayRG
+az network application-gateway frontend-port create \
+  --name sslport \
+  --port 443 \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
 # Upload the .pfx certificate for SSL offload
-az network application-gateway ssl-cert create --name newcert --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx --cert-password P@ssw0rd --gateway-name AdatumAppGateway --resource-group AdatumAppGatewayRG
+az network application-gateway ssl-cert create \
+  --name "newcert" \
+  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
+  --cert-password P@ssw0rd \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
 # Create a new listener referencing the port and certificate created earlier
-az network application-gateway http-listener create --frontend-ip appGatewayFrontendIP --frontend-port sslport  --name sslListener --ssl-cert newcert --gateway-name AdatumAppGateway --resource-group AdatumAppGatewayRG
+az network application-gateway http-listener create \
+  --frontend-ip "appGatewayFrontendIP" \
+  --frontend-port sslport  \
+  --name sslListener \
+  --ssl-cert newcert \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
 # Create a new back-end pool to be used
-az network application-gateway address-pool create --gateway-name AdatumAppGateway -g AdatumAppGatewayRG -n appGatewayBackendPool2 --servers 10.0.0.7 10.0.0.8
+az network application-gateway address-pool create \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG" \
+  --name "appGatewayBackendPool2" \
+  --servers 10.0.0.7 10.0.0.8
 
 # Create a new probe
-az network application-gateway probe create --name probe2 --host 127.0.0.1 --path / --protocol Http  --gateway-name AdatumAppGateway -g AdatumAppGatewayRG
+az network application-gateway probe create \
+  --name "probe2" \
+  --host 127.0.0.1 \
+  --path "/" \
+  --protocol "Http"  \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
-# Create a new back-end HTTP settings using the new probe 
-az network application-gateway http-settings create -n settings2 --port 80 --cookie-based-affinity Enabled --probe probe2 --protocol Http --gateway-name AdatumAppGateway -g AdatumAppGatewayRG
+# Create a new back-end HTTP settings using the new probe
+az network application-gateway http-settings create \
+  --name "settings2" \
+  --port 80 \
+  --cookie-based-affinity Enabled \
+  --probe probe2 \
+  --protocol "Http" \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
 # Create a new rule linking the listener to the back-end pool
-az network application-gateway rule create --name rule2 --rule-type Basic --http-settings settings2 --http-listener ssllistener --address-pool temp1 --gateway-name AdatumAppGateway -g AdatumAppGatewayRG
+az network application-gateway rule create \
+  --name "rule2" \
+  --rule-type Basic \
+  --http-settings settings2 \
+  --http-listener ssllistener \
+  --address-pool temp1 \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 
 ```
 
@@ -75,8 +116,30 @@ az network application-gateway rule create --name rule2 --rule-type Basic --http
 The following sample creates an application gateway with SSL offload.  The certificate and certificate password must be updated to a valid private key.
 
 ```azurecli
+#!/bin/bash
+
 # Creates an application gateway with SSL offload
-az network application-gateway create --name "AdatumAppGateway3" --location "eastus" --resource-group "AdatumAppGatewayRG2" --vnet-name "AdatumAppGatewayVNET2" --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx --cert-password P@ssw0rd --vnet-address-prefix "10.0.0.0/16" --subnet "Appgatewaysubnet" --subnet-address-prefix "10.0.0.0/28" --frontend-port 443 --servers "10.0.0.5 10.0.0.4" --capacity 2 --sku "Standard_Small" --http-settings-cookie-based-affinity "Enabled" --http-settings-protocol "Http" --frontend-port "80" --routing-rule-type "Basic" --http-settings-port "80" --public-ip-address "pip" --public-ip-address-allocation "dynamic"  
+az network application-gateway create \
+  --name "AdatumAppGateway3" \
+  --location "eastus" \
+  --resource-group "AdatumAppGatewayRG2" \
+  --vnet-name "AdatumAppGatewayVNET2" \
+  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
+  --cert-password P@ssw0rd \
+  --vnet-address-prefix "10.0.0.0/16" \
+  --subnet "Appgatewaysubnet" \
+  --subnet-address-prefix "10.0.0.0/28" \
+  --frontend-port 443 \
+  --servers "10.0.0.5 10.0.0.4" \
+  --capacity 2 \
+  --sku "Standard_Small" \
+  --http-settings-cookie-based-affinity "Enabled" \
+  --http-settings-protocol "Http" \
+  --frontend-port "80" \
+  --routing-rule-type "Basic" \
+  --http-settings-port "80" \
+  --public-ip-address "pip" \
+  --public-ip-address-allocation "dynamic"
 ```
 
 ## Get application gateway DNS name
@@ -85,7 +148,7 @@ Once the gateway is created, the next step is to configure the front end for com
 
 
 ```azurecli
-az network public-ip show --name pip --resource-group AdatumAppGatewayRG
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 ```
 
 ```

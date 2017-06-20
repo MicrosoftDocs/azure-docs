@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 06/20/2017
 ms.author: gwallace
 
 ---
@@ -52,7 +52,13 @@ If you have read [Create an Application Gateway with Azure CLI](application-gate
 The follow command changes an existing standard application gateway to a WAF enabled application gateway.
 
 ```azurecli
-az network application-gateway waf-config set --enabled true --firewall-mode Prevention --gateway-name AdatumAppGateway --resource-group AdatumAppGatewayRG
+#!/bin/bash
+
+az network application-gateway waf-config set \
+  --enabled true \
+  --firewall-mode Prevention \
+  --gateway-name "AdatumAppGateway" \
+  --resource-group "AdatumAppGatewayRG"
 ```
 
 This command updates the application gateway with web application firewall. It is recommended to view [Application Gateway Diagnostics](application-gateway-diagnostics.md) to understand how to view logs for your application gateway. Due to the security nature of WAF, logs need to be reviewed regularly to understand the security posture of your web applications.
@@ -62,7 +68,27 @@ This command updates the application gateway with web application firewall. It i
 The following command creates an Application Gateway with web application firewall.
 
 ```azurecli
-az network application-gateway create --name "AdatumAppGateway2" --location "eastus" --resource-group "AdatumAppGatewayRG" --vnet-name "AdatumAppGatewayVNET2" --vnet-address-prefix "10.0.0.0/16" --subnet "Appgatewaysubnet2" --subnet-address-prefix "10.0.0.0/28" --servers "10.0.0.5 10.0.0.4" --capacity 2 --sku "WAF_Medium" --http-settings-cookie-based-affinity "Enabled" --http-settings-protocol "Http" --frontend-port "80" --routing-rule-type "Basic" --http-settings-port "80" --public-ip-address "pip2" --public-ip-address-allocation "dynamic" --tags "cli[2] owner[administrator]"
+#!/bin/bash
+
+az network application-gateway create \
+  --name "AdatumAppGateway2" \
+  --location "eastus" \
+  --resource-group "AdatumAppGatewayRG" \
+  --vnet-name "AdatumAppGatewayVNET2" \
+  --vnet-address-prefix "10.0.0.0/16" \
+  --subnet "Appgatewaysubnet2" \
+  --subnet-address-prefix "10.0.0.0/28" \
+ --servers "10.0.0.5 10.0.0.4" \
+  --capacity 2 
+  --sku "WAF_Medium" \
+  --http-settings-cookie-based-affinity "Enabled" \
+  --http-settings-protocol "Http" \
+  --frontend-port "80" \
+  --routing-rule-type "Basic" \
+  --http-settings-port "80" \
+  --public-ip-address "pip2" \
+  --public-ip-address-allocation "dynamic" \
+  --tags "cli[2] owner[administrator]"
 ```
 
 > [!NOTE]
@@ -73,7 +99,11 @@ az network application-gateway create --name "AdatumAppGateway2" --location "eas
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
 ```azurecli
-az network public-ip show --name pip2 --resource-group AdatumAppGatewayRG
+#!/bin/bash
+
+az network public-ip show \
+  --name pip2 \
+  --resource-group "AdatumAppGatewayRG"
 ```
 
 ```
