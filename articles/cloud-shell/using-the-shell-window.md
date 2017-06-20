@@ -28,7 +28,7 @@ If exiting a session, be sure to exit from each session window as each process r
 ## Restart Cloud Shell
 ![](media/recycle.png)
 > [!WARNING]
-> Restarting Cloud Shell will reset machine state and any files not persisted by clouddrive will be lost.
+> Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
 
 * Click the restart icon on the toolbar to reset the Cloud Shell machine.
 
