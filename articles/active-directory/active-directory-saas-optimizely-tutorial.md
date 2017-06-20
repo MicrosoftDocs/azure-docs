@@ -242,7 +242,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application. 
+When you click the ADP Optimizely tile in the Access Panel, you should get automatically signed-on to your ADP Optimizely application. 
 
 ## Additional resources
 
