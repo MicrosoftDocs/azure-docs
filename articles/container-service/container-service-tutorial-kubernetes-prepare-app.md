@@ -61,7 +61,7 @@ Change directories so that you are in the `azure-voting-app` directory.
 cd ./azure-voting-app/
 ```
 
-At the root of the cloned directory, is a *docker-compose.yaml* file. This file, shown below, builds two container images (`azure-vote-front` and `azure-vote-back`), configures environment variables, and exposes container ports.
+At the root of the cloned directory, is a **docker-compose.yaml** file. This file, shown below, builds two container images (`azure-vote-front` and `azure-vote-back`), configures environment variables, and exposes container ports.
 
 ```yaml
 version: '3'
@@ -93,7 +93,7 @@ services:
         - "8080:80"
 ```
 
-To create the container images and start the application, build and run the `docker-compose.yaml` file with the `docker-compose up` command. The first time this command is run, a few moments are required to download the base layers of the container image.
+To create the container images and start the application, build and run the application using the **docker-compose.yaml** file with the `docker-compose up` command. The first time this command is run, a few moments are required to download the base layers of the container image.
 
 ```bash
 docker-compose up -d
