@@ -31,7 +31,7 @@ To resolve the issue, first try to [reset the Azure VPN Gateway](vpn-gateway-res
 
 Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
 
-### Step 2 Check if the Shared Key(PSK) matches
+### Step 2 Verify the Shared Key(PSK)
 
 Compare the **Shared Key** from on-premises VPN device and the virtual network VPN to ensure the key matches. 
 
@@ -52,5 +52,34 @@ For Classic
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### Step 3 Validate VPN Peer IPs
+### Step 3 Verify the VPN Peer IPs
+
+Make sure that the virtual network, subnets and, ranges in the **Local network** definition in the virtual network gateway matches the configuration on the on-premises VPN device.
+
+### Step 4 Check on-premises VPN device external interface address
+
+- If the Internet facing IP address of the VPN device is included within the **Local network** definition in Azure, you may experience sporadic disconnects.
+- The device external interface must be directly on Internet. There should be no Network Address Translation or firewall between the Internet and the device.
+-  If you configure Firewall Clustering with virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
+
+### Step 5 Verify Azure Gateway health probe
+
+1. Browse to https://<VirtualNetworkGatewayIP>:8081/healthprobe
+2. Click through certificate warning.
+3. If you receive a response, the virtual network gateway is considered healthy. If you do not receive a response, the gateway may not be healthy or there is an network security group on the gateway subnet. The following text is a sample of the response:
+
+    `<?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>`
+
+### Step 6 Check if the virtual network gateway is over utilized
+
+Check CPU and Bandwidth Utilization of the virtual network gateway instances:
+
+- Network and CPU utilization on Gateway instances
+- Site-to-Site Tunnel Bandwidth
+
+### Step 7 Check if the on-premises VPN device has Perfect forward Secrecy (PFS) feature enabled
+
+The Perfect forward Secrecy feature can cause the disconnection problems. If the VPN device has Perfect forward Secrecy enabled, disable the feature. Then update the virtual network gateway IPsec policy.
+
 
