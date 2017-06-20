@@ -20,14 +20,13 @@ Here's what you need to know:
 
 Acronyms and initialisms in file names - specific guidelines:
 
-* Do not abbreviate Azure service names - the first words of the file name should be the standard, spelled out Azure service or technology name.
 * Do not allow rm or arm as acronyms anywhere in a file name
 * Other industry-standard abbreviations are acceptable as necessary in file names.
 
 ## Pattern
 
 >NOTE
-> Service names are in the URL path element that follows the brand, and aren't necessary in the filename. 
+> Service names are in the URL path element that follows the brand, and aren't necessary in the file name. 
 > Example: /azure/**mobile-services**/dotnet-backend-get-started-settings-sync
 >
 
@@ -38,7 +37,7 @@ Here's the general pattern:
 Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
 
 >IMPORTANT
->Use updated filename guidance for *new* articles. It's not necessary nor recommended to rename and redirect existing articles to conform to the updated guidance. 
+>Use updated file name guidance for *new* articles. You don't need to rename and redirect other articles at this time. 
 
 ## Standard examples
 Here are a few examples of valid names that follow the pattern:
@@ -53,7 +52,7 @@ Here are a few examples of valid names that follow the pattern:
 * azure-sdk-dotnet-release-notes-2-8.md
 * disaster-recovery-using-azure-site-recovery.md
 
-The service names aren't in the filename examples, but are an element in each URL path:
+The service names aren't in the file name examples, but are an element in each URL path:
 
 * /azure/**cloud-service**/dotnet-continuous-delivery
 * /azure/**mobile-services**/ios-get-started
@@ -72,12 +71,12 @@ To distinguish content that focuses on partner contributions to the Azure market
 It's the job of our group of pull request reviewers to review file names when a new file is submitted to the repository for the first time. Pull request reviewers should review the file name and provide feedback via the pull request comment stream if changes are needed. The file name needs to be corrected before the pull request is accepted. Contributors can easily push the update to the pending pull request.
 
 ## Folder names in the repo
-Folders should be created only for services, and the file name should match the ACOM service slug. Use only letters and hyphens, and use all lowercase letters. Obtain approval from the repository admin before you create a new folder that is not for a released service.
+Folders should be created only for services, and the folder name should match the ACOM service slug. Use only letters and hyphens, and use all lowercase letters. Obtain approval from the repository admin before you create a new folder that is not for a released service.
 
 ## Changing case in file names
 Windows operating systems are case insensitive, so if you need to change a file name to fix casing, it is better to make a substantive change, unless you are able to make the change on a Linux or Mac. For example:
 
-  biztalk-administration-and-Development-Task-List-in-BizTalk-Services --> biztalk-services-administration-and-development-task-list
+  administration-and-Development-Task-List-in-BizTalk-Services --> services-administration-and-development-task-list
 
 Use the following command to rename a file:
 
