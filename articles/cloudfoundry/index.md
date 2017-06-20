@@ -23,14 +23,13 @@ ms.author: mlearned
         </div>
     </div>
 <h2>Quickstart</h2>
-<p>Deploy Cloud Foundry on Azure Marketplace template</p>
+<p>Learn how to deploy Cloud Foundry on Azure.</p>
 <a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Deploy Cloud Foundry on Azure</a>
-<h2>Tutorials</h2>
+<h2 style="margin-top: 36px">Tutorials</h2>
 <ol>
   <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.<p>
-<br/>
 <a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Microsoft Azure</a>  
 </div>
