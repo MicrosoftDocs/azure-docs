@@ -26,7 +26,7 @@ You can configure the Azure AD Connect Health Service to send email notification
 ![Azure AD Connect Health Email Notification Discover](./media/active-directory-aadconnect-health/email_noti_discover.png)
 
 > [!NOTE]
-> Email notifications are disabled by default.
+> Email notifications are enabled by default.
 >
 >
 
