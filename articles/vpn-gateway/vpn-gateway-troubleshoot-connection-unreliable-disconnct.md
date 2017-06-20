@@ -17,7 +17,7 @@ ms.date: 06/16/2017
 ms.author: genli
 ---
 
-# Troubleshoot Azure VPN disconnection problems
+# Troubleshoot Azure Site-to-Site VPN disconnection problems
 
 You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection between VPN clients and Azure virtual network is not reliably. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem.
 
@@ -25,17 +25,17 @@ You configure the Site-to-Site VPN connection between the on-premise network and
 
 ## Troubleshooting steps
 
-### Step 1 Check if a validated device is used
+### Step 1 Check if the on-premise VPN device is validated
 
 1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
 2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
-### Step 2 Check if Security Association is consistent (for policy-based Azure virtual network gateways)
+### Step 2 Check the Security Association settings(for policy-based Azure virtual network gateways)
 
 1. Make sure that the virtual network, subnets and, ranges in the **Local network** definition in Microsoft Azure are same as the configuration on the on-premises VPN device.
 2. Make sure that the Security Association settings are matching.
 
-### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based virtual network gateways)
+### Step 3 Check the "one VPN Tunnel per Subnet Pair" setting (for policy-based virtual network gateways)
 
 Make sure that the VPN device is set to have **one VPN tunnel per subnet pair** for policy-based virtual network gateways.
 
@@ -43,10 +43,10 @@ Make sure that the VPN device is set to have **one VPN tunnel per subnet pair** 
 
 The Policy-based virtual network gateway has limit of 200 subnet Security Association pairs. If the number of Azure virtual network subnets multiplied times the number of local subnets is greater than 200, you will see sporadic subnets disconnecting.
 
-### Step 5 Check on-premises VPN device External Interface Address
+### Step 5 Check on-premises VPN device external interface address
 
-- If the VPN device Internet facing IP address is included within the "local network" definition in Azure, you may experience sporadic disconnects.
-- The device external interface must be directly on the Internet. There should be no Network Address Translation or firewall between the Internet and the device.
+- If the Internet facing IP address of the VPN device is included within the **Local network** definition in Azure, you may experience sporadic disconnects.
+- The device external interface must be directly on Internet. There should be no Network Address Translation or firewall between the Internet and the device.
 -  If you configure Firewall Clustering with virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
 
 ### Step 6 Check if the virtual network gateway is Over utilized
