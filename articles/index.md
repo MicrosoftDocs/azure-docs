@@ -201,13 +201,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>DevOps</h3>
                                                 <div class="ico48Link">
                                                     <a href="https://www.visualstudio.com/team-services/devops/">
-                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <img src="/media/logos/logo_visual-studio.svg" alt="">
                                                         <span>Visual Studio Team Services</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins">
-                                                        <img src="/media/common/jenkins.svg" alt="">
+                                                        <img src="/media/logos/logo_jenkins.svg" alt="">
                                                         <span>Jenkins</span>
                                                     </a>
                                                 </div>
