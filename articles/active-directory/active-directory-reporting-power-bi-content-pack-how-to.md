@@ -136,13 +136,13 @@ If you want to update your content pack to get a newer version:
 
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/16.png) 
 
-
+As soon as the new version of the content pack is working, you can remove the old version if needed by deleting the underlying reports and datasets associated with that content pack.
 
 ## Still having issues? 
 
 Check out our [troubleshooting guide](active-directory-reporting-troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
-Once this version of the content pack is working, you can remove the other one if needed by deleting the underlying reports and datasets associated with that content pack.
+
 
 ## Next steps
 
