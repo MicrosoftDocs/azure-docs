@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 06/19/2017
+ms.date: 06/20/2017
 ms.author: fryu
 ---
 # Require secure transfer
