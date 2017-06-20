@@ -18,36 +18,42 @@ ms.author: LADocs; stepsic
 
 ---
 # Use Logic Apps features
-In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), 
+
+In a [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), 
 you created your first logic app. 
 Now you'll build a fuller process with Azure Logic Apps. 
 This topic introduces the following new Azure Logic Apps concepts:
 
-* Conditional logic, which executes an action only when a certain condition is met.
-* Code view to edit an existing logic app.
-* Options for starting a workflow.
+* Conditional logic, which executes an action only when a certain condition is met
+* Code view to edit an existing logic app
+* Options for starting a workflow
 
-Before you complete this topic, you should complete the steps in [Create a new logic app](../logic-apps/logic-apps-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+## Add a condition to your logic app
 
-## Reference material
-You may find the following documents useful:
+To have your logic app run steps only when data meets specific criteria, you can add a condition that compares data in the workflow against specific fields or values.
 
-* [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
-* [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
-* [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
-* [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+For example, suppose you have a logic app that sends you too many emails for posts on a website's RSS feed. You can add a condition so that your logic app sends email only when the new post belongs to a specific category.
 
-## Add conditional logic to your logic app
+1. In the Azure portal, find and open your logic app in Logic App Designer.
 
-Although your logic app's original flow works, we could improve some areas.
+2. Add a condition to the workflow location that you want. 
+To add the condition between existing steps in the logic app workflow, 
+move the pointer over the arrow where you want to add the condition. 
+Choose the **plus sign** (**+**) that appears.
 
-### Conditional
+   If you want to add the condition at the bottom of your logic app workflow, 
+   choose **+ New step**.
 
-Your first logic app might result in you getting too many emails. 
-The following steps add conditional logic so that you receive email 
-only when the tweet comes from someone with a specific number of followers.
+   Then, choose **Add a condition**. For example:
 
-0. In the Logic App Designer, choose **New Step** (+) > **Add an action**.
+3. Now define the condition. Specify the source field that you want to evaluate, 
+the operation to perform, and the target value or field. 
+To add existing fields to your condition, choose from the Add dynamic content list.
+
+   For example:
+
+   
+
 0.	Find and add the **Get User** action for Twitter.
 0. To get the information about the Twitter user, 
 find and add the **Tweeted by** field from the trigger.
