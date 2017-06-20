@@ -182,9 +182,9 @@ After you have verified that the zone has been imported correctly, you need to u
 
 The format of the Azure CLI command to import a DNS zone is:
 
-    ```azurecli
-    azure network dns zone export [options] <resource group> <zone name> <zone file name>
-    ```
+```azurecli
+azure network dns zone export [options] <resource group> <zone name> <zone file name>
+```
 
 Values:
 
@@ -202,7 +202,7 @@ As with the zone import, you first need to sign in, choose your subscription, an
     azure login
     ```
 
-2. Select the subscription where you want to create your new DNS zone.
+2. Select the subscription where you want to create your DNS zone.
 
     ```azurecli
     azure account set <subscription name>
