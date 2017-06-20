@@ -24,7 +24,7 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 ## Get the storage emulator
 The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
 
-The storage emulator currently runs only on Windows. Try the community maintained, open source storage emulator [Azurite](https://github.com/arafato/azurite) if you are looking for a storage emulator for Linux.
+The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/arafato/azurite).
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
@@ -256,6 +256,6 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Next steps
 
-* Try the cross-platform, community-maintained open source storage emulator [Azurite](https://github.com/arafato/azurite). 
+* Evaluate the cross-platform, community-maintained open source storage emulator [Azurite](https://github.com/arafato/azurite). 
 * [Azure Storage samples using .NET](storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.
