@@ -133,7 +133,7 @@
       href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create / Manage VM with C#
       href: csharp.md
     - name: Create VM with C# and template
       href: csharp-template.md
@@ -166,8 +166,6 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
-      href: csharp-manage.md
   - name: Connect with RDP
     items:
     - name: Log on to a VM
