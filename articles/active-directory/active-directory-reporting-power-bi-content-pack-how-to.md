@@ -120,9 +120,9 @@ With this report, you can understand the various device profiles used within you
 
 
 
-## Scheduling Daily refresh for your Power BI report
+## Scheduling a daily refresh of your Power BI report
 
-To schedule daily refreshs for your Power BI report, go to **Datasets > Settings > Schedule Refresh** and set it as shown below.
+To schedule a daily refresh of your Power BI report, go to **Datasets > Settings > Schedule Refresh** and set it as shown below.
  
 ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
