@@ -14,7 +14,7 @@ ms.date: 06/12/2017
 # How to connect applications to Azure Database for MySQL
 This document lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and different settings in your connection string.
 
-- To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md) to obtain the certificate.
+- To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md).
 - {your_host} = <servername>.mysql.database.azure.com
 
 ## ADO.NET
@@ -22,7 +22,7 @@ This document lists the connection string types that are supported by Azure Data
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-In this example, the server name is `myserver4demo`, database name is `wpdb`, user name is `WPAdmin`, password is `mypassword!2`. Then, the connection string should be:
+In this example, the server name is `myserver4demo`, database name is `wpdb`, user name is `WPAdmin`, and password is `mypassword!2`. Then, the connection string should be:
 
 ```ado.net
 Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
@@ -65,4 +65,4 @@ In the [Azure portal](https://portal.azure.com), go to your Azure Database for M
 The string provides details such as the driver, server, and other database connection parameters. Modify these examples by using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
 
 ## Next steps
-- For more information about connection library, see [Concepts - Connection libraries](./concepts-connection-libraries.md).
+- For more information about connection libraries, see [Concepts - Connection libraries](./concepts-connection-libraries.md).
