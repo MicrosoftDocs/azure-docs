@@ -26,7 +26,7 @@ Azure Container Service provides simple deployment of production ready Kubernete
 In this first tutorial, a sample application is tested and packed up into portable Docker container images. Steps completed include:
 
 > [!div class="checklist"]
-> * Clone an existing applications code repository
+> * Clone an existing application's code repository
 > * Create container images from the application
 > * Test the application locally
 
@@ -107,8 +107,8 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              08f036033a2f        39 seconds ago       716 MB
-azure-vote-back              latest              93cdf071f8c3        About a minute ago   407 MB
+azure-vote-front             latest              c13c4f50ede1        39 seconds ago       716 MB
+azure-vote-back              latest              33fe5afc1885        About a minute ago   407 MB
 mysql                        latest              e799c7f9ae9c        4 weeks ago          407 MB
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
@@ -156,7 +156,7 @@ At completion, you have two container images that make up the Azure Vote applica
 In this tutorial, an application was tested and container images created for the application. The following steps were covered. 
 
 > [!div class="checklist"]
-> * Clone an existing applications code repository
+> * Clone an existing application's code repository
 > * Create container images from the application
 > * Test the application locally
 
