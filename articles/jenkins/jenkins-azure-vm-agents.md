@@ -37,7 +37,7 @@ Otherwise, install the **Azure VM Agents** plugin from within the Jenkins dashbo
 ## Configure the plugin
 
 * Within the Jenkins dashboard, click **Manage Jenkins -> Configure System ->**. Scroll to the bottom of the page and find the section with the dropdown **Add new cloud**. From the menu, select **Microsoft Azure VM Agents**
-* Select an existing account from the Azure Credentials dropdown or add a new **Microsoft Azure Service Principal** from the Credentials Management page by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
+* Select an existing account from the Azure Credentials dropdown.  To add a new **Microsoft Azure Service Principal** from the Credentials Management page fill out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
 
 ![Azure Credentials](./media/jenkins-azure-vm-agents/service-principal.png)
 
@@ -51,17 +51,17 @@ Next, configure a template for use to define an Azure VM agent.
 
 * Click **Add** to add a template. 
 * Provide a name for your new template. 
-* For the label, enter  "ubuntu". This label will be used during the job configuration.
+* For the label, enter  "ubuntu". This label is used during the job configuration.
 * Select the desired region from the combo box.
 * Select the desired VM size.
-* Specify the Azure Storage account name or leave it blank to use the default name "jenkinsarmst".
+* Specify the Azure Storage account name or leave it blank to use the default name "jenkinsarmst."
 * Specify the retention time in minutes. This defines the number of minutes Jenkins can wait before automatically deleting an idle agent. Specify 0 if you do not want idle agents to be deleted automatically.
 
 ![General configuration](./media/jenkins-azure-vm-agents/general-config.png)
 
 ### Image configuration
 
-To create a Linux (Ubuntu) agent, select **Image reference** and use the following configuration as an example. Please refer to [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) for the latest Azure supported images.
+To create a Linux (Ubuntu) agent, select **Image reference** and use the following configuration as an example. Refer to [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) for the latest Azure supported images.
 
 * Image Publisher: Canonical
 * Image Offer: UbuntuServer
@@ -83,11 +83,11 @@ sudo apt-get install -y openjdk-7-jdk
 * Click **Verify Template** to verify the configuration.
 * Click **Save**.
 
-## Create a new job in Jenkins
+## Create a job in Jenkins
 
 * Within the Jenkins dashboard, click **New Item**. 
 * Enter a name and select **Freestyle project** and click **OK**.
-* In the **General** tab, select "Retrict where project can be run" and type "ubuntu" in Label Expression. You should see "ubuntu" in the dropdown.
+* In the **General** tab, select "Restrict where project can be run" and type "ubuntu" in Label Expression. You now see "ubuntu" in the dropdown.
 * Click **Save**.
 
 ![Set up job](./media/jenkins-azure-vm-agents/job-config.png)
@@ -95,8 +95,8 @@ sudo apt-get install -y openjdk-7-jdk
 ## Build your new project
 
 * Go back to the Jenkins dashboard.
-* Right-click the new job you just created, then click **Build now**. A build will be kicked off. 
-* Once the build is complete, go to **Console output**. You will see that the build was performed remotely on Azure.
+* Right-click the new job you created, then click **Build now**. A build is kicked off. 
+* Once the build is complete, go to **Console output**. You see that the build was performed remotely on Azure.
 
 ![Console output](./media/jenkins-azure-vm-agents/console-output.png)
 
