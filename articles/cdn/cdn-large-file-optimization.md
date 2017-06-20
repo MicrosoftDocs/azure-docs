@@ -59,7 +59,11 @@ The CDN will cache any chunks as they are received, and doesn’t require the en
 ### Caching
 Large Files use different default caching expiration times than for General Delivery. It differentiates between positive caching and negative caching based on HTTP response codes. If the origin specifies a time using an expiration time via Cache-Control or Expires header in the response, the CDN will always honor that value. When the origin doesn’t specify, and the file matches the file type and file size conditions list for this optimization type, the CDN will use the default values for large file optimization. Otherwise, the CDN will use defaults for general web delivery.
 
-![Caching times](./media/cdn-large-file-optimization/03_Table.png)
+ 
+|    | General web | Large file optimization 
+--- | --- | --- 
+Caching - Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |1 day  
+Caching - Negative <br> HTTP 204, 305, 404, <br> and 405 | none | 1 second 
 
 ### Dealing with Origin Failure
 
@@ -71,7 +75,12 @@ As with general web delivery, when a connection times out, we will retry a certa
 
 The following table lists the set of criteria to be satisfied for large file optimization:
 
-![LFO Criteria](./media/cdn-large-file-optimization/04_Types.png)
+Condition | Values 
+--- | --- 
+Supported File Types | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Minimum File Size | 10 MB 
+Maximum File Size | 150 GB 
+Origin Server Characteristics | Must support byte range requests 
 
 ## Optimizing for delivery of large files with Azure CDN from Verizon
 
