@@ -38,7 +38,7 @@ If you do not already have a Jenkins master, start with the [Solution Template](
 
 The Azure Credential plugin allows you to store Microsoft Azure service principal credentials in Jenkins. In version 1.2, we added the support so that Jenkins Pipeline can get the Azure credentials. 
 
-To make sure you have version 1.2 or later:
+Ensure you have version 1.2 or later:
 * Within the Jenkins dashboard, click **Manage Jenkins -> Plugin Manager ->** and search for **Azure Credential**. 
 * Update the plugin if the version is earlier than 1.2.
 
@@ -166,8 +166,8 @@ Open Jenkins in a web browser, click **New Item**.
 ## Verify your web app
 To verify the WAR file is deployed successfully to your web app. Open a web browser:
 
-* go to http://\<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
-* go to http://\<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
+* go to http://<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
+* go to http://<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
 
 ## Next steps
 In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo. Runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:
