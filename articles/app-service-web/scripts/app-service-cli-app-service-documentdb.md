@@ -23,7 +23,7 @@ ms.custom: mvc
 
 In this scenario you will learn how to create an Azure Cosmos DB account and an Azure web app. Then you will link the Cosmos DB to the web app using app settings.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
