@@ -104,12 +104,12 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-   The message list appears for the tile that you chose. For example: 
+   The message list appears for the tile that you chose. 
+   To export the message list, choose **Download**. For example: 
 
-   ![View message list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![View or download message list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
    > [!TIP]
-   > To export the message list, choose **Download**. 
    > To find the descriptions for message list properties, 
    > see [Message list property descriptions](#message-list-property-descriptions).
 
