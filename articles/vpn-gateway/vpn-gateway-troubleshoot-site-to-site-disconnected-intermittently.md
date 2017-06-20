@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Site-to-Site VPN disconnection problems| Microsoft Docs
-description: Learn how to troubleshoot Azure VPN disconnection problems.
+title: Troubleshoot Azure Site-to-Site VPN disconnection problem| Microsoft Docs
+description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected randomly. 
 services: vpn-gateway
 documentationcenter: na
 author: genlin
@@ -17,9 +17,9 @@ ms.date: 06/16/2017
 ms.author: genli
 ---
 
-# Troubleshoot Azure Site-to-Site VPN disconnection problems
+# Troubleshoot Azure Site-to-Site VPN disconnection problem
 
-You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection is not reliably. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem. 
+You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection is not stable. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -59,7 +59,7 @@ Check CPU and Bandwidth Utilization of the virtual network gateway instances:
 
 ### Step 7 Check virtual network gateway upgrade
 
-If the VPN connection disconnects just one time, but then immediately comes back on. It may be caused by thevirtual network gateway upgrade.
+If the VPN connection disconnects just one time, but then immediately comes back on. It may be caused by the virtual network gateway upgrade.
 
  ### Step 8 Check if the on-premises VPN device has Perfect forward Secrecy enabled
 
@@ -69,7 +69,8 @@ The **Perfect forward Secrecy** feature can cause the disconnection problems. If
 
 A User-defined route on the gateway subnet may be restricting some traffic and allowing other traffic giving the appearance that the VPN connection is unreliable for some traffic and ok for others. 
 
-## Need help? Contact support. 
+## Next steps
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. 
+- [Configure a Site-to-Site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Configure IPsec/IKE policy for Site-to-Site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
