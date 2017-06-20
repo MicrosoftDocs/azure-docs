@@ -1,6 +1,6 @@
 # [Chef on Azure Documentation](index.md)
 # How-to guides
-##[Automate Azure Virtual Machine deployment with Chef](/azure/virtual-machines/windows/chef-automation)
+## [Automate Azure Virtual Machine deployment with Chef](/azure/virtual-machines/windows/chef-automation)
 # Resources
 ## [Chef server in the Azure marketplace](https://azure.microsoft.com/en-us/blog/chef-server-in-marketplace-chef-azure-provisioning-and-more/)
 ## [Chef Automate from Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview)
