@@ -17,20 +17,18 @@ ms.author: mlearned
     <h1>Jenkins on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-            <p>Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Start with the quickstarts to install and configure Jenkins on Azure. The tutorials describe how to use Jenkins with Azure tools and services.
+            <p>Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Learn how to install, configure, and use Jenkins with Azure tools and services with our quickstarts, tutorials, and samples.</p>
         </div>
     </div>
 <h2>Quickstarts</h2>
-<p>Learn how to quickly deploy Jenkins on Azure.</p>
-<ol>
-  <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a></li>
-</ol>
+<p>Learn how to deploy Jenkins on Azure.</p>
+  <a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a>
 <h2 style="margin-top: 36px">Tutorials</h2>
-<p>Use the following guides to integrate Jenkins with Azure tools and services.</p> 
+<p>Learn how to integrate Jenkins with Azure tools and services.</p> 
 <ol>
     <li><a href="https://opsstaging.www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins?branch=devopsdocs%2Fahomer%2Flinux-rm">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service with Jenkins and the Azure CLI</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy your app to Azure App Service with Jenkins</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
