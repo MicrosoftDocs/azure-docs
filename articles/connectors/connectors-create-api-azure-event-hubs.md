@@ -162,8 +162,9 @@ Enter any other optional details about the event, such as content for that event
 
     You've now set up an action to send events from your logic app. 
 
-## View the swagger
-See the [swagger details](/connectors/eventhubs/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/eventhubs/). 
 
 ## Get help
 

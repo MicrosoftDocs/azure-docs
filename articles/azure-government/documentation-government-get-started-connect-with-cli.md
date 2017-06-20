@@ -34,8 +34,11 @@ az cloud set --name AzureUSGovernment
 After the cloud has been set, you can continue logging in:
 
 ```
-az login --username your-user-name@your-gov-tenant.onmicrosoft.com
+az login
 ```
+
+> [!NOTE]
+> You can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter for simple Azure AD setups/scenarios. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow.
 
 To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
 
@@ -73,8 +76,11 @@ sudo npm install -g azure-cli
 Once you have the Azure CLI installed, you need to log in to Azure Government:
 
 ```
-azure login --username your-user-name@your-gov-tenant.onmicrosoft.com  --environment AzureUSGovernment
+azure login --environment AzureUSGovernment
 ```
+
+> [!NOTE]
+> You can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter for simple Azure AD setups/scenarios. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow.
 
 Once you are logged in, you can run Azure CLI commands as you normally would:
 

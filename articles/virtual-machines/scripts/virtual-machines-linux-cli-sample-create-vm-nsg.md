@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Secure network traffic between virtual machines
@@ -34,7 +35,7 @@ This script creates two virtual machines and secures incoming traffic to both. O
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

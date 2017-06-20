@@ -62,4 +62,4 @@ The SQLASCMDLETS module provides task-specific database management cmdlets as we
 
 ## Related information
 * [PowerShell scripting in Analysis Services](https://msdn.microsoft.com/library/hh213141.aspx).
-* [Tabular Model Programming for Compatibility Level 1200](https://msdn.microsoft.com/library/mt712541.aspx)
+* [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)

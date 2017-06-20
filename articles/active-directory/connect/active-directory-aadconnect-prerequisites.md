@@ -58,7 +58,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server.
 * If you use a separate SQL Server, then these requirements apply:
-  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016. Microsoft Azure SQL Database is **not supported** as a database.
+  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016 SP1. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 

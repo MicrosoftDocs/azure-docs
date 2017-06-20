@@ -4,7 +4,7 @@ description: Troubleshoot issues when you cannot connect to your Windows virtual
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/18/2017
-ms.author: iainfou
+ms.date: 06/14/2017
+ms.author: genli
 
 ---
 # Troubleshoot Remote Desktop connections to an Azure virtual machine
@@ -82,7 +82,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
    
-    Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
+    Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](boot-diagnostics.md).
 4. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource health** button. A healthy VM reports as being **Available**:

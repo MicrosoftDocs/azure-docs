@@ -24,9 +24,9 @@ ms.author: cherylmc
 This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -187,7 +187,7 @@ Configure and create the virtual network gateway for your VNet.
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 `
 -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 ```
 
@@ -253,7 +253,7 @@ If you are having trouble connecting, check the following things:
 
 You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate, and thus will not be able to connect. If you want a client to authenticate and connect, you need to install a new client certificate generated from a root certificate that is trusted (uploaded) to Azure.
 
-### To add a root certificate
+### To add a trusted root certificate
 
 You can add up to 20 root certificate .cer files to Azure. The following steps help you add a root certificate:
 

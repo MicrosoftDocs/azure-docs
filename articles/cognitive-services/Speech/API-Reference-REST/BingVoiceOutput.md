@@ -123,6 +123,16 @@ Content-Type: text/plain; charset=UTF-8
 Voice name not supported
 ```
 
+## <a name="ChangeSSML"></a>Changing voice output via SSML
+This section will show examples of changing certain characteristics of generated voice output like speaking rate, pronunciation etc. by using SSML tags.
+
+1. Adding break:```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">Welcome to use Microsoft Text to speech voice<break time="100ms" /> in cognitive service.</speak>  ```  
+2. Change speaking rate:```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody rate="+30.00%">Welcome to use Microsoft Text to speech voice in cognitive service.</prosody></speak> ```   
+3. Pronunciation : ```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><sub alias="World Wide Web Consortium">W3C</sub> </speak>• <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></speak>```  
+4. Change volume:```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody volume="+20.00%">Welcome to use Microsoft Text to speech voice in cognitive service.</prosody></speak>```  
+5. Change pitch:```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">Welcome to use <prosody pitch="high">Microsoft Text to speech voice </prosody>in cognitive service.</speak>```  
+6. Change prosody contour:```<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></speak>```  
+
 ## <a name="SampleApp"></a>Sample application
 For implementation details, see the [Visual C#.NET text-to-speech sample application](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).  
 

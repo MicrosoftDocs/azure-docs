@@ -48,9 +48,9 @@ Follow these steps to sign into Slack, and complete the configuration of the Sla
    ![Configure Slack][6]
 10. Save your work by selecting **Save** on the menu bar above.
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/slack/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/slack/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

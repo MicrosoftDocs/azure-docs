@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/05/2017
 ms.author: jingwang
 
 ---
@@ -102,7 +102,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 
 ### Using SSH public key authentication
 
-To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
+To use SSH public key authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
 | --- | --- | --- | --- |
@@ -110,6 +110,9 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 | privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
 | privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
 | passPhrase | Specify the pass phrase/password to decrypt the private key if the key file is protected by a pass phrase. | Yes if the private key file is protected by a pass phrase. |
+
+> [!NOTE]
+> SFTP connector only support OpenSSH key. Make sure your key file is in the proper format. You can use Putty tool to convert from .ppk to OpenSSH format.
 
 #### Example: SshPublicKey authentication using private key filePath
 

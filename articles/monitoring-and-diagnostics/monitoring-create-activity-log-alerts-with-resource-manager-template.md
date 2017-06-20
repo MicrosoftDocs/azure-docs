@@ -58,7 +58,7 @@ To create an activity log alert using a Resource Manager template, you create a 
   "resources": [   
     {
       "type": "Microsoft.Insights/activityLogAlerts",
-      "apiVersion": "2017-03-01-preview",
+      "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlertName')]",      
       "location": "Global",
       "properties": {

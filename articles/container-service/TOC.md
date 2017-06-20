@@ -1,22 +1,37 @@
+# [ACS Documentation](./index.md)
+
 # Overview
 ## [About Container Service](container-service-intro.md)
-## [Containers in Azure](../virtual-machines/linux/containers.md?toc=%2fazure%2fcontainer-service%2ftoc.json)
 
 # Quickstarts
-## [Kubernetes cluster - Linux](container-service-kubernetes-walkthrough.md)
-## [Kubernetes cluster - Windows](container-service-kubernetes-windows-walkthrough.md)
+## [Kubernetes Linux](container-service-kubernetes-walkthrough.md)
+## [Kubernetes Windows](container-service-kubernetes-windows-walkthrough.md)
+## [DC/OS Linux](container-service-dcos-quickstart.md)
 
 # Tutorials
-## [Deploy cluster - Portal](container-service-deployment.md)
-## [Deploy cluster - Azure CLI](container-service-create-acs-cluster-cli.md)
-## [CI/CD with Kubernetes and Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD with Docker Swarm and VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## Kubernetes
+### [1 - Create container images](container-service-tutorial-kubernetes-prepare-app.md)
+### [2 - Create container registry](container-service-tutorial-kubernetes-prepare-acr.md)
+### [3 - Create Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
+### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
+### [5 - Scale application](container-service-tutorial-kubernetes-scale.md)
+### [6 - Update application](container-service-tutorial-kubernetes-app-update.md)
+### [7 - Monitor with OMS](container-service-tutorial-kubernetes-monitor.md)
+
+## DC/OS
+### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
+### [Load balance applications](container-service-load-balancing.md)
+### [Create / manage data volumes](container-service-dcos-fileshare.md)
+### [Integrate with ACR](container-service-dcos-acr.md)
+
+# Samples
+## [Azure CLI](cli-samples.md)
 
 # Concepts
 ## [Secure containers](container-service-security.md)
 ## [Service principal - Kubernetes](container-service-kubernetes-service-principal.md)
 
-# How To
+# How-to guides
 ## [Connect with an ACS cluster](container-service-connect.md)
 ## [Scale an ACS cluster](container-service-scale.md)
 ## Manage with DC/OS
@@ -24,25 +39,20 @@
 ### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
 ### [DC/OS agent pools](container-service-dcos-agents.md)
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance DC/OS containers](container-service-load-balancing.md)
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Add a file share](container-service-dcos-fileshare.md)
-### [Use an Azure container registry](container-service-dcos-acr.md)
 ### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
-#### [Monitor with OMS](container-service-monitoring-oms.md)
 #### [Monitor with Datadog](container-service-monitoring.md)
 #### [Monitor with Sysdig](container-service-monitoring-sysdig.md)
 #### [Monitor with Dynatrace](container-service-monitoring-dynatrace.md)
 ## Manage with Kubernetes
 ### [Container management - Kubernetes UI](container-service-kubernetes-ui.md)
-### [Load balance Kubernetes containers](container-service-kubernetes-load-balancing.md)
 ### [Deploy Helm charts](container-service-kubernetes-helm.md)
 ### Monitor Kubernetes
-#### [Monitor with OMS](container-service-kubernetes-oms.md)
 #### [Monitor with Datadog](container-service-kubernetes-datadog.md)
 #### [Monitor with Sysdig](container-service-kubernetes-sysdig.md)
+#### [Monitor with CoScale](container-service-kubernetes-coscale.md)
 ## Manage with Docker Swarm
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 

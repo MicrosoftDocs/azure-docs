@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
 # Azure Resource Manager template functions
 This topic describes all the functions you can use in an Azure Resource Manager template.
+
+You add functions in your templates by enclosing them within brackets: `[` and `]`, respectively. The expression is evaluated during deployment. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array, object, or integer. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
+
+A template expression cannot exceed 24,576 characters.
 
 Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 

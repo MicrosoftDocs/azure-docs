@@ -397,5 +397,3 @@ If your line-of-business app needs access to on-premises data, see
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 * [Azure Active Directory Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

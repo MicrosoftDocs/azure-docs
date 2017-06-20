@@ -9,7 +9,7 @@ editor: monicar
 
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

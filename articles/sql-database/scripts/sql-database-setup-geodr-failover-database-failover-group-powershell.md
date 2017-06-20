@@ -10,12 +10,12 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 05/26/2017
 ms.author: janeng
 ---
 
@@ -27,7 +27,7 @@ This sample PowerShell script configures an active geo-replication failover grou
 
 ## Sample scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1 "Set up failover group for single database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## Clean up deployment
 

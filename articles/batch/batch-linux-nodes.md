@@ -161,7 +161,7 @@ List<NodeAgentSku> nodeAgentSkus =
 Func<ImageReference, bool> isUbuntu1404 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.SkuId.Contains("14.04");
+    imageRef.Sku.Contains("14.04");
 
 // Obtain the first node agent SKU in the collection that matches
 // Ubuntu Server 14.04. Note that there are one or more image
@@ -176,9 +176,7 @@ ImageReference imageReference =
 // Create the VirtualMachineConfiguration for use when actually
 // creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: ubuntuAgentSku.Id);
+    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
 
 // Create the unbound pool object using the VirtualMachineConfiguration
 // created above
@@ -186,10 +184,10 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     virtualMachineSize: vmSize,
     virtualMachineConfiguration: virtualMachineConfiguration,
-    targetDedicated: nodeCount);
+    targetDedicatedComputeNodes: nodeCount);
 
 // Commit the pool to the Batch service
-pool.Commit();
+await pool.CommitAsync();
 ```
 
 Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to dynamically list and select from supported image and node agent SKU combinations (recommended), you can also configure an [ImageReference][net_imagereference] explicitly:
@@ -198,7 +196,7 @@ Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeA
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    skuId: "14.04.2-LTS",
+    sku: "14.04.2-LTS",
     version: "latest");
 ```
 
@@ -233,7 +231,7 @@ The following table lists the Marketplace virtual machine images that are compat
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
 
-## Connect to Linux nodes
+## Connect to Linux nodes using SSH
 During development or while troubleshooting, you may find it necessary to sign in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.
 
 The following Python code snippet creates a user on each node in a pool, which is required for remote connection. It then prints the secure shell (SSH) connection information for each node.

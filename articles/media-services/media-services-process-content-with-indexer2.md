@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 15/05/2017
+ms.date: 02/06/2017
 ms.author: adsolank;juliako;
 
 ---
@@ -80,6 +80,9 @@ Azure Media Indexer 2 Preview supports speech-to-text for the following language
 * Portuguese  [PtBr]
 * Arabic (Egyptian) [ArEg]
 * Japanese [JaJp]
+* Russian [RuRu]
+* British English [EnGb]
+* Mexican Spanish [EsMx] 
 
 ## Supported file types
 
