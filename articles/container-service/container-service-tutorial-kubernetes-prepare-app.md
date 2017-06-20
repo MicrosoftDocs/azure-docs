@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Create container images to be used with Azure Container Service
 
-Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, an application is createed from source files, tested locally and then deployed into a Kubernetes cluster, where it is then scaled, upgraded, and monitored. Throughout these steps, a Kubernetes cluster and an Azure Container Registry are deployed and the underlying Azure components explained.
+Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, you use source files to create an application, test it locally, and then deploy it into a Kubernetes cluster, where you then scale it, upgrade it, and monitor it. During the tutorial set, you also deploy a Kubernetes cluster and an Azure Container Registry, and the tutorials explain the underlying Azure components.
 
 In this first tutorial, a sample application is built into Docker container images and run locally. Steps completed include:
 
@@ -93,7 +93,7 @@ services:
         - "8080:80"
 ```
 
-Build and run the `docker-compose.yaml` file with the `docker-compose up` command to create the container images and start the application. The first time this command is run, a few moments are required to download the base layers of the container image.
+To create the container images and start the application, build and run the `docker-compose.yaml` file with the `docker-compose up` command. The first time this command is run, a few moments are required to download the base layers of the container image.
 
 ```bash
 docker-compose up -d
