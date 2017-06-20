@@ -140,6 +140,7 @@ if your ADFS server has not been configured to automatically update certificates
 |Version history | [Version history](active-directory-aadconnect-version-history.md)|
 |Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)|
+|Configuring a SAML 2.0 Idp|[Using a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)|
 |Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitoring using Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|

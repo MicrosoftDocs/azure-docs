@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-ms.author: cherylmc
+ms.date: 05/30/2017
+ms.author: cherylmc,yushwang
 
 ---
 # VPN Gateway FAQ
@@ -190,6 +190,11 @@ Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to mu
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
+
+## IPsec/IKE policy
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+
 
 ## <a name="bgp"></a>BGP
 

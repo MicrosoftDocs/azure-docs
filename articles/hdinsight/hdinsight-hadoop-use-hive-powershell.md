@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Hive with PowerShell in HDInsight | Microsoft Docs
+title: Use Hadoop Hive with PowerShell in HDInsight - Azure | Microsoft Docs
 description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ---
@@ -32,7 +32,7 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 * **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **A workstation with Azure PowerShell**.
 

@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Self-service password reset in Azure AD deep dive
@@ -52,7 +54,7 @@ Read through the steps below to learn about the logic behind the password reset 
 
 ## Authentication methods
 
-If Self-Service Password Reset (SSPR) is enabled, you must select at least one of the below options for authentication methods. We highly recommend choosing at least two authentication methods so that your users have more flexibility.
+If Self-Service Password Reset (SSPR) is enabled, you must select at least one of the following options for authentication methods. We highly recommend choosing at least two authentication methods so that your users have more flexibility.
 
 * Email
 * Mobile Phone
@@ -70,9 +72,9 @@ If Self-Service Password Reset (SSPR) is enabled, you must select at least one o
 
 By default, only the cloud attributes Office Phone and Mobile Phone are synchronized to your cloud directory from your on-premises directory for authentication data.
 
-Users will only be able to reset their password only if they have data present in the authentication methods that the administrator has enabled and requires.
+Users can only reset their password if they have data present in the authentication methods that the administrator has enabled and requires.
 
-If users do not want their mobile phone number to be visible in the directory but would still like to use it for password reset, administrators should not populate it in the directory and the user should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators will still be able to see this information in the user's profile but it will not be published elsewhere. If an Azure Administrator account registers their authentication phone number, it is populated into the mobile phone field and is visible.
+If users do not want their mobile phone number to be visible in the directory but would still like to use it for password reset, administrators should not populate it in the directory and the user should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile but it is not published elsewhere. If an Azure Administrator account registers their authentication phone number, it is populated into the mobile phone field and is visible.
 
 ### Number of authentication methods required
 
@@ -80,7 +82,7 @@ This option determines the minimum number of the available authentication method
 
 Users can choose to supply more authentication methods if they are enabled by the administrator.
 
-If a user does not have the minimum required methods registered they see an error page that directs them to request an administrator to reset their password.
+If a user does not have the minimum required methods registered, they see an error page that directs them to request an administrator to reset their password.
 
 ### How secure are my security questions
 
@@ -221,7 +223,7 @@ The account specified in the Azure AD Connect utility must have Reset Password, 
 
 If you are not sure what account the above refers to, open the Azure Active Directory Connect configuration UI and click the Review Your Solution option. The account you need to add permission to is listed under "Synchronized Directories"
 
-Setting these permissions allow the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
+Setting these permissions allows the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
 
 > [!NOTE]
 > It could take up to an hour or more for these permissions to replicate to all objects in your directory.
@@ -237,7 +239,12 @@ To set up the appropriate permissions for password writeback to occur
 4. From the Permissions tab, click Add
 5. Pick the account that permissions are being applied to (from Azure AD Connect setup)
 6. In the Applies to drop down box select Descendent User objects
-7. Under permissions check the boxes for Reset Password, Change Password, Write lockoutTime, and Write pwdLastSet
+7. Under permissions check the boxes for the following
+    * Unexpire-Password
+    * Reset Password
+    * Change Password
+    * Write lockoutTime
+    * Write pwdLastSet
 8. Click Apply/OK through to apply and exit any open dialog boxes.
 
 ## How does password reset work for B2B users?

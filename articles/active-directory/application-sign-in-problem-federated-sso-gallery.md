@@ -137,9 +137,36 @@ They should validate they support the Azure AD SAML implementation for Single Si
 
 The application object is corrupted.
 
-**Resolution**
+**Resolution: option 1**
 
-To solve the problem, remove the application from the directory. Then, add and reconfigure the application, follow the steps below:
+To solve the problem, add the unique Identifier value in the Azure AD configuration. To add a Identifier value, follow the steps below:
+
+1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+
+2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+
+3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+
+4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+
+5.  click **All Applications** to view a list of all your applications.
+
+  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+
+6.  Select the application you have configured single sign-on.
+
+7.  Once the application loads, click on the **Single sign-on** from the application’s left hand navigation menu
+
+8.  Under the **Domain and URL** section, check on the **Show advanced URL settings**.
+
+9.  in the **Identifier** textbox type a unique identifier for the application.
+
+10. **Save** the configuration.
+
+
+**Resolution option 2**
+
+If option 1 above did not work for you, try removing the application from the directory. Then, add and reconfigure the application, follow the steps below:
 
 1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
@@ -196,6 +223,10 @@ To delete and create a new certificate, follow the steps below:
 10. Check **Make new certificate active** to override the active certificate. Then, click **Save** at the top of the blade and accept to activate the rollover certificate.
 
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
+
+## Problem when customizing the SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
 [How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

@@ -1,6 +1,6 @@
 ---
-title: ReliableConcurrentQueue in Azure Serice Fabric
-description: ReliableConcurrentQueue is a high throughput queue which allows parallel enqueues and dequeues.
+title: ReliableConcurrentQueue in Azure Service Fabric
+description: ReliableConcurrentQueue is a high-throughput queue which allows parallel enqueues and dequeues.
 services: service-fabric
 documentationcenter: .net
 author: sangarg
@@ -17,10 +17,10 @@ ms.date: 5/1/2017
 ms.author: sangarg
 
 ---
-# Introduction to ReliableConcurrentQueue
-Reliable Concurrent Queue is an asynchronous queue which is transactional and replicated. The queue allows concurrent enqueues and dequeues to process the queue. The data structure is aimed to deliver high throughput by relaxing the strict FIFO constraint and offers a best-effort ordering for the items.
+# Introduction to ReliableConcurrentQueue in Azure Service Fabric
+Reliable Concurrent Queue is an asynchronous, transactional, and replicated queue which features high concurrency for enqueue and dequeue operations. It is designed to deliver high throughput and low latency by relaxing the strict FIFO ordering provided by [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) and instead provides a best-effort ordering.
 
-## Apis offered
+## APIs
 
 |Concurrent Queue                |Reliable Concurrent Queue                                         |
 |--------------------------------|------------------------------------------------------------------|
@@ -30,160 +30,147 @@ Reliable Concurrent Queue is an asynchronous queue which is transactional and re
 
 ## Comparison with [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and/or dequeue at a time. In comparison, the Reliable Concurrent Queue relaxes the ordering constraint. It allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
+Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and at most one transaction allowed to dequeue at a time. In comparison, Reliable Concurrent Queue relaxes the ordering constraint and allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
 
-Reliable Concurrent Queue provides higher throughput and lower latency than [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) whenever there are multiple concurrent transactions performing enqueues and/or dequeues.   
+Reliable Concurrent Queue provides higher throughput and lower latency than [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) whenever there are multiple concurrent transactions performing enqueues and/or dequeues.
 
-A good use case for the ReliableConcurrentQueue would be a [Messaging Queue](https://en.wikipedia.org/wiki/Message_queue) scenario. In this scenario, we have a message producer who creates a message and adds it to the queue independent of a message consumer. The message consumer can then pull a message from the queue and process it. We can have multiple producers and consumers working independent of each other and hence need to allow concurrent transactions to process the queue.
+A sample use case for the ReliableConcurrentQueue is the [Message Queue](https://en.wikipedia.org/wiki/Message_queue) scenario. In this scenario, one or more message producers create and add items to the queue, and one or more message consumers pull messages from the queue and process them. Multiple producers and consumers can work independently, using concurrent transactions in order to process the queue.
 
 ## Usage Guidelines
-* The queue expects that the items have a low retention period, that is, the items would not stay in the queue for a long time.
+* The queue expects that the items in the queue have a low retention period. That is, the items would not stay in the queue for a long time.
 * The queue does not guarantee strict FIFO ordering.
-* The queue does not read its own writes. If an item is enqueued in a transaction, it would not be visible to a dequeuer in the same transaction.
-* Dequeues are not isolated from each other. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.
-* *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. A code snippet for the same can be found in the Programming Patterns section.
-* Count is non-transactional. It should be used to get an idea of the number of elements in the queue. It does not guarantee the queue count.
-* Expensive processing on the dequeued items must be delayed for later to avoid long running transactions.
-* Currently we do not guarantee any ordering but would be providing Enqueue ordering within a transaction. Users must not reply their business logic on the order of items in the queue.
+* The queue does not read its own writes. If an item is enqueued within a transaction, it will not be visible to a dequeuer within the same transaction.
+* Dequeues are not isolated from each other. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.  If *txnA* aborts, *A* will become visible to *txnB* immediately.
+* *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. An example of this can be found in the Programming Patterns section.
+* Count is non-transactional. It can be used to get an idea of the number of elements in the queue, but represents a point-in-time and cannot be relied upon.
+* Expensive processing on the dequeued items should not be performed while the transaction is active, to avoid long-running transactions which may have a performance impact on the system.
 
 ## Code Snippets
-Let us look at a few code snippets and the expected outputs for the same. Exception handling is ignored in this section.
+Let us look at a few code snippets and their expected outputs. Exception handling is ignored in this section.
 
-### - EnqueueAsync
-Here are a few code snippets for using EnqueueAsync followed by the expected outputs.
+### EnqueueAsync
+Here are a few code snippets for using EnqueueAsync followed by their expected outputs.
 
-- *Case 1: Single Enqueue task*
+- *Case 1: Single Enqueue Task*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 10, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 20, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 10, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 20, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-Assume that the task completed successfully and there were no parallel tasks processing the queue. The user can expect the queue to have the items in any of the following orders:
+Assume that the task completed successfully, and that there were no concurrent transactions modifying the queue. The user can expect the queue to contain the items in any of the following orders:
 
 > 10, 20
 
->20, 10
+> 20, 10
 
 
-- *Case 2: Parallel enqueue task*
+- *Case 2: Parallel Enqueue Task*
 
 ```
 // Parallel Task 1
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 10, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 20, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 10, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 20, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 
-// Parallel  Task 2
+// Parallel Task 2
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 30, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 40, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 30, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 40, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-Assume that there are no other parallel tasks processing the queue, and that Task 1 and Task 2 are running in parallel. No inference can be made about the order of items in the queue. For this code snippet, the items may appear in any of the 4! order currently.
+Assume that the tasks completed successfully, that the tasks ran in parallel, and that there were no other concurrent transactions modifying the queue. No inference can be made about the order of items in the queue. For this code snippet, the items may appear in any of the 4! possible orderings.  The queue will attempt to keep the items in the original (enqueued) order, but may be forced to reorder them due to concurrent operations or faults.
 
 
-### - DequeueAsync
+### DequeueAsync
 Here are a few code snippets for using TryDequeueAsync followed by the expected outputs. Assume that the queue is already populated with the following items in the queue:
 > 10, 20, 30, 40, 50, 60
 
-- *Case 1: Single dequeue task*
+- *Case 1: Single Dequeue Task*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-Assume that there are no other parallel tasks processing the queue. The items would be dequeued in the following order:
-> 10, 20, 30
+Assume that the task completed successfully, and that there were no concurrent transactions modifying the queue. Since no inference can be made about the order of the items in the queue, any three of the items may be dequeued, in any order. The queue will attempt to keep the items in the original (enqueued) order, but may be forced to reorder them due to concurrent operations or faults.  
 
-- *Case 2: Parallel dequeue task*
+- *Case 2: Parallel Dequeue Task*
 
 ```
 // Parallel Task 1
 List<int> dequeue1;
 using (var txn = this.StateManager.CreateTransaction())
 {
-    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
-    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
+    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
+    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 
 // Parallel Task 2
 List<int> dequeue2;
 using (var txn = this.StateManager.CreateTransaction())
 {
-    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
-    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
+    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
+    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-Assume that there are no other parallel tasks processing the queue, and that Task 1 and Task 2 are running in parallel. The user can expect the order within a transaction would be maintained but there is no ordering for items across transactions. The lists dequeue1 and dequeue2 would be in any of the following orders:
-> 10, 20
+Assume that the tasks completed successfully, that the tasks ran in parallel, and that there were no other concurrent transactions modifying the queue. Since no inference can be made about the order of the items in the queue, the lists *dequeue1* and *dequeue2* will each contain any two items, in any order.
 
-> 10, 30
+The same item will *not* appear in both lists. Hence, if dequeue1 has *10*, *30*, then dequeue2 would have *20*, *40*.
 
-> 10, 40
+- *Case 3: Dequeue Ordering With Transaction Abort*
 
-> 20, 30
-
-> 20, 40
-
-> 30, 40
-
-The same element would *not* appear in both the lists. Hence, if the first list has 10, 30, the second list would have 20, 40.
-
-- *Case 3: Dequeue ordering with Transaction abort*
-
-Aborting a transaction with in-flight dequeues, puts the items back on the head of the queue. The order in which the items are put back on the head of the queue is not guaranteed. Let us look at the following code:
+Aborting a transaction with in-flight dequeues puts the items back on the head of the queue. The order in which the items are put back on the head of the queue is not guaranteed. Let us look at the following code:
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
     // Abort the transaction
-    await txn.AbortAsync().ConfigureAwait(false);
+    await txn.AbortAsync();
 }
 ```
 Assume that the items were dequeued in the following order:
 > 10, 20
 
-When we abort the transaction, the items would be added back to the head of the queue. As the dequeue operations did not complete successfully, the items can be added back to the queue in any of the following orders:
+When we abort the transaction, the items would be added back to the head of the queue in any of the following orders:
 > 10, 20
 
 > 20, 10
 
-The same is true for all case where the transaction was not successfully *Committed*.
+The same is true for all cases where the transaction was not successfully *Committed*.
 
-## Programming patterns
-In this section, let us look at a few programming patterns that might be helpful in using the ReliableConcurrentQueue.
+## Programming Patterns
+In this section, let us look at a few programming patterns that might be helpful in using ReliableConcurrentQueue.
 
 ### Batch Dequeues
-A recommended programming pattern is for the consumer task to batch its deueues instead of doing one dequeue at a time. The user can choose to throttle between every batch. The following code snippet shows this programming model.
+A recommended programming pattern is for the consumer task to batch its dequeues instead of performing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model.  Note that in this example, the processing is done after the transaction is committed, so if a fault were to occur while processing, the unprocessed items will be lost without having been processed.  Alternatively, the processing can be done within the transaction's scope, however this may have a negative impact on performance and requires handling of the items already processed.
 
 ```
 int batchSize = 5;
@@ -200,7 +187,7 @@ while(!cancellationToken.IsCancellationRequested)
 
         for(int i = 0; i < batchSize; ++i)
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if (ret.HasValue)
             {
@@ -214,7 +201,7 @@ while(!cancellationToken.IsCancellationRequested)
             }
         }
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -224,12 +211,12 @@ while(!cancellationToken.IsCancellationRequested)
     }
 
     int delayFactor = batchSize - processItems.Count;
-    await Task.Delay(TimeSpan.FromMilliseconds(delayMs * delayFactor), cancellationToken).ConfigureAwait(false);
+    await Task.Delay(TimeSpan.FromMilliseconds(delayMs * delayFactor), cancellationToken);
 }
 ```
 
-### Notification based processing
-Another interesting programming pattern uses the Count api. Here, we can implement notification based processing for the queue. The queue Count can be used to throttle an enqueue or a dequeue task.
+### Best-Effort Notification-Based Processing
+Another interesting programming pattern uses the Count API. Here, we can implement best-effort notification-based processing for the queue. The queue Count can be used to throttle an enqueue or a dequeue task.  Note that as in the previous example, since the processing occurs outside the transaction, unprocessed items may be lost if a fault occurs during processing.
 
 ```
 int threshold = 5;
@@ -242,7 +229,7 @@ while(!cancellationToken.IsCancellationRequested)
         cancellationToken.ThrowIfCancellationRequested();
 
         // If the queue does not have the threshold number of items, delay the task and check again
-        await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken).ConfigureAwait(false);
+        await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken);
     }
 
     // If there are approximately threshold number of items, try and process the queue
@@ -256,7 +243,7 @@ while(!cancellationToken.IsCancellationRequested)
 
         do
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if (ret.HasValue)
             {
@@ -265,7 +252,7 @@ while(!cancellationToken.IsCancellationRequested)
             }
         } while (processItems.Count < threshold && ret.HasValue);
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -276,8 +263,10 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### Best effort DrainQueueAsync
-We cannot guarantee draining of queue due to the concurrent nature of the data structure. To implement a *DrainQueueAsync* Task, the user must wait for all parallel tasks processing the queue to be completed. As both committed enqueues and aborted dequeues adds items to the queue, all in-flight enqueues and dequeues should be completed. If the number of items is the queue is large, the user should choose to batch the dequeues. Once all the parallel tasks are completed, *DrainQueueAsync* can be implemented as follows:
+### Best-Effort Drain
+A drain of the queue cannot be guaranteed due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item which was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort as implemented below.
+
+The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue.  If the user knows the expected number of items in the queue, they can set up a notification which signals that all items have been dequeued.
 
 ```
 int numItemsDequeued;
@@ -288,23 +277,21 @@ ConditionalValue ret;
 do
 {
     List<int> processItems = new List<int>();
-    numItemsDequeued = 0;
 
     using (var txn = this.StateManager.CreateTransaction())
     {
         do
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if(ret.HasValue)
             {
                 // Buffer the dequeues
                 processItems.Add(ret.Value);
-                ++numItemsDequeued;
             }
-        } while (ret.HasValue && numItemsDequeued < batchSize);
+        } while (ret.HasValue && processItems.Count < batchSize);
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -315,15 +302,14 @@ do
 } while (ret.HasValue);
 ```
 
-### TryPeekAsync
-ReliableConcurrentQueue does not support the *TryPeekAsync* api. The users can get the same behavior by using a *TryDequeueAsync* and then aborting the transaction. Let us look at a code snippet for the same. In this example, we would process dequeues only if the item's value is greater than 10;
+### Peek
+ReliableConcurrentQueue does not provide the *TryPeekAsync* api. Users can get the peek semantic by using a *TryDequeueAsync* and then aborting the transaction. In this example, dequeues are processed only if the item's value is greater than *10*.
 
 ```
-bool valueProcessed = false;
-
 using (var txn = this.StateManager.CreateTransaction())
 {
-    ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    ConditionalValue ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    bool valueProcessed = false;
 
     if (ret.HasValue)
     {
@@ -337,21 +323,21 @@ using (var txn = this.StateManager.CreateTransaction())
 
     if (valueProcessed)
     {
-        await txn.CommitAsync().ConfigureAwait(false);    
+        await txn.CommitAsync();    
     }
     else
     {
-        await txn.AbortAsync().ConfigureAwait(false);
+        await txn.AbortAsync();
     }
 }
 ```
 
 ## Must Read
-* [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
-* [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-* [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-* [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
-* [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Reliable Services Backup and Restore (Disaster Recovery)](service-fabric-reliable-services-backup-restore.md)
+* [Reliable State Manager Configuration](service-fabric-reliable-services-configuration.md)
+* [Getting Started with Service Fabric Web API Services](service-fabric-reliable-services-communication-webapi.md)
+* [Advanced Usage of the Reliable Services Programming Model](service-fabric-reliable-services-advanced-usage.md)
+* [Developer Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

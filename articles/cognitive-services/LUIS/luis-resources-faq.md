@@ -49,7 +49,7 @@ You have one of two options:
 
 The second option takes more labeling effort while the first might be easier.
 
-## I see some errors in the performance analysis pane for some of the models in my app. How can I address this problem?
+## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
 This is an indication that there is some discrepancy between your labels and the predictions from your models. You need to do one or both of the following:
 1.	Add more labels to help LUIS make the discrimination among intents better.
@@ -65,5 +65,6 @@ This is an indication that there is some discrepancy between your labels and the
 
 ## Next steps
 
+* You can find many answers in the [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis).
 * Another resource is the [MSDN LUIS Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 

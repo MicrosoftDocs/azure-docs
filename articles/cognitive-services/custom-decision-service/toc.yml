@@ -4,6 +4,8 @@
   href: custom-decision-service-overview.md
 - name: Get started
   items:
+  - name: Register your application
+    href: custom-decision-service-get-started-register.md
   - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
   - name: Call API from an app

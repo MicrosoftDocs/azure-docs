@@ -3,7 +3,7 @@ title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: awills
+ms.date: 05/17/2017
+ms.author: cfreeman
 
 ---
 # Application Insights API for custom events and metrics
@@ -28,7 +28,7 @@ The API is uniform across all platforms, apart from a few small variations.
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
 | [`TrackEvent`](#trackevent) |User actions and other events. Used to track user behavior or to monitor performance. |
-| [`TrackMetric`](#send-metrics) |Performance measurements such as queue lengths not related to specific events. |
+| [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
 | [`TrackException`](#trackexception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
 | [`TrackRequest`](#trackrequest) |Logging the frequency and duration of server requests for performance analysis. |
 | [`TrackTrace`](#tracktrace) |Diagnostic log messages. You can also capture third-party logs. |
@@ -112,40 +112,26 @@ To focus on specific events in either Search or Metrics Explorer, set the blade'
 
 ![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
+### Custom events in Analytics
 
-## Send metrics
+The telemetry is available in the `customEvents` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackEvent(..)` in your app. 
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvent | summarize sum(itemCount)`.
+
+
+## TrackMetric
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
-There are two ways to send metrics:
+In order to send metrics to Application Insights, you can use the `TrackMetric(..)` API. There are two ways to send a metric: 
 
-* **MetricManager** is recommended as a convenient way to send metrics while reducing bandwidth. It aggregates your metrics in your app, sending the aggregated statistics to the portal at intervals of one minute. MetricManager is available from version 2.4 of the Application Insights SDK for ASP.NET.
-* **TrackMetric** sends metric statistics to the portal. You can either send single metric values, or perform your own aggregation and use TrackMetric to send the statistics.
+* Single value. Every time you perform a measurement in your application, you send the corresponding value to Application Insights. For example, assume that you have a metric describing the number of items in a container. During a particular time period, you first put 3 items into the container and then you remove 2 items. Accordingly, you would call `TrackMetric` twice: first passing the value `3` and then the value `-2`. Application Insights will store both values on your behalf. 
 
-### MetricManager
+* Aggregation. When working with metrics, every single measurement is rarely of interest. Instead a summary of what happened during a particular time period is important. Such a summary is called _aggregation_. In the above example the aggregate metric sum for that time period is `1` and the count of the metric values is `2`. When using the aggregation approach, you will only invoke `TrackMetric` once per time period and send the aggregate values. This is the recommended approach since it can significantly reduce the cost and performance overhead by sending fewer data points to Application Insights, while still collecting all relevant information.
 
-(Application Insights for ASP.NET v2.4.0+)
+### Examples:
 
-Create an instance of MetricManager and then use it as a factory for metrics:
-
-*C#*
-```C#
-    // Initially:
-    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
-
-    // For each metric that you want to use:
-    var metric1 = mgr.CreateMetric("m1", dimensions);
-
-    // Each time you want to record a measurement:
-    metric1.Track(value);
-
-```
-
-`dimensions` is an optional string dictionary. Use it if you want to attach [properties](#properties) to your metric so that you can segment by different property values. 
-
-### TrackMetric
-
-TrackMetric is the basic method for sending aggregated metrics. 
+#### Single values
 
 To send a single metric value:
 
@@ -164,59 +150,153 @@ To send a single metric value:
     telemetryClient.TrackMetric(sample);
 ```
 
-However, it is recommended to aggregate metrics before sending them from your app, to reduce bandwidth.
-If you are using the latest version of the SDK for ASP.NET, you can use [`MetricManager`](#metricmanager) to do this. Otherwise, here is an example of aggregating code:
+#### Aggregating metrics
+
+It is recommended to aggregate metrics before sending them from your app, to reduce bandwidth, cost and to improve performance.
+Here is an example of aggregating code:
 
 *C#*
 
 ```C#
-    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
-    class MetricAggregator
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+
+namespace MetricAggregationExample
+{
+    /// <summary>
+    /// Aggregates metric values for a single time period.
+    /// </summary>
+    internal class MetricAggregator
     {
-        private List<double> measurements = new List<double>();
-        private string name;
-        private TelemetryClient telemetryClient;
-        private BackgroundWorker thread;
-        private Boolean stop = false;
-        public void TrackMetric (double value)
+        private SpinLock _trackLock = new SpinLock();
+
+        public DateTimeOffset StartTimestamp    { get; }
+        public int Count                        { get; private set; }
+        public double Sum                       { get; private set; }
+        public double SumOfSquares              { get; private set; }
+        public double Min                       { get; private set; }
+        public double Max                       { get; private set; }
+        public double Average                   { get { return (Count == 0) ? 0 : (Sum / Count); } }
+        public double Variance                  { get { return (Count == 0) ? 0 : (SumOfSquares / Count)
+                                                                                  - (Average * Average); } }
+        public double StandardDeviation         { get { return Math.Sqrt(Variance); } }
+
+        public MetricAggregator(DateTimeOffset startTimestamp)
         {
-            lock (this)
-            {
-                measurements.Add(value);
-            }
+            this.StartTimestamp = startTimestamp;
         }
-        public MetricTelemetry Aggregate()
+
+        public void TrackValue(double value)
         {
-            lock (this)
+            bool lockAcquired = false;
+
+            try
             {
-                var sample = new MetricTelemetry();
-                sample.Name = "metric name";
-                sample.Count = measurements.Count;
-                sample.Max = measurements.Max();
-                sample.Min = measurements.Min();
-                sample.Sum = measurements.Sum();
-                var mean = sample.Sum / measurements.Count;
-                sample.StandardDeviation = Math.Sqrt(measurements.Sum(v => { var diff = v - mean; return diff * diff; }) / measurements.Count);
-                sample.Timestamp = DateTime.Now;
-                measurements.Clear();
-                return sample;
+                _trackLock.Enter(ref lockAcquired);
+
+                if ((Count == 0) || (value < Min))  { Min = value; }
+                if ((Count == 0) || (value > Max))  { Max = value; }
+                Count++;
+                Sum += value;
+                SumOfSquares += value * value;
             }
-        }
-        public MetricAggregator(string Name)
-        {
-            name = Name;
-            thread = new BackgroundWorker();
-            thread.DoWork += async (o, e) => {
-                while (!stop)
+            finally
+            {
+                if (lockAcquired)
                 {
-                    await Task.Delay(60000);
-                    telemetryClient.TrackMetric(this.Aggregate());
+                    _trackLock.Exit();
                 }
-            };
-            thread.RunWorkerAsync();
+            }
         }
-    }
+    }   // internal class MetricAggregator
+
+    /// <summary>
+    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
+    /// </summary>
+    public sealed class Metric : IDisposable
+    {
+        private static readonly TimeSpan AggregationPeriod = TimeSpan.FromSeconds(60);
+
+        private bool _isDisposed = false;
+        private MetricAggregator _aggregator = null;
+        private readonly TelemetryClient _telemetryClient;
+
+        public string Name { get; }
+
+        public Metric(string name, TelemetryClient telemetryClient)
+        {
+            this.Name = name ?? "null";
+            this._aggregator = new MetricAggregator(DateTimeOffset.UtcNow);
+            this._telemetryClient = telemetryClient ?? throw new ArgumentNullException(nameof(telemetryClient));
+
+            Task.Run(this.AggregatorLoopAsync);
+        }
+
+        public void TrackValue(double value)
+        {
+            MetricAggregator currAggregator = _aggregator;
+            if (currAggregator != null)
+            {
+                currAggregator.TrackValue(value);
+            }
+        }
+
+        private async Task AggregatorLoopAsync()
+        {
+            while (_isDisposed == false)
+            {
+                try
+                {
+                    // Wait for end end of the aggregation period:
+                    await Task.Delay(AggregationPeriod).ConfigureAwait(continueOnCapturedContext: false);
+
+                    // Atomically snap the current aggregation:
+                    MetricAggregator nextAggregator = new MetricAggregator(DateTimeOffset.UtcNow);
+                    MetricAggregator prevAggregator = Interlocked.Exchange(ref _aggregator, nextAggregator);
+
+                    // Only send anything is at least one value was measured:
+                    if (prevAggregator != null && prevAggregator.Count > 0)
+                    {
+                        // Compute the actual aggregation period length:
+                        TimeSpan aggPeriod = nextAggregator.StartTimestamp - prevAggregator.StartTimestamp;
+                        if (aggPeriod.TotalMilliseconds < 1)
+                        {
+                            aggPeriod = TimeSpan.FromMilliseconds(1);
+                        }
+
+                        // Construct the metric telemetry item and send:
+                        var aggregatedMetricTelemetry = new MetricTelemetry(
+                                Name,
+                                prevAggregator.Count,
+                                prevAggregator.Sum,
+                                prevAggregator.Min,
+                                prevAggregator.Max,
+                                prevAggregator.StandardDeviation);
+                        aggregatedMetricTelemetry.Properties["AggregationPeriod"] = aggPeriod.ToString("c");
+
+                        _telemetryClient.Track(aggregatedMetricTelemetry);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    // log ex as appropriate for your application
+                }
+            }
+        }
+
+        void IDisposable.Dispose()
+        {
+            _isDisposed = true;
+            _aggregator = null;
+        }
+    }   // public sealed class Metric
+}
 ```
+
 ### Custom metrics in Metrics Explorer
 
 To see the results, open Metrics Explorer and add a new chart. Edit the chart to show your metric.
@@ -229,12 +309,9 @@ To see the results, open Metrics Explorer and add a new chart. Edit the chart to
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the customMetrics table. Each row represents a call to trackMetric() in your app. Therefore, if you have used MetricManager or your own aggregation code, each row will not represent a single measurement. 
-
+The telemetry is available in the `customMetrics` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackMetric(..)` in your app.
 * `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
-* `valueCount` - The number of measurements that were aggregated into this trackMetric call.
-
-
+* `valueCount` - The number of measurements that were aggregated into this `trackMetric(..)` call.
 
 ## Page views
 In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
@@ -283,6 +360,31 @@ The name that you use as the first parameter associates the start and stop calls
 
 The resulting page load durations displayed in Metrics Explorer are derived from the interval between the start and stop calls. It's up to you what interval you actually time.
 
+### Page telemetry in Analytics
+
+In [Analytics](app-insights-analytics.md) two tables show data from browser operations:
+
+* The `pageViews` table contains data about the URL and page title
+* The `browserTimings` table contains data about client performance, such as the time taken to process the incoming data
+
+To find how long the browser takes to process different pages:
+
+```
+browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
+```
+
+To discover the popularities of different browsers:
+
+```
+pageViews | summarize count() by client_Browser
+```
+
+To associate page views to AJAX calls, join with dependencies:
+
+```
+pageViews | join (dependencies) on operation_Id 
+```
+
 ## TrackRequest
 The server SDK uses TrackRequest to log HTTP requests.
 
@@ -322,6 +424,17 @@ Operation contexts can't be nested. If there is already an operation context, th
 In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+### Requests in Analytics 
+
+In [Application Insights Analytics](app-insights-analytics.md), requests show up in the `requests` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
+
+```AIQL
+requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
+```
+
 
 ## TrackException
 Send exceptions to Application Insights:
@@ -366,6 +479,30 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
     })
     ```
 
+### Exceptions in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), exceptions show up in the `exceptions` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
+
+```
+exceptions | summarize sum(itemCount) by type
+```
+
+Most of the important stack information is already extracted into separate variables, but you can pull apart the 'details' structure to get more. Since this is a dynamic structure, you should cast the result to the type you expect. For example:
+
+```AIQL
+exceptions
+| extend method2 = tostring(details[0].parsedStack[1].method)
+```
+
+To associate exceptions with their related requests, use a join:
+
+```
+exceptions
+| join (requests) on operation_Id 
+```
+
 ## TrackTrace
 Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](app-insights-diagnostic-search.md).
 
@@ -390,6 +527,13 @@ In addition, you can add a severity level to your message. And, like other telem
 
 In [Search](app-insights-diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
+
+### Traces in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), calls to TrackTrace show up in the `traces` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackTrace(), the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore use code such as `traces | summarize sum(itemCount)`.
+
 ## TrackDependency
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
 
@@ -412,6 +556,23 @@ Use the TrackDependency call to track the response times and success rates of ca
 Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
 To turn off the standard dependency-tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
+
+### Dependencies in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), trackDependency calls show up in the `dependencies` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
+
+```
+dependencies | summarize sum(itemCount) by target
+```
+
+To associate dependencies with their related requests, use a join:
+
+```
+dependencies
+| join (requests) on operation_Id 
+```
 
 ## Flushing data
 Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
@@ -582,6 +743,24 @@ If it's more convenient, you can collect the parameters of an event in a separat
 > Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 >
 >
+
+### Custom measurements and properties in Analytics
+
+In [Analytics](app-insights-analytics.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
+
+For example, if you have added a property named "game" to your request telemetry, this query will count the occurences of different values of "game", and show the average of the custom metric "score":
+
+```
+requests
+| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game) 
+```
+
+Notice that:
+
+* When you extract a value from the customDimensions or customMeasurements JSON, it has dynamic type, and so you must cast it `tostring` or `todouble`.
+* To take account of the possibility of [sampling](app-insights-sampling.md), you should use `sum(itemCount)`, not `count()`.
+
+
 
 ## <a name="timed"></a> Timing events
 Sometimes you want to chart how long it takes to perform an action. For example, you might want to know how long users take to consider choices in a game. You can use the measurement parameter for this.
@@ -780,6 +959,5 @@ To determine how long data is kept, see [Data retention and privacy](app-insight
 * [Search events and logs](app-insights-diagnostic-search.md)
 
 * [Troubleshooting](app-insights-troubleshoot-faq.md)
-
 
 

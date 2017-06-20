@@ -62,7 +62,7 @@ The [account](#active-directory-account) created for reading and writing to AD D
 | Reset password |Preparation for enabling password writeback |
 
 ## Custom settings installation
-When using custom settings, the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account).
+Previously, when using custom settings, the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account). With Azure AD Connect version 1.1.524.0 and after, you have the option to let Azure AD Connect wizard create the account for you.
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
@@ -82,9 +82,11 @@ Which permissions you require depends on the optional features you enable. If yo
 
 | Feature | Permissions |
 | --- | --- |
+| msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
-| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords.md) for users. |
+| Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
+| Password writeback |Write permissions to the attributes documented in [Getting started with password management](../active-directory-passwords-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located. |
 

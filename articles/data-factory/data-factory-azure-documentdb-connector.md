@@ -13,20 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 
 ---
 # Move data to and from Azure Cosmos DB using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Cosmos DB. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
+This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Cosmos DB (DocumentDB API). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
 
 You can copy data from any supported source data store to Azure Cosmos DB or from Azure Cosmos DB to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
 
-> [!NOTE]
-> Copying data from on-premises/Azure IaaS data stores to Azure Cosmos DB and vice versa are supported with Data Management Gateway version 2.1 and above.
+> [!IMPORTANT]
+> Azure Cosmos DB connector only support DocumentDB API.
 
-## Supported versions
-This Cosmos DB connector supports copying data from/to Cosmos DB single partition collection and partitioned collection. [DocDB for MongoDB](../documentdb/documentdb-protocol-mongodb.md) is not supported. To copy data as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
+To copy data as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from Azure Cosmos DB by using different tools/APIs.
@@ -52,6 +51,20 @@ The following table provides description for JSON elements specific to Azure Cos
 | --- | --- | --- |
 | type |The type property must be set to: **DocumentDb** |Yes |
 | connectionString |Specify information needed to connect to Azure Cosmos DB database. |Yes |
+
+Example:
+
+```JSON
+{
+  "name": "CosmosDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+    }
+  }
+}
+```
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).

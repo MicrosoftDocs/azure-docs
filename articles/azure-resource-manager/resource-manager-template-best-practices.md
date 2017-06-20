@@ -44,7 +44,7 @@ You must provide a unique resource name for any resource type that has a data ac
 
 <sup>1</sup> Storage account names also must be lowercase, 24 characters or less, and not have any hyphens.
 
-If you provide a parameter for a resource name, you must provide a unique name when you deploy the resource. Optionally, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. 
+If you provide a parameter for a resource name, you must provide a unique name when you deploy the resource. Optionally, you can create a variable that uses the [uniqueString()](resource-group-template-functions-string.md#uniquestring) function to generate a name. 
 
 You also might want to add a prefix or suffix to the **uniqueString** result. Modifying the unique name can help you more easily identify the resource type from the name. For example, you can generate a unique name for a storage account by using the following variable:
 
@@ -170,7 +170,7 @@ The following information can be helpful when you work with parameters:
 The following information can be helpful when you work with variables:
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
-* You cannot use the [reference](resource-group-template-functions.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
+* You cannot use the [reference](resource-group-template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 * Include variables for resource names that must be unique, as described in [Resource names](#resource-names).
 * You can group variables into complex objects. Use the **variable.subentry** format to reference a value from a complex object. Grouping variables can help you track related variables. It also improves readability of the template. Here's an example:
    

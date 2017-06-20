@@ -2,7 +2,7 @@
 title: Run Azure Batch workloads on cost-effective low-priority VMs (Preview) | Microsoft Docs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
-author: markscu
+author: mscurrell
 manager: timlt
 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 05/05/2017
-ms.author: mscurrell
+ms.author: markscu
 
 ---
 
@@ -33,6 +33,8 @@ the work is distributed across many VMs.
 
 Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
 details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+
+For an additional discussion of low-priority VMs, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/).
 
 > [!IMPORTANT]
 > Low-priority VMs are currently in preview, and are available only for workloads running in Batch. 
@@ -117,6 +119,10 @@ benefit from low-priority VMs:
 
 -   In the case of tasks being interrupted, Batch will detect and automatically
     requeue tasks to be run again.
+
+-   Low-priority VMs have a core quota that differs from that of dedicated VMs. 
+    The quote for low-priority VMs is higher than that of dedicated VMs, because 
+    low-priority VMs cost less. See [Batch service quotas and limits](batch-quota-limit.md#resource-quotas) for more information.    
 
 > [!NOTE]
 > Low-priority VMs are not currently supported for Batch accounts where the pool

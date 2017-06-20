@@ -43,7 +43,7 @@ You can complete the task using one of the following CLI versions:
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)
 * A Microsoft Azure account. If you don't have an account, you can
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -120,15 +120,13 @@ Next, create the App Service resource in Azure and deploy your Sails.js app to i
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this PHP tutorial, you don't really need to know
-what it is.
+3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this Node.js tutorial, you don't really need to know what it is.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
-3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. For this PHP tutorial, just 
-know that you won't be charged for web apps in this plan.
+3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. For this Node.js tutorial, just know that you won't be charged for web apps in this plan.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 
@@ -196,7 +194,7 @@ show you how to connect to MongoDB by using an [Azure Cosmos DB](../documentdb/d
 1. [Create a Cosmos DB account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
 2. [Create a Cosmos DB collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
 but you need the name of the database when you connect from Sails.js.
-3. [Find the connection information for your Cosmos DB database](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Find the connection information for your Cosmos DB database](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. From your command-line terminal, install the MongoDB adapter:
 
         npm install sails-mongo --save
@@ -214,7 +212,7 @@ but you need the name of the database when you connect from Sails.js.
         },
 
     > [!NOTE] 
-    > The `ssl: true` option is important because [Cosmos DB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > The `ssl: true` option is important because [Cosmos DB requires it](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 

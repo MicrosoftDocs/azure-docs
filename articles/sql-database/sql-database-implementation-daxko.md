@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -63,8 +63,8 @@ Several features of Azure have helped CSI Software shift from being infrastructu
 
 CSI Software currently provides about 550 databases for customers. Before elastic pools, it was difficult to manage that many databases within a tier structure. Ops managers had to assign performance tiers based on the burst needs of customers, which required significant IT-resource overhead. With elastic pools, managers can assign tenants a premium or standard pool, as appropriate, and then move customers based on size and need. Customers felt the effects of the elastic pools almost immediately; before elastic pools, customers had timeouts and other issues during burst-usage periods, but with elastic pools, customers can experience activity bursts as needed, and they can continue to use SpectrumNG without issues.
 
-## Azure Active Geo-Replication accelerates reporting
-Several CSI Software customers are also taking advantage of Azure Active Geo-Replication. With Active Geo-Replication, up to four readable secondary databases can be configured in the same or different datacenter regions. CSI Software makes use of Active Geo-Replication in two ways: first, the secondary databases are available in the case of a datacenter outage or the inability to connect to the primary database; and second, the secondary databases are readable and can be used to offload read-only workloads such as reporting jobs. Some CSI Software customers use this benefit to accelerate reporting workflows.
+## Azure active geo-replication accelerates reporting
+Several CSI Software customers are also taking advantage of Azure active geo-replication. With active geo-replication, up to four readable secondary databases can be configured in the same or different datacenter regions. CSI Software makes use of active geo-replication in two ways: first, the secondary databases are available in the case of a datacenter outage or the inability to connect to the primary database; and second, the secondary databases are readable and can be used to offload read-only workloads such as reporting jobs. Some CSI Software customers use this benefit to accelerate reporting workflows.
 
 ## CSI Software application logic and architecture
 SpectrumNG uses web roles. Because the application is multi-tenant, a WCF service is used to handle the initial connection request from customers. As Molina states, “The request identifies each customer, which then lets us build a connection string out to their databases to do whatever we need to do.”
@@ -87,7 +87,7 @@ Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fa
 * To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about database tools and elastic scaling, see [elastic database tools and elastic scaling](sql-database-elastic-scale-get-started.md).
 * To learn more about migrating a SQL Server database, see see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
-* To learn more about Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+* To learn more about active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).

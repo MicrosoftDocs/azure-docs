@@ -11,39 +11,40 @@ tags: azure-service-management
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
-
 # Create a Function App in an App Service plan
 
-This sample script creates an Azure Function App, which is a container for your functions. The Function App will be created using a dedicated App Service plan, which means your server resources are always on.
+This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using a dedicated App Service plan, which means your server resources are always on.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
-Create app sample
+This script creates an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
-
-## Clean up deployment
-
-After the script sample has been run, the follow command can be used to remove the resource group, App Service app, and all related resources.
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+Each command in the table links to command specific documentation. This script uses the following commands:
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az appserviceplan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Creates an App Service plan. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates an Azure Storage account. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Creates an App Service plan. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Creates an Azure Function app. |
 
 ## Next steps

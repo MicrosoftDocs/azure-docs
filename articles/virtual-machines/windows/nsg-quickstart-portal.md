@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
 
 ---
-# Opening ports to a VM in Azure using the Azure portal
+# How to open ports to a virtual machine with the Azure portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
-You can also [perform these steps using Azure PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You can also [perform these steps using Azure PowerShell](nsg-quickstart-powershell.md).
 
 First, create your Network Security Group. Select a resource group in the portal, click **Add**, then search for and select 'Network security group':
 

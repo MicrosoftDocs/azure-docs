@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Function that connects to an Azure DocumentDB | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure DocumentDB
+title: Create an Azure Function that connects to an Azure Storage | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Storage
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,24 +10,28 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
+ms.custom: mvc
 ---
-
 # Integrate Function App into Azure Storage Account
 
-This sample script creates a Function App and Storage Account with related resources. 
+This sample script creates a Function App and Storage Account.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Create app sample
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
+## Sample script
+
+This sample creates an Azure Function app and adds the storage connection string to an app setting.
+
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## Clean up deployment

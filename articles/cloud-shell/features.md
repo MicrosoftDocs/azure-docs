@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Features & Tools
+# Features & Tools for Azure Cloud Shell
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
@@ -29,13 +29,13 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
-|Azure tools            |Azure CLI 2.0 and 1.0     |
+|Azure tools            |Azure CLI 2.0 and 1.0<br> AzCopy     |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |Docker<br> Kubectl<br> DC/OS CLI         |
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
-|Other                  |iPython Client |
+|Other                  |iPython Client<br> |
 
 ## Language support
 |Language   |Version   |

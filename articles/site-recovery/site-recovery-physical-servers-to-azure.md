@@ -3,13 +3,13 @@ title: Replicate physical servers to Azure | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover, and recovery of on-premises Windows/Linux physical servers to Azure by using the Azure portal
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman 
+author: rayne-wiselman
 manager: jwhit
 editor: ''
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -180,11 +180,12 @@ All machines that you want to replicate must have the Mobility service installed
 
 Before you start:
 
+- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 - When you add or modify VMs, it can take up to 15 minutes or longer for changes to take effect and for them to appear in the portal.
 - You can check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**.
 - To add VMs without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click **Refresh**.
-* If a VM is prepared for push installation, the process server automatically installs the Mobility service when you enable replication.
-- Before you start, get a quick video overview. (The video describes how to replicate VMware VMs, but the process is similar for physical machine replication.)
+- If a VM is prepared for push installation, the process server automatically installs the Mobility service when you enable replication.
+- Get a quick video overview. (The video describes how to replicate VMware VMs, but the process is similar for physical machine replication.)
 
     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 

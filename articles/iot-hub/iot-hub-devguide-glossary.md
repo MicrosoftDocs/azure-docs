@@ -34,7 +34,7 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is a c
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
 ## Azure IoT Edge
-TIoT Edge enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Edge tutorials show you how to use this service. You can find the source code and further information about Azure IoT Edge in this GitHub [repository](https://github.com/Azure/azure-iot-gateway-sdk).
+IoT Edge enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Edge tutorials show you how to use this service. You can find the source code and further information about Azure IoT Edge in this GitHub [repository](https://github.com/Azure/iot-edge).
 
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -75,7 +75,7 @@ You use connection strings in your app code to encapsulate the information requi
 You can create custom [endpoints](iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rules). Custom endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
 
 ## Custom gateway
-A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use  [Azure IoT Edge](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
+A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use [Azure IoT Edge](#azure-iot-edge) to build custom gateways that implement custom logic to handle messages, custom protocol conversions, and other processing on the edge.
 
 ## Data-point message
 A data-point message is a [device-to-cloud](#device-to-cloud) message that contains [telemetry](#telemetry) data such as wind speed or temperature.
@@ -183,10 +183,10 @@ The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platf
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
 
 ## Jobs REST API
-The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you manage [jobs](#job) running in your IoT hub.
+The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you to manage [jobs](#job) running in your IoT hub.
 
 ## Module
-In [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md), a [module](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
+In [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), a [module](iot-hub-linux-iot-edge-get-started.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
 
 ## MQTT
 [MQTT](http://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
@@ -219,7 +219,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), reported pr
 You use a retry policy to handle [transient errors](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) when you connect to a cloud service.
 
 ## Routing rules
-You configure [routing rules](iot-hub-devguide-messaging.md#routing-rules) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [custom endpoints](#custom-endpoints) for processing by your solution back end.
+You configure [routing rules](iot-hub-devguide-messages-read-custom.md) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [custom endpoints](#custom-endpoints) for processing by your solution back end.
 
 ## SASL PLAIN
 SASL PLAIN is a protocol that the [AMQP](#advanced-message-queue-protocol) protocol uses to transfer security tokens.

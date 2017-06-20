@@ -1,5 +1,6 @@
 # Overview
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
 # Get Started
@@ -18,13 +19,11 @@
 
 # How to
 ## Plan and design
-### [🔧 Common integration scenarios with Azure services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
+### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ## Develop
-### [🔧 Handling errors and retry](event-hubs-handling-errors-retry.md)
-### [🔧 Managing performance and scale](event-hubs-performance-scale.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

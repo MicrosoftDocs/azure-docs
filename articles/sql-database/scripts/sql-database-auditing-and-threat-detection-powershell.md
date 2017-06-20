@@ -10,24 +10,24 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc,security
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ---
 
 # Configure SQL Database auditing and threat detection using PowerShell
 
-This sample PowerShell script configures SQL Database auditing and threat detection. To run this sample, make sure you have installed the latest [Azure PowerShell](/powershell/azure/overview).
+This sample PowerShell script configures SQL Database auditing and threat detection. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configure auditing and threat detection")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
 
 ## Clean up deployment
 

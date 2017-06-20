@@ -1,3 +1,5 @@
+- name: Azure Stack documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Stack?
@@ -61,6 +63,8 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell
         href: azure-stack-powershell-configure.md
+      - name: Install and configure CLI
+        href: azure-stack-connect-cli.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
@@ -158,7 +162,7 @@
       - name: Overview
         href: azure-stack-storage-overview.md
       - name: Storage considerations
-        href: azure-stack-acs-differences-tp2.md
+        href: azure-stack-acs-differences.md
     - name: Network
       items:
       - name: iDNS for Azure Stack
@@ -191,6 +195,8 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell
         href: azure-stack-powershell-configure.md
+      - name: Install and configure CLI
+        href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Manage API version profiles

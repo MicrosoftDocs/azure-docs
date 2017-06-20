@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: jonfan; ladocs
+ms.author: LADocs; jonfan
 
 ---
 # Exchange EDIFACT messages for enterprise integration with logic apps
@@ -284,8 +284,8 @@ On your integration account blade, choose **Overview**, then select the **Agreem
 
 	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
-## View the swagger
-See the [swagger details](/connectors/edifact/). 
+## View Swagger file
+To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD B2C integrate REST API claims exchanges as validation in Custom Policies | Microsoft Docs'
+title: 'Azure Active Directory B2C: REST API Claims Exchange Validation | Microsoft Docs'
 description: A topic on Azure Active Directory B2C Custom Policies
 services: active-directory-b2c
 documentationcenter: ''
@@ -23,7 +23,7 @@ The **Identity Experience Framework** (IEF) underlying Azure AD B2C enables the 
 
 At the end of this walkthrough you will be able to create Azure AD B2C user journeys which interact with RESTful services.
 
-The IEF sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
+The IEF sends data in claims and receives data back in claims. The interaction with the API can be designed as a REST API claims exchange, or as a validation profile, which happens inside an orchestrations step.
 
 - This typically validates input from the user
 - If the value from the user is rejected, then the user can try again to enter a valid value with the opportunity to return an error message to the user.
@@ -46,29 +46,29 @@ We can verify that the given name provided by the user in the profile edit is no
 
 We have created an Azure Function that receives a claim which it expects as “playerTag” and validates whether or not this claim exists. You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-```
+```csharp
 if (requestContentAsJObject.playerTag == null)
+{
+  return request.CreateResponse(HttpStatusCode.BadRequest);
+}
+
+var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
+
+if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
+{
+  return request.CreateResponse<ResponseContent>(
+    HttpStatusCode.Conflict,
+    new ResponseContent
     {
-        return request.CreateResponse(HttpStatusCode.BadRequest);
-    }
+      version = "1.0.0",
+      status = (int) HttpStatusCode.Conflict,
+      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
+    },
+    new JsonMediaTypeFormatter(),
+    "application/json");
+}
 
-    var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
-
-    if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
-    {
-        return request.CreateResponse<ResponseContent>(
-            HttpStatusCode.Conflict,
-            new ResponseContent
-            {
-                version = "1.0.0",
-                status = (int) HttpStatusCode.Conflict,
-                userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
-            },
-            new JsonMediaTypeFormatter(),
-            "application/json");
-    }
-
-    return request.CreateResponse(HttpStatusCode.OK);
+return request.CreateResponse(HttpStatusCode.OK);
 ```
 
 The `userMessage` claim returned by the Azure Function is expected by the Identity Experience Framework and will be presented as a string to the user if the validation fails, such as when a 409 conflict status is returned in the above example.
@@ -80,38 +80,33 @@ A technical profile is the full configuration of the exchange desired with the R
 > [!NOTE]
 > Consider the “Restful Provider, Version 1.0.0.0”  described below as the protocol as the function that will interact with the external service.  A full definition of the schema can be found <!-- TODO: Link to RESTful Provider schema definition>-->
 
-```
+```xml
 <ClaimsProvider>
-        <DisplayName>REST APIs</DisplayName>
-        <TechnicalProfiles>
-            <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
-
-                    <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
-                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                    <Metadata>
-                        <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                        <Item Key="AuthenticationType">None</Item>
-                        <Item Key="SendClaimsIn">Body</Item>
-                    </Metadata>
-                    <InputClaims>
-                        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
-                    </InputClaims>
-                    <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-            </TechnicalProfile>
-
-
-            <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-
-                <ValidationTechnicalProfiles>       
-                    <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />       
-                </ValidationTechnicalProfiles>
-
-            </TechnicalProfile>
-        </TechnicalProfiles>
-    </ClaimsProvider>
+    <DisplayName>REST APIs</DisplayName>
+    <TechnicalProfiles>
+        <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
+            <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
+                <Item Key="AuthenticationType">None</Item>
+                <Item Key="SendClaimsIn">Body</Item>
+            </Metadata>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
+            </InputClaims>
+            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+            <ValidationTechnicalProfiles>
+                <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />
+            </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+    </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
-The `InputClaims` element defines the claims that will be sent from the IEE to the REST service. In the above example, the contents of the claims `givenName` will be sent to the REST service as `playerTag`. In this example, the IEE does not expect claims back, and instead waits for a response from the REST service and acts based on the status codes received.
+The `InputClaims` element defines the claims that will be sent from the IEF to the REST service. In the above example, the contents of the claims `givenName` will be sent to the REST service as `playerTag`. In this example, the IEF does not expect claims back, and instead waits for a response from the REST service and acts based on the status codes received.
 
 ## Step 3 - Include the RESTful service claims exchange in self-asserted technical profile where you wish to validate the user input
 

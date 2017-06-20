@@ -1,6 +1,7 @@
 ﻿# Overview
 
 ## [Introduction](storage-introduction.md)
+## [Choose Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
 
 # Get Started
 
@@ -50,6 +51,7 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Troubleshoot Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
+### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
 ### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -117,6 +121,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
@@ -129,7 +134,8 @@
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
+### [AzCopy on Windows](storage-use-azcopy.md)
+### [AzCopy on Linux](storage-use-azcopy-linux.md)
 ### [Using the Import/Export service](storage-import-export-service.md)
 ### [Using the Import/Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import/Export Tool](storage-import-export-tool-setup.md)

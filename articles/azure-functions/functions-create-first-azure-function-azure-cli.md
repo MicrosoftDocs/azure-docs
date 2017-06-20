@@ -9,7 +9,7 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
-# ms.custom: can-be-multiple-comma-separated
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ---
@@ -18,25 +18,21 @@ manager: erikre
 
 This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
 
-You can follow the steps below using a Mac, Windows, or Linux computer. It should take you only about five minutes to complete all the steps in this topic.
+You can follow the steps below using a Mac, Windows, or Linux computer. 
 
 ## Prerequisites 
 
 Before running this sample, you must have the following:
 
 + An active [GitHub](https://github.com) account. 
-+ [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 + An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Log in to Azure
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Sign in to your Azure subscription using the [az login](/cli/azure/#login) command and follow the on-screen instructions. 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
-```
 
 ## Create a resource group
 
@@ -44,7 +40,7 @@ Create a resource group with the [az group create](/cli/azure/group#create). An 
 
 The following example creates a resource group named `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## Create an Azure Storage account
@@ -53,7 +49,7 @@ Functions uses an Azure Storage account to maintain state and other information 
 
 In the following command, substitute your own globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -83,7 +79,7 @@ You must have a function app to host the execution of your functions. The functi
 
 In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
@@ -114,7 +110,7 @@ Now that you have a function app, you can deploy the actual function code from t
 
 There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 After the deployment source been set, the Azure CLI shows information similar to the following example (null values removed for readability):
@@ -154,7 +150,7 @@ If you don't have cURL available in your command line, simply enter the same URL
 
 Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 Type `y` when prompted.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Troubleshooting Custom Policies| Microsoft Docs'
+title: 'Azure Active Directory B2C: Troubleshooting Custom Policies | Microsoft Docs'
 description: A guide to several approaches to solve errors in custom policies
 services: active-directory-b2c
 documentationcenter: ''
