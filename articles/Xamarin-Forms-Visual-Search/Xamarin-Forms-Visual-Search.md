@@ -1,15 +1,15 @@
-# Outline: XamFormsVisualSearch Docs
+# Bing Web Search And Computer Vision API Tutorial
 
-## Intro
+This tutorial explores a Xamarin Forms application which utilizes the Microsoft Cognitive Services Computer Vision APIs to perform OCR on both handwritten and printed text.  The application feeds the text extracted by these APIs into the Bing Web Search API, allowing a user to easily query strings of text contained in images.  This is an open source application which you can use for building your own applications utilizing the Microsoft Computer Vision and Web Search APIs.
 
-Description of the app:
-* What APIs are used
-* Statement of intended audience
-* Description of structure
-    * Using this app as a case study, we will step through the codebase file by file and explore how each contributes to the function of the app as a whole 
+## Prerequisites
+### Platform Requirements
+This example was developed in Xamarin.Forms using <a href="https://www.visualstudio.com/downloads/">Visual Studio 2017 Enterprise Edition</a>.  For more information about setting up Xamarin for Visual Studio, you can either consult <a href="https://developer.xamarin.com/guides/cross-platform/getting_started/">this guide</a>, or continue reading below.
 
+### Required Azure Services
+This application utilizes resources from the <a href="https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/">Bing Web Search API</a> and the Cognitive Services <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">Computer Vision API</a>.  For subscription and key management details, see <a href="https://azure.microsoft.com/en-us/try/cognitive-services/"> Subscriptions</a>.
 
-## Required Libraries:
+### Required Libraries:
 
 * Xamarin Media Plugin
 * Newtonsoft JSON
@@ -17,7 +17,7 @@ Description of the app:
     * Found @ <https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize>
 
 
-## OcrSelectPage:
+### OcrSelectPage:
 
 ![OcrSelectPage Example](./media/OcrSelectPage.png)
 
@@ -28,7 +28,7 @@ Description of the app:
     * Found @ <https://components.xamarin.com/view/mediaplugin> 
 
 
-## OcrResultsPage
+### OcrResultsPage
 
 ![OcrResultsPage Example](./media/OcrResultsPage.png)
 
@@ -43,7 +43,7 @@ Description of the app:
     * Note that later, an alternative object deserializing method will be used to obtain a richer set of data per object
 
 
-## WebResultsPage
+### WebResultsPage
 
 ![WebResultsPage Example](./media/WebResultsPage.png)
 
@@ -54,7 +54,7 @@ Description of the app:
     * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
     * Page ranking tutorial: <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
 
-## Opening a Webview
+### Opening a Webview
 
 **Example of opening a webview**
 
