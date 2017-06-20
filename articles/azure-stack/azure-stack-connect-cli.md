@@ -17,7 +17,7 @@ ms.date: 05/31/2016
 ms.author: sngun
 
 ---
-# Install and configure Azure Stack CLI
+# Install and configure CLI for use with Azure Stack
 
 In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. You can use the steps described in this article either from the [Azure Stack POC computer](azure-stack-connect-azure-stack.md#connect-with-remote-desktop) or from an external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
