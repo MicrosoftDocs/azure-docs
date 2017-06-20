@@ -30,7 +30,7 @@ Follow these steps to create a blank SQL database.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. 
 
-   ![create empty-database](./media/sql-database-tutorial-portal-create-firewall-connection-ssms-1/create-empty-database.png)
+   ![create empty-database](../articles/sql-database/media/sql-database-connect-query-ssms/create-empty-database.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
 
@@ -52,13 +52,13 @@ Follow these steps to create a blank SQL database.
    | **Location** | Any valid location. | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
    ||||
 
-   ![create database-server](./media/sql-database-tutorial-portal-create-firewall-connection-ssms-1/create-database-server.png)
+   ![create database-server](../articles/sql-database/media/sql-database-connect-query-ssms/create-database-server.png)
 
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
 
-   ![create database-s1](./media/sql-database-tutorial-portal-create-firewall-connection-ssms-1/create-empty-database-pricing-tier.png)
+   ![create database-s1](../articles/sql-database/media/sql-database-connect-query-ssms/create-empty-database-pricing-tier.png)
 
 7. Click **Apply**.  
 

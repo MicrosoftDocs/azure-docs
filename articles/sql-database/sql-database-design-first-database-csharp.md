@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: ''
 author: MightyPen
 manager: craigg-msft
-editor: 'carlrab'
+editor: 'CarlRabeler'
 tags: ''
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 06/15/2017
+ms.date: 06/20/2017
 ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
@@ -36,7 +36,7 @@ And it starts with a ## H2.
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
 
-## Next Steps
+## Next steps
 
 The following next steps are available:
 
