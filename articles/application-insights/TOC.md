@@ -110,6 +110,7 @@
 ### [Create resources](app-insights-powershell-script-create-resource.md)
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Develop
 

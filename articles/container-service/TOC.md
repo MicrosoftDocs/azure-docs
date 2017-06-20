@@ -1,4 +1,4 @@
-# [Azure Container Service Documentation](./index.md)
+# [ACS Documentation](./index.md)
 
 # Overview
 ## [About Container Service](container-service-intro.md)
@@ -11,8 +11,8 @@
 # Tutorials
 ## Kubernetes
 ### [1 - Create container images](container-service-tutorial-kubernetes-prepare-app.md)
-### [2 - Deploy container registry](container-service-tutorial-kubernetes-prepare-acr.md)
-### [3 - Deploy Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
+### [2 - Create container registry](container-service-tutorial-kubernetes-prepare-acr.md)
+### [3 - Create Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md)
 ### [4 - Run application](container-service-tutorial-kubernetes-deploy-application.md)
 ### [5 - Scale application](container-service-tutorial-kubernetes-scale.md)
 ### [6 - Update application](container-service-tutorial-kubernetes-app-update.md)

@@ -20,7 +20,7 @@ ms.author: jgao
 # Manage Azure Data Lake Analytics using Azure .NET SDK
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. To see management topics using other tools, click the tab select above.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. 
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 * [Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store) - 2.2.0
 * [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) - 1.6.0-preview
 
-You can install these packages via the NuGet commane line with the following commands:
+You can install these packages via the NuGet command line with the following commands:
 
 ```
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
@@ -134,7 +134,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 ### Create a Data Lake Analytics account
 
-The following code creates an adls account
+The following code creates an ADLS account
 
 ```
 var new_adla_params = new DataLakeAnalyticsAccount()
@@ -349,6 +349,29 @@ foreach (var j in jobs)
 {
    Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
 }
+```
+
+## Manage compute policies
+The DataLakeAnalyticsAccountManagementClient object provides methods for managing the compute policies for a Data Lake Analytics account.
+
+### List compute policies
+The following code retrieves a list of compute policies for a Data Lake Analytics account.
+
+```
+var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
+foreach (var p in policies)
+{
+   Console.WriteLine($"Name: {p.Name}\tType: {p.ObjectType}\tMax AUs / job: {p.MaxDegreeOfParallelismPerJob}\tMin priority / job: {p.MinPriorityPerJob}");
+}
+```
+
+### Create a new compute policy
+The following code creates a new compute policy for a Data Lake Analytics account, setting the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
+
+```
+var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";
+var newPolicyParams = new ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250);
+adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams);
 ```
 
 ## Next steps
