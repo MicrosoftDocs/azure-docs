@@ -1,5 +1,5 @@
 ---
-title: .NET multi-tier application using Azure Service Bus queues | Microsoft Docs
+title: .NET multi-tier application using Azure Service Bus | Microsoft Docs
 description: A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers.
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 
 ---
 # .NET multi-tier application using Azure Service Bus queues
 ## Introduction
-Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment. The steps assume you have no prior experience using Azure.
+Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment.
 
 You will learn the following:
 
@@ -32,7 +32,7 @@ You will learn the following:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
+In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. You can also try out the [.NET on-premises/cloud hybrid application](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) tutorial.
 
 The following screen shot shows the completed application.
 
@@ -41,10 +41,10 @@ The following screen shot shows the completed application.
 ## Scenario overview: inter-role communication
 To submit an order for processing, the front-end UI component, running
 in the web role, must interact with the middle tier logic running in
-the worker role. This example uses Service Bus brokered messaging for
+the worker role. This example uses Service Bus messaging for
 the communication between the tiers.
 
-Using brokered messaging between the web and middle tiers decouples the
+Using Service Bus messaging between the web and middle tiers decouples the
 two components. In contrast to direct messaging (that is, TCP or HTTP),
 the web tier does not connect to the middle tier directly; instead it
 pushes units of work, as messages, into Service Bus, which reliably
@@ -94,15 +94,13 @@ The following sections discuss the code that implements this architecture.
 ## Set up the development environment
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1. Install the Azure SDK for .NET at [Get Tools and SDK](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015, but they also work with Visual Studio 2017.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
    necessary to start to develop the app. The SDK includes tools that let you
-   easily develop Azure applications in Visual Studio. If you
-   do not have Visual Studio installed, the SDK also installs the free
-   Visual Studio Express.
+   easily develop Azure applications in Visual Studio.
 
 ## Create a namespace
 The next step is to create a service namespace, and obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for
@@ -121,8 +119,8 @@ After that, add code that submits items to a Service Bus
 queue and displays status information about the queue.
 
 ### Create the project
-1. Using administrator privileges, start Microsoft Visual
-   Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
+1. Using administrator privileges, start Visual
+   Studio: right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
    discussed later in this article, requires that Visual Studio be
    started with administrator privileges.
    
@@ -150,7 +148,7 @@ queue and displays status information about the queue.
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
 8. In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
    **Manage NuGet Packages**.
-9. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+9. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package, click **Install**, and accept the terms of use.
    
    ![][13]
    
@@ -239,7 +237,7 @@ In this section, you create the various pages that your application displays.
        }
    }
    ```
-4. On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
+4. From the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 5. Now, create the view for the `Submit()` method you
    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
    **Add View**.
@@ -451,7 +449,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 ## Next steps
 To learn more about Service Bus, see the following resources:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Azure Service Bus documentation][sbdocs]  
 * [Service Bus service page][sbacom]  
 * [How to Use Service Bus Queues][sbacomqhowto]  
 
@@ -459,7 +457,7 @@ To learn more about multi-tier scenarios, see:
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -470,8 +468,8 @@ To learn more about multi-tier scenarios, see:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -480,7 +478,7 @@ To learn more about multi-tier scenarios, see:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

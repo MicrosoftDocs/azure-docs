@@ -1,9 +1,9 @@
 ---
 title: Azure CDN POP Locations | Microsoft Docs
-description: This topic lists Azure CDN POP Locations.
+description: This topic lists Azure CDN point-of-presence Locations.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Azure CDN POP Locations
@@ -36,7 +36,7 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | South Europe |Madrid, Spain<br />Milan, Italy |**&#x2713;**\* |
 | East Asia |Tokyo, Japan<br />Osaka, Japan<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, South Korea<br />Singapore |**&#x2713;**\* |
 | South and Central Asia |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India |**&#x2713;**\* |
-| Middle East/West Asia |Muscat, Oman |**&#x2713;**\* |
+| Middle East/West Asia |Muscat, Oman <br /> Fujirah, United Arab Emirates |**&#x2713;**\* |
 | Africa | |**&#x2713;**\* |
 | Australia and New Zealand |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
 

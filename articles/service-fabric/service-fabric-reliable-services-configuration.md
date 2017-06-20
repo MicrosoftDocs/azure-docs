@@ -1,5 +1,5 @@
 ---
-title: Overview of the Azure Service Fabric Reliable Services configuration | Microsoft Docs
+title: Configure reliable Azure microservices | Microsoft Docs
 description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 2/17/2017
 ms.author: sumukhs
 
 ---
-# Configure Stateful reliable services
+# Configure stateful reliable services
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
 
 ## Global Configuration
@@ -32,14 +32,26 @@ The global reliable service configuration is specified in the cluster manifest f
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SharedLogSizeInMB |Megabytes |8192 |Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger. |
 
-### Sample cluster manifest section
+In Azure ARM or on premise JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
+### Sample local developer cluster manifest section
+If you want to change this on your local development environment, you need to edit the local clustermanifest.xml file.
+
 ```xml
    <Section Name="KtlLogger">
+     <Parameter Name="SharedLogSizeInMB" Value="4096"/>
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
      <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
      <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
      <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
-     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
    </Section>
 ```
 

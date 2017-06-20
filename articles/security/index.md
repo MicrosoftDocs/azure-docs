@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Security Documentation - Tutorials | Microsoft Docs
 description: Learn how to customize security options in Azure services to meet the requirements of your deployments of services and data in the cloud.
+services: security
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Security Documentation
 
@@ -8,7 +19,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technologies">
+        <a href="/azure/security/azure-security">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,11 +112,4 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Documentation
-        </div>
-    </a>
-</div>
+

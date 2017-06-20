@@ -1,5 +1,5 @@
 ---
-title: Azure solutions for Internet of Things | Microsoft Docs
+title: Azure solutions for Internet of Things (IoT Suite) | Microsoft Docs
 description: Overview of a sample IoT solution architecture and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot-hub
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 06/16/2017
 ms.author: dobett
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps
+
 Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your solution back end and millions of devices. It enables the solution back end to:
 
 * Receive telemetry at scale from your devices.

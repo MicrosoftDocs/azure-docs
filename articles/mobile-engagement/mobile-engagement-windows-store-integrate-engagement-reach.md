@@ -4,7 +4,7 @@ description: How to Integrate Azure Mobile Engagement Reach with Windows Univers
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec

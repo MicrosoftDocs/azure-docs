@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
@@ -54,8 +54,8 @@ A data profile in Azure Data Catalog is a snapshot of table-level and column-lev
 
 > [!NOTE]
 > Extracting a data profile can be a costly operation for large tables and views, and may significantly increase the time required to register a data source.
-> 
-> 
+>
+>
 
 ## User perspective
 In Azure Data Catalog, any user can provide descriptive metadata for a registered data asset. Each user has a distinct perspective on the data and its use. For example, the administrator responsible for a server may provide the details of its service level agreement (SLA) or backup windows; a data steward may provide links to documentation for the business processes the data supports; and an analyst may provide a description in the terms that are most relevant to other analysts, and which can be most valuable to those users who need to discover and understand the data.
@@ -70,8 +70,8 @@ An owner is a user who has additional privileges for managing a data asset in Az
 
 > [!NOTE]
 > Ownership and management are available only in the Standard Edition of Azure Data Catalog.
-> 
-> 
+>
+>
 
 ## Registration
 Registration is the act of extracting data asset metadata from a data source and copying it to the Azure Data Catalog service. Data assets that have been registered can then be annotated and discovered.
@@ -79,4 +79,3 @@ Registration is the act of extracting data asset metadata from a data source and
 ## See also
 * [What is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) - This article provides an overview of the Azure Data Catalog service, the value it provides, and the scenarios it supports.
 * [Get started with Azure Data Catalog](data-catalog-get-started.md) - This article provides an end-to-end tutorial that shows you how to use Azure Data Catalog for data source discovery.  
-

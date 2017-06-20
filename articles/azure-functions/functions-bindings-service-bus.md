@@ -15,15 +15,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/01/2017
 ms.author: chrande; glenga
 
 ---
 # Azure Functions Service Bus bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Service Bus bindings in Azure Functions. 
-Azure Functions supports trigger and output bindings for Notification Hubs queues and topics.
+This article explains how to configure and work with Azure Service Bus bindings in Azure Functions. 
+
+Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -32,11 +33,11 @@ Azure Functions supports trigger and output bindings for Notification Hubs queue
 ## Service Bus trigger
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
-The Notification Hubs queue and topic triggers to a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic triggers are defined by the following JSON objects in the `bindings` array of function.json:
 
 * *queue* trigger:
 
-	```json
+    ```json
     {
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
@@ -45,11 +46,11 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
-	```
+    ```
 
 * *topic* trigger:
 
-	```json
+    ```json
     {
         "name" : "<Name of input parameter in function signature>",
         "topicName" : "<Name of the topic>",
@@ -59,11 +60,11 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
-	```
+    ```
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
@@ -71,14 +72,15 @@ Note the following:
   in an app setting named `AzureWebJobsServiceBus`.
 * For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
   `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might try and fail to do operations that require manage 
+  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
   rights.
 
 ## Trigger behavior
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
-  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in *host.json*. 
+  to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
-  [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  [host.json](https://git
+  .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 
   in Azure Functions configuration or code. 
 * **PeekLock behavior** - The Functions runtime receives a message in 
@@ -89,20 +91,19 @@ Note the following:
 <a name="triggerusage"></a>
 
 ## Trigger usage
-This section shows you how to use your Service Hub trigger in your function code. 
+This section shows you how to use your Service Bus trigger in your function code. 
 
 In C# and F#, the Service Bus trigger message can be deserialized to any of the following input types:
 
 * `string` - useful for string messages
 * `byte[]` - useful for binary data
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
+  If you declare a custom input type, such as `CustomType`, Azure Functions tries to deserialize the JSON data
   into your specified type.
 * `BrokeredMessage` - gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
   method.
 
-In Node.js, the Service Bus trigger message is passed into the function as either a string or, in the case of JSON message,
-a JavaScript object.
+In Node.js, the Service Bus trigger message is passed into the function as either a string or JSON object.
 
 <a name="triggersample"></a>
 
@@ -164,7 +165,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## Service Bus output binding
-The Notification Hubs queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
+The Service Bus queue and topic output for a function use the following JSON objects in the `bindings` array of function.json:
 
 * *queue* output:
 
@@ -173,7 +174,7 @@ The Notification Hubs queue and topic output for a function use the following JS
         "name" : "<Name of output parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -186,7 +187,7 @@ The Notification Hubs queue and topic output for a function use the following JS
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -194,7 +195,7 @@ The Notification Hubs queue and topic output for a function use the following JS
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app]() that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
@@ -202,7 +203,7 @@ Note the following:
   in an app setting named `AzureWebJobsServiceBus`.
 * For `accessRights`, available values are `manage` and `listen`. The default is `manage`, which indicates that the 
   `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, 
-  set `accessRights` to `listen`. Otherwise, the Functions runtime might try and fail to do operations that require manage 
+  set `accessRights` to `listen`. Otherwise, the Functions runtime might fail trying to do operations that require manage 
   rights.
 
 <a name="outputusage"></a>

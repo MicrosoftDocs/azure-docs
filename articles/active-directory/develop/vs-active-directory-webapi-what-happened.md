@@ -1,6 +1,6 @@
 ---
-title: What happened to my WebApi project (Visual Studio Azure Active Directory connected service) | Microsoft Docs
-description: Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio
+title: Changes made to a WebApi project when you connect to Azure AD | Microsoft Docs
+description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
 author: TomArcher
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
+ms.custom: aaddev
 
 ---
 # What happened to my WebApi project (Visual Studio Azure Active Directory connected service)
@@ -56,7 +57,7 @@ If you already had a Startup class in your project, the **Configuration** method
 The following configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
             <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
             <add key="ida:Audience" value="The App ID Uri from the wizard" />
@@ -96,7 +97,7 @@ Each of following files was backed up before being replaced. Backup files are lo
 The following additional configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
         <add key="ida:Password" value="Your Azure AD App's new password" />
     </appSettings>`
 ```
@@ -104,5 +105,6 @@ The following additional configuration entries have been added.
 ### Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:Password* in the `web.config` file.
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## Next steps
+- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

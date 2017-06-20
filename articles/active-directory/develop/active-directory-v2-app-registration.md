@@ -1,5 +1,5 @@
 ---
-title: v2.0 app registration | Microsoft Docs
+title: Register an application with the Azure AD v2.0 endpoint using the portal | Microsoft Docs
 description: How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint
 services: active-directory
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # How to register an app with the v2.0 endpoint
@@ -33,7 +34,6 @@ Sign in with either a personal or work or school Microsoft account.  If you don'
 Done? You should now be looking at your list of Microsoft apps, which is probably empty.  Let's change that.
 
 Click **Add an app**, and give it a name.  The portal will assign your app a globally unique  Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.
-<!-- TODO: Link for app secrets -->
 
 Next, add the Platforms that your app will use.
 

@@ -3,7 +3,7 @@ title: Overview of tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with Azure SQL Data Warehouse Tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: shivaniguptamsft
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.author: shigu;jrj
 
 ---
 # Overview of tables in SQL Data Warehouse

@@ -4,7 +4,7 @@ description: Learn how to use a .NET client for Azure App Service Mobile Apps wi
 services: app-service\mobile
 documentationcenter: ''
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197

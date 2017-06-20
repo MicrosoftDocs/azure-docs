@@ -3,7 +3,7 @@ title: Troubleshoot your local Service Fabric cluster setup | Microsoft Docs
 description: This article covers a set of suggestions for troubleshooting your local development cluster
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
-ms.author: seanmck
+ms.date: 06/07/2017
+ms.author: mikkelhegn
 
 ---
 # Troubleshoot your local development cluster setup
@@ -53,7 +53,7 @@ Always run Service Fabric cmdlets directly from Windows PowerShell.
 When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
 
 #### Solution
-Your path variable was not correctly set during installation. Please sign out of Windows and sign back in. This will fully refresh your path.
+Your path variable was not correctly set during installation. Sign out of Windows and sign back in. This refreshes your path.
 
 ### Cluster connection fails with "Object is closed"
 #### Problem
@@ -74,12 +74,12 @@ Close the current PowerShell window and open a new PowerShell window as an admin
 When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
 
 #### Solution
-This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.
+This error usually occurs when you try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.
 
 Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
 
 > [!TIP]
-> If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
+> If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This removes the existing cluster and set up a new one. Note that all deployed applications and associated data is removed.
 > 
 > 
 

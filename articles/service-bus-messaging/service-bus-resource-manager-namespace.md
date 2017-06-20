@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace using a Resource Manager template | Microsoft Docs
+title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
 description: Use Azure Resource Manager template to create a Service Bus namespace
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 04/12/2017
 ms.author: sethm;shvija
 
 ---
@@ -136,12 +136,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

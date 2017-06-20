@@ -1,6 +1,6 @@
 ---
 title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a Java service app that uses an EventProcessorHost instance.
+description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
@@ -23,7 +23,7 @@ ms.author: dobett
 ## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages which require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 At the end of this tutorial, you run three Java console apps:
 
@@ -46,32 +46,37 @@ To complete this tutorial, you need the following:
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages which require immediate processing.
+In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Replace the **MessageSender** class with the following code:
    
     ```
     private static class MessageSender implements Runnable {
-        public volatile boolean stopThread = false;
 
         public void run()  {
             try {
-                double avgWindSpeed = 10; // m/s
+                double minTemperature = 20;
+                double minHumidity = 60;
                 Random rand = new Random();
 
-                while (!stopThread) {
-                    double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
-                    TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-                    telemetryDataPoint.deviceId = deviceId;
-                    telemetryDataPoint.windSpeed = currentWindSpeed;
-
-                    String msgStr = telemetryDataPoint.serialize();
-                    if (new Random() > 0.7) {
-                        Message msg = new Message("This is a critical message.");
+                while (true) {
+                    String msgStr;
+                    Message msg;
+                    if (new Random().nextDouble() > 0.7) {
+                        msgStr = "This is a critical message.";
+                        msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        Message msg = new Message(msgStr);
+                        double currentTemperature = minTemperature + rand.nextDouble() * 15;
+                        double currentHumidity = minHumidity + rand.nextDouble() * 20; 
+                        TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
+                        telemetryDataPoint.deviceId = deviceId;
+                        telemetryDataPoint.temperature = currentTemperature;
+                        telemetryDataPoint.humidity = currentHumidity;
+
+                        msgStr = telemetryDataPoint.serialize();
+                        msg = new Message(msgStr);
                     }
                     
                     System.out.println("Sending: " + msgStr);
@@ -92,10 +97,10 @@ In this section, you modify the simulated device app you created in the [Get sta
     }
     ```
    
-    This randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message which requires immediate action by the solution back end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
    
    > [!NOTE]
-   > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot path example shown here.
+   > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
    > 
    > 
 
@@ -117,25 +122,25 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. Make a note of the namespace and queue name.
 
-2. In the Azure portal, open your IoT hub and click on **Endpoints**.
+2. In the Azure portal, open your IoT hub and click **Endpoints**.
     
     ![Endpoints in IoT hub][30]
 
-3. In the endpoints blade, click on **Add** at the top to add your queue to your IoT hub. Name the endpoint "CriticalQueue" and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
+3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
     
     ![Adding an endpoint][31]
     
-4. Now click on **Routes** in your IoT Hub. Click on **Add** at the top of the blade to create a rule which routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an endpoint as the route endpoint. When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as a custom endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
     
     ![Adding a route][32]
     
-    Make sure the fallback route is set to ON. This is the default configuration of the IoT hub.
+    Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
     
     ![Fallback route][33]
 
 
 ## (Optional) Read from the queue endpoint
-You can optionally read the messages from the queue endpoint by following the instructions at [Get started with queues][lnk-sb-queues-java]. Name the app **read-critical-queue**.
+You can optionally read the messages from the queue endpoint by following the instructions in [Get started with queues][lnk-sb-queues-java]. Name the app **read-critical-queue**.
 
 ## Run the applications
 Now you are ready to run the three applications.
@@ -219,7 +224,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-c2d]: iot-hub-java-java-process-d2c.md
+[lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java

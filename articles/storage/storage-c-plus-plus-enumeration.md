@@ -1,5 +1,5 @@
 ﻿---
-title: List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++ | Microsoft Docs
+title: List Azure Storage resources with the Storage Client Library for C++ | Microsoft Docs
 description: Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities.
 documentationcenter: .net
 services: storage
@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: dineshm
 
 ---
-# List Azure Storage Resources in C++
+# List Azure Storage resources in C++
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
 > [!NOTE]
@@ -145,12 +145,12 @@ do
 
 By specifying the *max_results* parameter of the segment, you can balance between the numbers of requests and memory usage to meet performance considerations for your application.
 
-Additionally, if you’re using segmented listing APIs, but store the data in a local collection in a "greedy" style, we also strongly recommend that you refactor your code to handle storing data in a local collection carefully at scale.
+Additionally, if you're using segmented listing APIs, but store the data in a local collection in a "greedy" style, we also strongly recommend that you refactor your code to handle storing data in a local collection carefully at scale.
 
 ## Lazy listing
 Although greedy listing raised potential issues, it is convenient if there are not too many objects in the container.
 
-If you’re also using C# or Oracle Java SDKs, you should be familiar with the Enumerable programming model, which offers a lazy-style listing, where the data at a certain offset is only fetched if it is required. In C++, the iterator-based template also provides a similar approach.
+If you're also using C# or Oracle Java SDKs, you should be familiar with the Enumerable programming model, which offers a lazy-style listing, where the data at a certain offset is only fetched if it is required. In C++, the iterator-based template also provides a similar approach.
 
 A typical lazy listing API, using **list_blobs** as an example, looks like this:
 

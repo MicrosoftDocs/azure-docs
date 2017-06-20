@@ -1,5 +1,5 @@
 ---
-title: Overview of Service Fabric | Microsoft Docs
+title: Overview of Service Fabric on Azure | Microsoft Docs
 description: An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud.
 services: service-fabric
 documentationcenter: .net
@@ -39,7 +39,7 @@ Why is a microservices approach important? The two main reasons are:
 * You can scale different parts of your application depending on the needs of the application.
 * Development teams can be more agile as they roll out changes and thus provide features to customers faster and more frequently.
 
-Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype for Business, and many core Azure services.
+Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype for Business, and many core Azure services.
 
 Service Fabric is tailored to create cloud native services that can start small, as needed, and grow to massive scale with hundreds or thousands of machines.
 
@@ -59,7 +59,7 @@ For more information on creating clusters on-premises, read [creating a cluster 
 
 ![Service Fabric platform][Image1]
 
-## Stateless and stateful micrososervices for Service Fabric
+## Stateless and stateful microservices for Service Fabric
 Service Fabric enables you to build applications that consist of microservices. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices.
 
 Why have stateful microservices along with stateless ones? The two main reasons are:

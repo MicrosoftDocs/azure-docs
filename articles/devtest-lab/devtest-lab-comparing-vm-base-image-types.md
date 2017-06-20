@@ -13,28 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/24/2017
 ms.author: tarcher
 
 ---
 # Comparing custom images and formulas in DevTest Labs
-## Overview
 Both [custom images](devtest-lab-create-template.md) and [formulas](devtest-lab-manage-formulas.md) 
 can be used as bases for [created new VMs](devtest-lab-add-vm-with-artifacts.md). 
 However, the key distinction between custom images and formulas is that 
 a custom image is simply an image based on a VHD, while a formula is 
 an image based on a VHD *in addition to* preconfigured settings - such as 
-VM Size, virtual network and subnet, artifacts, 
-and so on. These preconfigured settings are set up with default values that can be overridden
+VM Size, virtual network, subnet, and artifacts. These preconfigured settings are set up with default values that can be overridden
 at the time of VM creation. This article explains some of the advantages (pros) and 
 disadvantages (cons) to using custom images versus using formulas.
 
 ## Custom image pros and cons
-Custom images provide a a static, immutable way to create VMs from a desired environment. 
+Custom images provide a static, immutable way to create VMs from a desired environment. 
 
 **Pros**
 
-* VM provisioning from a custom image is fast as nothing changes after the VM is spun up from the image. In other words, there are no settings to apply as the custom image is simply an image without settings. 
+* VM provisioning from a custom image is fast as nothing changes after the VM is spun up from the image. In other words, there are no settings to apply as the custom image is just an image without settings. 
 * VMs created from a single custom image are identical.
 
 **Cons**
@@ -59,3 +57,5 @@ Formulas provide a dynamic way to create VMs from the desired configuration/sett
 ## Related blog posts
 * [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
+## Next steps
+- [DevTest Labs FAQ](devtest-lab-faq.md)

@@ -3,7 +3,7 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
+author: SnehaGunda
 manager: byronr
 editor: ''
 
@@ -13,55 +13,124 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: helaw
+ms.date: 05/31/2016
+ms.author: sngun
 
 ---
 # Install and configure Azure Stack CLI
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms.
 
-## Install Node.js and npm
-As a prerequisite, install version 4.6.2 of Node.js. On Linux, installation can be done with the following command:
-
-```
-wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
-sudo apt-get install nodejs
-```
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. You can use the steps described in this article either from the [Azure Stack POC computer](azure-stack-connect-azure-stack.md#connect-with-remote-desktop) or from an external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
 ## Install Azure Stack CLI
-If you’re on Mac or Linux, you can get the CLI by using the following command:
 
-```
-npm install -g azure-cli@0.10.4
+Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open the command prompt and run the following command:
+
+```azurecli
+az --version
 ```
 
+You should see the version number of Azure CLI and other dependent libraries installed on your computer.
 
 ## Connect to Azure Stack
-In the following steps, you configure Azure CLI to connect to Azure Stack. Then you sign in and retrieve subscription information.
 
-1. Retrieve the value for active-directory-resource-id by executing this PowerShell:
-    ```PowerShell
-    (Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-    ```
-2. Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved in the previous step:
-   
-          azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
-3. Sign in by using the following command (replace *username* with your user name):
-   
-       azure login -e AzureStack -u “<username>”
-   
-   > [!NOTE]
-   > If you're getting certificate validation issues, disable certificate validation by running the command `set         NODE_TLS_REJECT_UNAUTHORIZED=0`.
-   > 
-   > 
-4. Set the Azure configuration mode to Azure Resource Manager by using the following command:
-   
-       azure config mode arm
-5. Retrieve a list of subscriptions.
-   
-       azure account list     
+Use the following steps to connect to Azure Stack:
+
+1. Disable the SSL certificate validation by running the following commands:
+
+   * If you are connecting from a windows-based computer, use:
+
+   ```azurecli
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
+   * If you are connecting from a macOS, use:
+
+   ```azurecli
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
+
+2. Get your Azure Stack environment’s active directory endpoint and active directory resource Id endpoint. You can get these values by navigating to one of the following links in a browser: 
+
+   a. For the **administrative** environment, use:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+
+   b. For the **user** environment, use:    
+   `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+
+   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the values assigned to the **loginEndpoint** and **audiences** parameters, you will use these values in the next step. The *loginEndpoint* value is set to - `https://login.windows.net/` for AAD based deployments and `https://adfs.local.azurestack.external/adfs` for AD FS based deployments. And the *audiences* parameter has the format- `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`.
+
+3. Register your Azure Stack environment by running the following command:
+
+   a. To register the **administrative** environment, use:
+
+   ```azurecli
+   az cloud register \
+     -n AzureStackAdmin \
+     --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ \
+     --endpoint-active-directory <active-directory-endpoint that you retrieved in Step2> \
+     --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2> \
+     --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+     --suffix-storage-endpoint local.azurestack.external
+   ```
+   b. To register the **user** environment, use:
+
+   ```azurecli
+   az cloud register \
+     -n AzureStackUser \
+     --endpoint-resource-manager https://management.local.azurestack.external/ \
+     --endpoint-active-directory <active-directory-endpoint that you retrieved in Step2> \
+     --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  \
+     --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+     --suffix-storage-endpoint local.azurestack.external 
+   ```
+
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+
+   ```azurecli
+   az cloud update \
+     --profile 2017-03-09-profile-preview
+   ```
+
+5. Set the active environment and sign in by using the following commands:
+
+   a. For the **administrative** environment, use:
+
+   ```azurecli
+   az cloud set \
+     -n AzureStackAdmin
+
+   az login \
+     -u <Active directory global administrator account. Example: username@<aadtenant>.onmicrosoft.com>
+   ```
+
+   b. For the **user** environment, use:
+
+   ```azurecli
+   az cloud set \
+     -n AzureStackUser
+
+   az login \
+     -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+   ```
+
+## Test the connectivity
+
+Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+
+```azurecli
+az group create \
+  -n MyResourceGroup -l local
+```
+
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
+
+![resource group create output](media/azure-stack-connect-cli/image1.png)
+
+There are some known issues when using CLI 2.0 in Azure Stack, to learn about these issues, see the [Known issues in Azure Stack CLI](azure-stack-troubleshooting.md#cli) topic. 
+
 
 ## Next steps
+
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
 [Connect with PowerShell](azure-stack-connect-powershell.md)

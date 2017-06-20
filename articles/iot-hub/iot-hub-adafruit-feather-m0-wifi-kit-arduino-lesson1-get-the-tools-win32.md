@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (Windows 7 +) | Microsoft Docs
+title: 'Connect Arduino to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Adafruit Feather M0 WiFi on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 9cfb8cd2-eafb-4ba2-b23e-d94e114ff3a6
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

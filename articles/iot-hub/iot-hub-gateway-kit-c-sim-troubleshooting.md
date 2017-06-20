@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your Azure IoT gateway | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel NUC gateway
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,15 @@ manager: timtl
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ROBOTS: NOINDEX
+
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

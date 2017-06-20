@@ -3,9 +3,9 @@ title: Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Do
 description: DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source.
 services: automation
 documentationcenter: ''
-author: sebastus
-manager: stevenka
-editor: ''
+author: eslesar
+manager: carmonm
+editor: tysonn
 
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/06/2017
 ms.author: jeffstok
 
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
-Learn how to set up an run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
+Learn how to set up and run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
 
 See the [management reference documentation for the Stream Analytics API for .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
@@ -28,9 +28,9 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 ## Prerequisites
 Before you begin this article, you must have the following:
 
-* Install Visual Studio 2012 or 2013.
+* Install Visual Studio 2017 or 2015.
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs);  
+* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Set up an input source and output target to use. For futher instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to setup a sample output.
+* Set up an input source and output target to use. For further instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to set up a sample output.
 
 ## Set up a project
 To create an analytics job use the Stream Analytics API for .NET, first set up your project.
@@ -53,8 +53,8 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 1. Create a Visual Studio C# .NET console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Active Directory client that will be used for authentication.
    
-        Install-Package Microsoft.Azure.Management.StreamAnalytics
-        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
+        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 3. Add the following **appSettings** section to the App.config file:
    
         <appSettings>
@@ -72,11 +72,16 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 
         Get-AzureAccount
 
+4. Add the following reference in your .csproj file:
+
+        <Reference Include="System.Configuration" />
+
 1. Add the following **using** statements to the source file (Program.cs) in the project:
    
         using System;
         using System.Configuration;
-        using System.Threading;
+        using System.Threading.Tasks;
+        
         using Microsoft.Azure;
         using Microsoft.Azure.Management.StreamAnalytics;
         using Microsoft.Azure.Management.StreamAnalytics.Models;
@@ -84,40 +89,21 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
 2. Add an authentication helper method:
 
    ```   
-   public static string GetAuthorizationHeader()
+   private static async Task<string> GetAuthorizationHeader()
    {
-   
-       AuthenticationResult result = null;
-       var thread = new Thread(() =>
-       {
-           try
-           {
-               var context = new AuthenticationContext(
-                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-   
-               result = context.AcquireToken(
-                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                   promptBehavior: PromptBehavior.Always);
-           }
-           catch (Exception threadEx)
-           {
-               Console.WriteLine(threadEx.Message);
-           }
-       });
-   
-       thread.SetApartmentState(ApartmentState.STA);
-       thread.Name = "AcquireTokenThread";
-       thread.Start();
-       thread.Join();
-   
-       if (result != null)
-       {
-           return result.AccessToken;
-       }
-   
+       var context = new AuthenticationContext(
+           ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+           ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+
+        AuthenticationResult result = await context.AcquireTokenASync(
+           resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+           clientId: ConfigurationManager.AppSettings["AsaClientId"],
+           redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+           promptBehavior: PromptBehavior.Always);
+
+        if (result != null)
+            return result.AccessToken;
+
        throw new InvalidOperationException("Failed to acquire token");
    }
    ```  
@@ -134,10 +120,9 @@ Add the following code to the beginning of the **Main** method:
     string streamAnalyticsTransformationName = "<YOUR JOB TRANSFORMATION NAME>";
 
     // Get authentication token
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
-            ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
+        ConfigurationManager.AppSettings["SubscriptionId"],
+        GetAuthorizationHeader().Result);
 
     // Create Stream Analytics management client
     StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
@@ -281,7 +266,7 @@ The following code creates a Stream Analytics transformation with the query "sel
     var transformationCreateResp =
         client.Transformations.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, transformationCreateParameters);
 
-Like input and output, a transformations is also tied to the specific Stream Analytics job it was created under.
+Like input and output, a transformation is also tied to the specific Stream Analytics job it was created under.
 
 ## Start a Stream Analytics job
 After creating a Stream Analytics job and its input(s), output(s), and transformation, you can start the job by calling the **Start** method.
@@ -297,8 +282,6 @@ The following sample code starts a Stream Analytics job with a custom output sta
 
     LongRunningOperationResponse jobStartResponse = client.StreamingJobs.Start(resourceGroupName, streamAnalyticsJobName, jobStartParameters);
 
-
-
 ## Stop a Stream Analytics job
 You can stop a running Stream Analytics job by calling the **Stop** method.
 
@@ -311,9 +294,8 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
-
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learning the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:

@@ -10,10 +10,9 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
@@ -43,6 +42,9 @@ Doing data science involves iterating on a sequence of tasks: finding, loading, 
 The Microsoft Data Science Virtual Machine jump-starts your analytics project. It enables you to work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
 
 There are no software charges for this data science VM image. You only pay for the Azure usage fees which dependent on the size of the virtual machine you provision. More details on the compute fees can be found in the Pricing details section on the [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) page. 
+
+## Other Versions of the Data Science Virtual Machine
+A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) image is also available, with many of the same tools as the Windows image. An [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus deep learning frameworks.
 
 ## Prerequisites
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
@@ -152,7 +154,7 @@ Several Azure tools are installed on the VM:
 * **AzCopy**: used to move data in and out of your Microsoft Azure Storage Account. To see usage, type **Azcopy** at a command prompt to see the usage. 
 * **Microsoft Azure Storage Explorer**: used to browse through the objects that you have stored within your Azure Storage Account and transfer data to and from Azure storage. You can type **Storage Explorer** in search or find it on the Windows Start menu to access this tool. 
 * **Adlcopy**: used to move data to Azure Data Lake. To see usage, type **adlcopy** in a command prompt. 
-* **dtui**: used to move data to and from Azure DocumentDB, a NoSQL database on the cloud. Type **dtui** on command prompt. 
+* **dtui**: used to move data to and from Azure Cosmos DB, a NoSQL database on the cloud. Type **dtui** on command prompt. 
 * **Microsoft Data Management Gateway**:  enables data movement between on-premises data sources and cloud. It is used within tools like Azure Data Factory. 
 * **Microsoft Azure Powershell**:  a tool used to administer your Azure resources in the Powershell scripting language is also installed on your VM. 
 

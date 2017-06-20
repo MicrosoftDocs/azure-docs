@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/10/2017
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ Integrating OfficeSpace Software with Azure AD provides you with the following b
 
 - You can control in Azure AD who has access to OfficeSpace Software
 - You can enable your users to automatically get signed-on to OfficeSpace Software (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+- You can manage your accounts in one central location - the Azure Management portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -43,7 +43,7 @@ To configure Azure AD integration with OfficeSpace Software, you need the follow
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Scenario description
@@ -59,29 +59,23 @@ To configure the integration of OfficeSpace Software into Azure AD, you need to 
 
 **To add OfficeSpace Software from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-
-4. Click **Add** at the bottom of the page.
+	
+3. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-	![Applications][4]
-
-6. In the search box, type **OfficeSpace Software**.
+4. In the search box, type **OfficeSpace Software**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_001.png)
 
-7. In the results pane, select **OfficeSpace Software**, and then click **Complete** to add the application.
+5. In the results panel, select **OfficeSpace Software**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_0001.png)
 
@@ -103,155 +97,124 @@ To configure and test Azure AD single sign-on with OfficeSpace Software, you nee
 
 ### Configuring Azure AD single sign-on
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your OfficeSpace Software application.
-
-OfficeSpace Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**Atrribute**" tab of the application. The following screenshot shows an example for this. 
-
-![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_01.png)
+In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your OfficeSpace Software application.
 
 **To configure Azure AD single sign-on with OfficeSpace Software, perform the following steps:**
 
-1. In the Azure classic portal, on the **OfficeSpace Software** application integration page, in the menu on the top, click **Attributes**.
+1. In the Azure Management portal, on the **OfficeSpace Software** application integration page, click **Single sign-on**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_02.png)
+	![Configure Single Sign-On][4]
 
-2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
+2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_01.png)
+
+3. On the **OfficeSpace Software Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_02.png)
+
+    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
+
+	b. In the **Identifier** textbox, type a value using the following pattern: `<company name>.officespacesoftware.com`
+
+	> [!NOTE] 
+	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [OfficeSpace Software support team](mailto:support@officespacesoftware.com) to get these values. 
+
+4. OfficeSpace Software application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_03.png)
+
+5. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
     
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | user.mail |
 	| email | user.mail |
 	| name | user.displayname |
 	| first_name | user.givenname |
 	| last_name | user.surname |
 
-	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_03.png)
-	
-	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Attribute Value** list, type the attribute value shown for that row.
-	
-	d. Click **Complete**
-
-3. In the menu on the top, click **Quick Start**.
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_04.png) 
-
-4. In the classic portal, on the **OfficeSpace Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On** dialog.
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_04.png)
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_05.png)
+	
+	b. In the **Name** textbox, type the attribute name shown for that row.
+	
+	c. From the **Value** list, type the attribute value shown for that row.
+	
+	d. Click **Ok**
 
-5. On the **How would you like users to sign on to OfficeSpace Software** page, select **Azure AD Single Sign-On**, and then click **Next**.
- 
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)
-
-6. On the **Configure App Settings** dialog page, perform the following steps:
-
-	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.officespace.com/users/sign_in/saml`
-
-    b. Click **Next**.
-
-	> [!NOTE] 
-	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [OfficeSpace Software support team](emaiLto:support@officespacesoftware.com) to get this value.
-
-7. On the **Configure single sign-on at OfficeSpace Software** page, click **Download certificate** and then save the file on your computer:
+6. On the **SAML Signing Certificate** section, click **Certificate (base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-8. In a different web browser window, log into your OfficeSpace Software tenant as an administrator.
+7. Click **Save**.
 
-9. Go to **ADMIN** and click **Connectors**.
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. On the **OfficeSpace Software Configuration** section, click **Configure OfficeSpace Software** to open **Configure sign-on** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
+
+	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
+
+9. In a different web browser window, log into your OfficeSpace Software tenant as an administrator.
+
+10. Go to **Settings** and click **Connectors**.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-10. Click **SAML Authorization**.
+11. Click **SAML Authentication**.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-11. In the **SAML Authorization** section, perform the following steps:
+12. In the **SAML Authentication** section, perform the following steps:
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
-	a. In the **Logout provider url** textbox put the value of **Remote Login URL** from Azure AD application configuration wizard.
+	a. In the **Logout provider url** textbox put the value of **Sign-Out URL** from Azure AD application configuration window.
 
-	b. In the **Client idp target url** textbox put the value of **Remote Logout URL** from Azure AD application configuration wizard.
+	b. In the **Client idp target url** textbox put the value of **SAML Single Sign-On Service URL** from Azure AD application configuration window.
 
 	c. Copy the **Thumbprint** value from the downloaded certificate, and then paste it into the **Client idp cert fingerprint** textbox. 
 
 	d. Click **Save Settings**.
 
 	> [!NOTE]
-	> For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-
-12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-
-	![Azure AD Single Sign-On][10]
-
-13. On the **Single sign-on confirmation** page, click **Complete**.  
+	> For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI) 
   
-	![Azure AD Single Sign-On][11]
-
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the classic portal called Britta Simon.
+The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
 
-![Create Azure AD User][20]
+![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_09.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_01.png) 
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Go to **Users and groups** and click **All users** to display the list of users.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_02.png) 
 
-3. To display the list of users, in the menu on the top, click **Users**.
-
+3. At the top of the dialog click **Add** to open the **User** dialog.
+ 
 	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_03.png) 
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_04.png) 
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_05.png) 
+    a. In the **Name** textbox, type **BrittaSimon**.
 
-    a. As Type Of User, select New user in your organization.
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+	c. Select **Show Password** and write down the value of the **Password**.
 
-    c. Click **Next**.
-
-6.  On the **User Profile** dialog page, perform the following steps:
-
-	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_06.png) 
-
-    a. In the **First Name** textbox, type **Britta**.  
-
-    b. In the **Last Name** textbox, type, **Simon**.
-
-    c. In the **Display Name** textbox, type **Britta Simon**.
-
-    d. In the **Role** list, select **User**.
-
-    e. Click **Next**.
-
-7. On the **Get temporary password** dialog page, click **create**.
-
-	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_07.png) 
-
-8. On the **Get temporary password** dialog page, perform the following steps:
-
-	![Creating an Azure AD test user](./media/active-directory-saas-officespace-tutorial/create_aaduser_08.png) 
-
-    a. Write down the value of the **New Password**.
-
-    b. Click **Complete**.   
+    d. Click **Create**. 
 
 
 
@@ -262,7 +225,7 @@ The objective of this section is to create a user called Britta Simon in OfficeS
 There is no action item for you in this section. A new user will be created during an attempt to access OfficeSpace Software if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to Contact [OfficeSpace Software support team](emaiLto:support@officespacesoftware.com).
+> If you need to create an user manually, you need to Contact [OfficeSpace Software support team](mailto:support@officespacesoftware.com).
 
 
 ### Assigning the Azure AD test user
@@ -273,7 +236,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to OfficeSpace Software, perform the following steps:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
@@ -281,16 +244,20 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Configure Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_50.png) 
 
-3. In the menu on the top, click **Users**.
+3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][203] 
+	![Assign User][202] 
 
-4. In the Users list, select **Britta Simon**.
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-5. In the toolbar on the bottom, click **Assign**.
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
 	
-	![Assign User][205]
-
 
 
 ### Testing single sign-on
@@ -314,13 +281,9 @@ When you click the OfficeSpace Software tile in the Access Panel, you should get
 [3]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_205.png

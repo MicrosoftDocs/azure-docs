@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Active Directory and Visual Studio connected services (MVC projects) | Microsoft Docs
+title: Get Started with Azure AD in Visual Studio MVC projects | Microsoft Docs
 description: How to get started using Azure Active Directory in MVC projects after connecting to or creating an Azure AD using Visual Studio connected services
 services: active-directory
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
+ms.custom: aaddev
 
 ---
 # Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)
@@ -25,10 +26,10 @@ ms.author: tarcher
 > 
 
 ## Requiring authentication to access controllers
-All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
+All controllers in your project were adorned with the **Authorize** attribute. This attribute requires the user to be authenticated before accessing these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
 
 ## Adding SignIn / SignOut Controls
-To add a the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard **_Layout.cshtml** view. (Note the last element in the div with class navbar-collapse):
+To add the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views. Here is an example of the functionality added to the standard **_Layout.cshtml** view. (Note the last element in the div with class navbar-collapse):
 
 <pre>
     &lt;!DOCTYPE html&gt; 
@@ -75,5 +76,6 @@ To add a the SignIn/SignOut controls to your view, you can use the **_LoginParti
     &lt;/html&gt;
 </pre>
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
+## Next steps
+- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 

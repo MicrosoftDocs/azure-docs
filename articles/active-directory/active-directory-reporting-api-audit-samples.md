@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -56,7 +56,7 @@ App Auth will not work if your tenant is in the EU region. Please use User Auth 
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{

@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: priyamo
+ms.custom: aaddev
 
 ---
 # Single Sign-On SAML protocol
@@ -44,8 +45,8 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Version |required |This should be **2.0**. |
 | IssueInstant |required |This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
 | AssertionConsumerServiceUrl |optional |If provided, this must match the `RedirectUri` of the cloud service in Azure AD. |
-| ForceAuthn |optional |If provided, this should be false. Any other value causes an error. |
-| IsPassive |optional |If provided, this should be false. Any other value causes an error. |
+| ForceAuthn |optional | This is a boolean value. If true, this means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
+| IsPassive |optional |This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
 
 All other `AuthnRequest` attributes, such as Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex and ProviderName are **ignored**.
 
@@ -74,8 +75,9 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory issues the NameID claim as a pairwise identifier.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory issues the NameID claim in e-mail address format.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory issues the NameID claim as a randomly-generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
 
-Do not include the `SPNameQualifer` attribute. Azure AD ignores the `AllowCreate` attribute.
+Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
 The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports only one `AuthnContextClassRef` value: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.

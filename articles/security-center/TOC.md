@@ -4,11 +4,15 @@
 ## [Data security](security-center-data-security.md)
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
+### [Use recommendations to enhance security](security-center-using-recommendations.md)
+## [Platform migration](security-center-platform-migration.md)
 
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
+## [Supported platforms](security-center-os-coverage.md)
+## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
@@ -19,24 +23,28 @@
 
 ### [Application recommendations](security-center-application-recommendations.md)
 #### [Add a web application firewall](security-center-add-web-application-firewall.md)
+#### [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Network recommendations](security-center-network-recommendations.md)
 #### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
 #### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
 #### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [SQL service recommendations](security-center-sql-service-recommendations.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md)
+#### [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md)
 #### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
 
 ### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)
 #### [Apply disk encryption](security-center-apply-disk-encryption.md)
 #### [Apply system updates](security-center-apply-system-updates.md)
 #### [Enable data collection](security-center-enable-data-collection.md)
+#### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md)
 #### [Enable VM Agent](security-center-enable-vm-agent.md)
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Provide security contact details](security-center-provide-security-contact-details.md)
+#### [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)

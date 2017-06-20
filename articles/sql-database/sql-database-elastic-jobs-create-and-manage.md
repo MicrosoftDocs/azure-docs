@@ -1,6 +1,6 @@
 ---
-title: Create and manage scaled out Azure SQL Databases using elastic jobs | Microsoft Docs
-description: Walk through creation and management of an elastic database job.
+title: Manage groups of Azure SQL databases | Microsoft Docs
+description: Walk through creation and management of an elastic job.
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,17 +19,13 @@ ms.author: ddove
 
 ---
 # Create and manage scaled out Azure SQL Databases using elastic jobs (preview)
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
+
 
 **Elastic Database jobs** simplify management of groups of databases by executing administrative operations such as schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection. Elastic Database jobs is currently available through the Azure portal and PowerShell cmdlets. However, the Azure portal surfaces reduced functionality limited to execution across all databases in an [elastic pool (preview)](sql-database-elastic-pool.md). To access additional features and execution of scripts across a group of databases including a custom-defined collection or a shard set (created using [Elastic Database client library](sql-database-elastic-scale-introduction.md)), see [Creating and managing jobs using PowerShell](sql-database-elastic-jobs-powershell.md). For more information about jobs, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md). 
 
 ## Prerequisites
-* An Azure subscription. For a free trial, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* An elastic pool. See [About elastic pools](sql-database-elastic-pool.md)
+* An Azure subscription. For a free trial, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
+* An elastic pool. See [About elastic pools](sql-database-elastic-pool.md).
 * Installation of elastic database job service components. See [Installing the elastic database job service](sql-database-elastic-jobs-service-installation.md).
 
 ## Creating jobs

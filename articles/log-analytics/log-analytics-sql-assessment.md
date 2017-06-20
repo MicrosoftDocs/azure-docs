@@ -1,6 +1,6 @@
 ---
-title: Optimize your environment with the SQL Assessment solution in Log Analytics | Microsoft Docs
-description: You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval.
+title: Optimize your SQL Server environment with Azure Log Analytics | Microsoft Docs
+description: With Azure Log Analytics, you can use the SQL Assessment solution to assess the risk and health of your SQL server environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,11 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 06/07/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 
 ---
-# Optimize your environment with the SQL Assessment solution in Log Analytics
+# Optimize your SQL Server environment with the SQL Assessment solution in Log Analytics
+
+![SQL Assessment symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
+
 You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install the solution so that you can take corrective actions for potential problems.
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across six focus areas which help you quickly understand the risk and take corrective action.
@@ -37,7 +41,8 @@ SQL Assessment works with all currently supported versions of SQL Server for the
 Use the following information to install and configure the solution.
 
 * Agents must be installed on servers that have SQL Server installed.
-* The SQL Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
+* The SQL Assessment solution requires a supported version of .NET Framework 4 installed on each computer that has an OMS agent.
+* In order to install the solution, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
 * When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
 
   > [!NOTE]
@@ -48,8 +53,6 @@ Use the following information to install and configure the solution.
 
 > [!NOTE]
 > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
->
->
 
 ## SQL Assessment data collection details
 SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.
@@ -198,7 +201,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 * Not at this time.
 
-*If another server for is discovered after I’ve added the SQL assessment solution, will it be assessed?*
+*If another server is discovered after I’ve added the SQL assessment solution, will it be assessed?*
 
 * Yes, once it is discovered it is assessed from then on, every 7 days.
 

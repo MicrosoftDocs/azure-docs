@@ -1,6 +1,6 @@
 ---
-title: Install Jupyter notebook on your computer and connect it to an HDInsight Spark cluster | Microsoft Docs
-description: Learn about how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
+title: Install Jupyter locally & connect to an Azure HDInsight Spark cluster | Microsoft Docs
+description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,16 +10,18 @@ tags: azure-portal
 
 ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Install Jupyter notebook on your computer and connect to Apache Spark cluster on HDInsight Linux
-In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For a list of reasons and challenges, see the section [Why should I install Jupyter on my computer](#why-should-i-install-jupyter-on-my-computer) at the end of this article.
+# Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
+
+In this article you learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For more on this, see the section [Why should I install Jupyter on my computer](#why-should-i-install-jupyter-on-my-computer) at the end of this article.
 
 There are three key steps involved in installing Jupyter and the Spark magic on your computer.
 
@@ -33,26 +35,29 @@ For more information about the custom kernels and the Spark magic available for 
 The prerequisites listed here are not for installing Jupyter. These are for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Install Jupyter notebook on your computer
-You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Ananconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you actually install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running a command. This section provides the instructions that you must follow.
+
+You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
 
 1. Download the [Anaconda installer](https://www.continuum.io/downloads) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
 2. Run the following command to install Jupyter.
 
         conda install jupyter
 
-    For more information on installting Jupyter, see [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+    For more information on installing Jupyter, see [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
 
 ## Install the kernels and Spark magic
-For instructions on how to install the Spark magic, the PySpark and Spark kernels, see the [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation) on GitHub.
 
-For clusters v3.4, please install sparkmagic 0.5.0 by executing `pip install sparkmagic==0.2.3`.
+For instructions on how to install the Spark magic, the PySpark and Spark kernels, follow the installation instructions in the [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation) on GitHub. The first step in the Spark magic documentation asks you to install Spark magic. Replace that first step in the link with the following commands, depending on the version of the HDInsight cluster you will connect to. After that, follow the remaining steps in the Spark magic documentation. If you want to install the different kernels, you must perform Step 3 in the Spark magic installation instructions section.
 
-For clusters v3.5, please install sparkmagic 0.8.4 by executing `pip install sparkmagic==0.8.4`.
+* For clusters v3.4, install sparkmagic 0.2.3 by executing `pip install sparkmagic==0.2.3`
 
-## Configure Spark magic to access the HDInsight Spark cluster
+* For clusters v3.5 and v3.6, install sparkmagic 0.11.2 by executing `pip install sparkmagic==0.11.2`
+
+## Configure Spark magic to connect to HDInsight Spark cluster
+
 In this section you configure the Spark magic that you installed earlier to connect to an Apache Spark cluster that you must have already created in Azure HDInsight.
 
 1. The Jupyter configuration information is typically stored in the users home directory. To locate your home directory on any OS platform, type the following commands.
@@ -82,26 +87,24 @@ In this section you configure the Spark magic that you installed earlier to conn
           }
         }
 
-4. Substitute **{USERNAME}**, **{CLUSTERDNSNAME}**, and **{BASE64ENCODEDPASSWORD}** with appropriate values. You can use a number of utilities in your favorite programming language or online to generate a base64 encoded password for your actualy password. A simple Python snippet to run from your command prompt would be:
-
-        python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
+4. Substitute **{USERNAME}**, **{CLUSTERDNSNAME}**, and **{BASE64ENCODEDPASSWORD}** with appropriate values. You can use a number of utilities in your favorite programming language or online to generate a base64 encoded password for your actual password.
 
 5. Configure the right Heartbeat settings in `config.json`. You should add these settings at the same level as the `kernel_python_credentials` and `kernel_scala_credentials` snippets your added earlier. For an example on how and where to add the heartbeat settings, see this [sample config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
-    * For `sparkmagic 0.5.0` (clusters v3.4), include:
+    * For `sparkmagic 0.2.3` (clusters v3.4), include:
 
             "should_heartbeat": true,
             "heartbeat_refresh_seconds": 5,
             "heartbeat_retry_seconds": 1
 
-    * For `sparkmagic 0.8.4` (clusters v3.5), include:
+    * For `sparkmagic 0.11.2` (clusters v3.5 and v3.6), include:
 
             "heartbeat_refresh_seconds": 5,
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Heartbeats are sent to ensure that sessions are not leaked. Note that when a computer goes to sleep or is shut down, the hearbeat will not be sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
+    >Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
 6. Start Jupyter. Use the following command from the command prompt.
 
@@ -109,19 +112,16 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 7. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
 
-   1. Create a new notebook. From the right hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**.
+	a. Create a new notebook. From the right-hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
 
-       ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Create a new Jupyter notebook")
+	![Kernels in Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter notebook")
 
-        Click **PySpark**.
+	b. Run the following code snippet.
 
+		%%sql
+		SELECT * FROM hivesampletable LIMIT 5
 
-    2. Run the following code snippet.
-
-            %%sql
-            SELECT * FROM hivesampletable LIMIT 5
-
-        If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
+	If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
 
     >[!TIP]
     >If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above.
@@ -155,9 +155,9 @@ There can be a number of reasons why you might want to install Jupyter on your c
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 

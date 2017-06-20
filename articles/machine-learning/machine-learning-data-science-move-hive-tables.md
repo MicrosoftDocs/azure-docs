@@ -1,5 +1,5 @@
 ---
-title: Create and load data into Hive tables from Blob storage | Microsoft Docs
+title: Create Hive tables and load data from Azure Blob Storage | Microsoft Docs
 description: Create Hive tables and load data in blob to hive tables
 services: machine-learning,storage
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---
-# Create and load data into Hive tables from Azure blob storage
+# Create Hive tables and load data from Azure Blob Storage
 This topic presents generic Hive queries that create Hive tables and load data from Azure blob storage. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
@@ -120,7 +120,7 @@ You can also use the Query Console (Hive Editor) by entering a URL of the form *
 You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
-The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
+The Hive queries are shared in the [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
 
 Here is the Hive query that creates a Hive table.
 

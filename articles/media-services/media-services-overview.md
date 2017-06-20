@@ -43,7 +43,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -76,8 +76,8 @@ This section describes common scenarios and provides links to relevant topics. T
 ![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
-	
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
+
 ### Protect content in storage and deliver streaming media in the clear (non-encrypted)
 1. Upload a high-quality mezzanine file into an asset.
 
@@ -181,8 +181,7 @@ Media Services supports integration with Azure CDN. For information on how to en
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with.
 
 You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
-Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard Streaming Endpoint is suitable for most streaming workloads. It includes the same features as Premium Streaming Units. 
-Standard Streaming Endpoint is suitable for most streaming workloads. If you have an advanced workload or your streaming capacity requirements doesn't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as premium streaming units), then it is recommended to allocate scale units.
+Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard Streaming Endpoint is suitable for most streaming workloads. It includes the same features as Premium Streaming Units. If you have an advanced workload or your streaming capacity requirements doesn't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as premium streaming units), then it is recommended to allocate scale units.
 
 [This](media-services-portal-scale-streaming-endpoints.md) topic links to relevant topics.
 

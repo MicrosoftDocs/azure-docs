@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET Protocol Overview | Microsoft Docs
+title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: priyamo
+ms.custom: aaddev
 
 ---
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1) . It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
@@ -46,23 +47,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, e.g. `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Management Portal. Click on **Active Directory**, click the directory, click on the application and then click on **Configure** |
+| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
 | response_type |required |Must include `code` for the authorization code flow. |
 | redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`. |
-| state |recommended |A value included in the request that will also be returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| resource |optional |The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure Management Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
-| prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to re-authenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
-| login_hint |optional |Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
+| state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| resource |optional |The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure  Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
+| prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
+| login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time.  Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
 
 > [!NOTE]
 > If the user is part of an organization, an administrator of the organization can consent or decline on the user's behalf, or permit the user to consent. The user is given the option to consent only when the administrator permits it.
-> 
-> 
+>
+>
 
-At this point, the user will be asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
+At this point, the user is asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
 
 ### Successful response
 A successful response could look like this:
@@ -99,12 +100,12 @@ The following table describes the various error codes that can be returned in th
 
 | Error Code | Description | Client Action |
 | --- | --- | --- |
-| invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request. This is a development error is typically caught during initial testing. |
+| invalid_request |Protocol error, such as a missing required parameter. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
 | unauthorized_client |The client application is not permitted to request an authorization code. |This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | access_denied |Resource owner denied consent |The client application can notify the user that it cannot proceed unless the user consents. |
-| unsupported_response_type |The authorization server does not support the response type in the request. |Fix and resubmit the request. This is a development error is typically caught during initial testing. |
-| server_error |The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due a temporary error. |
-| temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
+| unsupported_response_type |The authorization server does not support the response type in the request. |Fix and resubmit the request. This is a development error, and is typically caught during initial testing. |
+| server_error |The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due to a temporary error. |
+| temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Use the authorization code to request an access token
@@ -128,8 +129,8 @@ grant_type=authorization_code
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, e.g. `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Classic Portal. Click on **Active Directory**, click the directory, click on the application and then click on **Configure** |
+| tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Classic Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
@@ -161,14 +162,14 @@ A successful response could look like this:
 
 | Parameter | Description |
 | --- | --- |
-| access_token |The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |
+| access_token |The requested access token. The app can use this token to authenticate to the secured resource, such as a web API. |
 | token_type |Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |How long the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
 | resource |The App ID URI of the web API (secured resource). |
 | scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. |
-| refresh_token |An OAuth 2.0 refresh token. The  app can use this token to acquire additional access tokens after the current access token expires.  Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
-| id_token |An unsigned JSON Web Token (JWT). The app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires.  Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
+| id_token |An unsigned JSON Web Token (JWT). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
 
 ### JWT Token Claims
 The JWT token in the value of the `id_token` parameter can be decoded into the following claims:
@@ -195,7 +196,9 @@ The JWT token in the value of the `id_token` parameter can be decoded into the f
 }.
 ```
 
-The `id_token` parameter includes the following claim types. For more information about JSON web tokens, please see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, please read [Supported Token and Claim Types](active-directory-token-and-claims.md)
+For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](active-directory-token-and-claims.md)
+
+The `id_token` parameter includes the following claim types:
 
 | Claim type | Description |
 | --- | --- |
@@ -235,13 +238,13 @@ A sample error response could look like this:
 | --- | --- |
 | error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
-| error_codes |A list of STS specific error codes that can help in diagnostics. |
+| error_codes |A list of STS-specific error codes that can help in diagnostics. |
 | timestamp |The time at which the error occurred. |
 | trace_id |A unique identifier for the request that can help in diagnostics. |
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 #### HTTP status codes
-The following table lists the HTTP status codes that the token issuance endpoint returns. In some cases, the error code is sufficient to describe the response, but in case of errors, you will need to parse the accompanying JSON document and examine its error code.
+The following table lists the HTTP status codes that the token issuance endpoint returns. In some cases, the error code is sufficient to describe the response, but if there are errors, you need to parse the accompanying JSON document and examine its error code.
 
 | HTTP Code | Description |
 | --- | --- |
@@ -260,7 +263,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | unsupported_grant_type |The authorization server does not support the authorization grant type. |Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | interaction_required |The request requires user interaction. For example, an additional authentication step is required. |Retry the request with the same resource. |
-| temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
+| temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 
 ## Use the access token to access the resource
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs, by including it in the `Authorization` header. The [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specification explains how to use bearer tokens in HTTP requests to access protected resources.
@@ -273,7 +276,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### Error Response
-Secured resources that implement RFC 6750 issue HTTP status codes. If the request does not include authentication credentials or is missing the token, the response includes an `WWW-Authenticate` header. When a request fails, the resource server responds with the an HTTP status code and an error code.
+Secured resources that implement RFC 6750 issue HTTP status codes. If the request does not include authentication credentials or is missing the token, the response includes an `WWW-Authenticate` header. When a request fails, the resource server responds with the HTTP status code and an error code.
 
 The following is an example of an unsuccessful response when the client request does not include the bearer token:
 
@@ -288,10 +291,10 @@ WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com
 | authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.windows.net or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
-| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is very important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
+| resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
 
 #### Bearer scheme error codes
-The RFC 6750 specification defines the following errors for resources that use using the WWW-Authenticate header and Bearer scheme in the response.
+The RFC 6750 specification defines the following errors for resources that use the WWW-Authenticate header and Bearer scheme in the response.
 
 | HTTP Status Code | Error Code | Description | Client Action |
 | --- | --- | --- | --- |
@@ -366,10 +369,9 @@ A sample error response could look like this:
 | --- | --- |
 | error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
-| error_codes |A list of STS specific error codes that can help in diagnostics. |
+| error_codes |A list of STS-specific error codes that can help in diagnostics. |
 | timestamp |The time at which the error occurred. |
 | trace_id |A unique identifier for the request that can help in diagnostics. |
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
-For a description of the error codes and the recommended client action, please see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
-
+For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).

@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 .NET Web App | Microsoft Docs
+title: Azure AD v2.0 .NET web app calling API getting started | Microsoft Docs
 description: How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in.
 services: active-directory
 documentationcenter: .net
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Calling a web API from a .NET web app

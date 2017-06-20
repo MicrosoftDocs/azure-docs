@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mijiang
+ms.author: apimpm
 ---
 # API Management policy expressions
 Policy expressions syntax is C# 6.0. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.  
@@ -48,7 +48,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -168,7 +168,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
   
 |Context Variable|Allowed methods, properties, and parameter values|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing: bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId: string<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing: bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> For more information about context.LastError, see [Error handling](api-management-error-handling-policies.md).|  
@@ -182,7 +182,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 |context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|  
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: string<br /><br /> Name: string|  
-|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Request.Body.As<T>` methods are used to read a request or response message body in one of the specified formats. Note that by default when you access the message body, the original message body is lost and must be set by returning the body back in the expression that reads the body. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. The default value of `preserveContent` is `false`. If `preserveContent` is set to `true` and a body is returned by the expression, the returned body is used. For more information, see the [Set body](api-management-transformation-policies.md#SetBody) policy.|  
+|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> The `context.Request.Body.As<T>` and `context.Response.Body.As<T>` methods are used to read a request and response message bodies in a specified type `T`. By default the method uses the original message body stream and reneders it unavailable after it returns. To avoid that by having the method operate on a copy of the body stream, set the `preserveContent` parameter to `true`. Go [here](api-management-transformation-policies.md#SetBody) to see an example.|  
 |IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|  
 |IUserIdentity|Id: string<br /><br /> Provider: string|  
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|  

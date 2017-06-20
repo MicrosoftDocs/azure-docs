@@ -1,5 +1,5 @@
 ---
-title: Vehicle telemetry analytics solution playbook | Microsoft Docs
+title: Predict vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---

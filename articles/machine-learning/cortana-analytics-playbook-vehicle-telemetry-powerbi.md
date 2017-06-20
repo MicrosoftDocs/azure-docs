@@ -1,5 +1,5 @@
 ---
-title: Vehicle telemetry analytics solution template Power BI Dashboard setup instructions | Microsoft Docs
+title: Power BI Dashboard for vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''
@@ -26,7 +26,7 @@ The Vehicle Telemetry Analytics solution showcases how car dealerships, automobi
 This document contains step by step instructions on how you can configure the Power BI reports and dashboard once the solution is deployed in your subscription. 
 
 ## Prerequisites
-1. Deploy the Vehicle Telemetry Analytics solution by navigating to [https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3](https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3)  
+1. Deploy the [Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) solution  
 2. [Install Microsoft Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)
 3. An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/). If you don't have an Azure subscription, get started with Azure free subscription
 4. Microsoft Power BI account
@@ -34,8 +34,8 @@ This document contains step by step instructions on how you can configure the Po
 ## Cortana Intelligence Suite Components
 As part of the Vehicle Telemetry Analytics solution template, the following Cortana Intelligence services are deployed in your subscription.
 
-* **Event Hubs** for ingesting millions of vehicle telemetry events into Azure.
-* **Stream Analytic**s for gaining real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
+* **Event Hub** for ingesting millions of vehicle telemetry events into Azure.
+* **Stream Analytics** for gaining real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
 * **Machine Learning** for anomaly detection in real-time and batch processing to gain predictive insights.
 * **HDInsight** is leveraged to transform data at scale
 * **Data Factory** handles orchestration, scheduling, resource management and monitoring of the batch processing pipeline.
@@ -49,40 +49,22 @@ A vehicle telematics simulator is included as part of this solution. It emits di
 The Vehicle Catalog is a reference dataset containing VIN to model mapping
 
 ## Power BI Dashboard Preparation
-### Deployment
-Once the deployment is completed, you should see the following diagram with all of these components marked in GREEN. 
-
-* To navigate to the corresponding services to validate whether all of these have deployed successfully, click the arrow on the upper right of the green nodes.
-* To download the data simulator package, click the arrow on the upper right on the **Vehicle Telematics Simulator** node. Save and extract the files locally on your machine. 
-
-![Deployed components](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/1-deployed-components.png)
-
-Now, you are ready to configure the Power BI dashboard with rich visualizations to gain real-time and predictive insights on vehicle health and driving habits. It takes about 45 minutes to an hour to create all the reports and configure the dashboard. 
-
 ### Setup Power BI Real-Time Dashboard
-**Generate simulated data**
-
-1. On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package.
-  ![Simulator folder](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
-2. Execute the application ***CarEventGenerator.exe***.
-3. It emits diagnostic information and signals corresponding to the state of the vehicle and driving pattern at a given point in time. This is published to an Azure Event Hub instance that is configured as part of your deployment.
-
-![Diagnostics](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/3-vehicle-telematics-diagnostics.png)
 
 **Start the real-time dashboard application**
+Once the deployment is completed, you should follow the Manual Operation Instructions
 
-The solution includes an application that generates a real-time dashboard in Power BI. This application listens to an Event Hub instance, from which Stream Analytics publishes the events continuously. For every event that this application receives, it processes the data using a Machine Learning Request-Response scoring endpoint. The resultant dataset is published to the Power BI push APIs for visualization. 
+* Download real-time dashboard application RealtimeDashboardApp.zip, and unzip it.
+*  In the unzipped folder, open app config file 'RealtimeDashboardApp.exe.config', replace appSettings for Eventhub, Blob Storage, and ML service connections with the values in the Manual Operation Instructions, and save your changes.
+* Run application RealtimeDashboardApp.exe. A login window will pop up, provide your valid PowerBI credentials and click the **Accept** button. Then the app will start to run.
 
-To download the application:
-
-1. Click the Power BI node on the diagram view and click the **Download Real-time Dashboard Application**’ link on the properties pane.![Dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2. Extract and save the application locally ![Dashboard application](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
-3. Execute the application **RealtimeDashboardApp.exe**
-4. Provide valid Power BI credentials, sign in and click **Accept**
-   
    ![Sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
    ![Power BI Dashboard permissions](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
+
+* Login to PowerBI website, and create real-time dashboard.
+
+Now, you are ready to configure the Power BI dashboard with rich visualizations to gain real-time and predictive insights on vehicle health and driving habits. It takes about 45 minutes to an hour to create all the reports and configure the dashboard. 
 
 ### Configure Power BI reports
 The real-time reports and the dashboard take about 30-45 minutes to complete. 
@@ -319,13 +301,14 @@ It should take about 10 to 15 minutes to complete the following steps.
 
 **Download the Power BI designer file**
 
-* A pre-configured Power BI designer file is included as part of the deployment
-* Click the Power BI node on the diagram view and click **Download the Power BI designer file** link on the properties pane ![Download Power BI Designer](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+* A pre-configured Power BI designer file is included as part of the deployment Manual Operation Instructions
+* Look for 2. Setup PowerBI batch processing dashboard
+You can download the PowerBI template for batch processing dashboard here called **ConnectedCarsPbiReport.pbix**.
 * Save locally
 
 **Configure Power BI reports**
 
-* Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using Power BI Desktop. If you do not already have, install the Power BI Desktop from [Power BI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
+* Open the designer file ‘**ConnectedCarsPbiReport.pbix**’ using Power BI Desktop. If you do not already have, install the Power BI Desktop from [Power BI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
 * Click the **Edit Queries**.
 
 ![Edit Power BI query](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
@@ -334,9 +317,14 @@ It should take about 10 to 15 minutes to complete the following steps.
 
 ![Set Power BI source](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11-set-powerbi-source.png)
 
-* Update Server connection string with the Azure SQL server that got provisioned as part of the deployment. Click the Azure SQL node on the diagram and view the server name of the properties pane.
+* Update Server connection string with the Azure SQL server that got provisioned as part of the deployment.  Look in the Manual Operation Instructions under 
 
-![View server name](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11.5-view-server-name.png)
+    4. Azure SQL Database
+    
+    * Server: somethingsrv.database.windows.net
+    * Database: connectedcar
+    * Username: username
+    * Password: You can manage your SQL server password from Azure portal
 
 * Leave **Database** as *connectedcar*.
 
@@ -364,12 +352,12 @@ You have now configured all the reports corresponding to the batch processing pa
 2. Click **Get Data**  
 3. Upload the Power BI Desktop File.  
 4. To upload, click **Get Data -> Files Get -> Local file**  
-5. Navigate to the **“VehicleTelemetryAnalytics – Desktop Report.pbix”**  
+5. Navigate to the **“**ConnectedCarsPbiReport.pbix**”**  
 6. Once the file is uploaded, you will be navigated back to your Power BI work space.  
 
 A dataset, report and a blank dashboard will be created for you.  
 
-Pin charts to the existing dashboard **Vehicle Telemetry Analytics Dashboard** in **Power BI**. Click the blank dashboard created above and then navigate to the **Reports** section click the newly uploaded report.  
+Pin charts to a new dashboard called **Vehicle Telemetry Analytics Dashboard** in **Power BI**. Click the blank dashboard created above and then navigate to the **Reports** section click the newly uploaded report.  
 
 ![Vehicle Telemetry Power BI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
@@ -420,4 +408,3 @@ Page 6: Contoso Logo
 ![Vehicle Telemetry - Organize Dashboard 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 Congratulations! You have successfully created the reports and the dashboard to gain real-time, predictive and batch insights on vehicle health and driving habits.  
-

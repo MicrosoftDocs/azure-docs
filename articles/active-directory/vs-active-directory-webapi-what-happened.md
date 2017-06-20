@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/active-directory/develop/vs-active-directory-what-happened
+redirect_url: /azure/active-directory/develop/vs-active-directory-webapi-what-happened
 ---

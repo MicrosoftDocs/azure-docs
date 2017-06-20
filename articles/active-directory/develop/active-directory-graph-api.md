@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: patricka
+ms.custom: aaddev
 
 ---
 # Azure Active Directory Graph API
 > [!IMPORTANT]
-> Azure AD Graph API functionality is also available through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  includes APIs from other Microsoft services such as Outlook, OneDrive, OneNote, Planner, and Office Graph, accessible through a single endpoint and with a single access token.
+> We strongly recommend that you use [Microsoft Graph](https://graph.microsoft.io/) instead of Azure AD Graph API to access Azure Active Directory resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post in the Office Dev Center.
 > 
 > 
 
@@ -48,7 +49,7 @@ The Graph API provides the following features:
   * those with a user interface which are given delegated access to data via authorization from the signed-in user (delegated)
   * those that use application-define role-based access control such as service/daemon clients (app roles)
     
-    Both delegated and app role permission scopes represent a privilege exposed by the Graph API and can be requested by client applications through application registration permissions [features in the Azure classic portal](https://manage.windowsazure.com). Clients can verify the permission scopes granted to them by inspecting the scope (“scp”) claim received in the access token for delegated permissions and the roles (“roles”) claim for app role permissions. Learn more about [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+    Both delegated and app role permission scopes represent a privilege exposed by the Graph API and can be requested by client applications through application registration permissions [features in the Azure portal](https://portal.azure.com). Clients can verify the permission scopes granted to them by inspecting the scope (“scp”) claim received in the access token for delegated permissions and the roles (“roles”) claim for app role permissions. Learn more about [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
 ## Scenarios
 The Graph API enables many application scenarios. The following scenarios are the most common:

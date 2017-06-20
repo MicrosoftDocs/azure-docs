@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Troubleshoot | Microsoft Docs'
 description: Troubleshooting page for Raspberry Pi Node.js experience
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: 3653c79b-8a0c-41d4-b0bf-f6b4edb4d233
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

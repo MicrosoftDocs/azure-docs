@@ -1,10 +1,10 @@
 ---
-title: About VPN Gateway settings for virtual network gateways| Microsoft Docs
-description: Learn about VPN Gateway settings for Azure Virtual Network.
+title: VPN gateway settings for cross-premises Azure connections | Microsoft Docs
+description: Learn about VPN Gateway settings for Azure virtual network gateways.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 06/06/2017
 ms.author: cherylmc
 
 ---
-# About VPN Gateway settings
-A VPN gateway connection solution relies on the configuration of multiple resources in order to send network traffic between virtual networks and on-premises locations. Each resource contains configurable settings. The combination of the resources and settings determines the connection outcome.
+# About VPN Gateway configuration settings
+A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone.
 
-The sections in this article discuss the resources and settings that relate to a VPN gateway in the **Resource Manager** deployment model. You may find it helpful to view the available configurations by using connection topology diagrams. You can find the descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. 
+A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.  
 
 ## <a name="gwtype"></a>Gateway types
 Each virtual network can only have one virtual network gateway of each type. When you are creating a virtual network gateway, you must make sure that the gateway type is correct for your configuration.
@@ -38,37 +38,32 @@ Example:
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
-
-
+    
 ## <a name="gwsku"></a>Gateway SKUs
+
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### Configuring the gateway SKU
-**Specifying the gateway SKU in the Azure portal**
+### Configure the gateway SKU
+####Azure portal
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
 
-For example, if you select the gateway type 'VPN' and the VPN type 'Policy-based', you see only the 'Basic' SKU because that is the only SKU available for PolicyBased VPNs. If you select 'Route-based', you can select from Basic, Standard, and HighPerformance SKUs. 
+####PowerShell
 
-**Specifying the gateway SKU using PowerShell**
-
-The following PowerShell example specifies the `-GatewaySku` as *Standard*.
+The following PowerShell example specifies the `-GatewaySku` as *VpnGw1*.
 
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
-    -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
+    -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
     -GatewayType Vpn -VpnType RouteBased
 
-**Changing a gateway SKU**
+####Change a gateway SKU
 
-If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance), you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
+If you want to upgrade your gateway SKU to a more powerful SKU, you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
-The following PowerShell example shows a gateway SKU being resized to HighPerformance.
+The following PowerShell example shows a gateway SKU being resized to VpnGw2.
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
-
-### Estimated aggregate throughput by gateway SKU and type
-[!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 
 ## <a name="connectiontype"></a>Connection types
 In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
@@ -105,11 +100,9 @@ The following PowerShell example specifies the `-VpnType` as *RouteBased*. When 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
-To configure a virtual network gateway, you first need to create a gateway subnet for your VNet. The gateway subnet must be named *GatewaySubnet* to work properly. This name lets Azure know that this subnet should be used for the gateway.
+In order to configure a virtual network gateway for your VNet, you'll need to create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway services use. The gateway subnet must be named *GatewaySubnet* to work properly. This name lets Azure know that this subnet should be used for the gateway.
 
-The minimum size of your gateway subnet depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26, etc.). 
-
-Creating a larger gateway size prevents you from running up against gateway size limitations. For example, you may have created a virtual network gateway with a gateway subnet size /29 for a S2S connection. You now want to configure a S2S/ExpressRoute coexist configuration. That configuration requires a gateway subnet minimum size /28. To create your configuration, you would have to modify the gateway subnet to accommodate the minimum requirement for the connection, which is /28.
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway service. Some configurations require more IP addresses to be allocated to the gateway service than do others. You want to make sure your gateway subnet contains enough IP addresses to accommodate future growth and possible additional new connection configurations. So, while you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). Look at the requirements for the configuration that you want to create and verify that the gateway subnet that you have will meet those requirements.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 

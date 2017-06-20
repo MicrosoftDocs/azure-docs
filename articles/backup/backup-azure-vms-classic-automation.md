@@ -1,10 +1,10 @@
 ---
 title: Deploy and manage backup for Azure VMs using PowerShell | Microsoft Docs
-description: Learn how to deploy and manage Azure Backup using PowerShell
+description: Learn how to deploy and manage Azure Backup using PowerShell.
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
@@ -13,18 +13,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy and manage backup for Azure VMs using PowerShell
+# Use AzureRM.Backup cmdlets to back up virtual machines
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Classic](backup-azure-vms-classic-automation.md)
 >
 >
 
-This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resouce Manager and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Classic deployment model to back up data to a Backup vault. If you have not created a Backup vault in your subscription, see the Resource Manager version of this article, [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md). Microsoft recommends that most new deployments use the Resource Manager model.
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## Concepts
 This article provides information specific to the PowerShell cmdlets used to back up virtual machines. For introductory information about protecting Azure VMs, please see [Plan your VM backup infrastructure in Azure](backup-azure-vms-introduction.md).

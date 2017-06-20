@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -24,6 +24,7 @@ Get guidance choosing a cloud analytics platform by using this Apache Storm comp
 Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
 
 ## Storm comparison to Stream Analytics: General features
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -122,7 +123,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
                     Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Further pricing information can be found here.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Further pricing information can be found here.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -130,13 +131,15 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
                     For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Further pricing information can be found here.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Further pricing information can be found here.</a>
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
+
 ## Authoring on each analytics platform ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -260,7 +263,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Data sources and outputs ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -326,7 +331,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL and HBase. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -349,7 +354,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Management and operations ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -511,7 +518,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Advanced Features ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -561,7 +570,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
+                    No limits on data size. Connectors available for HBase, Azure Cosmos DB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
                 </p>
                 <p>
                     Refreshing of reference data must be handled by custom code.

@@ -1,5 +1,6 @@
+
 ---
-title: Customer case studies | Microsoft Docs
+title: Azure Data Factory - Customer case studies | Microsoft Docs
 description: Learn about how some of our customers have been using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,21 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 
 ---
-# Customer case studies
+# Azure Data Factory - Customer case studies
 Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
 
 ## Milliman
 [Top Actuarial firm transforms the insurance industry](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
 ## Rockwell Automation
-[Industrial Automation Firm Cuts Costs up to 90 Percent with Big Data Solutions](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[Industrial Automation Firm Cuts Costs up to 90 Percent with big data Solutions](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## Ziosk
-[What game will you want to go with that burger? Ziosk may already know.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[What game you want to go with that burger? Ziosk may already know.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## Alaska Airlines
 [Airline Uses Tablets, Cloud Services to Offer More Engaging In-Flight Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
@@ -41,3 +42,5 @@ Data Factory is a cloud-based information management service that automates the 
 ## Pier 1 Imports
 [Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
+## Microsoft Studio
+[Delivering epic Xbox experiences by analyzing hundreds of billions of game events each day](https://customers.microsoft.com/en-us/story/xboxunlimited)

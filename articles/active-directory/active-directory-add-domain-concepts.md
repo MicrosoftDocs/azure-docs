@@ -3,7 +3,7 @@ title: Conceptual overview of custom domain names in Azure Active Directory | Mi
 description: Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on
 services: active-directory
 documentationcenter: ''
-author: jeffsta
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
 
 ---
@@ -52,7 +52,7 @@ A domain name must be verified in Azure AD before it can be used by another Micr
 An Azure web app uses its own mechanism to verify ownership of a domain. A domain must be verified for use with Azure AD even if it has been previously verified for use by an Azure web app in a subscription that relies on that Azure AD. An Azure web app can use a domain name that has been verified in a different directory from the directory that secures the web app.
 
 ## Managing domain names
-Domain management tasks can be completed from the Azure classic portal and from PowerShell. Many tasks can be completed using the Azure AD Graph API (in public preview).
+Domain management tasks can be completed from the Azure classic portal and from PowerShell. Many tasks can be completed using the Azure AD Graph API.
 
 * [Adding and verifying a custom domain name](active-directory-add-domain.md)
 * [Managing domains in the Azure classic portal](active-directory-add-manage-domain-names.md)

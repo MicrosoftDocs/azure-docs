@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Box
 The objective of this tutorial is to show the integration of Azure and Box.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -27,17 +28,18 @@ After completing this tutorial, the Azure AD users you have assigned to Box will
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Box
-2. Configuring single sign-on
-3. Configuring user and group provisioning
-4. Assigning users
+* Enabling the application integration for Box
+* Configuring single sign-on (SSO)
+* Configuring user and group provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-box-tutorial/IC769537.png "Scenario")
 
-## Enabling the application integration for Box
+## Enable the application integration for Box
 The objective of this section is to outline how to enable the application integration for Box.
 
-### To enable the application integration for Box, perform the following steps:
+**To enable the application integration for Box, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
@@ -58,11 +60,13 @@ The objective of this section is to outline how to enable the application integr
    
    ![Box](./media/active-directory-saas-box-tutorial/IC701024.png "Box")
 
-## Configuring single sign-on
+## Configure single sign-on
 The objective of this section is to outline how to enable users to authenticate to Box with their account in Azure AD using federation based on the SAML protocol. 
+
 As part of this procedure, you are required to upload metadata to Box.com.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
@@ -71,20 +75,21 @@ As part of this procedure, you are required to upload metadata to Box.com.
    ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
 3. On the **Configure App URL** page, in the **Box Tenant URL** textbox, type your Box tenant URL (e.g.: https://<mydomainname>.box.com), and then click **Next**.
    
-   ![Configure app URL](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
+  ![Configure app URL](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
 4. On the **Configure single sign-on at Box** page, to download your metadata, click **Download metadata**, and then the data file locally on your computer.
    
-   ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
+  ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
 5. Forward that metadata file to Box support team. The support team needs configures single sign-on for you.
 6. Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769540.png "Configure single sign-on")
+  ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769540.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Box.
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Box** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog. 
    
     ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769541.png "Enable automatic user provisioning")
@@ -102,10 +107,11 @@ The objective of this section is to outline how to enable provisioning of Active
    
     ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
 
-## Assigning a test user
+## Assign a test user
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Box, perform the following steps:
+**To assign users to Box, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Box **application integration page, click **Assign users**. 
    
@@ -128,7 +134,7 @@ In your Box tenant, synchronized users are listed under **Managed Users** in the
 
 ![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
 
-## Assigning users and groups
+## Assign users and groups
 The **Box > Users and Groups** tab in the Azure classic portal allows you to specify which users and groups should be granted access to Box. Assignment of a user or group causes the following things to occur:
 
 * Azure AD permits the assigned user (either by direct assignment or group membership) to authenticate to Box. If a user is not assigned, then Azure AD will not permit them to sign in to Box and will return an error on the Azure AD sign-in page.

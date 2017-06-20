@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
 # Article Index for Application Management in Azure Active Directory
 This page provides a comprehensive list of every document written about the various application-related features in Azure Active Directory (Azure AD).
 
-There is a brief introduction to each major feature area, as well as guidance on which articles to read depending on what information you're looking for. 
+There is a brief introduction to each major feature area, as well as guidance on which articles to read depending on what information you're looking for.
 
 ## Overview Articles
 The articles below are good starting points for those who simply want a brief explanation of Azure AD application management features.
@@ -39,7 +39,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 | Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
 | Password-Based Single Sign-On |[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Application Proxy |[App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
-| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Troubleshooting Password Writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Synchronization](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Troubleshooting Password Writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 ## Single Sign-On (SSO)
@@ -96,7 +96,7 @@ If your organization maintains a Windows Server Active Directory on premises alo
 | Guidance on using third party identity providers to enable SSO |[List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) |
 | How Windows 10 users can enjoy the benefits of single sign-on via Azure AD Join |[Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Password Writeback to on-prem AD is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature. 
+Azure AD Connect is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Password Writeback to on-prem AD is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ### Conditional Access: Enforce additional security requirements for high-risk apps
 Once you set up single sign-on to your apps and resources, you can then further secure sensitive applications by enforcing specific security requirements on every sign-in to that app. For instance, you can use Azure AD to demand that all access to a particular app always require multi-factor authentication, regardless of whether or not that app innately supports that functionality. Another common example of conditional access is to require that users be connected to the organization's trusted network in order to access a particularly sensitive application.
@@ -104,9 +104,11 @@ Once you set up single sign-on to your apps and resources, you can then further 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to the conditional access capabilities offered across Azure AD, Office365, and Intune |[Managing Risk With Conditional Access](active-directory-conditional-access.md) |
-| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
-| How to register devices with Azure Active Directory in order to enable device-based conditional access policies |[Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-windows7.md) |
-| How to use the Android version of the Azure Authenticator app for policies involving multi-factor authentication |[Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md) |
+| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
+
+| How to register devices with Azure Active Directory in order to enable device-based conditional access policies |[Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-setup.md) |
+
+| How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 Conditional Access is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
@@ -132,13 +134,13 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Learn about how it works and find answers to common questions |[Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app |[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
-| Get notified of provisioning failures |[Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
+| How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Provisioning notifications](active-directory-saas-account-provisioning-notifications.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
 | Limit who gets provisioned to an application based on their attribute values |[Scoping Filters](active-directory-saas-scoping-filters.md) |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).
 
 ### Building applications that integrate with Azure AD
-If your organization is developing or maintaining line-of-business (LoB) applications, or if you're an app developer with customers who use Azure Active Directory, the following tutorials will help you integrate your applications with Azure AD. 
+If your organization is developing or maintaining line-of-business (LoB) applications, or if you're an app developer with customers who use Azure Active Directory, the following tutorials will help you integrate your applications with Azure AD.
 
 | Article Guide |  |
 |:---:| --- |
@@ -162,19 +164,19 @@ To help you manage who should have access to which resources, Azure Active Direc
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
 
 ### B2B Collaboration: Enable partner access to applications
-If your business has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners. This feature is currently in preview.
+If your business has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners.
 
 | Article Guide |  |
 |:---:| --- |
 | An overview of different Azure AD features that can help you manage external users such as partners, customers, etc. |[Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md) |
-| An introduction to B2B Collaboration preview and how to get started |[Simple, Secure, Cloud Partner Integration with Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
-| A deeper dive into Azure AD B2B Collaboration and how to use it |[B2B Collaboration: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Collaboration Preview](active-directory-b2b-current-preview-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Collaboration Preview](active-directory-b2b-detailed-walkthrough.md) |
+| An introduction to B2B Collaboration and how to get started |[Simple, Secure, Cloud Partner Integration with Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| A deeper dive into Azure AD B2B Collaboration and how to use it |[B2B Collaboration: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Collaboration](active-directory-b2b-current-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Collaboration](active-directory-b2b-detailed-walkthrough.md) |
 | Reference articles with technical details on how Azure AD B2B Collaboration works |[CSV File Format for Adding Partner Users](active-directory-b2b-references-csv-file-format.md)<br /><br />[User Attributes Affected by Azure AD B2B Collaboration](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[User Token Format for Partner Users](active-directory-b2b-references-external-user-token-format.md) |
 
-The B2B Collaboration preview is currently available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+B2B Collaboration is currently available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### Access Panel: A portal for accessing apps and self-service features
-The Azure AD Access Panel is where end-users can launch their apps and access the self-service features that allow them to manage their apps and group memberships. In addition to the Access Panel, other options for accessing SSO-enabled apps are included in the list below. 
+The Azure AD Access Panel is where end-users can launch their apps and access the self-service features that allow them to manage their apps and group memberships. In addition to the Access Panel, other options for accessing SSO-enabled apps are included in the list below.
 
 | Article Guide |  |
 |:---:| --- |
@@ -206,4 +208,3 @@ To see which reports are included with different editions of Azure Active Direct
 [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-

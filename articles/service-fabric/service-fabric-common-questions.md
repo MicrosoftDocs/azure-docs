@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 05/10/2017
 ms.author: seanmck
 ---
 
@@ -36,9 +36,19 @@ Not today, but this is also a common request that we intend to deliver.
 
 The challenge with OS updates is that they typically require a reboot of the machine, which results in temporary availability loss. By itself, that is not a problem, since Service Fabric will automatically redirect traffic for those services to other nodes. However, if OS updates are not coordinated across the cluster, there is the potential that many nodes go down at once. Such simultaneous reboots can cause complete availability loss for a service, or at least for a specific partition (for a stateful service).
 
-In the future, we will support an OS update policy that is coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
+In the future, we will support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
 
-In the interim, the only safe option is to perform OS updates manually, one node at a time.
+In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
+
+### Can I use Large Virtual Machine Scale Sets in my SF cluster? 
+
+**Short answer** - No. 
+
+**Long Answer** - Although the Large Virtual Machine Scale Sets allow you to scale a virtual machine scale set upto 1000 VM instances, it does so by the use of Placement Groups (PGs). Fault domains (FDs) and upgrade domains (UDs) are only consistent within a placement group Service fabric uses FDs and UDs to make placement decisions of your service replicas/Service instances. Since the FDs  and UDs are comparable only within a placement group SF cannot use it. For example, If VM1 in PG1 has a topology of FD=0 and VM9 in PG2 has a topology of FD=4 , it does not mean that VM1 and VM2 are on two different Hardware Racks, hence SF cannot use the FD values in this case to make placement decisions.
+
+There are other issues with Large virtual machine scale sets currently, like the lack of level-4 Load balancing support. Refer to for [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+
+
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
@@ -62,6 +72,22 @@ In general, no. Service Fabric stores state on local, ephemeral disks, meaning t
 
 If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-set-up-continuous-integration.md).
 
+
+### How do I upgrade my Operating System (for example from Windows Server 2012 to Windows Server 2016)?
+
+While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
+
+## Container Support
+
+### Why are my containers that are deployed to SF unable to resolve DNS addresses?
+
+This issue has been reported on clusters that are on 5.6.204.9494 version 
+
+**Mitigation** :  Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
+
+**Fix** :  Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
+
+  
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
@@ -90,7 +116,7 @@ Keeping in mind that each object must be stored three times (one primary and two
 
 Note that this calculation also assumes:
 
-- That the distribution of data across the partitions is roughly uniform or that you're reporting load metrics to the cluster resource manager. By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the resource manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
+- That the distribution of data across the partitions is roughly uniform or that you're reporting load metrics to the cluster Resource Manager. By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the Resource Manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
 
 - That the reliable service in question is the only one storing state in the cluster. Since you can deploy multiple services to a cluster, you need to be mindful of the resources that each will need to run and manage its state.
 
@@ -100,9 +126,17 @@ Note that this calculation also assumes:
 
 As with reliable services, the amount of data that you can store in an actor service is only limited by the total disk space and memory available across the nodes in your cluster. However, individual actors are most effective when they are used to encapsulate a small amount of state and associated business logic. As a general rule, an individual actor should have state that is measured in kilobytes.
 
+## Other questions
+
 ### How does Service Fabric relate to containers?
 
 Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](service-fabric-containers-overview.md).
+
+### Are you planning to open source Service Fabric?
+
+We intend to open source the reliable services and reliable actors frameworks on GitHub and will accept community contributions to those projects. Please follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for more details as they're announced.
+
+The are currently no plans to open source the Service Fabric runtime.
 
 ## Next steps
 

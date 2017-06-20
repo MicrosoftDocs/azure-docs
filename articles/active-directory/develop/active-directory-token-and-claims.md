@@ -1,5 +1,5 @@
 ---
-title: Azure AD Token Reference | Microsoft Docs
+title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
 author: bryanla
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
+ms.custom: aaddev
 
 ---
 # Azure AD token reference
@@ -71,18 +72,20 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |Version |Stores the version number of the token. <br><br> **Example JWT Value**: <br> `"ver": "1.0"` |
 
 ## Access tokens
+Upon successful authentication, Azure AD returns an access token, which can be used to access protected resources. The access token is a base 64 encoded JSON Web Token (JWT) and its contents can be inspected by running it through a decoder.
 
 If your app only *uses* access tokens to get access to APIs, you can (and should) treat access tokens as completely opaque - they are just strings which your app can pass to resources in HTTP requests.
 
 When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
-If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens).  
+For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## Refresh tokens
 
 Refresh tokens are security tokens, which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
-Refresh tokens are multi-resource, which means they may be received during a token request for one resource, but redeemed for access tokens to a completely different resource. To specify multi-resource, set the `resource` parameter in the request to the targeted resource.
+Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
 
 Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
 
@@ -90,9 +93,9 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 ## Validating tokens
 
-In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims.
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
-We provide libraries and code samples that show how to easily handle token validation, if you wish to understand the underlying process.  There are also several third-party open source libraries available for JWT validation, at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
@@ -297,4 +300,3 @@ In addition to claims, the token includes a version number in **ver** and **appi
 ## Related content
 * See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
 * For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md). 
-
