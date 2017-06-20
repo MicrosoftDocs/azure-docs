@@ -58,7 +58,7 @@ In the **Configure basic settings** tab:
 * Provide a name to your Jenkins instance.
 * Select a VM disk type.  For production workloads choose a larger VM and SSD for better performance.  You can read more about Azure disk types [here.](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
 * User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.  See [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq) for more information on user name and password requirements.
-* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, note that it must satisfy 3 of the following requirement: one lower case character, one upper case character, one number and one special character.
+* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, it must satisfy 3 of the following requirementsl: one lower case character, one upper case character, one number, and one special character.
 * Select a subscription.
 * Create a resource group or use an existing one.
 * Select a location.
@@ -67,7 +67,7 @@ In the **Configure additional options** tab:
 
 ![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)
 
-* Provide a domain name label which will uniquely identify our Jenkins master.
+* Provide a domain name label to uniquely identify the Jenkins master.
 
 Click **OK** to go to the next step. 
 
@@ -130,7 +130,7 @@ Your Jenkins instance is now ready to use! You can access a read-only view by go
 
 ## Next Steps
 
-In this tutorial, you've done the following:
+In this tutorial, you've:
 
 > [!div class="checklist"]
 > * Created a Jenkins Master with the solution template.
