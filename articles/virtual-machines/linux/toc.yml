@@ -311,8 +311,9 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
-    - items:
+      items:
+      - name: Overview
+        href: cloudfoundry-get-started.md
       - name: Deploy your first app
         href: cloudfoundry-deploy-your-first-app.md
     - name: Data Science VM overview
