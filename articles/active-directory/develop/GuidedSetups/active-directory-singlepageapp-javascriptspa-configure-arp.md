@@ -31,7 +31,7 @@ Configure the `Redirect URL` field above with the URL for your index.html page b
 > 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
 > 2.	Change `SSL Enabled` to `True`
 > 3.	Copy the value from `SSL URL` below to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 4.	Go `Project` menu and select `{Project} Properties...` (where {Project} is the name of your project
+> 4.	Go `Project` menu and select `{Project} Properties...` (where {Project} is the name of your project)
 > 5.	Paste the value of `SSL URL` in the Project Url field
 > 6.	Also paste the value in the `Redirect URL` field on the top of this page, then click *Update*:
 
