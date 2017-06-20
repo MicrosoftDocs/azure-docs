@@ -59,7 +59,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## Get the connection string details from the Azure portal
-In the [Azure portal](https://portal.azure.com), go to Azure Database for MySQL, and then click **Connection strings** to get your string list for your instance:
+In the [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL server, and then click **Connection strings** to get your string list for your instance:
 ![The Connection strings pane in the Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 The string provides details such as the driver, server, and other database connection parameters. Modify these examples by using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
