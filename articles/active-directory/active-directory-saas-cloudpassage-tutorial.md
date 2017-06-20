@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 06/19/2017
 ms.author: jeedes
 
 ---
@@ -111,6 +111,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://portal.cloudpassage.com/saml/init/accountid`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://portal.cloudpassage.com/saml/consume/accountid`. You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal.
+
+	![Configure Single Sign-On](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL, and Sign-On URL. Contact [CloudPassage Client support team](https://www.cloudpassage.com/company/contact/) to get these values. 
@@ -168,7 +170,7 @@ The following screenshot shows an example for this.
 	
 	a. Paste **SAML Entity ID** into the **SAML issuer URL** textbox.
   
-    b. Paste **Service Provider (SP) initiated endpoint** into the **SAML endpoint URL** textbox.
+    b. Paste **SAML Single Sign-On Service URL** into the **SAML endpoint URL** textbox.
   
     c. Paste **Sign-Out URL** into the **Logout landing page** textbox.
   
