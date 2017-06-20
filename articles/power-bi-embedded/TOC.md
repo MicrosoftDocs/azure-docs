@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
 ## [What's new in Power BI Embedded](power-bi-embedded-whats-new.md)
 
@@ -24,7 +24,7 @@
 ### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

@@ -58,7 +58,7 @@ The format of a properties file is as follows:
 |-----------------|----------|-----------------|  
 |`Properties`|Root element|The root element of the properties file.|  
 |`Last-Modified`|String|Optional. The last-modified time for the blob. For export jobs only.|  
-|`Etag`|String|Optional. The blob’s ETag value. For export jobs only.|  
+|`Etag`|String|Optional. The blob's ETag value. For export jobs only.|  
 |`Content-Length`|String|Optional. The size of the blob in bytes. For export jobs only.|  
 |`Content-Type`|String|Optional. The content type of the blob.|  
 |`Content-MD5`|String|Optional. The blob's MD5 hash.|  
@@ -68,4 +68,4 @@ The format of a properties file is as follows:
 
 ## Next steps
 
-See [Set blob properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and retrieving properties and metadata for blob resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.
+See [Set blob properties](/rest/api/storageservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), and [Setting and retrieving properties and metadata for blob resources](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.

@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [About virtual machines](../../virtual-machines-windows-about.md)
 ## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
@@ -9,7 +9,7 @@
 # Get started
 ## [Create a VM using the portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
-## [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Install Azure PowerShell](/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 
 # How to
@@ -88,7 +88,7 @@
 ## [Reset RDP password](reset-rdp.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

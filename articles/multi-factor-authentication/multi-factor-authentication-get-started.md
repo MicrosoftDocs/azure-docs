@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 
 ---
@@ -32,8 +32,8 @@ To determine the correct two-step verification solution, first we must answer th
 | What are you trying to secure | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
 | First-party Microsoft apps |● |● |
-| SaaS apps in the app gallery |● |● |
-| Web applications published through Azure AD App Proxy |● |● |
+| SaaS apps in the app gallery |● |  |
+| Web applications published through Azure AD App Proxy |● |  |
 | IIS applications not published through Azure AD App Proxy | |● |
 | Remote access such as VPN, RDG | |● |
 

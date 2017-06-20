@@ -128,6 +128,8 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
+* Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
+* If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
 * Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
 
 ## Request time out

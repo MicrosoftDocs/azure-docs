@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure File storage on Windows | Microsoft Docs
 description: Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows.
 services: storage
@@ -115,7 +115,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for custo
 Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for the install point and installation instructions.
 
 > [!NOTE]
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
@@ -256,6 +256,16 @@ To mount the file share from an on-premises client, you must first take these st
 > Some Internet service providers may block port 445, so you may need to check with your service provider.
 > 
 > 
+
+### Unmount the file share
+To unmount the file share, you can use `net use` command with `/delete` option.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## Develop with File storage
 To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
@@ -612,7 +622,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
    
     We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a given file. Anyone who possesses this token while it is valid has read-only access to that file.
    
-    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can’t use a SAS to delegate access to its contents. 
+    SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can't use a SAS to delegate access to its contents. 
 
 2. **How can I provide access to a specific file over a web browser?**
    Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a particular file for a specific period of time. Anyone who possesses this url can perform download directly from any web browser while it is valid. SAS keys can be easily generated from UI like Storage Explorer.
@@ -631,7 +641,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     Yes. It is free if the traffic is in the same region.
 7. **Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?**
    
-    No. If you don’t have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
+    No. If you don't have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
 8. **Is a "File Share Witness" for a failover cluster one of the use cases for Azure File Storage?**
    
     This is not supported currently.
@@ -649,7 +659,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     No. The file share is the virtual driver that you can mount, so nested shares are not supported.
 13. **Is it possible to specify read-only or write-only permissions on folders within the share?**
     
-    You don’t have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
+    You don't have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
 14. **My performance was slow when trying to unzip files into in File storage. What should I do?**
     
     To transfer large numbers of files into File storage, we recommend that you use AzCopy, Azure Powershell (Windows), or the Azure CLI (Linux/Unix), as these tools have been optimized for network transfer.
@@ -664,6 +674,8 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance.               
 
 18. **How can I enable server side encryption for Azure Files?**
+> [!NOTE]
+> [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. You can contact [SSEDiscussion](mailto:ssediscussions@microsoft.com) if you have questions during the preview.
 
     [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     

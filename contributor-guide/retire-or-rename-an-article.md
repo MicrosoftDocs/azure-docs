@@ -1,5 +1,11 @@
-# Steps to follow when you retire, rename, or move an Azure technical article
-This guidance is for SMEs who are listed as the author of an Azure technical article that needs to be retired, renamed, or moved in docs.microsoft.com/azure.
+# Steps to follow when you want to delete, move, or rename an Azure technical article
+This guidance is for SMEs who are listed as the author of an Azure technical article that needs to be deleted, moved, or renamed in docs.microsoft.com/azure.
+
+First off, in our current repo configuration, you must not ever actually delete, move, or rename an article. Here's how to think about these concepts:
+
+  - **Delete**: If you want to delete an article, you have to turn it into a redirect and leave the article in place.
+  - **Move**: If you want to move an article, turn the current article into a redirect and then create a new article in the new folder location, and copy the content to the new article.
+  - **Rename**: Functionally, renaming is similar to moving. You turn the current article into a redirect and then create a new article with the new file name, but in the same folder location, and copy the content to the new article.
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the comment stream for the article to let the author know something is wrong with the article.
 

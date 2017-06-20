@@ -59,7 +59,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Fast purge](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |

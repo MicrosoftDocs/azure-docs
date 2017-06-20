@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -30,7 +30,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
 ## Method 1: Migration with downtime during the migration
 
- Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration.
+ Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
 
 The following list contains the general workflow for a SQL Server database migration using this method.
 
@@ -40,8 +40,8 @@ The following list contains the general workflow for a SQL Server database migra
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
-5. [Export](sql-database-export-sqlpackage.md) the database copy to a .BACPAC file on a local drive.
-6. [Import](sql-database-import-sqlpackage.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
+5. [Export](sql-database-export.md) the database copy to a .BACPAC file on a local drive.
+6. [Import](sql-database-import.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
 
 ### Optimizing data transfer performance during migration 
 

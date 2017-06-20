@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 
 ---
@@ -144,11 +144,63 @@ This is an example of this type of alert:
 ![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### Multiple domain accounts queried
-Security Center can detect multiple attempts to query domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
+Security Center can detect multiple attempts to query Active Directory domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
 
 This is an example of this type of alert:
 
 ![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### Local Administrators group members were enumerated
+
+Security Center is going to trigger an alert when the security event 4798, in Windows Server 2016 and Windows 10, is trigged. This happens when local administrator groups are enumerated, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the identity of users with administrative privileges.
+
+This is an example of this type of alert:
+
+![Local admin](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### Anomalous mix of upper and lower case characters
+
+Security Center will trigger an alert when it detects the use of a mix of upper and lower case characters at the command line. Some attackers may use this technique to hide from case-sensitive or hash based machine rule.
+
+This is an example of this type of alert:
+
+![Anomalous mix](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### Suspected Kerberos Golden Ticket attack
+
+A compromised [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) key can be used by an attacker to create Kerberos "Golden Tickets," allowing the attacker to impersonate any user they wish. Security Center is going to trigger an alert when it detects this type of activity.
+
+> [!NOTE] 
+> For more information about Kerberos Golden Ticket, read [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+This is an example of this type of alert:
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### Suspicious account created
+
+Security Center will trigger an alert when an account is created with close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account to avoid being noticed by human verification.
+ 
+This is an example of this type of alert:
+
+![Suspicious account](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### Suspicious Firewall rule created
+
+Attackers might try to circumvent host security by creating custom firewall rules to allow malicious applications to communicate with command and control, or to launch attacks through the network via the compromised host. Security Center will trigger an alert when it detects that a new firewall rule was created from an executable file in a suspicious location.
+ 
+This is an example of this type of alert:
+
+![Firewall rule](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### Suspicious combination of HTA and PowerShell
+
+Security Center will trigger an alert when it detects that a Microsoft HTML Application Host (HTA) is launching PowerShell commands. This is a technique used by attackers to launch malicious PowerShell scripts.
+ 
+This is an example of this type of alert:
+
+![HTA and PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## Network analysis
 Security Center network threat detection works by automatically collecting security information from your Azure IPFIX (Internet Protocol Flow Information Export) traffic. It analyzes this information, often correlating information from multiple sources, to identify threats.

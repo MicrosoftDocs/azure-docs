@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
@@ -40,7 +40,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Template C# Storm topology project for working with Azure services from Storm on HDInsight][ce0c02a2] |Event Hubs, DocumentDb, SQL Database, HBase, SignalR |C#, Java |
 | [Scalability benchmarks for reading from Azure Event Hubs using Storm on HDInsight][d6c540e3] |Message throughput, Event Hubs, SQL Database |C#, Java |
 | [Correlate events using Storm and HBase on HDInsight](hdinsight-storm-correlation-topology.md) |HBase |C# |
-| [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with Java and Clojure based Storm topologies |Python |
+| [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 
 ## Next Steps
 

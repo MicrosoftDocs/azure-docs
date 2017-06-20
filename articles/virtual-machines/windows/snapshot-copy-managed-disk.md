@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a copy of an Azure Managed Disk for back up | Microsoft Docs
 description: Learn how to create a copy of an Azure Managed Disk to use for back up or troubleshooting disk issues.
 documentationcenter: ''
@@ -28,7 +28,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 ## Copy the VHD with a snapshot
 Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.

@@ -87,7 +87,7 @@ in an Azure VM.
    When you are done running jobs, take the nodes offline and use the **Stop** action in HPC Cluster Manager.
 
 ## Scenario 2: Deploy compute nodes in compute-intensive VMs (IaaS)
-In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs in an Azure virtual network. HPC Pack provides several [deployment options in Azure VMs](../../virtual-machines-linux-hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the following considerations and steps guide you to use
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs in an Azure virtual network. HPC Pack provides several [deployment options in Azure VMs](../../linux/hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the following considerations and steps guide you to use
 the [HPC Pack IaaS deployment
 script](hpcpack-cluster-powershell-script.md) to
 automate the deployment of an HPC Pack 2012 R2 cluster in Azure.

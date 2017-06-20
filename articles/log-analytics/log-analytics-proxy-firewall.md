@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/12/2017
 ms.author: banders;magoedte
 
 ---
@@ -36,7 +36,6 @@ For the Microsoft Monitoring Agent to connect to and register with the OMS servi
 | \*.oms.opinsights.azure.com |443 |Yes |
 | \*.blob.core.windows.net |443 |Yes |
 | \*.azure-automation.net |443 |Yes |
-| ods.systemcenteradvisor.com |443 | |
 
 You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -97,7 +96,6 @@ Here's a list of agent resources and ports:<br>
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
 | \*.blob.core.windows.net/\* |443 |
-| ods.systemcenteradvisor.com |443 |
 
 <br>
 Here's a list of management server resources and ports:<br>
@@ -107,8 +105,6 @@ Here's a list of management server resources and ports:<br>
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
 | \*.blob.core.windows.net |443 |Yes |
-| data.systemcenteradvisor.com |443 | |
-| ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Yes |
 | \*.azure-automation.net |443 |Yes |
 

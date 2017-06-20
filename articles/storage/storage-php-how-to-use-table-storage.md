@@ -117,7 +117,7 @@ catch(ServiceException $e){
 For information about restrictions on table names, see [Understanding the Table Service Data Model][table-data-model].
 
 ## Add an entity to a table
-To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
+To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table's entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -478,7 +478,7 @@ catch(ServiceException $e){
 ```
 
 ## Next steps
-Now that you’ve learned the basics of the Azure Table service, follow these links to learn about more complex storage tasks.
+Now that you've learned the basics of the Azure Table service, follow these links to learn about more complex storage tasks.
 
 * Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
 

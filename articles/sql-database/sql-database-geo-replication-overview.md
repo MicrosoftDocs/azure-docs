@@ -25,11 +25,11 @@ Active Geo-Replication enables you to configure up to four readable secondary da
 > Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 >  
 
- You can configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API - Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ You can configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API - Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
-You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/library/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/mt582027.aspx).
+You can failover to a secondary using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/library/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/mt582027.aspx).
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
@@ -81,7 +81,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 ## Programmatically managing Active Geo-Replication
 As discussed previously, Active Geo-Replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
 
-* **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [Azure Resource Manager-based PowerShell cmdlets](sql-database-geo-replication-powershell.md). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+* **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [Azure Resource Manager-based PowerShell cmdlets](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
 > Many new features of Active Geo-Replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 

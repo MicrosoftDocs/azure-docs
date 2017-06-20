@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
@@ -126,8 +126,8 @@
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

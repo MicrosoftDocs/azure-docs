@@ -12,19 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 04/17/2017
 ms.author: kgremban
-
+ROBOTS: NOINDEX
 ---
 # Transition to Azure AD application proxies from Microsoft Forefront
 
-This article describes how to move from the Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG) solutions to these Azure Active Directory (Azure AD) application proxies: Web Application Proxy and Azure AD Application Proxy.
+This article describes how to move from the Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG) solutions to Azure AD Application Proxy.
 
-> [!NOTE]
-> Azure AD Application Proxy is a feature that's available only if you upgraded to the Premium or Basic edition of Azure AD. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-
-
-For detailed information about the transition from Forefront TMG and UAG to the new application proxies, you can [download a related white paper from Microsoft](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx).
+For detailed information about the transition from Forefront TMG and UAG to Application Proxy, you can [read a related white paper from Microsoft](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
 
 ## Functionality details for the conversion
 

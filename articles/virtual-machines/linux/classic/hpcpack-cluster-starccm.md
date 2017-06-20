@@ -1,4 +1,4 @@
----
+﻿---
 title: Run STAR-CCM+ with HPC Pack on Linux VMs | Microsoft Docs
 description: Deploy a Microsoft HPC Pack cluster on Azure and run an STAR-CCM+ job on multiple Linux compute nodes across an RDMA network.
 services: virtual-machines-linux
@@ -28,7 +28,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 ## Set up an HPC Pack cluster
 Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
 
-Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 At the time of this writing, the Linux images from the Azure Marketplace (which contains the InfiniBand drivers for Azure) are for SLES 12, CentOS 6.5, and CentOS 7.1. This article is based on the usage of SLES 12. To retrieve the name of all Linux images that support HPC in the Marketplace, you can run the following PowerShell command:
 

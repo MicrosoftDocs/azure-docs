@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Key Vault?](key-vault-whatis.md)
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
@@ -16,18 +16,19 @@
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
 ## Manage
-### [Azure Key Vault Logging](key-vault-logging.md)
+### [Azure Key Vault logging](key-vault-logging.md)
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
 ## Automate
-### [Azure Automation](automation-manage-key-vault.md)
-### [Create and Manage using CLI](key-vault-manage-with-cli.md)
+### [Azure automation](automation-manage-key-vault.md)
+### [Create and manage using CLI](key-vault-manage-with-cli.md)
+### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)

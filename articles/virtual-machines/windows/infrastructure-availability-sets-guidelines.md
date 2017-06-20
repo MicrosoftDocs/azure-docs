@@ -49,7 +49,7 @@ When designing your application infrastructure, plan the application tiers that 
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end user may not be able to resolve them if the primary VM is unavailable.
 
-When using unmanaged disks, design your application for high availability at storage layer. The best practice is to use separate storage account for each VM in an Availability Set. Keep all disks (OS and data) associated with a VM in the same storage account. Consider storage account [limits](../../storage/storage-scalability-targets.md) when adding more VHDs to a storage account. For [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), the distribution of the underlying disks is taken care of for you.
+Design your application for high availability at storage layer. The best practice is to [use Managed Disks for VMs in an Availability Set](../windows/manage-availability.md#use-managed-disks-for-vms-in-availability-set). If you are currently using unmanaged disks, we highly recommend you to [convert VMs in Availability Set to use Managed Disks](../windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

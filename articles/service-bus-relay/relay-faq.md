@@ -46,8 +46,10 @@ Here are three example scenarios:
 
 Please note that the prices used in the examples are applicable only during the preview period and are subject to change upon general availability of Hybrid Connections.
 
-### How are WCF Relay hours calculated?
-Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
+### How are Relay hours calculated?
+WCF Relay and Hybrid Connection hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
+
+WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
 
 ### What if I have more than one listener connected to a given Relay?
 In some cases, a single Relay may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay will result in additional relay hours. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.

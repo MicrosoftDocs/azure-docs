@@ -1,6 +1,6 @@
 ---
 title: Ports beyond 1433 for SQL Database | Microsoft Docs
-description: Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important.
+description: Client connections from ADO.NET to Azure SQL Database sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important.
 services: sql-database
 documentationcenter: ''
 author: MightyPen
@@ -38,7 +38,7 @@ The sequence is as follows:
 2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
-Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
+Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
 
 * In particular, ports in the range must be free of any other outbound blockers.
 * On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.

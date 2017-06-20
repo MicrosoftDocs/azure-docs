@@ -132,7 +132,7 @@ The following blog posts provide guidance and information about using the VSTS e
 * [Deploying a new VM in an existing AzureDevTestLab from VSTS](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-For other CI/CD toolchains, all the previously mentioned scenarios that can be achieved through the VSTS tasks extension can be similarly achieved through deploying [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You can also use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
+For other CI/CD toolchains, all the previously mentioned scenarios that can be achieved through the VSTS tasks extension can be similarly achieved through deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You can also use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
 ### Why can't I see certain VMs in the Azure Virtual Machines blade that I see within Azure DevTest Labs?
 When a VM is created in Azure DevTest Labs, permission is given to access that VM. You are able to view it both in the labs blade and the **Virtual Machines** blade. Users in the DevTest Labs role can see all virtual machines created in the lab through the lab's **All Virtual Machines** blade. However, users in the DevTest Labs role are not automatically granted read-access to VM resources that others have created. Therefore, those VMs are not displayed in the **Virtual Machines** blade.
@@ -141,7 +141,7 @@ When a VM is created in Azure DevTest Labs, permission is given to access that V
 A custom image is a VHD (virtual hard disk), whereas a formula is an image that you can configure with additional settings that you can save and reproduce. A custom image may be preferable if you want to quickly create several environments with the same basic, immutable image. A formula may be better if you want to reproduce the configuration of your VM with the latest bits, a virtual network/subnet, or a specific size. For a more in-depth explanation, see the article, [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
 
 ### How do I create multiple VMs from the same template at once?
-You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm.md#save-azure-resource-manager-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### How do I move my existing Azure VMs into my Azure DevTest Labs lab?
 We are designing a solution to directly move VMs to Azure DevTest Labs, but currently you can copy your existing VMs to Azure DevTest Labs as follows:
@@ -215,7 +215,7 @@ In addition to deleting VMs from your lab in the Azure portal, you can delete al
 Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various pre-existing artifacts in our [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md).
 
 ### How do I create a lab from an Azure Resource Manager template?
-We have provided a [GitHub repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+We have provided a [GitHub repository of lab Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) that you can deploy as-is or modify to create custom templates for your labs. Each of these templates has a link that you can click to deploy the lab as-is under your own Azure subscription, or you can customize the template and [deploy using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups?
 Resource groups are created this way in order for Azure DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, doing so is not recommended. We are working on improving this experience to allow more flexibility.   
@@ -224,7 +224,7 @@ Resource groups are created this way in order for Azure DevTest Labs to manage t
 There is no specific limit on the number of labs that can be created per subscription. However, the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How many VMs can I create per lab?
-There is no specific limit on the number of VMs that can be created per lab. However, currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limits.
+There is no specific limit on the number of VMs that can be created per lab. However, the resources used are limited per subscription (e.g. VM cores, public IPs, etc.). You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How do I share a direct link to my lab?
 To share a direct link to your lab users, you can perform the following procedure:
@@ -254,7 +254,7 @@ One possibility is that your virtual network name contains periods. If so, try r
 ### Why do I get a "Parent resource not found" error when provisioning a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not exist, you receive a **ParentResourceNotFound** error. If you do not specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Azure Resource Templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+VMs are child resources under a lab in a resource group. When you use Azure Resource Manager templates to deploy through PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in the activity logs. You can find lab VMs activity logs through the **Audit logs** or **Virtual machine diagnostics** on the resource menu in the lab's VM blade (the blade displays after you select the VM from **My virtual machines** list).

@@ -87,7 +87,7 @@ Once the deployment completes, you can view the new Virtual Machine Scale Set in
 
 ![Cloud Explorer][cloud_explorer]
 
- The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explorer and debug Azure resources, giving a window into the “instance view” and also showing PowerShell commands for the resources you are looking at. While Virtual Machine Scale Sets are in preview, the Resource Explorer shows the most detail for your Virtual Machine Scale Sets.
+ The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explore and debug Azure resources, giving a window into the “instance view” and also showing PowerShell commands for the resources you are looking at. While Virtual Machine Scale Sets are in preview, the Resource Explorer shows the most detail for your Virtual Machine Scale Sets.
 
 ## Next steps
 Once you’ve successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure auto-scale by adding an **Insights** resource, adding infrastructure to your Template (like standalone VMs), or deploying applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").

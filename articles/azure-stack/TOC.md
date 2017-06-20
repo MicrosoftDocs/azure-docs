@@ -8,13 +8,13 @@
 ## Get started
 ### [Deployment prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
+### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Register](azure-stack-register.md)
 ## How to
 ### [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
 ### [Add default image](azure-stack-add-default-image.md)
 ### [Provision a virtual machine](azure-stack-provision-vm.md)
 ### [Create a storage account](azure-stack-provision-storage-account.md)
-### [Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
 ### [Redeploy Azure Stack POC](azure-stack-redeploy.md)
 
 # Manage
@@ -30,15 +30,17 @@
 ## How to
 ### [Manage updates](azure-stack-updates.md)
 ### [Monitor health and alerts](azure-stack-monitor-health.md)
-### [Manage network resources](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Manage network resources](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Manage storage resources](azure-stack-manage-storage-accounts.md)
 ### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md)
 
 # Security & compliance
 ## How to
 ### [Manage RBAC](azure-stack-manage-permissions.md)
+### [Add users for Azure AD](azure-stack-add-new-user-aad.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
 ### [Create service principals](Azure-stack-create-service-principals.md)
+### [Enable multi-tenancy](azure-stack-enable-multitenancy.md)
 
 # Offer services
 ## Get started
@@ -56,6 +58,7 @@
 #### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 #### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 #### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
+#### [Deploy App Service offline](azure-stack-app-service-deploy-offline.md)
 #### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 #### [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
 #### [Enable FTP in App Service on Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -65,10 +68,11 @@
 #### [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 #### [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 #### [Deploy Linux virtual machines](azure-stack-linux.md)
-### Billing and chargeback
-#### [Billing and chargeback overview](azure-stack-billing-and-chargeback.md)
-#### [Provider resource usage API](azure-stack-provider-resource-api.md)
-#### [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
+### Usage and billing
+#### [Overview](azure-stack-billing-and-chargeback.md)
+#### [Usage data reporting](azure-stack-usage-reporting.md)
+#### [Provider usage API](azure-stack-provider-resource-api.md)
+#### [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 #### [Usage FAQ](azure-stack-usage-related-faq.md)
 
 # Use services
@@ -79,9 +83,9 @@
 ### [Overview](azure-stack-storage-overview.md)
 ### [Differences and considerations](azure-stack-acs-differences-tp2.md)
 ## Network
-### [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
-### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
+### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node.md)
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
 ### Get Started

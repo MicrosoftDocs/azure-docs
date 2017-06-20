@@ -18,7 +18,7 @@ ms.author: nisoneji
 
 ---
 # Azure Site Recovery deployment planner
-This article is the Azure Site Recovery user guide for VMware-to-Azure production deployments.
+This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Overview
 
@@ -32,7 +32,7 @@ The tool provides the following details:
 
 **Compatibility assessment**
 
-* A VM eligibility assessment, based on number of disks, disk size, IOPS, and churn
+* A VM eligibility assessment, based on number of disks, disk size, IOPS, churn and boot type(EFI/BIOS)
 * The estimated network bandwidth that's required for delta replication
 
 **Network bandwidth need versus RPO assessment**
@@ -86,9 +86,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:  
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner-Preview_v1.1.zip
+    E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## Capabilities
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
@@ -141,6 +141,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
 | -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
 | -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or primary access key for classic storage account). |
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
+
 
 We recommend that you profile your VMs for at least 15 to 30 days. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. If you want to profile for few hours or minutes for a quick test of the tool, in the public preview, you will need to convert the time into the equivalent measure of days. For example, to profile for 30 minutes, the input must be 30/(60*24) = 0.021 days. The minimum allowed profiling time is 30 minutes.
 
@@ -198,6 +200,8 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
+
+to a single storage account placement is caculated considering Failover/Test Test failover of virtual machines is done on Managed Disk instead of Unmanaged disk. |
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
@@ -277,11 +281,12 @@ Open a command-line console, and go to the Site Recovery deployment planning too
 
 |Parameter name | Description |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a directory name is not specified, ‘ProfiledData’ directory is used. |
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
 | -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. The file should contain one VM name/IP address per line. The VM names specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
 
 The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
 
@@ -473,6 +478,10 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 
 **NICs**: The number of NICs on the VM.
 
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+
+**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
+
 ## Incompatible VMs
 
 ![Excel spreadsheet of incompatible VMs](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -482,6 +491,7 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
 * Disk size is >1023 GB. Azure Storage currently does not support disk sizes greater than 1 TB.
+* Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
@@ -504,6 +514,10 @@ If the workload characteristics of a disk put it in the P20 or P30 category, but
 **Memory (MB)**: The amount of RAM on the VM.
 
 **NICs**: The number of NICs on the VM.
+
+**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet. 
+
+**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
 
 
 ## Site Recovery limits
@@ -542,6 +556,18 @@ To update the deployment planner, do the following:
 
 
 ## Version history
+### 1.2
+Updated: April 7, 2017
+
+Added following fixes:
+
+* Added boot type( BIOS or EFI) check for each virtual machine to determine if the virtual machine is compatible or incompatible for the protection.
+* Added OS type information for each virtual machine in the Compatible VMs  and Incompatible VMs worksheets.
+* The GetThroughput operation is now supported in the US Government and China Microsoft Azure regions.
+* Added few more prerequisite checks for vCenter and ESXi Server.
+* Incorrect report was getting generated when locale settings is set to non-English.
+
+
 ### 1.1
 Updated: March 9, 2017
 

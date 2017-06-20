@@ -3,8 +3,8 @@ title: Adding a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use
 services: azure-stack
 documentationcenter: ''
-author: mattmcg
-manager: darmour
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
-ms.author: mattmcg
+ms.date: 04/21/2017
+ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
@@ -40,26 +40,41 @@ If the VM image VHD is available locally on the console VM (or another externall
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).
-2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the **ComputeAdmin** module
+2. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
    
-    ```powershell
-    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+   ```powershell
+   Import-Module .\Connect\AzureStack.Connect.psm1
+   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+   ``` 
+
+3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
+   ```powershell
+   Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+   ```
+
+4. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+
+    a. **Azure Active Directory**, use the following cmdlet:
+    
+    ```PowerShell
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
-3. Add the VM image by invoking the Add-VMImage cmdlet.
-   
-   * Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
-   * Specify osType as Windows or Linux.
-   * Include your Azure Active Directory tenant ID in the form *&lt;myaadtenant&gt;*.onmicrosoft.com.
-   * Following is an example invocation of the script:
+    b. **Active Directory Federation Services**, use the following cmdlet:
+    
+    ```PowerShell
+    $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    ```
+
+5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
      
      ```powershell
-      Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com
+     # Store the service administrator account credentials in a variable 
+     $UserName='<Username of the service administrator account>'
+     $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
+     $Credential=New-Object PSCredential($UserName,$Password)
+
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
-     
-     > [!NOTE]
-     > The cmdlet requests credentials for adding the VM image. Provide the administrator Azure Active Directory credentials, such as serviceadmin@*&lt;myaadtenant&gt;*.onmicrosoft.com, to the prompt.  
-     > 
-     > 
 
 The command does the following:
 
@@ -89,6 +104,9 @@ Following is a description of the command parameters.
 | **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. The default is set to true. |
 | **title** |The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. |
 | **description** |The description of the Marketplace item. |
+| **EnvironmentName** |The Azure Stack administrtor's PowerShell environment name. |
+| **azureStackCredentials** |The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
+| **location** |The location to which the VM image should be published. By default, this value is set to local.|
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
 
@@ -120,7 +138,7 @@ Follow the steps from [Upload a Windows VM image to Azure for
 * Make a note of the Blob storage URI where you upload the image. It has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-1. To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
@@ -146,4 +164,3 @@ Follow the steps from [Upload a Windows VM image to Azure for
    more readily available for tenant consumption in the UI, it is best
    to [create a
    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
-

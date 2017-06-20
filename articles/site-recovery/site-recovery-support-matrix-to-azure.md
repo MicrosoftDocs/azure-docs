@@ -29,11 +29,11 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Support for deployment options
 
-**Deployment** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to Azure storage, with Azure Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs (not in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V (VMs in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
-**Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only. | Maintenance mode only.
-**PowerShell** | Not currently supported. | Supported | Supported
+**Deployment** | **VMware/physical server** | **Hyper-V (with/without  Virtual Machine Manager)** |
+--- | --- | ---
+**Azure portal** | On-premises VMware VMs to Azure storage, with Azure Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs  to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
+**Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only.
+**PowerShell** | Not currently supported. | Supported
 
 
 ## Support for datacenter management servers
@@ -46,15 +46,15 @@ This article summarizes supported configurations and components for Azure Site R
 **Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported. 
+  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
 
 ### Host servers
 
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
-**Hyper-V (no Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates
-**Hyper-V (with Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by System Center Virtual Machine Manager 2016.
+**Hyper-V (with/without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br></br>If SCVMM is used, Windows Server 2016 hosts should be managed by SCVMM 2016.
+
 
   >[!Note]
   >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported. Recovery to an alternate location for VMs on a Windows Server 2016 host isn't currently supported.
@@ -64,54 +64,67 @@ This article summarizes supported configurations and components for Azure Site R
 Virtual machines that are protected must meet [Azure requirements](#failed-over-azure-vm-requirements) when replicating to Azure.
 The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
 
- **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+ **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)** |
+--- | --- |
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+
+>[!IMPORTANT]
+>(Applicable to VMware/Physical servers replicating to Azure)
+>
+> On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery mobility service.<br/><br/>
+> Customers on the 3.10.0-514 kernel with a version of the mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.  
+
+## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
+
+The following file systems and storage configuration software is supported on Linux servers running on VMware or Physical servers:
+* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
+* Volume manger : LVM2
+* Multipath software : Device Mapper
+
+Physical servers with the HP CCISS storage controller aren't supported.
 
 >[!Note]
->Storage support for Linux versions
->file system (EXT3, ETX4, ReiserFS, XFS),
->Multipath software-Device Mapper,
->Volume manager (LVM2), and
->physical servers with HP CCISS controller storage are *not* supported.
->The ReiserFS file system is supported only on SUSE Linux Enterprise Server 11 SP3.
+> On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
+> XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used. 
+>
+
 
 ## Support for network configuration
 The following tables summarize network configuration support in various deployment scenarios that use Azure Site Recovery to replicate to Azure.
 
 ### Host network configuration
 
-**Configuration** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-NIC teaming | Yes<br/><br/>Not supported in physical machines| Yes | Yes
-VLAN | Yes | Yes | Yes
-IPv4 | Yes | Yes | Yes
-IPv6 | No | No | No
+**Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
+--- | --- | ---
+NIC teaming | Yes<br/><br/>Not supported in physical machines| Yes
+VLAN | Yes | Yes
+IPv4 | Yes | Yes
+IPv6 | No | No
 
 ### Guest VM network configuration
 
-**Configuration** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-NIC teaming | No | No | No
-IPv4 | Yes | Yes | Yes
-IPv6 | No | No | No
-Static IP (Windows) | Yes | Yes | Yes
-Static IP (Linux) | No | No | No
-Multi-NIC | Yes | Yes | Yes
+**Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
+--- | --- | ---
+NIC teaming | No | No
+IPv4 | Yes | Yes
+IPv6 | No | No
+Static IP (Windows) | Yes | Yes
+Static IP (Linux) | No | No
+Multi-NIC | Yes | Yes
 
 ### Failed-over Azure VM network configuration
 
-**Azure networking** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-Express Route | Yes | Yes | Yes
-ILB | Yes | Yes | Yes
-ELB | Yes | Yes | Yes
-Traffic Manager | Yes | Yes | Yes
-Multi-NIC | Yes | Yes | Yes
-Reserved IP | Yes | Yes | Yes
-IPv4 | Yes | Yes | Yes
-Retain source IP | Yes | Yes | Yes
+**Azure networking** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
+--- | --- | ---
+Express Route | Yes | Yes
+ILB | Yes | Yes
+ELB | Yes | Yes
+Traffic Manager | Yes | Yes
+Multi-NIC | Yes | Yes
+Reserved IP | Yes | Yes
+IPv4 | Yes | Yes
+Retain source IP | Yes | Yes
 
 
 ## Support for storage
@@ -119,50 +132,51 @@ The following tables summarize storage configuration support in various deployme
 
 ### Host storage configuration
 
-**Configuration** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
+**Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Yes for VMware<br/><br/> No for physical servers | N/A | N/A
-SMB 3.0 | N/A | Yes | Yes
-SAN (ISCSI) | Yes | Yes | Yes
-Multi-path (MPIO)<br></br>Tested with: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes | Yes | Yes
+NFS | Yes for VMware<br/><br/> No for physical servers | N/A
+SMB 3.0 | N/A | Yes
+SAN (ISCSI) | Yes | Yes
+Multi-path (MPIO)<br></br>Tested with: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes | Yes
 
 ### Guest or physical server storage configuration
 
-**Configuration** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-VMDK | Yes | N/A | N/A
-VHD/VHDX | N/A | Yes | Yes
-Gen 2 VM | N/A | Yes | Yes
-EFI/UEFI| No | Yes | Yes
-Shared cluster disk | Yes for VMware<br/><br/> N/A for physical servers | No | No
-Encrypted disk | No | No | No
-NFS | No | N/A | N/A
-SMB 3.0 | No | No | No
-RDM | Yes<br/><br/> N/A for physical servers | N/A | N/A
-Disk > 1 TB | No | No | No
-Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes | Yes
-Storage Spaces | No | Yes | Yes
-Hot add/remove disk | No | No | No
-Exclude disk | Yes | Yes | Yes
-Multi-path (MPIO) | N/A | Yes | Yes
+**Configuration** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
+--- | --- | ---
+VMDK | Yes | N/A
+VHD/VHDX | N/A | Yes
+Gen 2 VM | N/A | Yes
+EFI/UEFI| No | Yes
+Shared cluster disk | Yes for VMware<br/><br/> N/A for physical servers | No
+Encrypted disk | No | No
+NFS | No | N/A
+SMB 3.0 | No | No
+RDM | Yes<br/><br/> N/A for physical servers | N/A
+Disk > 1 TB | No | No
+Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
+Storage Spaces | No | Yes
+Hot add/remove disk | No | No
+Exclude disk | Yes | Yes
+Multi-path (MPIO) | N/A | Yes
 
-**Azure storage** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
---- | --- | --- | ---
-LRS | Yes | Yes | Yes
-GRS | Yes | Yes | Yes
-Cool storage | No | No | No
-Hot storage| No | No | No
-Encryption at rest(SSE)| Yes | Yes | Yes
-Premium storage | Yes | No | No
-Import/export service | No | No | No
+**Azure storage** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
+--- | --- | ---
+LRS | Yes | Yes
+GRS | Yes | Yes
+RA-GRS | Yes | Yes
+Cool storage | No | No
+Hot storage| No | No
+Encryption at rest(SSE)| Yes | Yes
+Premium storage | Yes | Yes
+Import/export service | No | No
 
 
 ## Support for Azure compute configuration
 
-**Compute feature** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
+**Compute feature** | **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)**
 --- | --- | --- | ---
-Availability sets | No | No | No
-HUB | Yes | Yes | Yes
+Availability sets | Yes | Yes
+HUB | Yes | Yes  
 
 ## Failed-over Azure VM requirements
 

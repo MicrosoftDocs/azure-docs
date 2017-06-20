@@ -63,7 +63,7 @@ Before creating an import job, you need to obtain a shipping location name and a
 
  Follow the steps below to obtain the shipping location:
 
--   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account’s **Dashboard** in the Azure portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account's **Dashboard** in the Azure portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Retrieve the location that is available to process this storage account by calling the `Get Location` operation.
 

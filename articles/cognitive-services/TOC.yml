@@ -1,0 +1,723 @@
+- name: Overview
+  items:
+  - name: What is Cognitive Services?
+    href: Welcome.md
+- name: Get Started
+  items:
+  - name: Create an account
+    href: cognitive-services-apis-create-account.md
+- name: Services/APIs
+  items:
+  - name: Academic Knowledge
+    items:
+    - name: Overview
+      href: Academic-Knowledge/Home.md
+    - name: Knowledge Exploration
+      items:
+      - name: Entity attributes
+        href: Academic-Knowledge/EntityAttributes.md
+        items:
+        - name: Paper
+          href: Academic-Knowledge/PaperEntityAttributes.md
+        - name: Author
+          href: Academic-Knowledge/AuthorEntityAttributes.md
+        - name: Affiliation
+          href: Academic-Knowledge/AffiliationEntityAttributes.md
+        - name: Field of study
+          href: Academic-Knowledge/FieldsOfStudyEntityAttributes.md
+        - name: Conference series
+          href: Academic-Knowledge/ConferenceSeriesEntityAttributes.md
+        - name: Conference instance
+          href: Academic-Knowledge/ConferenceInstanceEntityAttributes.md
+        - name: Journal
+          href: Academic-Knowledge/JournalEntityAttributes.md
+      - name: Methods
+        items:
+        - name: CalcHistogram
+          href: Academic-Knowledge/CalcHistogramMethod.md
+        - name: Evaluate
+          href: Academic-Knowledge/EvaluateMethod.md
+        - name: Interpret
+          href: Academic-Knowledge/InterpretMethod.md
+        - name: Similarity
+          href: Academic-Knowledge/SimilarityMethod.md
+      - name: Query expression syntax
+        href: Academic-Knowledge/QueryExpressionSyntax.md
+    - name: Graph traversal
+      items:
+      - name: Lambda search syntax
+        href: Academic-Knowledge/LambdaSearchSyntax.md
+      - name: Graph search method
+        href: Academic-Knowledge/GraphSearchMethod.md
+      - name: JSON Search Syntax
+        href: Academic-Knowledge/JSONSearchSyntax.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97
+  - name: Bing Autosuggest
+    items:
+    - name: Overview
+      items:
+      - name: Get suggested search terms
+        href: Bing-Autosuggest/get-suggested-search-terms.md
+      - name: Upgrade from v5 to v7 Preview
+        href: Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md
+      - name: Use and display requirements
+        href: Bing-Autosuggest/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Autosuggest/quick-start.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2
+  - name: Bing Image Search
+    items:
+    - name: Overview
+      items:
+        - name: Search the web for images
+          href: Bing-Image-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Image-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Image-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Get image insights
+        href: Bing-Image-Search/image-insights.md
+      - name: Get trending images
+        href: Bing-Image-Search/trending-images.md
+      - name: Page images
+        href: Bing-Image-Search/paging-images.md
+      - name: Resize and crop thumbnails
+        href: Bing-Image-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f
+  - name: Bing News Search
+    items:
+    - name: Overview
+      items:
+        - name: Search the web for news
+          href: Bing-News-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-News-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-News-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Handle hit highlighting
+        href: Bing-News-Search/hit-highlighting.md
+      - name: Page news
+        href: Bing-News-Search/paging-news.md
+      - name: Resize and crop thumbnails
+        href: Bing-News-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
+  - name: Bing Speech
+    items:
+    - name: Overview
+      href: Speech/Home.md
+    - name: Get started
+      items:
+      - name: Objective C on iOS
+        href: Speech/GetStarted/Get-Started-ObjectiveC-iOS.md
+      - name: cURL
+        href: Speech/GetStarted/GetStarted-cURL.md
+      - name: C# for .NET
+        href: Speech/GetStarted/GetStartedCSharpDesktop.md
+      - name: C# for .NET - Service Library
+        href: Speech/GetStarted/GetStartedCSharpServiceLibrary.md
+      - name: C# for .NET Universal Apps on Windows 10
+        href: Speech/GetStarted/GetStartedCSharpWin10.md
+      - name: C# for .NET on Windows Phone 8.1
+        href: Speech/GetStarted/GetStartedCSharpWinPhone.md
+      - name: Java on Android
+        href: Speech/GetStarted/GetStartedJavaAndroid.md
+      - name: JavaScript
+        href: Speech/GetStarted/GetStartedJS.md
+    - name: Speech recognition API reference
+      href: Speech/API-Reference-REST/BingVoiceRecognition.md
+    - name: Text-to-speech API reference
+      href: Speech/API-Reference-REST/BingVoiceOutput.md
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-Speech-STT-Android
+      - name: iOS
+        href: https://github.com/Microsoft/Cognitive-Speech-STT-iOS
+      - name: JavaScript
+        href: https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-Speech-STT-Windows
+  - name: Bing Spell Check
+    items:
+    - name: Overview
+      items:
+        - name: Spell check text strings
+          href: Bing-Spell-Check/proof-text.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Spell-Check/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Spell-Check/quick-start.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358
+  - name: Bing Video Search
+    items:
+    - name: Overview
+      items:
+        - name: Search the web for videos
+          href: Bing-Video-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Video-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Video-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Get video insights
+        href: Bing-Video-Search/video-insights.md
+      - name: Get trending videos
+        href: Bing-Video-Search/trending-videos.md
+      - name: Page videos
+        href: Bing-Video-Search/paging-videos.md
+      - name: Resize and crop thumbnails
+        href: Bing-Video-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
+  - name: Bing Web Search
+    items:
+    - name: Overview
+      items:
+        - name: Search the web
+          href: Bing-Web-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Web-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Web-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Filter answer
+        href: Bing-Web-Search/filter-answers.md
+      - name: Rank results
+        href: Bing-Web-Search/rank-results.md
+      - name: Handle hit highlighting
+        href: Bing-Web-Search/hit-highlighting.md
+      - name: Page webpages
+        href: Bing-Web-Search/paging-webpages.md
+      - name: Resize and crop thumbnails
+        href: Bing-Web-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d
+  - name: Computer Vision
+    items:
+    - name: Overview
+      href: Computer-vision/Home.md
+    - name: How-to
+      items:
+      - name: Obtain subscription keys
+        href: Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md
+      - name: Call the Computer Vision API
+        href: Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md
+      - name: Analyze videos in real time
+        href: Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Quickstarts
+      items:
+      - name: cURL
+        href: Computer-vision/QuickStarts/curl.md
+      - name: C#
+        href: Computer-vision/QuickStarts/CSharp.md
+      - name: Java
+        href: Computer-vision/QuickStarts/Java.md
+      - name: JavaScript
+        href: Computer-vision/QuickStarts/JavaScript.md
+      - name: PHP
+        href: Computer-vision/QuickStarts/PHP.md
+      - name: Python
+        href: Computer-vision/QuickStarts/Python.md
+      - name: Ruby
+        href: Computer-vision/QuickStarts/Ruby.md
+    - name: Tutorials
+      items:
+      - name: C#
+        href: Computer-vision/Tutorials/CSharpTutorial.md
+      - name: Python
+        href: Computer-vision/Tutorials/PythonTutorial.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-vision-android
+      - name: Swift
+        href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-vision-windows
+    - name: Samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    - name: Category taxonomy
+      href: Computer-vision/Category-Taxonomy.md
+    - name: FAQ
+      href: Computer-vision/FAQ.md
+    - name: Research papers
+      href: Computer-vision/Research.md
+  - name: Content Moderator
+    items:
+    - name: Overview
+      href: Content-Moderator/overview.md
+    - name: Get started
+      href: Content-Moderator/quick-start.md
+    - name: Review tool user guide
+      items:
+      - name: Human in the loop
+        href: Content-Moderator/Review-Tool-User-Guide/human-in-the-loop.md
+      - name: Create team
+        href: Content-Moderator/Review-Tool-User-Guide/Sign-up.md
+      - name: Upload images
+        href: Content-Moderator/Review-Tool-User-Guide/Upload-Images.md
+      - name: Image reviews
+        href: Content-Moderator/Review-Tool-User-Guide/Review-Moderated-Images.md
+      - name: Text reviews
+        href: Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md
+      - name: Team and subteams
+        href: Content-Moderator/Review-Tool-User-Guide/SubTeams.md
+      - name: Using workflows
+        href: Content-Moderator/Review-Tool-User-Guide/Workflows.md
+      - name: Settings
+        href: Content-Moderator/Review-Tool-User-Guide/Configure.md
+      - name: View dashboard
+        href: Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md
+    - name: API Reference
+      href: Content-Moderator/api-reference.md
+      items:
+      - name: Image moderation
+        href: Content-Moderator/image-moderation-api.md
+      - name: Text moderation
+        href: Content-Moderator/text-moderation-api.md
+      - name: Text moderation - languages
+        href: Content-Moderator/Text-Moderation-API-Languages.md
+      - name: Review
+        href: Content-Moderator/review-api.md
+      - name: Video moderation
+        href: Content-Moderator/video-moderation-api.md
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
+    - name: Samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    - name: FAQ
+      href: Content-Moderator/FAQs.md
+  - name: Custom Speech Service
+    items:
+    - name: Overview
+      href: Custom-Speech-Service/Home.md
+    - name: Get started
+      href: Custom-Speech-Service/GetStarted.md
+    - name: FAQ
+      href: Custom-Speech-Service/FAQ.md
+    - name: Glossary
+      href: Custom-Speech-Service/Glossary.md
+  - name: Emotion
+    items:
+    - name: Overview
+      href: Emotion/Home.md
+    - name: How to
+      items:
+      - name: Call the Emotion API for video
+        href: Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md
+      - name: Analyze videos in real time
+        href: Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
+    - name: Quickstarts
+      items:
+      - name: cURL
+        href: Emotion/QuickStarts/curl.md
+      - name: C#
+        href: Emotion/QuickStarts/CSharp.md
+      - name: Java
+        href: Emotion/QuickStarts/Java.md
+      - name: JavaScript
+        href: Emotion/QuickStarts/JavaScript.md
+      - name: PHP
+        href: Emotion/QuickStarts/PHP.md
+      - name: Python
+        href: Emotion/QuickStarts/Python.md
+      - name: Ruby
+        href: Emotion/QuickStarts/Ruby.md
+    - name: Tutorials
+      items:
+      - name: C#
+        href: Emotion/Tutorials/CSharpTutorial.md
+      - name: Python
+        href: Emotion/Tutorials/PythonTutorial.md
+    - name: API Reference for Images
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89
+    - name: API Reference for Video
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-emotion-android
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-emotion-windows
+    - name: Samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    - name: FAQ
+      href: Emotion/FAQ.md
+  - name: Entity Linking
+    items:
+    - name: Overview
+      href: EntityLinking/Home.md
+    - name: Get started
+      href: EntityLinking/GettingStarted.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-EntityLinking-Windows
+  - name: Face
+    items:
+    - name: Overview
+      href: Face/Overview.md
+    - name: How to
+      items:
+      - name: Detect faces in image
+        href: Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+      - name: Identify faces in image
+        href: Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+      - name: Analyze videos in real time
+        href: Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+    - name: Quickstarts
+      items:
+      - name: cURL
+        href: Face/QuickStarts/curl.md
+      - name: C#
+        href: Face/QuickStarts/CSharp.md
+      - name: Java
+        href: Face/QuickStarts/Java.md
+      - name: JavaScript
+        href: Face/QuickStarts/JavaScript.md
+      - name: PHP
+        href: Face/QuickStarts/PHP.md
+      - name: Python
+        href: Face/QuickStarts/Python.md
+      - name: Ruby
+        href: Face/QuickStarts/Ruby.md
+    - name: Tutorials
+      items:
+      - name: C#
+        href: Face/Tutorials/FaceAPIinCSharpTutorial.md
+      - name: Java for Android
+        href: Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md
+      - name: Python
+        href: Face/Tutorials/FaceAPIinPythonTutorial.md
+    - name: API reference
+      href: Face/APIReference.md
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-Face-Android
+      - name: iOS
+        href: https://github.com/Microsoft/Cognitive-Face-iOS
+      - name: Python
+        href: https://github.com/Microsoft/Cognitive-Face-Python
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-Face-Windows
+    - name: Samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+    - name: Glossary
+      href: Face/Glossary.md
+    - name: FAQ
+      href: Face/FAQ.md
+    - name: Release notes
+      href: Face/ReleaseNotes.md
+  - name: Knowledge Exploration Service
+    items:
+    - name: Overview
+      href: KES/Overview.md
+    - name: Getting started
+      href: KES/GettingStarted.md
+    - name: Command line
+      href: KES/CommandLine.md
+    - name: Schema format
+      href: KES/SchemaFormat.md
+    - name: Data format
+      href: KES/DataFormat.md
+    - name: Grammar format
+      href: KES/GrammarFormat.md
+    - name: Semantic interpretation
+      href: KES/SemanticInterpretation.md
+    - name: Web API interface
+      href: KES/WebAPI.md
+      items:
+      - name: calchistogram
+        href: KES/calchistogramMethod.md
+      - name: evaluate
+        href: KES/evaluateMethod.md
+      - name: interpret
+        href: KES/interpretMethod.md
+    - name: Structured query expressions
+      href: KES/Expressions.md
+  - name: Linguistic Analysis
+    items:
+    - name: Overview
+      href: LinguisticAnalysisAPI/Home.md
+    - name: Analyzer names
+      href: LinguisticAnalysisAPI/Analyzer-Names.md
+    - name: Constituency parsing
+      href: LinguisticAnalysisAPI/Constituency-Parsing.md
+    - name: Part-of-speech tagging
+      href: LinguisticAnalysisAPI/POS-tagging.md
+    - name: Sentences and tokens
+      href: LinguisticAnalysisAPI/Sentences-and-Tokens.md
+    - name: Analyze method
+      href: LinguisticAnalysisAPI/AnalyzeMethod.md
+    - name: Analyzers method
+      href: LinguisticAnalysisAPI/AnalyzersMethod.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-linguisticanalysis-windows
+  - name: Language Understanding Intelligent Services
+    items:
+    - name: Overview
+      href: LUIS/Home.md
+    - name: Plan your app
+      href: LUIS/Plan-your-app.md
+    - name: Create an app
+      href: LUIS/Create-new-app.md
+    - name: Dashboard
+      href: LUIS/App-Dashboard.md
+    - name: Add intents
+      href: LUIS/Add-intents.md
+    - name: Add utterances
+      href: LUIS/Add-example-utterances.md
+    - name: Add entities
+      href: LUIS/Add-entities.md
+    - name: Add features
+      href: LUIS/Add-Features.md
+    - name: Train + test the app
+      href: LUIS/Train-Test.md
+    - name: Active learning
+      href: LUIS/Label-Suggested-Utterances.md
+    - name: Publish your app
+      href: LUIS/PublishApp.md
+    - name: Pre-built entities
+      href: LUIS/Pre-builtEntities.md
+    - name: Cortana prebuilt app
+      href: LUIS/Cortana-Prebuilt-App.md
+    - name: Key management
+      href: LUIS/Manage-Keys.md
+    - name: Create subscription keys
+      href: LUIS/AzureIbizaSubscription.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-LUIS-Android
+      - name: Node.js
+        href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+      - name: Python
+        href: https://github.com/Microsoft/Cognitive-LUIS-Python
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+  - name: QnAMaker
+    items:
+    - name: Overview
+      href: QnAMaker/Home.md
+    - name: Quickstart
+      href: QnAMaker/Quickstart.md
+    - name: Create a knowledge base
+      href: QnAMaker/Guides/CreateKB.md
+    - name: Publish a knowledge base
+      href: QnAMaker/Guides/PublishKB.md
+    - name: Train a knowledge base
+      href: QnAMaker/Guides/TrainKB.md
+    - name: Update a knowledge base
+      href: QnAMaker/Guides/UpdateKB.md
+    - name: Share a knowledge base
+      href: QnAMaker/Guides/share-knowledgebase-qnamaker.md
+    - name: Authentication
+      href: QnAMaker/SubscriptionKeys.md
+    - name: API Reference
+      href: QnAMaker/HTTPEndPoint.md
+    - name: FAQ
+      href: QnAMaker/FAQs.md
+  - name: Recommendations
+    items:
+    - name: Overview
+      href: Recommendations/overview.md
+    - name: Recommendations quick start
+      href: cognitive-services-recommendations-quick-start.md
+    - name: Build types + model quality
+      href: cognitive-services-recommendations-buildtypes.md
+    - name: Collect training data
+      href: cognitive-services-recommendations-collecting-data.md
+    - name: Use the Recommendations UI
+      href: cognitive-services-recommendations-ui-intro.md
+    - name: API Reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db
+    - name: Batch scoring
+      href: cognitive-services-recommendations-batch-scoring.md
+  - name: Speaker Recognition
+    items:
+    - name: Overview
+      href: Speaker-recognition/Home.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
+    - name: SDKs
+      items:
+      - name: Android
+        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Window(
+  - name: Text Analytics
+    items:
+    - name: Overview
+      href: Text-Analytics/overview.md
+    - name: Quickstart
+      href: cognitive-services-text-analytics-quick-start.md
+    - name: API migration
+      href: cognitive-services-text-analytics-api-migration.md
+    - name: API reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
+  - name: Translator
+    items:
+    - name: Overview
+      href: Translator/translator-info-overview.md
+    - name: Languages
+      href: Translator/languages.md
+    - name: Hub
+      href: Translator/translator-hub-overview.md
+    - name: CTF
+      href: Translator/collaborative-translation-framework-reporting-api.md
+    - name: Translator Speech API overview
+      href: Translator/speech-overview.md
+    - name: Translator Speech API reference
+      href: http://docs.microsofttranslator.com/speech-translate.html
+    - name: Translator Text API overview
+      href: Translator/text-overview.md
+    - name: Translator Text API reference
+      href: http://docs.microsofttranslator.com/text-translate.html
+  - name: Video
+    items:
+    - name: Overview
+      href: Video/Home.md
+    - name: Get started in C#
+      href: Video/GetStarted.md
+    - name: Call video APIs
+      href: Video/How-To/HowtoCallVideoAPIs.md
+    - name: Analyze videos in real time
+      href: Video/How-To/HowtoAnalyzeVideo_Video.md
+    - name: API Reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e39
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-video-windows
+    - name: Glossary
+      href: Video/Glossary.md
+  - name: Web Language Model
+    items:
+    - name: Overview
+      href: Web-Language-Model/Home.md
+    - name: API Reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51
+    - name: SDKs
+      items:
+      - name: Windows
+        href: https://github.com/Microsoft/Cognitive-WebLM-Windows
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Code of conduct
+    href: http://go.microsoft.com/fwlink/?LinkId=698895

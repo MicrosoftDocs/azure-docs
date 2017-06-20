@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 
 ---
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools for Visual Studio to write and test U-SQL scripts.
+Write and test U-SQL scripts using Data Lake Tools for Visual Studio.
 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## Prerequisites
-* **Visual Studio 2015 update 3, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. Visual Studio 2017 is currently not supported.**
+* **Visual Studio 2017 (under data storage and processing workload), Visual Studio 2015 update 3, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported.**
 * **Microsoft Azure SDK for .NET version 2.7.1 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Once Data Lake Tools for Visual Studio is installed, you will see a "Data Lake Analytics" node in Server Explorer under the "Azure" node (you can open Server explorer by pressing Ctrl+Alt+S).
+    Once Data Lake Tools for Visual Studio is installed, you will see a "Data Lake Analytics" node in Server Explorer under the "Azure" node (Open Server Explorer by pressing Ctrl+Alt+S).
 
 * **Data Lake Analytics account and sample data**
-The Data Lake Tools don't support creating Data Lake Analytics accounts. You can create an account using the Azure portal, Azure PowerShell, .NET SDK or Azure CLI.
+The Data Lake Tools do not support creating Data Lake Analytics accounts. Create an account using the Azure portal, Azure PowerShell, .NET SDK or Azure CLI.
 For your convenience, a PowerShell script for creating a Data Lake Analytics service and uploading the source data file can be found in [Appx-A PowerShell sample for preparing the tutorial](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-    Optionally, you can go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) to create your account and upload data by hand:
+    Optionally, you can go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) to create your account and upload data manually:
 
     1. [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
     2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## Connect to Azure
-**To connect to Data Lake Analytics**
+**Connect to Data Lake Analytics**
 
 1. Open Visual Studio.
 2. From the **View** menu, click **Server Explorer** to open Server Explorer. Or press **[CTRL]+[ALT]+S**.
@@ -51,9 +51,9 @@ For your convenience, a PowerShell script for creating a Data Lake Analytics ser
 ## Upload source data files
 You have uploaded some data in the **Prerequisite** section earlier in the tutorial.  
 
-In case you want to use your own data, here are the procedures for uploading data from the Data Lake Tools.
+To use your own data, follow these steps for uploading data from the Data Lake Tools.
 
-**To upload files to the dependent Azure Data Lake account**
+**Upload files to the dependent Azure Data Lake account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account".
 2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
@@ -62,7 +62,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 
     ![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**To upload files to a linked Azure Blob storage account**
+**Upload files to a linked Azure Blob storage account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts.
 2. Expand the Azure Storage Account.
@@ -73,7 +73,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 ## Develop U-SQL scripts
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**To create and submit a Data Lake Analytics job**
+**Create and submit a Data Lake Analytics job**
 
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the **U-SQL Project** type.

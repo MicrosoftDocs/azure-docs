@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory PowerShell cmdlets for group management in Azure AD | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;rodejo
 
 ---
 # Azure Active Directory preview cmdlets for group management
@@ -41,7 +41,7 @@ To verify that the preview module was installed, use the following command:
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the [online reference documentation](https://docs.microsoft.com/en-us/powershell/azuread/).
+Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the [online reference documentation](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## Connecting to the directory
 Before you can start managing groups using Azure AD PowerShell cmdlets, you must connect your PowerShell session to the directory you want to manage. To do this, use the following command:
@@ -222,7 +222,7 @@ If you want to remove an owner from a group, use Remove-AzureADGroupOwner:
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## Next steps
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/en-us/powershell/azuread/).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

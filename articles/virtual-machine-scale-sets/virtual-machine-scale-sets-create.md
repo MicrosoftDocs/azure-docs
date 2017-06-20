@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure virtual machine scale set | Microsoft Docs
 description: Create and deploy a Linux or Windows Azure virtual machine scale set with Azure CLI, PowerShell, a template, or Visual Studio.
 services: virtual-machine-scale-sets
@@ -30,7 +30,7 @@ This tutorial shows you how to create a virtual machine scale set **without** us
 
 If you're using Azure CLI 2.0 or Azure PowerShell to create a scale set, you first need to sign in to your subscription.
 
-For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](/powershell/resourcemanager/).
+For more information about how to install, set up, and sign in to Azure with Azure CLI or PowerShell, see [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 
 ## Create from Azure CLI
 
-With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, the are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
+With Azure CLI, you can create a virtual machine scale set with minimal effort. If you omit default values, they are provided for you. For example, if you don't specify any virtual network information, a virtual network is created for you. If you omit the following parts, they are created for you: 
 - A load balancer
 - A virtual network
 - A public IP address

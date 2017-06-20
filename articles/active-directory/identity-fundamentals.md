@@ -6,7 +6,9 @@ description:
 keywords:
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+
+ms.date: 5/1/2017
+
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -59,7 +61,8 @@ Microsoft identity and access management solutions help IT protect access to app
 
 The conditional access system in Azure AD Premium gives you, the enterprise admin, the ability to create policy-based access rules for any Azure AD-connected application (SaaS apps, custom apps running in the cloud or on-premises web applications). Azure AD evaluates these policies in real-time, and enforces them whenever a user attempts to access an application. Azure identity protection policies enable you to automatically take action if suspicious activity is discovered including blocking access to users at high risk, enforce multi-factor authentication, and reset passwords if it looks like credentials have been compromised.
 
-## Azure Active Directory Privileged Identify Management
+
+## Azure Active Directory Privileged Identity Management
 
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), included with the Azure Active Directory Premium P2 offering, allows you to discover, restrict, and monitor administrative accounts and their access to resources in your Azure Active Directory and other Microsoft online services. It also helps you administer on-demand administrative access for the exact period of time you need.
 

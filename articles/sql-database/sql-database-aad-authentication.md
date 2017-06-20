@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -35,12 +35,11 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
 1. Create and populate Azure AD.
-2. Ensure your database is in Azure SQL Database V12. (Not necessary for SQL Data Warehouse.)
-3. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-4. Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Configure your client computers.
-6. Create contained database users in your database mapped to Azure AD identities.
-7. Connect to your database by using Azure AD identities.
+2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
+3. Create an Azure Active Directory administrator for Azure SQL server or [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configure your client computers.
+5. Create contained database users in your database mapped to Azure AD identities.
+6. Connect to your database by using Azure AD identities.
 
 > [!NOTE]
 > To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database and SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).

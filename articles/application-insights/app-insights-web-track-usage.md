@@ -1,167 +1,142 @@
 ---
-title: Usage analysis for web applications with Application Insights
-description: Overview of usage analytics for web apps with Application Insights
+title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
+description: Overview of usage analysis with Application Insights
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: bbdb8e58-7115-48d8-93c0-f69a1beeea6e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
+ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2016
+ms.date: 04/12/2017
 ms.author: awills
 
 ---
 # Usage analysis for web applications with Application Insights
-Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve. 
+Knowing how people use your application lets you focus your development work on the scenarios that are most important to your users, and gain insights into the goals that they find easier or more difficult to achieve.
 
-Azure Application Insights provides two levels of usage tracking:
+[Azure Application Insights](app-insights-overview.md) provides two levels of usage tracking:
 
 * **User, session and page view data** - provided out of the box.  
-* **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
+* **Custom telemetry** - You [write code](app-insights-api-custom-events-metrics.md) to trace your users through your app's user experience. 
 
-## Setting up
-Open an Application Insights resource in the [Azure Portal](https://portal.azure.com), click the empty Browser page loads chart, and follow the setup instructions.
 
-[Learn more](app-insights-javascript.md) 
+## Get started
 
-## How popular is my web application?
-Sign in to the [Azure portal][portal], browse to your application resource, and click Usage:
+The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-![](./media/app-insights-web-track-usage/14-usage.png)
+1. **Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
 
-* **Users:** The count of distinct active users over the time range of the chart. 
-* **Sessions:** The count of active sessions
+    * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
+
+2. **Web page code:** Open the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open **Getting Started > Monitor and Diagnose Client-Side**. 
+
+    ![Copy the script into the head of your master web page.](./media/app-insights-web-track-usage/02-monitor-web-page.png)
+
+
+3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+
+    Publish your app to monitor your app's performance and find out what your users are doing with your app.
+
+## Usage analysis out of the box
+Open the Usage blade.
+
+![Users, sessions and page views charts](./media/app-insights-web-track-usage/14-usage.png)
+
+Hover in the blank part above a graph to see the counts at a particular point. Otherwise, the numbers show the value aggregated over the period, such as an average, a total, or a count of distinct users over the period.
+
+What do these charts show?
+
+* **Users:** The count of distinct active users over the time range of the chart. In web applications, users are counted by using cookies. A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.
+* **Authenticated users** are counted if you have inserted a call to [setAuthenticatedUser()](app-insights-api-custom-events-metrics.md#authenticated-users) in your code.
+* **Sessions:** The count of active sessions. A web session is counted after 30 minutes of inactivity. 
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
 Click any of the charts to see more detail. Notice that you can change the time range of the charts.
 
 ### Where do my users live?
-From the usage blade, click the Users chart to see more detail:
+Click a blank part of the Users chart to see open another blade that shows more detail:
 
 ![On the Usage blade, click the Users chart](./media/app-insights-web-track-usage/02-sessions.png)
 
 ### What browsers or operating systems do they use?
-Group (segment) data by a property such as Browser, Operating System, or City:
+
+Click **Edit** on the users chart, and Group (segment) data by a property such as Browser, Operating System, or City: 
 
 ![Select a chart that shows a single metric, switch on Grouping, and choose a property](./media/app-insights-web-track-usage/03-browsers.png)
 
-## Sessions
-Session is a fundamental concept in Application Insights, which strives to associate every telemetry event - such as requests, page views, exceptions, or custom events that you code yourself - with a specific user session. 
+To see the full set of counts, switch the chart type to **Grid**. You can also choose to display additional metrics:
 
-Rich context information is collected about each session, such as device characteristics, geo location, operating system, and so on.
+![Multi-column grid chart](./media/app-insights-web-track-usage/multi-column-grid.png)
 
-If you instrument both the client and server ([ASP.NET][greenbrown] or [J2EE][java]), the SDKs will propagate the session id between client and server, so that events on both sides can be correlated.
+For graphical chart types, you can either group by a property, or select multiple metrics, but not both. This chart compares two metrics, users and [authenticated users](app-insights-api-custom-events-metrics.md#authenticated-users). 
 
-When [diagnosing problems][diagnostic], you can find all the telemetry related to the session in which a problem occurred, including all requests, and any events, exceptions or traces that were logged.
+![Select a chart, search for and check or uncheck metrics.](./media/app-insights-web-track-usage/031-dual.png)
 
-Sessions provide a good measure of the popularity of contexts such as device, operating system or location. By showing the count of sessions grouped by device, for example, you get a more accurate count of how often that device is used with your app, than by counting page views. This would be a useful input to triage of any device-specific issue.
 
-#### What's a session?
-A session represents a single encounter between the user and the app. In its simplest form, session starts with a user launching the app and finishes when user leaves the app. For web apps, by default, the session terminates after 30 minutes of inactivity, or after 24 hours of activity. 
 
-You can alter these defaults by editing the code snippet:
-
-    <script type="text/javascript">
-        var appInsights= ... { ... }({
-            instrumentationKey: "...",
-            sessionRenewalMs: 3600000,
-            sessionExpirationMs: 172800000
-        });
-    </script>
-
-* `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
-* `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.
-
-**Session duration** is a [metric][metrics] that records the span of time between the first and last telemetry items of the session. (It doesn't include the timeout period.)
-
-**Session count** in a certain interval is defined as the number of unique sessions with some activity during this interval. When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions. 
-
-However, when you explore shorter time ranges such as hourly grain, a long session spanning multiple hours will be counted for each hour in which the session was active. 
-
-## Users and user counts
-Each user session is associated with a unique user id. 
-
-By default, the user is identified by placing a cookie. A user who uses multiple browsers or devices will be counted more than once. (But see [authenticated users](#authenticated-users))
-
-The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
-
-**New Users** counts the users whose first sessions with the app occurred during this interval. If the default method of counting by users by cookies is used, then this will also include users who have cleared their cookies, or who are using a new device or browser to access your app for the first time.
-![From the usage blade, click on Users chart to examine New Users.](./media/app-insights-web-track-usage/031-dual.png)
-
-### Authenticated users
-If your web app lets users sign in, you can get a more accurate count by providing Application Insights with a unique user identifier. It doesn't have to be their name, or the same id that you use in your app. As soon as your app has identified the user, use this code:
-
-*JavaScript at client*
-
-      appInsights.setAuthenticatedUserContext(userId);
-
-If your app groups users into accounts, you can also pass an identifier for the account. 
-
-      appInsights.setAuthenticatedUserContext(userId, accountId);
-
-The user and account ids must not contain spaces or the characters `,;=|`
-
-In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
-
-## Synthetic traffic
-Synthetic traffic includes requests from availability and load tests, search engine crawlers and other agents. 
-
-Application Insights tries strives to automatically determine and classify synthetic traffic and mark it appropriately. In most cases, synthetic traffic does not invoke the JavaScript SDK, so that this activity is excluded from user and session counting. 
-
-However, for Application Insights [web tests][availability], the user id is automatically set based on POP location, and session id is set based on test run id. In default reports, synthetic traffic is filtered out by default, which will exclude these users and sessions. However, when synthetic traffic is included, it may cause a small increase in overall users and session counts.
-
-## Page usage
-Click through the page views chart to get a more zoomed-in version together with a breakdown of your most popular pages:
+## Page views
+From the Usage blade, click through the page views chart to get a more detailed version together with a breakdown of your most popular pages:
 
 ![From the Overview blade, click the Page views chart](./media/app-insights-web-track-usage/05-games.png)
 
-The example above is from a games website. From it we can instantly see:
+The example above is from a games web site. From the charts, we can instantly see:
 
 * Usage hasn't improved in the past week. Maybe we should think about search engine optimization?
-* Many fewer people see the games pages than the Home page. Why doesn't our Home page attract people to play games?
-* 'Crossword' is the most popular game. We should give priority to new ideas and improvements there.
+* Tennis is the most popular game page. Let's focus on further improvements to this page.
+* On average, users visit the Tennis page about three times per week. (There are about three times more sessions than users.)
+* Most users visit the site during the U.S. working week, and in working hours. Perhaps we should provide a "quick hide" button on the web page.
+* The [annotations](app-insights-annotations.md) on the chart show when new versions of the website were deployed. None of the recent deployments had a noticeable effect on usage.
 
 ## Custom tracking
-Let's suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page. This allows the user to switch quickly between one game and another, or even have several games on one page. 
+Let's suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page. This allows the user to switch quickly between one game and another, or even have several games on one page.
 
 But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
-    appInsights.trackPageView(game.Name);
-
-## Custom events
-Write custom telemetry to log specific events. Particularly in a single-page app, you'll want to know how often the user performs particular actions or achieves certain goals: 
-
-    appInsights.trackEvent("GameEnd");
-
-For example, to log clicking a link:
-
-    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
+```JavaScript
+    telemetryClient.trackPageView(game.Name);
+```
+This call simulates the telemetry that logs a page view.  However, you don't always want to mix the messages up with page views. Instead, use custom events. You can send them from web pages or a web server:
 
 
-## View counts of custom events
-Open Metrics Explorer and add a chart to show Events. Segment by name:
+```JavaScript
 
-![Select a chart that shows just one metric. Switch on Grouping. Choose a property. Not all properties are available.](./media/app-insights-web-track-usage/06-eventsSegment.png)
+    telemetryClient.trackEvent("GameEnd");
+```
+
+```C#
+    var tc = new Microsoft.ApplicationInsights.TelemetryClient();
+    tc.TrackEvent("GameEnd");
+```
+
+```VB
+
+    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
+    tc.TrackEvent("GameEnd")
+```
+
+[Custom telemetry inserted into your web or server code](app-insights-api-custom-events-metrics.md#trackevent) can be used in many ways to understand how your application is being used.
+
+To view events sent by TrackEvent(): Open Metrics Explorer, add a new chart, and then edit it. Your metrics appear under Custom Metrics. 
+
+![A chart showing custom events.](./media/app-insights-web-track-usage/06-eventsSegment.png)
+
+If you set [property values](app-insights-api-custom-events-metrics.md#properties) (also called dimensions) in your events, you can group and filter by them.
+
+Create multiple charts to correlate changes in other metrics and events. For example, at times when more games are played, you'd expect to see a rise in abandoned games as well. But the rise in abandoned games is disproportionate, you'd want to find out whether the high load is causing problems that users find unacceptable.
 
 ## Drill into specific events
-To get a better understanding of how a typical session goes, you might want to focus on a specific user session that contains a particular type of event. 
+To get a better understanding of how a typical session goes, you might want to focus on a specific user session that contains a particular type of event.
 
-In this example, we coded a custom event "NoGame" that is called if the user logs out without actually starting a game. Why would a user do that? Maybe if we drill into some specific occurrences, we'll get a clue. 
-
-The custom events received from the app are listed by name on the overview blade:
-
-![On the Overview blade, click one of the custom event types.](./media/app-insights-web-track-usage/07-clickEvent.png)
-
-Click through the event of interest, and select a recent specific occurrence:
+From a grid of events, click through the event of interest, and select a recent specific occurrence:
 
 ![In the list under the summary chart, click an event](./media/app-insights-web-track-usage/08-searchEvents.png)
 
-Let's look at all the telemetry for the session in which that particular NoGame event occurred. 
+Let's look at all the telemetry for the session in which that particular NoGame event occurred.
 
 ![Click 'all telemetry for session'](./media/app-insights-web-track-usage/09-relatedTelemetry.png)
 
@@ -176,7 +151,7 @@ And now we can see that this user logged in simply to check the latest scores. M
 ## Filter, search and segment your data with properties
 You can attach arbitrary tags and numeric values to events.
 
-*JavaScript at client*
+*JavaScript in web page*
 
 ```JavaScript
 
@@ -193,7 +168,7 @@ You can attach arbitrary tags and numeric values to events.
 ```C#
 
     // Set up some properties:
-    var properties = new Dictionary <string, string> 
+    var properties = new Dictionary <string, string>
         {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
     var measurements = new Dictionary <string, double>
         {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
@@ -221,7 +196,7 @@ You can attach arbitrary tags and numeric values to events.
 
 Attach properties to page views in the same way:
 
-*JavaScript at client*
+*JavaScript in web page*
 
 ```JS
 
@@ -239,14 +214,31 @@ Use the Search field to see event occurrences with a particular property value.
 
 ![Type a value into the Search field](./media/app-insights-web-track-usage/12-searchEvents.png)
 
+## Edit and create queries over your telemetry
+
+Click the Azure Analytics icon on any chart to open an equivalent query that you can edit.
+Scroll down to see if there is more than one generated query. Place the cursor in any query and click **Go**. 
+
+Alternatively, open Analytics from the icon on the Overview blade, and write your own queries, or try some of the sample queries on the Analytics Home tab.
+
+
+![Analytics window with generated query](./media/app-insights-web-track-usage/open-analytics.png)
+
+[Learn more about the Azure Analytics query language](app-insights-analytics.md).
+
+For usage analysis, you may be particularly interested in these tables:
+
+* `customEvents` - Results of [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) calls.
+* `pageViews` - Counts of pages opened in client browsers, or calls to [trackPageView()](app-insights-api-custom-events-metrics.md#page-views).
+
+
 ## A | B Testing
 If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.
 
-For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well. 
+For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well.
 
 In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
 
-*C# at server*
 
 ```C#
 
@@ -259,7 +251,6 @@ In the Application Insights portal, you'll then be able to filter and group (seg
     telemetry.TrackEvent("WinGame");
 ```
 
-*VB at server*
 
 ```VB
 
@@ -305,30 +296,15 @@ When you use analytics, it becomes an integrated part of your development cycle 
 
 * Determine the key metric of your application. Do you want as many users as possible, or would you prefer a small set of very happy users? Do you want to maximize visits or sales?
 * Plan to measure each story. When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change. Before coding starts, ask "What effect will this have on our metrics, if it works? Should we track any new events?"
-  And of course, when the feature is live, make sure you look at the analytics and act on the results. 
-* Relate other metrics to the key metric. For example, if you add a "favorites" feature, you'd like to know how often users add favorites. But it's perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
+  And of course, when the feature is live, make sure you look at the analytics and act on the results.
+* Relate other metrics to the key metric. For example, if you add a 'favorites' feature, you'd like to know how often users add favorites. But it's perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
 * Canary testing. Set up a feature switch that allows you to make a new feature visible only to some users. Use Application Insights to see whether the new feature is being used in the way you envisaged. Make adjustments, then release it to a wider audience.
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 
-## References
-* [Using the API - overview][api]
+## Learn more
+* [Detect, triage and diagnose crashes and performance issues in your app](app-insights-detect-triage-diagnose.md)
+* [Get started with Application Insights on many platforms](app-insights-detect-triage-diagnose.md)
+* [Using the API - overview](app-insights-api-custom-events-metrics.md)
 * [JavaScript API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-
-## Video
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
-> 
-> 
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[client]: app-insights-javascript.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
-[windows]: app-insights-windows-get-started.md
 
 

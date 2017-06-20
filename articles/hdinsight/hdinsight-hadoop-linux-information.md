@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/02/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 
 ---
@@ -24,7 +24,7 @@ ms.author: larryfr
 Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Internally, each node in the cluster has a name that is assigned during cluster 
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This command returns a JSON document that contains a list of the hosts in the cluster, then jq pulls out the `host_name` element value for each host in the cluster.
+Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This command returns a JSON document that contains a list of the hosts in the cluster. Jq is used to extract the `host_name` element value for each host.
 
 If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following command:
 
@@ -60,12 +60,12 @@ This command returns a JSON document describing the service, and then jq pulls o
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-    Authenticate by using the cluster administrator user and password, and then log in to Ambari. You must authenticate using the cluster administrator user and password.
+    Authenticate by using the cluster administrator user and password, and then log in to Ambari.
 
     Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
     > [!IMPORTANT]
-    > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since internal domain name are not publicly accessible, you may receive "server not found" errors when trying to access some features over the Internet.
+    > Some of the web UIs available through Ambari access nodes using an internal domain name. Internal domain names are not publicly accessible over the internet. You may receive "server not found" errors when trying to access some features over the Internet.
     >
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -92,14 +92,14 @@ This command returns a JSON document describing the service, and then jq pulls o
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
 
-* **2.2.4.9-1**: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
-* **current**: This directory contains links to sub-directories under the **2.2.4.9-1** directory. This directory exists so that you don't have to type a version number (which might change) every time you want to access a file.
+* **2.2.4.9-1**: The directory name is the version of the Hortonworks Data Platform used by HDInsight. The number on your cluster may be different than the one listed here.
+* **current**: This directory contains links to subdirectories under the **2.2.4.9-1** directory. This directory exists so that you don't have to remember the version number.
 
 Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`
 
 ## HDFS, Azure Storage, and Data Lake Store
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While using local storage is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
 HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These services provide the following benefits:
 
@@ -107,9 +107,9 @@ HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the def
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
 
 > [!WARNING]
-> HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
+> HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
-An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 When using either Azure Storage or Data Lake Store, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Store:
 
@@ -131,7 +131,7 @@ When using __Data Lake Store__, use one of the following URI schemes:
 
 * `adl:///`: Access the default Data Lake Store for the cluster.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a non-default Data Lake Store or accessing data outside the root directory of your HDInsight cluster.
+* `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a non-default Data Lake Store. Also used to access data outside the root directory of your HDInsight cluster.
 
 > [!IMPORTANT]
 > When using Data Lake Store as the default store for HDInsight, you must specify a path within the store to use as the root of HDInsight storage. The default path is `/clusters/<cluster-name>/`.
@@ -145,9 +145,9 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> This returns the first configuration applied to the server (`service_config_version=1`), which contains this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
+> This returns the first configuration applied to the server (`service_config_version=1`), which contains this information. You may need to list all configuration versions to find the latest one.
 
-This command returns a value similar to the following:
+This command returns a value similar to the following URIs:
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
 
@@ -163,7 +163,7 @@ This command returns a value similar to the following:
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
-    This command returns a path similar to the following: `/clusters/<hdinsight-cluster-name>/`.
+    This command returns a path similar to the following path: `/clusters/<hdinsight-cluster-name>/`.
 
 You can also find the storage information using the Azure portal by using the following steps:
 
@@ -202,11 +202,11 @@ If using __Azure Data Lake Store__, see the following links for ways that you ca
 
 ## <a name="scaling"></a>Scaling your cluster
 
-The cluster scaling feature allows you to change the number of data nodes used by a cluster without having to delete and re-create the cluster. You can perform scaling operations while other jobs or processes are running on a cluster.
+The cluster scaling feature allows you to dynamically change the number of data nodes used by a cluster. You can perform scaling operations while other jobs or processes are running on a cluster.
 
 The different cluster types are affected by scaling as follows:
 
-* **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
+* **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. Scaling operations can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
 * **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, use the following steps:
 
     1. Connect to the HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -214,12 +214,12 @@ The different cluster types are affected by scaling as follows:
     2. Use the following to start the HBase shell:
 
             hbase shell
-    
+
     3. Once the HBase shell has loaded, use the following to manually balance the regional servers:
 
             balancer
 
-* **Storm**: You should rebalance any running Storm topologies after a scaling operation has been performed. This allows the topology to readjust parallelism settings based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
+* **Storm**: You should rebalance any running Storm topologies after a scaling operation has been performed. Rebalancing allows the topology to readjust parallelism settings based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
 
     * **SSH**: Connect to the server and use the following command to rebalance a topology:
 
@@ -239,12 +239,12 @@ For specific information on scaling your HDInsight cluster, see:
 
 ## How do I install Hue (or other Hadoop component)?
 
-HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs.. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md). A script action can be used to make the following changes:
+HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md). A script action can be used to make the following changes:
 
 * Install and configure a service or web site such as Spark or Hue.
 * Install and configure a component that requires configuration changes on multiple nodes in the cluster. For example, a required environment variable, creating of a logging directory, or creation of a configuration file.
 
-Script Actions are Bash scripts that run during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
+Script Actions are Bash scripts. The scripts run during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -265,7 +265,7 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 >
 > This command returns the path of any matching jar files.
 
-If you want to use a different version than the one that comes with the cluster, you can upload a new version of the component to the and try using it in your jobs.
+To use a different version of a component, upload the version you need and use it in your jobs.
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.

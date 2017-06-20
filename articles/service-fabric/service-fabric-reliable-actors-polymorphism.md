@@ -18,15 +18,15 @@ ms.author: seanmck
 
 ---
 # Polymorphism in the Reliable Actors framework
-The Reliable Actors framework allows you to build actors using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints.
+The Reliable Actors framework allows you to build actors using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints. In case of Java/Linux, it follows the Java model.
 
 ## Interfaces
-The Reliable Actors framework requires you to define at least one interface to be implemented by your actor type. This interface is used to generate a proxy class that can be used by clients to communicate with your actors. Interfaces can inherit from other interfaces as long as every interface that is implemented by an actor type and all of its parents ultimately derive from IActor. IActor is the platform-defined base interface for actors. Thus, the classic polymorphism example using shapes might look something like this:
+The Reliable Actors framework requires you to define at least one interface to be implemented by your actor type. This interface is used to generate a proxy class that can be used by clients to communicate with your actors. Interfaces can inherit from other interfaces as long as every interface that is implemented by an actor type and all of its parents ultimately derive from IActor(C#) or Actor(Java) . IActor(C#) and Actor(Java) are the platform-defined base interfaces for actors in the frameworks .NET and Java respectively. Thus, the classic polymorphism example using shapes might look something like this:
 
 ![Interface hierarchy for shape actors][shapes-interface-hierarchy]
 
 ## Types
-You can also create a hierarchy of actor types, which are derived from the base Actor class that is provided by the platform. In the case of shapes, you might have a base `Shape` type:
+You can also create a hierarchy of actor types, which are derived from the base Actor class that is provided by the platform. In the case of shapes, you might have a base `Shape`(C#) or `ShapeImpl`(Java) type:
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -36,8 +36,16 @@ public abstract class Shape : Actor, IShape
     public abstract Task<double> GetAreaAsync();
 }
 ```
+```Java
+public abstract class ShapeImpl extends FabricActor implements Shape
+{
+    public abstract CompletableFuture<int> getVerticeCount();
 
-Subtypes of `Shape` can override methods from the base.
+    public abstract CompletableFuture<double> getAreaAsync();
+}
+```
+
+Subtypes of `Shape`(C#) or `ShapeImpl`(Java) can override methods from the base.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -56,6 +64,26 @@ public class Circle : Shape, ICircle
         return Math.PI *
             state.Radius *
             state.Radius;
+    }
+}
+```
+```Java
+@ActorServiceAttribute(name = "Circle")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class Circle extends ShapeImpl implements Circle
+{
+    @Override
+    public CompletableFuture<Integer> getVerticeCount()
+    {
+        return CompletableFuture.completedFuture(0);
+    }
+
+    @Override
+    public CompletableFuture<Double> getAreaAsync()
+    {
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

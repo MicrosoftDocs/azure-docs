@@ -1,6 +1,6 @@
 ---
-title: Create standalone Scala applications to run on Azure Spark clusters | Microsoft Docs
-description: Learn how to create a standalone Spark application to run on HDInsight Spark clusters.
+title: Create Scala Maven application to run on Azure Spark clusters | Microsoft Docs
+description: Learn how to create a standalone Spark application using Maven to run on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -19,9 +19,9 @@ ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
-# Create a standalone Scala application to run on Apache Spark cluster on HDInsight
+# Create a Scala Maven application to run on Apache Spark cluster on HDInsight
 
-This article provides step-by-step guidance on developing standalone Spark applications written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
+Learn how to create a Spark application written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  Creating a Scala application in IntelliJ IDEA involves the following steps:
 
 * Use Maven as the build system.
 * Update Project Object Model (POM) file to resolve Spark module dependencies.
@@ -34,7 +34,7 @@ This article provides step-by-step guidance on developing standalone Spark appli
 > 
 > 
 
-**Prerequisites**
+## Prerequisites
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).

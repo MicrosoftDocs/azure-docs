@@ -110,4 +110,46 @@ Learn how to use Devtest Labs to quickly create application test environments us
     </li>
 </ul>
 
+---
 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
+                        <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
+                        <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell: Create or modify labs automatically</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager templates</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

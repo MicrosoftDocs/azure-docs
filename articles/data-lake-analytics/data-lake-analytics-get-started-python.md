@@ -70,7 +70,8 @@ The azure-datalake-store module includes the Azure Data Lake Store filesystem op
 		from azure.datalake.store import core, lib, multithread
 
 		## Required for Azure Data Lake Analytics account management
-		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeAnalyticsAccountProperties, DataLakeStoreAccountInfo
+		from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
+		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
 
 		## Required for Azure Data Lake Analytics job management
 		from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient

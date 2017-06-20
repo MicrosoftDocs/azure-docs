@@ -1,4 +1,4 @@
----
+﻿---
 title: Navigate and select Windows VM images | Microsoft Docs
 description: Learn how to determine the publisher, offer, and SKU for images when creating a Windows virtual machine with the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -37,7 +37,7 @@ This topic describes how to find VM image publishers, offers, skus, and versions
 
 ## Find Azure images with PowerShell
 > [!NOTE]
-> Install and configure the [latest Azure PowerShell](/powershell/azureps-cmdlets-docs). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> Install and configure the [latest Azure PowerShell](/powershell/azure/overview). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 

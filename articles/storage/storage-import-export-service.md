@@ -13,12 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 
 ---
 # Use the Microsoft Azure Import/Export service to transfer data to blob storage
-
 The Azure Import/Export service allows you to securely transfer large amounts of data to Azure blob storage by shipping hard disk drives to an Azure data center. You can also use this service to transfer data from Azure blob storage to hard disk drives and ship to your on-premises site. This service is suitable in situations where you want to transfer several terabytes (TB) of data to or from Azure, but uploading or downloading over the network is infeasible due to limited bandwidth or high network costs.
 
 The service requires that hard disk drives should be BitLocker encrypted for the security of your data. The service supports both the Classic and Azure Resource Manager storage accounts (standard and cool tier) present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
@@ -69,6 +68,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+
 >
 
 ### Hard disk drives
@@ -100,9 +100,11 @@ Supported shipping locations:
 * East US
 * West US
 * East US 2
+* West US 2
 * Central US
 * North Central US
 * South Central US
+* West Central US
 * North Europe
 * West Europe
 * East Asia
@@ -112,9 +114,19 @@ Supported shipping locations:
 * Japan West
 * Japan East
 * Central India
-* Canada
-* US Gov
-* China
+* South India
+* West India
+* Canada Central
+* Canada East
+* Brazil South
+* Korea Central
+* US Gov Virginia
+* US Gov Iowa
+* US DoD East
+* US DoD Central
+* China East
+* China North
+* UK South
 
 ### Shipping
 **Shipping drives to the data center:**
@@ -236,7 +248,7 @@ In this section, we provide step-by-step instructions for creating an import and
 Create an import job to copy data to your Azure storage account from hard drives by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account, and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the WAImportExport tool. Second, submit an import job using the Azure portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
 
 > [!IMPORTANT]
-> You can submit only one job per storage account. Each drive you ship can be imported to one storage account. For example, let’s say you wish to import data into two storage accounts. You must use separate hard disk drives for each storage account and create separate jobs per storage account.
+> You can submit only one job per storage account. Each drive you ship can be imported to one storage account. For example, let's say you wish to import data into two storage accounts. You must use separate hard disk drives for each storage account and create separate jobs per storage account.
 > 
 > 
 
@@ -259,7 +271,7 @@ The first step when importing data using the Azure Import/Export service is to p
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
    
-    In the above example, 100M_1.csv.txt  will be copied to the root of the container named “containername”. If the container name “containername” does not exist, one will be created. All files and folders under 50M_original will be recursively copied to containername. Folder structure will be maintained.
+    In the above example, 100M_1.csv.txt  will be copied to the root of the container named "containername". If the container name "containername" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to containername. Folder structure will be maintained.
 
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -405,7 +417,7 @@ Following pre-checks are recommended for preparing your drives for an export job
    > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
    > 
    > 
-7. You can track your job progress on the dashboard in the Azure portal. See what each job state means in the previous section on “Viewing your job status”.
+7. You can track your job progress on the dashboard in the Azure portal. See what each job state means in the previous section on "Viewing your job status".
 8. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Navigate to your storage account in the Azure portal and click the Import/Export tab. Select your export job from the list, and click the View Keys button. The BitLocker keys appear as shown below:
    
    ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
@@ -493,6 +505,16 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
+**What is the maximum numbers of HDD for in one shipment?
+
+Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
+a) Have the disks labeled with the corresponding job names. 
+b) Update the jobs with a tracking number suffixed with -1, -2 etc.
+  
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+
+Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
+Max Page Blob size is 1TB.
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)

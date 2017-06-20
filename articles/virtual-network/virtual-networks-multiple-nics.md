@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a VM (Classic) with multiple NICs using PowerShell | Microsoft Docs
 description: Learn how to create and configure VMs with multiple NICs using PowerShell.
 services: virtual-network, virtual-machines
@@ -32,7 +32,7 @@ The figure shows a VM with three NICs, each connected to a different subnet.
 * At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs.
 * The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to **Eth2**, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same.
 * The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet.
-* The VM size determines the number of NICS that you can create for a VM. Reference the [Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM sizes articles to determine how many NICS each VM size supports. 
+* The VM size determines the number of NICS that you can create for a VM. Reference the [Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM sizes articles to determine how many NICS each VM size supports. 
 
 ## Network Security Groups (NSGs)
 In a Resource Manager deployment, any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG.
@@ -73,7 +73,7 @@ You need the following prerequisites before trying to run the PowerShell command
 
 * An Azure subscription.
 * A configured virtual network. See [Virtual Network Overview](virtual-networks-overview.md) for more information about VNets.
-* The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 To create a VM with multiple NICs, complete the following steps by entering each command within a single PowerShell session:
 

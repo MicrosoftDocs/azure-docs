@@ -37,6 +37,13 @@ The URLs for Log Analytics are different in Azure Government:
 | --- | --- | --- |
 | HDInsight Cluster | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
+For secured virtual networks, you will want to allow Network Security Groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the follow IP addresses (all with an Allowed port of 443):
+* 13.72.49.126
+* 13.72.184.124
+* 13.72.55.55
+* 13.72.190.110
+
+
 For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## Power BI

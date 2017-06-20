@@ -48,15 +48,15 @@ ms.custom: H1Hack27Feb2017
 
 ## Release Notes
 
-### <a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+### <a name="1.10.0"/>1.10.0
 * Enabled support for partitioned collection with as low as 2,500 RU/sec and scale in increments of 100 RU/sec.
 * Fixed a bug in the native assembly which can cause NullRef exception in some queries.
 
-### <a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+### <a name="1.9.6"/>1.9.6
 * Fixed a bug in the query engine configuration that may cause exceptions for queries in Gateway mode.
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
-### <a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+### <a name="1.9.5"/>1.9.5
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](documentdb-sql-query.md#Aggregates).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
@@ -66,7 +66,7 @@ ms.custom: H1Hack27Feb2017
 * Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
 * Improved performance of DirectHttps mode.
 
-### <a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+### <a name="1.9.4"/>1.9.4
 * Added simple client instance-based proxy support with ConnectionPolicy.setProxy() API.
 * Added DocumentClient.close() API to properly shutdown DocumentClient instance.
 * Improved query performance in direct connectivity mode by deriving the query plan from the native assembly instead of the Gateway.
@@ -74,22 +74,22 @@ ms.custom: H1Hack27Feb2017
 * Refactored logging to use SLF4J.
 * Fixed a few other bugs in consistency reader.
 
-### <a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+### <a name="1.9.3"/>1.9.3
 * Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
 * Fixed a bug in the TOP query where it may throw NullReferenece exception.
 * Improved performance by reducing the number of network call for the internal caches.
 * Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
 
-### <a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+### <a name="1.9.2"/>1.9.2
 * Fixed an issue in the connection management for stability.
 
-### <a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
+### <a name="1.9.1"/>1.9.1
 * Added support for BoundedStaleness consistency level.
 * Added support for direct connectivity for CRUD operations for partitioned collections.
 * Fixed a bug in querying a database with SQL.
 * Fixed a bug in the session cache where session token may be set incorrectly.
 
-### <a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
+### <a name="1.9.0"/>1.9.0
 * Added support for cross partition parallel queries.
 * Added support for TOP/ORDER BY queries for partitioned collections.
 * Added support for strong consistency.
@@ -99,46 +99,46 @@ ms.custom: H1Hack27Feb2017
 * Added Polygon and LineString DataTypes while specifying collection indexing policy for geo-fencing spatial queries.
 * Fixed issues with Java Doc for Java 1.8.
 
-### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+### <a name="1.8.1"/>1.8.1
 * Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
 * Fixed a bug to not retry when an incorrect partition key value is provided.
 
-### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+### <a name="1.8.0"/>1.8.0
 * Added the support for multi-region database accounts.
 * Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions().
 * Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
-### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+### <a name="1.7.1"/>1.7.1
 * Added retry policy support for throttling.  
 
-### <a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+### <a name="1.7.0"/>1.7.0
 * Added time to live (TTL) support for documents.
 
-### <a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+### <a name="1.6.0"/>1.6.0
 * Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md).
 
-### <a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+### <a name="1.5.1"/>1.5.1
 * Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
 
-### <a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+### <a name="1.5.0"/>1.5.0
 * Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
-### <a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+### <a name="1.4.0"/>1.4.0
 * Implement Upsert. New upsertXXX methods added to support Upsert feature.
 * Implement ID Based Routing. No public API changes, all changes internal.
 
 ### <a name="1.3.0"/>1.3.0
 * Release skipped to bring version number in alignment with other SDKs
 
-### <a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
+### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial Index
 * Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
-### <a name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
+### <a name="1.1.0"/>1.1.0
 * Implements V2 indexing policy
 
-### <a name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
+### <a name="1.0.0"/>1.0.0
 * GA SDK
 
 ## Release & Retirement Dates

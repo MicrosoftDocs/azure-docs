@@ -27,8 +27,6 @@ ms.author: gwallace
 The Topology feature of Network Watcher provides a visual representation of the network resources in a subscription. In the portal, this visualization is presented to you automatically. The information behind the topology view in the portal can be retrieved through PowerShell.
 This capability makes the topology information more versatile as the data can be consumed by other tools to build out the visualization.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 The interconnection is modeled under two relationships.
 
 - **Containment** - Example: VNet contains a Subnet contains a NIC

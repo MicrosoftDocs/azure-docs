@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs diagnostic logs | Microsoft Docs
-description: Learn how to set up diagnostic logs for Event Hubs in Azure.
+description: Learn how to set up diagnostic logs for event hubs in Azure.
 keywords:
 documentationcenter: ''
 services: event-hubs
@@ -41,7 +41,7 @@ Diagnostics logs are **off** by default. To enable diagnostic logs:
 
 	![Change the status of diagnostic logs](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an Event Hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
 
 6.	Select the categories of logs that you want to collect; for example, **Execution** or **Authoring**.
 
@@ -55,7 +55,7 @@ For more information about configuring diagnostics, see the [overview of Azure d
 Event Hubs captures diagnostic logs for two categories:
 
 * **ArchivalLogs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
-* **OperationalLogs** information about what is happening during Event Hubs operations, specifically, the operation type, including Event Hub creation, resources used, and the status of the operation.
+* **OperationalLogs** information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
 
 ## Diagnostic logs schema
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following examples.

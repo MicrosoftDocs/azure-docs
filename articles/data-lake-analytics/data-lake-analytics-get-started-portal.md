@@ -59,7 +59,7 @@ After a Data Lake Analytics account is created, you can add additional Data Lake
 accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## Prepare source data
-In this tutorial, you will process search logs.  The search log can be stored in either dData Lake store or Azure Blob storage.
+In this tutorial, you will process search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
 
 The Azure portal provides a user interface for copying sample data files to the default Data Lake Store account, which include a search log file.
 

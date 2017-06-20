@@ -1,6 +1,6 @@
 ---
 title: 'AAD auth: Azure SQL Database firewalls, authentication, access | Microsoft Docs'
-description: In this getting-started tutorial, you learn how to use SQL Server Management Studio and Transact-SQL to work with server-level and database-level firewall rules, Azure Active Directory authentication, logins, users, and roles to grant access and control to Azure SQL Database servers and databases.
+description: In this how-to guide, you learn how to use SQL Server Management Studio and Transact-SQL to work with server-level and database-level firewall rules, Azure Active Directory authentication, logins, users, and roles to grant access and control to Azure SQL Database servers and databases.
 keywords: ''
 services: sql-database
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.author: carlrab
 
 ---
 # Azure AD authentication, access, and database-level firewall rules
-In this tutorial, you learn how to use SQL Server Management Studio to work with Azure Active Directory authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
+In this how-to guide, you learn how to use SQL Server Management Studio to work with Azure Active Directory authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
 - View user permissions in the master database and in user databases
 - Create logins and users based on Azure Active Directory authentication
@@ -29,7 +29,7 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 - Create database-level firewall rules for database users
 - Create server-level firewall rules for server admins
 
-**Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
+**Time estimate**: This how-to guide takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 
 ## Prerequisites
 
@@ -39,18 +39,18 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
-* **Base server and databases** To install and configure a server and the two databases used in this tutorial, click the **Deploy to Azure** button. Clicking the button opens the **Deploy from a template** blade; create a new resource group, and provide the **Admin Login Password** for the new server that will be created:
+* **Base server and databases** To install and configure a server and the two databases used in this how-to guide, click the **Deploy to Azure** button. Clicking the button opens the **Deploy from a template** blade; create a new resource group, and provide the **Admin Login Password** for the new server that will be created:
 
    [![download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
-   > The completion of the related tutorial for SQL Server authentication, [SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md), is optional - however, there are concepts covered in that tutorial that are not repeated here. The procedures in this tutorial related to server and database level firewalls are not required if you completed this related tutorial on the same computers (with the same IP addresses) and are marked as optional for that reason. Also, the screenshots in this tutorial assume that you have completed of this related tutorial. 
+   > The completion of the related how-to guide for SQL Server authentication, [SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md), is optional - however, there are concepts covered in that how-to guide that are not repeated here. The procedures in this how-to guide related to server and database level firewalls are not required if you completed this related how-to guide on the same computers (with the same IP addresses) and are marked as optional for that reason. Also, the screenshots in this how-to guide assume that you have completed of this related how-to guide. 
    >
 
 * You have created and populated an Azure Active Directory. For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), and [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
-> This tutorial helps you to learn the content of these learn topics: [SQL Database access and control](sql-database-control-access.md), [Logins, users, and database roles](sql-database-manage-logins.md), [Principals](https://msdn.microsoft.com/library/ms181127.aspx), [Database roles](https://msdn.microsoft.com/library/ms189121.aspx), [SQL Database firewall rules](sql-database-firewall-configure.md), and [Azure Active Directory authentication](sql-database-aad-authentication.md). 
+> This how-to guide helps you to learn the content of these learn topics: [SQL Database access and control](sql-database-control-access.md), [Logins, users, and database roles](sql-database-manage-logins.md), [Principals](https://msdn.microsoft.com/library/ms181127.aspx), [Database roles](https://msdn.microsoft.com/library/ms189121.aspx), [SQL Database firewall rules](sql-database-firewall-configure.md), and [Azure Active Directory authentication](sql-database-aad-authentication.md). 
 >  
 
 ## Sign in to the Azure portal using your Azure account
@@ -60,14 +60,9 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
    
-   ![Sign in](./media/sql-database-get-started/login.png)
-
-
-<a name="create-logical-server-bk"></a>
-
 ## Provision an Azure Active Directory admin for your SQL logical server
 
-In this section of the tutorial, you view information about the security configuration for your logical server in the Azure portal.
+In this section of the how-to guide, you view information about the security configuration for your logical server in the Azure portal.
 
 1. Open the **SQL Server** blade for your logical server and view the information in the **Overview** page. Notice that an Azure Active Directory admin has not been configured.
 
@@ -86,7 +81,7 @@ In this section of the tutorial, you view information about the security configu
    ![Save selected AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> To review connection information for this server, go to [Manage servers](sql-database-manage-servers-portal.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
+> To review connection information for this server, go to [Connect with SSMS](sql-database-connect-query-ssms.md). For this how-to guide series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)
@@ -95,7 +90,7 @@ In this section of the tutorial, you view information about the security configu
 
 2. After installing, type **Microsoft SQL Server Management Studio** in the Windows search box and click **Enter** to open SSMS.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+   ![SQL Server Management Studio](./media/sql-database-connect-query-ssms/ssms.png)
 
 3. In the **Connect to Server** dialog box, select one of the Active Directory authentication methods and then provide the appropriate authentication information. For information on choosing a method, see [Azure Active Directory authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA](sql-database-ssms-mfa-authentication.md).
 
@@ -108,7 +103,7 @@ In this section of the tutorial, you view information about the security configu
    ![connected to server with aad](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
 ## View the Server admin account and its permissions 
-In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
+In this section of the how-to guide, you view information about the server admin account and its permissions in the master database and in user databases.
 
 1. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Active Directory admin. Notice also that a login was not created for Active Directory admin user account.
 
@@ -189,10 +184,10 @@ In this section of the tutorial, you view information about the server admin acc
 
 ## Create a new user in the AdventureWorksLT database with SELECT permissions
 
-In this section of the tutorial, you create a user account in the AdventureWorksLT database based on a user's principal name of an Azure AD user or display name for an Azure AD group, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
+In this section of the how-to guide, you create a user account in the AdventureWorksLT database based on a user's principal name of an Azure AD user or display name for an Azure AD group, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
 
 > [!NOTE]
-> Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we explore in later tutorials.
+> Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we explore in later how-to guides.
 >
 
 1. In Object Explorer, right-click **AdventureWorksLT** and then click **New Query** to open a query window connected to the AdventureWorksLT database.
@@ -257,13 +252,13 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 ## Create a database-level firewall rule for AdventureWorksLT database users
 
 > [!NOTE]
-> You do not need to complete this procedure if you completed the equivalent procedure in the related tutorial for SQL Server authentication, [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) and are learning using the same computer with the same IP address.
+> You do not need to complete this procedure if you completed the equivalent procedure in the related how-to guide for SQL Server authentication, [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) and are learning using the same computer with the same IP address.
 >
 
-In this section of the tutorial, you attempt to log in using the new user account from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then successfully log in using this new database-level firewall rule. 
+In this section of the how-to guide, you attempt to log in using the new user account from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then successfully log in using this new database-level firewall rule. 
 
 > [!NOTE]
-> [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later tutorials.
+> [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later how-to guides.
 >
 
 1. On another computer for which you have not already created a server-level firewall rule, open SQL Server Management Studio.
@@ -276,7 +271,7 @@ In this section of the tutorial, you attempt to log in using the new user accoun
     
    ![Connect as aaduser1@microsoft.com without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
-3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+3. Click **Options** in the **Connect to server** dialog box to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
    ![Connect as aaduser1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 

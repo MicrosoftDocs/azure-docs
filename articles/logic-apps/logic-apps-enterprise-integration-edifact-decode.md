@@ -46,7 +46,7 @@ that's already defined in your integration account
 so you must add a trigger for starting your logic app, like a Request trigger. 
 In the Logic App Designer, add a trigger, and then add an action to your logic app.
 
-3.	In the search box, enter "EDIFACT" as your filter. 
+3. In the search box, enter "EDIFACT" as your filter. 
 Select **Decode EDIFACT Message**.
    
     ![search EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
@@ -64,7 +64,7 @@ and select the integration account that you want to connect.
 	| Connection Name * |Enter any name for your connection. |
 	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
 
-4.	When you're done to finish creating your connection, choose **Create**. 
+4. When you're done to finish creating your connection, choose **Create**. 
 Your connection details should look similar to this example:
 
 	![integration account details](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  

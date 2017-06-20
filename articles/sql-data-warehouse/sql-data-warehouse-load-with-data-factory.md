@@ -14,9 +14,10 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: loading
 ms.date: 02/08/2017
 ms.author: jingwang;kevin;barbkess
-ms.custom: loading
+
 
 ---
 

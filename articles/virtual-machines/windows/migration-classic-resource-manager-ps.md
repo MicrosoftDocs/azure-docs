@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate to Resource Manager with PowerShell | Microsoft Docs
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
@@ -48,7 +48,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 ## Step 2: Install the latest version of Azure PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 <br>
 
@@ -175,7 +175,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     $subnetName = "mySubNet"
     ```
   
-    First, validate if you can migrate the cloud service using the following command:
+    First, validate if you can migrate the virtual network using the following command:
   
     ```powershell
     $validate = Move-AzureService -Validate -ServiceName $serviceName `

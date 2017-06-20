@@ -80,7 +80,7 @@ Alert rules in a management solution are made up of the following three differen
 
 - **Saved search.**  Defines the log search that will be run.  Multiple alert rules can share a single saved search.
 - **Schedule.**  Defines how often the log search will be run.  Each alert rule will have one and only one schedule.
-- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
+- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
 - **Webhook action (optional).**  If the alert rule will call a webhook, then it requires an additional action resource with a type of **Webhook**.    
 
 Saved search resources are described above.  The other resources are described below.
@@ -227,7 +227,7 @@ This section is optional  Include it if you want a runbook to start in response 
 
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent. They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks. They also provide the additional option of providing a payload to be delivered to the remote process.
 
-If your alert will call a webhook, then it need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
+If your alert will call a webhook, then it will need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
 
 	{
 		"name": "<name-of-the-action>",
@@ -246,7 +246,7 @@ If your alert will call a webhook, then it need an action resource with a type o
 		}
 	}
 
-The properties for Alert action resources are described in the following tables.
+The properties for Webhook action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
@@ -270,7 +270,7 @@ Following is a sample of a solution that include that includes the following res
 The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
-	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
 	    "parameters": {
 	      "workspaceName": {

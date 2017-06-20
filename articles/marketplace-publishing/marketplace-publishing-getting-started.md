@@ -67,7 +67,7 @@ If the eligibility criteria is met per the [Azure Marketplace participation poli
 ### Virtual Machine Image specific
 * [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Create a virtual machine running Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a virtual machine running Linux in the Azure portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a virtual machine running Linux in the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
 ## How to manage your solution
@@ -83,7 +83,6 @@ If the eligibility criteria is met per the [Azure Marketplace participation poli
 * [How to revert billing model to production values](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
 * [How to revert visibility setting of a listed SKU to the production value](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-* [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 * [Understanding your payout reporting](marketplace-publishing-report-payout.md)
 * [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 

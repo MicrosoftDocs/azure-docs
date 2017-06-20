@@ -122,29 +122,8 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
 ## Configuring user provisioning
 
-In order to enable Azure AD users to log into Gigya, they must be provisioned into Gigya.  
-In the case of Gigya, provisioning is a manual task.
+Azure AD users are automatically provisioned the first time they log into Gigya.
 
-### To provision a user accounts, perform the following steps:
-1. Log in to your **Gigya** company site as an administrator.
-2. Go to **Admin \> Manage Users**, and then click **Invite Users**.
-   
-    ![Manage Users](./media/active-directory-saas-gigya-tutorial/IC789535.png "Manage Users")
-
-3. On the Invite Users dialog, perform the following steps:
-   
-    ![Invite Users](./media/active-directory-saas-gigya-tutorial/IC789536.png "Invite Users")
-   
-    a. In the **Email** textbox, type the email alias of a valid Azure Active Directory account you want to provision.
-    
-    b. Click **Invite User**.
-      
-    > [!NOTE]
-    > The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active.
-    > 
-    > 
-
- 
 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.

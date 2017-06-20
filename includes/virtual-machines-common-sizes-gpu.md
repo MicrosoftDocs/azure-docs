@@ -15,10 +15,6 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 1 GPU = one-half M60 card.
 
-**Supported operating systems**
-
-* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
 ## NC instances
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
@@ -32,10 +28,4 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 *RDMA capable
 
-**Supported operating systems**
-
-* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS - see [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
-
-<br>
 

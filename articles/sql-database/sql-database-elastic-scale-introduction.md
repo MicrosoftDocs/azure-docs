@@ -90,7 +90,7 @@ For a sample app that demonstrates the client library, see [Get started with Ela
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md), or create a new pool with [elastic pools](sql-database-elastic-pool-manage-portal.md).  
+To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md), or create a new pool with [elastic pools](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

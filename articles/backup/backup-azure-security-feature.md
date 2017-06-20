@@ -1,5 +1,5 @@
 ---
-title: Security Features for protecting hybrid backups using Azure Backup | Microsoft Docs
+title: Security features to help protect hybrid backups that use Azure Backup | Microsoft Docs
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
 documentationcenter: ''
@@ -17,98 +17,94 @@ ms.date: 02/17/2017
 ms.author: pajosh
 
 ---
-# Security features for protecting hybrid backups using Azure Backup
-More and more customers are hit with security issues like malware, ransomware, intrusion etc. These security issues result in data loss and cost per security breach has been ever increasing. To guard against such attacks, Azure Backup now provides Security Features to protect hybrid backups. This article talks about how to enable and leverage these features using Microsoft Azure Recovery Services Agent and Microsoft Azure Backup Server. These features have been built on three pillars of security:
+# Security features to help protect hybrid backups that use Azure Backup
+Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:
 
-1. **Prevention** - An additional layer of authentication is added whenever a critical operation like Change Passphrase is performed. This validation is to ensure that such operations can be performed only by users having valid Azure credentials.
-2. **Alerting** - Email notification is sent to subscription admin whenever a critical operation like Delete Backup data is performed. This email ensures that user is timely notified about such actions.
-3. **Recovery** - Deleted backup data is retained for additional 14 days from the date of delete. This ensures recoverability of the data within given time period so there is no data loss even if attack happens. Also, more number of minimum recovery points are maintained to guard against corrupt data.
+- **Prevention**. An additional layer of authentication is added whenever a critical operation like changing a passphrase is performed. This validation is to ensure that such operations can be performed only by users who have valid Azure credentials.
+- **Alerting**. An email notification is sent to the subscription admin whenever a critical operation like deleting backup data is performed. This email ensures that the user is notified quickly about such actions.
+- **Recovery**. Deleted backup data is retained for an additional 14 days from the date of the deletion. This ensures recoverability of the data within a given time period, so there is no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data.
 
 > [!NOTE]
-> Security Features should be enabled only if you are using: <br/>
-> * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data. <br/>
-> * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1. <br/>
-> * **DPM** - minimum MAB agent version 2.0.9052 with DPM 2012 R2 UR12 or DPM 2016 UR2. <br/>
-> * **IaaS VM Backup** - Do not enable these features for IaaS VM Backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact on IaaS VM backup.
-> * These features are available only for Recovery Services vault.
-> * All the newly created Recovery Services vaults have these features enabled by default. For existing recovery services vaults, users need to enable these features using the steps mentioned in the section below.
-> * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines, Azure Backup Servers and DPM servers registered with the vault. <br/>
-> * Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
->
+> Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
+>  * **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
+>  * **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
+>  * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/> 
+
+
+> [!NOTE]
+> These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault. Enabling this setting is a one-time action, and you cannot disable these features after enabling them.
 >
 
-## Enabling Security features
-Users creating recovery services vault would be able to avail all the Security Features. For existing recovery services vault, following steps should be used to enable these features:
+## Enable security features
+If you are creating a Recovery Services vault, you can use all the security features. If you are working with an existing vault, enable security features by following these steps:
 
-1. Log in to Azure portal using Azure credentials
-2. Type in Recovery Services in the Hub menu to navigate to recovery services list.
+1. Sign in to the Azure portal by using your Azure credentials.
+2. Select **Browse**, and type **Recovery Services**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Screenshot of Azure portal Browse option](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    The list of recovery services vaults appears. From this list, select a vault.
+    The list of recovery services vaults appears. From this list, select a vault. The selected vault dashboard opens.
+3. From the list of items that appears under the vault, under **Settings**, click **Properties**.
 
-    The selected vault dashboard opens.
-3. From the list of items that appears under vault, click **Properties** under **Settings**.
+    ![Screenshot of Recovery Services vault options](./media/backup-azure-security-feature/vault-list-properties.png)
+4. Under **Security Settings**, click **Update**.
 
-    ![Open vault properties](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Click **Update** under **Security Settings**.
+    ![Screenshot of Recovery Services vault properties](./media/backup-azure-security-feature/security-settings-update.png)
 
-    ![Open security settings](./media/backup-azure-security-feature/security-settings-update.png)
+    The update link opens the **Security Settings** blade, which provides a summary of the features and lets you enable them.
+5. From the drop-down list **Have you configured Azure Multi-Factor Authentication?**, select a value to confirm if you have enabled [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). If it is enabled, you are asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
-    Update link opens Security Settings blade, which lets you Enable these features and gives summary of the feature.
-5. Select a value from the drop down **Have you configured Azure Multi-Factor Authentication?** to confirm if you have enabled [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). If it is enabled, you are asked to authenticate from another device (e.g. mobile phone) while logging in to Azure portal.
+   When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
+6. To save security settings, select **Enable** and click **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure Multi-Factor Authentication?** list in the previous step.
 
-   As part of Security Features, when critical operations are performed in Azure Backup, you have to enter Security PIN available on Azure portal. Enabling Azure Multi-Factor authentication adds a layer of security, ensuring only authorized users with valid Azure credentials and authenticated from second device can access Azure portal and perform such critical operations.
-6. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure. You can select **Enable** only after you select a value from "Have you configured Azure Multi-Factor Authentication?" drop down.
+    ![Screenshot of security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
-    ![Enable security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+## Recover deleted backup data
+Backup retains deleted backup data for an additional 14 days, and does not delete it immediately if the **Stop backup with delete backup data** operation is performed. To restore this data in the 14-day period, take the following steps, depending on what you are using:
 
-## Recovering deleted backup data
-As a security measure, Azure Backup retains deleted backup data for additional 14 days and does not delete it immediately if Stop backup with delete backup data operation is performed. To restore this data in the 14-day period, use the following steps:
+For **Azure Recovery Services agent** users:
 
-For **Microsoft Recovery Services Agent (MARS)** users:
-
-1. If the machine where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in MARS to recover from all the old recovery points.
-2. If the machine mentioned above is not available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another MARS machine to get this data.
+1. If the computer where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Azure Recovery Services, to recover from all the old recovery points.
+2. If this computer is not available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another Azure Recovery Services computer to get this data.
 
 For **Azure Backup Server** users:
 
-1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
-2. If the machine mentioned above is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server to get this data.
+1. If the server where backups were happening is still available, re-protect the deleted data sources, and use the **Recover Data** feature to recover from all the old recovery points.
+2. If this server is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server instance to get this data.
 
-For **Data Protection Manager (DPM)** users:
+For **Data Protection Manager** users:
 
-1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
-2. If the machine mentioned above is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another DPM Server to get this data.
+1. If the server where backups were happening is still available, re-protect the deleted data sources, and use the **Recover Data** feature to recover from all the old recovery points.
+2. If this server is not available, use [Add External DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Data Protection Manager server to get this data.
 
-## Preventing attacks
-As part of this feature, checks have been added to make sure only valid users can perform various operations.
+## Prevent attacks
+Checks have been added to make sure only valid users can perform various operations. These include adding an extra layer of authentication, and maintaining a minimum retention range for recovery purposes.
 
 ### Authentication to perform critical operations
-As part of adding extra layer of authentication for critical operations, you would be prompted to enter Security PIN when performing Stop Protection with Delete data and Change Passphrase operations.
+As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
 
-To receive Security PIN, use the following steps:
+To receive this PIN:
 
-1. Log in to Azure portal.
-2. Navigate to recovery service vault > Settings > Properties.
-3. Click **Generate** under Security PIN. Generate link opens a blade, which contains Security PIN to be entered in Azure Recovery Services Agent UI.
-    This PIN is valid only for 5 minutes and gets generated automatically after that period.
+1. Sign in to the Azure portal.
+2. Browse to **Recovery Services vault** > **Settings** > **Properties**.
+3. Under **Security PIN**, click **Generate**. This opens a blade that contains the PIN to be entered in the Azure Recovery Services agent user interface.
+    This PIN is valid for only five minutes, and it gets generated automatically after that period.
 
-### Maintaining minimum retention range
-To ensure that there are always a valid number of recovery points available, following checks have been added:
+### Maintain a minimum retention range
+To ensure that there are always a valid number of recovery points available, the following checks have been added:
 
-1. For daily retention, minimum **seven** days of retention should be done
-2. For weekly retention, minimum **four** weeks of retention should be done
-3. For monthly retention, minimum **three** months of retention should be done
-4. For yearly retention, minimum **one** year of retention should be done
+- For daily retention, a minimum of **seven** days of retention should be done.
+- For weekly retention, a minimum of **four** weeks of retention should be done.
+- For monthly retention, a minimum of **three** months of retention should be done.
+- For yearly retention, a minimum of **one** year of retention should be done.
 
 ## Notifications for critical operations
-Whenever some critical operations are performed, subscription admin would be sent an email notification with details about the operation. If you want to configure additional email ids to receive email notifications, you can use Azure portal to configure them.
+Typically, when a critical operation is performed, the subscription admin is sent an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
 
-The Security features mentioned in this article, provide defense mechanisms against targeted attacks preventing attackers to touch the backups. More importantly, these features provide an ability to recover data if at all attack happens.
+The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
 
-## Next Steps
-* [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features
-* [Download latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to protect Windows machines and guard your backup data against attacks
-* [Download latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to protect workloads and guard your backup data against attacks
-* [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to protect workloads and guard your backup data against attacks
+## Next steps
+* [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
+* [Download the latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
+* [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
+* [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.

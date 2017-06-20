@@ -18,6 +18,7 @@
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
 
@@ -30,15 +31,15 @@
 # How to
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
-### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
-### [Usage analysis with Application Insights](app-insights-overview-usage.md)
+### [Usage analysis with Application Insights](app-insights-web-track-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
 
 ## Configure
 ### Azure
+#### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 
 ### ASP.NET
@@ -49,7 +50,6 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [FAQ](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -76,6 +76,7 @@
 #### [Dashboards](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
+#### [Live stream](app-insights-live-stream.md)
 
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
@@ -92,6 +93,7 @@
 #### [Tour](app-insights-analytics-tour.md)
 #### [Using](app-insights-analytics-using.md)
 #### [Import](app-insights-analytics-import.md)
+#### [Diagnostics](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
@@ -111,7 +113,7 @@
 ### [Manage pricing and quota](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
-##Export
+## Export
 ### [Continuous export](app-insights-export-telemetry.md)
 ### [Export data model](app-insights-export-data-model.md)
 ### [Export to Power BI](app-insights-export-power-bi.md)
@@ -132,17 +134,20 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Data model](application-insights-data-model.md)
+### [Request](application-insights-data-model-request-telemetry.md)
+### [Dependency](application-insights-data-model-dependency-telemetry.md)
+### [Exception](application-insights-data-model-exception-telemetry.md)
+### [Trace](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [Metric](application-insights-data-model-metric-telemetry.md)
+## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
 
 ## [Languages and platforms](app-insights-platforms.md)
 
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
-
-## [Samples and walkthroughs](app-insights-code-samples.md)
-### [Walkthrough: Enabling telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Code sample: Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
 
 ## News
 
@@ -151,12 +156,13 @@
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
 ### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Support](app-insights-get-dev-support.md)
+### [Support](https://azure.microsoft.com/support/)
 
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

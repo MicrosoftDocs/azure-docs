@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 
 ---
@@ -32,7 +32,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 ## Checklist before moving resources
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must exist within the same [Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
   For Azure PowerShell, use:
 
@@ -46,7 +46,7 @@ There are some important steps to perform before moving a resource. By verifying
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to change the associated Active Directory. 
+  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to change the associated Azure Active Directory. 
 
   ![edit directory](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -64,7 +64,7 @@ You can move most resources through the self-service operations shown in this to
 
 Call support when you need to:
 
-* Move your resources to a new Azure account (and Active Directory tenant).
+* Move your resources to a new Azure account (and Azure Active Directory tenant).
 * Move classic resources but are having trouble with the limitations.
 
 ## Services that enable move
@@ -72,6 +72,7 @@ For now, the services that enable moving to both a new resource group and subscr
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* Application Insights
 * Automation
 * Batch
 * Bing Maps
@@ -111,6 +112,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Traffic Manager
 * Virtual Machines - Does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Virtual Machine Scale Sets
 * Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled.
 * VPN Gateway 
 
@@ -120,7 +122,6 @@ The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
-* Application Insights
 * BizTalk Services
 * Container Service
 * Express Route
@@ -131,11 +132,9 @@ The services that currently do not enable moving a resource are:
 * Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
 * Availability sets with Virtual Machines with Managed Disks
-* Virtual Machine Scale Sets with Managed Disks
 * Managed Disks
 * Images created from Managed Disks
 * Snapshots created from Managed Disks
-* Virtual Machines Scale Sets
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
@@ -145,12 +144,12 @@ When working with App Service apps, you cannot move only an App Service plan. To
 * Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan. 
 * Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
-If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently enable the move operation. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
 
 For example, if your resource group contains:
 
-* **web-a** which is associated with **plan-a** and **app-insights-a**
-* **web-b** which is associated with **plan-b** and **app-insights-b**
+* **web-a** which is associated with **plan-a**
+* **web-b** which is associated with **plan-b**
 
 Your options are:
 
@@ -159,7 +158,7 @@ Your options are:
 * Move **web-a**
 * Move **web-b**
 
-All other combinations involve either moving a resource type that can't move (Application Insights) or leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
+All other combinations involve leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
 
 If your web app resides in a different resource group than its App Service plan but you want to move both to a new resource group, you must perform the move in two steps. For example:
 

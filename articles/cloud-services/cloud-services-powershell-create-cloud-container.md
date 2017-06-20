@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a cloud service container with PowerShell | Microsoft Docs
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
 services: cloud-services
@@ -25,7 +25,7 @@ This article explains how to quickly create a Cloud Services container using Azu
 3. Use the [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) to sign in.
 
    > [!NOTE]
-   > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azure/overview).
    >
    >
 4. Use the **New-AzureService** cmdlet to create an empty Azure cloud service container.

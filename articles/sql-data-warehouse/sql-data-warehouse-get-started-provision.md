@@ -14,6 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: create
 ms.date: 10/31/2016
 ms.author: barbkess
 
