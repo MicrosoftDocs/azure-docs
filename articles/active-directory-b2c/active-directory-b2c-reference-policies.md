@@ -20,7 +20,7 @@ ms.author: sama
 # Azure Active Directory B2C: Built-in policies
 
 
-The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in, or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
 * Account types (social accounts such as Facebook or local accounts such as email addresses) that consumers can use to sign up for the application.
 * Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
@@ -28,9 +28,9 @@ The extensible policy framework of Azure Active Directory (Azure AD) B2C is the 
 * The look and feel of all sign-up pages.
 * Information (which manifests as claims in a token) that the application receives when the policy run finishes.
 
-You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
+You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This flexibility enables developers to define and modify consumer identity experiences with minimal or no changes to their code.
 
-Policies are available for use via a simple developer interface. Your application triggers a policy by using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests that invoke a sign-up policy and those that invoke a sign-in policy is the policy name that's used in the "p" query string parameter:
+Policies are available for use via a simple developer interface. Your application triggers a policy by using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests that invoke a sign-up policy and requests that invoke a sign-in policy is the policy name that's used in the "p" query string parameter:
 
 ```
 
@@ -60,7 +60,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-For more details about the policy framework, see this [blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+For more information about the policy framework, see this [blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
 This policy handles both consumer sign-up and sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. 
@@ -81,7 +81,7 @@ The policy also describes the contents of tokens that the application receives a
 
 7. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new**, and **User's Object ID**.
 
-8. Select **Create**. Note that the policy that you just created appears as **B2C_1_SiUpIn** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
+8. Select **Create**. Note that the policy that you created appears as **B2C_1_SiUpIn** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
 
 9. Open the policy by selecting **B2C_1_SiUpIn**.
 
@@ -103,7 +103,7 @@ To enable sign-up in your application, you need to create a sign-up policy. This
 
 3. Select **+Add** at the top of the blade.
 
-4. The **Name** determines the the name of the sign-up policy name that's used by your application. For example, enter **SiUp**.
+4. The **Name** determines the name of the sign-up policy name that's used by your application. For example, enter **SiUp**.
 
 5. Select **Identity providers**, and then select **Email signup**. Optionally, you can also select social identity providers if they're already configured. Click **OK**.
 
@@ -111,7 +111,7 @@ To enable sign-up in your application, you need to create a sign-up policy. This
 
 7. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful sign-up experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new**, and **User's Object ID**.
 
-8. Select **Create**. Note that the policy that was just created appears as **B2C_1_SiUp** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
+8. Select **Create**. Note that the policy that was created appears as **B2C_1_SiUp** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
 
 9. Open the policy by selecting **B2C_1_SiUp**.
 
@@ -139,7 +139,7 @@ To enable sign-in in your application, you need to create a sign-in policy. This
 
 6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**,  and **User's Object ID**, and then click **OK**.
 
-7. Select **Create**. Note that the policy that was just created appears as **B2C_1_SiIn** (the **B2C\_1\_** fragment is automatically added) in the **Sign-in policies** blade.
+7. Select **Create**. Note that the policy that was created appears as **B2C_1_SiIn** (the **B2C\_1\_** fragment is automatically added) in the **Sign-in policies** blade.
 
 8. Open the policy by clicking **B2C_1_SiIn**.
 
@@ -169,7 +169,7 @@ To enable profile editing on your application, you need to create a profile edit
 
 6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful profile editing experience. For example, select **Display Name** and **Postal Code**.
 
-8. Select **Create**. Note that the policy that was just created appears as **B2C_1_SiPe** (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
+8. Select **Create**. Note that the policy that was created appears as **B2C_1_SiPe** (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
 
 9. Open the policy by selecting **B2C_1_SiPe**.
 
@@ -186,9 +186,9 @@ To enable profile editing on your application, you need to create a profile edit
 To enable fine-grained password reset on your application, you need to create a password reset policy. Note that the tenant-wide password reset option specified at [
 Azure Active Directory B2C: Set up self-service password reset for your consumers](active-directory-b2c-reference-sspr.md) is still applicable for sign-in policies. 
 
-This policy describes the experiences that the consumers  go through during password reset and the contents of tokens that the application receive after the password is successfully reset.
+This policy describes the experiences that the consumers  go through during password reset and the contents of tokens that the application receives after the password is successfully reset.
 
-1. [First, follow these steps to navigate to the B2C features blade on the Azure portal.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [First, follow these steps to navigate to the B2C features blade on the Azure portal.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
 
 2. Select **Password reset policies**.
 
@@ -200,11 +200,11 @@ This policy describes the experiences that the consumers  go through during pass
 
 6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful password reset experience. For example, select **User's Object ID**.
 
-7. Select **Create**. Note that the policy that was just created appears as **B2C_1_SSPR** (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
+7. Select **Create**. Note that the policy that was created appears as **B2C_1_SSPR** (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
 
-8. Open the policy by clicking "**B2C_1_SSPR**".
+8. Open the policy by clicking **B2C_1_SSPR**.
 
-9. in the **Applications** drop-down menu, select **Contoso B2C app**, and in the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/` .
+9. in the **Applications** drop-down menu, select **Contoso B2C app**, and in the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
 
 10. Select **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
     
@@ -216,9 +216,9 @@ This policy describes the experiences that the consumers  go through during pass
 ## Frequently asked questions
 
 ### How do I link a sign-up or sign-in policy with a password reset policy?
-When you create a sign-up or sign-in policy (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking on this link doesn't automatically trigger a password reset policy. 
+When you create a sign-up or sign-in policy (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset policy. 
 
-Instead, the error code **`AADB2C90118`** is returned to your app. Your app needs to handle this and invoke a specific password reset policy. For more information, see a [sample that demonstrates the approach of linking policies](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Instead, the error code **`AADB2C90118`** is returned to your app. Your app needs to handle this error code by invoking a specific password reset policy. For more information, see a [sample that demonstrates the approach of linking policies](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### Should I use a sign-up or sign-in policy or a sign-up policy and a sign-in policy?
 We recommend that you use a sign-up or sign-in policy over a sign-up policy and a sign-in policy.  
@@ -228,6 +228,6 @@ The sign-up or sign-in policy has more capabilities than the sign-in policy. It 
 The sign-in policy is recommended if you don't need to localize your policies, only need minor customization capabilities for branding, and want password reset built into it.
 
 ## Next steps
-* [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md)
+* [Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md)
 * [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 
