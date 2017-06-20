@@ -28,7 +28,7 @@ ms.author: mlearned
 <ol>
     <li><a href="https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service with Azure CLI</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, GitHub, and Jenkins</a></li>
 </ol>
 
