@@ -1,4 +1,4 @@
-# [Docker on Azure](index.md)
+# [Docker](index.md)
 # How-to guides
 ## [Python, PostgreSQL, Docker](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [Create Docker Hosts](/azure/virtual-machines/linux/docker-machine)
@@ -9,8 +9,4 @@
 # Resources
 ## [Ubuntu: Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
 ## [Docker Azure Site](https://github.com/jenkinsci/windows-azure-storage-plugin)
-## [Jenkins site](https://www.docker.com/docker-azure)
 ## [Docker Azure driver](https://docs.docker.com/machine/drivers/azure/)
-
-
-
