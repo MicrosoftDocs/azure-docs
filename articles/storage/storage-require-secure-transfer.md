@@ -1,47 +1,50 @@
 ﻿---
-title: Require Secure Transfer in Azure Storage | Microsoft Docs
-description: Learn about the Require Secure Transfer feature for Azure Storage, and how to enable the feature.
+title: Require secure transfer in Azure Storage | Microsoft Docs
+description: Learn about the "Require secure transfer" feature for Azure Storage, and how to enable it.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
 
-ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
+ms.assetid:
 ms.service: storage
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 06/07/2017
+ms.date: 06/19/2017
 ms.author: fryu
-
 ---
-# Require Secure Transfer
+# Require secure transfer
 
-The Secure Transfer option enhances the security of your storage account by only allowing requests to the storage account in secure connection. For example, when calling REST APIs to access your storage accounts, you must connect using HTTPS. Any requests using HTTP is rejected when Require Secure Transfer is enabled. When you are using the Azure Files service, connection without encryption fails, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. 
+The "Require secure transfer" option enhances the security of your storage account by only allowing requests to the storage account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
 
-Because Azure Storage doesn’t support HTTPS for custom domain names, this option is not applied when using a custom domain name.
+When you are using the Azure Files service, any connection without encryption fails, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. 
 
-By default, this option is disabled.
+By default, the "Secure transfer required" option is disabled.
 
-## Enable Secure transfer required in the Azure portal
+> [!NOTE]
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when using a custom domain name.
 
-1. Enable Secure transfer required when you create a storage account
+## Enable "Secure transfer required" in the Azure portal
 
-1.1 You can find the "Secure transfer required" option in the blade.
+You can enable the "Secure transfer required" setting both when you create a storage account in the [Azure portal](https://portal.azure.com), and for existing storage accounts.
+
+### Require secure transfer when you create a storage account
+
+1. Open the **Create storage account** blade in the Azure portal. 
+1. Under **Secure transfer required**, select **Enabled**.
 
   ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
-1.2 Click **Enabled** to enable this option.
+### Require secure transfer for a existing storage account
 
-2. Enable Secure transfer required for an existing storage account
-
-2.1 Click an existing storage account, and you can find the "Secure transfer required" option in Configuration under Settings.
+1. Select an existing storage account in the Azure portal.
+1. Select **Configuration** under **SETTINGS** in the storage account menu blade.
+1. Under **Secure transfer required**, select **Enabled**.
 
   ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
-
-2.1 Click **Enabled** to enable this option.
 
 ## Next steps
 Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, visit the [Storage Security Guide](storage-security-guide.md).

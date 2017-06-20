@@ -113,7 +113,7 @@
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
 ### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
-### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Shared key authentication](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Client-side encryption
