@@ -1,4 +1,5 @@
 # [Overview](active-directory-developers-guide.md)
+## [Why Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Auth basics](active-directory-authentication-scenarios.md)
 ## [Types of apps](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Get Started
