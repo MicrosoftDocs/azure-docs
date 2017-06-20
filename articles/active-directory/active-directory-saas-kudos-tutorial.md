@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/20/2017
 ms.author: jeedes
 
 ---
@@ -188,7 +188,7 @@ In order to enable Azure AD users to log into Kudos, they must be provisioned in
 
 In the case of Kudos, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Kudos** company site as administrator.
 
@@ -198,7 +198,7 @@ In the case of Kudos, provisioning is a manual task.
 
 3. Click **User Admin**.
 
-4. Click the **Users** tab, and then click **Add a user**.
+4. Click the **Users** tab, and then click **Add a User**.
    
    ![User Admin](./media/active-directory-saas-kudos-tutorial/ic787809.png "User Admin")
 
