@@ -20,7 +20,7 @@ ms.author: jgao
 # Manage Azure Data Lake Analytics using Azure .NET SDK
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. To see management topics using other tools, click the tab select above.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure .NET SDK. 
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 * [Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store) - 2.2.0
 * [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) - 1.6.0-preview
 
-You can install these packages via the NuGet commane line with the following commands:
+You can install these packages via the NuGet command line with the following commands:
 
 ```
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
@@ -134,7 +134,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 ### Create a Data Lake Analytics account
 
-The following code creates an adls account
+The following code creates an ADLS account
 
 ```
 var new_adla_params = new DataLakeAnalyticsAccount()
