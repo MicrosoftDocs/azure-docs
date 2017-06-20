@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with 123ContactForm, you need the following items:
 
 - An Azure AD subscription
-- A 123ContactForm single-sign on enabled subscription
+- A 123ContactForm single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,9 +104,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-123contactform-tutorial/tutorial_123contactform_samlbase.png)
 
-3. On the **123ContactForm Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, no need to perform any steps.
+3. On the **123ContactForm Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-123contactform-tutorial/url1.png)
+
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<id>/metadata`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<id>/acs`
 
 4. If you wish to configure the application in **SP initiated mode**, perform the following steps:
 
@@ -114,7 +118,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Click the **Show advanced URL settings** option
 
-	b. In the **Sign On URL** textbox, type a URL as: `https://www.123contactform.com/index.php?p=sso&idp=azure_ad_5`
+	b. In the **Sign On URL** textbox, type a URL as: `https://www.123contactform.com/saml/azure_ad/<id>/sso`
+
+	> [!NOTE] 
+	> The preceding values are not real. Later, you will update the values with the actual URL and identifier, which is explained later in the tutorial.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -130,11 +137,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Email** textbox, type the email of the user i.e **BrittaSimon@Contoso.com**.
 
-	b. Click **Upload** and browse the Metadata XML file which you have downloaded from Azure portal.
+	b. Click **Upload** and browse the Metadata XML file, which you have downloaded from Azure portal.
 
 	c. Click **SUBMIT FORM**.
 
-8. After the form is submitted, the support team will get the request and they set up the SSO on the application end.
+8. On the **Microsoft Azure AD - Single sign-on - Configure App Settings** perform the following steps:
+	
+	![Configure Single Sign-On](./media/active-directory-saas-123contactform-tutorial/url3.png)
+
+	a. If you wish to configure the application in **IDP initiated mode**, copy the **IDENTIFIER** value for your instance and paste it in **Identifier** textbox in **123ContactForm Domain and URLs** section on Azure portal.
+	
+	b. If you wish to configure the application in **IDP initiated mode**, copy the **REPLY URL** value for your instance and paste it in **Reply URL** textbox in **123ContactForm Domain and URLs** section on Azure portal.
+
+	c. If you wish to configure the application in **SP initiated mode**, copy the **SIGN ON URL** value for your instance and paste it in **Sign On URL** textbox in **123ContactForm Domain and URLs** section on Azure portal.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
