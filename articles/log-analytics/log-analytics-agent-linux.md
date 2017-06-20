@@ -217,7 +217,7 @@ Run the omsadmin.sh command supplying the workspace id and key for your workspac
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
 ```
-The optional -v switch will enable verbose logging of the onboarding.
+The optional -v switch will enable verbose logging during the onboarding process. All the information will be showed on the screen where shell script is executed.
 
 ### Onboarding using a file
 1.	Create the file `/etc/omsagent-onboard.conf`. The file must be readable and writable for root.
