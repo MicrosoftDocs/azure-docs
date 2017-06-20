@@ -14,11 +14,20 @@ ms.author: cahann
 
 # Cortana Prebuilt App
 
-In addition to allowing you to build your own applications, LUIS also provides selected models from Microsoft Cortana personal assistant as a prebuilt application. This is an "as-is" application; the intents and entities in this application cannot be edited or integrated into other LUIS applications. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client will have to reference both LUIS apps.
+<!-- For example, instead of using builtin.intent.calendar.create_calendar_entry, use Calendar.Add -->
+> [!IMPORTANT]
+> We recommend that you use the [prebuilt domains](./luis-how-to-use-prebuilt-domains.md), instead of the Cortana prebuilt app. 
+> For example, instead of **builtin.intent.calendar.create_calendar_entry**, use **Calendar.Add** from the **Calendar** prebuilt domain.
+> The prebuilt domains provide these advantages: 
+> * They provide packages of prebuilt and pretrained intents and entities that are designed to work well with each other. You can integrate a prebuilt domain directly into your app. For example, if you're building a fitness tracker, you can add the **Fitness** domain and have an entire set of intents and entities for tracking fitness activities, including intents for tracking weight and meal planning, remaining time or distance, and saving fitness activity notes.
+> * The prebuilt domain intents are customizable. For example, if you want to provide reviews of hotels, you can train and customize the **Places.GetReviews** intent from the **Places** domain to recognize requests for hotel reviews.
+> * The prebuilt domains are extensible. For example, if you want to use the **Places** prebuilt domain in a bot that searches for restaurants, and need an intent for getting the type of cuisine, you can build and train a **Places.GetCuisine** intent.
 
-The pre-built personal assistant application is available in these cultures (locales): English, French, Italian, Spanish and Chinese.
+In addition to allowing you to build your own applications, LUIS also provides intents and entities the from Microsoft Cortana personal assistant as a prebuilt app. This is an "as-is" application. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client will have to reference both LUIS apps.
 
-**To use the Cortana Prebuilt App:**
+The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish and Chinese.
+
+## Use the Cortana Prebuilt App
 
 1. On **My Apps** page, click **Cortana prebuilt apps** and select your language, English for example. The following dialog box appears:
 
@@ -29,7 +38,7 @@ The pre-built personal assistant application is available in these cultures (loc
 
     ![Cortana Query Result](./Images/Cortana-JSON-Result.JPG)
 
-## Prebuilt Intents
+## Cortana prebuilt intents
 The pre-built personal assistant application can identify the following intents:
 
 | Intent | Example utterances |
