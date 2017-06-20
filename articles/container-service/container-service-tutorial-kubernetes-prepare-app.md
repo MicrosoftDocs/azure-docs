@@ -21,7 +21,7 @@ ms.author: nepeters
 
 # Create container images to be used with Azure Container Service
 
-Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, you use source files to create an application, test it locally, and then deploy it into a Kubernetes cluster, where you then scale it, upgrade it, and monitor it. During the tutorial set, you also deploy a Kubernetes cluster and an Azure Container Registry, and the tutorials explain the underlying Azure components.
+Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, you use source files to create an application, test it locally, and then deploy it into a Kubernetes cluster. Once deployed, you then scale it, upgrade it, and monitor it. During the tutorial set, you also deploy a Kubernetes cluster and an Azure Container Registry, and the tutorials explain the underlying Azure components.
 
 In this first tutorial, a sample application is built into Docker container images and run locally. Steps completed include:
 
