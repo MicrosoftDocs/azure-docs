@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
+ms.date: 06/20/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_url.png)
 
-	 In the **Reply URL** textbox, type the URL as ex: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+	 In the **Reply URL** textbox, type the URL as: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
 	> [!NOTE] 
 	> The preceding value is not real value. You will update the value with the actual Reply URL, which is explained later in the tutorial.
@@ -125,11 +125,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Click **Save** button.
+5. Hightail application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_attribute.png) 
+
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |    
+	| UserIdentity | user.mail |
+	
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_officespace_04.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_officespace_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+	
+	d. Click **Ok**.
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_400.png)
 
-6. On the **Hightail Configuration** section, click **Configure Hightail** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Hightail Configuration** section, click **Configure Hightail** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_configure.png) 
 
@@ -137,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     >Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can use Single Sign On functionality.
 
 
-7. To get SSO configured for your application, you need to sign-on to your Hightail tenant as an administrator.
+9. To get SSO configured for your application, you need to sign-on to your Hightail tenant as an administrator.
    
     a. In the menu on the top, click the **Account** tab and select **Configure SAML**.
  
