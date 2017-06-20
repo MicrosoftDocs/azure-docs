@@ -42,25 +42,17 @@ Event Hubs Capture enables you to set up a "window" to control archiving. This w
 
 ### Scaling to throughput units
 
-Event Hubs traffic is controlled by [throughput units](event-hubs-features.md#capacity). A single throughput unit allows 1 MB per second or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and you can purchase more via a quota increase [support request][support request]. Usage beyond your purchased throughput units is throttled. Event Hubs Capture copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
+Event Hubs traffic is controlled by [throughput units](event-hubs-features.md#capacity). A single throughput unit allows 1 MB per second or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and you can purchase more with a quota increase [support request][support request]. Usage beyond your purchased throughput units is throttled. Event Hubs Capture copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
 
 Once configured, Event Hubs Capture runs automatically when you send your first event, and continues running. To make it easier for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This process provides a predictable cadence and marker that can feed your batch processors.
 
 ## Setting up Event Hubs Capture
 
-You can configure Capture at the event hub creation time via the [Azure portal](https://portal.azure.com), or via Azure Resource Manager. You can enable Capture by clicking the **On** button in the portal UI. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Capture uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
+You can configure Capture at the event hub creation time using the [Azure portal](https://portal.azure.com), or using Azure Resource Manager templates. For more information, see the following articles:
 
-The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
+- [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-thorugh-portal.md)
+- [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
-![][1]
-
-## Adding Capture to an existing event hub
-
-Capture can be configured on existing event hubs that are in Event Hubs namespaces. The feature is not available to older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade, as shown in the following figure:
-
-![][2]
-
-You can also configure Event Hubs Capture via Azure Resource Manager templates. For more information, see [this article](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 
 ## Exploring the captured files and working with Avro
 
@@ -117,10 +109,8 @@ You can learn more about Event Hubs by visiting the following links:
 
 [Apache Avro]: http://avro.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[1]: ./media/event-hubs-archive-overview/event-hubs-archive1.png
-[2]: media/event-hubs-archive-overview/event-hubs-archive2.png
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
-[3]: ./media/event-hubs-archive-overview/event-hubs-archive3.png
+[3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
