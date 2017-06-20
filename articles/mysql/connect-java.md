@@ -539,4 +539,4 @@ public class DeleteRows {
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
+> [Migrate your MySQL database to Azure Database for MySQL using dump and restore](concepts-migrate-dump-restore.md)
