@@ -180,22 +180,17 @@ In this step, you set the shared key and create the connection. The key you set 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Login-AzureRmAccount
+  Add-AzureAccount
   ```
 2. Check the subscriptions for the account.
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzureSubscription
   ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. Add the SM version of the PowerShell cmdlets.
-
-  ```powershell
-  Add-AzureAccount
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
 ### Step 2. Set the shared key and create the connection
