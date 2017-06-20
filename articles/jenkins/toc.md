@@ -1,4 +1,4 @@
-# [Jenkins on Azure Documentation](index.md)
+# [Jenkins Documentation](index.md)
 ## Deploy and Configure Jenkins on Azure
 ### [Deploy a Jenkins master on a VM](/azure/jenkins/install-jenkins-solution-template)
 # Tutorials
