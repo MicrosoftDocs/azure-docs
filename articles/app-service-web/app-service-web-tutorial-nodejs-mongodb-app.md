@@ -49,7 +49,7 @@ To complete this tutorial:
 
 ## Test local MongoDB
 
-Open the terminal window and `cd` to the `bin` directory of your MongoDB installation. 
+Open the terminal window and `cd` to the `bin` directory of your MongoDB installation. You can use this terminal window to run all the commands in this tutorial.
 
 Run `mongo` in the terminal to connect to your local MongoDB server.
 
@@ -59,7 +59,7 @@ mongo
 
 If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Often, MongoDB is installed, but you still need to start it by running `mongod`. 
 
-When you're done testing your MongoDB database, type Ctrl+C in the terminal. 
+When you're done testing your MongoDB database, type `Ctrl+C` in the terminal. 
 
 ## Create local Node.js app
 
@@ -67,7 +67,7 @@ In this step, you set up the local Node.js project.
 
 ### Clone the sample application
 
-Open the terminal window and `cd` to a working directory.  
+In the terminal window, `cd` to a working directory.  
 
 Run the following command to clone the sample repository. 
 
@@ -109,7 +109,7 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Select **Admin > Manage Articles** to add some articles.
 
-To stop Node.js at any time, press Ctrl+C in the terminal. 
+To stop Node.js at any time, press `Ctrl+C` in the terminal. 
 
 ## Create production MongoDB
 
@@ -251,7 +251,7 @@ MEAN.JS version: 0.5.0
 
 Navigate to http://localhost:8443 in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
 
-In the terminal, stop Node.js by typing Ctrl+C. 
+In the terminal, stop Node.js by typing `Ctrl+C`. 
 
 ## Deploy app to Azure
 
@@ -549,7 +549,7 @@ You see the new `Comment` textbox now.
 
 ![Added comment field to Articles](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-In the terminal, stop Node.js by typing Ctrl+C. 
+In the terminal, stop Node.js by typing `Ctrl+C`. 
 
 ### Publish changes to Azure
 
@@ -578,7 +578,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Once log streaming has started, refresh your Azure web app in the browser to get some web traffic. You now see console logs piped to your terminal.
 
-Stop log streaming at any time by typing Ctrl+C. 
+Stop log streaming at any time by typing `Ctrl+C`. 
 
 ## Manage your Azure web app
 
