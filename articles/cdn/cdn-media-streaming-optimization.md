@@ -54,7 +54,11 @@ If Azure CDN from Akamai detects the asset is a streaming manifest or fragment (
 
 The short negative caching time is useful for origin offload when many users request a fragment that doesn’t exist yet, such as in a live stream where the packets are not available from the origin that second. The longer caching interval also helps offload requests from the origin as video content is not typically modified.
  
-![Caching times](./media/cdn-media-streaming-optimization/03_Caching.png) 
+
+|    | General<br> web<br>delivery | General<br> media<br> streaming | VOD<br>media<br> streaming  
+--- | --- | --- | ---
+Caching - Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |365 days | 365 days   
+Caching - Negative <br> HTTP 204, 305, 404, <br> and 405 | none | 1 second | 1 second
  
 ### Dealing with Origin Failure  
 
@@ -68,7 +72,14 @@ When a file matches the file type and size conditions list, the CDN uses the beh
 
 The following table lists the set of criteria to be satisfied for this optimization 
  
-![Optimization criteria](./media/cdn-media-streaming-optimization/04_Criteria.png) 
+Supported Streaming Types | File Extensions  
+--- | ---  
+Apple HLS | m3u8, m3u, m3ub, key, ts, aac
+Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Seg-Frag URL structure <br> (matching regex: ^(/.*)Seq(\d+)-Frag(\d+)
+DASH | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Smooth Streaming | /manifest/,/QualityLevels/Fragments/
+  
+
  
 ## Media streaming optimizations for Azure CDN from Verizon
 
