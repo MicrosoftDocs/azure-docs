@@ -35,7 +35,7 @@ You can configure the Azure AD Connect Health Service to send email notification
 2. Click on the "Notification Settings" button from the action bar.
 3. Turn the Email Notification switch to ON.
 4. Select the check box to configure all the Global Admins to receive email notifications.
-5. If you wish to receive email notifications on any other email addresses, you can specify them in the Additional Email Recipient box. To remove an email address from this list, right click on the entry and select Delete.
+5. If you wish to receive email notifications on any other email addresses, you can specify them in the Additional Email Recipient box. To remove an email address from this list, right-click on the entry and select Delete.
 6. To finalize the changes click on "Save". All changes will take effects only after you select "Save".
 
 ## Delete a server or service instance
@@ -141,7 +141,7 @@ These steps will allow the listed users and group access as per their assigned r
 >
 
 ### Remove users and/or groups
-You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>
+You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right-clicking and selecting remove.<br>
 ![Azure AD Connect Health RBAC Remove User](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (End of RBAC section)
