@@ -61,7 +61,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "48e2a74efdaa46258f4b71d0353220dd";
+        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         // Replace or verify the region.
         //
@@ -233,7 +233,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "48e2a74efdaa46258f4b71d0353220dd";
+        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         // Replace or verify the region.
         //
@@ -359,7 +359,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "48e2a74efdaa46258f4b71d0353220dd";
+        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         // Replace or verify the region.
         //
@@ -489,7 +489,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "48e2a74efdaa46258f4b71d0353220dd";
+        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         // Replace or verify the region.
         //
@@ -699,7 +699,7 @@ To run the sample, perform the following steps:
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "48e2a74efdaa46258f4b71d0353220dd";
+        var subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         // Replace or verify the region.
         //
