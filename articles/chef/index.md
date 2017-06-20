@@ -1,5 +1,5 @@
 ---
-title:  Chef and Azure
+title:  Chef on Azure
 description: Deploy and integrate Chef with Azure 
 services: multiple
 author: mlearned
@@ -21,15 +21,17 @@ ms.author: mlearned
 	    </p>
         </div>
     </div>
-<h2>How-to Guides</h2>
-<p>Learn how to quickly deploy Chef on Azure.</p>
+<h2>Quickstarts</h2>
+<p>Learn how to deploy Chef on Azure.</p>
+  <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Deploy Chef Automate on Azure</a>
+<h2>Tutorials</h2>
+<p>Learn how to integrate Chef with Azure tools and services.</p> 
 <ol>
-<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows/chef-automation">Automate Azure Virtual Machine deployment with Chef.</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/windows/chef-automation">Automate Azure Virtual Machine deployment with Chef</a></li>
 </ol>
 <h2>Resources</h2>
 See the following links for additional reference materials and tools for working with Chef on Azure.
 <p>
-  <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Chef Automate from Azure marketplace</a><br/>
   <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Getting Started with Chef and VSTS</a><br/>
   <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Chef.io site blog - VSTS and Chef</a><br/>
   Video:<a href="https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment"> Release Management with VSTS, Chef, and Octopus Deploy</a><br/>
