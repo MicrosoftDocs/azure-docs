@@ -1,6 +1,6 @@
 # [Chef Documentation](index.md)
-## Deploy and Configure Chef
-## [Chef Automate from Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview)
+### Deploy and Configure Chef
+## [Automate: Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview)
 # Tutorials
 ## [Automate VMs](/azure/virtual-machines/windows/chef-automation)
 # Resources
