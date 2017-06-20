@@ -27,8 +27,8 @@ You configure the Site-to-Site VPN connection between the on-premise network and
 
 ### Step 1 Check if a validated device is used
 
-1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namevalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
-2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](a-namevpn-gateway-about-vpn-devices.md#editing)
+1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
+2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing)
 
 ### Step 2 Check if Security Association Mismatches (for policy-based Azure virtual network gateways)
 
@@ -55,7 +55,7 @@ Check CPU and Bandwidth Utilization of the Azure VPN Gateway instances:
 
 - Network and CPU utilization on VM instances
 - Site-to-Site Tunnel Bandwidth
-- With high utilization, it may resolve to resize to [higher SKU gateway](vpn-gateway-about-vpngateways.md#gateway-skus)
+- With high utilization, it may resolve to resize to [higher SKU gateway](vpn-gateway-about-vpngateways.md#gwsku)
 
 ### Step 7 Check Azure Gateway Upgrade
 
