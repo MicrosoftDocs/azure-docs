@@ -158,7 +158,7 @@ find the `queries` section, and replace the query value with
 
 3.	When you're done, choose **Save**. 
 
-	Now you change the website's RSS feed by 
+	Now you can change the website's RSS feed by 
 	passing a different URL through the `currentFeedURL` property.
 
 Learn more about [how to Author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
