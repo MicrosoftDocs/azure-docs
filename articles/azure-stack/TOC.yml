@@ -1,3 +1,5 @@
+- name: Azure Stack documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Stack?
@@ -7,8 +9,6 @@
   items:
   - name: Deploy Azure Stack
     href: azure-stack-deploy-overview.md  
-  - name: Install and configure PowerShell
-    href: azure-stack-powershell-configure-quickstart.md 
 - name: Tutorials
   items:
   - name: Enable Virtual Machines
@@ -162,7 +162,7 @@
       - name: Overview
         href: azure-stack-storage-overview.md
       - name: Storage considerations
-        href: azure-stack-acs-differences-tp2.md
+        href: azure-stack-acs-differences.md
     - name: Network
       items:
       - name: iDNS for Azure Stack

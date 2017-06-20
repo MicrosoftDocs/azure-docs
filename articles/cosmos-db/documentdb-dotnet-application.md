@@ -563,7 +563,7 @@ If you receive the "An error occurred while processing your request" while tryin
 ## <a name="_Toc395637775"></a>Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
-To add additional functionality to your application, review the APIs available in the [DocumentDB .NET Library](https://msdn.microsoft.com/library/azure/dn948556.aspx) and feel free to contribute to the DocumentDB .NET Library on [GitHub][GitHub]. 
+To add additional functionality to your application, review the APIs available in the [DocumentDB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the DocumentDB .NET Library on [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

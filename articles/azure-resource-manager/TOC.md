@@ -1,6 +1,6 @@
 ﻿# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
-## [Supported services](resource-manager-supported-services.md)
+## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
 ## [Managed Applications](managed-application-overview.md)

@@ -74,14 +74,14 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 * **Failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as unit in case all or some primary databases become unavailable due to an outage in the primary region.  
 * **Primary server**: A server that hosts the primary databases in the failover group.
 * **Secondary server**: A server that hosts the secondary databases in the failover group. The secondary server cannot be in the same region as the primary server.
-* **Adding databases to failover group**: You can put several databases within a server or within an elastic pool into the same failover group. If you add a standalone database to the group, it automatically creates a secondary database using the same edition using the same edition and performance level. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
+* **Adding databases to failover group**: You can put several databases within a server or within an elastic pool into the same failover group. If you add a standalone database to the group, it automatically creates a secondary database using the same edition and performance level. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
 
    > [!NOTE]
    > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server. 
    >
 
 * **Failover group read-write listener**: A DNS CNAME record that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. 
-* **Failover Group read-only listener**: A DNS CNAME record that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
+* **Failover group read-only listener**: A DNS CNAME record that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
 * **Automatic failover policy**: By default, the failover group is configured with an automatic failover policy. The system triggers failover as soon as the failure is detected. If you want to control the failover workflow from the application, you can turn off automatic failover. 
 * **Manual failover**: You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed the DNS records are automatically updated to ensure connectivity to the correct server.
 * **Grace period with data loss**: Because the primary and secondary databases are synchronized using asynchronous replication the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring **GracePeriodWithDataLossHours**, you can control how long the system waits before initiating the failover that is likely to result data loss. 
@@ -141,16 +141,16 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 ### PowerShell
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase?view=azurermps-3.7.0) |Gets one or more databases. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Creates a secondary database for an existing database and starts data replication. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Switches a secondary database to be primary to initiate failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Terminates data replication between a SQL Database and the specified secondary database. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink?view=azurermps-3.7.0) |Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |	This command creates a failover group and registers it on both primary and secondary servers|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Removes the failover group from the server and deletes all secondary databases included the group |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Retrieves the failover group configuration |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |	Modifies the configuration of the failover group |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Triggers failover of the failover group to the secondary server |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Gets one or more databases. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Creates a secondary database for an existing database and starts data replication. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Switches a secondary database to be primary to initiate failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Terminates data replication between a SQL Database and the specified secondary database. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |	This command creates a failover group and registers it on both primary and secondary servers|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
+| [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Retrieves the failover group configuration |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |	Modifies the configuration of the failover group |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
 |  | |
 
 > [!IMPORTANT]
@@ -161,10 +161,10 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | API | Description |
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Creates, updates, or restores a primary or a secondary database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Returns the status during a create operation. |
+| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Returns the status during a create operation. |
 | [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Sets which replica database is primary by failing over from the current primary replica database. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [List Replication Links](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Deletes a database replication link. Cannot be done during failover. |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Creates or updates a failover group |

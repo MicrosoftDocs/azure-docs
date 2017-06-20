@@ -48,7 +48,7 @@
 #### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
-### Back up servers and workloads
+### Back up VMs
 #### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)

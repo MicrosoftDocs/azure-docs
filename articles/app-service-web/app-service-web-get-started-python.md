@@ -32,9 +32,9 @@ To complete this tutorial:
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -43,6 +43,8 @@ In a terminal window, run the following command to clone the sample app reposito
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
+
+You use this terminal window to run all the commands in this quickstart.
 
 Change to the directory that contains the sample code.
 
@@ -171,7 +173,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 

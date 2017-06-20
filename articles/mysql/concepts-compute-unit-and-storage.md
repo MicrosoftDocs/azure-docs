@@ -5,10 +5,8 @@ services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/23/2017
 ---

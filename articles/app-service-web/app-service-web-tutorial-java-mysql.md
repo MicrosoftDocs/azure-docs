@@ -41,9 +41,9 @@ In this tutorial, you learn how to:
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL 
 
@@ -51,7 +51,7 @@ In this step, you create a database in a local MySQL server for use in testing t
 
 ### Connect to MySQL server
 
-Connect to your local MySQL server from the command line:
+In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
 
 ```bash
 mysql -u root -p
@@ -81,15 +81,15 @@ In this step, you clone sample Spring boot app, configure it to use the local My
 
 ### Clone the sample
 
-From the command prompt, navigate to a working directory and clone the sample repository. 
+In the terminal window, navigate to a working directory and clone the sample repository. 
 
 ```bash
-git clone https://github.com/Azure-Samples/spring-boot-appservice-mysql.git
+git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
 ### Configure the app to use the MySQL database
 
-Update the `spring.datasource.password` and  value in *spring-boot-mysql-todo/src/main/resources/application.properties* with the same root password used to open the MySQL command prompt:
+Update the `spring.datasource.password` and  value in *spring-boot-mysql-todo/src/main/resources/application.properties* with the same root password used to open the MySQL prompt:
 
 ```
 spring.datasource.password=mysqlpass
@@ -104,14 +104,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list,  use the following SQL commands in the MySQL command prompt to view the data stored in MySQL.
+Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list,  use the following SQL commands in the MySQL prompt to view the data stored in MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Stop the application by hitting `Ctrl`+`C` in the command prompt. 
+Stop the application by hitting `Ctrl`+`C` in the terminal. 
 
 ## Create an Azure MySQL database
 

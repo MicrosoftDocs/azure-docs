@@ -20,6 +20,20 @@ ms.author: dobett
 
 # Deploy a gateway on Windows or Linux for the connected factory preconfigured solution
 
+The software required to deploy a gateway for the connected factory preconfigured solution has two components:
+
+* The *OPC Proxy* establishes a connection to IoT Hub and waits for command and control messages from the integrated OPC Browser that runs in the connected factory solution portal.
+* The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to IoT Hub.
+
+Both components are open-source and are available as source on GitHub and as Docker containers:
+
+| GitHub | DockerHub |
+| ------ | --------- |
+| [OPC Publisher][lnk-publisher-github] | [OPC Publisher][lnk-publisher-docker] |
+| [OPC Proxy][lnk-proxy-github] | [OPC Proxy][lnk-proxy-docker] |
+
+No public-facing IP address or holes in the gateway firewall are required for either component. The OPC Proxy and OPC Publisher use only outbound ports 443, 5671, and 8883.
+
 The steps in this article show you how to deploy a gateway using Docker on either Windows or Linux. The gateway enables connectivity to the connected factory preconfigured solution.
 
 > [!NOTE]
@@ -147,5 +161,10 @@ To learn more about the architecture of the connected factory preconfigured solu
 [Azure portal]: http://portal.azure.com/
 [open-source OPC UA client]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Install Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-overview.md
+[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [Azure IoT Edge]: https://github.com/Azure/iot-edge
+
+[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
+[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
+[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy

@@ -1,6 +1,6 @@
 ---
-title: Move data to/from Oracle using Data Factory | Microsoft Docs
-description: Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory.
+title: Copy data to/from Oracle using Data Factory | Microsoft Docs
+description: Learn how to copy data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,7 +17,7 @@ ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
-# Move data to/from on-premises Oracle using Azure Data Factory
+# Copy data to/from on-premises Oracle using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises Oracle database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Supported scenarios
@@ -566,15 +566,15 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, String (if precision > 28) |
+| INTEGER |Decimal, String (if precision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |TimeSpan |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal |
+| NUMBER |Decimal, String (if precision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
