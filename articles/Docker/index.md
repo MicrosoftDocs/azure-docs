@@ -13,8 +13,8 @@ ms.date: 06/19/2017
 ms.author: mlearned
 ---
 <div class="content">
-    <img src="media/Docker.png" alt="Docker Logo">
-    <h1>Docker on Azure</h1>
+   <h1>Docker on Azure</h1>
+	<img src="media/Docker.png" align="right" alt="Docker Logo">
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>
