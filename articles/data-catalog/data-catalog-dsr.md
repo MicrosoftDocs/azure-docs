@@ -10,13 +10,13 @@ tags: ''
 
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
-ms.devlang: NA
+ms.devlang: NAhdi
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
-
+h
 ---
 
 # Supported data sources in Azure Data Catalog
@@ -650,7 +650,7 @@ If you need support for additional sources, submit a feature request to the [Azu
       <td>
         <font size=2>
             Protocol: hive
-            <br>Authentication: {hdinsight, basic, username, none}
+            <br>Authentication: {HDInsight, basic, username, none}
             <br>Address:
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
