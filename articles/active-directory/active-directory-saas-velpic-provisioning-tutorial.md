@@ -65,25 +65,23 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
 ![Velpic Provisioning](./media/active-directory-saas-velpic-provisioning-tutorial/Velpic1.png)
 
-5)	Under the **Admin Credentials** section, input the **Tenant URL&Secret Token** of Velpic. 
-
-6)  You can find these values under you Velpic account: **Manage** > **Intergration** > **Plugin** > **SCIM**
+5)	Under the **Admin Credentials** section, input the **Tenant URL&Secret Token** of Velpic.(You can find these values under you Velpic account: **Manage** > **Intergration** > **Plugin** > **SCIM**)
 
 ![Authorization Values](./media/active-directory-saas-velpic-provisioning-tutorial/Velpic2.png)
 
-7) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Team Admin permissions and try step 5 again.
+6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Team Admin permissions and try step 5 again.
 
-8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
+7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
-9) Click **Save**. 
+8) Click **Save**. 
 
-10) Under the Mappings section, select **Synchronize Azure Active Directory Users to Velpic**.
+9) Under the Mappings section, select **Synchronize Azure Active Directory Users to Velpic**.
 
-11) In the **Attribute Mappings** section, review the user attributes that will be synchronized from Azure AD to Velpic. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Velpic for update operations. Select the Save button to commit any changes.
+10) In the **Attribute Mappings** section, review the user attributes that will be synchronized from Azure AD to Velpic. Note that the attributes selected as **Matching** properties will be used to match the user accounts in Velpic for update operations. Select the Save button to commit any changes.
 
-12) To enable the Azure AD provisioning service for Velpic, change the **Provisioning Status** to **On** in the **Settings** section
+11) To enable the Azure AD provisioning service for Velpic, change the **Provisioning Status** to **On** in the **Settings** section
 
-13) Click **Save**. 
+12) Click **Save**. 
 
 This will start the initial synchronization of any users and/or groups assigned to Velpic in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
