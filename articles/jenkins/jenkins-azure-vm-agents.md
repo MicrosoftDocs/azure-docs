@@ -37,7 +37,7 @@ Otherwise, install the **Azure VM Agents** plugin from within the Jenkins dashbo
 ## Configure the plugin
 
 * Within the Jenkins dashboard, click **Manage Jenkins -> Configure System ->**. Scroll to the bottom of the page and find the section with the dropdown **Add new cloud**. From the menu, select **Microsoft Azure VM Agents**
-* Select an existing account from the Azure Credentials dropdown.  To add a new **Microsoft Azure Service Principal**, enter a Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
+* Select an existing account from the Azure Credentials dropdown.  To add a new **Microsoft Azure Service Principal** enter the following: Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint.
 
 ![Azure Credentials](./media/jenkins-azure-vm-agents/service-principal.png)
 
@@ -103,5 +103,5 @@ sudo apt-get install -y openjdk-7-jdk
 ## Reference
 
 * Azure Friday video: [Continuous Integration with Jenkins using Azure VM agents](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
-* For more support information and configuration options see:  [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
+* Support information and configuration options:  [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
 
