@@ -634,7 +634,7 @@ If you need support for additional sources, submit a feature request to the [Azu
       <td>
         <font size=2>
             Protocol: hive
-            <br>Authentication: {hdinsight, basic, username, none}
+            <br>Authentication: {HDInsight, basic, username, none}
             <br>Address:
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
