@@ -17,7 +17,7 @@ ms.author: cahann
 LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by **builtin.datetimeV2**, which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
+> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](#builtin.datetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 Pre-built entity   |   en-US   |   fr-FR   |   it-IT   |   es-ES   |   zh-CN   |   de-DE   |   pt-BR   |   ja-JP   |   ko-kr
 ------|------|------|------|------|------|------|------|------|------|
@@ -308,7 +308,7 @@ When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `t
 
 #### Ambiguous dates
 
-Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance. For the utterance "May 2nd", LUIS provides both a value for May 2nd in the following year and the preceding year. The `XXXX` in the `timex` field represents the ambiguous year.
+If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. For example, given the utterance "May 2nd", LUIS provides both a value for May 2nd in the following year and the preceding year. Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance.
 
 ```
   "entities": [
@@ -337,7 +337,7 @@ Fields containing `X` in the `timex` field represent parts of the date that are 
 
 ### Date range resolution
 
-The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year:
+The datetimeV2 entity can recognize date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the following year. In the `timex` field, the `XXXX` values represent the year that is not explicitly specified in the utterance, and `P3D` indicates that the time period is 3 days long.
 
 ```
 "entities": [
