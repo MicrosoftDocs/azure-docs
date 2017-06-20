@@ -74,7 +74,7 @@ Use the following steps to create a Kafka on HDInsight cluster:
 7. From the __Cluster size__ blade, select __Next__ to continue.
 
     > [!WARNING]
-    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. You can configure the number of worker nodes during cluster creation
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes.
 
     ![Set the Kafka cluster size](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
