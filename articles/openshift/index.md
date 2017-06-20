@@ -23,7 +23,7 @@ ms.author: mlearned
         </div>
     </div>
 <h2>How-to Guides</h2>
-<p>OpenShift</p>
+<p>Learn how to quickly deploy OpenShift on Azure.</p>
 <ol>
   <li><a href="https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/openshift-get-started?branch=pr-en-us-15237">Get started with OpenShift Origin on Azure.</a></li>  
 </ol>
