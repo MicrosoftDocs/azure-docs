@@ -120,7 +120,7 @@ You can then put these five parameters in your web.config or app.config to be us
 
 ## Sample Code
 
-You can find the sample code in [Azure Media Services sample repo](https://azure.microsoft.com/resources/samples/?service=media-services)
+You can find the sample code in [this](https://github.com/willzhan/WAMSRESTSoln) repo.
 
 The sample code has two parts:
 
