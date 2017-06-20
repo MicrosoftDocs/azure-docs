@@ -32,8 +32,8 @@ Capture can be configured on existing event hubs that are in Event Hubs namespac
 
 ![][2]
 
-[1]: ./media/event-hubs-capture-overview/event-hubs-capture1.png
-[2]: ./media/event-hubs-capture-overview/event-hubs-capture2.png
+[1]: ./media/event-hubs-capture-enable-thorugh-portal/event-hubs-capture1.png
+[2]: ./media/event-hubs-capture-enable-thorugh-portal/event-hubs-capture2.png
 
 ## Next steps
 
