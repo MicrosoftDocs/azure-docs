@@ -17,7 +17,7 @@ ms.author: cahann
 LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](#builtin.datetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
+> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 Pre-built entity   |   en-US   |   fr-FR   |   it-IT   |   es-ES   |   zh-CN   |   de-DE   |   pt-BR   |   ja-JP   |   ko-kr
 ------|------|------|------|------|------|------|------|------|------|
@@ -427,7 +427,7 @@ builtin.datetimeV2.set    |   every week   |```{ "entity": "every week", "type":
 
 <!--The **builtin.datetime** prebuilt entity is aware of the current date and time. In the following examples, the current date is 2017-06-21. Also, the **builtin.datetime** entity provides a resolution field that produces a machine-readable dictionary. -->
 
-The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtin.datetimeV2). The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
+The **builtin.datetime** prebuilt entity is deprecated and replaced by [builtin.datetimeV2](#builtindatetimeV2). The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
 
 Pre-built entity   |   Example utterance   |   JSON
 ------|------|------|
