@@ -130,7 +130,7 @@ Your Jenkins instance is now ready to use! You can access a read-only view by go
 
 ## Next Steps
 
-In this tutorial, you've:
+In this tutorial, you:
 
 > [!div class="checklist"]
 > * Created a Jenkins Master with the solution template.
