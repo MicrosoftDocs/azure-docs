@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 06/20/2017
 ms.author: jeedes
 
 ---
@@ -139,11 +139,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_general_400.png)
 
-8. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_configure.png) 
 
-9. To configure single sign-on on **Optimizely** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [Optimizely support](https://www.optimizely.com/contact).
+9. To configure single sign-on on **Optimizely** side, you need to send the downloaded **Certificate(Base64)** and, **SAML Single Sign-On Service URL** to [Optimizely support](https://www.optimizely.com/contact).
 
 10. In a different browser window, sign-on to your Optimizely application.
 
@@ -242,7 +242,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ADP Optimizely tile in the Access Panel, you should get automatically signed-on to your ADP Optimizely application. 
+When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application. 
 
 ## Additional resources
 
