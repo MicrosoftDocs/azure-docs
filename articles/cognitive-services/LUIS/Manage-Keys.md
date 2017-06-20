@@ -48,7 +48,7 @@ To publish to the European regions, you can create LUIS apps at https://eu.luis.
 
  Azure region   |   Endpoint URL format   |   
 ------|------|
-West Europe     | https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/*YOUR-APP-ID*?subscription-key=*YOUR-SUBSCRIPTION-KEY* |
+West Europe     | https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY |
 
 
 
