@@ -38,5 +38,5 @@ See the following links for additional reference materials and tools for working
 <p>
 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker on Ubuntu Quickstart template</a><br/>  
 <a href="https://www.docker.com/docker-azure">Docker Azure site</a><br/>
-<a href="https://docs.docker.com/machine/drivers/azure/">Docker site, Docker drivers</a><br/>
+<a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure driver</a><br/>
 </div>
