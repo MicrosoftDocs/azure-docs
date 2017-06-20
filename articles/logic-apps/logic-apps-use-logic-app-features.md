@@ -28,7 +28,7 @@ elements in your logic app workflow:
 * Conditions and [switch statements](../logic-apps/logic-apps-switch-case.md) 
 let your logic app run different actions based on whether specific conditions are met.
 
-* [Loops](../logic-apps/logic-apps-loops-and-scopes) let your logic app run steps repeatedly. 
+* [Loops](../logic-apps/logic-apps-loops-and-scopes.md) let your logic app run steps repeatedly. 
 For example, you can repeat actions over an array only when a specific condition 
 is met when you use a For_each loop. Or you can repeat actions until a condition 
 is met when you use an Until loop.
@@ -125,7 +125,7 @@ you can directly edit the code that defines a logic app.
 
 2. To save your edits, choose **Save**.
 
-### Parameters
+## Parameters
 
 Some Logic Apps capabilities are available only in code view, 
 for example, parameters. Parameters make it easy to reuse 
@@ -134,9 +134,8 @@ an email address that you want use in several actions,
 you should define that email address as a parameter.
 
 Parameters are good for pulling out values that you are likely to change a lot. 
-They are especially useful when you need to override parameters in different environments. 
-To learn how to override parameters based on environment, 
-see the [REST API documentation](https://docs.microsoft.com/rest/api/logic).
+They are especially useful when you need to override parameters in different environments. To learn how to override parameters based on environment, 
+see [Author logic app definitions](../logic-apps/logic-apps-author-definitions.md) and [REST API documentation](https://docs.microsoft.com/rest/api/logic).
 
 This example shows how to update your existing logic app 
 so that you can use parameters for the query term.
@@ -144,25 +143,25 @@ so that you can use parameters for the query term.
 1. In code view, find the `parameters : {}` object, 
 and add a topic object:
 
-		"topic" : {
+		"currentFeedUrl" : {
 			"type" : "string",
-			"defaultValue" : "MicrosoftAzure"
+			"defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
 		}
 
-2. Go to the `twitterconnector` action, find the query value, 
-and replace that value with `#@{parameters('topic')}`. 
+2. Go to the `When_a_feed-item_is_published` action, 
+find the `queries` section, and replace the query value with 
+: "feedUrl": "#@{parameters('currentFeed')}"`. 
 
 	To join two or more strings, you can also use the `concat` function. 
-	For example, 	`@concat('#',parameters('topic'))` works the same as the above.
+	For example, `"@concat('#',parameters('currentFeed'))"` 
+	works the same as the above.
 
 3.	When you're done, choose **Save**. 
 
-	Now every hour, you get new tweets 
-	that have more than five retweets 
-	delivered to a folder called **tweets** in your Dropbox.
+	Now you change the website's RSS feed by 
+	passing a different URL through the `currentFeedURL` property.
 
-To learn more about Logic App definitions, see 
-[author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
+Learn more about [how to Author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
 
 ## Start logic app workflows
 
