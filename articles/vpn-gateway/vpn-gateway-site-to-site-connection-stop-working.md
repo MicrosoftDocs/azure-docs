@@ -64,7 +64,7 @@ Make sure that the virtual network, subnets and, ranges in the **Local network**
 
 ### Step 5 Verify Azure Gateway health probe
 
-1. Browse to https://<VirtualNetworkGatewayIP>:8081/healthprobe
+1. Browse to https://VirtualNetworkGatewayIP:8081/healthprobe
 2. Click through certificate warning.
 3. If you receive a response, the virtual network gateway is considered healthy. If you do not receive a response, the gateway may not be healthy or there is an network security group on the gateway subnet. The following text is a sample of the response:
 
