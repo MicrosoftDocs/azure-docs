@@ -1,5 +1,5 @@
 ---
-title: VPN client disconnects Azure virtual network randomly| Microsoft Docs
+title: Troubleshoot Azure Site-to-Site VPN disconnection problems| Microsoft Docs
 description: Learn how to troubleshoot Azure VPN disconnection problems.
 services: vpn-gateway
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: genli
 
 # Troubleshoot Azure Site-to-Site VPN disconnection problems
 
-You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection between VPN clients and Azure virtual network is not reliably. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem.
+You configure the Site-to-Site VPN connection between the on-premise network and Microsoft Azure virtual network. You may find the connection is not reliably. It disconnects randomly. This article provides troubleshoot steps to help you identify the cause of the problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
