@@ -244,7 +244,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PolicyStat.png)| [PolicyStat](active-directory-saas-policystat-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PostBeyond.png)| [PostBeyond](active-directory-saas-postbeyond-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Assortment Planning](active-directory-saas-predictix-assortment-planning-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Ordering](active-directory-saas-predictix-ordering-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Ordering](active-directory-saas-predictixordering-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.png)| [Predictix Price Reporting](active-directory-saas-predictixpricereporting-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.png)| [Printix](active-directory-saas-printix-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_procore.png)| [Procore SSO](active-directory-saas-procoresso-tutorial.md)|
