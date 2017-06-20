@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Built-in Policies | Microsoft Docs'
+title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
@@ -22,11 +22,11 @@ ms.author: sama
 
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in, or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
-* Account types (social accounts such as Facebook or local accounts such as email addresses) that consumers can use to sign up for the application.
-* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
-* Use of Multi-Factor Authentication.
-* The look and feel of all sign-up pages.
-* Information (which manifests as claims in a token) that the application receives when the policy run finishes.
+* Account types (social accounts such as Facebook or local accounts such as email addresses) that consumers can use to sign up for the application
+* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up
+* Use of Azure Multi-Factor Authentication
+* The look and feel of all sign-up pages
+* Information (which manifests as claims in a token) that the application receives when the policy run finishes
 
 You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This flexibility enables developers to define and modify consumer identity experiences with minimal or no changes to their code.
 
@@ -60,12 +60,12 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-For more information about the policy framework, see this [blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
 This policy handles both consumer sign-up and sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. 
 
-The policy also describes the contents of tokens that the application receives after successful sign-ups or sign-ins occur. A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  We recommend that you use this policy instead of a sign-up policy and sign-in policy.  
+The policy also describes the contents of tokens that the application receives after successful sign-ups or sign-ins occur. A code sample for the sign-up or sign-in policy is [available in this article](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  We recommend that you use this policy instead of a sign-up policy and sign-in policy.  
 
 1. [First, follow these steps to go  to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 
@@ -85,7 +85,7 @@ The policy also describes the contents of tokens that the application receives a
 
 9. Open the policy by selecting **B2C_1_SiUpIn**.
 
-10. In the **Applications** drop-down menu, select **Contoso B2C app**, and in the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
+10. In the **Applications** drop-down menu, select **Contoso B2C app**. In the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
 
 11. Select **Run now**. A new browser tab opens, and you can run through the sign-up or sign-in consumer experience.
     
@@ -173,7 +173,7 @@ To enable profile editing on your application, you need to create a profile edit
 
 9. Open the policy by selecting **B2C_1_SiPe**.
 
-10. In the **Applications** drop-down menu, select  **Contoso B2C app**, and in the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
+10. In the **Applications** drop-down menu, select  **Contoso B2C app**. In the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
 
 11. Select **Run now**. A new browser tab opens, and you can run through the profile editing consumer experience in your application.
     
@@ -204,7 +204,7 @@ This policy describes the experiences that the consumers  go through during pass
 
 8. Open the policy by clicking **B2C_1_SSPR**.
 
-9. in the **Applications** drop-down menu, select **Contoso B2C app**, and in the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
+9. In the **Applications** drop-down menu, select **Contoso B2C app**. In the **Reply URL / Redirect URI** drop-down menu, select `https://localhost:44321/`.
 
 10. Select **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
     
