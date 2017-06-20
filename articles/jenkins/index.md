@@ -29,6 +29,7 @@ ms.author: mlearned
     <li><a href="https://opsstaging.www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins?branch=devopsdocs%2Fahomer%2Flinux-rm">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
     <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy your app to Azure App Service with Jenkins</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, GitHub, and Jenkins</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Resources and Tools</h2>
@@ -36,5 +37,4 @@ ms.author: mlearned
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
 <a href="https://github.com/jenkinsci/windows-azure-storage-plugin">Azure Storage plugin</a><br/>
 
- 
 </div>
