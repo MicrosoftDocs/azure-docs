@@ -100,4 +100,4 @@ In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Ta
 Advance to the next tutorial to learn about running application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Deploy application in Kubrnetes](./container-service-tutorial-kubernetes-deploy-application.md)
+> [Deploy application in Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
