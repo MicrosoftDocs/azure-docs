@@ -20,11 +20,26 @@ ms.author: LADocs; stepsic
 # Use Logic Apps features
 
 In a [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), 
-you created your first logic app. 
-Now you'll build a fuller process with Azure Logic Apps. 
-This topic introduces the following new Azure Logic Apps concepts:
+you created your first logic app. To control your logic app's workflow, 
+you can specify different paths for your logic app to run and how to 
+process data in arrays, collections, and batches. You can include these 
+elements in your logic app workflow:
 
-* Conditional logic, which executes an action only when a certain condition is met
+* Conditions and [switch statements](../logic-apps/logic-apps-switch-case.md) 
+let your logic app run different actions based on whether specific conditions are met.
+
+* [Loops](../logic-apps/logic-apps-loops-and-scopes) let your logic app run steps repeatedly. 
+For example, you can repeat actions over an array only when a specific condition 
+is met when you use a For_each loop. Or you can repeat actions until a condition 
+is met when you use an Until loop.
+
+* [Scopes](../logic-apps/logic-apps-loops-and-scopes.md) let you group series 
+of actions together, for example, to implement exception handling.
+
+* [Debatching](../logic-apps/logic-apps-loops-and-scopes.md) lets your logic app start separate workflows for items in an array when you use the SplitOn command.
+
+This topic introduces other concepts for building your logic app:
+
 * Code view to edit an existing logic app
 * Options for starting a workflow
 
@@ -32,7 +47,9 @@ This topic introduces the following new Azure Logic Apps concepts:
 
 To have your logic app run steps only when data meets specific criteria, you can add a condition that compares data in the workflow against specific fields or values.
 
-For example, suppose you have a logic app that sends you too many emails for posts on a website's RSS feed. You can add a condition so that your logic app sends email only when the new post belongs to a specific category.
+For example, suppose you have a logic app that sends you too many emails 
+for posts on a website's RSS feed. You can add a condition so that your 
+logic app sends email only when the new post belongs to a specific category.
 
 1. In the Azure portal, find and open your logic app in Logic App Designer.
 
@@ -52,26 +69,25 @@ To add existing fields to your condition, choose from the Add dynamic content li
 
    For example:
 
-   
+   Here's the complete condition:
 
-0.	Find and add the **Get User** action for Twitter.
-0. To get the information about the Twitter user, 
-find and add the **Tweeted by** field from the trigger.
 
-	![Get user](media/logic-apps-use-logic-app-features/getuser.png)
+   > [!TIP]
+   > To define the condition in code, choose **Edit in advanced mode**. 
+   > For example:
+   > 
+   > 
 
-0. Choose **New Step** (+) > **Add a condition**.
-0. To filter on the number of followers that users have, 
-under **Object name**, choose **Add dynamic content**. 
-0.	In the search box, find and add the **Followers count** field.
-0. Under **Relationship**, select **is greater than**.
-0. In the **Value** box, enter the number of followers you want users to have.
+4. Under **IF YES** and **IF NO**, specify the steps to perform based 
+on whether the condition is met.
 
-	![Conditional](media/logic-apps-use-logic-app-features/conditional.png)
+   For example:
 
-0. Finally, drag the **Send email** box into the **If Yes** box. 
 
-Now you get emails only when the follower count meets your condition.
+   > [!TIP]
+   > You can drag existing actions into the **IF YES** and **IF NO** paths.
+
+Now you get emails only when the posts meet your condition.
 
 ## Repeat actions over a list with forEach
 
