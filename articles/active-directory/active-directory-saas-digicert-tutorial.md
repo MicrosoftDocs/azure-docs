@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with DigiCert, you need the following items:
 
 - An Azure AD subscription
-- A DigiCert single-sign on enabled subscription
+- A DigiCert single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -116,9 +116,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
-	| company | NestleW2K |
+	| company | < companycode > |
 	| digicertrole | CanAccessCertCentral |
-	
+
+    > [!Note]
+	> The value of **company** attribute is not real. Update this value with actual company code. To get the value of **company** attribute contact [DigiCert support team](mailto:support@digicert.com).
+
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-digicert-tutorial/tutorial_attribute_04.png)
