@@ -10,4 +10,4 @@
 ## [Docker on Ubuntu Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
 ## [Docker Azure Site](https://github.com/jenkinsci/windows-azure-storage-plugin)
 ## [Jenkins site](https://www.docker.com/docker-azure)
-## [Docker site, Docker drivers](https://docs.docker.com/machine/drivers/azure/)
+## [Docker Azure driver](https://docs.docker.com/machine/drivers/azure/)
