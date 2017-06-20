@@ -46,7 +46,7 @@ Refer to the following Azure Queue storage tutorials that are applicable to Azur
 
 ## Get started with Table storage
 
-Refer to the following Azure Table storage tutorials that are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in [Azure Stack storage: differences and considerations](azure-stack-acs-differences.md#Azure-client-library) article.
+Refer to the following Azure Table storage tutorials that are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in [Azure Stack storage: differences and considerations](azure-stack-acs-differences.md#azure-client-library) article.
 
 * [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md)
 * [How to use Azure Table storage from Node.js](../storage/storage-nodejs-how-to-use-table-storage.md)
