@@ -27,12 +27,12 @@ You configure the Site-to-Site VPN connection between the on-premise network and
 
 ### Step 1 Check if a validated device is used
 
-1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namevalidated-vpn-devices-and-device-configuration-guides). If it is not a valiated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
-2. Make sure that the VPN device is in a correct confirguatin. For more informaton, see [Editing device configuration samples](a-namevpn-gateway-about-vpn-devices.md#editing)
+1. Check if you are using a [validated VPN device and OS version](vpn-gateway-about-vpn-devices.md#a-namevalidated-vpn-devices-and-device-configuration-guides). If it is not a validated VPN device, you may need to contact device manufacturer to see if there is any compatibility issue.
+2. Make sure that the VPN device is in a correct configuration. For more information, see [Editing device configuration samples](a-namevpn-gateway-about-vpn-devices.md#editing)
 
 ### Step 2 Check if Security Association Mismatches (for policy-based Azure virtual network gateways)
 
-1. Make sure that the virtual network, subnets and ranges in the **Local network** definition in Microsoft Azure are same as the confirguation on the on-premises VPN device.
+1. Make sure that the virtual network, subnets and, ranges in the **Local network** definition in Microsoft Azure are same as the configuration on the on-premises VPN device.
 2. Make sure that the Security Association settings are matching.
 
 ### Step 3 Check one VPN Tunnel per Subnet Pair (for policy-based gateways)
@@ -65,7 +65,7 @@ If the VPN connection disconnects just one time, but then immediately comes back
 
 The **Perfect forward Secrecy** feature can cause the disconnection problems. If the VPN device has **Perfect forward Secrecy** enabled, disable the feature. Then [update the Azure Gateway IPsec policy](vpn-gateway-ipsecikepolicy-rm-powershell.md).
 
-### Step 9 Check for User Defined Routes or Network Security Groups on Gateway Subnet
+### Step 9 Check for User-Defined Routes or Network Security Groups on Gateway Subnet
 
 A User-defined route on the gateway subnet may be restricting some traffic and allowing other traffic giving the appearance that the VPN connection is unreliable for some traffic and ok for others. 
 
