@@ -149,10 +149,10 @@ When using Geo-replicated databases, it is possible to set up Auditing on either
 
 Follow these instructions:
 
-1. **Primary database** - turn on **Blob Auditing** either on the server or the database itself, as described in [Set up auditing for your database](#subheading-2-1) section.
+1. **Primary database** - turn on **Blob Auditing** either on the server or the database itself, as described in [Set up auditing for your database](#subheading-2) section.
 2. **Secondary database** - Blob Auditing can only be turned on/off from the Primary database auditing settings.
 
-   * Turn on **Blob Auditing** on the **Primary database**, as described in [Set up auditing for your database](#subheading-2-1) section. Blob Auditing must be enabled on the *primary database itself*, not the server.
+   * Turn on **Blob Auditing** on the **Primary database**, as described in [Set up auditing for your database](#subheading-2) section. Blob Auditing must be enabled on the *primary database itself*, not the server.
    * Once Blob Auditing is enabled on the Primary database, it will also become enabled on the Secondary database.
 
     > [!IMPORTANT]
