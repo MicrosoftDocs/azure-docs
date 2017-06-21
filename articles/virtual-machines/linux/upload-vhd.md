@@ -63,7 +63,8 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ### Create a VM
-You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
+
+To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
@@ -145,9 +146,8 @@ az group create --name myResourceGroup --location westus
 ```
 
 ## Create a storage account
-When you create a VM, you can do so with Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks are stored as page blobs within a storage account. For more information, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) or [Azure blob storage here](../../storage/storage-introduction.md#blob-storage). Even if you wish to use managed disks, you need to create a storage account that you upload your VHD to before converting to a managed disk.
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. You can create VMs with managed disks in any resource group within your subscription.
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#create). 
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
@@ -200,9 +200,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 =======================================================================
 ## Create VM from custom disk
-Again, you can create a VM using Azure Managed Disks or unmanaged disks. For both types, specify the URI to the managed or unmanaged disk when you create a VM. For unmanaged disks, ensure that the destination storage account matches where your custom disk is stored. You can create your VM using the Azure 2.0 or Resource Manager JSON template.
 
-### Azure CLI 2.0 - Azure Managed Disks
+Create a VM by specifying the URI to the managed disk when you create a VM.  You can create your VM using the Azure 2.0 or Resource Manager JSON template.
+
 To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create). The following example creates a managed disk named `myManagedDisk` from the VHD you uploaded to your named storage account and container:
 
 ```azurecli
