@@ -32,7 +32,7 @@ To resolve the issue, first try to [reset the Azure virtual network Gateway](vpn
 Check the type of Azure  virtual network gateway:
 
 1. Go to [Azure portal](https://portal.azure.com).
-2. In the *Overview* page the virtual network gateway, you can find the type information.
+2. In the **Overview** page of the virtual network gateway, you can find the type information.
     
     ![The overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
@@ -69,9 +69,9 @@ For Classic
 -	The IP definition in **Local Network Gateway** object in Azure should match the on-premises device IP.
 -	The Azure Gateway IP definition set on the on-premises device should match the Azure gateway IP.
 
-## Step 4  NSG / UDR on Gateway Subnet
+### Step 4 NSG and UDR on Gateway Subnet
 
-Check for and remove NSGs or UDRs on the Gateway Subnet and test. If resolved, validate correctness of NSG/UDR applied.
+Check for and remove User Defined Routing (UDR) or Network Security Groups (NSG)on the Gateway Subnet and test. If resolved, validate correctness of NSG or UDR applied.
 
 ### Step 5 Check on-premises VPN device external interface address
 
@@ -88,7 +88,7 @@ Check for and remove NSGs or UDRs on the Gateway Subnet and test. If resolved, v
 
 1. Browse to https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe
 2. Click through certificate warning.
-3. If you receive a response, the virtual network gateway is considered healthy. If you do not receive a response, the gateway may not be healthy or there is an network security group (NSG) on the gateway subnet that causes the issue. The following text is a sample of the response:
+3. If you receive a response, the virtual network gateway is considered healthy. If you do not receive a response, the gateway may not be healthy or there is a NSG on the gateway subnet that causes the issue. The following text is a sample of the response:
 
     &lt;?xml version="1.0"?>
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
