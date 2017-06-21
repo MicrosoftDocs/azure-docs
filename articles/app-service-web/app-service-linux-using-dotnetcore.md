@@ -24,7 +24,7 @@ ms.author: aelnably;wesmc;mikono
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-With the latest update to our backend, we introduced support for .NET Core v.1.0 and .NET Core v.1.1. We will support .NET Core v.2.0 soon. By setting the configuration of your Linux web app, you can change the application stack.
+With the latest update to our backend, we introduced support for .NET Core v.1.0 and .NET Core v.1.1. We are not currently supporting .NET Core v.2.0 yet. By setting the configuration of your Linux web app, you can change the application stack.
 
 ## Prerequisites ##
 
@@ -49,7 +49,7 @@ Click **OK** to close the Docker Container blade and fill out the Create blade. 
 
 1. Start a new command-line session. If your machine is Windows, press **Windows** + **R** key, followed by typing either `cmd` or `powershell`. If your machine is Linux or Mac, start a terminal session. In this document, we use a Linux machine.
 
-1. Create a directory named your project and change the current directory to it. Then type `dotnew new web`. The following example is creating a project named **hellodotnetcore**.
+1. Create a directory named your project and change the current directory to it. Then type `dotnew new web`. The following example is creating a project named `hellodotnetcore`.
 
 ![Creating a .NET Core app][3]
 
