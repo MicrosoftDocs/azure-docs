@@ -21,9 +21,10 @@ ms.author: mlearned
         </div>
     	</div>
 <h2>5-Minute Quickstarts</h2>
+<p>Learn how to deploy Chef on Azure:</p> 
   <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Deploy Chef Automate on Azure</a><br/>
 <h2>Step-by-Step Tutorials</h2>
-<p>Learn how to integrate Chef with Azure tools and services.</p> 
+<p>Learn how to integrate Chef with Azure tools and services:</p> 
 <ol>
 <li><a href="/azure/virtual-machines/windows/chef-automation">Automate Azure Virtual Machine deployment with Chef</a></li>
 </ol>
