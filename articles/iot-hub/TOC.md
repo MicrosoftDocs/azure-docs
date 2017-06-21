@@ -6,11 +6,13 @@
 # [Get Started](iot-hub-get-started.md)
 
 ## Setup your device
-### [Use a simulated device](iot-hub-get-started-simulated.md)
+### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+
+### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Use a physical device](iot-hub-get-started-physical.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -27,8 +29,6 @@
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-
-### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## Extended IoT scenarios
 ### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -179,4 +179,4 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
-## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
