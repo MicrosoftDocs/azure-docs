@@ -100,7 +100,7 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**. You'll use the copy buttons on the right side of the screen to copy the **ENDPOINT** and **ACCOUNT KEY** into the app.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**. You'll use the copy buttons on the right side of the screen to copy the **ACCOUNT NAME**, **ENDPOINT** and **ACCOUNT KEY** into the app.config file in the next step.
 
     ![View and copy the Endpoint and Account Key in the Connection String pane](./media/create-table-dotnet/keys.png)
 
