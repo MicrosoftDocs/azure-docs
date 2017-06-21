@@ -14,11 +14,19 @@ This application utilizes resources from the <a href="https://azure.microsoft.co
 ### Installing Xamarin
 With Visual Studio 2017 installed, open the Visual Studio Installer, open the hamburger menu associated with your visual studio installation, and select "Modify".
 
-![Visual Studio Installer Modify Screen Example](./media/VisualStudioInstallerPhoto.PNG)
+<div align="center">
+    <img src=./media/VisualStudioInstallerPhoto.PNG
+         alt="A picture of the visual studio installer">
+    </img>
+</div>
 
 Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile Development with .NET"
 
-![Mobile Development with .Net Selected Example](./media/XamarinFormsIsEnabled.PNG)
+<div align="center">
+    <img src=./media/XamarinFormsIsEnabled.PNG
+         alt="A picture showing that Xamarin Forms is installed">
+    </img>
+</div>
 
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
@@ -36,16 +44,28 @@ Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solutio
 ### Step 3: Configure your deployment
 Before running the application, you will need to select a target Configuration, Platform and Project.  These settings should be available in the toolbar below the top ribbon menu.  For this guide I'll be compiling the application in a Debug build for Android, and testing it on my Nexus 6P.  
 
-![Build Settings Toolbar Example](./media/ConfigurationSelection.PNG) 
+<div align="center">
+    <img src=./media/ConfigurationSelection.PNG
+         alt="An image showing Visual Studio configured to compile for an Android phone">
+    </img>
+</div> 
 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5** to deploy the sample to your target platform.  
-2) Once the application boots, you will be taken to the page shown below (defined in code as the AddKeysPage).  From here, you can input the API keys needed to access the Microsoft Cognitive Services endpoints used by the application.  If you would like to skip this page, you can manually add your keys in the App.xaml.cs page of the codebase.  
-![AddKeysPage Example](./media/AddKeysPage.png)  
-3) Once you've added your keys, you will be taken to the main landing page of the application (defined in code as the OcrSelectPage).  From here, you can either import or capture a new photo, and pass that photo to either the Print or Handwritten OCR service. Switching between the two tabs will allow you to select which endpoint you would like to use.  
+2) Once the application boots, you will be taken to the page shown below (defined in code as the AddKeysPage).  From here, you can input the API keys needed to access the Microsoft Cognitive Services endpoints used by the application.  If you would like to skip this page, you can manually add your keys in the App.xaml.cs page of the codebase. 
+<div align="center">
+    <img src=./media/AddKeysPage.png
+         alt="A picture of the page where a user can add their Cognitive Services keys">
+    </img>
+</div>
+3) Once you've added your keys, you will be taken to the main landing page of the application (defined in code as the OcrSelectPage).  From here, you can either import or capture a new photo, and pass that photo to either the Print or Handwritten OCR service.  
+<div align="center">
+    <img src=./media/OcrSelectPage.png
+         alt="A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo">
+    </img>
+</div> 
 Please note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and funtionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
-![OcrSelectPage Example](./media/OcrSelectPage.png)
-4) 
+ 
 
 ### Required Libraries:  
 * Xamarin Media Plugin
