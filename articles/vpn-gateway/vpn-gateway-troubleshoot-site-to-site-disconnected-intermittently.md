@@ -62,7 +62,7 @@ The Policy-based virtual network gateway has limit of 200 subnet Security Associ
 - The device's external interface must be directly on Internet. There should be no Network Address Translation (NAT) or firewall between the Internet and the device.
 -  If you configure Firewall Clustering with virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
 
- ### Step 7 Check if the on-premises VPN device has Perfect forward Secrecy enabled
+### Step 7 Check if the on-premises VPN device has Perfect forward Secrecy enabled
 
 The **Perfect forward Secrecy** feature can cause the disconnection problems. If the VPN device has **Perfect forward Secrecy** enabled, disable the feature. Then [update the virtual network gateway IPsec policy](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
