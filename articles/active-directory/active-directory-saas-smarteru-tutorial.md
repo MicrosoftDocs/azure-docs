@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SmarterU, you need the following items:
 
 - An Azure AD subscription
-- A SmarterU single-sign on enabled subscription
+- A SmarterU single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -104,9 +104,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_samlbase.png)
 
-3. On the **SmarterU** section, the user does not have to perform any steps as the app is already pre-integrated with Azure. 
+3. On the **SmarterU Domain and URLs** section, perform the following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_url.png)
+
+	In the **Identifier** textbox, type the URL: `https://www.smarteru.com/`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -233,14 +235,16 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+ 
+When you click the SmarterU tile in the Access Panel, you should get automatically signed-on to your SmarterU application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
