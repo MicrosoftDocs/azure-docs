@@ -260,6 +260,10 @@ DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
 
+> [!TIP]
+> To secure your MySQL connection information, this file is excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
+>
+
 Save the changes.
 
 ### Configure SSL certificate
@@ -313,24 +317,16 @@ Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal. 
 
-### Secure sensitive data
+### Commit your changes
 
-Make sure that the sensitive data in _.env.production_ is not committed into Git.
-
-Open the *.gitignore* file from the repository root and add the filename:
-
-```
-.env.production
-```
-
-Save the changes, and then commit the changes to Git.
+Run the following Git commands to commit your changes:
 
 ```bash
 git add .
-git commit -m "database.php and .gitignore updates"
+git commit -m "database.php updates"
 ```
 
-Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
+Your app is ready to be deployed.
 
 ## Deploy to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
