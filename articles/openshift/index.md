@@ -20,7 +20,7 @@ ms.author: mlearned
         </div>
     </div>
 <h2>5-Minute Quickstarts</h2>
-<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift community template</a> 
+<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift Origin community template</a> 
 <h2>Step-By-Step Tutorials</h2>
 <p>Learn how to deploy OpenShift on Azure.</p>
 <ol>
