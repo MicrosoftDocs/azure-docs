@@ -57,12 +57,10 @@ Click on the **Agent Health** tile to open the **"Agent Health** dashboard.  The
 | Agent count over time | A trend of your agent count over a period of seven days for both Linux and Windows agents.| 
 | Count of unresponsive agents | A list of agents that haven’t sent a heartbeat in the past 24 hours.| 
 | Distribution by OS Type | A partition of how many Windows and Linux agents you have in your environment.| 
-| Distribution by Agent Version | 
-A partition of the different agent versions installed in your environment and a count of each one.| 
+| Distribution by Agent Version | A partition of the different agent versions installed in your environment and a count of each one.| 
 | Distribution by Agent Category | A partition of the different categories of agents that are sending up heartbeat events: direct agents, OpsMgr agents, or the OpsMgr Management Server.| 
 | Distribution by Management Group | A partition of the different SCOM Management groups in your environment.| 
-| Geo-location of Agents | 
-A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.| 
+| Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.| 
 | Count of Gateways Installed | The number of servers that have the OMS Gateway installed, and a list of these servers.|
 
 ![Agent Health Solution dashboard example](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
