@@ -17,7 +17,7 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
 	<div class="intro" style="min-width: 200px">
 	 <img src="media/Docker.png" align="right" alt="Docker Logo">
-         Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Use the How-to Guides to work through various scenarios for Docker on Azure.
+         Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Use the Quickstarts, Tutorials, and How-to Guides to learn Docker on Azure.
 	</div>
     </div>
 <h2>Quickstarts</h2>
