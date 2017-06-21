@@ -20,7 +20,9 @@ ms.author: mlearned
          Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Use the How-to Guides to work through various scenarios for Docker on Azure.
 	</div>
     </div>
-<h2>How-to Guides</h2>
+<h2>Quickstarts</h2>
+<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Deploy Docker on Ubuntu Quickstart template</a><br/>
+<h2>Tutorials</h2>
 <p>Learn how to quickly deploy Docker on Azure.</p>
 <ol>
   <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
@@ -34,7 +36,6 @@ ms.author: mlearned
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>
 <br/>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Docker on Ubuntu Quickstart template</a><br/>
 <a href="https://www.docker.com/docker-azure">Docker Azure site</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure driver</a><br/>
 </div>
