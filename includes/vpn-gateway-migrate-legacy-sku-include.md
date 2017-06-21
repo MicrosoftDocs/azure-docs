@@ -7,9 +7,9 @@ You can't resize your Azure VPN gateways directly between the old SKUs and the n
 Migration workflow:
 
 1. Remove any connections to the virtual network gateway.
-1. Delete the old VPN gateway.
-2. Create the new VPN gateway.
-3. Update your on-premises VPN devices with the new VPN gateway IP address (for Site-to-Site connections).
-4. Update the gateway IP address value for any VNet-to-VNet local network gateways that will connect to this gateway.
-5. Download new client VPN configuration packages for P2S clients connecting to the virtual network through this VPN gateway.
-5. Recreate the connections to the virtual network gateway.
+2. Delete the old VPN gateway.
+3. Create the new VPN gateway.
+4. Update your on-premises VPN devices with the new VPN gateway IP address (for Site-to-Site connections).
+5. Update the gateway IP address value for any VNet-to-VNet local network gateways that will connect to this gateway.
+6. Download new client VPN configuration packages for P2S clients connecting to the virtual network through this VPN gateway.
+7. Recreate the connections to the virtual network gateway.

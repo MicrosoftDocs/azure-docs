@@ -22,7 +22,7 @@ The new gateway SKUs streamline the feature sets offered on the gateways:
 
 | **SKU**| **Features**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|Route-based VPN up to 30 tunnels* <br>P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN co-existence <br><br>(*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details. |
+| VpnGw1<br>VpnGw2<br>VpnGw3|Route-based VPN up to 30 tunnels* <br>P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN co-existence <br><br>* You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details. |
 |Basic   | Route-based: 10 tunnels with P2S<br>Policy-based (IKEv1): 1 tunnel; no P2S|
 |        |             |
 
