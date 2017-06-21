@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with InsideView, you need the following items:
 
 - An Azure AD subscription
-- A InsideView single-sign on enabled subscription
+- A InsideView single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -85,13 +85,9 @@ In InsideView, assign the value of the **user name** in Azure AD as the value of
 To configure and test Azure AD single sign-on with InsideView, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-
 3. **[Creating a InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
-
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
@@ -112,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_url.png)
 	
-   	In the **Reply URL** textbox, type a URL using the following pattern: `my.insideview.com/iv/<STS Name>/login.iv`
+   	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [support@hackerone.com](mailto:support@hackerone.com) to get these values.
+	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@hackerone.com) to get these values.
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_certificate.png) 
 
@@ -125,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_general_400.png)
 
-6. On the **InsideView Configuration** section, click **Configure InsideView** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **InsideView Configuration** section, click **Configure InsideView** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_configure.png) 
 
@@ -141,19 +137,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
    a. In the **STS Name** textbox, type a name for your configuration.
 
-   b. Paste **Service Provider (SP) Initiated Endpoint** into the **SamlP/WS-Fed Unsolicated EndPoint** textbox.
-   
+   b. on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicited EndPoint** textbox.
+
    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
 
    d. Complete the following:
    
-   	* In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	* In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 		
 	* In the **Crm Email Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-    * In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-    * In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+	* In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+	* In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-	e. Click **Save**.
+   e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -194,7 +190,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
 
-To get users or contacts created in InsideView, contact your customer success manager or send email to[support@hackerone.com](mailto:support@hackerone.com)
+To get users or contacts created in InsideView, Contact [InsideView support team](mailto:support@hackerone.com).
 
 >[!NOTE]
 >You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.
@@ -233,7 +229,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the FilesAnywhere tile in the Access Panel, you should get automatically signed-on to your FilesAnywhere application.
+When you click the InsideView tile in the Access Panel, you should get automatically signed-on to your InsideView application.
 
 ## Additional resources
 
