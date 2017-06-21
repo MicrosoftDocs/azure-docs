@@ -14,6 +14,11 @@
 ### [Service limits](key-vault-service-limits.md)
 ### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### Overviews
+#### [Security worlds overview](key-vault-ovw-security-worlds.md)
+#### [Soft-delete overview](key-vault-ovw-soft-delete.md)
+#### [Storage account keys overview](key-vault-ovw-storage-keys.md)
+#### [Throttling overview](key-vault-ovw-throttling.md)
 
 ## Manage
 ### [Azure Key Vault logging](key-vault-logging.md)
@@ -21,9 +26,6 @@
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
-### [Security worlds overview](key-vault-ovw-security-worlds.md)
-### [Soft-delete overview](key-vault-ovw-soft-delete.md)
-### [Storage account keys overview](key-vault-ovw-storage-keys.md)
 
 ## Automate
 ### [Azure automation](automation-manage-key-vault.md)
