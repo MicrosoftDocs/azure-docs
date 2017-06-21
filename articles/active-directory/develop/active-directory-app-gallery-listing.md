@@ -27,7 +27,7 @@ To list an application that supports single sign-on with Azure Active Directory 
 Listing requirements for each mode are below.
 
 > [!IMPORTANT]
-> Please review the [Microsoft Azure Active Directory Application Gallery Terms and Conditions](active-directory-app-gallery-listing-terms) prior to proceeding. By submitting your application to be listed, you are agreeing to these terms.
+> Please review the [Microsoft Azure Active Directory Application Gallery Terms and Conditions](active-directory-app-gallery-listing-terms.md) prior to proceeding. By submitting your application to be listed, you are agreeing to these terms.
 
 ## OpenID Connect Integration
 To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
