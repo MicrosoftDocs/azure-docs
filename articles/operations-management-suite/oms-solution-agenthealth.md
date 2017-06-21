@@ -21,7 +21,7 @@ ms.author: magoedte
 The Agent Health solution in OMS helps you understand, for all of the agents reporting directly to the OMS workspace or a System Center Operations Manager management group  connected to OMS, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
 ## Prerequisites
-Before you deploy this solution, confirm you have currently supported [Windows agents](log-analytics-windows-agents.md) reporting to the OMS workspace or reporting to an [Operations Manager management group](log-analytics/log-analytics-om-agents.md) integrated with your OMS workspace.    
+Before you deploy this solution, confirm you have currently supported [Windows agents](../log-analytics/log-analytics-windows-agents.md) reporting to the OMS workspace or reporting to an [Operations Manager management group](../log-analytics/log-analytics-om-agents.md) integrated with your OMS workspace.    
 
 ## Solution components
 This solution consists of the following resources that are added to your workspace and directly connected agents or Operations Manager connected management group. 
@@ -35,7 +35,7 @@ If your System Center Operations Manager management group is connected to an OMS
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## Configuration
-Add the Agent Health solution to your OMS workspace using the process described in [Add solutions](log-analytics-add-solutions.md). There is no further configuration required.
+Add the Agent Health solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). There is no further configuration required.
 
 
 ## Data collection
