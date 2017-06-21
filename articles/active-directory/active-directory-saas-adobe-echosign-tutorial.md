@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/24/2017
 ms.author: jeedes
 
 ---
@@ -130,13 +130,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log in to your Adobe Sign company site as an administrator.
 
-8. In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **SAML Settings** under **Account Settings**.
+8. In the menu on the top, click **Account**, and then, in the navigation pane on the left side, click **SAML Settings** under **Account Settings**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/IC789520.png "Account")
+   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
 9. In the SAML Settings section, perform the following steps:
    
-   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/IC789521.png "SAML Settings")
+   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
    a. As **SAML Mode**, select **SAML Mandatory**.
    
@@ -146,13 +146,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. Move on, performing the following steps:
 
-	   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "SAML Settings")
+	   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML Settings")
 
-	a. Paste **SAML Entity ID** into the **IdP Entity ID** textbox.
+	a. Paste **SAML Entity ID**, which you have copied from Azure portal into the **IdP Entity ID** textbox.
    	
-	b. Paste **SAML Single Sign-On Service URL** into the **IdP Login URL** textbox.
+	b. Paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal into the **IdP Login URL** textbox.
    
-    c. Paste **Sign-Out URL** into the **IdP Logout URL** textbox.
+    c. Paste **Sign-Out URL**, which you have copied from Azure portal into the **IdP Logout URL** textbox.
 
 	d. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Certificate** textbox
 
@@ -196,20 +196,19 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating an Adobe Sign test user
 
 To enable Azure AD users to log in to Adobe Sign, they must be provisioned into Adobe Sign.  
-
 In the case of Adobe Sign, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Adobe Sign** company site as administrator.
 
 2. In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **Users & Groups**, and then, click **Create a new user**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/IC789524.png "Account")
+   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
    
 3. In the **Create New User** section, perform the following steps:
    
-   ![Create User](./media/active-directory-saas-adobe-echosign-tutorial/IC789525.png "Create User")
+   ![Create User](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Create User")
    
    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid AAD account you want to provision into the related textboxes.
    
@@ -253,7 +252,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Adobe Sign tile in the Access Panel, you should get automatically signed-on to your Adobe Sign application.
+ For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
