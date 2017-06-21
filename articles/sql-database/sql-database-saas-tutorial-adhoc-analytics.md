@@ -15,20 +15,20 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 06/21/2017
 ms.author: billgib; sstein
 
 ---
 # Run ad-hoc analytics queries across all Wingtip SaaS tenants
 
-In this tutorial, you run distributed queries across tenant databases to enable ad-hoc analytics across all tenants. Elastic Query is used to enable distributed queries, which requires an additional analytics database be deployed (to the catalog server). These queries can extract insights buried in the day-to-day operational data of the Wingtip SaaS app.
+In this tutorial, you run distributed queries across tenant databases to enable ad-hoc analytics across all tenants. Elastic Query is used to enable distributed queries, which requires an additional analytics database is deployed (to the catalog server). These queries can extract insights buried in the day-to-day operational data of the Wingtip SaaS app.
 
 
 In this tutorial you learn:
 
 > [!div class="checklist"]
 
-> * About the global views in each database that enable querying across tenants
+> * About the global views in each database, that enables efficient querying across tenants
 > * How to deploy an ad-hoc analytics database
 > * How to run distributed queries across all tenant databases
 
@@ -51,16 +51,14 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip application scripts
 
-<<<<<<< HEAD
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
-=======
 The Wingtip SaaS scripts and application source code are available in the WingtipSaaS github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
->>>>>>> 4369c0cd9b6629caa8d3a80287e34e4696dfebeb
 
 
 ## Explore the global views
 
-The Wingtip SaaS application is built using a tenant-per-database model, so the tenant database schema is defined from a single-tenant perspective. Tenant-specific information exists in one table, *Venue*, which always has a single row, and is furthermore designed as a heap, without a primary key.  Other tables in the schema don't need to be related to the *Venue* table, because in normal use, there is never any doubt which tenant the data belongs to.  However, when querying across all databases, correlating data from tables in the database to a specific tenant becomes significant. To simplify these queries, a set of views are added to the tenant database that provide a 'global' view of each tenant. These global views project a tenant id into each table that is queried over globally. This tenant id makes it easy to identify data from each tenant. As a convenience, these views have been pre-created in all tenant databases (as well as the golden db, so these global views are available as new tenants are provisioned).
+The Wingtip SaaS application is built using a tenant-per-database model, so the tenant database schema is defined from a single-tenant perspective. Tenant-specific information exists in one table, *Venue*, which always has a single row, and is furthermore designed as a heap, without a primary key. Other tables in the schema don't need to be related to the *Venue* table, because in normal use, there is never any doubt which tenant the data belongs to.
+
+However, when querying across all databases, it's important that Elastic Query can treat the data as if it is sharded by tenant. To achieve this, a set of 'global' views are added to the tenant database that project a tenant id into each of the tables that are queried globally. For example, the *VenueEvents* view adds a computed *VenueId* to the columns in the *Events* table. By defining the external table in the head database over *VenueEvents* (rather than the underlying *Events* table), Elastic Query is able to push down joins based on *VenueId* so they can be executed in parallel on each remote database (rather than on the head database). This dramatically reduces the amount of data that is returned, which results in a substantial increase in performance for many queries. These global views have been pre-created in all tenant databases (and in *basetenantdb*).
 
 1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 1. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
@@ -80,7 +78,7 @@ The Wingtip SaaS application is built using a tenant-per-database model, so the 
    SELECT * FROM VenueEvents
    ```
 
-In the sample database we calculated an integer id from a hash of the Venue name, but any approach could be used to introduce a unique value. This approach is similar to how we create the tenant key in the catalog.
+In these views, the *VenueId* is computed as a hash of the Venue name, but any approach could be used to introduce a unique value. This approach is similar to the way the tenant key is computed for use in the catalog.
 
 To examine a *View*:
 
@@ -95,39 +93,54 @@ Script any *View* to examine how it's created.
 
 ## Deploy the database used for ad-hoc analytics queries
 
-This exercise deploys the *adhocanalytics* database. This database contains the schema used for querying across all tenant databases. The database is deployed to the existing catalog server, which is the server that contains all management-related databases.
+This exercise deploys the *adhocanalytics* database. This database will contain the schema used for querying across all tenant databases. The database is deployed to the existing catalog server, which is the server used for all management-related databases in the sample app.
 
-1. Open the PowerShell ISE, and load ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Deploy-AdhocAnalyticsDB.ps1*
-1. Scroll down to the section assigning `$commandText` to the SQL script. Review the script and note the following:
-
-   1. Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad-hoc queries.
-   1. The external data source, that is defined to use the tenant shard map in the catalog database.  By using this as the external data source, queries are distributed to all databases registered in the catalog at the point the query is issued.
-   1. The external tables that reference the global Views described in the previous section.
-   1. The local table *VenueTypes* that is created and populated.  This reference data table is common in all tenant databases, so it can be represented here as a local table. For some queries this may reduce the amount of data moved between the tenant databases and the *adhocanalytics* database.
-
-
-1. Now open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
+1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
    * **$DemoScenario** = 2, **Deploy Ad-hoc analytics database**.
 
 1. Press **F5** to run the script and create the *adhocanalytics* database.
 
-   It's ok to ignore warnings here about *The RPC server is unavailable*.
+In the next section, you add the analytics schema to the database, so it can be used to run distributed queries, and gather insights across all tenants!
 
-You now have an *adhocanalytics* database, that can be used to run distributed queries, and gather insights across all tenants!
+## Add analytics schema to the ad-hoc analytics database
 
-![adhocanalytics database](media/sql-database-saas-tutorial-adhoc-analytics/adhocanalytics.png)
+This exercise adds the analytics schema to the ad-hoc analytics database that enables querying across all tenant databases.
+
+1. Open SQL Server Management Studio, and connect to the Adhoc Analytics database you created in the previous step. The name of the database will be adhocanalytics.
+1. Open ...\Learning Modules\Operational Analytics\Adhoc Analytics\ Initialize-AdhocAnalyticsDB.sql in SSMS.
+1. Review the SQL script and note the following:
+
+   Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad-hoc queries.
+
+    ![create credential](media/sql-database-saas-tutorial-adhoc-analytics/create-credential.png)
+
+   The external data source, that is defined to use the tenant shard map in the catalog database. By using this as the external data source, queries are distributed to all databases registered in the catalog at the point the query is issued. In this initialization script, the location of the catalog database is constructed by retrieved from the location of the current server (@@servername) where the script is being run.
+
+    ![create external data source](media/sql-database-saas-tutorial-adhoc-analytics/create-external-data-source.png)
+
+   The external tables that reference the global views described in the previous section.
+
+    ![create external tables](media/sql-database-saas-tutorial-adhoc-analytics/external-tables.png)
+
+   The local table *VenueTypes* that is created and populated. This reference data table is common in all tenant databases, so it can be represented here as a local table and populated with the common data. For some queries this may reduce the amount of data moved between the tenant databases and the *adhocanalytics* database.
+
+    ![create table](media/sql-database-saas-tutorial-adhoc-analytics/create-table.png)
+
+   If you include reference tables in this manner, be sure to update the table schema and data whenever you update the tenant databases.
+
+1. Press **F5** to run the script and initialize the *adhocanalytics* database. 
+
+Now you can run distributed queries, and gather insights across all tenants!
 
 ## Run Ad-hoc analytics queries
 
-Now that the *adhocanalytics* database is set up, run some ad-hoc queries:
+Now that the *adhocanalytics* database is set up, run some distributed queries:
 
+1. Ensure you are connected to the **adhocanalytics** database.
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalyticsQueries.sql* in SSMS.
-1. Ensure you are connected to the **adhocanalytics** database
 1. Select the individual query you want to run, and press **F5**:
 
     ![query](media/sql-database-saas-tutorial-adhoc-analytics/query.png)
-
-
 
 
 ## Next steps
@@ -137,10 +150,10 @@ In this tutorial you learned how to:
 > [!div class="checklist"]
 
 > * Run distributed queries across all tenant databases
-> * Deploy an ad-hoc analytics database
+> * Deploy an ad-hoc analytics database and add schema to it to run distributed queries.
 
 
-Now try the [Tenant Analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md)
+Now try the [Tenant Analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
 
 ## Additional resources
 
