@@ -22,7 +22,7 @@ ms.author: mlearned
 <h2>Quickstarts</h2>
 <a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift community template</a> 
 <h2>Tutorials</h2>
-<p>Learn how to quickly deploy OpenShift on Azure.</p>
+<p>Learn how to deploy OpenShift on Azure.</p>
 <ol>
   <li><a href="/azure/virtual-machines/linux/openshift-get-started">Deploy OpenShift Origin to Azure Virtual Machines</a></li>  
 </ol>
