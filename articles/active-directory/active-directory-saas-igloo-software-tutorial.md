@@ -157,8 +157,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     e. Open your **base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
     
-    Open the downloaded certificate in notepad as text format, copy the text and then paste it into the **Public Certificate** textbox.
-
 12. In the **Response and Authentication Configuration**, perform the following steps:
     
     ![Response and Authentication Configuration](./media/active-directory-saas-igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
