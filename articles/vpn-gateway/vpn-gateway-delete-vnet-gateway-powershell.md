@@ -124,7 +124,7 @@ $LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -Resource
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### 8. Get the list of Public IP addresses used for this virtual network gateway.
+### 8. Get the list of Public IP address resources used for this virtual network gateway.
 
 If the virtual network gateway was active-active, you will see two Public IP addresses.
 
@@ -132,7 +132,7 @@ If the virtual network gateway was active-active, you will see two Public IP add
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### 9. Delete the Public IPs.
+### 9. Delete the Public IP resources.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
@@ -218,7 +218,7 @@ At this point, your virtual network gateway has been deleted. You can use the ne
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### 7. Get the list of Public IP addresses used for this virtual network gateway.
+### 7. Get the list of Public IP address resources used for this virtual network gateway.
 
 If the virtual network gateway was active-active, you will see two Public IP addresses.
 
@@ -226,7 +226,7 @@ If the virtual network gateway was active-active, you will see two Public IP add
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### 8. Delete the Public IPs.
+### 8. Delete the Public IP resources.
 
 You may be prompted to confirm the deletion of the Public IP.
 
