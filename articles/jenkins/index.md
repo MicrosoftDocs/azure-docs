@@ -35,5 +35,5 @@ ms.author: mlearned
 <p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p><br/>
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage plugin</a><br/>
-<a href="https://jenkins.io">Learn more about Jenkins</a><br/>
+<a href="https://jenkins.io">Learn about Jenkins</a><br/>
 </div>
