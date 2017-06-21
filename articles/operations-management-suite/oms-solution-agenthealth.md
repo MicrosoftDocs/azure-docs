@@ -94,18 +94,18 @@ The following table provides sample log searches for records collected by this s
 
 | Query | Description |
 | --- | --- |
-| `Type=Heartbeat | distinct Computer` |Total number of agents | 
-| `Type=Heartbeat | measure max(TimeGenerated) as LastCall by Computer | where LastCall < NOW-24HOURS` |Count of unresponsive agents in the last 24 hours | 
-| `Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS  | distinct Computer} | measure max(TimeGenerated) as LastCall by Computer` |Computers online (in the last 24 hours) | 
-| `Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES  | distinct Computer} | measure max(TimeGenerated) as LastCall by Computer` |Total Agents Offline in Last 30 minutes (for the last 24 hours) | 
-| `Type=Heartbeat | measure countdistinct(Computer) by OSType` |Get a trend of number of agents over time by OSType| 
-| Line chart: `Type=Heartbeat | measure countdistinct(Computer) by OSType`<br> List: `Type=Heartbeat | Distinct Computer` |Agent count over time | 
-| Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by OSType`|Distribution by OS Type | 
-| Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by Version` |Distribution by Agent Version | 
-| Donut and List: `Type=Heartbeat|measure count() by Category` |Distribution by Agent Category | 
-| Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by ManagementGroupName` |Distribution by Management Group | 
-| Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by RemoteIPCountry` |Geo-location of Agents |
-| Number and List: `Type=Heartbeat IsGatewayInstalled=true|Distinct Computer` |Number of OMS Gateways Installed | 
+|`Type=Heartbeat | distinct Computer` |Total number of agents | 
+|`Type=Heartbeat | measure max(TimeGenerated) as LastCall by Computer | where LastCall < NOW-24HOURS` |Count of unresponsive agents in the last 24 hours | 
+|`Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS  | distinct Computer} | measure max(TimeGenerated) as LastCall by Computer` |Computers online (in the last 24 hours) | 
+|`Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES  | distinct Computer} | measure max(TimeGenerated) as LastCall by Computer` |Total Agents Offline in Last 30 minutes (for the last 24 hours) | 
+|`Type=Heartbeat | measure countdistinct(Computer) by OSType` |Get a trend of number of agents over time by OSType| 
+|Line chart: `Type=Heartbeat | measure countdistinct(Computer) by OSType`<br> List: `Type=Heartbeat | Distinct Computer` |Agent count over time | 
+|Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by OSType`|Distribution by OS Type | 
+|Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by Version` |Distribution by Agent Version | 
+|Donut and List: `Type=Heartbeat|measure count() by Category` |Distribution by Agent Category | 
+|Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by ManagementGroupName` |Distribution by Management Group | 
+|Donut and List: `Type=Heartbeat|measure countdistinct(Computer) by RemoteIPCountry` |Geo-location of Agents |
+|Number and List: `Type=Heartbeat IsGatewayInstalled=true|Distinct Computer` |Number of OMS Gateways Installed | 
 
 ## Troubleshooting 
 
