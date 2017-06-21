@@ -140,7 +140,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 
     The script creates a departments.csv file with some data in the /output folder.
 
-5. Save the file as **myUSQL.usql** in the openned folder. Notice an **adltools_settings.json** configuration file is also added to the project.
+5. Save the file as **myUSQL.usql** in the opened folder. Notice an **adltools_settings.json** configuration file is also added to the project.
 4. Open and configure **adltools_settings.json** with the following properties:
 
     - Account:  A Data Lake Analytics account under your Azure subscription.
@@ -156,7 +156,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 
     A compute Data Lake Analytics account is needed for compiling and running U-SQL jobs.  You must configure the computer account before you can compile and run U-SQL jobs.
 
-Comparing to openning a file, openning a folder allows you to:
+Comparing to opening a file, opening a folder allows you to:
 
 - Use code-behind file.  In the single-file mode, code-behind is not supported.
 - Use configuration file. When you open a folder, the scripts in the working folder share one configuration file.
