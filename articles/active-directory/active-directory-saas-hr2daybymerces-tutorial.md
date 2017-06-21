@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -141,9 +141,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+	c. From the **Value** list, type the attribute value as **Join()**.
+
+	d. From the **String1** list, type **user.mail**.
+
+	e. From the **String2** list, type **102938475Z**.
+
+	f. From the **Seperator** list, type **@**.
+
+	g. Click **Ok**.
 
 	> [!NOTE] 
     Before you can configure the SAML assertion, you need to contact your HR2day support team via [servicedesk@merces.nl](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.
