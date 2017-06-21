@@ -16,11 +16,11 @@ ms.author: mlearned
     <h1>OpenShift on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-		  OpenShift Origin is an open-source container platform built on Kubernetes that simplifies the process of deploying, scaling, and operating multi-tenant applications.  Learn how to deploy and configure and OpenShift solution with quickstarts and tutorials from Microsoft and OpenShift. 
+	OpenShift Origin is an open-source container platform built on Kubernetes that simplifies the process of deploying, scaling, and operating multi-tenant applications.  Learn how to deploy and configure and OpenShift solution with quickstarts and tutorials from Microsoft and OpenShift. 
         </div>
     </div>
 <h2>Quickstarts</h2>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.redhatopenshift">Deploy Red Hat OpenShift template</a> 
+<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift community template</a> 
 <h2>Tutorials</h2>
 <p>Learn how to quickly deploy OpenShift on Azure.</p>
 <ol>

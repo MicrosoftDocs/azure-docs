@@ -1,6 +1,6 @@
 # [OpenShift Documentation](index.md)
 # Quickstarts
-## [OpenShift:  Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.redhatopenshift)
+## [OpenShift:  Community template](https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/)
 # Tutorials
 ## [Deploy to Azure VMs](/azure/virtual-machines/linux/openshift-get-started)
 # Resources
