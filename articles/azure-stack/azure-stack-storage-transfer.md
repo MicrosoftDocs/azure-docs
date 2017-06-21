@@ -24,7 +24,7 @@ Microsoft Azure Stack provides a set of the storage services for disks, blobs, t
 * [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
     An easy to use standalone app with a user interface.
-* [Azcopy](#azcopy)
+* [AzCopy](#azcopy)
 
     A storage-specific command-line utility that you can download to copy data from one object to another within your storage account, or between storage accounts.
 
@@ -48,7 +48,7 @@ Microsoft Azure Storage Explorer (Preview) is a standalone app from Microsoft. I
 For more information about configuring Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
 
 ## AzCopy
-Azcopy is a Windows Command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+AzCopy is a Windows Command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
  
 ### Download and install AzCopy 
 
@@ -83,9 +83,9 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.9.
    For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## Azure CLI
-The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command-line. 
+The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 
 
-Azure CLI is optimized for managing and administering Azure resources from the command-line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
+Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
 Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md).
 
