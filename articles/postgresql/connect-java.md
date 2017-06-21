@@ -103,24 +103,21 @@ public class CreateTableInsertRows {
 				statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
 				System.out.println("Created table.");
 	
-				int rowcount=0;
-				
 				// Insert some data into table.
+				int nRowsInserted = 0;
 				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
 				preparedStatement.setString(1, "banana");
 				preparedStatement.setInt(2, 150);
-				rowcount = preparedStatement.executeUpdate();
-				System.out.printf("Inserted %d row(s) of data. \n", rowcount);
-				
+				nRowsInserted += preparedStatement.executeUpdate();
+
 				preparedStatement.setString(1, "orange");
 				preparedStatement.setInt(2, 154);
-				rowcount = preparedStatement.executeUpdate();
-				System.out.printf("Inserted %d row(s) of data. \n", rowcount);
-				
+				nRowsInserted += preparedStatement.executeUpdate();
+
 				preparedStatement.setString(1, "apple");
 				preparedStatement.setInt(2, 100);
-				rowcount = preparedStatement.executeUpdate();
-				System.out.printf("Inserted %d row(s) of data. \n", rowcount);
+				nRowsInserted += preparedStatement.executeUpdate();
+				System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
 	
 				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
 	
@@ -284,11 +281,12 @@ public class UpdateTable {
 			try
 			{
 				// Modify some data in table.
+				int nRowsUpdated = 0;
 				PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
 				preparedStatement.setInt(1, 200);
 				preparedStatement.setString(2, "banana");
-				int rowcount = preparedStatement.executeUpdate();
-				System.out.printf("Updated %d row(s) of data. \n", rowcount);
+				nRowsUpdated += preparedStatement.executeUpdate();
+				System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
 	
 				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
 			}
@@ -363,10 +361,11 @@ public class DeleteTable {
 			try
 			{
 				// Delete some data from table.
+				int nRowsDeleted = 0;
 				PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
 				preparedStatement.setString(1, "orange");
-				int rowcount = preparedStatement.executeUpdate();
-				System.out.printf("Deleted %d row(s) of data. \n", rowcount);
+				nRowsDeleted += preparedStatement.executeUpdate();
+				System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
 	
 				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
 			}
