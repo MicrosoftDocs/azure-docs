@@ -24,7 +24,7 @@ Click **Create** to add the policy. The policy is listed as **B2C_1_SiUpIn**. Th
 
 Open the policy by selecting **B2C_1_SiUpIn**. Verify the settings specified in the table then click **Run now**.
 
-![Select policy and run it](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-run-policy.png)
+![Select policy and run it](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
 
 | Setting      | Value  |
 | ------------ | ------ |

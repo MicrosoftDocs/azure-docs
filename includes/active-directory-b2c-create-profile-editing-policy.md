@@ -24,7 +24,7 @@ Click **Create** to add the policy. The policy is listed as **B2C_1_SiPe**. The 
 
 Open the policy by selecting **B2C_1_SiPe**. Verify the settings specified in the table then click **Run now**.
 
-![Select policy and run it](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-run-policy.png)
+![Select policy and run it](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
 
 | Setting      | Value  |
 | ------------ | ------ |
