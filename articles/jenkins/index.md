@@ -32,7 +32,7 @@ ms.author: mlearned
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, GitHub, and Jenkins</a></li>
 </ol>
 <h2 style="margin-top: 36px">Resources and Tools</h2>
-<p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p><br/>
+<p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p>
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage plugin</a><br/>
 <a href="https://jenkins.io">Learn about Jenkins</a><br/>
