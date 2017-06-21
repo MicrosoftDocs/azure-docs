@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Single-page apps using implicit flow | Microsoft Docs'
-description: Learn how to build single-page apps directly by using OAuth 2.0 implicit flow.
+description: Learn how to build single-page apps directly by using OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
@@ -17,7 +17,7 @@ ms.date: 02/06/2017
 ms.author: parakhj
 
 ---
-# Azure AD B2C: Single-page app sign-in by using implicit flow
+# Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
 
 > [!NOTE]
 > This feature is in preview.
@@ -126,7 +126,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | state |If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ### Error response
-Error responses might also be sent to the redirect URI so the app can handle them appropriately:
+Error responses also can be sent to the redirect URI so that the app can handle them appropriately:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -234,7 +234,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope |The scopes that the access token is valid for. |
 
 ### Error response
-Error responses might also be sent to the redirect URI so that the app can handle them appropriately.  For `prompt=none`, an expected error looks like this:
+Error responses also can be sent to the redirect URI so that the app can handle them appropriately.  For `prompt=none`, an expected error looks like this:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
