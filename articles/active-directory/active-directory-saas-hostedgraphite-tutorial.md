@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
 
-3. On the **Hosted Graphite Domain and URLs** section,If you wish to configure the application in **IDP initiated mode**, perform the following steps:
+3. On the **Hosted Graphite Domain and URLs** section, if you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
     `https://www.hostedgraphite.com/complete/saml/<user id>`
 
-4. On the **Hosted Graphite Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
+4. On the **Hosted Graphite Domain and URLs** section, if you wish to configure the application in **SP initiated mode**, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
   
@@ -205,7 +205,7 @@ The objective of this section is to create a user called Britta Simon in Hosted 
 There is no action item for you in this section. A new user will be created during an attempt to access Hosted Graphite if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create an user manually, you need to contact the Hosted Graphite support team via <mailto:help@hostedgraphite.com>. 
+>If you need to create a user manually, you need to contact the Hosted Graphite support team via <mailto:help@hostedgraphite.com>. 
 
 ### Assigning the Azure AD test user
 
