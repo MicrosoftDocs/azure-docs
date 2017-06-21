@@ -30,9 +30,8 @@ ms.author: mlearned
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.<p>
 <br/>
-<a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Microsoft Azure</a><br/>
-<a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Cloud Foundry Azure template guide</a><br/>
-<a href="https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html">Installing Cloud Foundry on Azure</a><br/>
+<a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Azure</a><br/>
+<a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Installing Cloud Foundry on Azure</a><br/>
 <a href="https://github.com/Microsoft/vsts-cloudfoundry">Visual Studio Team Services plugin for Cloud Foundry</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Microsoft Log Analytics Nozzle for Cloud Foundry</a><br/>
 <a href="https://docs.cloudfoundry.org/">Cloud Foundry site</a><br/>

@@ -6,8 +6,7 @@
 ## [CloudFoundry on Azure](/azure/virtual-machines/linux/cloudfoundry-get-started)
 # Resources
 ## [Pivotal and Microsoft](https://pivotal.io/partners/microsoft)
-## [CF Azure Template guide](https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html)
-## [Installing CF on Azure](https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html)
+## [Installing CF on Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html)
 ## [VSTS plugin for CF](https://github.com/Microsoft/vsts-cloudfoundry)
 ## [MSFT Log Nozzle for CF](https://github.com/Azure/oms-log-analytics-firehose-nozzle)
 ## [Cloud Foundry site](https://docs.cloudfoundry.org/)
