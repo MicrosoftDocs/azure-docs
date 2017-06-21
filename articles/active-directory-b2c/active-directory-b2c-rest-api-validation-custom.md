@@ -127,4 +127,5 @@ To add the claims exchange to the self-asserted technical profile:
 ## Next steps
 
 [Modify the profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
 [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](active-directory-b2c-rest-api-step-custom.md)
