@@ -9,6 +9,30 @@ This example was developed in Xamarin.Forms using <a href="https://www.visualstu
 ### Required Azure Services
 This application utilizes resources from the <a href="https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/">Bing Web Search API</a> and the Cognitive Services <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">Computer Vision API</a>.  For subscription and key management details, see <a href="https://azure.microsoft.com/en-us/try/cognitive-services/"> Subscriptions</a>.
 
+## Environment Setup
+
+### Installing Xamarin
+With Visual Studio 2017 installed, open the Visual Studio Installer, open the hamburger menu associated with your visual studio installation, and select "Modify".
+
+![Visual Studio Installer Modify Screen Example](./media/VisualStudioInstallerPhoto.PNG)
+
+Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile Development with .NET"
+
+![Mobile Development with .Net Selected Example](./media/XamarinFormsIsEnabled.PNG)
+
+Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
+
+
+## Building the sample
+### Step 0: Download the sample
+The sample can be found at <a href="https://github.com/Azure-Samples/XamFormsVisualSearch">XamFormsVisualSearch</a>. Download it using Visual Studio or GitHub.
+
+### Step 1: Install the sample
+In Visual Studio, open **XamFormsVisualSearch\VisualSearchApp.sln**.  It may take a few moments to initialize all of the required components. 
+
+### Step 2: Build the sample
+Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.  This should build the solution for all available platforms.  If you're trying to compile and test code for iOS while using a windows machine, you can reference <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/"> this guide</a> for help.
+
 ### Required Libraries:
 
 * Xamarin Media Plugin
