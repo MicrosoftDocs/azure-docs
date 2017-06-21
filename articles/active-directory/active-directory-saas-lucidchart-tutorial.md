@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -110,9 +110,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     In the **Sign-on URL** textbox, type a URL as: `https://chart2.office.lucidchart.com/saml/sso/azure`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Lucidchart Client support team](https://lucidchart.zendesk.com/hc) to get this value. 
- 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_certificate.png) 
