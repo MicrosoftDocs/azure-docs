@@ -27,7 +27,7 @@ The IEF sends data in claims and receives data back in claims. The REST API clai
 
 - Can be designed as an orchestration step.
 - Can trigger an external action. For instance, it can log an event in an external database.
-- Can be used to fetch a value and subsequently store it in the user database.
+- Can be used to fetch a value and then store it in the user database.
 
 You can use the received claims later to change the flow of execution.
 
@@ -258,5 +258,4 @@ If everything is set up correctly, the token will include the new claim `city`, 
 ## Next steps
 
 [Use a REST API as a validation step](active-directory-b2c-rest-api-validation-custom.md)
-
 [Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
