@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 05/16/2017
+ms.date: 06/21/2017
 ---
 # Azure Key Vault throttling guidance
 
@@ -15,7 +15,9 @@ Throttling limits vary based on the scenario. For example, if you are performing
 
 ## How does Key Vault handle its limits?
 
-Service limits in Key Vault are there to prevent misuse of resources and ensure quality of service for all of Key Vault’s clients. When a service threshold is exceeded, AKV limits any further requests from that client for a period of time. When this happens, AKV returns HTTP status code 429 (Too many requests), and the requests fail. If you have a valid business case for higher throttle limits, please contact us.
+Service limits in Key Vault are there to prevent misuse of resources and ensure quality of service for all of Key Vault’s clients. When a service threshold is exceeded, Key Vault limits any further requests from that client for a period of time. When this happens, Key Vault returns HTTP status code 429 (Too many requests), and the requests fail. Also, failed requests that return a 429 count towards the throttle limits tracked by Key Vault. 
+
+If you have a valid business case for higher throttle limits, please contact us.
 
 
 ## How to throttle your app in response to service limits
