@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 06/20/2017
 ms.author: cynthn
 
 ---
@@ -27,14 +27,13 @@ You have two options:
 * [Copy the VHD of an existing Azure VM](#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 
+## Prerequisites
 
-## Before you begin
+This topic requires: 
 
-This topic requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+- Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-This topic also requires the AzCopy tool which you can use within Cloud Shell or download locally. See [AzCopy on Linux Preview](https://azure.microsoft.com/en-us/blog/announcing-azcopy-on-linux-preview/) for installation instructions.
+- The AzCopy tool. See [AzCopy on Linux Preview](https://azure.microsoft.com/en-us/blog/announcing-azcopy-on-linux-preview/) for installation instructions.
 
 ## Option 1: Upload a specialized VHD
 
@@ -81,31 +80,29 @@ Depending on your network connection and the size of your VHD file, this command
 
 ## Option 2: Copy the VHD from an existing Azure VM
 
-You can create a copy of the VHD for a VM in another storage account.
+You can create a copy of a VHD from a VM in another storage account.
 
-### Before you begin
+### Create a destination storage account and container
 
-Make sure that you:
+If you don't already have one, you can create a destination storage account using [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, between 3 and 24 characters in length, and contain numbers and lowercase letters only. The following example creates a storage account named *mystorageaccount*:
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
-* Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
+```azurecli
+az storage account create \
+    --resource-group myResourceGroup \
+    --name mystorageaccount \
+    --sku Standard_LRS
+```
 
-### Deallocate the VM
-Deallocate the VM using [az vm deallocate](/cli/azure/vm#deallocate), which frees up the VHD to be copied. 
+Create a container using [az storage container create](/cli/azure/storage/container.md#create).
 
-    ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
-    ```
-
-
+```azurecli-interactive
+az storage container create --name mycontainer --account-name mystorageaccount
+```
+                            
 ### Get the storage account URLs
 You need the URLs of the source and destination storage accounts. The URLs look like: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
 
-```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-``` 
-
-## Get the storage access keys
+### Get the storage access keys
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
 
 * **Portal**: Click **More services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
@@ -115,10 +112,13 @@ Find the access keys for the source and destination storage accounts. For more i
 Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
-### Copy the VHD
-You can copy files between storage accounts using AzCopy. For the destination container, if the specified container doesn't exist, it will be created for you. 
+### Deallocate the VM
+Deallocate the VM using [az vm deallocate](/cli/azure/vm#deallocate), which frees up the VHD to be copied. 
 
-To use AzCopy, open a command prompt on your local machine and navigate to the folder where AzCopy is installed. It will be similar to *C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy*. 
+    ```azurecli
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    ```
+### Copy the VHD
 
 To copy all of the files within a container, you use the **/S** switch. This can be used to copy the OS VHD and all of the data disks if they are in the same container. This example shows how to copy all of the files in the container **mysourcecontainer** in storage account **mysourcestorageaccount** to the container **mydestinationcontainer** in the **mydestinationstorageaccount** storage account. Replace the names of the storage accounts and containers with your own. Replace `<sourceStorageAccountKey1>` and `<destinationStorageAccountKey1>` with your own keys.
 
@@ -155,111 +155,31 @@ Elapsed time:            00.00:13:07
 
 When you use AZCopy, if you see the error "Server failed to authenticate the request", make sure the value of the Authorization header is formed correctly including the signature. If you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
-## Create the new VM 
-
-You need to create networking and other VM resources to be used by the new VM.
-
-
-
-### Create the subNet and vNet
-
-Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
-
-Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
-   
-```powershell
-$rgName = "myResourceGroup"
-$subnetName = "mySubNet"
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-```
-
-Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
-   
-```powershell
-$location = "West US"
-$vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-```    
-
-### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
-
-Create the public IP. In this example, the public IP address name is set to **myIP**.
-   
-```powershell
-$ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-   -AllocationMethod Dynamic
-```       
-
-Create the NIC. In this example, the NIC name is set to **myNicName**.
-   
-```powershell
-$nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-```
-
-### Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
-This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
-
-```powershell
-$nsgName = "myNsg"
-
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
-    -SourceAddressPrefix Internet -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
-	
-```
-
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-### Set the VM name and size
-
-This example sets the VM name to "myVM" and the VM size to "Standard_A2".
-
-```powershell
-$vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-```
-
-### Add the NIC
-	
-```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-```
-	
-	
-### Create a managed disk from the VHD
-
-Create a managed disk from the specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
-
-convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
+## Create a managed disk
+To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create). The following example creates a managed disk named `myManagedDisk` from the VHD you uploaded:
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
-  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+  --source https://mystorageaccount.blob.core.windows.net/mycontainer/myDisk.vhd
 ```
 
-Obtain the details of the managed disk you created with [az disk list](/cli/azure/disk/list):
+Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query [].{Name:name,ID:id} --output table
+  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
 ```
 
 The output is similar to the following example:
 
 ```azurecli
-Name               ID
+Name               URI
 -----------------  ----------------------------------------------------------------------------------------------------
-myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
+myManagedDisk    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/myManagedDisk.vhd
 ```
+
+
+## Create the VM
 
 Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the name of your managed disk (`--attach-os-disk`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
 
@@ -267,25 +187,9 @@ Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the na
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myManagedDisk
+    --attach-os-disk myManagedDisk.vhd
 ```
 
-### Create the VM 
-
-
-```azurecli-interactive
-az vm create -g MyResourceGroup -n MyVm --attach-os-disk MyOsDisk --os-type linux
-```
-
-```
-
-### Verify that the VM was created
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
-
-```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
-$vmList.Name
-```
 
 ## Next steps
 To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).

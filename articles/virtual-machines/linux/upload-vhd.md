@@ -62,7 +62,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-### Azure Managed Disks
+### Create a VM
 You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
 
 ```azurecli
@@ -94,18 +94,6 @@ az vm create --resource-group myResourceGroup --location westus \
     --attach-os-disk myManagedDisk
 ```
 
-### Unmanaged disks
-To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
-
-```azurecli
-az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd \
-    --use-unmanaged-disk
-```
-
-The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## Requirements
 To complete the following steps, you need:
@@ -210,7 +198,7 @@ az storage blob upload --account-name mystorageaccount \
     --account-key key1 --container-name mydisks --type page \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
-
+=======================================================================
 ## Create VM from custom disk
 Again, you can create a VM using Azure Managed Disks or unmanaged disks. For both types, specify the URI to the managed or unmanaged disk when you create a VM. For unmanaged disks, ensure that the destination storage account matches where your custom disk is stored. You can create your VM using the Azure 2.0 or Resource Manager JSON template.
 
@@ -244,61 +232,6 @@ az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --attach-os-disk myUMDiskFromVHD
-```
-
-### Azure 2.0 - unmanaged disks
-To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
-
-You specify the `--image` parameter with [az vm create](/cli/azure/vm#create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
-
-The following example creates a VM named `myVM` from your custom disk:
-
-```azurecli
-az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd \
-    --use-unmanaged-disk
-```
-
-You still need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as username and SSH keys.
-
-
-### Resource Manager template - unmanaged disks
-Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md).
-
-Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk:
-
-```json
-"storageProfile": {
-          "osDisk": {
-            "name": "myVM",
-            "osType": "Linux",
-            "caching": "ReadWrite",
-            "createOption": "FromImage",
-            "image": {
-              "uri": "https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd"
-            },
-            "vhd": {
-              "uri": "https://mystorageaccount.blob.core.windows.net/vhds/newvmname.vhd"
-            }
-          }
-```
-
-You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
-
-Once you have a template configured, use [az group deployment create](/cli/azure/group/deployment#create) to create your VMs. Specify the URI of your JSON template with the `--template-uri` parameter:
-
-```azurecli
-az group deployment create --resource-group myNewResourceGroup \
-  --template-uri https://uri.to.template/mytemplate.json
-```
-
-If you have a JSON file stored locally on your computer, you can use the `--template-file` parameter instead:
-
-```azurecli
-az group deployment create --resource-group myNewResourceGroup \
-  --template-file /path/to/mytemplate.json
 ```
 
 
