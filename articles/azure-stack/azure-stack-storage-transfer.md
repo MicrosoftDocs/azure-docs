@@ -21,7 +21,7 @@ ms.author: xiaofmao
 
 ## Overview
 Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues and account management functionality. If you want to move data to or from Azure Stack Storage, you can use a set of Azure storage tools to do this. The tool that works best for you depends on your requirements:
-* [Microsoft Azure Storage Explorer](#microsoft-azure-storage-explorer-(preview))
+* [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
     An easy to use standalone app with a user interface.
 * [Azcopy](#azcopy)
@@ -31,6 +31,10 @@ Microsoft Azure Stack provides a set of the storage services for disks, blobs, t
 * [Azure PowerShell](#azure-powershell)
 
     A task-based command-line shell and scripting language designed especially for system administration.
+
+* [Azure CLI](#azure-cli)
+
+    A open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms. 
 
 This article provides a quick overview of the tools available and when you might use each one.
 
@@ -63,17 +67,26 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.9.
 
 * The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.9 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
-```
-# This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.4, and later versions.
-PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Value[0]
+   ```
+   # This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.4, and later versions.
+   PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Value[0]
 
-# This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.3.2, and previous versions.
-PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Key1
+   # This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.3.2, and previous versions.
+   PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Key1
 
-```
-For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+   ```
+   For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+
+## Azure CLI
+The Azure CLI is Azure’s command line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 
+
+Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides much of the same functionalities found in the Azure Stack Portal, including rich data access.
+
+Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md).
+
 
 ## Next steps
+* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
 
 * To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
