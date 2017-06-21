@@ -152,7 +152,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	g. Click **Ok**.
 
 	> [!NOTE] 
-    Before you can configure the SAML assertion, you need to contact your HR2day support team via [servicedesk@merces.nl](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.
+    Before you can configure the SAML assertion, you need to contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.
 
 7. Click **Save** button.
 
@@ -201,11 +201,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an HR2day by Merces test user
 
-The objective of this section is to create a user called Britta Simon in HR2day by Merces. Please work with HR2day by [servicedesk@merces.nl](mailto:servicedesk@merces.nl) to add the users in the HR2day account. 
+The objective of this section is to create a user called Britta Simon in HR2day by Merces. Please work with [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) to add the users in the HR2day account. 
 
 > [!NOTE]
 > If you need to create an user manually, you need to 
-> contact the HR2day by [servicedesk@merces.nl](mailto:servicedesk@merces.nl).
+> contact the [HR2day by Merces Client support team](mailto:servicedesk@merces.nl).
 
 ### Assigning the Azure AD test user
 
