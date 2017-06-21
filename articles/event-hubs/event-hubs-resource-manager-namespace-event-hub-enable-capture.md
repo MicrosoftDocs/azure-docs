@@ -261,7 +261,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 ## Next steps
 
-You can also configure Event Hubs Capture via the [Azure portal](https://portal.azure.com). For more information, see [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-thorugh-portal.md).
+You can also configure Event Hubs Capture via the [Azure portal](https://portal.azure.com). For more information, see [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md).
 
 You can learn more about Event Hubs by visiting the following links:
 

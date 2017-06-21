@@ -16,7 +16,7 @@
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Capture
-### [Use the Azure portal to enable Capture](event-hubs-capture-enable-thorugh-portal.md)
+### [Use the Azure portal to enable Capture](event-hubs-capture-enable-through-portal.md)
 ### [Use a Resource Manager template to enable Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programming guide](event-hubs-programming-guide.md)
 

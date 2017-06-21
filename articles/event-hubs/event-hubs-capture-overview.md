@@ -50,7 +50,7 @@ Once configured, Event Hubs Capture runs automatically when you send your first 
 
 You can configure Capture at the event hub creation time using the [Azure portal](https://portal.azure.com), or using Azure Resource Manager templates. For more information, see the following articles:
 
-- [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-thorugh-portal.md)
+- [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 
