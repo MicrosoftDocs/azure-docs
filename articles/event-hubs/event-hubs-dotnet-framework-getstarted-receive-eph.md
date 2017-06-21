@@ -135,7 +135,7 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
     string eventHubName = "{Event Hub name}";
     string storageAccountName = "{storage account name}";
     string storageAccountKey = "{storage account key}";
-    string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+    string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net", storageAccountName, storageAccountKey);
     
     string eventProcessorHostName = Guid.NewGuid().ToString();
     EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
