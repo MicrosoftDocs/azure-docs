@@ -108,7 +108,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/?view=azure-node-2.0.0">
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
@@ -3141,7 +3141,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/dotnet">Get started</a>
+                                                    <a href="/dotnet/azure">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/azure/?view=azure-dotnet">API reference</a>
@@ -3168,7 +3168,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/python/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/?view-azure-python">API reference</a>
+                                                    <a href="/python/api/overview/azure/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3213,7 +3213,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/java">Get started</a>
+                                                    <a href="/java/azure">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/overview/azure">API reference</a>
