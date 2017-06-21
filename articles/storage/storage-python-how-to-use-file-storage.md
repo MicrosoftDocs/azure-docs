@@ -39,7 +39,7 @@ from azure.storage.file import FileService
 The following code creates a **FileService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with your account name and key.
 
 ```python
-file_service = **FileService** (account_name='myaccount', account_key='mykey')
+file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
 In the following code example, you can use a **FileService** object to create the share if it doesn't exist.
