@@ -69,11 +69,11 @@ To configure the integration of Igloo Software into Azure AD, you need to add Ig
 
 4. In the search box, type **Igloo Software**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_search.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_search.png)
 
 5. In the results panel, select **Igloo Software**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_addfromgallery.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Igloo Software based on a test user called "Britta Simon".
@@ -102,11 +102,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_samlbase.png)
+	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
 3. On the **Igloo Software Domain and URLs** section, perform the following steps :
 
-	![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company name>.igloocommmunities.com`
 
@@ -119,33 +119,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_general_400.png)
 	
 6. On the **Igloo Software Configuration** section, click **Configure Igloo Software** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-    ![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
 
 7. In a different web browser window, log in to your Igloo Software company site as an administrator.
 
 8. Go to the **Control Panel**.
    
-     ![Control Panel](./media/active-directory-saas-igloosoftware-tutorial/ic799949.png "Control Panel")
+     ![Control Panel](./media/active-directory-saas-igloo-software-tutorial/ic799949.png "Control Panel")
 
 9. In the **Membership** tab, click **Sign In Settings**.
    
-    ![Sign in Settings](./media/active-directory-saas-igloosoftware-tutorial/ic783968.png "Sign in Settings")
+    ![Sign in Settings](./media/active-directory-saas-igloo-software-tutorial/ic783968.png "Sign in Settings")
 
 10. In the SAML Configuration section, click **Configure SAML Authentication**.
    
-    ![SAML Configuration](./media/active-directory-saas-igloosoftware-tutorial/ic783969.png "SAML Configuration")
+    ![SAML Configuration](./media/active-directory-saas-igloo-software-tutorial/ic783969.png "SAML Configuration")
    
 11. In the **General Configuration** section, perform the following steps:
    
-    ![General Configuration](./media/active-directory-saas-igloosoftware-tutorial/ic783970.png "General Configuration")
+    ![General Configuration](./media/active-directory-saas-igloo-software-tutorial/ic783970.png "General Configuration")
 
     a. In the **Connection Name** textbox, type a custom name for your configuration.
    
@@ -159,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 12. In the **Response and Authentication Configuration**, perform the following steps:
     
-    ![Response and Authentication Configuration](./media/active-directory-saas-igloosoftware-tutorial/IC783971.png "Response and Authentication Configuration")
+    ![Response and Authentication Configuration](./media/active-directory-saas-igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
   
       a. As **Identity Provider**, select **Microsoft ADFS**.
       
@@ -173,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 13. Perform the following steps to complete the configuration:
     
-    ![User creation on Sign in](./media/active-directory-saas-igloosoftware-tutorial/IC783972.png "User creation on Sign in") 
+    ![User creation on Sign in](./media/active-directory-saas-igloo-software-tutorial/IC783972.png "User creation on Sign in") 
 
      a. As **User creation on Sign in**, select **Create a new user in your site when they sign in**.
 
@@ -193,19 +193,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/create_aaduser_02.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/create_aaduser_03.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-igloosoftware-tutorial/create_aaduser_04.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-igloo-software-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -235,7 +235,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Igloo Software**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-igloosoftware-tutorial/tutorial_igloosoftware_app.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -267,15 +267,15 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-igloosoftware-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_203.png
 
