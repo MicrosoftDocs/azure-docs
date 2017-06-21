@@ -15,8 +15,8 @@ ms.author: mlearned
 <div class="content">
     <h1>Cloud Foundry on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
-		<img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">
-        <div class="intro" style="min-width: 200px">
+	<div class="intro" style="min-width: 200px">
+	<img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">
              Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
         </div>
     </div>
