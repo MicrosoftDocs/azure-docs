@@ -3144,7 +3144,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/dotnet/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">API reference</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3189,7 +3189,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/nodejs">Get started</a>
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">API reference</a>
