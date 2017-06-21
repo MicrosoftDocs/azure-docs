@@ -13,6 +13,12 @@
 ## Manage Azure AD licensing
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Classic portal](active-directory-licensing-what-is.md)
+### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
+#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
