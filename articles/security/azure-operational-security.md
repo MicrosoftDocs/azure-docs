@@ -87,7 +87,6 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 -	compliance
 -	security standards certifications
 
-
 ### Azure Backup
 
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services.
