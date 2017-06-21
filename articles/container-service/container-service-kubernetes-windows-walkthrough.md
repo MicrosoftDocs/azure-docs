@@ -207,4 +207,4 @@ az group delete --name myResourceGroup
 In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to the Kubernetes tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage an ACS Kubernetes cluster](./container-service-dcos-manage-tutorial.md)
+> [Manage an ACS Kubernetes cluster](./container-service-tutorial-kubernetes-prepare-app.md)
