@@ -200,13 +200,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/aspnet/aspnet4-to-azure">
+                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
                                                         <img src="/media/logos/logo_visual-studio.svg" alt="">
                                                         <span>Visual Studio Team Services</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/jenkins/install-jenkins-solution-template">
+                                                    <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                         <img src="/media/logos/logo_jenkins.svg" alt="">
                                                         <span>Jenkins</span>
                                                     </a>
