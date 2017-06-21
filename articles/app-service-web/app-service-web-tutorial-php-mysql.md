@@ -41,10 +41,12 @@ To complete this tutorial:
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Prepare local MySQL
 
@@ -263,7 +265,7 @@ MYSQL_SSL=true
 Save the changes.
 
 > [!TIP]
-> To secure your MySQL connection information, this file is excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
+> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
 >
 
 ### Configure SSL certificate
