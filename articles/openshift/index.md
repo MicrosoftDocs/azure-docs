@@ -30,6 +30,6 @@ ms.author: mlearned
 <p>See the following links for additional reference materials and tools for working with OpenShift on Azure.</p>
 <br/>
 <a href="https://docs.openshift.org/latest/getting_started/index.html">Getting started with OpenShift Origin</a><br/>
-<a href="https://github.com/Microsoft/openshift-container-platform">OpenShift container platform template</a><br/>
+<a href="https://github.com/Microsoft/openshift-container-platform">OpenShift Container Platform template</a><br/>
 <a href="https://docs.openshift.org/latest/welcome/index.html">OpenShift site</a><br/>
 </div>
