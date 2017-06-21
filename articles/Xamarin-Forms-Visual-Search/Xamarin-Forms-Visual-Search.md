@@ -34,9 +34,11 @@ In Visual Studio, open **XamFormsVisualSearch\VisualSearchApp.sln**.  It may tak
 Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.  This should build the solution for all available platforms.  If you're trying to compile and test code for iOS while using a windows machine, you can reference <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/"> this guide</a> for help.
 
 ### Step 3: Configure your deployment
-Before running the application, you will need to select a target Configuration, Platform and Project.  These settings should be available in the toolbar below the top ribbon menu.  
+Before running the application, you will need to select a target Configuration, Platform and Project.  These settings should be available in the toolbar below the top ribbon menu.  For this guide I'll be compiling the application in a Debug build for Android, and testing it on my Nexus 6P.  
 
 ![Build Settings Toolbar Example](./media/ConfigurationSelection.PNG) 
+
+### Step 4: Run the app
 
 
 ### Required Libraries:
