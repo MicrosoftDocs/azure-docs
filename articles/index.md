@@ -202,13 +202,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="ico48Link">
                                                     <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
                                                         <img src="/media/logos/logo_visual-studio.svg" alt="">
-                                                        <span>Visual Studio Team Services</span>
+                                                        <span>Visual Studio<br />Team Services</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                         <img src="/media/logos/logo_jenkins.svg" alt="">
-                                                        <span>Jenkins</span>
+                                                        <span>Jenkins on<br />Azure VMs</span>
                                                     </a>
                                                 </div>
                                             </div>
