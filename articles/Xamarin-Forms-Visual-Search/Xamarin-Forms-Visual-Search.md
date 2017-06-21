@@ -39,7 +39,8 @@ Before running the application, you will need to select a target Configuration, 
 ![Build Settings Toolbar Example](./media/ConfigurationSelection.PNG) 
 
 ### Step 4: Run the app
-
+1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5** to deploy the sample to your target platform.  
+2) 
 
 ### Required Libraries:
 
