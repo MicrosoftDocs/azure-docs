@@ -51,7 +51,7 @@ The following versions are supported with Azure Stack Storage:
 
 * Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/en-us/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
 * Azure Storage management services: 
-    * [2015-05-01-preview and 2015-06-15](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN) 
+    * [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN) 
 
 ## Azure client libraries
 The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t have full parity with the latest version of Azure Storage REST API. So for the storage client libraries, you need to be aware of the version which is compatible with REST API 2015-04-05.
@@ -62,35 +62,6 @@ The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t h
 |.NET     |6.2.0|[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config file|
 |Node.js     |1.1.0|[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Service instance declaration|
 |Python     |0.30.0|[https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Service instance declaration|
-
-### Endpoint declaration
-An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
-In the Azure Stack POC, the default endpoint is **local.azurestack.external**.
-Contact your service administrator if you’re not sure of what your endpoint is.
-
-The following is an example configuration setting for .NET:
-
-#### .NET
-
-```
-<add key="StorageConnectionString" 
-value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
-EndpointSuffix=local.azurestack.external;" />
-```
-The following are example Azure Stack service declarations for Node.js and Python:
-
-#### Node.js
-
-```
-var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
-‘myaccount.blob.local.azurestack.external’);
-```
-
-#### Python
-
-```
-block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey', endpoint_suffix='local.azurestack.external')
-```
 
 
 ## Next steps
