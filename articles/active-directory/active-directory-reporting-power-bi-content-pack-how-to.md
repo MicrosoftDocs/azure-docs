@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 06/21/2017
 ms.author: markvi
 
 ---
@@ -143,8 +143,4 @@ As soon as the new version of the content pack is working, you can remove the ol
 Check out our [troubleshooting guide](active-directory-reporting-troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
-
-## Next steps
-
-- For more information about Azure Active Directory Identity Protection, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
