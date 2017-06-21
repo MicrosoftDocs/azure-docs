@@ -132,7 +132,7 @@ az webapp config set \
 ```
 
 ## Prepare a GitHub Repository
-Open the [Simple Java Web App for Azure](https://github.com/chenkennt/javawebappsample) from the Azure samples repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
+Open the [Simple Java Web App for Azure](https://github.com/puicchan/jenkinssamples) repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
 
 * In GitHub web UI, open **Jenkinsfile** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 20 and 21 respectively.
 
