@@ -1,14 +1,7 @@
-# [Chef Documentation](index.md)
+# [Cloud Foundry Documentation](index.md)
 # Quickstarts
-## [Automate: Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview)
+## [Marketplace template](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 # Tutorials
-## [Automate VMs](/azure/virtual-machines/windows/chef-automation)
+## [CloudFoundry on Azure](/azure/virtual-machines/linux/cloudfoundry-get-started)
 # Resources
-## [Chef and Azure PS](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0) 
-## [Chef and VSTS](https://github.com/chef-partners/vsts-chef/wiki/Getting-Started)
-## [Video:  Chef and VSTS](https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment)
-## [Blog:  VSTS and Chef](https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/)
-
-
-
-
+## [Pivotal and Microsoft](https://pivotal.io/partners/microsoft)
