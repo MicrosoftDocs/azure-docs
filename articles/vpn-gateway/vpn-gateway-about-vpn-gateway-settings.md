@@ -151,7 +151,7 @@ For additional technical resources and specific syntax requirements when using R
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| | [Azure CLI](/cli/azure/network/vnet-gateway)|
+| Not supported | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## Next steps
 
