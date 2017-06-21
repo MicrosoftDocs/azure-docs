@@ -15,11 +15,12 @@ ms.author: mlearned
 
       
 <div class="content">
-    <img src="media/Jenkins.png" alt="Jenkins Logo">
     <h1>Jenkins on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <p>Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Learn how to install, configure, and use Jenkins with Azure tools and services with our quickstarts, tutorials, and samples.</p>
+		  <div class="clear"></div> <!-- add clear class -->
+          <img src="media/Jenkins.png" align="right" alt="Jenkins Logo">
         </div>
     </div>
 <h2>Quickstarts</h2>
