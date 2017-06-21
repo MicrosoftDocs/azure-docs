@@ -99,17 +99,13 @@ The following table provides sample log searches for records collected by this s
 | Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computers online (in the last 24 hours) | 
 | Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Total Agents Offline in Last 30 minutes (for the last 24 hours) | 
 | Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Get a trend of number of agents over time by OSType| 
-| Line chart: Type=Heartbeat &#124; measure countdistinct(Computer) by OSType<br> List: Type=Heartbeat &#124; Distinct Computer |Agent count over time | 
-| Donut and List: Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type | 
-| Donut and List: Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribution by Agent Version | 
-| Donut and List: Type=Heartbeat&#124;measure count() by Category |Distribution by Agent Category | 
-|Donut and List: Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribution by Management Group | 
-| Donut and List: Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geo-location of Agents |
-| Number and List: Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Number of OMS Gateways Installed | 
-
-## Troubleshooting 
-
-This section provides information to help troubleshoot issues with the solution.  
+| **Line chart**: Type=Heartbeat &#124; measure countdistinct(Computer) by OSType<br> **List**: Type=Heartbeat &#124; Distinct Computer |Agent count over time | 
+| **Donut and List**: Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type | 
+| **Donut and List**: Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribution by Agent Version | 
+| **Donut and List**: Type=Heartbeat&#124;measure count() by Category |Distribution by Agent Category | 
+| **Donut and List**: Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribution by Management Group | 
+| **Donut and List**: Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geo-location of Agents |
+| **Number and List**: Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Number of OMS Gateways Installed | 
 
   
 ## Next steps
