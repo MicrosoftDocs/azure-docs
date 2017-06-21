@@ -31,7 +31,7 @@ Now you need to register your application in Microsoft Application Registration 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
 3. Make sure the option for *Guided Setup* is unchecked
-4.	Click `Add Platforms`, then select `Web`
+4.	Click `Add Platform`, then select `Web`
 5. Add a redirect URL to your application. A redirect URL is the URL for your `index.html` page based on your web server
 6. Click *Save*
 

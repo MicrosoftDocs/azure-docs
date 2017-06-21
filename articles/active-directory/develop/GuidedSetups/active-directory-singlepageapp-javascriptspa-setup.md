@@ -18,6 +18,7 @@ ms.author: andret
 
 ---
 
+## Setting up your Web Server or Project
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
 

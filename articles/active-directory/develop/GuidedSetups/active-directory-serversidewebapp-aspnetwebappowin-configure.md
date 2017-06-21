@@ -30,7 +30,7 @@ Now you need to register your application in the *Microsoft Application Registra
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
 3.	Make sure the option for Guided Setup is unchecked
-4.	Click `Add Platforms`, then select `Web`
+4.	Click `Add Platform`, then select `Web`
 5.	Go back to Visual Studio and, in Solution Explorer, select the project and look at the Properties window (if you don’t see a Properties window, press F4)
 6.	Change SSL Enabled to `True`
 7.	Copy the SSL URL and add this URL to the list of Redirect URLs in the Registration Portal’s list of Redirect URLs:<br/><br/>![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />

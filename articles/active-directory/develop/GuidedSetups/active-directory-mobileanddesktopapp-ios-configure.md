@@ -27,11 +27,11 @@ Now you need to register your application in the *Microsoft Application Registra
 
 ### Add your application registration information to your solution (Advanced)
 
-1.	Go to Microsoft Application Registration Portal
-2.	Enter Application Name and your email
-3.	Make sure the option to Guided Setup is unchecked
-4.	Click `Add Platforms`, then select `Native Application` and click `Save`
-5.	Go back to Xcode, and, on `ViewController.swift`, replace the line starting with '`let kClientID`' with the application ID you just registered:
+1.	Go to [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app)
+2.	Enter a name for your application and your email
+3.	Make sure the option for Guided Setup is unchecked
+4.	Click `Add Platform`, then select `Native Application` and click `Save`
+5.	Go back to Xcode. In `ViewController.swift`, replace the line starting with '`let kClientID`' with the application ID you just registered:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -40,10 +40,10 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Control+click <code>Info.plist</code> to bring the contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
+Control+click <code>Info.plist</code> to bring up the contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
-Under `dict` root node, add the following:
+Under the <code>dict</code> root node, add the following:
 </li>
 </ol>
 
@@ -57,7 +57,7 @@ Under `dict` root node, add the following:
         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>msal[Enter the application Id here]</string>
+            <string>msal[Your_Application_Id_Here]</string>
             <string>auth</string>
         </array>
     </dict>
@@ -65,6 +65,6 @@ Under `dict` root node, add the following:
 ```
 <ol start="8">
 <li>
-Replace <code>[Enter the application Id here]</code> with the application ID
+Replace <i><code>[Your_Application_Id_Here]</code></i> with the Application Id you just registered
 </li>
 </ol>

@@ -30,7 +30,7 @@ Now you need to register your application in the *Microsoft Application Registra
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
 3. Make sure the option for Guided Setup is unchecked
-4. Click `Add Platforms`, then select `Native Application` and hit Save
+4. Click `Add Platform`, then select `Native Application` and hit Save
 5.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
 6.	Replace the *[Enter the application Id here]* in the line starting with `final static String CLIENT_ID` with the application ID you just registered:
 

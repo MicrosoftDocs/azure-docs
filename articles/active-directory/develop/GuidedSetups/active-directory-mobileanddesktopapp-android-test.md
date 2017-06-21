@@ -37,5 +37,7 @@ You should see the results of a call to Microsoft Graph API ‘me’ endpoint us
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
-Graph API requires the `user.read` scope to read user profile. This scope is added by default to every application registered through our registration portal. Some other Graph APIs as well as custom APIs for your backend server require additional scopes. For example, for Graph, `Calendars.Read` is required to list user’s calendars. In order to access the user’s calendar in the context of an application, you need to add this delegated application registration’s information and then add `Calendars.Read` to the `AcquireTokenAsync` call. The user may be prompted for additional consent as you increase the number of scopes.
+
+The Microsoft Graph API requires the `user.read` scope to read the user's profile. This scope is automatically added by default in every application being registered on our registration portal. Some other APIs for Microsoft Graph as well as custom APIs for your backend server may require additional scopes. For example, for Microsoft Graph, the scope `Calendars.Read` is required to list the user’s calendars. In order to access the user’s calendar in a context of an application, you need to add the `Calendars.Read` delegated permission to the application registration’s information and then add the `Calendars.Read` scope to the `acquireTokenSilentAsync` call. The user may be prompted for additional consents as you increase the number of scopes.
+
 <!--end-collapse-->
