@@ -20,10 +20,11 @@ ms.author: mlearned
             Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Learn how to install, configure, and use Jenkins with Azure tools and services with our quickstarts, tutorials, and samples.
        </div>
     </div>
-<h2>Quickstarts</h2>
+<h2>5-Minute Quickstarts</h2>
+<p>Learn how to deploy Jenkins on Azure:</p> 
 <a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a>
-<h2 style="margin-top: 36px">Tutorials</h2>
-<p>Learn how to integrate Jenkins with Azure tools and services.</p> 
+<h2 style="margin-top: 36px">Step-By-Step Tutorials</h2>
+<p>Learn how to integrate Jenkins with Azure tools and services:</p> 
 <ol>
     <li><a href="https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
