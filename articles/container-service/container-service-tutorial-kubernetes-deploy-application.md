@@ -19,7 +19,7 @@ ms.date: 06/21/2017
 ms.author: nepeters
 ---
 
-# Deploy application to Kubernetes cluster
+# Run applications in Kubernetes
 
 In previous tutorials, an application has been tested and container images created. These images have been pushed to an Azure Container Registry. Finally, and Azure Container Service Kubernetes cluster has been deployed. In this tutorial, the Azure Voting app is deployed into the Kubernetes cluster. In subsequent tutorials, this application is scaled out, updated, and the Kubernetes cluster monitored.
 
@@ -45,7 +45,7 @@ For details on all Kubernetes object, see [Kubernetes Concepts](https://kubernet
 
 ## Get manifest files
 
-For this tutorial, Kubernetes object are deployed using Kubernetes manifest files. Manifest files are YAML files that contain configuration instructions.
+For this tutorial, Kubernetes objects are deployed using Kubernetes manifest files. Manifest files are YAML files that contain configuration instructions.
 
 The manifest files for each object in this tutorial are available in the Azure Vote application repo. If you have not already done so, clone the repo with the following command: 
 
@@ -73,7 +73,7 @@ When complete, jump ahead to the [Test application](#test-application) section o
 
 ### Storage objects
 
-Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains in-tact.
+Because the Azure Vote application includes a MySQL database, you want to store the database file on a volume that can be shared between pods. In this configuration, if the MySQL pod is recreated, the database file remains intact.
 
 The `storage-resources.yaml` manifest file creates a [storage class object](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#storageclasses), which defines how and where a persistent volume is created. Several volume plug-ins are available for Kubernetes. In this case, the [Azure disk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#azure-disk) plug-in is used. 
 

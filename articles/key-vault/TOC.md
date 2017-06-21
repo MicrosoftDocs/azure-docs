@@ -46,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
-## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
