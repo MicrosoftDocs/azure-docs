@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://hire.jobscore.com/auth/adfs/<company name>`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [JobScore Client support team](https://www.jobscore.com/about/#contact-us) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [JobScore Client support team](mailto:support@jobscore.com) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-jobscore-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **JobScore** side, you need to send the downloaded **Metadata XML** to [JobScore support team](https://www.jobscore.com/about/#contact-us). 
+6. To configure single sign-on on **JobScore** side, you need to send the downloaded **Metadata XML** to [JobScore support team](mailto:support@jobscore.com). 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -160,7 +160,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a JobScore test user
 
-In this section, you create a user called Britta Simon in JobScore. Work with [JobScore support team](https://www.jobscore.com/about/#contact-us) to add the users in the JobScore platform.
+In this section, you create a user called Britta Simon in JobScore. Work with [JobScore support team](mailto:support@jobscore.com) to add the users in the JobScore platform.
 
 ### Assigning the Azure AD test user
 
