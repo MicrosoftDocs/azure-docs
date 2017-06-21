@@ -1,5 +1,5 @@
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.
@@ -18,8 +18,8 @@ The table below lists the supported cryptographic algorithms and key strengths c
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
 | PFS Group        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
-| QM SA Lifetime*  | Seconds (integer) and KBytes (integer)                                      |
-| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False)                             |
+| QM SA Lifetime*  | Seconds (integer; **min. 300**) and KBytes (integer; **min. 1024**)                                      |
+| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; default $False)                             |
 |                  |                                                                             |
 
 * (*) IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
