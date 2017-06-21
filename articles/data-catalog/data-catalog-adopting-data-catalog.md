@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 06/15/2017
 ms.author: maroche
 
 ---
@@ -30,7 +30,7 @@ This article presents an approach to getting started using **Azure Data Catalog*
 
 **Azure Data Catalog** is a fully managed service in Azure and an enterprise-wide information (metadata) catalog that enables self-service data source discovery. With Data Catalog, you register, discover, annotate, and connect to data assets. Data Catalog is designed to manage disparate information assets to make them easy to find data assets, understand them, and connect to them. It reduces the time to gain insights from available data and increases the value to organizations. To learn more, see [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 
-## Azure Data Catalog Adoption Plan
+## Azure Data Catalog adoption plan
 An **Azure Data Catalog** adoption plan describes how the benefits of using the service are communicated to stakeholders and users, and what kind of training you provide to users. One key success driver to adopt Data Catalog is how effectively you communicate the value of the service to users and stakeholders. The primary audiences in an initial adoption plan are the users of the service. No matter how much buy-in you get from stakeholders, if the users, or customers, of your Data Catalog offering do not incorporate it into their usage, the adoption will not be successful. Therefore, this article assumes you have stakeholder buy-in, and focuses on creating a plan for user adoption of Data Catalog.
 An effective adoption plan successfully engages people in what is possible with Data Catalog and gives them the information and guidance to achieve it. Users need to understand the value that Data Catalog provides to help them succeed in their jobs. When people see how Data Catalog can help them achieve more results with data, the value of adopting Data Catalog becomes clear. Change is hard, so an effective plan needs to take the challenges of change into account.
 
