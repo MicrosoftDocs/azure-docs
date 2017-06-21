@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ms.author: juluk
 ---
 
@@ -27,10 +27,10 @@ If exiting a session, be sure to exit from each session window as each process r
 
 ## Restart Cloud Shell
 ![](media/recycle.png)
-* Click the restart icon on the toolbar to reset the Cloud Shell machine.
+> [!WARNING]
+> Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
 
-> ![WARNING]
-> Restarting Cloud Shell will reset machine state and any files not persisted by clouddrive will be lost.
+* Click the restart icon on the toolbar to reset the Cloud Shell machine.
 
 ## Minimize & maximize Cloud Shell window
 ![](media/minmax.png)

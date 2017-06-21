@@ -148,8 +148,8 @@ When you use geo-replicated databases, it is possible to set up auditing on eith
 
 Follow these instructions (remember that blob auditing can be turned on or off only from the primary database auditing settings):
 
-* **Primary database**. Turn on blob auditing, either on the server or on the database itself, as described in the [Set up auditing for your database](#subheading-2-1) section.
-* **Secondary database**. Turn on blob auditing on the primary database, as described in the [Set up auditing for your database](#subheading-2-1) section. 
+* **Primary database**. Turn on blob auditing, either on the server or on the database itself, as described in the [Set up auditing for your database](#subheading-2) section.
+* **Secondary database**. Turn on blob auditing on the primary database, as described in the [Set up auditing for your database](#subheading-2) section. 
    * Blob auditing must be enabled on the *primary database itself*, not the server.
    * After blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
@@ -214,10 +214,10 @@ You can also configure auditing in Azure SQL Database by using the following aut
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: https://docs.microsoft.com/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
