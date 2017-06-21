@@ -20,9 +20,9 @@ ms.author: cherylmc
 ---
 # Delete a virtual network gateway using the portal
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 >
 
@@ -51,7 +51,7 @@ To delete a virtual network gateway, you must first delete each resource that pe
 2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
 3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
 
-### Step 4: Delete the virtual network gateway
+### Step 3: Delete the virtual network gateway
 
 1. In **All resources**, locate the virtual network gateway that you want to delete.
 2. On the **Overview** blade, click **Delete** to delete the gateway.
