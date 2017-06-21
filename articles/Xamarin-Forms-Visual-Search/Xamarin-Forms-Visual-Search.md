@@ -40,7 +40,10 @@ Before running the application, you will need to select a target Configuration, 
 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5** to deploy the sample to your target platform.  
-2) 
+2) Once the application boots, you should be taken to the landing page shown below (defined in code as the OcrSelectPage).  From here, you will be given the option to either take or import a photo. Switching between the two tabs at the top allows you to determine whether you would like to parse your image using the standard Cognitive Services OCR endpoint, or the (currently experimental) Cognitive Services Handwritten OCR endpoint.  
+Take a photo or import one from your system library to continue to the next screen.  
+![OcrSelectPage Example](./media/OcrSelectPage.png)
+3) The next page 
 
 ### Required Libraries:
 
