@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
-3. On the **Igloo Software Domain and URLs** section, perform the following steps :
+3. On the **Igloo Software Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
@@ -149,13 +149,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Connection Name** textbox, type a custom name for your configuration.
    
-    b. In the **IdP Login URL** textbox,  Paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+    b. In the **IdP Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
    
-    c. In the **IdP Logout URL** textbox,  Paste the value of **Sign-Out URL** which you have copied from Azure portal.
+    c. In the **IdP Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
     
     d. Select **Logout Response and Request HTTP Type** as **POST**.
    
-    e. Open the downloaded certificate in notepad as text format, copy the text and then paste it into the **Public Certificate** textbox.
+    e. Open your **base-64** encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
+    
+    Open the downloaded certificate in notepad as text format, copy the text and then paste it into the **Public Certificate** textbox.
 
 12. In the **Response and Authentication Configuration**, perform the following steps:
     
