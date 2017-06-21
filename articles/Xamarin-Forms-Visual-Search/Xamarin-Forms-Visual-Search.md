@@ -23,7 +23,7 @@ Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile D
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
 
-## Building the sample
+## Building and running the sample app
 ### Step 0: Download the sample
 The sample can be found at <a href="https://github.com/Azure-Samples/XamFormsVisualSearch">XamFormsVisualSearch</a>. Download it using Visual Studio or GitHub.
 
@@ -32,6 +32,12 @@ In Visual Studio, open **XamFormsVisualSearch\VisualSearchApp.sln**.  It may tak
 
 ### Step 2: Build the sample
 Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.  This should build the solution for all available platforms.  If you're trying to compile and test code for iOS while using a windows machine, you can reference <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/"> this guide</a> for help.
+
+### Step 3: Configure your deployment
+Before running the application, you will need to select a target Configuration, Platform and Project.  These settings should be available in the toolbar below the top ribbon menu.  
+
+![Build Settings Toolbar Example](./media/ConfigurationSelection.PNG) 
+
 
 ### Required Libraries:
 
