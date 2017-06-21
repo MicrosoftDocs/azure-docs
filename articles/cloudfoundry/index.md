@@ -17,12 +17,12 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
 	<div class="intro" style="min-width: 200px">
 	<img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">
-             Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
+             Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks.  Learn how to use Cloud Foundry on Azure with our quickstarts and tutorials.
         </div>
     </div>
-<h2>Quickstart</h2>
+<h2>5-Minute Quickstarts</h2>
 <a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Deploy Cloud Foundry on Azure</a>
-<h2 style="margin-top: 36px">Tutorials</h2>
+<h2 style="margin-top: 36px">Step-By-Step Tutorials</h2>
 <ol>
   <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
 </ol>
