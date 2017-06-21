@@ -101,6 +101,10 @@ The following example demonstrates using **get\_blob\_to\_path** to download the
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 ```
+NEED EXAMPLE HERE, please verify if this compiles, I am not sure which example fits the syntax above, maybe something like the below?
+```python
+block_blob_service.get_blob_to_path('azureContainer', '12-48-22.mp4', 'name-for-local-copy.mp4')
+```
 
 ## Delete a blob
 Finally, to delete a blob, call **delete_blob**.
