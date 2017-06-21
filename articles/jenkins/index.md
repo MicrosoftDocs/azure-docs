@@ -16,13 +16,12 @@ ms.author: mlearned
     <h1>Jenkins on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
-            <img src="media/Jenkins.png" align="right" valign="top" alt="Jenkins Logo">
+            <img src="media/Jenkins.png" align="right" alt="Jenkins Logo">
             Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Learn how to install, configure, and use Jenkins with Azure tools and services with our quickstarts, tutorials, and samples.
-         </div>
+       </div>
     </div>
 <h2>Quickstarts</h2>
-<p>Learn how to deploy Jenkins on Azure.</p>
-  <a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a>
+<a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine</a>
 <h2 style="margin-top: 36px">Tutorials</h2>
 <p>Learn how to integrate Jenkins with Azure tools and services.</p> 
 <ol>
