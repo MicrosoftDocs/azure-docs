@@ -258,4 +258,5 @@ If everything is set up correctly, the token will include the new claim `city`, 
 ## Next steps
 
 [Use a REST API as a validation step](active-directory-b2c-rest-api-validation-custom.md)
+
 [Modify the profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
