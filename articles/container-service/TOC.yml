@@ -1,0 +1,123 @@
+- name: ACS Documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About Container Service
+    href: container-service-intro.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Kubernetes Linux
+    href: container-service-kubernetes-walkthrough.md
+  - name: Kubernetes Windows
+    href: container-service-kubernetes-windows-walkthrough.md
+  - name: DC/OS Linux
+    href: container-service-dcos-quickstart.md
+- name: Tutorials
+  items:
+  - name: Kubernetes
+    items:
+    - name: 1 - Create container images
+      href: container-service-tutorial-kubernetes-prepare-app.md
+    - name: 2 - Create container registry
+      href: container-service-tutorial-kubernetes-prepare-acr.md
+    - name: 3 - Create Kubernetes cluster
+      href: container-service-tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - Run application
+      href: container-service-tutorial-kubernetes-deploy-application.md
+    - name: 5 - Scale application
+      href: container-service-tutorial-kubernetes-scale.md
+    - name: 6 - Update application
+      href: container-service-tutorial-kubernetes-app-update.md
+    - name: 7 - Monitor with OMS
+      href: container-service-tutorial-kubernetes-monitor.md
+  - name: DC/OS
+    items:
+    - name: Create / manage cluster
+      href: container-service-dcos-manage-tutorial.md
+    - name: Load balance applications
+      href: container-service-load-balancing.md
+    - name: Create / manage data volumes
+      href: container-service-dcos-fileshare.md
+    - name: Integrate with ACR
+      href: container-service-dcos-acr.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: Secure containers
+    href: container-service-security.md
+  - name: Service principal - Kubernetes
+    href: container-service-kubernetes-service-principal.md
+- name: How-to guides
+  items:
+  - name: Connect with an ACS cluster
+    href: container-service-connect.md
+  - name: Scale an ACS cluster
+    href: container-service-scale.md
+  - name: Manage with DC/OS
+    items:
+    - name: Container management - DC/OS UI
+      href: container-service-mesos-marathon-ui.md
+    - name: Container management - DC/OS REST API
+      href: container-service-mesos-marathon-rest.md
+    - name: DC/OS agent pools
+      href: container-service-dcos-agents.md
+    - name: Enable DC/OS public access
+      href: container-service-enable-public-access.md
+    - name: App/user-specific orchestrator in DC/OS
+      href: container-service-application-specific-marathon.md
+    - name: Canary release with Vamp
+      href: container-service-dcos-vamp-canary-release.md
+    - name: Monitor DC/OS
+      items:
+      - name: Monitor with ELK
+        href: container-service-monitoring-elk.md
+      - name: Monitor with Datadog
+        href: container-service-monitoring.md
+      - name: Monitor with Sysdig
+        href: container-service-monitoring-sysdig.md
+      - name: Monitor with Dynatrace
+        href: container-service-monitoring-dynatrace.md
+  - name: Manage with Kubernetes
+    items:
+    - name: Container management - Kubernetes UI
+      href: container-service-kubernetes-ui.md
+    - name: Deploy Helm charts
+      href: container-service-kubernetes-helm.md
+    - name: Monitor Kubernetes
+      items:
+      - name: Monitor with Datadog
+        href: container-service-kubernetes-datadog.md
+      - name: Monitor with Sysdig
+        href: container-service-kubernetes-sysdig.md
+      - name: Monitor with CoScale
+        href: container-service-kubernetes-coscale.md
+  - name: Manage with Docker Swarm
+    items:
+    - name: Docker and Docker Compose
+      href: container-service-docker-swarm.md
+- name: Reference
+  items:
+  - name: Azure CLI 2.0
+    href: /cli/azure/acs
+  - name: REST
+    href: /rest/api/compute/containerservices
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: FAQ
+    href: container-service-faq.md
+  - name: Templates - ACS Engine
+    href: https://github.com/Azure/acs-engine
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

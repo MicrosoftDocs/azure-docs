@@ -13,6 +13,12 @@
 ## Manage Azure AD licensing
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Classic portal](active-directory-licensing-what-is.md)
+### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
+#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
@@ -57,12 +63,21 @@
 #### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 #### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 
+### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
+#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
+
+
 
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
@@ -72,6 +87,12 @@
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
+### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
+#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
+#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
@@ -82,12 +103,6 @@
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Group-based licensing](active-directory-licensing-whatis-azure-portal.md)
-#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identify and resolve license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
-#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
@@ -390,9 +405,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
-## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
