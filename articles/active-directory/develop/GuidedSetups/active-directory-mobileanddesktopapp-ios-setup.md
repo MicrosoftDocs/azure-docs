@@ -20,13 +20,13 @@ ms.author: andret
 
 ## Setting up your iOS application
 
-This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
+This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.
 
 > Prefer to download this sample's XCode project instead? [Download a project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
 
 
 ## Install Carthage to download and build MSAL
-Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft make changes to the library. Follow the instructions below to install Carthage:
+Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library. Follow the instructions below to install Carthage:
 
 1.	Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
 
@@ -37,12 +37,12 @@ Carthage package manager is used during the preview period of MSAL – it integr
 3.	Give a product name and click *Next*
 4.	Select a folder to create your app and click *Create*
 
-## Build MSAL Framework
+## Build the MSAL Framework
 
 Follow the instructions below to pull and then build the latest version of MSAL libraries using Carthage:
 
-1.	Open bash terminal and go to the App’s root folder
-2.	Copy the below and paste in the bash terminal to create a ‘Cartfile’ file by:
+1.	Open the bash terminal and go to the App’s root folder
+2.	Copy the below and paste in the bash terminal to create a ‘Cartfile’ file:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -50,7 +50,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Copy and paste the below. This command fetches dependencies into a Carthage/Checkouts folder, then build the MSAL library:
+Copy and paste the below. This command fetches dependencies into a Carthage/Checkouts folder, then builds the MSAL library:
 </li>
 </ol>
 
@@ -58,11 +58,11 @@ Copy and paste the below. This command fetches dependencies into a Carthage/Chec
 carthage update
 ```
 
-> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2.
+> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by the Azure Active Directory v2.
 
-## Add MSAL framework to your application
-1.	In Xcode, open the `General` tab.
-2.	Go to `Linked Frameworks and Libraries` section and click `+`
+## Add the MSAL framework to your application
+1.	In Xcode, open the `General` tab
+2.	Go to the `Linked Frameworks and Libraries` section and click `+`
 3.	Select `Add other…`
 4.	Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*. You should see `MSAL.framework` added to the list.
 5.	Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
@@ -75,7 +75,7 @@ carthage update
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Add the following to `Input Files` by clicking `+`:
+Add the following to <code>Input Files</code> by clicking <code>+</code>:
 </li>
 </ol>
 
@@ -86,7 +86,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## Creating your application’s UI
 A Main.storyboard file should automatically be created as a part of your project template. Follow the instructions below to create the app UI:
 
-1.	Control+click `Main.storyboard` to bring the contextual menu, and then click: `Open As` > `Source Code`
+1.	Control+click `Main.storyboard` to bring up the contextual menu, and then click: `Open As` > `Source Code`
 2.	Replace the `<scenes>` node with the code below:
 
 ```xml

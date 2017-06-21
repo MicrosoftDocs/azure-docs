@@ -21,13 +21,13 @@ ms.author: andret
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
 
-## Pre-Requisites
-A local web server such as [http-server](https://www.npmjs.com/package/http-server/), [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this Guided Setup. 
+## Pre-requisites
+A local web server such as [http-server](https://www.npmjs.com/package/http-server/), [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
 
 Instructions in this guide are based on Visual Studio 2017, but feel free to use any other development environment or HTML/JavaScript editor.
 
 
-## Create your Project (Visual Studio only)
+## Create your project (Visual Studio only)
 
 If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
 1.	In Visual Studio:  `File` > `New` > `Project`
@@ -37,8 +37,7 @@ If you are using Visual Studio and are creating a new project, follow the steps 
 
 
 ## Create your single page application’s UI
-1.	Create an index.html file for your JavaScript SPA. If you are using Visual Studio, follow the steps below to create index.html:
-a.	Select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page`
+1.	Create an index.html file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html
 2.	Add the following code to your page:
 ```html
 <!DOCTYPE html>

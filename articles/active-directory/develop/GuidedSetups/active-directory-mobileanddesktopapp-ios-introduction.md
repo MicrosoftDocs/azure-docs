@@ -19,26 +19,26 @@ ms.author: andret
 ---
 # Call the Microsoft Graph API from an iOS app
 
-This guide demonstrates how a native iOS application (Swift) can get an access token and call Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide demonstrates how a native iOS application (Swift) can get an access token and call the Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
 
 At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.
 
 > ### Pre-Requisites
 > - XCode 8.x is required for this guide. You can download XCode [from here](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
-> - [Carthage] (https://github.com/Carthage/Carthage) for package management
+> - [Carthage](https://github.com/Carthage/Carthage) for package management
 
 ### How this guide works
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-ios-introduction/iosintro.png)
 
-The sample application created by this guide enables an iOS application to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables an iOS application to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
 
 
 ### Handling token acquisition for accessing protected Web APIs
 
 After the user authenticates, the sample application receives a token that can be used to query the Microsoft Graph API or a Web API secured by Microsoft Azure Active Directory v2.
 
-APIs such as Microsoft Graph require an access token to allow accessing specific resources – for example, to read a user’s profile, access user’s calendar or send an email. Your application can request an access token using MSAL to access these resources by specifying API scopes. This access token is then added to the HTTP Authorization header for every call made against the protected resource.
+APIs such as Microsoft Graph require an access token to allow accessing specific resources – for example, to read a user’s profile, access user’s calendar or send an email. Your application can request an access token using MSAL by specifying API scopes. This access token is then added to the HTTP Authorization header for every call made against the protected resource.
 
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
