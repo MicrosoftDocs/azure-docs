@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/7/2017
+ms.date: 06/07/2017
 ms.author: giladm
 
 ---
