@@ -98,14 +98,14 @@ There are several methods you can use to view blob auditing logs:
 
 * Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click **View audit logs**.
 
-    ![Navigation Pane][7]
+    ![Navigation pane][7]
 
     An **Audit records** blade opens, from which you'll be able to view the logs.
 
     - You can view specific dates by clicking **Filter** at the top of the **Audit records** blade.
     - You can switch between audit records that were created by a server policy or database policy audit.
 
-       ![Navigation Pane][8]
+       ![Navigation pane][8]
 
 * Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
@@ -113,7 +113,7 @@ There are several methods you can use to view blob auditing logs:
 * Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):  
     1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
-        ![Navigation Pane][9]
+        ![Navigation pane][9]
     2. The **Add Audit Files** dialog box opens. Select one of the **Add** options to
      choose whether to merge audit files from a local disk or import them from Azure Storage (you will be required to provide your Azure Storage details and account key).
 
@@ -162,10 +162,10 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 1. Open the **Storage Details** blade. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration blade.
 
-    ![Navigation Pane][5]
+    ![Navigation pane][5]
 2. Go to the storage configuration blade and regenerate the primary access key.
 
-    ![Navigation Pane][6]
+    ![Navigation pane][6]
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
