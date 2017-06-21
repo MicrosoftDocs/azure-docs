@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with BeeLine, you need the following items:
 
 - An Azure AD subscription
-- A BeeLine single-sign on enabled subscription
+- A BeeLine single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -171,9 +171,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a BeeLine test user
 
 In this section, you create a user called Britta Simon in Beeline. Beeline application needs all the users to be provisioned in the application before doing Single Sign On. So work with the [BeeLine support team](https://www.beeline.com/contact-us/) to provision all these users into the application. 
-
-> [!NOTE]
-> If you need to create a user manually or batch of users, you need to contact the [BeeLine support team](https://www.beeline.com/contact-us/).
 
 ### Assigning the Azure AD test user
 
