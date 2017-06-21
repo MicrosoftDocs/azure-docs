@@ -21,8 +21,7 @@ ms.author: mlearned
         </div>
     	</div>
 <h2>Quickstarts</h2>
-<p>Learn how to deploy Chef on Azure.</p>
-  <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Deploy Chef Automate on Azure</a>
+  <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview">Deploy Chef Automate on Azure</a><br/>
 <h2>Tutorials</h2>
 <p>Learn how to integrate Chef with Azure tools and services.</p> 
 <ol>
@@ -35,5 +34,4 @@ See the following links for additional reference materials and tools for working
   <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Getting Started with Chef and VSTS</a><br/>
   Video:<a href="https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment"> Release Management with VSTS, Chef, and Octopus Deploy</a><br/>
   <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Blog:  VSTS and Chef</a>
-
 </div>
