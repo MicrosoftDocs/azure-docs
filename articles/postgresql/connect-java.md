@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Download  the [PostgreSQL JDBC Driver ](https://jdbc.postgresql.org/download.html) matching your version of Java and the Java Development Kit.
+- Download the [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) matching your version of Java and the Java Development Kit.
 - Include the PostgreSQL JDBC jar file (for example postgresql-42.1.1.jar) in your application classpath. For more information, see [classpath details](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
 ## Get connection information
@@ -85,7 +85,7 @@ public class CreateTableInsertRows {
 		}
 		catch (SQLException e)
 		{
-			throw new SQLException("Failed to create connection to database", e);
+			throw new SQLException("Failed to create connection to database.", e);
 		}
 		if (connection != null) 
 		{ 
@@ -127,7 +127,7 @@ public class CreateTableInsertRows {
 			}
 			catch (SQLException e)
 			{
-				throw new SQLException("Encountered an error when executing given sql statement", e);
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
 			}		
 		}
 		else {
@@ -139,7 +139,7 @@ public class CreateTableInsertRows {
 ```
 
 ## Read data
-Use the following code to read the data with a **SELECT** SQL statement.  The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, create, and run the select statement. The results are processed using a [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) object. 
+Use the following code to read the data with a **SELECT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect, create, and run the select statement. The results are processed using a [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) object. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -188,7 +188,7 @@ public class ReadTable {
 		}
 		catch (SQLException e)
 		{
-			throw new SQLException("Failed to create connection to database", e);
+			throw new SQLException("Failed to create connection to database.", e);
 		}
 		if (connection != null) 
 		{ 
@@ -213,7 +213,7 @@ public class ReadTable {
 			}
 			catch (SQLException e)
 			{
-				throw new SQLException("Encountered an error when executing given sql statement", e);
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
 			}		
 		}
 		else {
@@ -274,7 +274,7 @@ public class UpdateTable {
 		}
 		catch (SQLException e)
 		{
-			throw new SQLException("Failed to create connection to database", e);
+			throw new SQLException("Failed to create connection to database.", e);
 		}
 		if (connection != null) 
 		{ 
@@ -294,7 +294,7 @@ public class UpdateTable {
 			}
 			catch (SQLException e)
 			{
-				throw new SQLException("Encountered an error when executing given sql statement", e);
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
 			}		
 		}
 		else {
@@ -353,7 +353,7 @@ public class DeleteTable {
 		}
 		catch (SQLException e)
 		{
-			throw new SQLException("Failed to create connection to database", e);
+			throw new SQLException("Failed to create connection to database.", e);
 		}
 		if (connection != null) 
 		{ 
@@ -372,7 +372,7 @@ public class DeleteTable {
 			}
 			catch (SQLException e)
 			{
-				throw new SQLException("Encountered an error when executing given sql statement", e);
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
 			}		
 		}
 		else {
