@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Reply URL. Contact [BenSelect support team](mailto:support@selerix.com) to get this value.
  
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_certificate.png) 
 
@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_configure.png) 
 
-9. To configure single sign-on on **BenSelect** side, you need to send the downloaded **Metadata XML** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [BenSelect support team](mailto:support@selerix.com).
+9. To configure single sign-on on **BenSelect** side, you need to send the downloaded **Certificate(Raw)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [BenSelect support team](mailto:support@selerix.com).
 
    >[!NOTE]
    >You need to mention that this integration requires the SHA256 algorithm (SHA1 is not supported) to set the SSO on the appropriate server like app2101 etc. 
@@ -232,6 +232,7 @@ When you click the BenSelect tile in the Access Panel, you should get automatica
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 <!--Image references-->
 
