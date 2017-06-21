@@ -25,7 +25,9 @@ Microsoft Azure Stack provides a set of the storage services including Blob, Tab
 
 This article provides quick guidance on how to get started with Azure Stack Storage using development tools. More detailed information and sample code can be found in the corresponding Azure Storage tutorials.
 
-There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack. 
+There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack.
+
+For more information, see [Azure Stack storage: differences and considerations](azure-stack-acs-differences.md)
 
 ## Azure client libraries
 The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t have full parity with the latest version of Azure Storage REST API. So for the storage client libraries, you need to be aware of the version which is compatible with REST API 2015-04-05.
@@ -37,7 +39,7 @@ The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t h
 |Node.js     |1.1.0|[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Service instance declaration|
 |Python     |0.30.0|[https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Service instance declaration|
 
-### Endpoint declaration
+## Endpoint declaration
 An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
 In the Azure Stack POC, the default endpoint is **local.azurestack.external**.
 Contact your service administrator if you’re not sure about your endpoint.
@@ -47,7 +49,7 @@ Contact your service administrator if you’re not sure about your endpoint.
 
 #### .NET
 
-For Azure Stack, endpoint suffix needs to be specified in the `app.config` file:
+For Azure Stack, the endpoint suffix is specified in the `app.config` file:
 
 ```
 <add key="StorageConnectionString" 
@@ -57,7 +59,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 #### Node.js
 
-For Azure Stack, the endpoint suffix needs to be specified in the declaration instance:
+For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
 ```
 var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
@@ -66,13 +68,11 @@ var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
 
 #### Python
 
-For Azure Stack, the endpoint suffix needs to be specified in the declaration instance:
+For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
 ```
 block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey', endpoint_suffix='local.azurestack.external')
 ```
-
-For more information, see [Azure Stack storage: differences and considerations](azure-stack-acs-differences.md#azure-client-libraries).
 
 ## Get started with Blob storage
 
