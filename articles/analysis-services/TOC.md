@@ -52,9 +52,10 @@
 # Resources
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Azure status](https://azure.microsoft.com/status/)
+## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
