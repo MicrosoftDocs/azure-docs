@@ -97,7 +97,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.png)| [Clever](active-directory-saas-clever-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.png)| [ClickTime](active-directory-saas-clicktime-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.png)| [Cloud Management Portal for Microsoft Azure](https://go.microsoft.com/fwLink/?LinkID=708680&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.png)| [CloudPassage](active-directory-saas-cloudpassage-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.png)| [Concur](active-directory-saas-concur-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.png)| [Condeco](active-directory-saas-condeco-tutorial.md)|
@@ -199,108 +198,109 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LogicMonitor.png)| [LogicMonitor](active-directory-saas-logicmonitor-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Lucidchart.png)| [Lucidchart](active-directory-saas-lucidchart-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Lynda.com.png)| [Lynda.com](active-directory-saas-lynda-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Marketo.png)| [Marketo](https://go.microsoft.com/fwLink/?LinkID=823733&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MaxxPoint.png)| [MaxxPoint](https://go.microsoft.com/fwlink/?linkid=834635)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MCM.png)| [MCM](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Marketo.png)| [Marketo](active-directory-saas-marketo-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MaxxPoint.png)| [MaxxPoint](active-directory-saas-maxxpoint-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MCM.png)| [MCM](active-directory-saas-mcm-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_menlosecurity.png)| [Menlo Security](active-directory-saas-menlosecurity-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MFiles.png)| [M-Files](https://go.microsoft.com/fwLink/?LinkID=828365&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Admin Console](https://go.microsoft.com/fwLink/?LinkID=512747&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Personal Portal](https://go.microsoft.com/fwLink/?LinkID=522549&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mindflash.png)| [Mindflash](https://go.microsoft.com/fwLink/?LinkID=512723&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mixpanel.png)| [Mixpanel](https://go.microsoft.com/fwLink/?LinkID=708664&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MFiles.png)| [M-Files](active-directory-saas-m-files-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Admin Console](active-directory-saas-mimecast-admin-console-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Personal Portal](active-directory-saas-mimecast-personal-portal-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mindflash.png)| [Mindflash](active-directory-saas-mindflash-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mixpanel.png)| [Mixpanel](active-directory-saas-mixpanel-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_mobilexpense.png)| [MobileXpense](active-directory-saas-mobilexpense-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MoveItTransfer.png)| [MOVEit Transfer](https://go.microsoft.com/fwLink/?LinkID=823724&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MoveItTransfer.png)| [MOVEit Transfer](active-directory-saas-moveittransfer-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_moxiengage.png)| [Moxi Engage](active-directory-saas-moxiengage-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Moxtra.png)| [Moxtra](https://go.microsoft.com/fwLink/?LinkID=403226&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MozyEnterprise.png)| [Mozy Enterprise](https://go.microsoft.com/fwLink/?LinkID=510239&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Namely.png)| [Namely](https://go.microsoft.com/fwLink/?LinkID=691854&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Moxtra.png)| [Moxtra](active-directory-saas-moxtra-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MozyEnterprise.png)| [Mozy Enterprise](active-directory-saas-mozy-enterprise-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Namely.png)| [Namely](active-directory-saas-namely-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_neotalogicstudio.png)| [Neota Logic Studio](active-directory-saas-neotalogicstudio-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetDocuments.png)| [NetDocuments](https://go.microsoft.com/fwLink/?LinkID=403244&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.png)| [Netsuite](https://go.microsoft.com/fwLink/?LinkID=403239&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewRelic.png)| [New Relic](https://go.microsoft.com/fwLink/?LinkID=403257&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nexonia.png)| [Nexonia](https://go.microsoft.com/fwLink/?LinkID=828383&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nomadesk.png)| [Nomadesk](https://go.microsoft.com/fwLink/?LinkID=708677&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nomadic.png)| [Nomadic](https://go.microsoft.com/fwLink/?LinkID=837425&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Novatus.png)| [Novatus](https://go.microsoft.com/fwLink/?LinkID=691859&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OCTanner.png)| [O. C. Tanner - AppreciateHub](https://go.microsoft.com/fwLink/?LinkID=530237&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.png)| [OfficeSpace Software](https://go.microsoft.com/fwLink/?LinkID=512726&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Oneteam.png)| [Oneteam](https://go.microsoft.com/fwLink/?LinkID=837428&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.png)| [Onit](https://go.microsoft.com/fwLink/?LinkID=522566&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OpsGenie.png)| [OpsGenie](https://go.microsoft.com/fwLink/?LinkID=708670&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.png)| [Optimizely](https://go.microsoft.com/fwLink/?LinkID=808000&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Origami.png)| [Origami](http://go.microsoft.com/fwlink/?LinkID=785284&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.png)| [Overdrive Books](https://go.microsoft.com/fwLink/?LinkID=512730&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PacificTimesheet.png)| [Pacific Timesheet](https://go.microsoft.com/fwLink/?LinkID=828369&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.png)| [Pagerduty](https://go.microsoft.com/fwLink/?LinkID=510244&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panopto.png)| [Panopto](https://go.microsoft.com/fwLink/?LinkID=512739&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panorama9.png)| [Panorama9](https://go.microsoft.com/fwLink/?LinkID=510253&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pantheon.png)| [Pantheon](https://go.microsoft.com/fwLink/?LinkID=834634&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_People.png)| [People](https://go.microsoft.com/fwLink/?LinkID=733461&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PerformanceCentre.png)| [PerformanceCentre](http://go.microsoft.com/fwlink/?LinkId=691855)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Picturepark.png)| [Picturepark](https://go.microsoft.com/fwLink/?LinkID=512722&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](https://go.microsoft.com/fwlink/?linkid=839287)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PlanMyLeave.png)| [PlanMyLeave](https://go.microsoft.com/fwLink/?LinkID=834630&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Plurasight.png)| [Pluralsight](http://go.microsoft.com/fwlink/?LinkID=733453&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PolicyStat.png)| [PolicyStat](https://go.microsoft.com/fwLink/?LinkID=530234&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PostBeyond.png)| [PostBeyond](https://go.microsoft.com/fwLink/?LinkID=822858&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Assortment Planning](https://go.microsoft.com/fwLink/?LinkID=708693&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Ordering](https://go.microsoft.com/fwLink/?LinkID=807998&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.png)| [Predictix Price Reporting](http://go.microsoft.com/fwlink/?LinkId=708693&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.png)| [Printix](https://go.microsoft.com/fwLink/?LinkID=785283&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetDocuments.png)| [NetDocuments](active-directory-saas-netdocuments-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.png)| [Netsuite](active-directory-saas-netsuite-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewRelic.png)| [New Relic](active-directory-saas-new-relic-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.png)| [New Signature Cloud Management Portal for Microsoft Azure](active-directory-saas-newsignature-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nexonia.png)| [Nexonia](active-directory-saas-nexonia-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nomadesk.png)| [Nomadesk](active-directory-saas-nomadesk-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Nomadic.png)| [Nomadic](active-directory-saas-nomadic-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Novatus.png)| [Novatus](active-directory-saas-novatus-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OCTanner.png)| [O. C. Tanner - AppreciateHub](active-directory-saas-oc-tanner-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.png)| [OfficeSpace Software](active-directory-saas-officespace-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Oneteam.png)| [Oneteam](active-directory-saas-oneteam-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.png)| [Onit](active-directory-saas-onit-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OpsGenie.png)| [OpsGenie](active-directory-saas-opsgenie-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.png)| [Optimizely](active-directory-saas-optimizely-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Origami.png)| [Origami](active-directory-saas-origami-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.png)| [Overdrive Books](active-directory-saas-overdrive-books-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PacificTimesheet.png)| [Pacific Timesheet](active-directory-saas-pacific-timesheet-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.png)| [Pagerduty](active-directory-saas-pagerduty-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panopto.png)| [Panopto](active-directory-saas-panopto-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panorama9.png)| [Panorama9](active-directory-saas-panorama9-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pantheon.png)| [Pantheon](active-directory-saas-pantheon-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_People.png)| [People](active-directory-saas-people-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PerformanceCentre.png)| [PerformanceCentre](active-directory-saas-performancecentre-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Picturepark.png)| [Picturepark](active-directory-saas-picturepark-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PlanMyLeave.png)| [PlanMyLeave](active-directory-saas-planmyleave-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Plurasight.png)| [Pluralsight](active-directory-saas-pluralsight-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PolicyStat.png)| [PolicyStat](active-directory-saas-policystat-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PostBeyond.png)| [PostBeyond](active-directory-saas-postbeyond-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Assortment Planning](active-directory-saas-predictix-assortment-planning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Ordering](active-directory-saas-predictixordering-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.png)| [Predictix Price Reporting](active-directory-saas-predictixpricereporting-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.png)| [Printix](active-directory-saas-printix-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_procore.png)| [Procore SSO](active-directory-saas-procoresso-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.png)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProMapp.png)| [Promapp](http://go.microsoft.com/fwlink/?LinkId=530229)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProofpointOnDemand.png)| [Proofpoint on Demand](https://go.microsoft.com/fwLink/?LinkID=708678&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.png)| [Projectplace](active-directory-saas-projectplace-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProMapp.png)| [Promapp](active-directory-saas-promapp-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProofpointOnDemand.png)| [Proofpoint on Demand](active-directory-saas-proofpoint-ondemand-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_purelyhr.png)| [PurelyHR](active-directory-saas-purelyhr-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QlikSenseEnterprise.png)| [Qlik Sense Enterprise](https://go.microsoft.com/fwLink/?LinkID=822859&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.png)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.png)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QuickHelp.png)| [QuickHelp](https://go.microsoft.com/fwLink/?LinkID=530246&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.png)| [Rally Software](https://go.microsoft.com/fwLink/?LinkID=403247&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Recognize.png)| [Recognize](https://go.microsoft.com/fwLink/?LinkID=828378&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RedVector.png)| [RedVector](https://go.microsoft.com/fwLink/?LinkID=808001&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.png)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RewardGateway.png)| [Reward Gateway](https://go.microsoft.com/fwLink/?LinkID=828375&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.png)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightScale.png)| [RightScale](https://go.microsoft.com/fwLink/?LinkID=807999&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RolePoint.png)| [RolePoint](https://go.microsoft.com/fwLink/?LinkID=828387&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RunMyProcess.png)| [RunMyProcess](https://go.microsoft.com/fwLink/?LinkID=403246&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Samanage.png)| [Samanage](https://go.microsoft.com/fwLink/?LinkID=510241&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QlikSenseEnterprise.png)| [Qlik Sense Enterprise](active-directory-saas-qliksense-enterprise-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.png)| [Qualtrics](active-directory-saas-qualtrics-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.png)| [Questetra BPM Suite](active-directory-saas-questetra-bpm-suite-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QuickHelp.png)| [QuickHelp](active-directory-saas-quickhelp-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.png)| [Rally Software](active-directory-saas-rally-software-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Recognize.png)| [Recognize](active-directory-saas-recognize-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RedVector.png)| [RedVector](active-directory-saas-redvector-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.png)| [Replicon](active-directory-saas-replicon-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RewardGateway.png)| [Reward Gateway](active-directory-saas-reward-gateway-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.png)| [RightAnswers](active-directory-saas-rightanswers-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightScale.png)| [RightScale](active-directory-saas-rightscale-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RolePoint.png)| [RolePoint](active-directory-saas-rolepoint-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RunMyProcess.png)| [RunMyProcess](active-directory-saas-runmyprocess-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce Sandbox](active-directory-saas-salesforce-sandbox-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.png)| [Salesforce](active-directory-saas-salesforce-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Samanage.png)| [Samanage](active-directory-saas-samanage-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_confluencegmbh.png)| [SAML SSO for Confluence by resolution GmbH](active-directory-saas-samlssoconfluence-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_jiragmbh.png)| [SAML SSO for Jira by resolution GmbH](active-directory-saas-samlssojira-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SanSan.png)| [SanSan](https://go.microsoft.com/fwLink/?LinkID=808007&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPBusinessByDesign.png)| [SAP Business ByDesign](https://go.microsoft.com/fwLink/?LinkID=807997&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPCloudforCustomer.png)| [SAP Cloud for Customer](https://go.microsoft.com/fwLink/?LinkID=785288&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Cloud Platform Identity Authentication](https://go.microsoft.com/fwLink/?LinkID=828369&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Cloud Platform](https://go.microsoft.com/fwLink/?LinkID=530219&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPNetWeaver.png)| [SAP NetWeaver](https://go.microsoft.com/fwLink/?LinkID=823737&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SanSan.png)| [SanSan](active-directory-saas-sansan-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPBusinessByDesign.png)| [SAP Business ByDesign](active-directory-saas-sapbusinessbydesign-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPCloudforCustomer.png)| [SAP Cloud for Customer](active-directory-saas-sap-customer-cloud-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Cloud Platform Identity Authentication](active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Cloud Platform](active-directory-saas-sap-hana-cloud-platform-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPNetWeaver.png)| [SAP NetWeaver](active-directory-saas-sap-netweaver-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_scalexenterprise.png)| [ScaleX Enterprise](active-directory-saas-scalexenterprise-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.png)| [SCC LifeCycle](https://go.microsoft.com/fwLink/?LinkID=530218&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.png)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.png)| [SciQuest Spend Director](https://go.microsoft.com/fwLink/?LinkID=530243&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.png)| [ScreenSteps](https://go.microsoft.com/fwLink/?LinkID=510251&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.png)| [SD Elements](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SecureDeliver.png)| [SECURE DELIVER](https://go.microsoft.com/fwLink/?LinkID=733457&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.png)| [SCC LifeCycle](active-directory-saas-scc-lifecycle-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.png)| [Sciforma](active-directory-saas-sciforma-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.png)| [SciQuest Spend Director](active-directory-saas-sciquest-spend-director-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.png)| [ScreenSteps](active-directory-saas-screensteps-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.png)| [SD Elements](active-directory-saas-sd-elements-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SecureDeliver.png)| [SECURE DELIVER](active-directory-saas-securedeliver-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_sensoscientific.png)| [SensoScientific Wireless Temperature Monitoring System](active-directory-saas-sensoscientific-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_servicechannel.png)| [ServiceChannel](active-directory-saas-servicechannel-tutorial.md)
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ServiceNow.png)| [ServiceNow](https://go.microsoft.com/fwLink/?LinkID=309587&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ShiftPlanning.png)| [ShiftPlanning](https://go.microsoft.com/fwLink/?LinkID=510242&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Showpad.png)| [Showpad](https://go.microsoft.com/fwLink/?LinkID=807991&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SilkRoad.png)| [SilkRoad Life Suite](https://go.microsoft.com/fwLink/?LinkID=530238&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SimpleNexus.png)| [SimpleNexus](https://go.microsoft.com/fwLink/?LinkID=522562&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Skilljar.png)| [Skilljar](https://go.microsoft.com/fwLink/?LinkID=691857&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SkydeskEmail.png)| [SkyDesk Email](https://go.microsoft.com/fwLink/?LinkID=708683&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Slack.png)| [Slack](https://go.microsoft.com/fwLink/?LinkID=530223&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Small_Improvements.png)| [Small Improvements](https://go.microsoft.com/fwLink/?LinkID=708659&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SmarterU.png)| [SmarterU](https://go.microsoft.com/fwLink/?LinkID=510238&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Soonr.png)| [Soonr Workplace](https://go.microsoft.com/fwLink/?LinkID=708687&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Splunk.png)| [Splunk Enterprise and Splunk Cloud](https://go.microsoft.com/fwLink/?LinkID=808003&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SpringCM.png)| [SpringCM](https://go.microsoft.com/fwLink/?LinkID=403261&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sprinklr.png)| [Sprinklr](https://go.microsoft.com/fwLink/?LinkID=522558&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_StatusPage.png)| [StatusPage](https://go.microsoft.com/fwLink/?LinkID=530247&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SuccessFactors.png)| [SuccessFactors](https://go.microsoft.com/fwLink/?LinkID=403221&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ServiceNow.png)| [ServiceNow](active-directory-saas-servicenow-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ShiftPlanning.png)| [ShiftPlanning](active-directory-saas-shiftplanning-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Showpad.png)| [Showpad](active-directory-saas-showpad-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SilkRoad.png)| [SilkRoad Life Suite](active-directory-saas-silkroad-life-suite-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SimpleNexus.png)| [SimpleNexus](active-directory-saas-simplenexus-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Skilljar.png)| [Skilljar](active-directory-saas-skilljar-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SkydeskEmail.png)| [SkyDesk Email](active-directory-saas-skydeskemail-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Slack.png)| [Slack](active-directory-saas-slack-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Small_Improvements.png)| [Small Improvements](active-directory-saas-smallimprovements-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SmarterU.png)| [SmarterU](active-directory-saas-smarteru-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Soonr.png)| [Soonr Workplace](active-directory-saas-soonr-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Splunk.png)| [Splunk Enterprise and Splunk Cloud](active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SpringCM.png)| [SpringCM](active-directory-saas-spring-cm-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sprinklr.png)| [Sprinklr](active-directory-saas-sprinklr-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_StatusPage.png)| [StatusPage](active-directory-saas-statuspage-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SuccessFactors.png)| [SuccessFactors](active-directory-saas-successfactors-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SugarCM.png)| [SugarCRM](https://go.microsoft.com/fwLink/?LinkID=512733&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SumoLogic.png)| [SumoLogic](https://go.microsoft.com/fwLink/?LinkID=403259&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Syncplicity.png)| [Syncplicity](https://go.microsoft.com/fwLink/?LinkID=403237&clcid=0x409)|
