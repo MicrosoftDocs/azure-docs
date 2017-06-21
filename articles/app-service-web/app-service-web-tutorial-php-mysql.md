@@ -247,7 +247,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 <a name="devconfig"></a>
 ### Configure the connection 
 
-In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_.
 
 ```
 APP_ENV=production
