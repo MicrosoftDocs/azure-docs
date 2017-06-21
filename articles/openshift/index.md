@@ -28,7 +28,6 @@ ms.author: mlearned
 </ol>
 <h2 style="margin-top: 36px">Resources</h2>
 <p>See the following links for additional reference materials and tools for working with OpenShift on Azure.</p>
-<br/>
 <a href="https://docs.openshift.org/latest/getting_started/index.html">Getting started with OpenShift Origin</a><br/>
 <a href="https://github.com/Microsoft/openshift-container-platform">OpenShift Container Platform deployment template</a><br/>
 <a href="https://docs.openshift.org/latest/welcome/index.html">Learn about OpenShift</a><br/>
