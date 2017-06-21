@@ -144,8 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 10. In the **Authentication settings** configuration section, perform the following steps:
    
     ![Authentication settings](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777683.png "Authentication settings")
-    
-
+	
 	a. Select **Enable SAML 2.0 single sign on** sign-in using Single Sign-On (SSO) with **OneLogin**.
 
 	b. In the **EndPoint URL** textbox, paste the value of **Service Provider (SP) initiated endpoint** which you have copied from Azure portal.
