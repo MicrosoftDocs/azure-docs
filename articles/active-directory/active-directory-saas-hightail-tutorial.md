@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -132,7 +132,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
+	| ------------------- | -------------------- |
+	| FirstName | user.givenname |
+	| LastName | user.surname |
+	| Email | user.mail |    
 	| UserIdentity | user.mail |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
@@ -144,8 +147,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
 	
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 7. Click **Save** button.
 
