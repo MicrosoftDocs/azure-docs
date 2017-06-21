@@ -35,7 +35,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,6 +48,9 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.14.1"/>1.14.1
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
+
 ### <a name="1.14.0"/>1.14.0
 *	Added support for Request Unit per Minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
@@ -57,7 +60,7 @@ ms.custom: H1Hack27Feb2017
 *	Made some performance improvements in the SDK.
 
 ### <a name="1.13.4"/>1.13.4
-* Functionally same as 1.13.4. Made some internal changes.
+* Functionally same as 1.13.3. Made some internal changes.
 
 ### <a name="1.13.3"/>1.13.3
 * Functionally same as 1.13.2. Made some internal changes.
@@ -236,6 +239,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |
 | [1.13.4](#1.13.4) |May 09, 2017 |--- |
 | [1.13.3](#1.13.3) |May 06, 2017 |--- |

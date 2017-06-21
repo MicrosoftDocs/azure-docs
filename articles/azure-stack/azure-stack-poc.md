@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/11/2017
 ms.author: helaw
+ms.custom: mvc
 
 ---
 # What is Azure Stack Technical Preview 3?

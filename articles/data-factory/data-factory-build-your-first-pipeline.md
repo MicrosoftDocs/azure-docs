@@ -24,12 +24,12 @@ ms.author: spelluru
 > * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 In this tutorial, you build your first Azure data factory with a data pipeline. The pipeline transforms input data by running Hive script on an Azure HDInsight (Hadoop) cluster to produce output data.  
 
-This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Azure portal, Visual Studio, PowerShell, Resource Manager Template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    
+This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Azure portal, Visual Studio, PowerShell, Resource Manager template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    
 
 ## Tutorial overview
 In this tutorial, you perform the following steps:
@@ -45,7 +45,7 @@ In this tutorial, you perform the following steps:
 	In this tutorial, you create two linked services: **Azure Storage** and **Azure HDInsight**. The Azure Storage linked service links an Azure Storage Account that holds the input/output data to the data factory. Azure HDInsight linked service links an Azure HDInsight cluster that is used to transform data to the data factory. 
 3. Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 
-	In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files will be placed. 
+	In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files are placed. 
 
 
 See [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of Azure Data Factory.
@@ -78,7 +78,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, note down the **account name** and **access key**. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This is the query that transforms input data to produce output data. 
+3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This query transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
 6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
@@ -89,7 +89,7 @@ After you complete the prerequisites, select one of the following tools/SDKs to 
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.

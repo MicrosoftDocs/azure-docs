@@ -117,5 +117,5 @@ install.sh #or upgrade.sh if previous LIS was previously installed
 Learn more about Linux Integration Services Version 4.1 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=51612).
 
 ## Next steps
-* Now that the VM is optimized, see the result with testing [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
-* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq
+* Now that the VM is optimized, see the result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

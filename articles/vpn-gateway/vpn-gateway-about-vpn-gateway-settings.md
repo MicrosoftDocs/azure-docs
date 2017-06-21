@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
 
 ---
@@ -38,37 +38,32 @@ Example:
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
-
-
+    
 ## <a name="gwsku"></a>Gateway SKUs
+
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### Configuring the gateway SKU
-####Specifying the gateway SKU in the Azure portal
+### Configure the gateway SKU
+####Azure portal
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
 
-For example, if you select the gateway type 'VPN' and the VPN type 'Policy-based', you see only the 'Basic' SKU because that is the only SKU available for PolicyBased VPNs. If you select 'Route-based', you can select from Basic, Standard, and HighPerformance SKUs. 
+####PowerShell
 
-####Specifying the gateway SKU using PowerShell
-
-The following PowerShell example specifies the `-GatewaySku` as *Standard*.
+The following PowerShell example specifies the `-GatewaySku` as VpnGw1.
 
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
-    -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
+    -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
     -GatewayType Vpn -VpnType RouteBased
 
-####Changing a gateway SKU
+####Change (resize) a gateway SKU
 
-If you want to upgrade your gateway SKU to a more powerful SKU (from Basic/Standard to HighPerformance), you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
+If you want to upgrade your gateway SKU to a more powerful SKU, you can use the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using this cmdlet.
 
-The following PowerShell example shows a gateway SKU being resized to HighPerformance.
+The following PowerShell example shows a gateway SKU being resized to VpnGw2.
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
-
-### Estimated aggregate throughput by gateway SKU and type
-[!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+    Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 
 ## <a name="connectiontype"></a>Connection types
 In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
@@ -128,12 +123,13 @@ The following PowerShell example creates a new local network gateway:
 Sometimes you need to modify the local network gateway settings. For example, when you add or modify the address range, or if the IP address of the VPN device changes. For a classic VNet, you can change these settings in the classic portal on the Local Networks page. For Resource Manager, see [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
-For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for VPN Gateway configurations, see the following pages:
+For additional technical resources and specific syntax requirements when using REST APIs, PowerShell cmdlets, or Azure CLI for VPN Gateway configurations, see the following pages:
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
-| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## Next steps
 See [About VPN Gateway](vpn-gateway-about-vpngateways.md) for more information about available connection configurations. 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: mimig
-
+ms.custom: mvc
 ---
 
 # Azure CosmosDB: Develop with the DocumentDB API in .NET

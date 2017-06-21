@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure log integration FAQ | Microsoft Docs
 description: This FAQ answers questions about Azure log integration.
 services: security
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
 # Azure log integration frequently asked questions (FAQ)
@@ -109,6 +110,9 @@ After making changes, check the storage account to ensure that the correct event
 
 If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
 
+### Can I use Azure Log integration to integrate Network Watcher logs into my SIEM?
+
+Network watcher generates large quantities of logging information and these logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azlog does not support reading these logs and making them available to a SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

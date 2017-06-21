@@ -3,7 +3,7 @@ title: Scale an Azure cloud service in Windows PowerShell | Microsoft Docs
 description: (classic) Learn how to use PowerShell to scale a web role or worker role in or out in Azure.
 services: cloud-services
 documentationcenter: ''
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: seanmck
+ms.author: mmccrory
 
 ---
 # How to scale a cloud service in PowerShell

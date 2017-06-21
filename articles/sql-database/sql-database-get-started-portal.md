@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
@@ -105,7 +105,6 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-
 3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 4. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
@@ -118,6 +117,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+>
 
 ## Query the SQL database
 
@@ -137,7 +137,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 5. After you are authenticated, type the following query in the query editor pane.
 
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p

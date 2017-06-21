@@ -7,6 +7,7 @@
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
 ## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
 ## [Create logic apps from templates](logic-apps-arm-provision.md)
+## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
 ## Build
@@ -44,10 +45,12 @@
 ### [EDIFACT enterprise integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
+### [How to handle EDIFACT documents having a UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
 ### [Disaster recovery](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Errors and solutions](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Access on-premises data
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
@@ -74,7 +77,6 @@
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
-### [How to handle EDIFACT documents having UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -115,6 +117,7 @@
 ### [HTTP Webhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Integration Account](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Request / Response](../connectors/connectors-native-reqres.md)

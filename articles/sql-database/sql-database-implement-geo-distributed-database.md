@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-failover
+ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -66,8 +66,7 @@ These user accounts replicate automatically to your secondary server (and be kep
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
-   GRANT SELECT ON SalesLT.Product TO app_user; 
-   GRANT UPDATE ON SalesLT.Product TO app_user;  
+   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
 ## Create database-level firewall
@@ -374,7 +373,11 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 6. Find out which role your disaster recovery server is performing.
 
    ```powershell
-   $mydrserver.ReplicationRole
+   $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
+      -FailoverGroupName $myfailovergroupname `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername
+   $fileovergroup.ReplicationRole
    ```
 ## Next steps 
 

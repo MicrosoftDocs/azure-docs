@@ -1,5 +1,5 @@
 ---
-title: Use Apache Storm with Power BI | Microsoft Docs
+title: Use Apache Storm with Power BI - Azure HDInsight | Microsoft Docs
 description: Create a Power BI report using data from a C# topology running on an Apache Storm cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 05/31/2017
 ms.author: larryfr
 
 ---
@@ -24,7 +24,7 @@ ms.author: larryfr
 Power BI allows you to visually display data as reports. This document provides an example of how to use Apache Storm on HDInsight to generate data for Power BI.
 
 > [!NOTE]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
+> The steps in this document rely on a Windows development environment with Visual Studio. The compiled project can be submitted to a Linux-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
 >
 > To use a C# topology with a Linux-based cluster, update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 >
@@ -104,7 +104,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
         select * from iislogs;
 
-    Use Ctrl + Shift + E to execute the query, and you should receive results similar to the following:
+    Use Ctrl + Shift + E to execute the query, and you should receive results similar to the following data:
 
         1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
         2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
@@ -117,11 +117,17 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 ## Create a report
 
-1. Connect to the [Azure SQL Database connector](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) for Power BI.
+1. Connect to the [Azure SQL Database connector](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) for Power BI. 
 
 2. Within **Databases**, select **Get**.
 
 3. Select **Azure SQL Database**, and then select **Connect**.
+
+    > [!NOTE]
+    > You may be asked to download the Power BI Desktop to continue. If so, use the following steps to connect:
+    >
+    > 1. Open Power BI Desktop and select __Get Data__.
+    > 2  Select __Azure__, and then __Azure SQL database__.
 
 4. Enter the information to connect to your Azure SQL Database. You can find this information by visiting the [Azure portal](https://portal.azure.com) and selecting your SQL database.
 
@@ -130,15 +136,15 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 5. After you've connected, you will see a new dataset with the same name as the database you connected to. Select the dataset to begin designing a report.
 
-6. From **Fields**, expand the **IISLOGS** entry. Select the checkbox for **URISTEM**. This creates a report that lists the URI stems (/foo, /bar, etc.) logged in the database.
+6. From **Fields**, expand the **IISLOGS** entry. To create a report that lists the URI stems, select the checkbox for **URISTEM**.
 
     ![Creating a report](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
-7. Next, drag **METHOD** to the report. The report will update to list the stems and the corresponding HTTP method used for the HTTP request.
+7. Next, drag **METHOD** to the report. The report updates to list the stems and the corresponding HTTP method used for the HTTP request.
 
     ![adding the method data](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
-8. From the **Visualizations** column, select the **Fields** icon, and then select the down arrow next to **METHOD** in the **Values** section. From the list that appears, select **Count**. This changes the report to list a count of how many times a specific URI has been accessed.
+8. From the **Visualizations** column, select the **Fields** icon, and then select the down arrow next to **METHOD** in the **Values** section. To display a count of how many times a URI has been accessed, select **Count**.
 
     ![Changing to a count of methods](./media/hdinsight-storm-power-bi-topology/count.png)
 
@@ -150,7 +156,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 ## Stop the topology
 
-The topology continues to run until you stop it or delete the Storm on HDInsight cluster. Perform the following steps to stop the topology.
+The topology continues to run until you stop it or delete the Storm on HDInsight cluster. To stop the topology, perform the following steps:
 
 1. In Visual Studio, return to the topology viewer and select the topology.
 
@@ -164,6 +170,6 @@ The topology continues to run until you stop it or delete the Storm on HDInsight
 
 ## Next steps
 
-In this document, you learned how to send data from a Storm topology to SQL Database, then visualize the data using Power BI. For information on how to work with other Azure technologies using Storm on HDInsight, see the following:
+In this document, you learned how to send data from a Storm topology to SQL Database, then visualize the data using Power BI. For information on how to work with other Azure technologies using Storm on HDInsight, see the following document:
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

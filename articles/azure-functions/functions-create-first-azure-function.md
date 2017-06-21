@@ -14,8 +14,9 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create your first function in the Azure portal
@@ -46,7 +47,7 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then click the **+** button next to **Functions**.
 
-2.  In the **Get started quickly** page, click **WebHook + API**, choose a language for your function, and click **Create this function**. 
+2.  In the **Get started quickly** page, select **WebHook + API**, choose a language for your function, and click **Create this function**. 
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -54,7 +55,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL** and copy the **Function URL**. 
+1. In your new function, click **</> Get function URL**, select **default (Function key)**, and then click **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

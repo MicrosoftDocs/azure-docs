@@ -78,6 +78,7 @@
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
+### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
 ## Courseware & tutorials
