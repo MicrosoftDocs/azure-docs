@@ -1,0 +1,7 @@
+# [OpenShift Documentation](index.md)
+# Quickstarts
+## [OpenShift:  Quickstart template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.redhatopenshift)
+# Tutorials
+## [Deploy to Azure VMs](/azure/virtual-machines/linux/openshift-get-started)
+# Resources
+## [OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
