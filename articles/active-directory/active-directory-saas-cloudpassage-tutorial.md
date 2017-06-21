@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -167,16 +167,18 @@ The following screenshot shows an example for this.
 12. In the **Single Sign-on Settings** section, perform the following steps: 
    
     ![Configure Single Sign-On][14]
+
+	a. Select **Enable Single sign-on(SSO)(SSO Setup Documentation)** checkbox.
 	
-	a. Paste **SAML Entity ID** into the **SAML issuer URL** textbox.
+	b. Paste **SAML Entity ID** into the **SAML issuer URL** textbox.
   
-    b. Paste **SAML Single Sign-On Service URL** into the **SAML endpoint URL** textbox.
+    c. Paste **SAML Single Sign-On Service URL** into the **SAML endpoint URL** textbox.
   
-    c. Paste **Sign-Out URL** into the **Logout landing page** textbox.
+    d. Paste **Sign-Out URL** into the **Logout landing page** textbox.
   
-    d. Open your downloaded certificate in notepad, copy the content of downloaded certificate into your clipboard, and then paste it into the **x 509 certificate** textbox.
+    e. Open your downloaded certificate in notepad, copy the content of downloaded certificate into your clipboard, and then paste it into the **x 509 certificate** textbox.
   
-    e. Click **Save**.
+    f. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
