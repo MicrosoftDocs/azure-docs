@@ -1,8 +1,8 @@
 # [Docker Documentation](index.md)
-## Deploy and Configure Docker
-### [Docker: Marketplace template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
+# Quickstart
+## [Docker Marketplace template](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
 # Tutorials
-## [Python, PostgreSQL, Docker](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
+## [Python Web App with Docker and PostgreSQL](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [CI/CD with Docker Swarm and VSTS](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)
 ## [CI/CD with Docker, Jenkins, and Linux](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 # How-to guides
