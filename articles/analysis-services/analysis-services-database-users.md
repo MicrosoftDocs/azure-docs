@@ -114,7 +114,7 @@ In this sample, a B2B external user and a group are added to the Analyst role wi
 ```
 
 ## To add roles and users by using PowerShell
-The [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module provides task-specific database management cmdlets and the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SQLASCMDLETS module are used for managing database roles and users.
+The [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module provides task-specific database management cmdlets and the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets are used for managing database roles and users.
   
 |Cmdlet|Description|
 |------------|-----------------| 
