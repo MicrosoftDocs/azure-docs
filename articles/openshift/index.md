@@ -31,5 +31,5 @@ ms.author: mlearned
 <br/>
 <a href="https://docs.openshift.org/latest/getting_started/index.html">Getting started with OpenShift Origin</a><br/>
 <a href="https://github.com/Microsoft/openshift-container-platform">OpenShift Container Platform deployment template</a><br/>
-<a href="https://docs.openshift.org/latest/welcome/index.html">Learn more about OpenShift</a><br/>
+<a href="https://docs.openshift.org/latest/welcome/index.html">Learn about OpenShift</a><br/>
 </div>
