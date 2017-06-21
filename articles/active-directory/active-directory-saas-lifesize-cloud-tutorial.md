@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -112,9 +112,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://login.lifesizecloud.com/<companyname>`
 
-	> [!NOTE] 
-	>Please note that these are not the real values. you have to update these values with the actual Sign-On URL and Identifier. To get these values, you can go to Access->SAML setup on your Application side or Contact [Lifesize Cloud Client support team](https://www.lifesize.com/support). 
-	
+	 
+4. Check **Show advanced URL settings**, perform the following step:	
+   
+    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
+
+    In the **Relay state** textbox, type a URL using the following pattern:
+   `https://webapp.lifesizecloud.com/?ent=<identifier>`
+   
+   > [!NOTE] 
+   >Please note that these are not the real values. you have to update these values with the actual Sign-On URL, Relay State, and Identifier. Contact [Lifesize Cloud Client support team](https://www.lifesize.com/support) to get Sign-On URL, and Identifier values and you can get Relay State  value from SSO Configuration that is explained later in the tutorial.
+
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_certificate.png) 
@@ -160,7 +168,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 12. Enable the SSO by checking on the **Enable SSO** button.
 
-13. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value which is generated in the text box. We will need this value in the next steps.
+13. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value, which is generated in the text box, paste it in the **Relay State** textbox under **Lifesize Cloud Domain and URLs** section. 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
