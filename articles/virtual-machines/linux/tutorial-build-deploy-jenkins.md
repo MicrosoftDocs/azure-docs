@@ -208,7 +208,7 @@ To create the release definition in Team Services or TFS:
 
 1. Choose the release link in the popup message. For example: "Release **Release-1** has been created".
 
-1. Open the **Logs** tab to watch the release console output.
+. Open the **Logs** tab to watch the release console output.
 
 ## View the deployed app
 
@@ -228,8 +228,6 @@ In your browser, open the URL of one of the servers you added to your deployment
    page of Team Services or TFS. Open the release to see the deployment taking place.
 
 ## Q&A
-
-<!-- BEGINSECTION class="md-qanda" -->
 
 ### Can I deploy to a production environment automatically after the app is approved?
 
@@ -253,8 +251,3 @@ Yes, you can configure GitHub to automatically notify Jenkins when a change to t
 occurs. This is more efficient than polling. You'll need to install the
 [GitHub Plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) into Jenkins for this. 
 
-[!INCLUDE [temp](../../_shared/qa-versions.md)]
-
-<!-- ENDSECTION -->
-
-[!INCLUDE [rm-help-support-shared](../../_shared/rm-help-support-shared.md)]
