@@ -52,7 +52,6 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 
 ## Microsoft Operations Management Suite
 
-
 Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
 ![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
