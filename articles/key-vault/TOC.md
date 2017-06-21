@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Key Vault?](key-vault-whatis.md)
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
@@ -47,7 +47,8 @@
 
 # Resources
 ## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.technet.com/b/kv/)
+## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)

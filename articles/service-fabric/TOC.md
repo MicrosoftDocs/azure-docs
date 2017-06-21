@@ -1,4 +1,4 @@
-﻿
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -265,11 +265,12 @@
 ## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Common questions about Service Fabric](service-fabric-common-questions.md)
-## [Service Fabric support options](service-fabric-support.md)
-## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Sample code](http://aka.ms/servicefabricsamples)
+## [Service Fabric support options](service-fabric-support.md)
+## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
