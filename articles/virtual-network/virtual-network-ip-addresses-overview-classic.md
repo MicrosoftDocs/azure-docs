@@ -116,7 +116,7 @@ In case of a *standalone* cloud service, resources get a private IP address allo
 In case of a cloud service deployed within a virtual network, resources get private IP address(es) allocated from the address range of the associated subnet(s) (as specified in its network configuration). This private IP address(es) can be used for communication between all VMs within the VNet.
 
 Additionally, in case of cloud services within a VNet, a private IP address is allocated *dynamically* (using DHCP) by default. It can change when the resource is stopped and started. To ensure the IP address remains the same, you need to set the allocation method to *static*, and provide a valid IP address within the corresponding address range.
-
+Azure
 Static private IP addresses are commonly used for:
 
 * VMs that act as domain controllers or DNS servers.
@@ -174,5 +174,5 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 | Internal load balancer (ILB) |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
 
 ## Next steps
-* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
+* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.
 
