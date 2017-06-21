@@ -24,10 +24,16 @@ ms.author: mlearned
 <a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Deploy Cloud Foundry on Azure</a>
 <h2 style="margin-top: 36px">Step-By-Step Tutorials</h2>
 <ol>
-  <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>  
+  <li><a href="/azure/virtual-machines/linux/cloudfoundry-get-started">Getting started with Cloud Foundry on Azure</a></li>
+  <li><a href="/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app">Deploy Cloud Foundry App to Azure</a></li>  
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Cloud Foundry on Azure.<p>
 <br/>
-<a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Microsoft Azure</a>  
+<a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry on Microsoft Azure</a>
+<a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Cloud Foundry Azure template guide</a>
+<a href="https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html">Installing Cloud Foundry on Azure</a>
+<a href="https://github.com/Microsoft/vsts-cloudfoundry">Visual Studio Team Services plugin for Cloud Foundry</a>
+<a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Microsoft Log Analytics Nozzle for Cloud Foundry</a>
+<a href="https://docs.cloudfoundry.org/">Cloud Foundry site</a>
 </div>
