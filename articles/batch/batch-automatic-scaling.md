@@ -29,7 +29,7 @@ You can enable automatic scaling either when a pool is created, or on an existin
 This article discusses the various entities that make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various compute resource and task metrics within Batch. You can use these metrics to intelligently adjust your pool's node count based on resource usage and task status. You'll then learn how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. Finally, we finish up with a few example formulas.
 
 > [!IMPORTANT]
-> When you create a Batch account, you choose the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> When you create a Batch account, you can specify the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
 >If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 >
@@ -83,8 +83,8 @@ You can get and set the values of these service-defined variables to manage the 
 
 | Read-write service-defined variables | Description |
 | --- | --- |
-| $TargetDedicatedNodes |The **target** number of **dedicated compute nodes** for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the desired number of nodes. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
-| $TargetLowPriorityNodes |The **target** number of **low-priority compute nodes** for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the desired number of nodes. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
+| $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the desired number of nodes. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
+| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by a subsequent autoscale evaluation before the pool has reached the initial target, the pool may not reach the desired number of nodes. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
@@ -102,7 +102,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies are not satisfied are excluded from the $ActiveTasks count.|
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
@@ -269,7 +269,7 @@ You can use both resource and task metrics when you're defining a formula. You a
   </tr>
   <tr>
     <td><b>Resource</b></td>
-    <td><p><b>Resource metrics</b> are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.</p>
+    <td><p>Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.</p>
         <p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
             <li>$TargetDedicatedNodes</li>
@@ -294,7 +294,7 @@ You can use both resource and task metrics when you're defining a formula. You a
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
+    <td><p>Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -394,21 +394,21 @@ The minimum interval is five minutes, and the maximum is 168 hours. If an interv
 
 ## Enable autoscaling on an existing pool
 
-In .NET, if you've already created a pool with a set number of compute nodes by using the `targetDedicatedComputeNodes` parameter, you can still enable autoscaling on the pool. Each Batch SDK provides a way to enable autoscaling. For example:
+Each Batch SDK provides a way to enable autoscaling. For example:
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Enable automatic scaling on a pool][rest_enableautoscale] (REST API)
 
 When you enable autoscaling on an existing pool, the following applies:
 
-* If automatic scaling is currently **disabled** on the pool when you issue the "enable autoscale" request, you *must* specify a valid autoscale formula when you issue the request. You can *optionally* specify an autoscale evaluation interval. If you do not specify an interval, the default value of 15 minutes is used.
-* If autoscale is currently **enabled** on the pool, you can specify an autoscale formula, an evaluation interval, or both. You can't omit both properties.
+* If automatic scaling is currently disabled on the pool when you issue the request to enable autoscaling, you must specify a valid autoscale formula when you issue the request. You can optionally specify an autoscale evaluation interval. If you do not specify an interval, the default value of 15 minutes is used.
+* If autoscale is currently enabled on the pool, you can specify an autoscale formula, an evaluation interval, or both. You must specify at least one of these properties.
 
-  * If you specify a new autoscale evaluation interval, then the existing evaluation schedule is stopped and a new schedule is started. The new schedule's start time is the time at which the "enable autoscale" request was issued.
+  * If you specify a new autoscale evaluation interval, then the existing evaluation schedule is stopped and a new schedule is started. The new schedule's start time is the time at which the request to enable autoscaling was issued.
   * If you omit either the autoscale formula or evaluation interval, the Batch service continues to use the current value of that setting.
 
 > [!NOTE]
-> If you specified a value for the *targetDedicatedComputeNodes* parameter of the **CreatePool** method when you created the pool in .NET, that value is ignored when the automatic scaling formula is evaluated.
+> If you specified values for the *targetDedicatedComputeNodes* or *targetLowPriorityComputeNodes* parameters of the **CreatePool** method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the automatic scaling formula is evaluated.
 >
 >
 
@@ -446,9 +446,10 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 ```
 
 ## Evaluate an autoscale formula
-You can evaluate a formula before applying it to a pool. In this way, you can perform a "test run" of the formula to see how its statements evaluate before you put the formula into production.
 
-To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicatedNodes = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
+You can evaluate a formula before applying it to a pool. In this way, you can test the formula to see how its statements evaluate before you put the formula into production.
+
+To evaluate an autoscale formula, you must first enable autoscaling on the pool with a valid formula. To test a formula on a pool that doesn't yet have autoscaling enabled, use the one-line formula `$TargetDedicatedNodes = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) or [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
@@ -471,7 +472,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     await pool.EnableAutoScaleAsync(
-        autoscaleFormula: $"$TargetDedicatedNodes = {pool.CurrentDedicatedNodes};",
+        autoscaleFormula: "$TargetDedicatedNodes = {pool.CurrentDedicatedNodes};",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScaleAsync calls to once every 30 seconds.
@@ -499,7 +500,7 @@ if (pool.AutoScaleEnabled == true)
         $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
     ";
 
-    // Perform the autoscale formula evaluation. Note that this does not
+    // Perform the autoscale formula evaluation. Note that this code does not
     // actually apply the formula to the pool.
     AutoScaleRun eval =
         await batchClient.PoolOperations.EvaluateAutoScaleAsync(pool.Id, myFormula);
@@ -537,7 +538,8 @@ AutoScaleRun.Results:
 ```
 
 ## Get information about autoscale runs
-To ensure your formula is performing as expected, we recommend you periodically check the results of the autoscaling "runs" Batch performs on your pool. To do so, get (or refresh) a reference to the pool, and examine the properties of its last autoscale run.
+
+To ensure that your formula is performing as expected, we recommend that you periodically check the results of the autoscaling runs that Batch performs on your pool. To do so, get (or refresh) a reference to the pool, and examine the properties of its last autoscale run.
 
 In Batch .NET, the [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) property has several properties that provide information about the latest automatic scaling run performed on the pool:
 
