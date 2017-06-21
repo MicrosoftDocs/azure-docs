@@ -39,6 +39,8 @@
     href: tutorial-azure-security.md
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
+  - name: 13 - CI/CD with Team Services
+    href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
   - name: Azure CLI
