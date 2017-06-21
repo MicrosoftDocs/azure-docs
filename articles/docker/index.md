@@ -25,13 +25,9 @@ ms.author: mlearned
 <h2>Tutorials</h2>
 <p>Learn how to quickly deploy Docker on Azure.</p>
 <ol>
-  <li><a href="https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension">Create Docker hosts with VM extension</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine">Create Docker host VMs with Docker Machine</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">Create a private Docker container registry</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-deployment">Deploy Docker container hosting solution</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Visual Studio Team Services</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
+  <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
+  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Visual Studio Team Services</a></li>
+  <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, Jenkins, and Linux VMs</a></li>
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>
