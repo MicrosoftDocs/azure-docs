@@ -1,20 +1,20 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft Docs
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 
 ---
@@ -32,23 +32,11 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## Add sample data
-
-You can now add data to your graph using Data Explorer.
-
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your container.
-
-    ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Once you've added some items, click the **Apply Filter** button, or right-click **Graph** and click **New Graph Query** to see the visual graph of your data. You can change how data is labeled and styled by clicking the **Style** button and changing your settings. Here's an example graph in Data Explorer, the labels, colors, and data shown can all be modified.
-
-    ![Visual graph explorer in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -68,7 +56,7 @@ Now let's clone a Graph API app from github, set the connection string, and run 
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized. In the preview, we added a graph extension API on the DocumentDB client. We are working on a standalone graph client decoupled from the DocumentDB client and resources.
+* The DocumentClient is initialized. In the preview, we added a graph extension API on the Azure Cosmos DB client. We are working on a standalone graph client decoupled from the Azure Cosmos DB client and resources.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -149,7 +137,7 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 

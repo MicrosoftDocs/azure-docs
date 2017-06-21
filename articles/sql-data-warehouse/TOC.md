@@ -11,7 +11,7 @@
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
 
 # How To
 
@@ -48,6 +48,7 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
@@ -114,7 +115,7 @@
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
+### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
@@ -126,6 +127,9 @@
 ### [Encryption](sql-data-warehouse-encryption-tde.md)
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
+
+## Troubleshoot
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # Reference
 

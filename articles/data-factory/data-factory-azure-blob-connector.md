@@ -188,7 +188,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. On the Data Factory home page, click the **Copy data [PREVIEW]** tile to launch **Copy Data Wizard** in a separate tab.    
     
     > [!NOTE]
-    >    If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
+    >    If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.
 2. In the **Properties** page:
     1. Enter **CopyPipeline** for **Task name**. The task name is the name of the pipeline in your data factory.
     2. Enter a **description** for the task (optional).
@@ -219,16 +219,17 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     5. Click **Next**.
     ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. 
-    1. Confirm that the **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet. 
-    2. Confirm that the **column delimiter** is set to `Comma (,)`. You can see the other column delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter. 
-    3. Confirm that the **row delimiter** is set to `Carriage Return + Line feed (\r\n)`. You can see the other row delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter. 
-    4. Confirm that the **skip line count** is set to **0**. If you want a few lines to be skipped at the top of the file, enter the number here. 
-    5. Confirm that **the first data row contains column names** is not set. If the source files contain column names in the first row, select this option. 
-    6. Confirm that the **treat empty column value as null** option is set. 
-    7. Expand **Advanced settings** to see advanced option available. 
-    8. At the bottom of the page, see the **preview** of data from the emp.txt file. 
-    9. Click **SCHEMA** tab at the bottom to see the schema that the copy wizard inferred by looking at the data in the source file. 
-    10. Click **Next** after you review the delimiters and preview data.
+    1. Confirm the following options: 
+        a. The **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet.
+        b. The **column delimiter** is set to `Comma (,)`. You can see the other column delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter.
+        c. The **row delimiter** is set to `Carriage Return + Line feed (\r\n)`. You can see the other row delimiters supported by Data Factory in the drop-down list. You can also specify a custom delimiter.
+        d. The **skip line count** is set to **0**. If you want a few lines to be skipped at the top of the file, enter the number here.
+        e.  The **first data row contains column names** is not set. If the source files contain column names in the first row, select this option.
+        f. The **treat empty column value as null** option is set.
+    2. Expand **Advanced settings** to see advanced option available.
+    3. At the bottom of the page, see the **preview** of data from the emp.txt file.
+    4. Click **SCHEMA** tab at the bottom to see the schema that the copy wizard inferred by looking at the data in the source file.
+    5. Click **Next** after you review the delimiters and preview data.
     ![Copy Tool - File format settings](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
 8. On the **Destination data store page**, select **Azure Blob Storage**, and click **Next**. You are using the Azure Blob Storage as both the source and destination data stores in this walkthrough.    
     ![Copy Tool - select destination data store](media/data-factory-azure-blob-connector/select-destination-data-store.png)
@@ -239,13 +240,13 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
    4. Select your Azure storage account. 
    5. Click **Next**.     
 10. On the **Choose the output file or folder** page: 
-    1. specify **Folder path** as **adfblobconnector/output/{year}/{month}/{day}**. Enter **TAB**. 
-    2. For the **year**, select **yyyy**. 
-    3. For the **month**, confirm that it is set to **MM**. 
-    4. For the **day**, confirm that it is set to **dd**. 
-    5. Confirm that the **compression type** is set to **None**. 
-    6. Confirm that the **copy behavior** is set to **Merge files**. If the output file with the same name already exists, the new content is added to the same file at the end.  
-    7. Click **Next**. 
+    6. specify **Folder path** as **adfblobconnector/output/{year}/{month}/{day}**. Enter **TAB**.
+    7. For the **year**, select **yyyy**.
+    8. For the **month**, confirm that it is set to **MM**.
+    9. For the **day**, confirm that it is set to **dd**.
+    10. Confirm that the **compression type** is set to **None**.
+    11. Confirm that the **copy behavior** is set to **Merge files**. If the output file with the same name already exists, the new content is added to the same file at the end.
+    12. Click **Next**.
     ![Copy Tool - Choose output file or folder](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. On the **File format settings** page, review the settings, and click **Next**. One of the additional options here is to add a header to the output file. If you select that option, a header row is added with names of the columns from the schema of the source. You can rename the default column names when viewing the schema for the source. For example, you could change the first column to First Name and second column to Last Name. Then, the output file is generated with a header with these names as column names. 
     ![Copy Tool - File format settings for destination](media/data-factory-azure-blob-connector/file-format-destination.png)

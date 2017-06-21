@@ -2,7 +2,7 @@
 title: Azure Active Directory Application and Service Principal Objects | Microsoft Docs
 description: A discussion of the relationship between application and service principal objects in Azure Active Directory
 documentationcenter: dev-center-name
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 services: active-directory
 editor: ''
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2016
-ms.author: bryanla;mbaldwin
+ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Application and service principal objects in Azure Active Directory (Azure AD)

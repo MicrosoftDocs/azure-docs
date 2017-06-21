@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
+ms.custom: aaddev
 
 ---
 # How and why applications are added to Azure AD

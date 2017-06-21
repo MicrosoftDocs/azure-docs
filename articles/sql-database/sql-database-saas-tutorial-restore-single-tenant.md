@@ -1,5 +1,5 @@
 ---
-title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs 
+title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs
 description: "Learn how to restore a single tenants SQL database after accidentally deleting data"
 keywords: sql database tutorial
 services: sql-database
@@ -8,20 +8,20 @@ author: stevestein
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 
 ---
-# Restore a single tenant database
+# Restore a Wingtip SaaS tenants SQL database
 
-The Wingtip Tickets SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
+The Wingtip SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
 
 In this tutorial you learn two data recovery patterns:
 
@@ -39,7 +39,7 @@ In this tutorial you learn two data recovery patterns:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS tenant restore pattern
@@ -52,11 +52,11 @@ In the second pattern, which assumes that the tenant has suffered a loss or corr
 
 ## Get the Wingtip application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Simulate a tenant accidentally deleting data
 
-To demonstrate these recovery scenarios, we need to *accidentally* delete some data in one of the tenant databases. While you can delete any record, the next step sets up the demo to not get blocked by referential integrity violations! It also adds some ticket purchase data you can use later in the *WTP Analytics tutorials*.
+To demonstrate these recovery scenarios, we need to *accidentally* delete some data in one of the tenant databases. While you can delete any record, the next step sets up the demo to not get blocked by referential integrity violations! It also adds some ticket purchase data you can use later in the *Wingtip SaaS Analytics tutorials*.
 
 Run the ticket generator script and create additional data. The ticket generator intentionally does not purchase tickets for each tenants last event.
 
@@ -143,6 +143,6 @@ In this tutorial, you learned how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
 * [Learn about SQL Database backups](sql-database-automated-backups.md)
