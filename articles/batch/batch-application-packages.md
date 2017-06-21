@@ -249,7 +249,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-On Linux nodes, the format is slightly different. Periods (.) and number signs (#) are flattened to underscores in the environment variable. For example:
+On Linux nodes, the format is slightly different. Periods (.), hypens (-) and number signs (#) are flattened to underscores in the environment variable. For example:
 
 ```
 Linux:
