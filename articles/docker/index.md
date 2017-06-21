@@ -32,7 +32,6 @@ ms.author: mlearned
 </ol>
 <h2>Resources</h2>
 <p>See the following links for additional reference materials and tools for working with Docker on Azure.</p>
-<br/>
 <a href="https://www.docker.com/docker-azure">Docker Azure site</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure driver</a><br/>
 <a href="https://docker.com">Learn about Docker</a><br/>
