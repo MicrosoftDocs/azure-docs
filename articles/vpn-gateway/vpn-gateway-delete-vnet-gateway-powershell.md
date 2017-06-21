@@ -104,41 +104,40 @@ Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
 
-### 5. Get the list of the corresponding local network gateways.
+### 5 Delete the local network gateways
 
-```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
-```
-	
-### 6. Delete the local network gateways.
+1. Get the list of the corresponding local network gateways.
 
-You may be prompted to confirm the deletion of each of the local network gateway.
+  ```powershell
+  $LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+  ```
+2. Delete the local network gateways. You may be prompted to confirm the deletion of each of the local network gateway.
 
-```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
-```
+  ```powershell
+  $LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+  ```
 
-### 7. Get the IP configurations of the virtual network gateway.
+### 6. Delete the Public IP address resources
 
-```powershell
-$GWIpConfigs = $Gateway.IpConfigurations
-```
+1. Get the IP configurations of the virtual network gateway.
 
-### 8. Get the list of Public IP address resources used for this virtual network gateway.
+  ```powershell
+  $GWIpConfigs = $Gateway.IpConfigurations
+  ```
 
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+2.  Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
-```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
-```
+  ```powershell
+  $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+  ```
 
-### 9. Delete the Public IP resources.
+3. Delete the Public IP resources.
 
-```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
-```
+  ```powershell
+  $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
+  ```
 
-### 10. Delete the gateway subnet and set the configuration.
+### 7. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -205,36 +204,31 @@ You may be prompted to confirm the deletion of the virtual network gateway.
 >
 >
 
-
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
 
-### 6. Get the IP configurations of the virtual network gateway.
+### 6. Delete the Public IP address resources
 
-```powershell
-$GWIpConfigs = $Gateway.IpConfigurations
-```
+1. Get the IP configurations of the virtual network gateway.
 
-### 7. Get the list of Public IP address resources used for this virtual network gateway.
+  ```powershell
+  $GWIpConfigs = $Gateway.IpConfigurations
+  ```
+2. Get the list of Public IP address resources used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+  ```powershell
+  $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+  ```
+3. Delete the Public IP resources. You may be prompted to confirm the deletion of the Public IP.
 
-```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
-```
+  ```powershell
+  $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+  ```
 
-### 8. Delete the Public IP resources.
-
-You may be prompted to confirm the deletion of the Public IP.
-
-```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
-```
-
-### 9. Delete the gateway subnet and set the configuration.
+### 7. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -273,29 +267,25 @@ Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 At this point, your virtual network gateway has been deleted. You can use the next steps to delete any resources that are no longer being used.
 
-### 3. Get the IP configurations of the virtual network gateway.
+### 3. Delete the Public IP address resources
 
-```powershell
-$GWIpConfigs = $Gateway.IpConfigurations
-```
+1. Get the IP configurations of the virtual network gateway.
 
-### 4. Get the list of Public IP addresses used for this virtual network gateway.
-
-If the virtual network gateway was active-active, you will see two Public IP addresses.
+  ```powershell
+  $GWIpConfigs = $Gateway.IpConfigurations
+  ```
+2. Get the list of Public IP addresses used for this virtual network gateway. If the virtual network gateway was active-active, you will see two Public IP addresses.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
+3. Delete the Public IPs. You may be prompted to confirm the deletion of the Public IP.
 
-### 5. Delete the Public IPs.
+  ```powershell
+  $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+  ```
 
-You may be prompted to confirm the deletion of the Public IP.
-
-```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
-```
-
-### 6. Delete the gateway subnet and set the configuration.
+### 4. Delete the gateway subnet and set the configuration.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -342,6 +332,8 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
 
 The result that is returned shows 'Succeeded'.
 
-	ResourceGroupName : RG1
-	Location          : eastus
-	ProvisioningState : Succeeded
+```
+ResourceGroupName : RG1
+Location          : eastus
+ProvisioningState : Succeeded
+```
