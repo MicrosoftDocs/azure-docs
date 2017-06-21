@@ -23,9 +23,10 @@
 ### [Create and manage](integration-hybrid-connection-create-manage.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Pricing](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Release notes](biztalk-release-notes.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Pricing](https://azure.microsoft.com/pricing/details/biztalk-services/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
