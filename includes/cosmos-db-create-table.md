@@ -7,8 +7,8 @@ You can now use Data Explorer to create a table and add data to your database.
 
     Setting|Suggested value|Description
     ---|---|---
-    Table id|sample-table|The ID for your new table. Table names have the same character requirements as database ids. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Table Id|sample-table|The ID for your new table. Table names have the same character requirements as database ids. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
     Throughput|400 RUs|Leave the default value. You can scale up the [throughput](../articles/cosmos-db/request-units.md) later if you want to reduce latency.
     RU/m|Off|Leave the default value. You can turn on the [RU/m](../articles/cosmos-db/request-units-per-minute.md) feature later if you need to handle spiky workloads.
 
