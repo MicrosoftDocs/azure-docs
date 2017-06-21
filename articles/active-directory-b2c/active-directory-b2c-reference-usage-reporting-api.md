@@ -18,13 +18,13 @@ ms.author: joroja
 ---
 # Accessing usage reports in Azure AD B2C via the reporting API
 
-Azure Active Directory B2C provides authentication based on logins and Azure Multi-Factor Authentication. Authentication is provided for end users of your application family across identity providers. When you know the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, you can answer questions like:
+Azure Active Directory B2C provides authentication based on user sign-in and Azure Multi-Factor Authentication. Authentication is provided for end users of your application family across identity providers. When you know the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, you can answer questions like:
 * How many users from each type of identity provider (for example, a Microsoft or LinkedIn account) have registered in the last 10 days?
 * How many authentications using Multi-Factor Authentication have completed successfully in the last month?
-* How many login-based authentications were completed this month? Per day? Per application?
+* How many sign-in-based authentications were completed this month? Per day? Per application?
 * How can I estimate the expected monthly cost of my B2C tenant activity?
 
-This article focuses on reports tied to billing activity, which is based on the number of users, billable login-based authentications, and multi-factor authentications.
+This article focuses on reports tied to billing activity, which is based on the number of users, billable sign-in-based authentications, and multi-factor authentications.
 
 
 ## Prerequisites
