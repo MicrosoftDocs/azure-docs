@@ -68,13 +68,18 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.9.
 * The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.9 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
-   # This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.4, and later versions.
-   PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Value[0]
+   # This command gets a specific key for a Storage account, 
+   # and works for Azure PowerShell version 1.4, and later versions.
+   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+   -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, and works for Azure PowerShell version 1.3.2, and previous versions.
-   PS C:\>(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" -AccountName "MyStorageAccount").Key1
+   # This command gets a specific key for a Storage account, 
+   # and works for Azure PowerShell version 1.3.2, and previous versions.
+   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+   -AccountName "MyStorageAccount").Key1
 
    ```
+
    For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## Azure CLI
