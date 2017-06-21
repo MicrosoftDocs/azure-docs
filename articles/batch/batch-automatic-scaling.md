@@ -109,7 +109,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $FailedTasks |The number of tasks that failed. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been pre-empted. |
-| $preemptedNodeCount | The number of nodes in the pool that are in a pre-empted state. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a pre-empted state. |
 
 > [!TIP]
 > The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
@@ -216,21 +216,21 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation. |
 
 ### Samples, sample percentage, and the *GetSample()* method
-The core operation of an autoscale formula is to obtain task and resource metric data and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with metrics data, or "samples."
+The core operation of an autoscale formula is to obtain task and resource metric data and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with metrics data (samples).
 
 **Samples**
 
-The Batch service periodically takes *samples* of task and resource metrics and makes them available to your autoscale formulas. These samples are recorded every 30 seconds by the Batch service. However, there is typically a delay between when those samples were recorded and when they are made available to (and can be read by) your autoscale formulas. Additionally, due to various factors such as network or other infrastructure issues, samples may not be recorded for a particular interval.
+The Batch service periodically takes samples of task and resource metrics and makes them available to your autoscale formulas. These samples are recorded every 30 seconds by the Batch service. However, there is typically a delay between when those samples were recorded and when they are made available to (and can be read by) your autoscale formulas. Additionally, due to various factors such as network or other infrastructure issues, samples may not be recorded for a particular interval.
 
 **Sample percentage**
 
-When `samplePercent` is passed to the `GetSample()` method or the `GetSamplePercent()` method is called, "percent" refers to a comparison between the total *possible* number of samples that are recorded by the Batch service and the number of samples that are *available* to your autoscale formula.
+When `samplePercent` is passed to the `GetSample()` method or the `GetSamplePercent()` method is called, _percent_ refers to a comparison between the total possible number of samples that are recorded by the Batch service and the number of samples that are available to your autoscale formula.
 
 Let's look at a 10-minute timespan as an example. Because samples are recorded every 30 seconds, within a 10-minute timespan, the maximum total number of samples that are recorded by Batch would be 20 samples (2 per minute). However, due to the inherent latency of the reporting mechanism or some other issue within the Azure infrastructure, there may be only 15 samples that are available to your autoscale formula for reading. This means that, for that 10-minute period, only 75% of the total number of samples recorded are actually available to your formula.
 
 **GetSample() and sample ranges**
 
-Your autoscale formulas are going to be growing and shrinking your pools--adding nodes or removing nodes. Because nodes cost you money, you want to ensure that your formulas use an intelligent method of analysis that is based on sufficient data. Therefore, we recommend that you use a trending-type analysis in your formulas. This type grows and shrinks your pools based on a *range* of collected samples.
+Your autoscale formulas are going to be growing and shrinking your pools &mdash; adding nodes or removing nodes. Because nodes cost you money, you want to ensure that your formulas use an intelligent method of analysis that is based on sufficient data. Therefore, we recommend that you use a trending-type analysis in your formulas. This type grows and shrinks your pools based on a range of collected samples.
 
 To do so, use `GetSample(interval look-back start, interval look-back end)` to return a vector of samples:
 
@@ -246,7 +246,7 @@ $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 
 Once you've collected the vector of samples, you can then use functions like `min()`, `max()`, and `avg()` to derive meaningful values from the collected range.
 
-For additional security, you can force a formula evaluation to *fail* if less than a certain sample percentage is available for a particular time period. When you force a formula evaluation to fail, you instruct Batch to cease further evaluation of the formula if the specified percentage of samples is not available. In this case, no change is made to the pool size. To specify a required percentage of samples for the evaluation to succeed, specify it as the third parameter to `GetSample()`. Here, a requirement of 75 percent of samples is specified:
+For additional security, you can force a formula evaluation to fail if less than a certain sample percentage is available for a particular time period. When you force a formula evaluation to fail, you instruct Batch to cease further evaluation of the formula if the specified percentage of samples is not available. In this case, no change is made to the pool size. To specify a required percentage of samples for the evaluation to succeed, specify it as the third parameter to `GetSample()`. Here, a requirement of 75 percent of samples is specified:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
