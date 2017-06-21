@@ -19,9 +19,9 @@ ms.author: mlearned
 	OpenShift Origin is an open-source container platform built on Kubernetes that simplifies the process of deploying, scaling, and operating multi-tenant applications.  Learn how to deploy and configure and OpenShift solution with quickstarts and tutorials from Microsoft and OpenShift. 
         </div>
     </div>
-<h2>Quickstarts</h2>
+<h2>5-Minute Quickstarts</h2>
 <a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift community template</a> 
-<h2>Tutorials</h2>
+<h2>Step-By-Step Tutorials</h2>
 <p>Learn how to deploy OpenShift on Azure.</p>
 <ol>
   <li><a href="/azure/virtual-machines/linux/openshift-get-started">Deploy OpenShift Origin to Azure Virtual Machines</a></li>  
