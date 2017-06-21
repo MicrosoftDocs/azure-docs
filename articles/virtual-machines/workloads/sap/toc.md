@@ -22,7 +22,7 @@
 ### [File level backup](sap-hana-backup-file-level.md)
 ### [Storage snapshot backups](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
-### [SAP IDES on Windows/SQL Server SAP CAL deployment guide](sap-cal-ides-erp6-ehp7-sp3-sql.md)
+### [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
 ### [Overview and architecture](suse-quickstart.md)
 ### [Plan and implement](planning-guide.md)
 ### [High availability](high-availability-guide.md)
