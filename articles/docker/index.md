@@ -17,13 +17,14 @@ ms.author: mlearned
     <div class="introHolder" style="justify-content: space-between;">
 	<div class="intro" style="min-width: 200px">
 	 <img src="media/Docker.png" align="right" alt="Docker Logo">
-         Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Use the Quickstarts, Tutorials, and How-to Guides to learn Docker on Azure.
+         Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Learn how to leverage Docker on Azure with our quickstarts and tutorials.
 	</div>
     </div>
-<h2>Quickstarts</h2>
+<h2>5-Minute Quickstarts</h2>
+<p>Learn how to deploy Docker on Azure:</p>
 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Deploy Docker on Ubuntu Quickstart template</a><br/>
-<h2>Tutorials</h2>
-<p>Learn how to quickly deploy Docker on Azure.</p>
+<h2>Step-by-Step Tutorials</h2>
+<p>Learn how to use Docker in your application and as part of your CI/CD pipeline:</p>
 <ol>
   <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Build Python and PostgreSQL with Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD with Docker Swarm and Visual Studio Team Services</a></li>
