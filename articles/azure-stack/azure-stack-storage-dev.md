@@ -71,8 +71,8 @@ var blobSvc = azure.createBlobService(‘'myaccount', ‘mykey’,
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
 ```
-block_blob_service = BlockBlobService(account_name='myaccount', 
-account_key='mykey', 
+block_blob_service = BlockBlobService(account_name='myaccount',
+account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
 
