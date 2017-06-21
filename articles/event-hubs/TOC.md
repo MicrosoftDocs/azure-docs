@@ -15,6 +15,9 @@
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## Capture
+### [Use the Azure portal to enable Capture](event-hubs-capture-enable-through-portal.md)
+### [Use a Resource Manager template to enable Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programming guide](event-hubs-programming-guide.md)
 
 # How to
@@ -33,7 +36,6 @@
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)
-#### [Enable Event Hubs Capture using a template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 #### [Use Python to enable Event Hubs Capture](event-hubs-capture-python.md)
 ### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
