@@ -17,6 +17,8 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
     - name: .NET
       href: connect-csharp.md
 - name: Tutorials
