@@ -23,9 +23,9 @@ ms.author: cahann
 > * The prebuilt domain intents are customizable. For example, if you want to provide reviews of hotels, you can train and customize the **Places.GetReviews** intent from the **Places** domain to recognize requests for hotel reviews.
 > * The prebuilt domains are extensible. For example, if you want to use the **Places** prebuilt domain in a bot that searches for restaurants, and need an intent for getting the type of cuisine, you can build and train a **Places.GetCuisine** intent.
 
-In addition to allowing you to build your own applications, LUIS also provides intents and entities the from Microsoft Cortana personal assistant as a prebuilt app. This is an "as-is" application. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client will have to reference both LUIS apps.
+In addition to allowing you to build your own applications, LUIS also provides intents and entities from the Microsoft Cortana personal assistant as a prebuilt app. This is an "as-is" application. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client has to reference both LUIS apps.
 
-The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish and Chinese.
+The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
 
 ## Use the Cortana Prebuilt App
 
