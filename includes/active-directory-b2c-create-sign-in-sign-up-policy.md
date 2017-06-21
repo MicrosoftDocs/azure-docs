@@ -6,15 +6,15 @@ In the policies section of settings, select **Sign-up or sign-in policies** and 
 
 ![Select sign-up or sign-in policies and click Add button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
 
-Enter a **Name** for the policy. This is the sign-up policy name used by your application. For example, enter `SiUpIn`.
+Enter a policy **Name** for your application to reference. For example, enter `SiUpIn`.
 
-Select **Identity providers** and check **Email signup**". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+Select **Identity providers** and check **Email signup**. Optionally, you can also select social identity providers, if already configured. Click **OK**.
 
-![Select Email signup as an identity provider and click OK button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+![Select Email signup as an identity provider and click the OK button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
 Select **Sign-up attributes**. Choose attributes you want to collect from the consumer during sign-up. For example, check **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 
-![Select some sign-up attributes and click OK button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+![Select some attributes and click the OK button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 
 Select **Application claims**. Choose claims you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**.
 
