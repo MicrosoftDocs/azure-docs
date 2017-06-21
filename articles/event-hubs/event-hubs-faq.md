@@ -45,7 +45,7 @@ Event Hubs throughput units are billed hourly, based on the maximum number of un
 ### How are Event Hubs throughput unit limits enforced?
 If the total ingress throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
 
-If the total egress throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event Hub.
+If the total egress throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
 
 ### Is there a limit on the number of throughput units that can be selected?
 There is a default quota of 20 throughput units per namespace. You can request a larger quota of throughput units by filing a support ticket. Beyond the 20 throughput unit limit, bundles are available in 20 and 100 throughput units. Note that using more than 20 throughput units removes the ability to change the number of throughput units without filing a support ticket.
@@ -54,7 +54,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all the event hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your Event Hub pulls the data from your Event Hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your event hub pulls the data from your event hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
@@ -62,7 +62,7 @@ Azure Event Hubs is available in all supported Azure regions. For a list, visit 
 ## Best practices
 
 ### How many partitions do I need?
-Please keep in mind that the partition count on an Event Hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
+Please keep in mind that the partition count on an event hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
 
 Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 
@@ -80,18 +80,18 @@ The Event Hubs Standard tier does allow message retention periods longer than 24
 The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all event hubs, is measured throughout the day. At the end of the day, the peak storage size is calculated. The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB). If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the **Locally Redundant Storage** rate).
 
 ### How are Event Hubs ingress events calculated?
-Each event sent to an Event Hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.
+Each event sent to an event hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8 KB event sent to the event hub is billed as one event, but a 96 KB message sent to the event hub is billed as two events.
 
-Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
+Events consumed from an event hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ### Do brokered connection charges apply to Event Hubs?
 Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), see the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details about how many connections are included in each service tier.
 
 ### How is Event Hubs Capture billed?
-Capture is enabled when any Event Hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Will I be billed for the storage account I select for Event Hubs Capture?
-Capture uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this configuration are billed to your Azure subscription.
+Capture uses a storage account you provide when enabled on an event hub. As this is your storage account, any changes for this configuration are billed to your Azure subscription.
 
 ## Quotas
 
