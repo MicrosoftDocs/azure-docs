@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
-h
+
 ---
 
 # Supported data sources in Azure Data Catalog
