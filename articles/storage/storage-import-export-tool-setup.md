@@ -52,7 +52,7 @@ If you are attempting to **repair an export**  that has partially failed, you wi
 
 ## Installing the Azure Import/Export Tool
 
-First, [download the Azure Import/Export Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) and extract it to a directory on your computer, for example `c:\WAImportExport`.
+First, [download the Azure Import/Export Tool](https://www.microsoft.com/en-us/download/details.aspx?id=42659) and extract it to a directory on your computer, for example `c:\WAImportExport`.
 
 The Azure Import/Export Tool consists of the following files:
 
