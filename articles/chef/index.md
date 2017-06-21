@@ -34,5 +34,7 @@ See the following links for additional reference materials and tools for working
   <a href="https://docs.microsoft.com/en-us/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0">Powershell Chef Reference</a><br/>
   <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Getting Started with Chef and VSTS</a><br/>
   Video:<a href="https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment"> Release Management with VSTS, Chef, and Octopus Deploy</a><br/>
-  <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Blog:  VSTS and Chef</a>
+  <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Blog:  VSTS and Chef</a><br/>
+  <a href="https://www.chef.io">Learn more about Chef</a>
 </div>
+

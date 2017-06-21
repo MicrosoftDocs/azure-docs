@@ -8,6 +8,8 @@
 ## [Chef and VSTS](https://github.com/chef-partners/vsts-chef/wiki/Getting-Started)
 ## [Video:  Chef and VSTS](https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment)
 ## [Blog:  VSTS and Chef](https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/)
+## [Chef site](https://www.chef.io)
+
 
 
 
