@@ -70,6 +70,11 @@ This opens the **Create App Service** dialog, which helps you create all the nec
 ## Sign in to Azure
 
 In the **Create App Service** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, make sure that the account has your Azure subscription. You can select the signed-in account to add the correct account.
+
+> [!NOTE]
+> If you're already signed in, don't select **Create** yet.
+>
+>
    
 ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
@@ -103,7 +108,7 @@ Select **OK**.
 
 ## Create and publish the web app
 
-In **Web App Name**, type a unique app name. The URL of the web app is `http://<app_name>.azurewebsites.net`. 
+In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`). The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your web app name. 
 
 You can accept the automatically generated name, which is unique.
 
@@ -142,7 +147,7 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
 
 From the left menu, select **App Services**, and then select the name of your Azure web app.
 

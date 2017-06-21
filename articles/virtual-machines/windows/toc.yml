@@ -141,6 +141,12 @@
       href: chef-automation.md
     - name: Create VM with Python
       href: python.md
+    - name: Create VM with Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md      
     - name: Create VM running popular application frameworks
       href: app-frameworks.md
     - name: Move a VM between subscriptions
