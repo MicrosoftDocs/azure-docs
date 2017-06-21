@@ -4,6 +4,6 @@
 # Tutorials
 ## [Deploy to Azure VMs](/azure/virtual-machines/linux/openshift-get-started)
 # Resources
-## [OpenShift container template](https://github.com/Microsoft/openshift-container-platform)
 ## [OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+## [OpenShift container template](https://github.com/Microsoft/openshift-container-platform)
 ## [OpenShift site](https://docs.openshift.org/latest/welcome/index.html)
