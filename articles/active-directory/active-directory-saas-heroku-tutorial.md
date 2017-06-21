@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/21/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Heroku, you need the following items:
 
 - An Azure AD subscription
-- A Heroku single-sign on enabled subscription
+- A Heroku single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Heroku Client support team](https://www.heroku.com/support) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the Metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_certificate.png) 
 
@@ -139,7 +139,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. When the setup is successful, administrators see a confirmation dialog and the URL of the SSO Login for end users is displayed. 
 
-    f. <a name="x123"></a>Copy your **Heroku Login URL** and **Heroku Entity ID** then, on the Azure AD classic portal, go back to the **Configure App Settings** page, and paste the values into the related textboxes.
+    f. <a name="x123"></a>Copy your **Heroku Login URL** and **Heroku Entity ID** then, go back to the **Configure App Settings** page, and paste the values into the sign-on url and identifier textboxes respectively.
+
+8. Click Complete.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
