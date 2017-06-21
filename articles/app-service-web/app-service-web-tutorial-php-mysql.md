@@ -260,11 +260,11 @@ DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
 
+Save the changes.
+
 > [!TIP]
 > To secure your MySQL connection information, this file is excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
 >
-
-Save the changes.
 
 ### Configure SSL certificate
 
