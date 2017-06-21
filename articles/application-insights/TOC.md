@@ -92,8 +92,9 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
-#### [Retention](app-insights-usage-retention.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
 
 ### Analytics
 
@@ -109,6 +110,7 @@
 ### [Create resources](app-insights-powershell-script-create-resource.md)
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Develop
 

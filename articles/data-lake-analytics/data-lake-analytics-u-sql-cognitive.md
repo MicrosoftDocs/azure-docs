@@ -25,9 +25,9 @@ Cognitive capabilities for U-SQL enable developers to use put intelligence in th
 * Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script
 * Call the PROCESS operation to use the Cognitive capabilities 
 
-## Imaging Scenarios
+## Imaging scenarios
 
-### A Simple Example: Image Tagging
+### Example: Image tagging
 
 The following example shows an end-to-end use of the imaging capabilities to detect objects in images.
 
@@ -82,7 +82,7 @@ The following example shows an end-to-end use of the imaging capabilities to det
             READONLY FileName
             USING new Cognition.Vision.OcrExtractor();
 
-## Text Scenarios
+## Text scenarios
 
 ### Input data
 
@@ -101,7 +101,7 @@ Assume that we have an input that consists of “War and Peace” by Leo Tolstoy
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### Extract key phrases for each paragraph.
+### Extract key phrases for each paragraph
 
     @keyphrase =
         PROCESS @WarAndPeace

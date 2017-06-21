@@ -36,7 +36,7 @@ The following elements help ensure safe access to your database.
 
 |||
 | :-- | :-- |
-| **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login.<br />For more information, see [Managing Users and Roles in Azure Database for PostgreSQL](/azure/sql-database/sql-database-manage-logins). |
+| **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your database server, or to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md). |
@@ -44,7 +44,7 @@ The following elements help ensure safe access to your database.
 
 ## How do I manage a server?
 
-You can manage Azure Database for PostgreSQL servers by using the Azure portal or the Azure CLI.
+You can manage Azure Database for PostgreSQL servers by using the Azure portal or the [Azure CLI](/cli/azure/postgres).
 
 ## Next steps
 
