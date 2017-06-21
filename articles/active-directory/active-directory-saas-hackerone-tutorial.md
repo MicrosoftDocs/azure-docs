@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact your HackerOne support team via [support@hackerone.com](mailto:support@hackerone.com) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_certificate.png) 
 
