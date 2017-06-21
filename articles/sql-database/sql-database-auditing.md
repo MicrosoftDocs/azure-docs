@@ -25,10 +25,6 @@ Auditing can help you maintain regulatory compliance, understand database activi
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-* [Azure SQL Database Auditing overview]
-* [Set up auditing for your database]
-* [Analyze audit logs and reports]
-
 ## <a id="subheading-1"></a>Azure SQL Database auditing overview
 SQL Database Auditing allows you to:
 
@@ -189,7 +185,7 @@ You can also configure Auditing in Azure SQL Database using the following automa
    * [Set-AzureRMSqlServerAuditingPolicy][106]
    * [Use-AzureRMSqlServerAuditingPolicy][107]
 
-   For an script example, see [Configure auditing and threat detectoin using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+   For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 2. **REST API - Blob Auditing**
 
@@ -221,10 +217,10 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: https://docs.microsoft.com/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

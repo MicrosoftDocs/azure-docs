@@ -6,7 +6,6 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: hero-article
@@ -17,23 +16,16 @@ ms.custom: mvc
 # Create an Azure Database for MySQL server using Azure CLI
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-You may use the Azure Cloud Shell in the browser to run these Azure CLI commands, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer. 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-## Log in to Azure
-If you are using the Azure Cloud Shell or Try It button, follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli
-az login
-```
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the command prompt.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
