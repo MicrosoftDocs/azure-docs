@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -137,9 +137,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. To upload your downloaded Azure Active Directory certificate, click **Select Issuer Certificate** or **Change Issuer Certificate**.
   	
-	b. Paste **SAML Entity ID** value into the **Issuer** textbox.
+	b. Paste **SAML Entity ID** value coped from azure portal into the **Issuer** textbox.
   	
-	c. Paste **SAML Single Sign-On Service URL** value into the **Service Provider (SP) Initiated Endpoint** textbox.
+	c. Paste **SAML Single Sign-On Service URL** value copied from the azure portal into the **Service Provider (SP) Initiated Endpoint** textbox.
 	    	
 	d. Select **SAML Enabled** as **Enable**.
 
@@ -194,7 +194,7 @@ In the case of SpringCM, provisioning is a manual task.
 
 1. Log in to your **SpringCM** company site as administrator.
 
-2. Click **GOTO**, and then click **Address Book**.
+2. Click **GOTO**, and then click **ADDRESS BOOK**.
    
     ![Create User](./media/active-directory-saas-spring-cm-tutorial/ic797054.png "Create User")
 
@@ -246,7 +246,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+ 
+When you click the SpringCM tile in the Access Panel, you should get automatically signed-on to your SpringCM application.
+
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
