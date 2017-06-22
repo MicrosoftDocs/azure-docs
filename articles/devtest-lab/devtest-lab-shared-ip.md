@@ -41,9 +41,11 @@ Whenever a VM with shared IP enabled is added to the subnet, DevTest Labs autom
 
 ## Using the shared IP
 
-You connect to Remote Desktop on the VM in an RDP client using the IP address or fully qualified domain name, followed by a colon, followed by the port.  For example, in the image below, the RDP address to connect to the VM is `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.  Alternatively, from the Azure portal, select the **Connect** button to download a pre-configured RDP file.
+- **Linux users:** SSH to the VM by using the IP address or fully qualified domain name, followed by a colon, followed by the port. For example, in the image below, the RDP address to connect to the VM is `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
 
 ![VM example](media/devtest-lab-shared-ip/vm-info.png)
+
+- **Windows users:** Select the **Connect** button on the Azure portal to download a pre-configured RDP file and access the VM.
 
 ## Next steps
 
