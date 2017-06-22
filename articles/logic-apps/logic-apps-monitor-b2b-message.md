@@ -138,13 +138,14 @@ Otherwise, select the values that you want:
 Along with Azure Log Analytics, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
-* [Archive diagnostics data](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) 
-in a storage account with [Azure Storage](../storage/storage-introduction.md).
-* [Stream diagnostics data](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
-to an event hub with [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
+* [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 You can then get real-time monitoring for your workflows by using the telemetry 
-in these services with other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md).
+in these services with other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+
+* [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
+* [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
 Based on the options that you want set up, make sure that you first 
 [create an Azure storage account](../storage/storage-create-storage-account.md) 
