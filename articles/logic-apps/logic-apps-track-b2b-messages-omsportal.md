@@ -125,13 +125,14 @@ save the .zip file to your local computer, and then extract that file. For examp
    * Human-readable files for "input payload" and "output payload"
    * Encoded files for inputs and outputs
 
-   The message folder includes acknowledgement file 
-   only when acknowledgements are set up.
+   If acknowledgements are set up, 
+   the message folder also includes acknowledgement files. 
    
-   Based on the message type, the folder and file names have these formats:
+   For each message type, the folder and file names follow these formats:
 
    * [AS2](#as2-folder-file-names)
    * [X12](#x12-folder-file-names)
+   * [EDIFACT](#edifact-folder-file-names)
 
 4. To view all the actions that have the same run ID, 
 from the message list, select a row. 

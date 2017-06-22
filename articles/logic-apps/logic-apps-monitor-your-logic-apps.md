@@ -22,12 +22,11 @@ ms.author: LADocs; jehollan
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
 you can check its status, performance, and history in the Azure portal. 
-You can also set up [logging](#azure-diagnostics) and [alerts](#add-azure-alerts) 
-for monitoring real-time events, richer debugging, and notifications about events 
-that might indicate failures or other problems.
 
-For example, you could create an alert for "when more than five runs fail within an hour." 
-After your logic app runs, you can [find the events](#find-events) 
+For monitoring real-time events, richer debugging, and notifications about events 
+that might indicate failures or other problems, you can also set up [logging](#azure-diagnostics) and [alerts](#add-azure-alerts). For example, 
+you could create an alert for "when more than five runs fail within an hour." 
+After your logic app runs, you can [view events](#find-events) 
 that happened in your logic app run.
 
 Along with monitoring in the Azure portal, you can also set up monitoring with the 
@@ -55,7 +54,6 @@ choose **Overview**.
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   You can filter either list to a specific date and timeframe. 
    To learn more about the statuses for each run and trigger, 
    see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
@@ -112,17 +110,17 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Now set up where to send diagnostic data to a log as shown:
+4. Now select the OMS workspace and data to use for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace in Log Analytics 
-   that you want to use for sending diagnostics data to a log.
+   3. Under **OMS Workspaces**, select the OMS workspace 
+   to use for logging.
    4. Under **Log**, select **WorkflowRuntime**.
    5. Choose your metric interval.
    6. When you're done, choose **Save**.
 
-   ![Set up Azure Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Select OMS workspace and diagnostics data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 After your logic app runs, you can find the events that happened during that run.
 

@@ -77,12 +77,12 @@ Under **Monitoring**, choose **Diagnostics logs** as shown here:
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now perform these steps as shown:
+4. Now select the OMS workspace and data to use for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace in Log Analytics 
-   that you want to use for sending diagnostics data to a log.
+   3. Under **OMS Workspaces**, select the OMS workspace 
+   to use for logging.
    4. Under **Log**, select **IntegrationAccountTrackingEvents**.
    5. When you're done, choose **Save**.
 
@@ -119,12 +119,12 @@ Otherwise, select the correct values now:
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now perform these steps as shown:
+4. Now select the OMS workspace and data to use for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the OMS workspace in Log Analytics 
-   that you want to use for sending diagnostics data to a log.
+   3. Under **OMS Workspaces**, select the OMS workspace 
+   to use for logging.
    4. Under **Log**, select **IntegrationAccountTrackingEvents**.
    5. When you're done, choose **Save**.
 

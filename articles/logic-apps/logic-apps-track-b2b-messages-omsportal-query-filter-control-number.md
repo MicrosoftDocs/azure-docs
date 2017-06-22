@@ -70,7 +70,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![On the OMS menu, choose "Log Search"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. In the search box, enter a field that you want to find, and press **ENTER**. 
+5. In the search box, enter a field that you want to find, and press **Enter**. 
 When you start typing, OMS shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
