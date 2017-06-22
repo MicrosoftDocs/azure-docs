@@ -13,15 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/23/2017
+ms.date: 06/22/2017
 ms.author: xiaofmao
 
 ---
 # Data transfer tools for Azure Stack storage
 
 ## Overview
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure storage tools if you want to move data to or from Azure Stack Storage. The tool that works best for you depends on your requirements:
-* [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure Storage tools if you want to move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
+
+The tool that works best for you depends on your requirements:
+* [Microsoft Storage Explorer (Preview)](#microsoft-azure-storage-explorer)
 
     An easy to use standalone app with a user interface.
 * [AzCopy](#azcopy)
@@ -36,16 +38,16 @@ Microsoft Azure Stack provides a set of the storage services for disks, blobs, t
 
     An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms. 
 
-This article provides a quick overview of the tools available and when you might use each one.
-
 Due to the Storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md).
 
 
-## Microsoft Azure Storage Explorer (Preview)
+## Microsoft Azure Storage Explorer
 
-Microsoft Azure Storage Explorer (Preview) is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
 
-For more information about configuring Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+For more information about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+
+For more information about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## AzCopy
 AzCopy is a Windows Command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
@@ -92,7 +94,7 @@ Azure Stack requires Azure CLI version 2.0. For more information about installin
 
 ## Next steps
 * [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
+* [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
 
