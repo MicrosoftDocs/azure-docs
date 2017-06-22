@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -162,7 +162,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 There is no action item for you to configure user provisioning to Kontiki. When an assigned user tries to log in to Kontiki using the access panel, Kontiki checks whether the user exists.  
 
->!NOTE]
+>[!NOTE]
 >If there is no user account available yet, it is automatically created by Kontiki.
 
 
