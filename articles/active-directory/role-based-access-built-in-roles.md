@@ -71,6 +71,7 @@ This article only addresses the different roles that exist today. When you assig
 | [SQL Server Contributor](#sql-server-contributor) |Can manage SQL servers and databases, but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) |Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) |Can manage storage accounts |
+| [Support Request Contributor](#support-request-contributor) | Can create and manage support requests |
 | [User Access Administrator](#user-access-administrator) |Can manage user access to Azure resources |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) |Can manage classic virtual machines, but not the virtual network or storage account to which they are connected |
 | [Virtual Machine Contributor](#virtual-machine-contributor) |Can manage virtual machines, but not the virtual network or storage account to which they are connected |
@@ -618,6 +619,15 @@ Can manage storage accounts, but not access to them.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Storage/storageAccounts/* |Create and manage storage accounts |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Support Request Contributor
+Can create and manage support tickets at the subscription scope 
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read | Read authorization |
+| Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 
 ### User Access Administrator
 Can manage user access to Azure resources
