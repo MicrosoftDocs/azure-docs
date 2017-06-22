@@ -10,14 +10,15 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: edwardsa
+
 ---
 # Prerequisites
 
 Be sure to install the Azure CLI 2.0 and select your Service Fabric cluster. More information can be found in the
-[getting started with Azure CLI 2.0 documentation](service-fabric-azure-cli-2.0).
+[getting started with Azure CLI 2.0 documentation](service-fabric-azure-cli-2.0.md).
 
 You should also have a Service Fabric application package ready to be deployed. More information about how to author
-and package an application can be found in the [application model documentation](service-fabric-application-model).
+and package an application can be found in the [application model documentation](service-fabric-application-model.md).
 
 # Overview
 

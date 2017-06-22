@@ -10,6 +10,7 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
+
 ---
 # Install Azure CLI 2.0
 
@@ -131,8 +132,8 @@ Fabric Explorer UI is reachable at that host and port. Use `az sf cluster select
 
 ## Getting detailed logs
 
-When debugging or reporting an issue it is useful to include detailed logs. The Azure CLI includes a global `--debug`
-flag that will increase the verbosity of the logs.
+When debugging or reporting an issue, it is useful to include detailed logs. The Azure CLI includes a global `--debug`
+flag that increases the verbosity of the logs.
 
 ## Command help and syntax
 
