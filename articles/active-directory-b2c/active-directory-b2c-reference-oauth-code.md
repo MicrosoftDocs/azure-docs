@@ -33,7 +33,7 @@ This article focuses on the **public clients** OAuth 2.0 authorization code flow
 Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [policy parameter](active-directory-b2c-reference-policies.md). With built-in policies, you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and policies to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
 
 In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our sample application and policies. You can try the requests yourself by using these values, or you can replace them with your own values.
-Learn how to [get your own Azure AD B2C directory, application, and policies](#use-your-own-b2c-directory).
+Learn how to [get your own Azure AD B2C directory, application, and policies](#use-your-own-azure-ad-b2c-directory).
 
 ## 1. Get an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. This is the interactive part of the flow, where the user takes action. In this request, the client indicates in the `scope` parameter the permissions that it needs to acquire from the user. In the `p` parameter, it indicates the policy to execute. The following three examples (with line breaks for readability) each use a different policy.
@@ -102,7 +102,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 | code |The authorization code that the app requested. The app can use the authorization code to request an access token for a target resource. Authorization codes are very short-lived. Typically, they expire after about 10 minutes. |
 | state |See the full description in the table in the preceding section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
-Error responses also might be sent to the redirect URI so that the app can handle them appropriately:
+Error responses also can be sent to the redirect URI so that the app can handle them appropriately:
 
 ```
 GET urn:ietf:wg:oauth:2.0:oob?
