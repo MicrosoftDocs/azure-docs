@@ -19,9 +19,11 @@ ms.author: raynew
 
 # Step 2: Review the prerequisites for Hyper-V (without VMM) to Azure replication
 
+The prerequisites are summarized in the table.
 
-**Prerequisite** | **Details** |
---- | --- |
+
+**Prerequisite** | **Details** 
+--- | --- 
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements).
 **On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager) about requirements for the on-premises Hyper-V hosts.
 **On-premises Hyper-V VMs** | VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
