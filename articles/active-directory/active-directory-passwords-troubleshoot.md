@@ -203,7 +203,7 @@ Azure AD Connect requires AD **Reset Password** permission to perform Password w
 ![Effective Permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
 3. In the pop-up dialog, select the **Connect to Active Directory Forest** tab and note down the **User name** property. This is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform Password writeback, the AD DS account must have Reset Password permission.  
 ![Effective Permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
-4. Login to an on-premises Domain Controller and start the **Active Directory Users and Computers** application.
+4. Log in to an on-premises Domain Controller and start the **Active Directory Users and Computers** application.
 5. Click **View** and make sure **Advanced Features** option is enabled.  
 ![Effective Permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
 6. Look for the AD User account you want to verify. Right-click on the account and select **Properties**.  
