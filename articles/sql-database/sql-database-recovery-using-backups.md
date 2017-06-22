@@ -25,6 +25,10 @@ SQL Database provides these options for database recovery using [automated datab
 * A database on the same logical server recovered to the deletion time for a deleted database.
 * A new database on any logical server in any region recovered to the point of the most recent daily backups in geo-replicated blob storage (RA-GRS).
 
+> [!IMPORTANT]
+> You cannot overwrite an existing database during restore.
+>
+
 You can also use [automated database backups](sql-database-automated-backups.md) to create a [database copy](sql-database-copy.md) on any logical server in any region. 
 
 ## Recovery time
@@ -49,11 +53,7 @@ The recovery time to restore a database using automated database backups is impa
 
 You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
-For a sample PowerShell script, see [Point-in-time database restore](scripts/sql-database-restore-database-powershell.md).
-
-> [!IMPORTANT]
-> You cannot overwrite the existing database during restore.
->
+For a sample PowerShell script showing how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
 
 The database can be restored to any service tier or performance level, and as a single database or into an elastic pool. Ensure you have sufficient resources on the logical server or in the elastic pool to which you are restoring the database. Once complete, the restored database is a normal, fully accessible, online database. The restored database is charged at normal rates based on its service tier and performance level. You do not incur charges until the database restore is complete.
 
@@ -71,7 +71,7 @@ To recover to a point in time using the Azure portal, open the page for your dat
 ## Deleted database restore
 You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
-For a sample PowerShell script, see [Restore deleted database](scripts/sql-database-restore-database-powershell.md).
+For a sample PowerShell script showing how to restore a deleted database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
 
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
@@ -93,7 +93,7 @@ Geo-restore is the default recovery option when your database is unavailable bec
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
-For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
+For a sample PowerShell script showing how to perform a geo-restore, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md). For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For solutions using Basic databases, geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using larger Standard or Premium databases that require shorter recovery times, you should consider using [active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business contiuity choices, see [over of business continuity](sql-database-business-continuity.md).
