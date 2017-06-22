@@ -12,19 +12,20 @@ ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: na   
 ms.workload: data-services
-ms.date: 06/19/2017
-ms.author: v-mikepo
+ms.date: 03/28/2017
+ms.author: jeffstok
 
 ---
+
 # Build an IoT solution by using Stream Analytics
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
 After completing this tutorial, you will be able to:
 
-* Work with Stream Analytics in the  Azure portal.
+* Familiarize yourself with the Azure Stream Analytics portal.
 * Configure and deploy a streaming job.
 * Articulate real-world problems and solve them by using the Stream Analytics query language.
 * Develop streaming solutions for your customers by using Stream Analytics with confidence.
@@ -33,17 +34,12 @@ After completing this tutorial, you will be able to:
 ## Prerequisites
 You will need the following prerequisites to complete this tutorial:
 
-* An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/) where you are the Account administrator, the Service administrator, or a Co-administrator. If you don't have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/). 
-
-> [!NOTE]
-> To sign up for a free trial, you need a mobile device that can receive text messages and a valid credit card.
-> 
-> 
-* Administrative privileges on the computer.
-* The latest version of [Azure PowerShell](/powershell/azure/overview). If you don't yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) to install it.
+* The latest version of [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015, or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
-* The [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) file, which you can download the .zip file  the Microsoft Download Center. The .zip file contains sample data and scripts that you need. If you want, you can get the source code for the TollApp event generator in [GitHub](https://aka.ms/azure-stream-analytics-toll-source).
-
+* An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+* Administrative privileges on the computer
+* Download of [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) from the Microsoft Download Center
+* Optional: Source code for the TollApp event generator in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Scenario introduction: “Hello, Toll!”
 A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
@@ -52,7 +48,6 @@ A toll station is a common phenomenon. You encounter them on many expressways, b
 
 ## Incoming data
 This tutorial works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
-
 
 ### Entry data stream
 The entry data stream contains information about cars as they enter toll stations.
@@ -102,7 +97,7 @@ Here is a short description of the columns:
 | LicensePlate |The license plate number of the vehicle |
 
 ### Commercial vehicle registration data
-The tutorial uses a static snapshot (reference data) of a commercial vehicle registration database.
+The tutorial uses a static snapshot of a commercial vehicle registration database.
 
 | LicensePlate | RegistrationId | Expired |
 | --- | --- | --- |
@@ -121,28 +116,42 @@ Here is a short description of the columns:
 | RegistrationId |The vehicle's registration ID |
 | Expired |The registration status of the vehicle: 0 if vehicle registration is active, 1 if registration is expired |
 
+## Set up the environment for Azure Stream Analytics
+To complete this tutorial, you need a Microsoft Azure subscription. Microsoft offers free trial for Microsoft Azure services.
+
+If you do not have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> To sign up for a free trial, you need a mobile device that can receive text messages and a valid credit card.
+> 
+> 
+
+Be sure to follow the steps in the “Clean up your Azure account” section at the end of this article so that you can make the best use of your $200 free Azure credit.
+
 ## Provision Azure resources required for the tutorial
-This tutorial requires two event hubs in order to receive *entry* and *exit* data streams. You'll use an Azure SQL Database as the output for the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
+This tutorial requires two event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
 
 You can use the Setup.ps1 script in the TollApp folder on GitHub to create all required resources. In the interest of time, we recommend that you run it. If you would like to learn more about how to configure these resources in the Azure portal, refer to the “Configuring tutorial resources in Azure portal” appendix.
 
-1. Open a **Microsoft Azure PowerShell** window *as an administrator*. 
+Download and save the supporting [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) folder and files.
 
-2. Because Windows automatically blocks .ps1, .dll, and .exe files, you need to set the execution policy before you run the script. Make sure the Azure PowerShell window is running *as an administrator*. Run **Set-ExecutionPolicy unrestricted**. When prompted, type **Y**.
+Open a **Microsoft Azure PowerShell** window *as an administrator*. If you do not yet have Azure PowerShell, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/overview) to install it.
+
+Because Windows automatically blocks .ps1, .dll, and .exe files, you need to set the execution policy before you run the script. Make sure the Azure PowerShell window is running *as an administrator*. Run **Set-ExecutionPolicy unrestricted**. When prompted, type **Y**.
 
 ![Screenshot of "Set-ExecutionPolicy unrestricted" running in Azure PowerShell window](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image2.png)
 
-3. Run **Get-ExecutionPolicy** to make sure that the command worked.
+Run **Get-ExecutionPolicy** to make sure that the command worked.
 
 ![Screenshot of "Get-ExecutionPolicy" running in Azure PowerShell window](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image3.png)
 
-4. Go to the directory that has the scripts and generator application.
+Go to the directory that has the scripts and generator application.
 
 ![Screenshot of "cd .\TollApp\TollApp" running in the Azure PowerShell window](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)
 
-5. Type **.\\Setup.ps1** to set up your Azure account, create and configure all required resources, and start to generate events. The script randomly picks up a region to create your resources. To explicitly specify a region, you can pass the **-location** parameter as in the following example:
+Type **.\\Setup.ps1** to set up your Azure account, create and configure all required resources, and start to generate events. The script randomly picks up a region to create your resources. To explicitly specify a region, you can pass the **-location** parameter as in the following example:
 
-**.\\Setup.ps1 -location "Central US"**
+**.\\Setup.ps1 -location “Central US”**
 
 ![Screenshot of the Azure sign-in page](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
@@ -151,19 +160,17 @@ The script opens the **Sign In** page for Microsoft Azure. Enter your account cr
 > [!NOTE]
 > If your account has access to multiple subscriptions, you will be asked to enter the subscription name that you want to use for the tutorial.
 > 
+> 
 
-The script can take several minutes to run. After it finishes, the output looks like the following screenshot.
+The script can take several minutes to run. After it finishes, the output should look like the following screenshot.
 
 ![Screenshot of output of the script in the Azure PowerShell window](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
 
-You will also see a window that's similar to the following screenshot. This application is sending events to Azure Event Hubs. Do not stop the application or close this window until you finish the tutorial.
+You will also see another window that's similar to the following screenshot. This application is sending events to Azure Event Hubs, which is required to run the tutorial. So, do not stop the application or close this window until you finish the tutorial.
 
 ![Screenshot of "Sending event hub data"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-You can now see your resources in the Azure portal. Go to <https://portal.azure.com> and sign in with your account credentials. 
-
-Note that currently some functionality utilizes the classic portal. These steps will be clearly indicated.
-
+You should be able to see your resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials. Note that currently some functionality utilizes the classic portal. These steps will be clearly indicated.
 
 ### Azure Event Hubs
 In the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided and click **Event hubs**. This launches a new browser window to display the **SERVICE BUS** area in the **classic portal**. Here you can see the Event Hub created by the Setup.ps1 script.
