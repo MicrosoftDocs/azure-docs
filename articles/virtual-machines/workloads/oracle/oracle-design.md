@@ -30,7 +30,7 @@ ms.author: rclaus
 - Understanding the topology different between on-premises and Azure
 - Explore performance tuning options for Oracle database in Azure environment
 
-### on-premises vs on Azure
+### On-premises vs on Azure
 
 Here are some important considerations when migrate on-prem applications to Azure. Unlike on-premises, resources (VM, disks, VNet etc.) in Azure is share among other clients. In addition, resource can be throttle based on the requirements. Instead of focusing on avoidling failing (MTBF), Azure is more toward surviving the failure (MTTR).
 
