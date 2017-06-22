@@ -144,6 +144,13 @@ The IP address for your ILB is listed under **IP Addresses**. This also has the 
 
 ![][5]
 
+### Functions and the ILB ASE
+
+When using Functions on an ILB ASE you can encounter an error that says, *"We are not able to retrieve your functions right now.  Please try again later."*  The reason for this is that the Functions UI leverages the scm site over HTTPS.  If you are using an HTTP certificate for your ASE that does not have a root certificate that is in the browser you can encounter this.  In addition the IE\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can either:
+
+- add the cert to your trusted cert store 
+- or use Chrome but you will need to go to the scm site first, accept the untrusted cert and then go to the portal
+
 ## DNS Configuration ##
 
 When using an External VIP, the DNS is managed by Azure. Any app created in your ASE is automatically added to Azure DNS, which is a public DNS. In an ILB ASE, you must manage your own DNS. For a given domain such as _contoso.net_, you need to create DNS A records in your DNS that point to your ILB address for:
