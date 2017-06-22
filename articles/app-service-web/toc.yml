@@ -258,6 +258,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio

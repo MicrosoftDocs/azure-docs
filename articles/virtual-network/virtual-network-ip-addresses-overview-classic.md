@@ -164,14 +164,14 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 
 |  | Resource | Classic | Resource Manager |
 | --- | --- | --- | --- |
-| **Public IP Address** |VM |Referred to as an ILPIP (dynamic only) |Referred to as a public IP (dynamic or static) |
-|  |Assigned to an IaaS VM or a PaaS role instance |Associated to the VM's NIC | |
-| Internet facing load balancer |Referred to as VIP (dynamic) or Reserved IP (static) |Referred to as a public IP (dynamic or static) | |
-|  |Assigned to a cloud service |Associated to the load balancer's front end config | |
+| **Public IP Address** |***VM*** |Referred to as an ILPIP (dynamic only) |Referred to as a public IP (dynamic or static) |
+|  ||Assigned to an IaaS VM or a PaaS role instance |Associated to the VM's NIC | |
+|  |***Internet facing load balancer*** |Referred to as VIP (dynamic) or Reserved IP (static) |Referred to as a public IP (dynamic or static) | |
+|  ||Assigned to a cloud service |Associated to the load balancer's front end config | |
 |  | | | |
-| **Private IP Address** |VM |Referred to as a DIP |Referred to as a private IP address |
-|  |Assigned to an IaaS VM or a PaaS role instance |Assigned to the VM's NIC | |
-| Internal load balancer (ILB) |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
+| **Private IP Address** |***VM*** |Referred to as a DIP |Referred to as a private IP address |
+|  ||Assigned to an IaaS VM or a PaaS role instance |Assigned to the VM's NIC | |
+|  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
 
 ## Next steps
 * [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
