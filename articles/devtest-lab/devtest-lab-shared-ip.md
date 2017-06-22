@@ -19,7 +19,7 @@ ms.author: casoper
 
 # Understand shared IP addresses in Azure DevTest Labs
 
-Azure DevTest Labs uses shared IP addresses to minimize the number of public IP addresses required to access your individual lab VMs.  This article describes how shared IPs work and their related configuration options.
+Azure DevTest Labs lets lab VMs share the same public IP address to minimize the number of public IP addresses required to access your individual lab VMs.  This article describes how shared IPs work and their related configuration options.
 
 ## Shared IP setting
 
@@ -27,11 +27,17 @@ When you create a lab, it resides in a subnet of a virtual network.  By default,
 
 ![New lab subnet](media/devtest-lab-shared-ip/lab-subnet.png)
 
+For existing labs, you can enable this option by selecting **Configuration and policies > Virtual Networks**. Then, select a virtual network from the list and choose **ENABLE SHARED PUBLIC IP** for a selected subnet. You can also disable this option in any lab if you don't want to share a public IP address across lab VMs.
+
 Any VMs created in this lab default to using a shared IP.  When creating the VM, this setting can be observed in the **Advanced settings** blade under **IP address configuration**.
 
 ![New VM](media/devtest-lab-shared-ip/new-vm.png)
 
-Whenever a VM with shared IP enabled is added to the subnet, a TCP port is assigned on the public IP address forwarding to the RDP port on the VM.  
+- **Shared:** All VMs created as **Shared** are placed into one resource group (RG). A single IP address is assigned for that RG and all VMs in the RG will use that IP address.
+- **Public:** Every VM you create has its own IP address and is created in its own resource group.
+- **Private:** Every VM you create uses a private IP address. You will not be able to connect to this VM directly from the internet with Remote Desktop.
+
+Whenever a VM with shared IP enabled is added to the subnet, DevTest Labs automatically adds the VM to a load balancer and assigns a TCP port number on the public IP address, forwarding to the RDP port on the VM.  
 
 ## Using the shared IP
 
