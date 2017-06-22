@@ -123,15 +123,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_certificate.png) 
 
-5. Click **Save** button.
+5. Your Beeline application expects the SAML assertions in a specific format. Please work with [BeeLine support team](https://www.beeline.com/contact-us/) first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from [BeeLine support team](https://www.beeline.com/contact-us/) about the attribute which they want to use for this mapping. Microsoft recommend to use the **NameIdentifier** attribute as user identifier. You can manage the value of this attribute from the **User Attributes** tab of the application. The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in the every successful SAML Response.
+
+	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_attribute.png)	
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_general_400.png)
 
-6. On the **BeeLine Configuration** section, click **Configure BeeLine** to open **Configure sign-on** window. Copy the **Sign-Out URL** and **SAML Entity ID** from the **Quick Reference section.**
+7. On the **BeeLine Configuration** section, click **Configure BeeLine** to open **Configure sign-on** window. Copy the **Sign-Out URL** and **SAML Entity ID** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_configure.png) 
 
-7. To configure single sign-on on **BeeLine** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID**, **Sign-Out URL** to [BeeLine support team](https://www.beeline.com/contact-us/).
+8. To configure single sign-on on **BeeLine** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID**, **Sign-Out URL** to [BeeLine support team](https://www.beeline.com/contact-us/).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
