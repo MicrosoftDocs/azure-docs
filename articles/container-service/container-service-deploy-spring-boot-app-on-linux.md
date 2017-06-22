@@ -1,6 +1,6 @@
 ---
 title: Deploy a Spring Boot Web App on Linux in Azure Container Service | Microsoft Docs
-description: This tutorial will walk you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
+description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: ''
 documentationcenter: java
 author: rmcmurray
@@ -20,11 +20,11 @@ ms.author: asirveda;robmcm
 
 # Deploy a Spring Boot application on Linux in the Azure Container Service
 
-The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications, and one of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
+The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
 
 **[Docker]** is open-source solutions which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
 
-This tutorial will walk you through using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
+This tutorial walks you through using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ In order to complete the steps in this tutorial, you need to have the following:
 
 ## Create the Spring Boot on Docker Getting Started web app
 
-The following steps will walk you through the steps that are required to create a simple Spring Boot web application and test it locally.
+The following steps walk you through the steps that are required to create a simple Spring Boot web application and test it locally.
 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
    ```
@@ -57,7 +57,7 @@ The following steps will walk you through the steps that are required to create 
    cd /users/robert/SpringBoot
    ```
 
-1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you just created; for example:
+1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
    ```
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
@@ -67,7 +67,7 @@ The following steps will walk you through the steps that are required to create 
    cd gs-spring-boot-docker/complete
    ```
 
-1. Optional Step: If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, for example if you are going to be testing your Spring Boot project locally, you can configure the port by using the following steps:
+1. Optional Step: If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, (for example if you are going to be testing your Spring Boot project locally), you can configure the port by using the following steps:
 
    a. Change directory to the resources directory; for example:
    ```
@@ -100,7 +100,7 @@ The following steps will walk you through the steps that are required to create 
    java -jar gs-spring-boot-docker-0.1.0.jar
    ```
 
-1. Test the web app by browsing to it locally using a web browser; for example, if you have curl available and you configured the Tomcat server to run on port 80:
+1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
    ```
    curl http://localhost
    ```
@@ -111,7 +111,7 @@ The following steps will walk you through the steps that are required to create 
 
 ## Create an Azure Container Registry to use as a Private Docker Registry
 
-The following steps will walk you through using the Azure portal to create an Azure Container Registry.
+The following steps walk you through using the Azure portal to create an Azure Container Registry.
 
 > [!NOTE]
 >
@@ -142,7 +142,7 @@ The following steps will walk you through using the Azure portal to create an Az
 
 1. Navigate to the configuration directory for your Maven installation and open the *settings.xml* file with a text editor.
 
-1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the the *settings.xml* file; for example:
+1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the *settings.xml* file; for example:
 
    ```xml
    <servers>
@@ -165,7 +165,7 @@ The following steps will walk you through using the Azure portal to create an Az
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the login server address and registry name for your Azure Container Registry from the previous section of this tutorial; for example:
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the login server address and registry name for your Azure Container Registry from the previous section of this tutorial. For example:
 
    ```xml
    <plugin>
@@ -221,7 +221,7 @@ The following steps will walk you through using the Azure portal to create an Az
 
 1. When the **Web App on Linux** blade is displayed, enter the following information:
 
-   a. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*".
+   a. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*."
 
    b. Choose your **Subscription** from the drop-down list.
 

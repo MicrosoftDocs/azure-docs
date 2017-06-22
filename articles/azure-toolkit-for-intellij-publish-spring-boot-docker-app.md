@@ -24,13 +24,13 @@ The **[Spring Framework]** is an open-source solution which helps Java developer
 
 **[Docker]** is an open-source solution which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
 
-This tutorial will walk you through the steps to deploy a Spring Boot application as a Docker container to Microsoft Azure using the Azure Toolkit for IntelliJ.
+This tutorial walks you through the steps to deploy a Spring Boot application as a Docker container to Microsoft Azure using the Azure Toolkit for IntelliJ.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
 ## Cloning the default Spring Boot Docker App repo
 
-The following steps will walk you through cloning the Spring Boot Docker repo using IntelliJ. If you want to use a command line, see [Deploy a Spring Boot Application on Linux in the Azure Container Service][Deploy Spring Boot on Linux in ACS].
+The following steps walk you through cloning the Spring Boot Docker repo using IntelliJ. If you want to use a command line, see [Deploy a Spring Boot Application on Linux in the Azure Container Service][Deploy Spring Boot on Linux in ACS].
 
 1. Open IntelliJ.
 
@@ -140,7 +140,7 @@ In order to publish your Spring Boot App, you will need to create a deployment-r
 
       ![Specify Artifact Path][ART04b]
 
-   c. Click the elipsis **...** to specify the main class.
+   c. Click the ellipsis **...** to specify the main class.
 
       ![Locate Main Class][ART04c]
 
@@ -189,11 +189,11 @@ In order to publish your Spring Boot App, you will need to create a deployment-r
 
       ![Specify Docker host options][PU03a]
 
-   c. You can choose to use existing log in credentials from an Azure Key Valut, or you can choose to enter new Docker log in credentials. Click **Finish** when you have specified your options.
+   c. You can choose to use existing login credentials from an Azure Key Vault, or you can choose to enter new Docker login credentials. Click **Finish** when you have specified your options.
 
       ![Specify Docker host credentials][PU03b]
 
-1. Hightlight your Docker host, and then click **Next**.
+1. Highlight your Docker host, and then click **Next**.
 
    ![Select Docker host to use][PU04]
 
@@ -201,7 +201,7 @@ In order to publish your Spring Boot App, you will need to create a deployment-r
 
    a. You can choose to specify a custom name for the container which will host your Docker container, or you can accept the default.
 
-   b. You need to enter the TCP ports for your docker host using the following syntax: "*[external port]*:*[internal port]*. For example, "80:8080" will specify an external port of "80" and the default internal Spring Boot port of "8080".
+   b. You need to enter the TCP ports for your docker host using the following syntax: "*[external port]*:*[internal port]*. For example, "80:8080" specifies an external port of "80" and the default internal Spring Boot port of "8080".
    
       If you have customized your internal port, (e.g. by editing the *application.yml* file), you will need to specify the port number for the correct routing to occur in Azure.
 
@@ -224,7 +224,7 @@ See [Creating Spring Boot Projects](https://www.jetbrains.com/help/idea/creating
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Sign In for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Configuring Artifacts]: https://www.jetbrains.com/help/idea/2016.1/configuring-artifacts.html
-[Deploy Spring Boot on Linux in ACS]: ./container-service-deploy-spring-boot-app-on-linux.md
+[Deploy Spring Boot on Linux in ACS]: ./container-service/container-service-deploy-spring-boot-app-on-linux.md
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [Spring Boot]: http://projects.spring.io/spring-boot/

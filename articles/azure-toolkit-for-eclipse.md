@@ -54,7 +54,7 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 * [Deploying Large Deployments](azure-toolkit-for-eclipse-deploying-large-deployments.md)
 * [Manage storage accounts by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md)
 * [Manage virtual machines by using the Azure Explorer for Eclipse](azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md)
-* [Publish a Spring Boot app as a Docker container using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-application.md)
+* [Publish a Spring Boot app as a Docker container using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-spring-boot-docker-app.md)
 * [Publish a web app as a Docker container by using the Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-publish-as-docker-container.md)
 * [Use HDInsight Tools Plugin for Eclipse to create Spark applications for HDInsight Spark Linux cluster](hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md)
 

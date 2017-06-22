@@ -24,7 +24,7 @@ The **[Spring Framework]** is an open-source solution which helps Java developer
 
 **[Docker]** is an open-source solution which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
 
-This tutorial will walk you through the steps to deploy a Spring Boot application as a Docker container to Microsoft Azure using the Azure Toolkit for Eclipse.
+This tutorial walks you through the steps to deploy a Spring Boot application as a Docker container to Microsoft Azure using the Azure Toolkit for Eclipse.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
@@ -32,7 +32,7 @@ This tutorial will walk you through the steps to deploy a Spring Boot applicatio
 
 ### Importing the public repository
 
-The following steps will walk you through cloning the Spring Boot Docker repository to your local computer using IntelliJ. If you want to use a command line, see [Deploy a Spring Boot Application on Linux in the Azure Container Service][Deploy Spring Boot on Linux in ACS].
+The following steps walk you through cloning the Spring Boot Docker repository to your local computer using IntelliJ. If you want to use a command line, see [Deploy a Spring Boot Application on Linux in the Azure Container Service][Deploy Spring Boot on Linux in ACS].
 
 1. Open Eclipse.
 
@@ -96,7 +96,7 @@ The following steps will walk you through cloning the Spring Boot Docker reposit
 
    ![Import Projects][CL08]
 
-1. When the repository has been cloned successfully, you will see all of the files listed in Eclipse.
+1. When the repository has been cloned successfully, you will see all the files listed in Eclipse.
 
    ![Local repository][CL09]
 
@@ -172,11 +172,11 @@ The Spring Boot Docker repository contains a completed Maven project which you w
 
       ![Specify Docker host options][PU04]
 
-   c. You can choose to use existing log in credentials from an Azure Key Valut, or you can choose to enter new Docker log in credentials. Click **Finish** when you have specified your options.
+   c. You can choose to use existing login credentials from an Azure Key Vault, or you can choose to enter new Docker login credentials. Click **Finish** when you have specified your options.
 
       ![Specify Docker host credentials][PU05]
 
-1. Hightlight your Docker host, and then click **Next**.
+1. Highlight your Docker host, and then click **Next**.
 
    ![Select Docker host to use][PU06]
 
@@ -184,7 +184,7 @@ The Spring Boot Docker repository contains a completed Maven project which you w
 
    a. You can choose to specify a custom name for the container which will host your Docker container, or you can accept the default.
 
-   b. You need to enter the TCP ports for your docker host using the following syntax: "*[external port]*:*[internal port]*. For example, "80:8080" will specify an external port of "80" and the default internal Spring Boot port of "8080".
+   b. You need to enter the TCP ports for your docker host using the following syntax: "*[external port]*:*[internal port]*. For example, "80:8080" specifies an external port of "80" and the default internal Spring Boot port of "8080".
    
       If you have customized your internal port, (e.g. by editing the *application.yml* file), you will need to specify the port number for the correct routing to occur in Azure.
 
@@ -203,7 +203,7 @@ The Spring Boot Docker repository contains a completed Maven project which you w
 <!-- URL List -->
 
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Deploy Spring Boot on Linux in ACS]: ./container-service-deploy-spring-boot-app-on-linux.md
+[Deploy Spring Boot on Linux in ACS]: ./container-service/container-service-deploy-spring-boot-app-on-linux.md
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [Spring Boot]: http://projects.spring.io/spring-boot/
