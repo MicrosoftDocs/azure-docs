@@ -123,7 +123,7 @@ Here is an example of what this process may look like:
 
 2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. On the day the change became effective, you can do the following:
 
-3. Go to the [**Azure Active Directory->Licenses->All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product assigned.
+3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product assigned.
 
 4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all services that are enabled in this group for that product. Note that the *Microsoft Stream* service has been automatically added and enabled in this group in addition to the *Exchange Online* service:
 
