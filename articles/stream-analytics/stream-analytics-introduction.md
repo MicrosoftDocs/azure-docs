@@ -41,7 +41,7 @@ Examples of Streaming Analytics scenarios include:
 The following diagram illustrates the Streaming Analytics pipeline, showing how data is ingested, analyzed, and then sent for presentation or action. 
 
 
-![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics__intro_pipeline.png)
+![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
 
 Stream Analytics starts with a source of streaming data. The data can be ingested into Azure from a device using an Azure event hub or IoT hub. The data can also be pulled from a data store like Azure Blob Storage. 
