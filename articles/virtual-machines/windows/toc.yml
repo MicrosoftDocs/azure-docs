@@ -139,7 +139,7 @@
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
-    - name: Create VM with Python
+    - name: Create / Manage VM with Python
       href: python.md
     - name: Create VM with Terraform
       items:
