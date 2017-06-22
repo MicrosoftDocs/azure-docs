@@ -10,6 +10,7 @@
 ## [Docker Machine](/azure/virtual-machines/linux/docker-machine)
 ## [Docker container registry](/azure/container-registry/container-registry-get-started-portal)
 # Resources
-## [Docker Azure Site](https://www.docker.com/docker-azure)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Docker Azure driver](https://docs.docker.com/machine/drivers/azure/)
+## [Docker Azure Site](https://www.docker.com/docker-azure)
 ## [Docker Site](https://docker.com)

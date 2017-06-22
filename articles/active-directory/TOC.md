@@ -405,9 +405,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
-## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
