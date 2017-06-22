@@ -1,6 +1,6 @@
 ---
 title: Configure an Azure Virtual Network (classic) - Network configuration file | Microsoft Docs
-description: Learn how to create and modify virtual networks (Classic) by exporting, changing, and importing a network configuration file.
+description: Learn how to create and modify virtual networks (classic) by exporting, changing, and importing a network configuration file.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -19,9 +19,9 @@ ms.author: jdial
 ms.custom: 
 
 ---
-# Configure a virtual network (Classic) using a network configuration file
+# Configure a virtual network (classic) using a network configuration file
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager deployment model.
 
 You can create and configure a virtual network (classic) with a network configuration file using the Azure command-line interface (CLI) 1.0 or Azure PowerShell. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You cannot use the Azure portal to create or modify a virtual network (classic) using a network configuration file, however you can use the Azure portal to create a virtual network (classic), without using a network configuration file.
 
@@ -53,7 +53,7 @@ You can use PowerShell or the Azure CLI to export a network configuration file. 
 
 ## Create or modify a network configuration file
 
-A network configuration file is an XML file (when using PowerShell) or a json file (when using the Azure CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](virtual-network-manage-network#view-vnet). The changes you make to the file:
+A network configuration file is an XML file (when using PowerShell) or a json file (when using the Azure CLI). You can edit the file in any text, or XML/json editor. The [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) article includes details for all settings. For additional explanation of the settings, see [View virtual networks and settings](virtual-network-manage-network.md#view-vnet). The changes you make to the file:
 
 - Must comply with the schema, or importing the network configuration file will fail.
 - Overwrite any existing network settings for your subscription, so use extreme caution when making modifications. For example, reference the example network configuration files that follow. Say the original file contained two **VirtualNetworkSite** instances, and you changed it, as shown in the examples. When you import the file, Azure deletes the virtual network for the **VirtualNetworkSite** instance you removed in the file. This simplified scenario assumes no resources were in the virtual network, as if there were, the virtual network could not be deleted, and the import would fail.
