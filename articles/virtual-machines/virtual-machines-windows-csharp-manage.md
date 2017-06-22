@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/csharp-manage
-redirect_document_id: true
+redirect_url: /azure/virtual-machines/windows/csharp
+redirect_document_id: false
 ---

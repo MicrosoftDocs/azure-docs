@@ -30,3 +30,7 @@
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
