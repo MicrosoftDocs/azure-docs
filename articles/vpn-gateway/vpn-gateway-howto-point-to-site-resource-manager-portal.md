@@ -29,6 +29,12 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 >
 >
 
+
+> [!IMPORTANT]
+>  6/22/2017: Currently, there is an issue with the VPN client download package that is generated. We are working on a fix for this issue right now. This message will be removed when the issue has been resolved.
+>
+>
+
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. The P2S VPN connection is initiated from the client computer using the native Windows VPN client. Connecting clients use certificates to authenticate. 
 
 
