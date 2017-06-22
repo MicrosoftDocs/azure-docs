@@ -106,11 +106,34 @@ Directly assigned licenses can be removed, and don’t affect inherited licenses
 
 4. When you use direct assignment, the following operations are allowed:
 
-  - Yammer Enterprise can be turned off on the user object directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. TBecause the service is enabled directly on the user, it can be modified.
+  - Yammer Enterprise can be turned off on the user object directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
   - Additional services can be enabled as well, as part of the directly assigned license.
   - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
 
     ![Screenshot showing how to remove direct assignment](media/active-directory-licensing-group-advanced/remove-direct-license.png)
+
+## Managing new services added to products
+When Microsoft adds a new service to a product, it will be enabled by default in all groups to which you have assigned the product license. Users in your tenant who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
+
+As an administrator you can review all groups affected by the change and take action, such as disabling the new service in each group. For example, if you created groups targeting only specific services for deployment, you can revisit those groups and make sure that any newly added services are disabled.
+
+Here is an example of what this process may look like:
+
+1. Originally, you assigned the *Office 365 Enterprise E5* product to several groups. One of those groups, called *O365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
+
+2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. On the day the change became effective, you can do the following:
+
+3. Go to the [**Azure Active Directory->Licenses->All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product assigned.
+
+4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all services that are enabled in this group for that product. Note that the *Microsoft Stream* service has been automatically added and enabled in this group in addition to the *Exchange Online* service:
+
+  ![Screenshot of new service added to a group license](media/active-directory-licensing-group-advanced/manage-new-services.png)
+
+5. If you want to disable the new service in this group, click the **On/Off** toggle next to the service and click the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group will not have the *Microsoft Stream* service enabled.
+
+  Note that the users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
+
+6. If needed, perform the same steps for other groups with this product assigned.
 
 ## Use PowerShell to see who has inherited and direct licenses
 While group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, you can use it to discover basic information about user state, and see whether licenses are inherited from a group or assigned directly. The following code example shows how an administrator can produce a basic report about license assignments.
