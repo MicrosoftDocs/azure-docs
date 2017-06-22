@@ -108,16 +108,13 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
    ![View messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
    For more details about the properties for each message type, 
-   see [Message property descriptions](#message-list-property-descriptions).
+   see [Property descriptions for messages](#message-list-property-descriptions).
 
 3. To view and export the inputs and outputs files for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
 save the .zip file to your local computer, and then extract that file. For example:
 
    ![Download message files](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
-
-   > [!NOTE]
-   > Currently, you can download messages only for AS2 and X12.
 
    The extracted folder has a folder for each selected message. 
    Each message folder has at least these files: 
@@ -135,12 +132,11 @@ save the .zip file to your local computer, and then extract that file. For examp
    * [EDIFACT](#edifact-folder-file-names)
 
 4. To view all the actions that have the same run ID, 
-from the message list, select a row. 
-
-5. On the **Log Search** page, you can sort these actions by column, 
-or search for specific results.
+on the **Log Search** page, choose a message from the message list.
 
    ![Log Search page](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+
+   You can sort these actions by column, or search for specific results.
 
    * To search results with prebuilt queries, choose **Favorites**.
 
@@ -185,7 +181,7 @@ Here are the name formats for each downloaded AS2 message folder and files.
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -218,7 +214,7 @@ Here are the name formats for each downloaded X12 message folder and files.
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -249,7 +245,7 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 ## Next steps
