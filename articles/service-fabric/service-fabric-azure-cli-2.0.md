@@ -115,7 +115,7 @@ CLI
 ### Converting a certificate from PFX to PEM
 
 The Azure CLI supports client-side certificates as PEM (extension `.pem`) files. If using PFX files from Windows, these
-certificates need to be converted to the PEM format. To convert from a PEM file to a PFX file, use the following 
+certificates need to be converted to the PEM format. To convert from a PFX file to a PEM file, use the following 
 command:
 
 ```bash
