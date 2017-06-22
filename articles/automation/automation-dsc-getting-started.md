@@ -1,10 +1,10 @@
----
-title: Getting started with Azure Automation DSC
+﻿---
+title: Getting started with Azure Automation DSC | Microsoft Docs
 description: Explanation and examples of the most common tasks in Azure Automation Desired State Configuration (DSC)
 services: automation
 documentationcenter: na
 author: eslesar
-manager: dongill
+manager: carmonm
 editor: tysonn
 
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 06/06/2016
+ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 
 ---
@@ -30,7 +30,7 @@ To complete the examples in this topic, the following are required:
 
 * An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
 * An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see 
-  [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creating a DSC configuration
 We will create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures either the presence or absence of the **Web-Server** Windows Feature (IIS),
@@ -233,6 +233,6 @@ If you no longer want a node to be managed by Azure Automation DSC, you can unre
 * [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 * [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 

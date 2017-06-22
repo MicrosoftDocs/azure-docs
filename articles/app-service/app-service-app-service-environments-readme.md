@@ -5,7 +5,7 @@ keywords: azure app service environment, virtual network, secure networking
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 1db5c057-3c56-4537-b580-cdd21fe3f3a7
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/01/2016
 ms.author: stefsch
 
 ---
@@ -44,10 +44,11 @@ Apps frequently need to access corporate resources such as internal databases an
 [!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Videos
-[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
+>[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
 
+>[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+>[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
 
 

@@ -4,7 +4,7 @@ description: Azure Queues provide reliable, asynchronous messaging between appli
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 03/27/2017
 ms.author: robinsh
 ---
 
 # Get started with Azure Queue storage using .NET
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## Overview
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
@@ -45,13 +45,13 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Add namespace declarations
-Add the following `using` statements to the top of the `program.cs` file:
+### Add using directives
+Add the following `using` directives to the top of the `Program.cs` file:
 
 ```csharp
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager
-    using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
 ### Parse the connection string
@@ -61,7 +61,7 @@ Add the following `using` statements to the top of the `program.cs` file:
 The **CloudQueueClient** class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
     
 Now you are ready to write code that reads data from and writes data to Queue storage.
@@ -70,18 +70,18 @@ Now you are ready to write code that reads data from and writes data to Queue st
 This example shows how to create a queue if it does not already exist:
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a container.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a container.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
+// Create the queue if it doesn't already exist
+queue.CreateIfNotExists();
 ```
 
 ## Insert a message into a queue
@@ -92,22 +92,22 @@ format) or a **byte** array. Here is code which creates a queue (if it
 doesn't exist) and inserts the message 'Hello, World':
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Create the queue if it doesn't already exist.
-    queue.CreateIfNotExists();
+// Create the queue if it doesn't already exist.
+queue.CreateIfNotExists();
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    queue.AddMessage(message);
+// Create a message and add it to the queue.
+CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+queue.AddMessage(message);
 ```
 
 ## Peek at the next message
@@ -115,21 +115,21 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **PeekMessage** method.
 
 ```csharp
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = queue.PeekMessage();
+// Peek at the next message
+CloudQueueMessage peekedMessage = queue.PeekMessage();
 
-    // Display message.
-    Console.WriteLine(peekedMessage.AsString);
+// Display message.
+Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## Change the contents of a queued message
@@ -147,22 +147,22 @@ than *n* times, you would delete it. This protects against a message
 that triggers an application error each time it is processed.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Get the message from the queue and update the message contents.
-    CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.");
-    queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
-        MessageUpdateFields.Content | MessageUpdateFields.Visibility);
+// Get the message from the queue and update the message contents.
+CloudQueueMessage message = queue.GetMessage();
+message.SetMessageContent("Updated contents.");
+queue.UpdateMessage(message,
+    TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
+    MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
 ## De-queue the next message
@@ -178,51 +178,51 @@ and try again. Your code calls **DeleteMessage** right after the message
 has been processed.
 
 ```csharp
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Get the next message
-    CloudQueueMessage retrievedMessage = queue.GetMessage();
+// Get the next message
+CloudQueueMessage retrievedMessage = queue.GetMessage();
 
-    //Process the message in less than 30 seconds, and then delete the message
-    queue.DeleteMessage(retrievedMessage);
+//Process the message in less than 30 seconds, and then delete the message
+queue.DeleteMessage(retrievedMessage);
 ```
 
 ## Use Async-Await pattern with common Queue storage APIs
 This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
-    // Create the queue if it doesn't already exist
-    if(await queue.CreateIfNotExistsAsync())
-    {
-        Console.WriteLine("Queue '{0}' Created", queue.Name);
-    }
-    else
-    {
-        Console.WriteLine("Queue '{0}' Exists", queue.Name);
-    }
+// Create the queue if it doesn't already exist
+if(await queue.CreateIfNotExistsAsync())
+{
+    Console.WriteLine("Queue '{0}' Created", queue.Name);
+}
+else
+{
+    Console.WriteLine("Queue '{0}' Exists", queue.Name);
+}
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+// Create a message to put in the queue
+CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
-    // Async enqueue the message
-    await queue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+// Async enqueue the message
+await queue.AddMessageAsync(cloudQueueMessage);
+Console.WriteLine("Message added");
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+// Async dequeue the message
+CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
 
-    // Async delete the message
-    await queue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+// Async delete the message
+await queue.DeleteMessageAsync(retrievedMessage);
+Console.WriteLine("Deleted message");
 ```
     
 ## Leverage additional options for de-queuing messages
@@ -238,21 +238,21 @@ the call to **GetMessages**, any messages which have not been deleted
 will become visible again.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
-        queue.DeleteMessage(message);
-    }
+foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
+{
+    // Process all messages in less than 5 minutes, deleting each message after processing.
+    queue.DeleteMessage(message);
+}
 ```
 
 ## Get the queue length
@@ -263,24 +263,24 @@ property returns the last value retrieved by the
 **FetchAttributes** method, without calling the Queue service.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Fetch the queue attributes.
-    queue.FetchAttributes();
+// Fetch the queue attributes.
+queue.FetchAttributes();
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = queue.ApproximateMessageCount;
+// Retrieve the cached approximate message count.
+int? cachedMessageCount = queue.ApproximateMessageCount;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+// Display number of messages.
+Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## Delete a queue
@@ -288,18 +288,18 @@ To delete a queue and all the messages contained in it, call the
 **Delete** method on the queue object.
 
 ```csharp
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+// Create the queue client.
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+// Retrieve a reference to a queue.
+CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-    // Delete the queue.
-    queue.Delete();
+// Delete the queue.
+queue.Delete();
 ```
     
 

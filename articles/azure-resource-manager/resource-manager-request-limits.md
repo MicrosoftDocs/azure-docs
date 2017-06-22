@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 01/11/2017
 ms.author: tomfitz
 
 ---
@@ -45,48 +45,64 @@ Retrieving these header values in your code or script is no different than retri
 
 For example, in **C#**, you retrieve the header value from an **HttpWebResponse** object named **response** with the following code:
 
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```cs
+response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```
 
 In **PowerShell**, you retrieve the header value from an Invoke-WebRequest operation.
 
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```powershell
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```
 
 Or, if want to see the remaining requests for debugging, you can provide the **-Debug** parameter on your **PowerShell** cmdlet.
 
-    Get-AzureRmResourceGroup -Debug
+```powershell
+Get-AzureRmResourceGroup -Debug
+```
 
-Which returns a lot of information, including the following response value:
+Which returns many values, including the following response value:
 
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
+```powershell
+...
+DEBUG: ============================ HTTP RESPONSE ============================
 
-    Status Code:
-    OK
+Status Code:
+OK
 
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-reads: 14999
+...
+```
 
 In **Azure CLI**, you retrieve the header value by using the more verbose option.
 
-    azure group list -vv --json
+```azurecli
+azure group list -vv --json
+```
 
-Which returns a lot of information, including the following object:
+Which returns many values, including the following object:
 
+```azurecli
+...
+silly: returnObject
+{
+  "statusCode": 200,
+  "header": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "x-ms-ratelimit-remaining-subscription-reads": "14998",
     ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
+```
 
 ## Waiting before sending next request
 When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request is not processed and a new retry value is returned.
 
+## Next steps
+
+* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](resource-manager-async-operations.md).

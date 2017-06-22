@@ -1,129 +1,197 @@
 ---
-title: Deploy your first Java web app to Azure in five minutes | Microsoft Docs
-description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
+title: Create your first Java web app in Azure
+description: Learn how to run web apps in App Service by deploying a basic Java app. 
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: wpickett
+author: rmcmurray
+manager: erikre
 editor: ''
 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-ms.date: 10/13/2016
-ms.author: cephalin
-
+ms.date: 6/7/2017
+ms.author: cephalin;robmcm
+ms.custom: mvc
 ---
-# Deploy your first Java web app to Azure in five minutes
-This tutorial helps you deploy a simple Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
-and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
+# Create your first Java web app in Azure
 
-You will: 
+The [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) feature of [Azure App Service](../app-service/app-service-value-prop-what-is.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
 
-* Create a web app in Azure App Service.
-* Deploy a sample Java app.
-* See your code running live in production.
+!["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## Prerequisites
-* Get an FTP/FTPS client, such as [FileZilla](https://filezilla-project.org/).
-* Get a Microsoft Azure account. If you don't have an account, you can 
-  [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
-  [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+To complete this quickstart, install:
+
+* The free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Neon.
+* The [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Create a dynamic web project in Eclipse
+
+In Eclipse, select **File** > **New** > **Dynamic Web Project**.
+
+In the **New Dynamic Web Project** dialog box, name the project **MyFirstJavaOnAzureWebApp**, and select **Finish**.
+   
+![New Dynamic Web Project dialog box](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
+
+### Add a JSP page
+
+If Project Explorer is not displayed, restore it.
+
+![Java EE workspace for Eclipse](./media/app-service-web-get-started-java/pe.png)
+
+In Project Explorer, expand the **MyFirstJavaOnAzureWebApp** project.
+Right-click **WebContent**, and then select **New** > **JSP File**.
+
+![Menu for a new JSP file in Project Explorer](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
+
+In the **New JSP File** dialog box:
+
+* Name the file **index.jsp**.
+* Select **Finish**.
+
+  ![New JSP File dialog box](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+
+In the index.jsp file, replace the `<body></body>` element with the following markup:
+
+```jsp
+<body>
+<h1><% out.println("Hello Azure!"); %></h1>
+</body>
+```
+
+Save the changes.
+
+## Publish the web app to Azure
+
+In Project Explorer, right-click the project, and then select **Azure** > **Publish as Azure Web App**.
+
+![Publish as Azure Web App context menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+
+In the **Azure Sign In** dialog box, keep the **Interactive** option, and then select **Sign in**.
+
+Follow the sign-in instructions.
+
+### Deploy Web App dialog box
+
+After you have signed in to your Azure account, the **Deploy Web App** dialog box appears.
+
+Select **Create**.
+
+![Deploy Web App dialog box](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
+
+### Create App Service dialog box
+
+The **Create App Service** dialog box appears with default values. The number **170602185241** shown in the following image is different in your dialog box.
+
+![Create App Service dialog box](./media/app-service-web-get-started-java/cas1.png)
+
+In the **Create App Service** dialog box:
+
+* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the URL address for the web app. For example: if the web app name is **MyJavaWebApp**, the URL is *myjavawebapp.azurewebsites.net*.
+* Keep the default web container.
+* Select an Azure subscription.
+* On the **App service plan** tab:
+
+  * **Create new**: Keep the default, which is the name of the App Service plan.
+  * **Location**: Select **West Europe** or a location near you.
+  * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+
+   ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+
+### Resource group tab
+
+Select the **Resource group** tab. Keep the default generated value for the resource group.
+
+![Resource group tab](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
+
+Select **Create**.
+
+<!--
+### The JDK tab
+
+Select the **JDK** tab. Keep the default, and then select **Create**.
+
+![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+-->
+
+The Azure Toolkit creates the web app and displays a progress dialog box.
+
+![Create App Service Progress dialog box](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
+
+### Deploy Web App dialog box
+
+In the **Deploy Web App** dialog box, select **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, the web app named **MyFirstJavaOnAzureWebApp** is deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+
+![Deploy Web App dialog box](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
+
+The dialog box shows the Azure, JDK, and web container selections.
+
+Select **Deploy** to publish the web app to Azure.
+
+When the publishing finishes, select the **Published** link in the **Azure Activity Log** dialog box.
+
+![Azure Activity Log dialog box](./media/app-service-web-get-started-java/aal.png)
+
+Congratulations! You have successfully deployed your web app to Azure. 
+
+!["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
+
+## Update the web app
+
+Change the sample JSP code to a different message.
+
+```jsp
+<body>
+<h1><% out.println("Hello again Azure!"); %></h1>
+</body>
+```
+
+Save the changes.
+
+In Project Explorer, right-click the project, and then select **Azure** > **Publish as Azure Web App**.
+
+The **Deploy Web App** dialog box appears and shows the app service that you previously created. 
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
-> it for up to an hour--no credit card required, no commitments.
-> 
-> 
+> Select **Deploy to root** each time you publish.
+>
 
-<a name="create"></a>
+Select the web app and select **Deploy**, which publishes the changes.
 
-## Create a web app
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
-   
-    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
-3. In the app creation blade, use the following settings for your new app:
-   
-   * **App name**: Type a unique name.
-   * **Resource group**: Select **Create new** and give the resource group a name.
-   * **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and 
-     pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
-     
-     When you're done, your app creation blade should look like this:
-     
-     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
-4. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
-   
-    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
-5. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
-   
-    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
-6. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
-   
-    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
+When the **Publishing** link appears, select it to browse to the web app and see the changes.
 
-## Deploy a Java app to your web app
-Now, let's deploy a Java app to Azure using FTPS.
+## Manage the web app
 
-1. In the web app blade, scroll down to **Application settings** or search for it, then click it. 
-   
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
-2. In **Java version**, select **Java 8** and click **Save**.
-   
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
-   
-    When you get the notification **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
-    to see the default JSP servlet in action.
-3. Back in the web app blade, scroll down to **Deployment credentials** or search for it, then click it.
-4. Set your deployment credentials and click **Save**.
-5. Back in the web app blade, click **Overview**. Next to **FTP/Deployment username** and **FTPS hostname**, click the **Copy** button
-   to copy these values.
-   
-    ![](./media/app-service-web-get-started-languages/get-ftp-url.png)
-   
-    You're now ready to deploy your Java app with FTPS.
-6. In your FTP/FTPS client, log in to your Azure web app's FTP server using the values you copied in the last step. Use the deployment
-   password that you created earlier.
-   
-    The following screenshot shows logging in using FileZilla.
-   
-    ![](./media/app-service-web-get-started-languages/filezilla-login.png)
-   
-    You may see security warnings for the unrecognized SSL certificate from Azure. Go ahead and continue.
-7. Click [this link](https://github.com/Azure-Samples/app-service-web-java-get-started/raw/master/webapps/ROOT.war) to download the WAR
-   file to your local machine.
-8. In your FTP/FTPS client, navigate to **/site/wwwroot/webapps** in the remote site, and drag the downloaded WAR file on your local machine into 
-   that remote directory.
-   
-    ![](./media/app-service-web-get-started-languages/transfer-war-file.png)
-   
-    Click **OK** to override the file in Azure.
-   
-   > [!NOTE]
-   > In accordance with Tomcat's default behavior, filename **ROOT.war** in /site/wwwroot/webapps gives you the root web app 
-   > (http://*&lt;appname>*.azurewebsites.net), and filename ***&lt;anyname>*.war** gives you a named web app (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
-   > 
-   > 
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to see the web app that you created.
 
-That's it! Your Java app is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
+From the left menu, select **Resource Groups**.
 
-## Make updates to your app
-Whenever you need to make an update, just upload the new WAR file to the same remote directory with your FTP/FTPS client.
+![Portal navigation to resource groups](media/app-service-web-get-started-java/rg.png)
+
+Select the resource group. The page shows the resources that you created in this quickstart.
+
+![Resource group myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+
+Select the web app (**webapp-170602193915** in the preceding image).
+
+The **Overview** page appears. This page gives you a view of how the app is doing. Here, you can  perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configurations that you can open. 
+
+![App Service page in Azure portal](media/app-service-web-get-started-java/web-app-blade.png)
+
+[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
 ## Next steps
-[Create a Java web app from a template in the Azure Marketplace](web-sites-java-get-started.md#marketplace). You can get your own fully customizable Tomcat 
-container and get the familiar Manager UI. 
 
-Debug your Azure web app, directly in [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) or [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
-
-Or, do more with your first web app. For example:
-
-* Try out [other ways to deploy your code to Azure](web-sites-deploy.md). 
-* Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-  [Add functionality to your first web app](app-service-web-get-started-2.md).
-
+> [!div class="nextstepaction"]
+> [Map custom domain](app-service-web-tutorial-custom-domain.md)

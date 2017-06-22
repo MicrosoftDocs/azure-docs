@@ -1,27 +1,56 @@
-1. Sign in to the [classic portal](http://manage.windowsazure.com). 
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
-   
-    ![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
-4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
-5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
-   
-   * **Virtual Machine Name** can only contain letters, numbers and hypens. It also must start with a letter and end with a letter or a number.
-   * **New User Name** refers to the administrative account that you use to manage the server. The password must be 8-123 characters long and have at least three of the following: lower case character, upper case character, number, and a special character. **You'll need the user name and password to connect and log on to the virtual machine**.
-   * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
-   
-   * The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-   * For **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead.
-   * If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
-   * For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-7. The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.
-   
-   > [!NOTE]
-   > The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  
-   > 
-   > 
-8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
-   
-    ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
+2. Starting in the upper left, click **New > Compute > Windows Server 2016 Datacenter**.
+
+    ![Navigate to the Azure VM images in the portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
+
+3. On the Windows Server 2016 Datacenter, select the Classic deployment model. Click Create.
+
+    ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
+
+## 1. Basics blade
+
+The Basics blade requests administrative information for the virtual machine.
+
+1. Enter a **Name** for the virtual machine. In the example, _HeroVM_ is the name of the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
+
+2. Enter a **User name** and a strong **Password** that are used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
+
+ The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
+
+3. The **Subscription** is optional. One common setting is "Pay-As-You-Go".
+
+4. Select an existing **Resource group** or type the name for a new one. In the example, _HeroVMRG_ is the name of the resource group.
+
+5. Select an Azure datacenter **Location** where you want the VM to run. In the example, **East US** is the location.
+
+6. When you are done, click **Next** to continue to the next blade.
+
+    ![Screenshot that shows the settings on the Basics blade for configuring an Azure VM](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+
+## 2. Size blade
+
+The Size blade identifies the configuration details of the VM, and lists various choices that include OS, number of processors, disk storage type, and estimated monthly usage costs.  
+
+Choose a VM size, and then click **Select** to continue. In this example, _DS1_\__V2 Standard_ is the VM size.
+
+  ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+
+
+## 3. Settings blade
+
+The Settings blade requests storage and network options. You can accept the default settings. Azure creates appropriate entries where necessary.
+
+If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting Premium (SSD) in Disk type.
+
+When you're done making changes, click **OK**.
+
+## 4. Summary blade
+
+The Summary blade lists the settings specified in the previous blades. Click **OK** when you're ready to make the image.
+
+ ![Summary blade report giving specified settings of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+
+After the virtual machine is created, the portal lists the new virtual machine under **All resources**, and displays a tile of the virtual machine on the dashboard. The corresponding cloud service and storage account also are created and listed. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+
+ ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

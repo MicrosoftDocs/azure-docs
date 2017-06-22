@@ -1,10 +1,10 @@
-﻿---
-title: How to create, manage, or delete a storage account in the Azure Portal | Microsoft Docs
-description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts.
+---
+title: How to create, manage, or delete a storage account in the Azure portal | Microsoft Docs
+description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -13,14 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+f1_keywords: 
+  - "sql13.swb.windowsazurestorage.connect.f1"
+ms.date: 01/23/2017
 ms.author: robinsh
 
 ---
 # About Azure storage accounts
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
 An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
@@ -56,7 +58,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
    
    > [!NOTE]
@@ -65,7 +67,7 @@ You can also configure a custom domain name to use with your storage account. Fo
    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
    > 
    > 
-4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Blob storage accounts can only be created using the Resource Manager deployment model.
@@ -84,7 +86,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Manage your storage account
 ### Change your account configuration
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, find and click **Configuration** under **SETTINGS** to view and/or change the account configuration.
 
 > [!NOTE]
 > Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
@@ -150,6 +152,7 @@ If the storage account uses the Classic deployment model, you can remove the vir
 For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Next steps
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
 * [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)

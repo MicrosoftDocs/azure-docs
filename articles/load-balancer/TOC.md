@@ -40,14 +40,22 @@
 ## [Configure multiple VIPs for cloud service](load-balancer-multivip.md)
 ## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
+### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
+### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+## Troubleshoot
+### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Reference
-## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Resource Manager API](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Using Network Resources](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+## [PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI 2.0](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
+## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Related
 ## [Application Gateway](/azure/application-gateway/)
@@ -59,5 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)

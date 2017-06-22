@@ -1,5 +1,5 @@
 ---
-title: Application Architecture on Azure | Microsoft Docs
+title: Integrate security into your Azure architectural designs | Microsoft Docs
 description: " This article will help you understand the application and services architecture on Azure to make it easier to integrate security into design and implementation. "
 services: security
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 
 ---
@@ -45,10 +45,10 @@ Each blueprint includes a:
 [View the Visio and symbols training video](http://aka.ms/CnESymbolsVideo) and then [download the Cloud and Enterprise Symbol set](http://aka.ms/CnESymbols) to help create technical materials that describe Azure, Windows Server, SQL Server and more. You can use the symbols in architecture diagrams, training materials, presentations, datasheets, infographics, whitepapers, and even third party books if the book trains people to use Microsoft products. However, they are not meant for use in user interfaces.
 
 ## 3D blueprint Visio template
-The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A new Visio 2013 (and later) template shipped on August 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
+The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A new Visio 2013 (and later) template shipped on August 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 The template is also available outside the course.
 
 * [View the training video](http://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do
 * Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-* Download the [Cloud and Enterprise Symbols](../architecture-overview.md#drawing-symbol-and-icon-sets) to use with the 3D template
+* Download the [Cloud and Enterprise Symbols](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) to use with the 3D template

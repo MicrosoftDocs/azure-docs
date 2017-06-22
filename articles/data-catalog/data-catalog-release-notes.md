@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Catalog release notes | Microsoft Docs
 description: Release notes for Azure Data Catalog.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
@@ -76,4 +76,3 @@ If the corporate network uses a proxy server, the registration tool may not be a
 
 
 To locate the RegistrationTool.exe.config file, launch the registration tool, and then open the Windows Task Manager utility. On the Details tab in Task manager, right-click on RegistrationTool.exe and choose Open file location from the pop-up menu.
-

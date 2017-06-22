@@ -1,9 +1,9 @@
 ---
-title: Azure CDN Real-Time Alerts | Microsoft Docs
+title: Azure CDN real-time alerts | Microsoft Docs
 description: Real-time alerts in Microsoft Azure CDN. Real-time alerts provide notifications about the performance of the endpoints in your CDN profile.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Real-time alerts in Microsoft Azure CDN

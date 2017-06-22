@@ -1,4 +1,4 @@
-﻿---
+---
 title: Health monitoring in Service Fabric | Microsoft Docs
 description: An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 04/12/2017
 ms.author: oanapl
 
 ---
@@ -21,6 +21,11 @@ ms.author: oanapl
 Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
 
 Service Fabric components use this rich health model to report their current state. You can use the same mechanism to report health from your applications. If you invest in high-quality health reporting that captures your custom conditions, you can detect and fix issues for your running application much more easily.
+
+The following Microsoft Virtual Academy video also describes the Service Fabric health model and how it's used:
+<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 > [!NOTE]
 > We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies and allows an upgrade to proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](service-fabric-application-upgrade.md).
@@ -65,7 +70,7 @@ Plan to invest in how to report and respond to health during the design of a lar
 ## Health states
 Service Fabric uses three health states to describe whether an entity is healthy or not: OK, warning, and error. Any report sent to the health store must specify one of these states. The health evaluation result is one of these states.
 
-The possible [health states](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) are:
+The possible [health states](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) are:
 
 * **OK**. The entity is healthy. There are no known issues reported on it or its children (when applicable).
 * **Warning**. The entity experiences some issues, but it is not yet unhealthy (for example, there are delays, but they do not cause any functional issues yet). In some cases, the warning condition may fix itself without any special intervention, and it is useful to provide visibility into what is going on. In other cases, the warning condition may degrade into a severe problem without user intervention.
@@ -83,13 +88,13 @@ The health store applies health policies to determine whether an entity is healt
 By default, Service Fabric applies strict rules (everything must be healthy) for the parent-child hierarchical relationship. If even one of the children has one unhealthy event, the parent is considered unhealthy.
 
 ### Cluster health policy
-The [cluster health policy](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) is used to evaluate the cluster health state and node health states. The policy can be defined in the cluster manifest. If it is not present, the default policy (zero tolerated failures) is used.
+The [cluster health policy](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) is used to evaluate the cluster health state and node health states. The policy can be defined in the cluster manifest. If it is not present, the default policy (zero tolerated failures) is used.
 The cluster health policy contains:
 
-* [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
-* [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx). Specifies the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-* [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Specifies the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error. In large clusters, some nodes are always down or out for repairs, so this percentage should be configured to tolerate that.
-* [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). The application type health policy map can be used during cluster health evaluation to describe special application types. By default, all applications are put into a pool and evaluated with MaxPercentUnhealthyApplications. If some application types should be treated differently, they can be taken out of the global pool. Instead, they are evaluated against the percentages associated with their application type name in the map. For example, in a cluster there are thousands of applications of different types, and a few control application instances of a special application type. The control applications should never be in error. You can specify global MaxPercentUnhealthyApplications to 20% to tolerate some failures, but for the application type "ControlApplicationType" set the MaxPercentUnhealthyApplications to 0. This way, if some of the many applications are unhealthy, but below the global unhealthy percentage, the cluster would be evaluated to Warning. A warning health state does not impact cluster upgrade or other monitoring triggered by Error health state. But even one control application in error would make cluster unhealthy, which triggers roll back or pauses the cluster upgrade, depending on the upgrade configuration.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
+* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Specifies the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Specifies the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error. In large clusters, some nodes are always down or out for repairs, so this percentage should be configured to tolerate that.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). The application type health policy map can be used during cluster health evaluation to describe special application types. By default, all applications are put into a pool and evaluated with MaxPercentUnhealthyApplications. If some application types should be treated differently, they can be taken out of the global pool. Instead, they are evaluated against the percentages associated with their application type name in the map. For example, in a cluster there are thousands of applications of different types, and a few control application instances of a special application type. The control applications should never be in error. You can specify global MaxPercentUnhealthyApplications to 20% to tolerate some failures, but for the application type "ControlApplicationType" set the MaxPercentUnhealthyApplications to 0. This way, if some of the many applications are unhealthy, but below the global unhealthy percentage, the cluster would be evaluated to Warning. A warning health state does not impact cluster upgrade or other monitoring triggered by Error health state. But even one control application in error would make cluster unhealthy, which triggers roll back or pauses the cluster upgrade, depending on the upgrade configuration.
   For the application types defined in the map, all application instances are taken out of the global pool of applications. They are evaluated based on the total number of applications of the application type, using the specific MaxPercentUnhealthyApplications from the map. All the rest of the applications remain in the global pool and are evaluated with MaxPercentUnhealthyApplications.
 
 The following example is an excerpt from a cluster manifest. To define entries in the application type map, prefix the parameter name with "ApplicationTypeMaxPercentUnhealthyApplications-", followed by the application type name.
@@ -106,20 +111,20 @@ The following example is an excerpt from a cluster manifest. To define entries i
 ```
 
 ### Application health policy
-The [application health policy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
+The [application health policy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
 The configurable policies are:
 
-* [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
-* [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx). Specifies the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error. This percentage is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications are currently deployed on in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage: zero.
-* [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Specifies the default service type health policy, which replaces the default health policy for all service types in the application.
-* [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Provides a map of service health policies per service type. These policies replace the default service type health policies for each specified service type. For example, if an application has a stateless gateway service type and a stateful engine service type, you can configure the health policies for their evaluation differently. When you specify policy per service type, you can gain more granular control of the health of the service.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
+* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Specifies the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error. This percentage is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications are currently deployed on in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage: zero.
+* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Specifies the default service type health policy, which replaces the default health policy for all service types in the application.
+* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Provides a map of service health policies per service type. These policies replace the default service type health policies for each specified service type. For example, if an application has a stateless gateway service type and a stateful engine service type, you can configure the health policies for their evaluation differently. When you specify policy per service type, you can gain more granular control of the health of the service.
 
 ### Service type health policy
-The [service type health policy](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) specifies how to evaluate and aggregate the services and the children of services. The policy contains:
+The [service type health policy](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) specifies how to evaluate and aggregate the services and the children of services. The policy contains:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Specifies the maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy. Default percentage: zero.
-* [MaxPercentUnhealthyReplicasPerPartition](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition.aspx). Specifies the maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy. Default percentage: zero.
-* [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx). Specifies the maximum tolerated percentage of unhealthy services before the application is considered unhealthy. Default percentage: zero.
+* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Specifies the maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy. Default percentage: zero.
+* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Specifies the maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy. Default percentage: zero.
+* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Specifies the maximum tolerated percentage of unhealthy services before the application is considered unhealthy. Default percentage: zero.
 
 The following example is an excerpt from an application manifest:
 
@@ -184,10 +189,10 @@ After the health store has evaluated all the children, it aggregates their healt
 ## Health reporting
 System components, System Fabric applications, and internal/external watchdogs can report against Service Fabric entities. The reporters make *local* determinations of the health of the monitored entities, based on the conditions they are monitoring. They don't need to look at any global state or aggregate data. The desired behavior is to have simple reporters, and not complex organisms that need to look at many things to infer what information to send.
 
-To send health data to the health store, a reporter needs to identify the affected entity and create a health report. The report can then be sent through the API by using [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), through PowerShell, or through REST.
+To send health data to the health store, a reporter needs to identify the affected entity and create a health report. The report can then be sent through the API by using [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), through PowerShell, or through REST.
 
 ### Health reports
-The [health reports](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) for each of the entities in the cluster contain the following information:
+The [health reports](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) for each of the entities in the cluster contain the following information:
 
 * **SourceId**. A string that uniquely identifies the reporter of the health event.
 * **Entity identifier**. Identifies the entity where the report is applied. It differs based on the [entity type](service-fabric-health-introduction.md#health-entities-and-hierarchy):
@@ -210,7 +215,7 @@ The [health reports](https://msdn.microsoft.com/library/azure/system.fabric.heal
 These four pieces of information--SourceId, entity identifier, Property, and HealthState--are required for every health report. The SourceId string is not allowed to start with the prefix "**System.**", which is reserved for system reports. For the same entity, there is only one report for the same source and property. Multiple reports for the same source and property override each other, either on the health client side (if they are batched) or on the health store side. The replacement is based on sequence numbers; newer reports (with higher sequence numbers) replace older reports.
 
 ### Health events
-Internally, the health store keeps [health events](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), which contain all the information from the reports, and additional metadata. The metadata includes the time the report was given to the health client and the time it was modified on the server side. The health events are returned by [health queries](service-fabric-view-entities-aggregated-health.md#health-queries).
+Internally, the health store keeps [health events](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), which contain all the information from the reports, and additional metadata. The metadata includes the time the report was given to the health client and the time it was modified on the server side. The health events are returned by [health queries](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 The added metadata contains:
 

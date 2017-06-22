@@ -1,18 +1,21 @@
 ## Provision the solution
-1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a new solution.
+
+If you haven't already provisioned the remote monitoring preconfigured solution in your account:
+
+1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a solution.
 2. Click **Select** on the **Remote monitoring** tile.
 3. Enter a **Solution name** for your remote monitoring preconfigured solution.
 4. Select the **Region** and **Subscription** you want to use to provision the solution.
-5. Click **Create Solution** to begin the provisioning process. This typically takes several minutes to run.
+5. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
 
 ### Wait for the provisioning process to complete
-1. Click on the tile for your solution with **Provisioning** status.
+1. Click the tile for your solution with **Provisioning** status.
 2. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
 3. Once provisioning completes, the status changes to **Ready**.
-4. Click on the tile and you'll see the details of your solution in the right-hand pane.
+4. Click the tile to see the details of your solution in the right-hand pane.
 
 > [!NOTE]
-> If you are encountering issues deploying the pre-configured solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, please create a service ticket on the [portal][lnk-portal].
+> If you are encountering issues deploying the pre-configured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
 > 
 > 
 

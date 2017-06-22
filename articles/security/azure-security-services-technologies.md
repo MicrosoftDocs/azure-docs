@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure Security services and 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/02/2016
 ms.author: yurid
 
 ---
@@ -22,7 +22,7 @@ In our discussions with current and future Azure customers, we’re often asked 
 
 We understand that when you’re evaluating your cloud service provider technical options, it’s helpful to have such a list available that you can use to dig down deeper when the time is right for you.
 
-The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies. 
+The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies.
 
 ## Azure Security - General
 * [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
@@ -43,18 +43,18 @@ The following is our initial effort at providing a list. Over time, this list wi
 ## Azure Database Security
 * [Azure SQL Firewall](../sql-database/sql-database-firewall-configure.md)
 * [Azure SQL Cell Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Azure SQL Connection Encryption](../sql-database/sql-database-security-guidelines.md)
-* [Azure SQL Authentication](../sql-database/sql-database-security-guidelines.md)
+* [Azure SQL Connection Encryption](../sql-database/sql-database-control-access.md)
+* [Azure SQL Authentication](../sql-database/sql-database-control-access.md)
 * [Azure SQL Always Encryption](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Azure SQL Column Level Encryption](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Azure SQL Transparent Data Encryption](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Azure SQL Database Auditing](../sql-database/sql-database-auditing-get-started.md)
+* [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## Azure Identity and Access Management
 * [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
-* [Azure Active Directory Domain Services](https://azure.microsoft.com/documentation/services/active-directory-ds/)
+* [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## Backup and Disaster Recovery
@@ -69,4 +69,3 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Azure Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
-

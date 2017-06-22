@@ -1,4 +1,4 @@
-﻿---
+---
 title: DMZ Example – Build a DMZ to Protect Networks with a Firewall, UDR, and NSG | Microsoft Docs
 description: Build a DMZ with a Firewall, User Defined Routing (UDR), and Network Security Groups (NSG)
 services: virtual-network

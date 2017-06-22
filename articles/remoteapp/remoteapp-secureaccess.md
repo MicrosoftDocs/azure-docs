@@ -1,4 +1,3 @@
-﻿
 ---
 title: Securing access to Azure RemoteApp, and beyond | Microsoft Docs
 description: Learn how secure access to Azure RemoteApp by using conditional access in Azure Active Directory
@@ -13,13 +12,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # Securing access to Azure RemoteApp, and beyond
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -57,14 +56,14 @@ We are going to walk through an example scenario – the Azure RemoteApp adminis
 1. In Azure portal click the **Active Directory** tab. Then click the directory you want to configure.
    
    Remember: Conditional access is a property of your directory and not of Azure RemoteApp, so all configuration is done at the directory level. This also means you need to be the directory administrator to make these changes.
-2. Click **Applications**, and then click **Microsoft Azure RemoteApp** to set up conditional access. Note that you can set up conditional access for each “software as a service” application in your directory separately.
+2. Click **Applications**, and then click **Microsoft Azure RemoteApp** to set up conditional access. Note that you can set up conditional access for each "software as a service" application in your directory separately.
    ![Setting up conditional access for Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalaccessscreen.png)
 3. On the **Configure** tab, set **Enable Access Rules** to ON.
    ![Enable access rules for Azure RemoteApp](./media/remoteapp-secureaccess/ra-enableaccessrules.png)
 4. You can now configure various rules and choose who to apply them to:
    
    1. Choose **Block access when not at work** to completely prevent users from accessing Azure RemoteApp outside of the network environment you specify.
-   2. Click the option below to define the IP address ranges that constitute your “trusted network”. Everything outside of those will be rejected.
+   2. Click the option below to define the IP address ranges that constitute your "trusted network." Everything outside of those will be rejected.
 5. Test your configuration by launching the Azure RemoteApp client from an IP address outside of the range you specified. After you sign in with your Azure AD credentials you should see a message like this:
 
 ![Denied access to Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
@@ -100,7 +99,7 @@ The solution is to place both the Azure RemoteApp environment and the secure res
 
 Azure RemoteApp supports two types of collection deployments where you can provide your own VNET:
 
-* Non-domain-joined: the applications will have “line of sight” of the other resources in the VNET. For example, this can be used to connect applications to a SQL database that uses SQL authentication (applications authenticate the user directly against the database)
+* Non-domain-joined: the applications will have "line of sight" of the other resources in the VNET. For example, this can be used to connect applications to a SQL database that uses SQL authentication (applications authenticate the user directly against the database)
 * Domain-joined: the virtual machines used by Azure RemoteApp are joined to a domain controller in the VNET. This is useful when the applications need to authenticate against a Windows Domain Controller in order to get access to a back-end resource.
   ![A domain-joined collection in Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
 
@@ -113,5 +112,5 @@ With Azure RemoteApp you need to configure your VNet first, and then use it duri
 The diagram below shows the complete solution where we have built a secure access channel from the end user, through Azure RemoteApp (ARA), into the backend resource.
 ![Secure Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png)
 In Stage 1 we selected the users and created access rules that govern how ARA can be accessed. In the example below we only allow access for users working from the corporate network. Non-compliant users will not be able to access the ARA environment at all.
-In “Stage 2” we have exposed the backend resource only through the VNet/VPN configuration which we control. Azure RemoteApp has been placed in the same VNet. The end result is that the resource can only be accessed through the ARA environment.
+In Stage 2 we have exposed the backend resource only through the VNet/VPN configuration which we control. Azure RemoteApp has been placed in the same VNet. The end result is that the resource can only be accessed through the ARA environment.
 

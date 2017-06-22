@@ -1,5 +1,5 @@
-﻿---
-title: Frequently asked questions | Microsoft Docs
+---
+title: Azure Media Services frequently asked questions | Microsoft Docs
 description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
 # Frequently asked questions
+
+This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
+
 ## General AMS FAQs
 Q: How do you scale indexing?
 
@@ -25,7 +28,7 @@ A: The reserved units are the same for Encoding and Indexing tasks. Follow instr
 
 Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
 
-A: One of the most common reasons is you do not have at least one reserved streaming unit allocated on the streaming endpoint from which you are trying to playback.  Follow instructions on [How to Scale Streaming Reserved Units](media-services-portal-scale-streaming-endpoints.md).
+A: One of the most common reasons is you do not have the streaming endpoint from which you are trying to playback in the **Running** state.  
 
 Q: Can I do compositing on a live stream?
 
@@ -37,7 +40,7 @@ A: Media Services supports integration with Azure CDN (for more information, see
 
 Q: Does Azure Media services support storing images?
 
-A: If you are just looking to store JPEG or PNG images, you should keep those in Azure Blob Storage. There is no benefit to putting them in your Media Services account unless you want to keep them associated with your Video or Audio Assets. Or if you might have a need to use the images as overlays in the video encoder.Media Encoder Standard supports overlaying images on top of videos, and that is what it lists JPEG and PNG as supported input formats. For more information, see [Creating Overlays](media-services-custom-mes-presets-with-dotnet.md#overlay).
+A: If you are just looking to store JPEG or PNG images, you should keep those in Azure Blob Storage. There is no benefit to putting them in your Media Services account unless you want to keep them associated with your Video or Audio Assets. Or if you might have a need to use the images as overlays in the video encoder.Media Encoder Standard supports overlaying images on top of videos, and that is what it lists JPEG and PNG as supported input formats. For more information, see [Creating Overlays](media-services-advanced-encoding-with-mes.md#overlay).
 
 Q: How can I copy assets from one Media Services account to another.
 
@@ -49,11 +52,11 @@ A: Media Services uses the value of the IAssetFile.Name property when building U
 
 Q: How to connect using REST?
 
-A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 
+A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
 
 Q: How can I rotate a video during the encoding process.
 
-A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [
@@ -76,4 +79,3 @@ A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

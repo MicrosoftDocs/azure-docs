@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Tinfoil Security | Microsoft Docs'
 description: Learn how to use Tinfoil Security with Azure Active Directory to enable single sign-on, automated provisioning, and more!.
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -40,23 +40,29 @@ The objective of this section is to outline how to enable the application integr
 ### To enable the application integration for Tinfoil Security, perform the following steps:
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
-   ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
+    ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
-   ![Applications](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applications")
+    ![Applications](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applications")
+
 4. Click **Add** at the bottom of the page.
    
-   ![Add application](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Add application")
+    ![Add application](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Add application")
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
-   ![Add an application from gallerry](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Add an application from gallerry")
+    ![Add an application from gallerry](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Add an application from gallerry")
+
 6. In the **search box**, type **Tinfoil Security**.
    
-   ![Application Gallery](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Application Gallery")
+    ![Application Gallery](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Application Gallery")
+
 7. In the results pane, select **Tinfoil Security**, and then click **Complete** to add the application.
    
-   ![Tinfoil Security](./media/active-directory-saas-tinfoil-security-tutorial/IC802771.png "Tinfoil Security")
+    ![Tinfoil Security](./media/active-directory-saas-tinfoil-security-tutorial/IC802771.png "Tinfoil Security")
 
 ## Configuring single sign-on
 The objective of this section is to outline how to enable users to authenticate to Tinfoil Security with their account in Azure AD using federation based on the SAML protocol.  
@@ -66,57 +72,76 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 ### To configure single sign-on, perform the following steps:
 1. In the Azure classic portal, on the **Tinfoil Security** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configure Single Sign-On")
+
 2. On the **How would you like users to sign on to Tinfoil Security** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configure Single Sign-On")
+
 3. On the **Configure App URL** page, in the **Tinfoil Security Reply URL** textbox, type your Tinfoil Security Assertion Consumer Service (ACS) URL (e.g.: "*https://www.tinfoilsecurity.com/saml/consume*", and then click **Next**.
    
-   > [!NOTE]
-   > You should be able to get the ACS URL from Tinfoil Security Metadata (https://www.tinfoilsecurity.com/saml/metadata).
-   > 
-   > 
+    > [!NOTE]
+    > You should be able to get the ACS URL from Tinfoil Security Metadata (https://www.tinfoilsecurity.com/saml/metadata).
+    > 
+    > 
    
-   ![Configure App URL](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+    ![Configure App URL](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+
 4. On the **Configure single sign-on at Tinfoil Security** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Tinfoil Security.cer**.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configure Single Sign-On")
+
 5. In a different web browser window, log into your Tinfoil Security company site as an administrator.
+
 6. In the toolbar on the top, click **My Account**.
    
-   ![Dashboard](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Dashboard")
+    ![Dashboard](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Dashboard")
+
 7. Click **Security**.
    
-   ![Security](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Security")
+    ![Security](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Security")
+
 8. On the **Single Sign-On** configuration page, perform the following steps:
    
-   ![Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Single Sign-On")
    
-   1. Select **Enable SAML**.
-   2. Click **Manual Configuration**.
-   3. In the Azure classic portal, on the **Configure single sign-on at Tinfoil Security** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML Post URL** textbox.
-   4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **SAML Certificate Fingerprint** textbox.  
+    a. Select **Enable SAML**.
+   
+    b. Click **Manual Configuration**.
+   
+    c. In the Azure classic portal, on the **Configure single sign-on at Tinfoil Security** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML Post URL** textbox.
+   
+    d. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **SAML Certificate Fingerprint** textbox.  
       
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
-      > 
-   5. Copy **Your Account ID**.
-   6. Click **Save**.
+    > [!TIP]
+    > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+    > 
+    > 
+   
+    e. Copy **Your Account ID**.
+   
+    f. Click **Save**.
+
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configure Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configure Single Sign-On")
+
 10. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
     
     ![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Attributes")
+
 11. To add the required attribute mappings, perform the following steps:
     
     ![Attributes](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Attributes")
     
-    1. Click **add user attribute**.
-    2. In the **Attribute Name** textbox, type **accountid**.
-    3. In the **Attribute Value** textbox, paste the account ID value you have copied in the previous section.
-    4. Click **Complete**.
+    a. Click **add user attribute**.
+
+    b. In the **Attribute Name** textbox, type **accountid**.
+
+    c. In the **Attribute Value** textbox, paste the account ID value you have copied in the previous section.
+
+    d. Click **Complete**.
+
 12. Click **Apply Changes**.
 
 ## Configuring user provisioning
@@ -139,10 +164,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 1. In the Azure classic portal, create a test account.
 2. On the **Tinfoil Security **application integration page, click **Assign users**.
    
-   ![Assign Users](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assign Users")
+    ![Assign Users](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assign Users")
+
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
-   ![Yes](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
+    ![Yes](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

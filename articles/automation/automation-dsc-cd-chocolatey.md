@@ -1,11 +1,11 @@
-﻿---
+---
 title: Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Docs
 description: DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source.
 services: automation
 documentationcenter: ''
-author: sebastus
-manager: stevenka
-editor: ''
+author: eslesar
+manager: carmonm
+editor: tysonn
 
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
@@ -39,7 +39,7 @@ Azure Automation is a managed service in Microsoft Azure that allows you to auto
 
 A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../resource-manager-deployment-model.md) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
+Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here’s an [article](../azure-resource-manager/resource-manager-deployment-model.md) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
 
 One key feature of an Resource Manager template is its ability to install a VM extension into the VM as it’s provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 

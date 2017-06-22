@@ -1,5 +1,5 @@
 ---
-title: MapReduce and Remote Desktop with Hadoop in HDInsight | Microsoft Docs
+title: MapReduce and Remote Desktop with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use Remote Desktop to connect to Hadoop on HDInsight and run MapReduce jobs.
 services: hdinsight
 documentationcenter: ''
@@ -14,14 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Use MapReduce in Hadoop on HDInsight with Remote Desktop
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 In this article, you will learn how to connect to a Hadoop on HDInsight cluster by using Remote Desktop and then run MapReduce jobs by using the Hadoop command.
+
+> [!IMPORTANT]
+> Remote Desktop is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+>
+> For HDInsight 3.4 or greater, see [Use MapReduce with SSH](hdinsight-hadoop-use-mapreduce-ssh.md) for information on connecting to the HDInsight cluster and running MapReduce jobs.
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:

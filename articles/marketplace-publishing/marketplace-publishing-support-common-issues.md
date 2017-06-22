@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to troubleshoot common publisher support issues | Microsoft Docs
 description: Understand how to troubleshoot common publisher support issues and how to get support
 services: marketplace-publishing
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 
 ---
@@ -27,8 +27,8 @@ The following shows you how to request a credit or refund on behalf of a custome
 
 > [!NOTE]
 > If a customer or Azure reseller contacts Microsoft to request a refund or credit, we will apply the same policies that we use for our provision of Azure services. If our policies indicate that a refund or credit is due, we will proactively issue (and you authorize us to issue on your behalf) a refund or credit to the customer or Azure reseller, as applicable. If our policies do not indicate that a refund or credit is due, we may invite the customer or Azure reseller to contact you directly.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -36,12 +36,12 @@ The following shows you how to request a credit or refund on behalf of a custome
 2. In the **Problem type** box, select **Managing Customers**.
 3. In the **Category** box, select **Approve or request a customer refund**.
 4. Click **Start request**.
-   
+
    ![2_RequestRefund][2]
 
 1. Provide contact information.
 2. In the **What is the issue?** box, enter the following information:
-   
+
    * The subscription ID of the impacted customer
    * The customer name
    * How much the credit should be for
@@ -80,8 +80,8 @@ If you want to update your publisher profile, this can be done via the Microsoft
 
 > [!NOTE]
 > You can use your phone number or email address to verify.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 

@@ -1,10 +1,10 @@
 ---
-title: Java web app analytics with Application Insights | Microsoft Docs
+title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Get started with Application Insights in a Java web project
@@ -28,17 +28,17 @@ Application Insights supports Java apps running on Linux, Unix, or Windows.
 You need:
 
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
-* A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 2. Create an Application Insights resource. Set the application type to Java web application.
-   
+
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
-   
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
 ## 2. Add the Application Insights SDK for Java to your project
@@ -51,6 +51,8 @@ Use the [Application Insights SDK for Java plug-in][eclipse].
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
+
+```XML
 
     <repositories>
        <repository>
@@ -68,7 +70,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *Build or checksum validation errors?* Try using a specific version, such as: `<version>1.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
@@ -78,6 +80,8 @@ If your project is already set up to use Gradle for build, merge the following c
 
 Then refresh the project dependencies to get the binaries downloaded.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -86,6 +90,7 @@ Then refresh the project dependencies to get the binaries downloaded.
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *Build or checksum validation errors? Try using a specific version, such as:* `version:'1.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *To update to a new SDK*
@@ -99,11 +104,11 @@ Manually add the SDK:
 
 ### Questions...
 * *What's the relationship between the `-core` and `-web` components in the zip?*
-  
+
   * `applicationinsights-core` gives you the bare API. You always need this component.
   * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 * *To update the SDK when we publish changes*
-  
+
   * Download the latest [Application Insights SDK for Java](https://aka.ms/qqkaq6) and replace the old ones.
   * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -111,6 +116,8 @@ Manually add the SDK:
 Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -141,6 +148,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
@@ -157,8 +165,10 @@ Application Insights SDK looks for the key in this order:
 
 You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## 4. Add an HTTP filter
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
@@ -166,6 +176,8 @@ The last configuration step allows the HTTP request component to log each web re
 Locate and open the web.xml file in your project, and merge the following code under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -177,9 +189,12 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### If you're using Spring Web MVC 3.1 or later
 Edit these elements in *-servlet.xml to include the Application Insights package:
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -189,14 +204,18 @@ Edit these elements in *-servlet.xml to include the Application Insights package
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### If you're using Struts 2
 Add this item to the Struts configuration file (usually named struts.xml or struts-default.xml):
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
@@ -217,11 +236,11 @@ Click through any chart to see more detailed aggregated metrics.
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
-> 
-> 
+>
+>
 
 ### Instance data
-Click through a specific request type to see individual instances. 
+Click through a specific request type to see individual instances.
 
 Two kinds of data are displayed in Application Insights: aggregated data, stored and displayed as averages, counts, and sums; and instance data - individual reports of HTTP requests, exceptions, page views, or custom events.
 
@@ -230,7 +249,7 @@ When viewing the properties of a request, you can see the telemetry events assoc
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -238,16 +257,16 @@ As you accumulate more data, you can run queries both to aggregate data and to f
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* If outgoing traffic must be routed through a firewall, define system properties `http.proxyHost` and `http.proxyPort`. 
+* If outgoing traffic must be routed through a firewall, define system properties `http.proxyHost` and `http.proxyPort`.
 
 * On Windows servers, install:
-  
+
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (This component enables performance counters.)
 
 
@@ -258,7 +277,7 @@ Unhandled exceptions are automatically collected:
 
 To collect data on other exceptions, you have two options:
 
-* [Insert calls to trackException() in your code][apiexceptions]. 
+* [Insert calls to trackException() in your code][apiexceptions].
 * [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
 
 ## Monitor method calls and external dependencies
@@ -272,20 +291,25 @@ Open **Settings**, **Servers**, to see a range of performance counters.
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### Collect additional performance counters
 You can specify additional performance counters to be collected.
 
 #### JMX counters (exposed by the Java Virtual Machine)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
@@ -298,12 +322,14 @@ You can specify additional performance counters to be collected.
 #### Windows performance counters
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName – The name displayed in the Application Insights portal.
 * categoryName – The performance counter category (performance object) with which this performance counter is associated.
@@ -341,10 +367,14 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 ![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Learn more about availability web tests.][availability] 
+[Learn more about availability web tests.][availability]
 
 ## Questions? Problems?
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Monitor dependency calls](app-insights-java-agent.md)
@@ -352,16 +382,16 @@ You'll get charts of response times, plus email notifications if your site goes 
 * Add [monitoring to your web pages](app-insights-javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
-* Use [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
+* Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
 * For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

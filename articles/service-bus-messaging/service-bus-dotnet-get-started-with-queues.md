@@ -1,9 +1,9 @@
 ---
-title: Get started with Service Bus queues | Microsoft Docs
+title: Write a program that uses Azure Service Bus queues | Microsoft Docs
 description: How to write a C# console application for Service Bus messaging
 services: service-bus-messaging
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
-ms.author: jotaub;sethm
+ms.date: 03/23/2017
+ms.author: sethm
 
 ---
 # Get started with Service Bus queues
@@ -29,7 +29,7 @@ In this tutorial, we will complete the following:
 4. Write a console application to receive messages.
 
 ## Prerequisites
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -48,7 +48,8 @@ If you already have a Service Bus queue created, jump to the [Send messages to t
 To send messages to the queue, we will write a C# console application using Visual Studio.
 
 ### Create a console application
-1. Launch Visual Studio and create a new Console application.
+
+- Launch Visual Studio and create a new Console application.
 
 ### Add the Service Bus NuGet package
 1. Right-click the newly created project and select **Manage NuGet Packages**.
@@ -59,12 +60,12 @@ To send messages to the queue, we will write a C# console application using Visu
 ### Write some code to send a message to the queue
 1. Add the following using statement to the top of the Program.cs file.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that used when creating the queue.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -75,7 +76,7 @@ To send messages to the queue, we will write a C# console application using Visu
    
     Here is what your Program.cs should look like.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -104,12 +105,12 @@ To send messages to the queue, we will write a C# console application using Visu
 1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
 2. Add the following `using` statement to the top of the Program.cs file.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that you used when creating the queue.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -126,7 +127,7 @@ To send messages to the queue, we will write a C# console application using Visu
    
     Here is what your Program.cs file should look like:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -159,15 +160,11 @@ To send messages to the queue, we will write a C# console application using Visu
 Congratulations! You have now created a queue, sent a message, and received a message.
 
 ## Next steps
-Check out our [GitHub repository with samples](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) that demonstrate some of the more advanced features of Azure Service Bus messaging.
+Check out our [GitHub repository with samples](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) that demonstrate some of the more advanced features of Azure Service Bus Messaging.
 
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples

@@ -1,0 +1,245 @@
+- name: Azure Stack documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Stack?
+    href: azure-stack-poc.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy Azure Stack
+    href: azure-stack-deploy-overview.md  
+- name: Tutorials
+  items:
+  - name: Enable Virtual Machines
+    href: azure-stack-tutorial-tenant-vm.md
+  - name: Enable SQL databases
+    href: azure-stack-tutorial-sql-server.md
+  - name: Enable Web Apps
+    href: azure-stack-tutorial-app-service.md
+  - name: Deploy apps to Azure & Azure Stack
+    href: azure-stack-solution-pipeline.md
+- name: Concepts
+  items:
+  - name: What's new
+    href: azure-stack-whats-new.md
+  - name: Key features and concepts
+    href: azure-stack-key-features.md
+  - name: POC architecture
+    href: azure-stack-architecture.md
+  - name: Administration basics
+    href: azure-stack-manage-basics.md
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Prerequisites
+      href: azure-stack-deploy.md
+    - name: Deploy
+      href: azure-stack-run-powershell-script.md
+    - name: Activate portals
+      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
+    - name: Register
+      href: azure-stack-register.md
+    - name: Connect to Azure Stack
+      href: azure-stack-connect-azure-stack.md
+    - name: Add default image
+      href: azure-stack-add-default-image.md
+    - name: Create a test VM
+      href: azure-stack-provision-vm.md
+  - name: Manage
+    items:
+    - name: Region management
+      href: azure-stack-region-management.md
+    - name: Using the portals
+      href: azure-stack-manage-portals.md
+    - name: Connect to Azure Stack
+      href: azure-stack-connect-azure-stack.md
+    - name: Set up management environment
+      items:
+      - name: Install PowerShell
+        href: azure-stack-powershell-install.md
+      - name: Download tools
+        href: azure-stack-powershell-download.md
+      - name: Configure PowerShell
+        href: azure-stack-powershell-configure.md
+      - name: Install and configure CLI
+        href: azure-stack-connect-cli.md
+    - name: Manage updates
+      href: azure-stack-updates.md
+    - name: Monitor health and alerts
+      href: azure-stack-monitor-health.md
+    - name: Manage network resources
+      href: azure-stack-viewing-public-ip-address-consumption.md
+    - name: Manage storage resources
+      href: azure-stack-manage-storage-accounts.md
+    - name: Manage Windows Azure Pack VMs
+      href: azure-stack-manage-windows-azure-pack.md
+  - name: Security & compliance
+    items:
+    - name: Manage RBAC
+      href: azure-stack-manage-permissions.md
+    - name: Add users for Azure AD
+      href: azure-stack-add-new-user-aad.md
+    - name: Add users for AD FS
+      href: azure-stack-add-users-adfs.md
+    - name: Create service principals
+      href: Azure-stack-create-service-principals.md
+    - name: Enable multi-tenancy
+      href: azure-stack-enable-multitenancy.md
+  - name: Offer services
+    items:
+    - name: Create plans, offers, and quotas
+      items:
+      - name: Set quotas
+        href: azure-stack-setting-quotas.md
+      - name: Create a plan
+        href: azure-stack-create-plan.md
+      - name: Create an offer
+        href: azure-stack-create-offer.md
+      - name: Subscribe to an offer
+        href: azure-stack-subscribe-plan-provision-vm.md
+      - name: Delegate offers in Azure Stack
+        href: azure-stack-delegated-provider.md
+    - name: Offer SQL or MySQL as PaaS
+      items:
+      - name: Deploy MySQL resource provider
+        href: azure-stack-mysql-resource-provider-deploy.md
+      - name: Deploy SQL resource provider
+        href: azure-stack-sql-resource-provider-deploy.md
+    - name: Offer App Service as PaaS
+      items:
+      - name: App Service on Azure Stack overview
+        href: azure-stack-app-service-overview.md
+      - name: Before you get started
+        href: azure-stack-app-service-before-you-get-started.md
+      - name: Deploy App Service resource provider
+        href: azure-stack-app-service-deploy.md
+      - name: Deploy App Service offline
+        href: azure-stack-app-service-deploy-offline.md
+      - name: Add more web worker roles
+        href: azure-stack-app-service-add-worker-roles.md
+      - name: Configure deployment sources
+        href: azure-stack-app-service-configure-deployment-sources.md
+      - name: Enable FTP in App Service on Azure Stack
+        href: azure-stack-app-service-enable-ftp.md
+    - name: Populate the marketplace
+      items:
+      - name: Marketplace overview
+        href: azure-stack-marketplace.md
+      - name: Download marketplace items
+        href: azure-stack-download-azure-marketplace-item.md
+      - name: Create and publish a marketplace item
+        href: azure-stack-create-and-publish-marketplace-item.md
+      - name: Add a custom virtual machine image
+        href: azure-stack-add-vm-image.md
+      - name: Deploy Linux virtual machines
+        href: azure-stack-linux.md
+    - name: Usage and billing
+      items:
+      - name: Overview
+        href: azure-stack-billing-and-chargeback.md
+      - name: Usage data reporting
+        href: azure-stack-usage-reporting.md
+      - name: Provider usage API
+        href: azure-stack-provider-resource-api.md
+      - name: Tenant usage API
+        href: azure-stack-tenant-resource-usage-api.md
+      - name: Usage FAQ
+        href: azure-stack-usage-related-faq.md
+  - name: Use services
+    items:
+    - name: Key considerations
+      href: azure-stack-considerations.md
+    - name: Compute
+      items:
+      - name: VM considerations
+        href: azure-stack-vm-considerations.md
+      - name: Create VM-PowerShell
+        href: azure-stack-quick-create-vm-powershell.md
+    - name: Storage
+      items:
+      - name: Overview
+        href: azure-stack-storage-overview.md
+      - name: Storage considerations
+        href: azure-stack-acs-differences.md
+      - name: Storage development tools
+        href: azure-stack-storage-dev.md
+      - name: Data transfer tools
+        href: azure-stack-storage-transfer.md
+      - name: Connect Storage Explorer
+        href: azure-stack-storage-connect-se.md
+    - name: Network
+      items:
+      - name: iDNS for Azure Stack
+        href: azure-stack-understanding-dns.md
+      - name: DNS in Azure Stack
+        href: azure-stack-dns.md
+      - name: Understanding site-to-site VPN connections
+        href: azure-stack-create-vpn-connection-one-node.md
+    - name: Key Vault
+      items:
+      - name: Overview
+        href: azure-stack-kv-intro.md
+      - name: Manage with portal
+        href: azure-stack-kv-manage-portal.md
+      - name: Manage with PowerShell
+        href: azure-stack-kv-manage-powershell.md
+      - name: Create a VM with a certificate
+        href: azure-stack-kv-push-secret-into-vm.md
+      - name: Key Vault sample app
+        href: azure-stack-kv-sample-app.md
+  - name: Build apps
+    items:
+    - name: Develop for Azure Stack
+      href: azure-stack-developer.md
+    - name: Set up development environment
+      items:
+      - name: Install PowerShell
+        href: azure-stack-powershell-install.md
+      - name: Download tools
+        href: azure-stack-powershell-download.md
+      - name: Configure PowerShell
+        href: azure-stack-powershell-configure.md
+      - name: Install and configure CLI
+        href: azure-stack-connect-cli.md
+      - name: Install Visual Studio
+        href: azure-stack-install-visual-studio.md
+      - name: Manage API version profiles
+        href: azure-stack-version-profiles.md
+    - name: Use policy module
+      href: azure-stack-policy-module.md
+    - name: Use templates
+      items:
+      - name: Template overview
+        href: azure-stack-arm-templates.md
+      - name: Develop templates
+        href: azure-stack-develop-templates.md
+      - name: Check templates
+        href: azure-stack-validate-templates.md
+      - name: Deploy with the portal
+        href: azure-stack-deploy-template-portal.md
+      - name: Deploy with PowerShell
+        href: azure-stack-deploy-template-powershell.md
+      - name: Deploy with Visual Studio
+        href: azure-stack-deploy-template-visual-studio.md
+  - name: Troubleshoot
+    items:
+    - name: Known issues
+      href: azure-stack-troubleshooting.md
+    - name: Diagnostics in Azure Stack
+      href: azure-stack-diagnostics.md
+    - name: Redeploy Azure Stack POC
+      href: azure-stack-redeploy.md
+- name: Reference
+  items:
+  - name: PowerShell
+    href: /powershell/azure/overview?view=azurestackps-1.2.9
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack

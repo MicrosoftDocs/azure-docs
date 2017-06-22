@@ -3,8 +3,8 @@ title: Configuring DHCPv6 for Linux VMs | Microsoft Docs
 description: How to configure DHCPv6 for Linux VMs.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Configuring DHCPv6 for Linux VMs
@@ -41,9 +41,9 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
    * On **Ubuntu 12.04 and 14.04**, edit the file `/etc/network/interfaces.d/eth0.cfg`
    * On **Ubuntu 16.04**, edit the file `/etc/network/interfaces.d/50-cloud-init.cfg`
 
-        iface eth0 inet6 auto
-            up sleep 5
-            up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+         iface eth0 inet6 auto
+             up sleep 5
+             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
 3. Renew IPv6 address:
 

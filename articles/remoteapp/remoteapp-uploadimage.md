@@ -1,5 +1,4 @@
-
----
+﻿---
 title: Upload a custom image for Azure RemoteApp | Microsoft Docs
 description: Learn how to upload a custom image for Azure RemoteApp
 services: remoteapp
@@ -13,13 +12,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: ericor
 
 ---
 # Upload a custom image for Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -27,7 +26,7 @@ Now that you have created your custom template image or have updated it with cha
 
 ## Before you start
 1. Verify your custom image meets the [image requirements](remoteapp-imagereqs.md) and [application requirements](remoteapp-appreqs.md).
-2. Install the [Azure PowerShell module](../powershell-install-configure.md).
+2. Install the [Azure PowerShell module](/powershell/azure/overview).
 
 ## Step by step on how to upload custom image
 1. Open Azure Management Portal and navigate to the RemoteApp page.

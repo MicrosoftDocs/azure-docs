@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use the SendGrid email service (Java) | Microsoft Docs
 description: Learn how send email with the SendGrid email service on Azure. Code samples written in Java.
 services: ''

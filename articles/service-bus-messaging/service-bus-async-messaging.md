@@ -1,6 +1,6 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
-description: Description of Service Bus asynchronous messaging.
+description: Description of Azure Service Bus asynchronous messaging.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 04/19/2017
 ms.author: sethm
 
 ---
 # Asynchronous messaging patterns and high availability
-Asynchronous messaging can be implemented in a variety of different ways. With queues, topics, and subscriptions, Azure Service Bus supports asynchrony via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
+
+Asynchronous messaging can be implemented in a variety of different ways. With queues, topics, and subscriptions, Azure Service Bus supports asynchronism via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
 
 Applications typically use asynchronous messaging patterns to enable a number of communication scenarios. You can build applications in which clients can send messages to services, even when the service is not running. For applications that experience bursts of communications, a queue can help level the load by providing a place to buffer communications. Finally, you can get a simple but effective load balancer to distribute messages across multiple machines.
 
@@ -78,23 +79,22 @@ Paired namespaces support *send availability*. Send availability preserves the a
 
 1. Messages are only received from the primary namespace.
 2. Messages sent to a given queue or topic might arrive out of order.
-3. If your application uses sessions, messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages. Session state is only maintained on the primary namespace.
-4. Messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages.
-5. Session state is only maintained on the primary namespace.
-6. The primary queue can come online and start accepting messages before the secondary queue delivers all messages into the primary queue.
+3. Messages within a session might arrive out of order. This is a break from normal functionality of sessions. This means that your application uses sessions to logically group messages.
+4. Session state is only maintained on the primary namespace.
+5. The primary queue can come online and start accepting messages before the secondary queue delivers all messages into the primary queue.
 
 The following sections discuss the APIs, how the APIs are implemented, and shows sample code that uses the feature. Note that there are billing implications associated with this feature.
 
 ### The MessagingFactory.PairNamespaceAsync API
 The paired namespaces feature includes the [PairNamespaceAsync][PairNamespaceAsync] method on the [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory] class:
 
-```
+```csharp
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
 When the task completes, the namespace pairing is also complete and ready to act upon for any [MessageReceiver][MessageReceiver], [QueueClient][QueueClient], or [TopicClient][TopicClient] created with the [MessagingFactory][MessagingFactory] instance. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] is the base class for the different types of pairing that are available with a [MessagingFactory][MessagingFactory] object. Currently, the only derived class is one named [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], which implements the send availability requirements. [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] has a set of constructors that build on each other. Looking at the constructor with the most parameters, you can understand the behavior of the other constructors.
 
-```
+```csharp
 public SendAvailabilityPairedNamespaceOptions(
     NamespaceManager secondaryNamespaceManager,
     MessagingFactory messagingFactory,
@@ -107,20 +107,20 @@ These parameters have the following meanings:
 
 * *secondaryNamespaceManager*: An initialized [NamespaceManager][NamespaceManager] instance for the secondary namespace that the [PairNamespaceAsync][PairNamespaceAsync] method can use to set up the secondary namespace. The namespace manager is used to obtain the list of queues in the namespace and to make sure that the required backlog queues exist. If those queues do not exist, they are created. [NamespaceManager][NamespaceManager] requires the ability to create a token with the **Manage** claim.
 * *messagingFactory*: The [MessagingFactory][MessagingFactory] instance for the secondary namespace. The [MessagingFactory][MessagingFactory] object is used to send and, if the [EnableSyphon][EnableSyphon] property is set to **true**, receive messages from the backlog queues.
-* *backlogQueueCount*: The number of backlog queues to create. This value must be at least 1. When sending messages to the backlog, one of these queues is randomly chosen. If you set the value to 1, then only one queue can ever be used. When this happens and the one backlog queue generates errors, the client is not be able to try a different backlog queue and may fail to send your message. We recommend setting this value to some larger value and default the value to 10. You can change this to a higher or lower value depending on how much data your application sends per day. Each backlog queue can hold up to 5 GB of messages.
+* *backlogQueueCount*: The number of backlog queues to create. This value must be at least 1. When sending messages to the backlog, one of these queues is randomly chosen. If you set the value to 1, then only one queue can ever be used. When this happens and the one backlog queue generates errors, the client is not able to try a different backlog queue and may fail to send your message. We recommend setting this value to some larger value and default the value to 10. You can change this to a higher or lower value depending on how much data your application sends per day. Each backlog queue can hold up to 5 GB of messages.
 * *failoverInterval*: The amount of time during which you will accept failures on the primary namespace before switching any single entity over to the secondary namespace. Failovers occur on an entity-by-entity basis. Entities in a single namespace frequently live in different nodes within Service Bus. A failure in one entity does not imply a failure in another. You can set this value to [System.TimeSpan.Zero][System.TimeSpan.Zero] to failover to the secondary immediately after your first, non-transient failure. Failures that trigger the failover timer are any [MessagingException][MessagingException] in which the [IsTransient][IsTransient] property is false, or a [System.TimeoutException][System.TimeoutException]. Other exceptions, such as [UnauthorizedAccessException][UnauthorizedAccessException] do not cause failover, because they indicate that the client is configured incorrectly. A [ServerBusyException][ServerBusyException] does not cause failover because the correct pattern is to wait 10 seconds, then send the message again.
 * *enableSyphon*: Indicates that this particular pairing should also syphon messages from the secondary namespace back to the primary namespace. In general, applications that send messages should set this value to **false**; applications that receive messages should set this value to **true**. The reason for this is that frequently, there are fewer message receivers than message senders. Depending on the number of receivers, you can choose to have a single application instance handle the syphon duties. Using many receivers has billing implications for each backlog queue.
 
 To use the code, create a primary [MessagingFactory][MessagingFactory] instance, a secondary [MessagingFactory][MessagingFactory] instance, a secondary [NamespaceManager][NamespaceManager] instance, and a [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] instance. The call can be as simple as the following:
 
-```
+```csharp
 SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
 When the task returned by the [PairNamespaceAsync][PairNamespaceAsync] method completes, everything is set up and ready to use. Before the task is returned, you may not have completed all of the background work necessary for the pairing to work right. As a result, you should not start sending messages until the task returns. If any failures occurred, such as bad credentials, or failure to create the backlog queues, those exceptions will be thrown once the task completes. Once the task returns, verify that the queues were found or created by examining the [BacklogQueueCount][BacklogQueueCount] property on your [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] instance. For the preceding code, that operation appears as follows:
 
-```
+```csharp
 if (sendAvailabilityOptions.BacklogQueueCount < 1)
 {
     // Handle case where no queues were created.
@@ -130,22 +130,22 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ## Next steps
 Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [paired namespaces][paired namespaces].
 
-[ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
+[ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-[MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[SendAvailabilityPairedNamespaceOptions]:https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-[PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
-[EnableSyphon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.enablesyphon.aspx
-[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/azure/system.timespan.zero.aspx
-[IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
-[UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
-[BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
+[Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[MessageReceiver]: /dotnet/api/microsoft.servicebus.messaging.messagereceiver
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
+[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
+[IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
+[UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md

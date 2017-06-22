@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 
 ---
@@ -34,8 +34,8 @@ Regardless of which operating system you use, add only the minimum number of dat
 
 > [!IMPORTANT]
 > **Do not change disk count in a new image version.** If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through ARM templates and other scenarios.
-> 
-> 
+>
+>
 
 ### 1.1 Add an offer
 1. Sign in to the [Publishing Portal][link-pubportal] by using your seller account.
@@ -46,17 +46,17 @@ Regardless of which operating system you use, add only the minimum number of dat
 After you have added an offer, you need to define and identify your SKUs. You can have multiple offers, and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
 
 1. **Add a SKU.** The SKU requires an identifier, which is used in the URL. The identifier must be unique within your publishing profile, but there is no risk of identifier collision with other publishers.
-   
+
    > [!NOTE]
    > The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
-   > 
-   > 
+   >
+   >
 2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" phase. Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
 This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation:
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
@@ -74,41 +74,41 @@ These links can also be found in the Publishing Portal under the SKU page.
 
 > [!TIP]
 > If you are using the current Azure portal or PowerShell, Windows Server images published on September 8, 2014 and later are approved.
-> 
-> 
+>
+>
 
 ### 3.2 Create your Windows-based VM
 From the Microsoft Azure portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process:
 
 1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
-   
+
     ![drawing][img-acom-1]
 2. Sign in to the portal with the Microsoft account and password for the Azure subscription you want to use.
 3. Follow the prompts to create a VM by using the base image you have selected. You need to provide a host name (name of the computer), user name (registered as an administrator), and password for the VM.
-   
+
     ![drawing][img-portal-vm-create]
 4. Select the size of the VM to deploy:
-   
+
     a.    If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
-   
+
     b.    If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
-   
+
     c.    For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
-   
+
     ![drawing][img-portal-vm-size]
 5. Set properties:
-   
+
     a.    For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
-   
+
     b.    Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
-   
+
     c.    Under **Resource Group**, you can optionally select the logical group in which to place the VM.
 6. Select the **Location** for deployment:
-   
+
     a.    If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
-   
+
     b.    If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This speeds up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
-   
+
     ![drawing][img-portal-vm-location]
 7. Click **Create**. The VM starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
@@ -117,8 +117,8 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 
 > [!IMPORTANT]
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
-> 
-> 
+>
+>
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
@@ -136,10 +136,10 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 3. A blade opens that describes the selected VM.
 4. Click **Properties**.
 5. The first portion of the domain name is the service name. The host name is the VM name.
-   
+
     ![drawing][img-portal-vm-rdp]
 6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
-   
+
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
@@ -169,10 +169,10 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 
 * For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
 * You can run the following command from the directory %windir%\System32\Sysprep.
-  
+
         sysprep.exe /generalize /oobe /shutdown
-  
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## 4. Deploy a VM from your VHDs
 After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
@@ -184,23 +184,23 @@ To learn more about VM images, review the following blog posts:
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-* [How to setup PowerShell](../powershell-install-configure.md)
-* [How to setup Azure CLI](../xplat-cli-install.md)
+* [How to setup PowerShell](/powershell/azure/overview)
+* [How to setup Azure CLI](../cli-install-nodejs.md)
 
 ### 4.1 Create a user VM image
 #### Capture VM
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
@@ -208,13 +208,13 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 **Deploy a VM from the current Azure portal**
 
 1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
-   
+
     ![drawing][img-manage-vm-new]
 2. Go to **My images**, and then select the VM image from which to deploy a VM:
-   
+
    1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.
    2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of VM images have more than one disk. However, it is still possible to have a VM image with only a single operating system disk, which would then have **Number of disks** set to 1.
-      
+
       ![drawing][img-manage-vm-select]
 3. Follow the VM creation wizard and specify the VM name, VM size, location, user name, and password.
 
@@ -222,16 +222,16 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 
 To deploy a large VM from the generalized VM image just created, you can use the following cmdlets.
 
-    $img = Get‐AzureVMImage ‐ImageName "myVMImage"
+    $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
     $pass = "adminPassword123"
-    $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
-    New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
+    $myVM = New-AzureVMConfig -Name "VMImageVM" -InstanceSize "Large" -ImageName $img.ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
+    New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
 > Please refer [Troubleshooting common issues encountered during VHD creation] for additional assistance.
-> 
-> 
+>
+>
 
 ## 5. Obtain certification for your VM image
 The next step in preparing your VM image for the Azure Marketplace is to have it certified.
@@ -253,15 +253,15 @@ The certification tool can be used with both Windows and Linux VMs. It connects 
 1. Select the SSH authentication mode: password or key file.
 2. If using password-­based authentication, enter the Domain Name System (DNS) name, user name, and password.
 3. If using key file authentication, enter the DNS name, user name, and private key location.
-   
+
    ![Password authentication of Linux VM Image][img-cert-vm-pswd-lnx]
-   
+
    ![Key file authentication of Linux VM Image][img-cert-vm-key-lnx]
 
 ### **Connect the certification tool to a Windows-based VM image**
 1. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
 2. Enter the user name and password.
-   
+
    ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
 After you have selected the correct options for your Linux or Windows-based VM image, select **Test Connection** to ensure
@@ -292,58 +292,202 @@ During the publishing process, you specify the uniform resource identifiers (URI
 The shared access signature URI created should adhere to the following requirements:
 
 * When generating shared access signature URIs for your VHDs, List and Read­ permissions are sufficient. Do not provide Write or Delete access.
-* The duration for access should be a minimum of seven business days from when the shared access signature URI is created.
-* To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
+* The duration for access should be a minimum of three (3) weeks from when the shared access signature URI is created.
+* To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
-To create a shared access signature URI, you can follow the instructions provided in [Shared access signatures, Part 1: Understanding the SAS model][link-azure-1] and [Shared access signatures, Part 2: Create and use a SAS with the Azure Blob service][link-azure-2].
+SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
+Following are the 3 recommended tools:
 
-Instead of generating a shared access key by using code, you can also use storage tools, such as [Azure Storage Explorer][link-azure-codeplex].
+1.	Azure Storage Explorer
+2.	Microsoft Storage Explorer
+3.	Azure CLI
 
-**Use Azure Storage Explorer to generate a shared access key**
+**Azure Storage Explorer (Recommended for Windows Users)**
 
-1. Download [Azure Storage Explorer][link-azure-codeplex] 6 and above from CodePlex.
-2. After it is installed, open the application.
-3. Click **Add Account**.
-   
-    ![drawing][img-azstg-add]
-4. Specify the storage account name, storage account key, and storage endpoints domain. Don’t select **Use HTTPS**.
-   
-    ![drawing][img-azstg-setup-1]
-5. Azure Storage Explorer is now connected to your specific storage account. It will start showing all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
-   
-    ![drawing][img-azstg-setup-2]
-6. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
-   
-    ![drawing][img-azstg-setup-3]
-7. After selecting the .vhd file in the container, click the **Security** tab.
-   
-    ![drawing][img-azstg-setup-4]
-8. In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click the **Shared Access Signatures** tab.
-   
-    ![drawing][img-azstg-setup-5]
-9. Follow the steps below to generate a shared access signature URI for the .vhd image:
-   
-    ![drawing][img-azstg-setup-6]
-   
-    a.    **Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
-   
-    b.    **Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
-   
-    c.    **Actions permitted**: Select the **List** and **Read** permissions.
-   
-    d.    If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
-   
-    e.    Click **Generate Signature**.
-   
-    f.    In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
-   
-   * Make sure that the URL doesn't start with "https".
-   * Make sure that your image file name and ".vhd" are in the URI.
-   * At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
-     
-     g.    To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
-10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
-11. Repeat these steps for each VHD in the SKU.
+Following are the steps for generating SAS URL by using Azure Storage Explorer
+
+1. Download [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) from CodePlex. Go to [Azure Storage Explorer 6 Preview](https://azurestorageexplorer.codeplex.com/) and click **"Downloads"**.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_01.png)
+
+2. Download [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) and install after unzipping it.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_02.png)
+
+3. After it is installed, open the application.
+4. Click **Add Account**.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
+
+5. Specify the storage account name, storage account key, and storage endpoints domain. This is the storage account in your Azure subscription where you have kept your VHD on Azure portal.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
+
+6. Once Azure Storage Explorer is connected to your specific storage account, it will start showing all of the contains within the storage account. Select the container where you copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
+
+7. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
+
+8.	After selecting the .vhd file in the container, click the **Security** tab.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
+
+9.	In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click **Shared Access Signatures** tab.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
+
+10.	Follow the steps below to generate a shared access signature URI for the .vhd image:
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
+
+    a. **Access permitted from:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+
+    b. **Access permitted to:** Select a date that is at least 3 weeks after the **Access permitted from** date.
+
+    c. **Actions permitted:** Select the **List** and **Read** permissions.
+
+    d. If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
+
+    e. Click **Generate Signature**.
+
+    f. In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
+
+       - Make sure that your image file name and **".vhd"** are in the URI.
+       - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
+       - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+
+11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
+
+12.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+13.	Repeat steps 6-10 for each VHD in the SKU.
+
+**Microsoft Azure Storage Explorer (Windows/MAC/Linux)**
+
+Following are the steps for generating SAS URL by using Microsoft Azure Storage Explorer
+
+1.	Download Microsoft Azure Storage Explorer form [http://storageexplorer.com/](http://storageexplorer.com/) website. Go to [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) and click **“Download for Windows”**.
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
+
+2.	After it is installed, open the application.
+
+3.	Click **Add Account**.
+
+4.	Configure Microsoft Azure Storage Explorer to your subscription by sign in to your account
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
+
+5.	Go to storage account and select the Container
+
+6.	Select **“Get Share Access Signature..”** by using Right Click of the **container**
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
+
+7.	Update Start time, Expiry time and Permissions as per following
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
+
+    a.	**Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+
+    b.	**Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
+
+    c.	**Permissions:** Select the **List** and **Read** permissions
+
+8.	Copy Container shared access signature URI
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
+
+    Generated SAS URL is for container Level and now we need to add VHD name in it.
+
+    Format of Container Level SAS URL: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    Insert VHD name after the container name in SAS URL as below
+    `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    Example:
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
+
+    TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
+`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    - Make sure that your image file name and **".vhd"** are in the URI.
+    - In middle of the signature, make sure that **"sp=rl"** appears. This demonstrates that Read and List access was provided successfully.
+    - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+
+9.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+
+10.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+11.	Repeat these steps for each VHD in the SKU.
+
+**Azure CLI (Recommended for Non-Windows & Continuous Integration)**
+
+Following are the steps for generating SAS URL by using Azure CLI
+
+1.	Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
+
+2.	Once it is downloaded, please install
+
+3.	Create a PowerShell file with following code and save it in local
+
+          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
+          azure storage container list vhds -c $conn
+          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+
+    Update the following parameters in above
+
+    a. **`<StorageAccountName>`**: Give your storage account name
+
+    b. **`<Storage Account Key>`**: Give your storage account key
+
+    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016
+
+    d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. Then value should be **11/02/2016**.
+
+    Following is the example code after updating proper parameters
+
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          azure storage container list vhds -c $conn
+          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
+
+4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3.
+
+5.	Run the script and it will provide you the SAS URL for container level access
+
+    Following will be the output of the SAS Signature and copy the highlighted part in a notepad
+
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
+
+6.	Now you will get container level SAS URL and you need to add VHD name in it.
+
+    Container level SAS URL #
+
+    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+7.	Insert VHD name after the container name in SAS URL as shown below
+    `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+    Example:
+
+    TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
+
+    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+    - Make sure that your image file name and ".vhd" are in the URI.
+    -	In middle of the signature, make sure that "sp=rl" appears. This demonstrates that Read and List access was provided successfully.
+    -	In middle of the signature, make sure that "sr=c" appears. This demonstrates that you have container level access
+
+8.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+
+9.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+10.	Repeat these steps for each VHD in the SKU.
+
 
 ### 5.3 Provide information about the VM image and request certification in the Publishing Portal
 After you have created your offer and SKU, you should enter the image details associated with that SKU:
@@ -362,8 +506,20 @@ After you have created your offer and SKU, you should enter the image details as
 9. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD.
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
-    
+
     ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
+
+
+## Common SAS URL issues & fixes
+
+|Issue|Failure Message|Fix|Documentation Link|
+|---|---|---|---|
+|Failure in copying images - "?" is not found in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url using recommended tools|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - “st” and “se” parameters not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url with Start and End dates on it|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - “sp=rl” not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri|Update the SAS Url with permissions set as “Read” & “List|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - SAS url have white spaces in vhd name|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url without white spaces|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images – SAS Url Authorization error|Failure: Copying Images. Not able to download blob due to authorization error|Regenerate the SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
@@ -377,12 +533,6 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 [img-portal-vm-location]:media/marketplace-publishing-vm-image-creation/vm-image-portal-location.png
 [img-portal-vm-rdp]:media/marketplace-publishing-vm-image-creation/vm-image-portal-rdp.png
 [img-azstg-add]:media/marketplace-publishing-vm-image-creation/vm-image-storage-add.png
-[img-azstg-setup-1]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup.png
-[img-azstg-setup-2]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-2.png
-[img-azstg-setup-3]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-3.png
-[img-azstg-setup-4]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-4.png
-[img-azstg-setup-5]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-5.png
-[img-azstg-setup-6]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-6.png
 [img-manage-vm-new]:media/marketplace-publishing-vm-image-creation/vm-image-manage-new.png
 [img-manage-vm-select]:media/marketplace-publishing-vm-image-creation/vm-image-manage-select.png
 [img-cert-vm-key-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-keyfile-linux.png

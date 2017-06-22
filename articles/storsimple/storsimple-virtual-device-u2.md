@@ -4,7 +4,7 @@ description: Learn how to create, deploy, and manage a StorSimple virtual device
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 04/07/2017
 ms.author: alkohli
 
 ---
@@ -29,34 +29,13 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
-| **Region availability** |All Azure regions |Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Region availability** |All Azure regions |All Azure regions that support Premium Storage and DS3 Azure VMs<br></br> Use [this list](https://azure.microsoft.com/en-us/regions/services) to see if both *Virtual Machines > DS-series* and *Storage > Disk storage* are available in your region. |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
 
 <sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
-
-#### Supported regions for 8020
-The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
-
-| S. no. | Currently supported in regions |
-| --- | --- |
-| 1 |Central US |
-| 2 |East US |
-| 3 |East US 2 |
-| 4 |West US |
-| 5 |North Europe |
-| 6 |West Europe |
-| 7 |Southeast Asia |
-| 8 |Japan East |
-| 9 |Japan West |
-| 10 |Australia East |
-| 11 |Australia Southeast* |
-| 12 |East Asia* |
-| 13 |South Central US* |
-
-*Premium Storage was launched recently in these geos.
 
 This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
 
@@ -65,7 +44,7 @@ This article describes the step-by-step process of deploying a StorSimple virtua
 * Connect to the virtual device.
 * Learn how to work with the virtual device.
 
-This tutorial applies to all the StorSimple virtual devices running Update 2 and higher. 
+This tutorial applies to all the StorSimple virtual devices running Update 2 and higher.
 
 ## How the virtual device differs from the physical device
 The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
@@ -86,11 +65,11 @@ The following sections explain the configuration prerequisites for your StorSimp
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
+* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium storage regions are regions that correspond to the row for *Disk storage* in the list of [Azure Services by Region](https://azure.microsoft.com/en-us/regions/services).
 * It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
-* Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
+* Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 * You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                             
-  
+
   * Be Windows or Linux VMs with iSCSI Initiator software installed.
   * Be running in the same virtual network as the virtual device.
   * Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
@@ -100,7 +79,7 @@ Before you provision the virtual device, you need to make the following preparat
 Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 * Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
-* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account]((../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account](../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md)
 * Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:
@@ -109,9 +88,9 @@ Make sure that you have the following information before you begin:
 * A copy of the service data encryption key from your physical device.
 
 ## Create and configure the virtual device
-Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device). 
+Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device).
 
-After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device. 
+After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device.
 
 ### Step 1: Create a virtual device
 Perform the following steps to create the StorSimple virtual device.
@@ -141,8 +120,8 @@ StorSimple Snapshot Manager software resides on your Windows host and allows adm
 
 > [!NOTE]
 > For the virtual device, your Windows host is an Azure virtual machine.
-> 
-> 
+>
+>
 
 When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -164,13 +143,13 @@ After you have enabled remote management on the StorSimple device configuration 
 
 > [!WARNING]
 > **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
-> 
-> 
+>
+>
 
 You should follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
 ## Connect directly to the virtual device
-You can also connect directly to the virtual device. If you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure. 
+You can also connect directly to the virtual device. If you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.
 
 Perform the following steps to create a public endpoint on the virtual device.
 
@@ -224,8 +203,8 @@ Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual d
 > [!NOTE]
 > * When using a virtual device as the secondary device for DR, keep in mind that the 8010 has 30 TB of Standard Storage and 8020 has 64 TB of Premium Storage. The higher capacity 8020 virtual device may be more suited for a DR scenario.
 > * You cannot failover or clone from a device running Update 2 to a device running pre-Update 1 software. You can however fail over a device running Update 2 to a device running Update 1 (1.1 or 1.2)
-> 
-> 
+>
+>
 
 For a step-by-step procedure, go to [failover to a virtual device](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -242,15 +221,14 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 During the creation of a virtual device, if there is no connectivity to the Internet, the creation step will fail. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
 
 1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet and subnet as used by your virtual device. If you already have an existing Windows Server host in Azure using the same storage account, Vnet and subnet, you can also use it to troubleshoot the Internet connectivity.
-2. Remote log into the virtual machine created in the preceding step. 
+2. Remote log into the virtual machine created in the preceding step.
 3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
 4. Run the following cmd at the prompt.
-   
+
     `nslookup windows.net`
-5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service. 
+5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service.
 6. Make the required changes to your virtual network to ensure that the virtual device is able to access Azure sites such as “windows.net”.
 
 ## Next steps
 * Learn how to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
-* Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
-
+* Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).

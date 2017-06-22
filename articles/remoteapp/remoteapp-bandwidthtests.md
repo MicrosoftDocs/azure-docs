@@ -3,7 +3,7 @@ title: Azure RemoteApp - testing your network bandwidth usage with some common s
 description: Learn how about common usage scenarios that can help you figure out your network bandwidth needs for Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 06417c75-0c63-4ecf-b9d1-66a7af6b7b91
@@ -12,13 +12,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # Azure RemoteApp - testing your network bandwidth usage with some common scenarios
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

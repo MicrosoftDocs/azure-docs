@@ -1,10 +1,10 @@
-﻿---
+---
 title: Deploy the StorSimple Manager service | Microsoft Docs
 description: Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key.
 services: storsimple
 documentationcenter: ''
-author: SharS
-manager: carmonm
+author: alkohli
+manager: timlt
 editor: ''
 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: v-sharos
+ms.date: 02/27/2017
+ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deploy the StorSimple Manager service
+# Deploy the StorSimple Manager service in the Azure classic portal
+
 ## Overview
 The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage the devices from the Microsoft Azure classic portal running in a browser. This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
 
@@ -48,6 +50,9 @@ You can also choose to generate a default storage account when you create the se
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. Please note that you need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
 
+> [!IMPORTANT] 
+> If you have an unused service created (no device operations were performed on this resource) prior to August 2016, it cannot be managed via Azure portal or Azure classic portal. We recommend that you create a new service in the Azure portal.
+
 Perform the following steps to create a service.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -55,7 +60,8 @@ Perform the following steps to create a service.
 ## Delete a service
 Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud.
 
-[AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
+> [!IMPORTANT] 
+> After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
 
 Perform the following steps to delete a service.
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Add a new Azure Stack tenant account in Azure Active Directory | Microsoft Docs
 description: After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
+author: heathl17
 manager: byronr
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: erikje
+ms.date: 4/13/2017
+ms.author: helaw
 
 ---
 # Add a new Azure Stack tenant account in Azure Active Directory
@@ -38,7 +38,7 @@ You must have an Azure subscription to use the Azure portal.
 13. On the **Get temporary password** page, click **Create**.
 14. Copy the **New password**.
 15. Log in to Microsoft Azure with the new account. Change the password when prompted.
-16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
+16. Log in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 
 ## Create an Azure Stack tenant account using PowerShell
 If you don't have an Azure subscription, you can't use the Azure portal to add a tenant user account. In this case, you can use the Azure Active Directory Module for Windows PowerShell instead.
@@ -66,5 +66,5 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
     ```
 
 1. Sign in to Microsoft Azure with the new account. Change the password when prompted.
-2. Sign in to `https://portal.azurestack.local` with the new account to see the tenant portal.
+2. Sign in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 

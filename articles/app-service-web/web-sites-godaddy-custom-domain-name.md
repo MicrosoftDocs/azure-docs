@@ -4,7 +4,7 @@ description: Learn how to use a domain name from GoDaddy with Azure Web Apps
 services: app-service
 documentationcenter: ''
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
@@ -38,7 +38,7 @@ This article provides instructions on using a custom domain name that was purcha
 ## Add a DNS record for your custom domain
 To associate your custom domain with a web app in App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by GoDaddy. Use the following steps to locate the DNS tools for GoDaddy.com
 
-1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage my domains**. Finally, select the drop-down menu for the domain name that you wish to use with your Azure web app and select **Manage DNS**.
+1. Log on to your account with GoDaddy.com, and select **My Account** and then **Manage my domains**. Select the drop-down menu for the domain name that you wish to use with your Azure web app and select **Manage DNS**.
    
     ![custom domain page for GoDaddy](./media/web-sites-godaddy-custom-domain-name/godaddy-customdomain.png)
 2. From the **Domain details** page, scroll to the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name.
@@ -78,7 +78,7 @@ To associate your custom domain with a web app in App Service, you must add a ne
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

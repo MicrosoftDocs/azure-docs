@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 
 ---
@@ -78,7 +78,18 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0",
+      "options":{
+          "TrackingMode": "Fast"
+      }
+    }
+
+#### Attribute descriptions
+| Attribute name | Description |
+| --- | --- |
+| Mode |Fast - fast processing speed, but less accurate (default).|
+
 
 ### JSON output
 The following example of JSON output was truncated.
@@ -150,17 +161,17 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 #### Attribute descriptions
 | Attribute name | Description |
 | --- | --- |
-| Mode |Faces: Only face detection <br/>AggregateEmotion: Return average emotion values for all faces in frame. |
+| Mode |Faces: Only face detection.<br/>PerFaceEmotion: Return emotion independently for each face detection.<br/>AggregateEmotion: Return average emotion values for all faces in frame. |
 | AggregateEmotionWindowMs |Use if AggregateEmotion mode selected. Specifies the length of video used to produce each aggregate result, in milliseconds. |
 | AggregateEmotionIntervalMs |Use if AggregateEmotion mode selected. Specifies with what frequency to produce aggregate results. |
 
 #### Aggregate defaults
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
-| Defaults(s) | Max(s) | Min(s) |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |
-| AggregateEmotionIntervalMs |0.5 |1 |
+|| Defaults(s) | Min(s) | Max(s) |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0.25|
+| AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### JSON output
 JSON output for aggregate emotion (truncated):
@@ -327,12 +338,12 @@ JSON output for aggregate emotion (truncated):
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a face detection task based on a configuration file that contains the following json preset. 
+2. Create a job with a face detection task based on a configuration file that contains the following json preset. 
    
         {
             "version": "1.0"
         }
-3. Downloads the output JSON files. 
+3. Download the output JSON files. 
    
         using System;
         using System.Configuration;

@@ -1,6 +1,6 @@
 ---
-title: Restore an Azure SQL Data Warehouse (Portal) | Microsoft Docs
-description: Azure portal tasks for restoring an Azure SQL Data Warehouse.
+title: Restore Azure SQL Data Warehouse (Azure portal) | Microsoft Docs
+description: Azure portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
@@ -13,84 +13,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: backup-restore
 ms.date: 09/21/2016
-ms.author: lakshmir;barbkess;sonyama
+ms.author: lakshmir;barbkess
 
 ---
-# Restore an Azure SQL Data Warehouse (Portal)
+# Restore Azure SQL Data Warehouse (portal)
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
-> 
-> 
-
-In this article you will learn how to restore an Azure SQL Data Warehouse using the Azure Portal.
+>
+>
+In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal.
 
 ## Before you begin
-**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
+**Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.windows.net) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring. To learn how to calculate DTU quota or to request more DTUs, see [Request a DTU quota change][Request a DTU quota change].
 
 ## Restore an active or paused database
 To restore a database:
 
-1. Log in to the [Azure portal][Azure portal]
-2. On the left side of the screen select **Browse** and then select **SQL servers**
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. Navigate to your server and select it
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-4. Find the SQL Data Warehouse that you want to restore from and select it
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. At the top of the Data Warehouse blade, click **Restore**
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
-6. Specify a new **Database name**
-7. Select the latest **Restore Point**
-   
-   1. Make sure you choose the latest restore point.  Since restore points are shown in UTC, sometimes the default option shown is not the latest restore point.
-      
-      ![](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
-8. Click **OK**
-9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
+1. Sign in to the [Azure portal][Azure portal].
+2. In the left pane, select **Browse**, and then select **SQL servers**.
+
+    ![Select Browse > SQL servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
+3. Find your server, and then select it.
+
+    ![Select your server](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
+4. Find the instance of SQL Data Warehouse that you want to restore from, and then select it.
+
+    ![Select the instance of SQL Data Warehouse to restore](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. At the top of the Data Warehouse blade, select **Restore**.
+
+    ![Select Restore](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
+6. Specify a new **Database name**.
+7. Select the latest **Restore point**.
+
+   Make sure you choose the latest restore point. Because restore points are shown in Coordinated Universal Time (UTC), the default option might not be the latest restore point.
+
+      ![Select a restore point](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
+8. Select **OK**.
+9. The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.
 
 > [!NOTE]
-> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
-> 
-> 
+> After the restore has finished, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
+>
+>
 
 ## Restore a deleted database
 To restore a deleted database:
 
-1. Log in to the [Azure portal][Azure portal]
-2. On the left side of the screen select **Browse** and then select **SQL servers**
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. Navigate to your server and select it
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-4. Scroll down to the Operations section on your server's blade
-5. Click the **Deleted Databases** tile
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
-6. Select the deleted database you want to restore
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
-7. Specify a new **Database name**
-   
-    ![](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
-8. Click **OK**
-9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
+1. Sign in to the [Azure portal][Azure portal].
+2. In the left pane, select **Browse**, and then select **SQL servers**.
+
+    ![Select Browse > SQL servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
+3. Find your server, and then select it.
+
+    ![Select your server](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
+4. Scroll down to the **Operations** section on your server's blade.
+5. Select the **Deleted databases** tile.
+
+    ![Select the Deleted databases tile](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+6. Select the deleted database that you want to restore.
+
+    ![Select a database to restore](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+7. Specify a new **Database name**.
+
+    ![Add a name for the database](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
+8. Select **OK**.
+9. The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.
 
 > [!NOTE]
-> To configure your database after the restore has completed, see [Configure your database after recovery][Configure your database after recovery].
-> 
-> 
+> To configure your database after the restore has finished, see [Configure your database after recovery][Configure your database after recovery].
+>
+>
 
 ## Next steps
-To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].
+To learn about the business continuity features of Azure SQL Database editions, read the [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

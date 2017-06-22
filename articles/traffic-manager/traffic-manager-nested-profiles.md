@@ -3,8 +3,8 @@ title: Nested Traffic Manager Profiles | Microsoft Docs
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: sewhee
+ms.date: 03/22/2017
+ms.author: kumud
 ---
 
 # Nested Traffic Manager profiles
@@ -29,7 +29,7 @@ The following examples illustrate how to use nested Traffic Manager profiles in 
 
 Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
 
-![Single Traffic Manager profile][1]
+![Single Traffic Manager profile][4]
 
 Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
 
@@ -41,11 +41,11 @@ The following diagram illustrates this example:
 
 In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
-When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
 
 ## Example 2: Endpoint monitoring in Nested Profiles
 
-Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile uses this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles) for full details on health monitoring of nested profiles.
 
 Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
 
@@ -94,56 +94,11 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
-## FAQ
-
-### How do I configure nested profiles?
-
-Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
-
-### How many layers of nesting does Traffic Manger support?
-
-You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
-
-### Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
-
-Yes. There are no restrictions on how you combine endpoints of different types within a profile.
-
-### How does the billing model apply for Nested profiles?
-
-There is no negative pricing impact of using nested profiles.
-
-Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
-
-* Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
-* DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
-
-For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
-
-### Is there a performance impact for nested profiles?
-
-No. There is no performance impact incurred when using nested profiles.
-
-The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
-
-### How does Traffic Manager compute the health of a nested endpoint in a parent profile?
-
-The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
-
-The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
-
-| Child Profile Monitor status | Parent Endpoint Monitor status | Notes |
-| --- | --- | --- |
-| Disabled. The child profile has been disabled. |Stopped |The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile. |
-| Degraded. At least one child profile endpoint is in a Degraded state. |Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise. |Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded. |
-| Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state. |See above. | |
-| CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
-| Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
-
 ## Next steps
 
-Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
+Learn more about [Traffic Manager profiles](traffic-manager-overview.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
+Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

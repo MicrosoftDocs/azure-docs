@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with O.C. Tanner - AppreciateHub | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and O.C. Tanner - AppreciateHub.
+title: 'Tutorial: Azure Active Directory integration with O. C. Tanner - AppreciateHub | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and O. C. Tanner - AppreciateHub.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with O.C. Tanner - AppreciateHub
+# Tutorial: Azure Active Directory integration with O. C. Tanner - AppreciateHub
 The objective of this tutorial is to show you how to integrate O.C. Tanner - AppreciateHub with Azure Active Directory (Azure AD).  
 Integrating O.C. Tanner - AppreciateHub with Azure AD provides you with the following benefits: 
 
@@ -114,12 +114,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
      d. In the **Sign On URL** textbox, past the value you have obtained in the previous step.
    
-   > [!NOTE]
-   > If you are expiriencing issues getting the Reply URL from the metadata file, contact the O.C. Tanner - AppreciateHub support team via [sso@octanner.com](mailto:sso@octanner.com).
-   > 
-   > 
+    > [!NOTE]
+    > If you are expiriencing issues getting the Reply URL from the metadata file, contact the O.C. Tanner - AppreciateHub support team via [sso@octanner.com](mailto:sso@octanner.com).
+    > 
+    > 
    
-     e. Click **Next**.
+    e. Click **Next**.
+
 4. On the **Configure single sign-on at O.C. Tanner - AppreciateHub** page, click **Download metadata**, and then save the metadata file locally on your computer.
    
     ![What is Azure AD Connect][9]
@@ -159,16 +160,17 @@ The objective of this section is to create a test user in the Azure classic port
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
+    d. In the **Role** list, select **User**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png) 
@@ -185,7 +187,7 @@ The objective of this section is to create a user called Britta Simon in O.C. Ta
 
 **To create a user called Britta Simon in O.C. Tanner - AppreciateHub, perform the following steps:**
 
-1. Ask your OC Tanner support team to create a user that has as nameID attribute the same value as the user name of Britta Simon in Azure AD.
+Ask your OC Tanner support team to create a user that has as nameID attribute the same value as the user name of Britta Simon in Azure AD.
 
 ### Assigning the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to O.C. Tanner - AppreciateHub.

@@ -26,7 +26,7 @@
 ###[Distribute your cache with clustering](cache-how-to-premium-clustering.md)
 ## Automate
 ###[Deploy and manage using Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Deploy and Manage using Azure CLI](cache-manage-cli.md)
+###[Deploy and Manage using Azure CLI](cli-samples.md)
 ###[Provision a Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integrate with ASP.NET
@@ -45,16 +45,17 @@
 ###[Update to a different size and tier](cache-how-to-scale.md)
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
 
-#Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Reference
+## [PowerShell](/powershell/module/azurerm.rediscache)
+## [Azure CLI 2.0 Preview](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis clients](http://redis.io/clients)
 ## [Redis commands](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
-## [Redis cache samples](cache-redis-samples.md)
 
-#Resources
-##[Pricing](https://azure.microsoft.com/pricing/details/cache/)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing](https://azure.microsoft.com/pricing/details/cache/)
+## [Redis cache samples](cache-redis-samples.md)
 

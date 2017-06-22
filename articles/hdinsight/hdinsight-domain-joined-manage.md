@@ -1,5 +1,5 @@
-﻿---
-title: Manage Domain-joined HDInsight clusters| Microsoft Docs
+---
+title: Manage Domain-joined HDInsight clusters - Azure | Microsoft Docs
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight
 documentationcenter: ''
@@ -10,6 +10,7 @@ tags: ''
 
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -31,14 +32,14 @@ A domain-joined HDInsight cluster has three new users in addition to Ambari Admi
 
 * **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 * **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
-  
+
   * Join machines to the domain and place them within the OU that you specify during cluster creation.
-  * Create service principals within the OU that you specify during cluster creation. 
+  * Create service principals within the OU that you specify during cluster creation.
   * Create reverse DNS entries.
-    
-    Note the other AD users also have these privileges. 
-    
-    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user. 
+
+    Note the other AD users also have these privileges.
+
+    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user.
 * **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups will be synced to Ranger and Ambari. These users are domain users and will have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
 ## Roles of Domain-joined HDInsight clusters
@@ -55,7 +56,7 @@ Domain-joined HDInsight have the following roles:
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.
 3. Click the blue question mark to see the permissions:
-   
+
     ![Domain-joined HDInsight roles permissions](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## Open the Ambari Management UI
@@ -64,36 +65,36 @@ Domain-joined HDInsight have the following roles:
 3. Click **Dashboard** from the top menu to open Ambari.
 4. Log on to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
-   
+
     ![Domain-joined HDInsight manage Ambari](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
-   
+
     The UI looks like:
-   
+
     ![Domain-joined HDInsight Ambari management UI](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## List the domain users synchronized from your Active Directory
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
-   
+
     ![Domain-joined HDInsight Ambari management UI list users](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## List the domain groups synchronized from your Active Directory
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
-   
+
     ![Domain-joined HDInsight Ambari management UI list groups](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## Configure Hive Views permissions
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Views**.
 3. Click **HIVE** to show the details.
-   
+
     ![Domain-joined HDInsight Ambari management UI Hive Views](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
 4. Click the **Hive View** link to configure Hive Views.
 5. Scroll down to the **Permissions** section.
-   
+
     ![Domain-joined HDInsight Ambari management UI Hive Views configure permissions](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
-6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views. 
+6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 
 ## Configure users for the roles
  To see a list of roles and their permissions, see [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters).
@@ -105,5 +106,4 @@ Domain-joined HDInsight have the following roles:
 ## Next steps
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
-
+* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

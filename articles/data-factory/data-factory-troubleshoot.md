@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 05/02/2017
 ms.author: spelluru
 
 ---
@@ -26,9 +26,15 @@ If you receive this error, the Azure Data Factory resource provider has not been
 
 1. Launch Azure PowerShell.
 2. Log in to your Azure account using the following command.
-        Login-AzureRmAccount
+
+	```powershell
+	Login-AzureRmAccount
+	```
 3. Run the following command to register the Azure Data Factory provider.
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+
+	```powershell        
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	```
 
 ### Problem: Unauthorized error when running a Data Factory cmdlet
 You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.
@@ -57,29 +63,31 @@ See the following example for the usage of the **external** property. You can op
 
 See [Datasets](data-factory-create-datasets.md) article for more details about this property.
 
-    {
-      "name": "CustomerTable",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties": {
-          "folderPath": "MyContainer/MySubFolder/",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          }
-        }
+```json
+{
+  "name": "CustomerTable",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties": {
+      "folderPath": "MyContainer/MySubFolder/",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
       }
     }
+  }
+}
+```
 
 To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table.
 
@@ -89,14 +97,16 @@ See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubl
 ### Problem: On-demand HDInsight provisioning fails
 When using a linked service of type HDInsightOnDemand, you need to specify a linkedServiceName that points to an Azure Blob Storage. Data Factory service uses this storage to store logs and supporting files for your on-demand HDInsight cluster.  Sometimes provisioning of an on-demand HDInsight cluster fails with the following error:
 
-        Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
+Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
 
 This error usually indicates that the location of the storage account specified in the linkedServiceName is not in the same data center location where the HDInsight provisioning is happening. Example: if your data factory is in West US and the Azure storage is in East US, the on-demand provisioning fails in West US.
 
 Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight. Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it fails with the same error.
 
 ### Problem: Custom .NET activity fails
-See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) for detailed steps.
+See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#troubleshoot-failures) for detailed steps.
 
 ## Use Azure portal to troubleshoot
 ### Using portal blades

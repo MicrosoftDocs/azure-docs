@@ -1,5 +1,5 @@
-﻿---
-title: What is Azure Stack Technical Preview 2? | Microsoft Docs
+---
+title: What is Azure Stack Technical Preview 3? | Microsoft Docs
 description: Azure Stack POC is an environment for learning about core Azure Stack features and scenarios.
 services: azure-stack
 documentationcenter: ''
@@ -13,24 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/7/2016
+ms.date: 4/11/2017
 ms.author: helaw
+ms.custom: mvc
 
 ---
-# What is Azure Stack Technical Preview 2?
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/What-is-Microsoft-Azure-Stack/player]
+# What is Azure Stack Technical Preview 3?
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Microsoft-Azure-Stack/player]
 
 
-Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 2 is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+Microsoft Azure Stack is a hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 3 is being made available as a Proof of Concept (POC). Once deployed, the POC is an ideal environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
 
 ## Scope of Azure Stack POC
 * Azure Stack POC must not be used as a production environment and should only be used for testing, evaluation, and demonstration.  
-* Your deployment of Azure Stack is associated with a single Azure Active Directory directory. You can create multiple users in this directory and assign subscriptions to each user.
-* With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale and performance evaluation.
+* Your deployment of Azure Stack is associated with a single identity provider, like Azure Active Directory or Active Directory Federation Services. You can create multiple users in this directory and assign subscriptions to each user.
+* With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale or performance evaluation.
 * Networking scenarios are limited due to the single host/NIC requirement.
 
 ## Next steps
 [Key features and concepts](azure-stack-key-features.md)
 
-[Taking the cloud to your datacenter whitepaper (pdf)](http://download.microsoft.com/download/3/F/3/3F3811C0-969D-422C-9EDA-42CB79BABA96/Bring-the-cloud-to-your-datacenter-Microsoft-Azure-Stack.pdf)
+[Hybrid Application innovation with Azure and Azure Stack (pdf)](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)
 

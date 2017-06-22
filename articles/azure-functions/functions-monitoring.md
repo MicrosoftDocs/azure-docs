@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring Azure Functions | Microsoft Docs
 description: Learn how to monitor your Azure Functions.
 services: functions
@@ -68,31 +68,35 @@ These statistics are real-time but the actual graphing of the execution data may
 
 
 
-
-
-
-
-
 ## Monitoring log files from a command line
 
 
 You can stream log files to a command line session on a local workstation using the Azure Command Line Interface (CLI) or PowerShell.
 
-### Streaming function app log file with the Azure CLI
+### Monitoring function app log files with the Azure CLI
 
-To get started, [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+To get started, [install the Azure CLI](../cli-install-nodejs.md)
+
+Log into your Azure account using the following command, or any of the other options covered in, [Log in to Azure from the Azure CLI](../xplat-cli-connect.md).
+
+	azure login
 
 Use the following command to enable Azure CLI Service Management (ASM) mode:.
 
 	azure config mode asm
 
+If you have multiple subscriptions, use the following commands to list your subscriptions and set the current subscription to the subscription that contains your function app.
+
+	azure account list
+	azure account set <subscriptionNameOrId>
+
 The following command will stream the log files of your function app to the command line:
 
 	azure site log tail -v <function app name>
 
-### Streaming function app log file with PowerShell
+### Monitoring function app log files with PowerShell
 
-To get started, [install and configure Azure PowerShell](../powershell-install-configure.md).
+To get started, [install and configure Azure PowerShell](/powershell/azure/overview).
 
 Add your Azure account by running the following command:
 

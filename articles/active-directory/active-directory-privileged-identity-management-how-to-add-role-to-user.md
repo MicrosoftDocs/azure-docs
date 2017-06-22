@@ -3,7 +3,7 @@ title: How to add or remove a user role | Microsoft Docs
 description: Learn how to add roles to privileged identities with the Azure Active Directory Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
-
+ms.date: 06/06/2017
+ms.author: billmath
+ms.custom: pim
 ---
 # Azure AD Privileged Identity Management: How to add or remove a user role
 With Azure Active Directory (AD), a global administrator (or company administrator) can update which users are **permanently** assigned to roles in Azure AD. This is done with PowerShell cmdlets like `Add-MsolRoleMember` and `Remove-MsolRoleMember`. Or they can use the Azure classic portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -29,8 +29,6 @@ To add or remove a user in a role using Privileged Identity Management, bring up
 
 > [!NOTE]
 > If you haven't enabled PIM in the Azure portal yet, go to [Get started with Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) for details.
-> 
-> 
 
 If you want to give another user access to PIM itself, the roles which PIM requires the user to have are described further in [how to give access to PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
@@ -46,8 +44,6 @@ If you want to give another user access to PIM itself, the roles which PIM requi
 > [!NOTE]
 > New users in a role are only eligible for the role by default. If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **Make perm** in the user information menu.  
 > If a user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles. Eligible admins are asked to register for MFA during activation.
-> 
-> 
 
 Now that the user is eligible for a role, let them know that they can activate it according to the instructions in [How to activate or deactivate a role](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -63,7 +59,6 @@ Follow these steps to remove a specific user from a role:
 
 If you're not sure which users still need their role assignments, then you can [start an access review for the role](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

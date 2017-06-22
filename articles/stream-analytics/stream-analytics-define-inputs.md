@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Data connection: Data stream inputs from an event stream | Microsoft Docs'
 description: Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data.
 keywords: data stream, data connection, event stream
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -197,7 +197,7 @@ FROM Input
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with Picturepark
 The objective of this tutorial is to show the integration of Azure and Picturepark.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -28,16 +29,17 @@ After completing this tutorial, the Azure AD users you have assigned to Picturep
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for Picturepark
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Scenario")
 
-## Enabling the application integration for Picturepark
+## Enable the application integration for Picturepark
 The objective of this section is to outline how to enable the application integration for Picturepark.
 
-### To enable the application integration for Picturepark, perform the following steps:
+**To enable the application integration for Picturepark, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
@@ -58,13 +60,18 @@ The objective of this section is to outline how to enable the application integr
    
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
-## Configuring single sign-on
+
+## Configure single sign-on
+
 The objective of this section is to outline how to enable users to authenticate to Picturepark with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Picturepark requires you to retrieve a thumbprint value from a certificate.  
+
+Configuring SSO for Picturepark requires you to retrieve a thumbprint value from a certificate.  
+
 If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)..
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Picturepark** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **Picturepark** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Picturepark** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -93,23 +100,26 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    4. In the Azure classic portal, on the **Configure single sign-on at Picturepark** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Issuer URI** textbox.
    5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Trusted Issuer Thumb Print** textbox.  
       
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
-      > 
-   6. Click **JoinDefaultUsersGroup**.
-   7. To set the **Emailaddress** attribute in the **Claim** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+      >
+      >
+
+9. Click **JoinDefaultUsersGroup**.
+10. To set the **Emailaddress** attribute in the **Claim** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** and click **Save**.
+
       ![Configuration](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuration")
-   8. Click **Save**.
-9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configure Single Sign-On")
 
-## Configuring user provisioning
+## Configure user provisioning
 In order to enable Azure AD users to log into Picturepark, they must be provisioned into Picturepark.  
-In the case of Picturepark, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+ * In the case of Picturepark, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Picturepark** tenant.
 2. In the toolbar on the top, click **Administrative tools**, and then click **Users**.
    
@@ -121,26 +131,27 @@ In the case of Picturepark, provisioning is a manual task.
    
    ![Create User](./media/active-directory-saas-picturepark-tutorial/IC795069.png "Create User")
    
-   1. Type the : **Email Address**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Company**, **Country**, **ZIP**, **City** of a valid Azure Active Directory User you want ot provision into the related textboxes.
-   2. Select a **Language**.
-   3. Click **Create**.
+  1. Type the : **Email Address**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Company**, **Country**, **ZIP**, **City** of a valid Azure Active Directory User you want to provision into the related textboxes.
+  2. Select a **Language**.
+  3. Click **Create**.
 
-> [!NOTE]
-> You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.
+>[!NOTE]
+>You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Picturepark, perform the following steps:
+**To assign users to Picturepark, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Picturepark **application integration page, click **Assign users**.
+2. On the **Picturepark** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-picturepark-tutorial/IC795070.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
    ![Yes](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Yes")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

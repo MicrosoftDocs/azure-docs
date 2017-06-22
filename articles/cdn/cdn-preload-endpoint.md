@@ -1,9 +1,9 @@
 ---
 title: Pre-load assets on an Azure CDN endpoint | Microsoft Docs
-description: Learn how to pre-load cached content on a CDN endpoint.
+description: Learn how to pre-load cached content on an Azure CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: smcevoy
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Pre-load assets on an Azure CDN endpoint
@@ -46,7 +46,11 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
    > [!TIP]
    > More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
    > 
-   > Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
+   > Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > >Load a single file path `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > >Load a single file with query string `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > 
+   > Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
    > 
    > 
    
@@ -56,7 +60,9 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
     ![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> There is a limitation of 10 load requests per minute per CDN profile.
+> There is a limitation of 10 load requests per minute per CDN profile. 
+50 paths are allowed per request. 
+Each path has a path-length limit of 1024 characters.
 > 
 > 
 

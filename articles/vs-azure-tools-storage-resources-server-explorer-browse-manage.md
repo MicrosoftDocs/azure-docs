@@ -1,4 +1,4 @@
-﻿---
+---
 title: Browsing and managing storage resources with Server Explorer | Microsoft Docs
 description: Browsing and managing storage resources with Server Explorer
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 
 ---

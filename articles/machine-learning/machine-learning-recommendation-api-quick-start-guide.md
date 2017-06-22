@@ -1,5 +1,5 @@
-﻿---
-title: 'Quick start guide: Machine Learning Recommendations API | Microsoft Docs'
+---
+title: 'Quick start: Azure Machine Learning Recommendations API (ver. 1)| Microsoft Docs'
 description: Azure Machine Learning Recommendations - Quick Start Guide
 services: machine-learning
 documentationcenter: ''
@@ -13,30 +13,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 03/31/2017
 ms.author: luisca
 
+ROBOTS: NOINDEX
+redirect_url: machine-learning-datamarket-deprecation
+redirect_document_id: TRUE 
+
 ---
-# Quick start guide for the Machine Learning Recommendations API
+# Quick start guide for the Machine Learning Recommendations API (version 1)
+
 > [!NOTE]
-> You should start using the Recommendations API Cognitive Service instead of this
+> You should start using the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/recommendations-api) instead of this
 > version. The Recommendations Cognitive Service will be replacing this service, and all the new 
 > features will be developed there. It has new capabilities like batching support, a better API Explorer,
 > a cleaner API surface, more consistent signup/billing experience, etc.
-> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+>
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate).
 > 
 > 
 
-This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [gallery](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## General overview
 To use Azure Machine Learning Recommendations, you need to take the following steps:
 
-* Create a model - A model is a container of your usage data, catalog data and the recommendation model.
+* Create a model - A model is a container of your usage data, catalog data, and the recommendation model.
 * Import catalog data - A catalog contains metadata information on the items. 
-* Import usage data - Usage data can be uploaded in one of 2 ways (or both):
+* Import usage data - Usage data can be uploaded in one of two ways (or both):
   * By uploading a file that contains the usage data.
   * By sending data acquisition events.
     Usually you upload a usage file in order to be able to create an initial recommendation model (bootstrap) and use it until the system gathers enough data by using the data acquisition format.
@@ -49,12 +55,12 @@ All the steps above are done through the Azure Machine Learning Recommendations 
 * The maximum number of models per subscription is 10.
 * The maximum number of items that a catalog can hold is 100,000.
 * The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
-* The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
+* The maximum size of data that can be sent in POST (for example, import catalog data, import usage data) is 200MB.
 * The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
 
 ## Integration
 ### Authentication
-Micosoft Azure Marketplace supports either the Basic or OAuth authentication method. You can easily find the account keys by navigating to the keys in the marketplace under [your account settings](https://datamarket.azure.com/account/keys). 
+Microsoft Azure Marketplace supports either the Basic or OAuth authentication method. You can easily find the account keys by navigating to the keys in the marketplace under [your account settings](https://datamarket.azure.com/account/keys). 
 
 #### Basic Authentication
 Add the Authorization header:
@@ -83,8 +89,8 @@ The full service URI is expressed using elements of the OData specification.
 ### API version
 Each API call will have, at the end, a query parameter called apiVersion that should be set to "1.0".
 
-### IDs are case sensitive
-IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
+### IDs are case-sensitive
+IDs, returned by any of the APIs, are case-sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case-sensitive.
 
 ### Create a model
 Creating a "create model" request:
@@ -105,7 +111,7 @@ Creating a "create model" request:
 HTTP Status code: 200
 
 * `feed/entry/content/properties/id` - Contains the model ID.
-  **Note**: model ID is case sensitive.
+  Note that the model ID is case-sensitive.
 
 OData XML
 
@@ -147,11 +153,11 @@ If you upload several catalog files to the same model with several calls, we wil
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| modelId |Unique identifier of the model (case sensitive) |
+| modelId |Unique identifier of the model (case-sensitive) |
 | filename |Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 | apiVersion |1.0 |
 |  | |
-| Request Body |Catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Item name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, max length 4000</td><td>Description of this item</td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
+| Request Body |Catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Item name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Category to which this item belongs (for example, Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, max length 4000</td><td>Description of this item</td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
 
 **Response**:
 
@@ -194,11 +200,11 @@ This section shows how to upload usage data by using a file. You can call this A
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| modelId |Unique identifier of the model (case sensitive) |
+| modelId |Unique identifier of the model (case-sensitive) |
 | filename |Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 | apiVersion |1.0 |
 |  | |
-| Request Body |Usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a user</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Request Body |Usage data. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a user</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (for example, 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Response**:
 
@@ -341,7 +347,7 @@ HTTP Status code: 200
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| modelId |Unique identifier of the model (case sensitive) |
+| modelId |Unique identifier of the model (case-sensitive) |
 | userDescription |Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion |1.0 |
 |  | |
@@ -362,8 +368,8 @@ Valid build status:
 * Building – Model is being built.
 * Success – Build ended successfully.
 * Error – Build ended with a failure.
-* Cancelled – Build was canceled.
-* Cancelling – Build is being canceled.
+* Canceled – Build was canceled.
+* Canceling – Build is being canceled.
 
 Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
 
@@ -413,7 +419,7 @@ OData XML
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| modelId |Unique identifier of the model  (case sensitive) |
+| modelId |Unique identifier of the model  (case-sensitive) |
 | onlyLastBuild |Indicates whether to return all the build history of the model or only the status of the most recent build. |
 | apiVersion |1.0 |
 
@@ -429,7 +435,7 @@ The response includes one entry per build. Each entry has the following data:
 * `feed/entry/content/properties/IsDeployed` – Whether the build is deployed (a.k.a. active build).
 * `feed/entry/content/properties/BuildId` – Build unique identifier.
 * `feed/entry/content/properties/BuildType` - Type of the build.
-* `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Cancelling, Cancelled, Success
+* `feed/entry/content/properties/Status` – Build status. Can be one of the following: Error, Building, Queued, Canceling, Canceled, Success
 * `feed/entry/content/properties/StatusMessage` – Detailed status message (applies only to specific states).
 * `feed/entry/content/properties/Progress` – Build progress (%).
 * `feed/entry/content/properties/StartTime` – Build start time.
@@ -444,8 +450,8 @@ Valid build status:
 * Building – Build is in process.
 * Success – Build ended successfully.
 * Error – Build ended with a failure.
-* Cancelled – Build was canceled.
-* Cancelling – Build is being canceled.
+* Canceled – Build was canceled.
+* Canceling – Build is being canceled.
 
 Valid values for build type:
 
@@ -496,7 +502,7 @@ OData XML
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| modelId |Unique identifier of the model (case sensitive) |
+| modelId |Unique identifier of the model (case-sensitive) |
 | itemIds |Comma-separated list of the items to recommend for.<br>Max length: 1024 |
 | numberOfResults |Number of required results |
 | includeMetatadata |Future use, always false |
@@ -511,7 +517,7 @@ The response includes one entry per recommended item. Each entry has the followi
 * `Feed\entry\content\properties\Id` - Recommended item ID.
 * `Feed\entry\content\properties\Name` - Name of the item.
 * `Feed\entry\content\properties\Rating` - Rating of the recommendation; higher number means higher confidence.
-* `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (e.g. recommendation explanations).
+* `Feed\entry\content\properties\Reasoning` - Recommendation reasoning (for example, recommendation explanations).
 
 OData XML
 
@@ -678,7 +684,7 @@ This mechanism enables you - once you have a recommendation model in production 
 
 | Parameter Name | Valid Values |
 |:--- |:--- |
-| id |Unique identifier of the model (case sensitive) |
+| id |Unique identifier of the model (case-sensitive) |
 | apiVersion |1.0 |
 |  | |
 | Request Body |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Note that the XML tags Description and ActiveBuildId are optional. If you do not want to set Description or ActiveBuildId, remove the entire tag. |

@@ -4,7 +4,7 @@ description: Learn how to create an ASP.NET MVC line-of-business app in Azure Ap
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: ad947bdb-4463-43ff-a5e3-91d9b2169b60
@@ -397,5 +397,3 @@ If your line-of-business app needs access to on-premises data, see
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 * [Azure Active Directory Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

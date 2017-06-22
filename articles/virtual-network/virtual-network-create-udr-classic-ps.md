@@ -1,5 +1,5 @@
 ---
-title: Control routing and use virtual appliances using PowerShell Microsoft Docs
+title: Control routing in an Azure Virtual Network - PowerShell - Classic | Microsoft Docs
 description: Learn how to control routing in VNets using PowerShell | Classic
 services: virtual-network
 documentationcenter: na
@@ -21,16 +21,16 @@ ms.author: jdial
 # Control routing and use virtual appliances (classic) using PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [Template](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Template](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by selecting an option at the top of this article. This article covers the classic deployment model.
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by selecting an option at the top of this article. This article covers the classic deployment model.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -49,11 +49,6 @@ To create the route table and route needed for the front end subnet based on the
 	-Label "Route table for front end subnet"
 	```
 
-    Output:
-   
-        Name         Location   Label                          
-        ----         --------   -----                          
-        UDR-FrontEnd West US    Route table for front end subnet
 2. Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):
 
 	```powershell
@@ -62,16 +57,7 @@ To create the route table and route needed for the front end subnet based on the
 	-NextHopType VirtualAppliance `
 	-NextHopIpAddress 192.168.0.4
 	```
-   
-    Output:
-   
-        Name     : UDR-FrontEnd
-        Location : West US
-        Label    : Route table for frontend subnet
-        Routes   : 
-                   Name                 Address Prefix    Next hop type        Next hop IP address
-                   ----                 --------------    -------------        -------------------
-                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+
 3. Run the following command to associate the route table with the **FrontEnd** subnet:
 
 	```powershell
@@ -94,8 +80,10 @@ To create the route table and route needed for the back end subnet based on the 
 2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
 
 	```powershell
-	Get-AzureRouteTable UDR-BackEnd `
-	|Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+	Get-AzureRouteTable UDR-BackEnd
+	| Set-AzureRoute `
+	-RouteName RouteToFrontEnd `
+	-AddressPrefix 192.168.1.0/24 `
 	-NextHopType VirtualAppliance `
 	-NextHopIpAddress 192.168.0.4
 	```
@@ -119,9 +107,6 @@ To enable IP forwarding in the FW1 VM, complete the following steps:
 	| Get-AzureIPForwarding
 	```
 
-    Output:
-   
-        Disabled
 2. Run the following command to enable IP forwarding for the *FW1* VM:
 
 	```powershell

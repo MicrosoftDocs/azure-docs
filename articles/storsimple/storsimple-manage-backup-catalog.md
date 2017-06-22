@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your StorSimple backup catalog | Microsoft Docs
 description: Explains how to use the StorSimple Manager service Backup Catalog page to list, select, and delete backup sets for a volume.
 services: storsimple

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Routing and Tag Expressions
 description: This topic explains routing and tag expressions for Azure notification hubs.
 services: notification-hubs

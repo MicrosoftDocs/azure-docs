@@ -1,4 +1,4 @@
-﻿---
+---
 title: Interpret model results in Machine Learning | Microsoft Docs
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---

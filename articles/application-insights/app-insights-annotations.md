@@ -3,8 +3,8 @@ title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Annotations on metric charts in Application Insights
@@ -65,7 +65,7 @@ You need to get a separate API key for each VSTS release template.
    
     Paste your API key to the ApiKey variable definition.
    
-    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated, and click the lock icon.](./media/app-insights-annotations/50.png)
 7. Finally, **Save** the release definition.
 
 

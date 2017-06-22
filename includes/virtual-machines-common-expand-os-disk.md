@@ -10,7 +10,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > 
 
 ## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](../articles/powershell-install-configure.md). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
 1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
@@ -80,5 +80,5 @@ Similarly you may reference other data disks attached to the VM, either by using
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

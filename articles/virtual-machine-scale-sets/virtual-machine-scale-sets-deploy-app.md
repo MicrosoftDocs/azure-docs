@@ -1,9 +1,9 @@
 ---
-title: Deploy an App on Virtual Machine Scale Sets| Microsoft Docs
-description: Deploy an app on Virtual Machine Scale Sets
+title: Deploy an app on virtual machine scale sets
+description: Use extensions to depoy an app on Azure Virtual Machine Scale Sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
+author: thraka
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,41 +14,213 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
-ms.author: guybo
-
+ms.date: 05/26/2017
+ms.author: adegeo
 ---
-# Deploy an App on Virtual Machine Scale Sets
-An application running on a VM Scale Set is typically deployed in one of three ways:
 
-* Installing new software on a platform image at deployment time. A platform image in this context is an operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2, etc.
+# Deploy your application on virtual machine scale sets
 
-You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) is an example Azure Resource Manager Template with two VM extensions: a Linux Custom Script Extension to install Apache and PHP, and a Diagnostic Extension to emit performance data used by Azure Autoscale.
+This article describes different ways of how to install software at the time the scale set is provisioned.
 
-An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
+You may want to review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) article, which describes some of the limits imposed by virtual machine scale sets.
 
-**If you pass sensitive information in your Custom Script Extension command (such as a password), be sure to specify the `commandToExecute` in the `protectedSettings` attribute of the Custom Script Extension instead of the `settings` attribute.**
+## Capture and reuse an image
 
-* Create a custom VM image that includes both the OS and the application in a single VHD. Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This approach requires no extra configuration at VM deployment time. However, in the `2016-03-30` version of VM Scale Sets (and earlier versions), the OS disks for the VMs in the scale set are limited to a single storage account. Thus, you can have a maximum of 40 VMs in a scale set, as opposed to the 100 VM per scale set limit with platform images. See [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) for more details.
-* Deploy a platform or a custom image which is basically a container host, and install your application as one or more containers that you manage with an orchestrator or configuration management tool. The nice thing about this approach is that you have abstracted your cloud infrastructure from the application layer and can maintain them separately.
+You can use a virtual machine you have in Azure to prepare a base-image for your scale set. This process creates a managed disk in your storage account, which you can reference as the base image for your scale set. 
 
-## What happens when a VM Scale Set scales out?
-When you add one or more VMs to a scale set by increasing the capacity – whether manually or through autoscale – the application is automatically installed. For example if the scale set has extensions defined, they run on a new VM each time it is created. If the scale set is based on a custom image, any new VM is a copy of the source custom image. If the scale set VMs are container hosts, then you might have startup code to load the containers in a Custom Script Extension, or an extension might install an agent that registers with a cluster orchestrator (such as Azure Container Service).
+Do the following steps:
 
-## How do you manage application updates in VM Scale Sets?
-For application updates in VM Scale Sets, three main approaches follow from the three preceding application deployment methods:
+1. Create an Azure Virtual Machine
+   * [Linux][linux-vm-create]
+   * [Windows][windows-vm-create]
 
-* Updating with VM extensions. Any VM extensions that are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, directly updating an application through extensions is a viable approach – you simply update the extension definition. One simple way to do so is by changing the fileUris to point to the new software.
-* The immutable custom image approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, and deployment of the images. You can design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+2. Remote into the virtual machine and customize the system to your liking.
 
-Packer and Terraform also support Azure Resource Manager, so you can also define your images “as code” and build them in Azure, then use the VHD in your scale set. However, doing so would become problematic for Marketplace images, where extensions/custom scripts become more important since you don’t directly manipulate bits from Marketplace.
+   If you want, you can install your application now. However, know that by installing your application now, you may make upgrading your application more complicated because you may need to remove it first. Instead, you can use this step to install any prerequisites your application may need, like a specific runtime or operating system feature.
 
-* Update containers. Abstract the application lifecycle management to a level above the cloud infrastructure, for example by encapsulating applications, and app components into containers and manage these containers through container orchestrators and configuration managers like Chef/Puppet.
+3. Follow the "capture a machine" tutorial for either [Linux][linux-vm-capture] or [Windows][windows-vm-capture].
 
-The scale set VMs then become a stable substrate for the containers and only require occasional security and OS-related updates. As mentioned, the Azure Container Service is a good example of taking this approach and building a service around it.
+4. Create a [Virtual Machine Scale Set][vmss-create] with the image URI you captured in the previous step.
+
+For more information about disks, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
+
+## Install when the scale set is provisioned
+
+Virtual machine extensions can be applied to a virtual machine scale set. With a virtual machine extension, you can customize the virtual machines in a scale set as a whole group. For more information about extensions, see [Virtual Machine Extensions](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+There are three main extensions you can use, depending on if your operating system is Linux-based or Windows-based.
+
+### Windows
+
+For a Windows-based operating system, use either the **Custom Script v1.8** extension, or the **PowerShell DSC** extension.
+
+#### Custom Script
+
+The Custom Script extension runs a script on each virtual machine instance in the scale set. A config file or variable indicates which files are downloaded to the virtual machine, and then what command runs. You could use this to run an installer, a script, a batch file, any executable for example.
+
+PowerShell uses a hashtable for the settings. This example configures the custom script extension to run a PowerShell script that installs IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$customConfig = @{
+  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
+  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
+};
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Use the `-ProtectedSetting` switch for any settings that may contain sensitive information.
+
+---------
+
+
+Azure CLI uses a json file for the settings. This example configures the custom script extension to run a PowerShell script that installs IIS. Save the following json file as _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1"
+  ],
+  "commandToExecute": "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> \"%TEMP%\StartupLog.txt\" 2>&1"
+}
+```
+
+Then, run this Azure CLI command.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use the `--protected-settings` switch for any settings that may contain sensitive information.
+
+### PowerShell DSC
+
+You can use PowerShell DSC to customize the scale set vm instances. The **DSC** extension published by **Microsoft.Powershell** deploys and runs the provided DSC configuration on each virtual machine instance. A config file or variable tells the extension where *.zip* package is, and which _script-function_ combination to run.
+
+PowerShell uses a hashtable for the settings. This example deploys a DSC package that installs IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$dscConfig = @{
+  "wmfVersion" = "latest";
+  "configuration" = @{
+    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "script" = "configure-http.ps1";
+    "function" = "WebsiteTest";
+  };
+}
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Use the `-ProtectedSetting` switch for any settings that may contain sensitive information.
+
+-----------
+
+Azure CLI uses a json for the settings. This example deploys a DSC package that installs IIS. Save the following json file as _settings.json_.
+
+```json
+{
+  "wmfVersion": "latest",
+  "configuration": {
+    "url": "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip",
+    "script": "configure-http.ps1",
+    "function": "WebsiteTest"
+  }
+}
+```
+
+Then, run this Azure CLI command.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use the `--protected-settings` switch for any settings that may contain sensitive information.
+
+### Linux
+
+Linux can use either the **Custom Script v2.0** extension or use **cloud-init** during creation.
+
+Custom script is a simple extension that downloads files to the virtual machine instances, and runs a command.
+
+#### Custom Script
+
+Save the following json file as _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+  ],
+  "commandToExecute": "bash installserver.sh"
+}
+```
+
+Use the Azure CLI to add this extension to an existing virtual machine scale set. Each virtual machine in the scale set automatically runs the extension.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use the `--protected-settings` switch for any settings that may contain sensitive information.
+
+#### Cloud-Init
+
+Cloud-Init is used when the scale set is created. First, create a local file named _cloud-init.txt_ and add your configuration to it. For example, see [this gist](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
+
+Use the Azure CLI to create a scale set. The `--custom-data` field accepts the file name of a cloud-init script.
+
+```azurecli
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys      
+```
+
+## How do I manage application updates?
+
+If you deployed your application through an extension, alter the extension definition in some way. This change causes the extension to be redeployed to all virtual machine instances. Something **must** be changed about the extension, such as renaming a referenced file, otherwise, Azure does not see that the extension has changed.
+
+If you baked the application into your own operating system image, use an automated deployment pipeline for application updates. Design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+
+[Packer](https://www.packer.io/) and [Terraform](https://www.terraform.io/) support Azure Resource Manager, so you can also define your images "as code" and build them in Azure, then use the VHD in your scale set. However, doing so would become problematic for marketplace images, where extensions/custom scripts become more important since you don’t directly manipulate bits from marketplace.
+
+## What happens when a scale set scales out?
+When you add one or more virtual machines to a scale set, the application is automatically installed. For example if the scale set has extensions defined, they run on a new virtual machine each time it is created. If the scale set is based on a custom image, any new virtual machine is a copy of the source custom image. If the scale set virtual machines are container hosts, then you might have startup code to load the containers in a Custom Script Extension. Or, an extension might install an agent that registers with a cluster orchestrator, such as Azure Container Service.
+
 
 ## How do you roll out an OS update across update domains?
-Suppose you want to update your OS image while keeping the VM Scale Set running. One way to do so is to update the VM images one VM at a time. You can do so with PowerShell or Azure CLI. There are separate commands to update the VM Scale Set model (how its configuration is defined), and to issue “manual upgrade” calls on individual VMs.
+Suppose you want to update your OS image while keeping the virtual machine scale set running. PowerShell and the Azure CLI can update the virtual machine images, one virtual machine at a time. The [Upgrade a Virtual Machine Scale Set](./virtual-machine-scale-sets-upgrade-scale-set.md) article also provides further information on what options are available to perform an operating system upgrade across a virtual machine scale set.
 
-[Here](https://github.com/gbowerman/vmsstools) is an example Python script that automates the process of updating a VM Scale Set one update domain at a time. (Caveat: it’s more of a proof of concept than a hardened production-ready solution – you might want to add some error checking etc.).
+## Next steps
+
+* [Use PowerShell to manage your scale set.](virtual-machine-scale-sets-windows-manage.md)
+* [Create a scale set template.](virtual-machine-scale-sets-mvss-start.md)
+
+
+[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
+[windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
+[linux-vm-capture]: ../virtual-machines/linux/capture-image.md
+[windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
+[vmss-create]: virtual-machine-scale-sets-create.md
 

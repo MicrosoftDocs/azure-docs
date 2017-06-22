@@ -13,22 +13,30 @@
 
 ## Manage
 ### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
+### [Embed a Power BI report](power-bi-embedded-embed-report.md)
 ### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
+### [Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)
+### [Save reports](power-bi-embedded-save-reports.md)
+### [Toggle between view and edit](power-bi-embedded-toggle-mode.md)
 
 ## Secure
 ### [Authenticating and authorizing](power-bi-embedded-app-token-flow.md)
 ### [Row level security with Power BI Embedded ](power-bi-embedded-rls.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
+## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK download](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+## [Management REST APIs](/rest/api/powerbiembedded/)
+## [REST APIs](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 
 
 # Resources
-## [Samples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [JavaScript embed sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [JavaScript Git repo](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Power BI C# Git repo](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Sample application](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

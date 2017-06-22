@@ -8,6 +8,7 @@ author: torsteng
 
 ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,6 +23,10 @@ Elastic database query (preview) for Azure SQL Database allows you to run T-SQL 
 When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span multiple related databases. 
 
 For more information about the elastic database query feature, please see  [Azure SQL Database elastic database query overview](sql-database-elastic-query-overview.md). 
+
+## Prerequisites
+
+You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
 ## Create the sample databases
 To start with, we need to create two databases, **Customers** and **Orders**, either in the same or different logical servers.   
@@ -94,10 +99,12 @@ Once you have defined your external data source and your external tables you can
 ## Cost
 Currently, the elastic database query feature is included into the cost of your Azure SQL Database.  
 
-For pricing information see [SQL Database Pricing](/pricing/details/sql-database). 
+For pricing information see [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database). 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Next steps
 
-<!--Image references-->
-
-<!--anchors-->
+* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
+* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](sql-database-elastic-query-vertical-partitioning.md)
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.

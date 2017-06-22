@@ -1,23 +1,24 @@
-﻿---
-title: Log searches in Log Analytics | Microsoft Docs
+---
+title: Find data with log searches in Azure Log Analytics | Microsoft Docs
 description: Log searches allow you to combine and correlate any machine data from multiple sources within your environment.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
-manager: jwhit
+author: bwren
+manager: carmonm
 editor: ''
-
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: banders
+ms.date: 05/16/2017
+ms.author: bwren
+ms.custom: H1Hack27Feb2017
 
 ---
-# Log searches in Log Analytics
+# Find data using log searches
+
 At the core of Log Analytics is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
@@ -142,7 +143,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### To search using a boolean operator
-* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* In the search query field, type `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![search with boolean](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Although you can control the time interval graphically, and most times you might want to do that, there are advantages to including a time filter directly into the query. For example, this works great with dashboards where you can override the time for each tile, regardless of the *global* time selector on the dashboard page. For more information, see [Time Matters in Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -177,8 +178,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > The range syntax you must use is the colon (:) field:value separator and *not* the equal sign (=). Enclose the lower and upper end of the range in square brackets and separate them with two periods (..).
-> 
-> 
+>
+>
 
 ## Manipulate search results
 When you're searching for data, you'll want to refine your search query and have a good level of control over the results. When results are retrieved, you can apply commands to transform them.
@@ -571,4 +572,3 @@ For additional information about log searches, see:
 
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
 * Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.
-

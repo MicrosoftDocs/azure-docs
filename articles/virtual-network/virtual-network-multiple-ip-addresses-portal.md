@@ -1,6 +1,6 @@
 ---
-title: Multiple IP addresses for virtual machines - Portal | Microsoft Docs
-description: Learn how to assign multiple IP addresses to a virtual machine using the Azure Portal.
+title: Multiple IP addresses for Azure virtual machines - Portal | Microsoft Docs
+description: Learn how to assign multiple IP addresses to a virtual machine using the Azure portal | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -14,171 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 11/30/2016
 ms.author: annahar
 
 ---
-# Assign multiple IP addresses to virtual machines
-> [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+# Assign multiple IP addresses to virtual machines using the Azure portal
 
+>[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
+>
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure portal. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
-An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure Portal to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
-
-Assigning multiple IP addresses to a VM enables the following capabilities:
-
-* Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
-* Serve as a network virtual appliance, such as a firewall or load balancer.
-* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool.
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
-
-## Scenario
-In this article, you will associate three IP configurations to a network interface.
-The following example configurations will be created and assigned to a NIC that will have three private IP addresses and one public IP address assigned to it:
-
-* IPConfig-1: A dynamic private IP address (default) and a public IP address from the public IP address resource named PIP1.
-* IPConfig-2: A static private IP address and no public IP address.
-* IPConfig-3: A dynamic private IP address and no public IP address.
-
-    ![Alt image text](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*.
-
-[This article](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) walks through how to create the resources mentioned above in case you have not created them before.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
-To create a multiple IP configurations based on the scenario above by using the Azure preview portal, follow the steps below.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Select the network interface you want to add the IP configurations to: **Virtual Machines** > **VM1** > **Network interfaces** > **VM1-NIC1**
-3. In the **Network interface** blade, select **IP configurations**. You will see a list of the existing IP configurations.
-4. To associate **PIP1** with **ipconfig1**, in the **IP configurations** blade, select **ipconfig1**. In the **ipconfig1** blade, under **Public IP address**, select **Enabled**.
-5. In the **IP address** tab, select **Configure required settings** and then select **PIP1** or the public IP address you would like to associate with this primary IP configuration and then click on save. You can also create a new public IP address to associate here. You will then see a Saving network interface notification and once this finishes you will see **PIP1** associated with **ipconfig1**.
+If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. Click the PowerShell or CLI options at the top of this article to learn how. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address using the portal by following the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
 
-    ![Alt image text](media\\virtual-network-multiple-ip-addresses-portal\\01-portal.PNG)
+## <a name="add"></a>Add IP addresses to a VM
 
-    >[!NOTE] 
-    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+You can add private and public IP addresses to a NIC by completing the steps that follow. The examples in the following sections assume that you already have a VM with the three IP configurations described in the [scenario](#Scenario) in this article, but it's not required that you do.
 
-1. Next, to add an IP configuration, under the **IP configurations** section of your network interface, click on **+Add**.
+### <a name="coreadd"></a>Core steps
 
-   > [!NOTE]
-   > You can assign up to 250 private IP address to a NIC. There is a limit to the number of public IP addresses that can be used within a subscription. To learn more, read the [Azure limits](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager) article.
-   >
-   >
-2. In the **Add IP configuration** blade, name your IP configuration. Here it is, **IPConfig-2**. Select **Static** for **Allocation** and enter the IP address you would like. In this scenario, it is 10.0.0.5. Then click **OK**. Once the configuration is saved, you will see the IP configuration in the list.
+1. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
+2. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
+3. In the **Virtual machines** blade, click the VM you want to add IP addresses to. Click **Network interfaces** in the virtual machine blade that appears, and then select the network interface you want to add the IP addresses to. In the example shown in the following picture, the NIC named *myNIC* from the VM named *myVM* is selected:
 
-    ![Alt image text](media\\virtual-network-multiple-ip-addresses-portal\\02-portal.PNG)
-3. Next, add the third IP configuration, by selecting **+Add** in the **IP  configurations** blade and filling in the necessary details as shown below. Then select **OK**.
+	![Network interface](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-    ![Alt image text](media\\virtual-network-multiple-ip-addresses-portal\\03-portal.PNG)
+4. In the blade that appears for the NIC you selected, click **IP configurations**.
 
-    Note that IPConfig-2 and IPConfig-3 can also be associated with a public IP by selecting **Enabled** in the **Public IP address** section of the **Add IP configuration** blade. A new public IP can be created or one already created can be associated with the IP configuration.
-4. Manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system as shown below. To manually add the IP addresses you must connect to your VM and then follow the steps outlined below.
+Complete the steps in one of the sections that follow, based on the type of IP address you want to add.
 
-**Windows**
+### **Add a private IP address**
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Next type *ncpa.cpl* in the command prompt window. This will open a new window.
-3. Open the properties for **Local Area Connection**.
-4. Double click on Internet Protocol version 4 (IPv4)
-5. Select **Use the following IP address** and enter the following values:
+Complete the following steps to add a new private IP address:
 
-   * **IP address**: Enter the *Primary* private IP address
-   * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-   * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-   * Click **Use the following DNS server addresses** and enter the following values:
-     * **Preferred DNS server:** Enter 168.63.129.16 if you are not using your own DNS server.  If you are, enter the IP address for your DNS server.
-   * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
-   * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. This will then reestablish your RDP connection.
-6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+1. Complete the steps in the [Core steps](#coreadd) section of this article.
+2. Click **Add**. In the **Add IP configuration** blade that appears, create an IP configuration named *IPConfig-4* with *10.0.0.7* as a *Static* private IP address, then click **OK**.
 
-**Linux (Ubuntu)**
+	> [!NOTE]
+	> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal will show an X for the IP address and you'll need to select a different one.
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, you can do this by using the following command:
+3. Once you click OK, the blade will close and you'll see the new IP configuration listed. Click **OK** to close the **Add IP configuration** blade.
+4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses.
+5. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
 
-            sudo -i
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+### Add a public IP address
 
-   * Keep the existing line item for dhcp. This will configure the primary IP address as it used to be earlier.
-   * Add a configuration for an additional static IP address with the following commands:
+A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration.
 
-               cd /etc/network/interfaces.d/
-               ls
+> [!NOTE]
+> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+> 
 
-       You should see a .cfg file.
-4. Open the file: vi *filename*.
+### <a name="create-public-ip"></a>Create a public IP address resource
 
-    You should see the following lines at the end of the file:
+A public IP address is one setting for a public IP address resource. If you have a public IP address resource that is not currently associated to an IP configuration that you want to associate to an IP configuration, skip the following steps and complete the steps in one of the sections that follow, as you require. If you don't have an available public IP address resource, complete the following steps to create one:
 
-            auto eth0
-            iface eth0 inet dhcp
-5. Add the following lines after the lines that exist in this file:
+1. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
+3. In the portal, click **New** > **Networking** > **Public IP address**.
+4. In the **Create public IP address** blade that appears, enter a **Name**, select an **IP address assignment** type, a **Subscription**, a **Resource group**, and a **Location**, then click **Create**, as shown in the following picture:
 
-            iface eth0 inet static
-            address <your private IP address here>
-6. Save the file by using the following command:
+	![Create a public IP address resource](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 
-            :wq
-7. Reset the network interface with the following command:
+5. Complete the steps in one of the sections that follow to associate the public IP address resource to an IP configuration.
 
-           sudo ifdown eth0 && sudo ifup eth0
+#### Associate the public IP address resource to a new IP configuration
 
-   > [!IMPORTANT]
-   > Run both ifdown and ifup in the same line if using a remote connection.
-   >
-   >
-8. Verify the IP address is added to the network interface with the following command:
+1. Complete the steps in the [Core steps](#coreadd) section of this article.
+2. Click **Add**. In the **Add IP configuration** blade that appears, create an IP configuration named *IPConfig-4*. Enable the **Public IP address** and select an existing, available public IP address resource from the **Choose public IP address** blade that appears.
 
-            ip addr list eth0
+	Once you've selected the public IP address resource, click **OK** and the blade will close. If you don't have an existing public IP address, you can create one by completing the steps in the [Create a public IP address resource](#create-public-ip) section of this article. 
 
-    You should see the IP address you added as part of the list.
+3. Review the new IP configuration. Even though a private IP address wasn't explicitly assigned, one was automatically assigned to the IP configuration, because all IP configurations must have a private IP address.
+4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses.
+5. Add the private IP address to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP address to the operating system.
 
-**Linux (Redhat, CentOS, and others)**
+#### Associate the public IP address resource to an existing IP configuration
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, you can do this by using the following command:
+1. Complete the steps in the [Core steps](#coreadd) section of this article.
+2. Click the IP configuration you want to add the public IP address resource to.
+3. In the IPConfig blade that appears, click **IP address**.
+4. In the **Choose public IP address** blade that appears, select a public IP address.
+5. Click **Save** and the blades will close. If you don't have an existing public IP address, you can create one by completing the steps in the [Create a public IP address resource](#create-public-ip) section of this article.
+3. Review the new IP configuration.
+4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses. Do not add the public IP address to the operating system.
 
-            sudo -i
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
 
-            cd /etc/sysconfig/network-scripts
-4. List the related ifcfg files using the following command:
-
-            ls ifcfg-*
-
-    You should see *ifcfg-eth0* as one of the files.
-5. Copy the *ifcfg-eth0* file and name it *ifcfg-eth0:0* with the following command:
-
-            cp ifcfg-eth0 ifcfg-eth0:0
-6. Edit the *ifcfg-eth0:0* file with the following command:
-
-            vi ifcfg-eth1
-7. Change the device to the appropriate name in the file; *eth0:0* in this case, with the following command:
-
-            DEVICE=eth0:0
-8. Change the *IPADDR = YourPrivateIPAddress* line to reflect the IP address.
-9. Save the file with the following command:
-
-            :wq
-10. Restart the network services and make sure the changes are successful by running the following commands:
-
-            /etc/init.d/network restart
-            Ipconfig
-
-    You should see the IP address you added, *eth0:0*, in the list returned.
-
-## <a name="add"></a>Add IP addresses to an existing VM
-Complete the following steps to add additional IP addresses to an existing NIC:
-
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Select the network interface you want to add the IP configurations to in the **Network interfaces** section.
-3. In the **Network interface** blade, select **IP configurations**. You will see a list of the existing IP configurations.
-4. Next, to add an IP configuration, under the IP configurations section of your network interface, click on **+Add**.
-5. In the Add IP configuration blade, name your IP configuration. Select  the type of IP address you would like: Static or Dynamic under **Allocation**. Under **Public IP address**, select **Enabled** if you would like to associate your IP configuration with a public IP. If not click on **Disabled**. Selecting **Enabled** allows you to associate an existing public IP to your configuration in addition to  Then click OK. Once the configuration is saved, you will see the IP configuration in the list.
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

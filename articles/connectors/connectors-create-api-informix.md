@@ -4,7 +4,7 @@ description: Overview of Informix connector with REST API parameters
 services: ''
 documentationcenter: ''
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -15,16 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
+ms.author: plarsen; ladocs
 
 ---
 # Get started with the Informix connector
 Microsoft connector for Informix connects Logic Apps to resources stored in an IBM Informix database. The Informix connector includes a Microsoft client to communicate to remote Informix server computers across a TCP/IP network. This includes cloud databases, such as IBM Informix for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-informix.md#supported-informix-platforms-and-versions) of IBM Informix platforms and versions (in this topic).
-
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
-> 
-> 
 
 The connector supports the following database operations:
 
@@ -37,7 +32,7 @@ The connector supports the following database operations:
 
 This topic shows you how to use the connector in a logic app to process database operations.
 
-To learn more about Logic Apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Available actions
 This connector supports the following logic app actions:
@@ -267,139 +262,16 @@ You can create a logic app action to remove one row in a Informix table. This ac
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## Technical Details
-## Actions
-An action is an operation carried out by the workflow defined in a logic app. The Informix database connector includes the following actions. 
-
-| Action | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Retrieves a single row from a Informix table |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Retrieves rows from a Informix table |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Inserts a new row into a Informix table |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Deletes a row from a Informix table |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Retrieves tables from a Informix database |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Updates an existing row in a Informix table |
-
-### Action Details
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
-
-#### Get row
-Retrieves a single row from a Informix table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table * |Table name |Name of Informix table |
-| id * |Row id |Unique identifier of the row to retrieve |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Get rows
-Retrieves rows from a Informix table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of Informix table |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-ItemsList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Insert row
-Inserts a new row into a Informix table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of Informix table |
-| item* |Row |Row to insert into the specified table in Informix |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Delete row
-Deletes a row from a Informix table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of Informix table |
-| id* |Row id |Unique identifier of the row to delete |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Get tables
-Retrieves tables from a Informix database.  
-
-There are no parameters for this call. 
-
-##### Output Details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Update row
-Updates an existing row in a Informix table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of Informix table |
-| id* |Row id |Unique identifier of the row to update |
-| item* |Row |Row with updated values |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### HTTP Responses
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
-
 ## Supported Informix platforms and versions
 This connector supports the following IBM Informix versions, when configured to support Distributed Relational Database Architecture (DRDA) client connections.
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/informix/). 
+
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

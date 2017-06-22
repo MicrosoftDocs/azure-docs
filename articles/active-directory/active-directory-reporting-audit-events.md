@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Active Directory audit report events | Microsoft Docs
 description: Audited events that are available for viewing and downloading from your Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: dhanyahk
-manager: mbaldwin
+manager: femila
 editor: ''
 
 ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
-ms.author: dhanyahk
+ms.date: 06/16/2017
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory audit report events
@@ -41,8 +41,6 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | Add group |Created a group in the directory. |
 | Update group |Updated a group in the directory. To see what group properties were updated, refer to [Group Properties Audited](#update-group-attributes) in the section below |
 | Delete group |Deleted a group from the directory. |
-| Add member to group |Added a member to a group in the directory. |
-| Remove member from group |Removed a member from a group in the directory. |
 | CreateGroupSettings |Created group settings |
 | UpdateGroupSettings |Updated group settings. To see what group settings were updated, refer to [Group Properties Audited](#update-group-attributes) in the section below |
 | DeleteGroupSettings |Deleted group settings |
@@ -60,21 +58,6 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | Add delegation entry |Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory. |
 | Set delegation entry |Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory. |
 | Remove delegation entry |Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory. |
-| **Role events** | |
-| Add role member to Role |Added a user to a directory role. |
-| Remove role member from Role |Removed a user from a directory role. |
-| Set Company contact information |Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services. |
-| Add delegation entry |Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory. |
-| Set delegation entry |Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory. |
-| Remove delegation entry |Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory. |
-| AddSevicePrincipalOwner |Added owner to service principal. |
-| RemoveSevicePrincipalOwner |Removed owner from service principal. |
-| AddApplication |Add application. |
-| UpdateApplication |Update application. To see what app settings were updated, refer to [Application Properties Audited](#update-application-attributes) in the section below |
-| DeleteApplication |Delete application. |
-| RestoreApplication |Restore application. |
-| AddApplicationOwner |Add owner to application. |
-| RemoveApplicationOwner |Remove owner from application. |
 | **Role events** | |
 | Add role member to Role |Added a user to a directory role. |
 | Remove role member from Role |Removed a user from a directory role. |
@@ -154,7 +137,9 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | RemovePolicyCredentials |Remove policy credentials. |
 
 ## Audit report retention
-Events in the Azure AD Audit report are retained for 180 days. For more information about retention on reports, see [Azure Active Directory Report Retention Policies](active-directory-reporting-retention.md).
+
+For the most recent information about retention, see [Azure Active Directory report retention policies](active-directory-reporting-retention.md).
+
 
 For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store. See [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) for details.
 

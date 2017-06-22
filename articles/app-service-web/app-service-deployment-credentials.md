@@ -4,7 +4,7 @@ description: Learn how to use the Azure App Service deployment credentials.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.service: app-service
@@ -12,25 +12,87 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 
 ---
-# Azure App Service Deployment Credentials
-The [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) platform supports two types of credentials for content deployment.
-* Deployment credentials: user-scoped credentials
-* Publish profile: app-scoped credentials 
+# Configure deployment credentials for Azure App Service
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
+and [FTP/S deployment](app-service-deploy-ftp.md).
 
-## <a name="userscope"></a>User-scoped credentials
-The user-scoped credentials are created by the Azure user and directly map to a Microsoft account rather than any specific App Service app. The user-scoped deployment credentials can be set or reset from the [Azure portal](https://portal.azure.com) where each App Service app has an editing entry point under **APP DEPLOYMENT > Deployment credentials**. Regardless of the entry point, edits to these user-scoped credentials apply across the entire Microsoft account. These credentials are frequently used for FTP and Git deployment.
+* **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
+credentials set that you configure in **App Services** > **&lt;app_name>** > **Deployment credentials**. This is also the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
+of your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
-![Azure App Service deployment credentials](./media/app-service-deployment-credentials/deployment_credentials.png)
- 
-When delegating access to Azure resources via Role Based Access Control (RBAC) or co-admin permissions each Azure user receiving access can use their own user-scoped credentials until access is revoked. These deployment credentials should not be shared with other Azure users.
+    > [!NOTE]
+    > When you delegate access to Azure resources via Role Based Access Control (RBAC) or co-admin permissions, each Azure user that receives access to an app can use his/her personal user-level credentials until access is revoked. These deployment credentials should not be shared with other Azure users.
+    >
+    >
 
-## <a name="appscope"></a>App-scoped credentials
-The app-scoped credentials are automatically created by the App Service platform. They are stored in the XML publish profile for each App Service app. The publish profile is available in the [Azure portal](https://portal.azure.com) via the **Get publish profile** action in the app’s **Overview** blade. These credentials are frequently used for WebDeploy-based deployment. They can also be used for FTP or Git deployment. Visual Studio, which is an entry point for WebDeploy-based deployment is able to parse the publish profile for authentication.
+* **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials
+for each app is generated automatically at app creation, and is found in the app's publish profile. You cannot manually configure the credentials, but you can reset them for an app anytime.
 
-![Azure App Service publish profile](./media/app-service-deployment-credentials/publish_profile.png)
+    > [!NOTE]
+    > In order to give someone access to these credentials via Role Based Access Control (RBAC), you need to make them contributor or higher on the Web App. Readers are not allowed to publish, and hence can't access those credentials.
+    >
+    >
 
-When delegating access to Azure resources via Role Based Access Control (RBAC) or co-admin permissions each Azure user receiving access can download the same app-specific publish profile. The publish profile can be reset at any time from the Azure portal app **Overview** blade. Resetting the app-scoped credentials can be a good idea after revoking delegated access.
+## <a name="userscope"></a>Set and reset user-level credentials
+
+You can configure your user-level credentials in any app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources). Regardless in which app you configure
+these credentials, it applies to all apps and for all subscriptions in your Azure account. 
+
+To configure your user-level credentials:
+
+1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Deployment credentials**.
+
+    > [!NOTE]
+    > In the portal, you must have at least one app before you can access the deployment credentials blade. However, with the [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md), 
+    > you can configure user-level credentials without an existing app.
+
+2. Configure the user name and password, and then click **Save**.
+
+    ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
+
+Once you have set your deployment credentials, you can find the *Git* deployment username in your app's **Overview**,
+
+![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+
+and and *FTP* deployment username in your app's **Properties**.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
+
+> [!NOTE]
+> Azure does not show your user-level deployment password. If you forget the password, you can't retrieve it. However, you can reset your credentials by following the steps in this section.
+>
+>  
+
+## <a name="appscope"></a>Get and reset app-level credentials
+For each app in App Service, its app-level credentials are stored in the XML publish profile.
+
+To get the app-level credentials:
+
+1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Overview**.
+
+2. Click **...More** > **Get publish profile**, and download starts for a .PublishSettings file.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+
+3. Open the .PublishSettings file and find the `<publishProfile>` tag with the attribute `publishMethod="FTP"`. Then, get its `userName` and `password` attributes.
+These are the app-level credentials.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
+
+    Similar to the user-level credentials, the FTP deployment username is in the format of `<app_name>\<username>`, and the Git deployment username is just `<username>` without the preceding `<app_name>\`.
+
+To reset the app-level credentials:
+
+1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Overview**.
+
+2. Click **...More** > **Reset publish profile**. Click **Yes** to confirm the reset.
+
+    The reset action invalidates any previously-downloaded .PublishSettings files.
+
+## Next steps
+
+Find out how to use these credentials to deploy your app from [local Git](app-service-deploy-local-git.md) or using [FTP/S](app-service-deploy-ftp.md).

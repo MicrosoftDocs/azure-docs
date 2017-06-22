@@ -4,7 +4,7 @@ description: This page gives details on how to set up Dynamic DNS to register ho
 services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
-ms.author: sewhee
+ms.date: 02/23/2017
+ms.author: garbrad
 
 ---
 # Using Dynamic DNS to register hostnames in your own DNS server
@@ -54,8 +54,8 @@ You can use the hooks that are provided by the DHCP client to create and maintai
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 You can also use the *nsupdate* command to perform secure Dynamic DNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/).  The DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key so that it can verify the signature on the request. You must use the *-k* option to provide the key-pair to *nsupdate* in order for the Dynamic DNS update request to be signed.
 

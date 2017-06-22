@@ -1,38 +1,51 @@
-﻿---
-title: Containers solution in Log Analytics | Microsoft Docs
-description: The Containers solution in Log Analytics helps you view and manage your Docker container hosts in a single location.
+---
+title: Containers solution in Azure Log Analytics | Microsoft Docs
+description: The Containers solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 06/07/2017
 ms.author: banders
 
 ---
-# Containers (Preview) solution Log Analytics
-This article describes how to set up and use the Containers solution in Log Analytics, which helps you view and manage your Docker container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
+# Containers (Preview) solution in Log Analytics
 
-With the solution, you can see which containers are running on your container hosts and what images are running in the containers. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers.
+![Containers symbol](./media/log-analytics-containers/containers-symbol.png)
+
+This article describes how to set up and use the Containers solution in Log Analytics, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
+
+With the solution, you can see which containers are running on your container hosts and what images are running in the containers. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers. On computers running Windows, you can centralize and compare logs from Windows Server, Hyper-V, and Docker containers.
+
+The following diagram shows the relationships between various container hosts and agents with OMS.
+
+![Containers diagram](./media/log-analytics-containers/containers-diagram.png)
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-Add the Containers solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+Add the Containers solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
-There are two ways to install and use Docker with OMS:
+There are a few ways to install and use Docker with OMS:
 
-* On supported Linux operating systems, install and run Docker and then install and configure OMS Agent for Linux
-* On CoreOS, install and run Docker and then configure the OMSAgent to run inside a container
+* On supported Linux operating systems, install and run Docker and then install and configure the OMS Agent for Linux.
+* On CoreOS, you cannot run the OMS Agent for Linux. Instead, you run a containerized version of the OMS Agent for Linux.
+* On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics.
 
-Review the supported Docker and Linux operating system versions for your container host on [GitHub](https://github.com/Microsoft/OMS-docker).
+
+You can review the supported Docker and Linux operating system versions for your container host on [GitHub](https://github.com/Microsoft/OMS-docker).
+
+- If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+- If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
+- Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
 > Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-linux-agents.md) on your container hosts. If you've already installed the agent before installing Docker, you'll need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
@@ -41,57 +54,124 @@ Review the supported Docker and Linux operating system versions for your contain
 
 You need the following settings configured on your container hosts before you can monitor containers.
 
-## Configure settings for the Linux container host
+## Configure settings for a Linux container host
+
+Supported Linux versions:
+
+- Docker 1.11 thru 1.13
+- Docker CE and EE v17.03
+
 
 The following x64 Linux distributions are supported as container hosts:
 
 - Ubuntu 14.04 LTS, 16.04 LTS
 - CoreOS(stable)
-- Amazon Linux 2016.03
+- Amazon Linux 2016.09.0
 - openSUSE 13.2
-- CentOS 7
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
 - SLES 12
-- RHEL 7.2
+- RHEL 7.2, 7.3
+
 
 After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your [OMS workspace ID and key](log-analytics-linux-agents.md).
 
-### To configure settings for the container host
 
+### For all Linux container hosts except CoreOS
 
-- Start the OMS container with the following command:
+- Follow the instructions at  [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
 
-    ```
-    sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace ID" -e KEY="your key" -p 127.0.0.1:25225:25225 --name="omsagent" -h=`hostname` --restart=always microsoft/oms
-    ```
+### For all Linux container hosts including CoreOS
 
-### To use OMS for all containers with CoreOS
-* Start the OMS container that you want to monitor. Modify and use the following example.
+Start the OMS container that you want to monitor. Modify and use the following example.
 
-  ```
-  sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25224:25224/udp -p 127.0.0.1:25225:25225 --name="omsagent" --log-driver=none --restart=always microsoft/oms
-  ```
+```
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+```
 
-### Switching from using an installed agent to one in a container
+### Switching from using an installed Linux agent to one in a container
 If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove OMSAgent. See [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
 
+## Supported Windows versions
+
+- Windows Server 2016
+- Windows 10 Anniversary Edition (Professional or Enterprise)
+
+### Docker versions supported on Windows
+
+- Docker 1.12 – 1.13
+- Docker 17.03.0 [stable]
+
+### Preparation before installing agents
+
+Before you install agents on computers running Windows, you need to configure the Docker service. The configuration allows the Windows agent or the Log Analytics virtual machine extension to use the Docker TCP socket so that the agents can access the Docker daemon remotely and to capture data for monitoring.
+
+#### To start Docker and verify its configuration
+
+There are steps needed to set up TCP named pipe for Windows Server:
+
+1. In Windows PowerShell, enable TCP pipe and named pipe.
+
+    ```
+    Stop-Service docker
+    dockerd --unregister-service
+    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+    Start-Service docker
+    ```
+
+2. Configure Docker with the configuration file for TCP pipe and named pipe. The configuration file is located at C:\ProgramData\docker\config\daemon.json.
+
+    In the daemon.json file, you will need the following:
+
+    ```
+    {
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+    }
+    ```
+
+For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+
+
+### Install Windows agents
+
+To enable Windows and Hyper-V container monitoring, install agents on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
+
+To verify that the Containers solution is set correctly:
+
+- Check whether the management pack was download properly, look for *ContainerManagement.xxx*.
+    - The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
+- Verify that the OMS Workspace ID is correct by going to **Control Panel** > **System and Security**.
+    - Open **Microsoft Monitoring Agent** and verify that the workspace information is correct.
+
+
 ## Containers data collection details
-The Containers solution collects various performance metrics and log data from container hosts and containers using the OMS Agents for Linux that you have enabled and from OMSAgent running in containers.
+The Containers solution collects various performance metrics and log data from container hosts and containers using agents that you  enable.
 
 The following table shows data collection methods and other details about how data is collected for Containers.
 
-| platform | OMS Agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | [OMS Agent for Linux](log-analytics-linux-agents.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
 
-The following table show examples of data types collected by the Containers solution:
+| platform | [Windows agent](log-analytics-windows-agents.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
 
-| Data type | Fields |
-| --- | --- |
-| Performance for hosts and containers |Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Container inventory |TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container image inventory |TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Container log |TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service log |TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| platform | [Log Analytics VM extension](log-analytics-azure-vm-extension.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| --- | --- | --- | --- | --- | --- | --- |
+| Azure |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
+
+The following table show examples of data types collected by the Containers solution and the data types that are used in Log Searches and results.
+
+| Data type | Data type in Log Search | Fields |
+| --- | --- | --- |
+| Performance for hosts and containers | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Container inventory | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Container image inventory | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Container log | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Container service log | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 
 ## Monitor containers
 After you have the solution enabled in the OMS portal, you'll see the **Containers** tile showing summary information about your container hosts and the containers running in hosts.
