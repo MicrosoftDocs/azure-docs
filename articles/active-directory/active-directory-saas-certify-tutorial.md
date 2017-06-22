@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Certify. Certify supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access Certify if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user will be created during an attempt to access Certify if it doesn't exist yet.
 
 >[!NOTE]
 >If you need to create an user manually, you need to contact the [Certify support team](mailto:support@certify.com). 
