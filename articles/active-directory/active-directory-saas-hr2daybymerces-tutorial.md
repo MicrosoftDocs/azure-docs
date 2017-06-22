@@ -125,7 +125,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. 
 
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2daybymerces-tutorial/tutorial_hr2day_00.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-hr2daybymerces-tutorial/tutorial_hr2day_00.png)
+	
+	> [!NOTE] 
+    Before you can configure the SAML assertion, you need to contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.	
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
@@ -139,20 +142,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-hr2daybymerces-tutorial/tutorial_attribute_05.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+	b. In the **Name** textbox, type **“ATTR_LOGINCLAIM”**.
 
-	c. From the **Value** list, type the attribute value as **Join()**.
+	c. From the **Value** list, select **Join()**.
 
-	d. From the **String1** list, type **user.mail**.
+	d. From the **String1** list, select **user.mail**.
 
-	e. From the **String2** list, type **102938475Z**.
+	e. From the **String2** list, type the **unique identifier** provided by your HR2day team.
 
-	f. From the **Separator** list, type **@**.
-
+	f. In the **Separator** textbox, type **@**.
+	
 	g. Click **Ok**.
-
-	> [!NOTE] 
-    Before you can configure the SAML assertion, you need to contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.
 
 7. Click **Save** button.
 
