@@ -186,13 +186,10 @@
       href: capture-image-resource.md
     - name: Create a VM from a generalized Managed Disk image
       href: create-vm-generalized-managed.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
   - name: Manage VM storage
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: FAQs
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Create Managed Disk
       href: create-managed-disk-ps.md
     - name: Migrate VMs to Managed Disks
@@ -216,6 +213,8 @@
       href: expand-os-disk.md
     - name: Expand data disk
       href: expand-data-disks.md
+    - name: Use a file share
+      href: mount-azure-file-storage.md
     - name: Use D as data disk
       href: change-drive-letter.md
   - name: VM networking

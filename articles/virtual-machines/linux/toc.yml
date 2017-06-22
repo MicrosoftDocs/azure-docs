@@ -201,6 +201,8 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
     - name: Create Azure images
       items:
       - name: Ubuntu
@@ -311,7 +313,11 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Overview
+        href: cloudfoundry-get-started.md
+      - name: Deploy your first app
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Data Science VM overview
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB

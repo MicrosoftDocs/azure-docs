@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop apps
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
