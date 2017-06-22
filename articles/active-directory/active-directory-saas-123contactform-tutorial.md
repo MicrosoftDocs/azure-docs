@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-123contactform-tutorial/url1.png)
 
-	a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<id>/metadata`
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<id>/acs`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 4. If you wish to configure the application in **SP initiated mode**, perform the following steps:
 
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Click the **Show advanced URL settings** option
 
-	b. In the **Sign On URL** textbox, type a URL as: `https://www.123contactform.com/saml/azure_ad/<id>/sso`
+	b. In the **Sign On URL** textbox, type a URL as: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
 	> [!NOTE] 
 	> The preceding values are not real. Later, you will update the values with the actual URL and identifier, which is explained later in the tutorial.
