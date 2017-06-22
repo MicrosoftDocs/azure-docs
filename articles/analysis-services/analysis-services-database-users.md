@@ -23,7 +23,7 @@ ms.author: owend
 At the model database level, all users must belong to a role. Roles define a group of users with particular permissions for the model database. Any user or group added to a role must have an account in an Azure AD tenant in the same subscription as the server. How you define roles is different depending on the tool you use, but the effect is the same.
 
 Role permissions include:
-*  **Administrator** - Users have full permissions for the database. This is different from server administrators.
+*  **Administrator** - Users have full permissions for the database. Database roles with Administrator permissions are different from server administrators.
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
@@ -44,8 +44,8 @@ When creating a tabular model project, you create roles and add users or groups 
     |Permission|Description|  
     |----------------|-----------------|  
     |**None**|Members cannot modify the model schema and cannot query data.|  
-    |**Read**|Members can query data (based on row filters) but cannot modify to the model schema.|  
-    |**Read and Process**|Members can query data (based on row-level filters) and run Process and Process All operations, but cannot modify model schema.|  
+    |**Read**|Members can query data (based on row filters) but cannot modify the model schema.|  
+    |**Read and Process**|Members can query data (based on row-level filters) and run Process and Process All operations, but cannot modify the model schema.|  
     |**Process**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
     |**Administrator**|Members can modify the model schema and query all data.|   
   
@@ -125,7 +125,7 @@ The [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module provide
 ## Row filters  
 Row filters define which rows in a table can be queried by members of a particular role. Row filters are defined for each table in a model by using DAX formulas.  
   
-Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members of a role that has Read or Read and Process permission can query all rows in the table unless cross-filtering applies from another table.  
+Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members  can query all rows in the table unless cross-filtering applies from another table.
   
  Row filters require a DAX formula, which must evaluate to a TRUE/FALSE value, to define the rows that can be queried by members of that particular role. Rows not included in the DAX formula cannot be queried. For example, the Customers table with the following row filters expression, *=Customers [Country] = “USA”*, members of the Sales role can only see customers in the USA.  
   
@@ -137,7 +137,7 @@ Row filters apply to the specified rows and related rows. When a table has multi
 |ProductCategory|=ProductCategory[Name]=”Bicycles”|  
 |Transactions|=Transactions[Year]=2016|  
   
- The net effect is members can query rows of data where the customer is in the USA, the product category is bicycles, and the year is 2016. Users cannot query transactions outside of the USA, transactions that are not bicycles, or transactions not in 2016 unless they are a member of another role that grants these permissions.    
+ The net effect is members can query rows of data where the customer is in the USA, the product category is bicycles, and the year is 2016. Users cannot query transactions outside of the USA, transactions that are not bicycles, or transactions not in 2016 unless they are a member of another role that grants these permissions.
   
  You can use the filter, *=FALSE()*, to deny access to all rows for an entire table.
 
