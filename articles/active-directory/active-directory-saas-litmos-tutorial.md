@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -144,8 +144,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-litmos-tutorial/tutorial_general_400.png)
-<CS>
-7. Sign-on to your Litmos company site [https://azureapptest.litmos.com/account/Login](`https://azureapptest.litmos.com/account/Login`) as an administrator.
+
+7. In a different browser window, sign-on to your Litmos company site as administrator.
    
     ![Azure AD Single Sign-On][21] 
 
@@ -174,7 +174,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	 b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **SAML X.509 Certificate** textbox.
 	 
 	 c. Click **Save Changes**.
-<CE>
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
