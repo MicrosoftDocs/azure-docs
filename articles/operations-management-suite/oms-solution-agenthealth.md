@@ -98,6 +98,7 @@ The following table provides sample log searches for records collected by this s
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Total number of agents | 
 | Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Count of unresponsive agents in the last 24 hours | 
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Count of unresponsive agents in the last 15 minutes | 
 | Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computers online (in the last 24 hours) | 
 | Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Total Agents Offline in Last 30 minutes (for the last 24 hours) | 
 | Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Get a trend of number of agents over time by OSType| 
