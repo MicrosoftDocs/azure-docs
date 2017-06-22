@@ -44,6 +44,8 @@ To complete this tutorial:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Prepare local MySQL
@@ -161,7 +163,7 @@ az login
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
 
-In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder. This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. 
+In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique. 
 
 ```azurecli-interactive
 az mysql server create \
@@ -245,7 +247,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 <a name="devconfig"></a>
 ### Configure the connection 
 
-In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>.
+In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_.
 
 ```
 APP_ENV=production
@@ -261,6 +263,10 @@ MYSQL_SSL=true
 ```
 
 Save the changes.
+
+> [!TIP]
+> To secure your MySQL connection information, this file is already excluded from the Git repository (See _.gitignore_ in the repository root). Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
+>
 
 ### Configure SSL certificate
 
@@ -313,24 +319,16 @@ Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal. 
 
-### Secure sensitive data
+### Commit your changes
 
-Make sure that the sensitive data in _.env.production_ is not committed into Git.
-
-Open the *.gitignore* file from the repository root and add the filename:
-
-```
-.env.production
-```
-
-Save the changes, and then commit the changes to Git.
+Run the following Git commands to commit your changes:
 
 ```bash
 git add .
-git commit -m "database.php and .gitignore updates"
+git commit -m "database.php updates"
 ```
 
-Later, you learn how to configure environment variables in App Service to connect to your database in Azure Database for MySQL (Preview). With environment variables, you don't need the *.env* file in App Service. 
+Your app is ready to be deployed.
 
 ## Deploy to Azure
 In this step, you deploy the MySQL-connected PHP application to Azure App Service.
