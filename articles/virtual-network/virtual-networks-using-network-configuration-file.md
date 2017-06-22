@@ -40,7 +40,7 @@ You can use PowerShell or the Azure CLI to export a network configuration file. 
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### Azure CLI
+### Azure CLI 1.0
 
 1. [Install the Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from an Azure CLI 1.0 command prompt.
 2. Log in to Azure by entering the `azure login` command.
@@ -88,7 +88,7 @@ The following example network configuration file creates a virtual network named
 
 If the network configuration file you exported contains no contents, you can copy the XML in the previous example, and paste it into a new file.
 
-### Example JSON for use with the Azure CLI
+### Example JSON for use with the Azure CLI 1.0
 
 The following example network configuration file creates a virtual network named *myVirtualNetwork* with an address space of *10.0.0.0/16* in the *East US* Azure region. The virtual network contains one subnet named *mySubnet* with an address prefix of *10.0.0.0/24*.
 
@@ -128,7 +128,7 @@ You can use PowerShell or the Azure CLI to import a network configuration file. 
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### Azure CLI
+### Azure CLI 1.0
 
 1. [Install the Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from an Azure CLI 1.0 command prompt.
 2. Log in to Azure by entering the `azure login` command.
