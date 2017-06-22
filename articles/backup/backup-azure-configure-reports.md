@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/22/2017
+ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -133,7 +133,7 @@ After configuring storage account for reports using recovery services vault, it 
 ## Next Steps
 Now that you have configured storage account and imported Azure Backup content pack, the next step is to customize these reports and use reporting data model to create reports. Refer the following articles for more details.
 
-* [Filtering reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Using Azure Backup reporting data model](backup-azure-reports-data-model.md)
+* [Filtering reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Creating reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
 
