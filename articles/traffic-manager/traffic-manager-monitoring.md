@@ -34,7 +34,7 @@ To configure endpoint monitoring, you must specify the following settings on you
 
 ![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/fast-endpoint-failover-settings.png)
 
-**Figure 1:  Traffic manager endpoint monitoring**
+**Figure 1:  Traffic Manager endpoint monitoring**
 
 ## How endpoint monitoring works
 
