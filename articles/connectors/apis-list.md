@@ -20,9 +20,9 @@ ms.author: mandia; ladocs
 ---
 # Connectors list
 > [!TIP]
-> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps. [Connectors details](/connectors/) list any triggers and actions defined in the swagger, and also lists any limits for each connector.
+> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps. [Connector details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
 
-Connectors are integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
+Connectors are an integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
 
 * **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, Power BI, Oracle Database, OneDrive, and many more.
 
@@ -40,7 +40,7 @@ There are thousands of applications and millions of executions that are successf
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | If you want to automate any tasks with your storage account, then you should look at this connector. Supports CRUD (create, read, update, delete) operations. | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Create functions that run custom snippets of C# or node.js, and then use these functions in your logic apps.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | One of the most-asked for connectors. It has triggers and actions to help automate workflows with leads, and more. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consume and publish events on an Event Hub. For example, you can get output from your logic app using Event Hubs, and then send to a real-time analytics provider. |
+| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | One of the most-asked for connectors. It has triggers and actions to help automate workflows with leads, and more. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consume and publish events on an Event Hub. For example, you can get output from your logic app using Event Hubs, and then send the output to a real-time analytics provider. |
 | [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | If your FTP server is accessible from the internet, then you can automate workflows to work with files and folders. <br/><br/>SFTP is also available with the SFTP connector. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Use logic apps to communicate with any endpoint over HTTP. |
 | [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Lots of triggers, and a lot more actions to use Office 365 email and events within your workflows. <br/><br/>This connector includes an *approval email* action to approve vacation requests, expense reports, and so on. <br/><br/>Office 365 users are also available with the Office 365 Users connector.| [![API Icon][HTTP-Requesticon]<br/>**Request / Response**][HTTP-Requestdoc] | This connector provides an HTTPS URL. When the logic app receives a request to this URL, the logic app starts. |
 | [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Easily sign in with your Salesforce account to get access to objects, such as Leads, and more. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | The most popular connector within logic apps, it includes triggers and actions to do asynchronous messaging and publish/subscribe with queues, subscriptions, and topics. |
@@ -68,7 +68,7 @@ Connect to your enterprise applications within your logic apps.
 
 ## <a name="az"></a>A-Z complete list
 
-[Connectors details](/connectors/) list any triggers and actions defined in the swagger, and also lists any limits for each connector.
+[Connector details](/connectors/) list any triggers and actions defined in the swagger, and also lists any limits for each connector.
 
 | | | | | | | | | | | | | |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
