@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -121,8 +121,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Sign On URL** textbox, type a URL as: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
 	> [!NOTE] 
-	> The preceding values are not real. Later, you will update the values with the actual URL and identifier, which is explained later in the tutorial.
-
+	> These values are not real. You'll need to update these value from actual URLs and Identifier which is explained later in the tutorial.
+	
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-123contactform-tutorial/tutorial_123contactform_certificate.png) 
