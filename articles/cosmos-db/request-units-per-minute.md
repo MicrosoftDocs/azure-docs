@@ -70,7 +70,7 @@ First, this is important to note that RU/m is only available for the following S
 * .Net 1.14.0
 * Java 1.11.0
 * Node.js 1.12.0
-* Python 2.2.0
+** Python 2.2.0
 
 Here is a code snippet for creating a collection with 3,000 request units per second and 30,000 request units per minute using the .NET SDK:
 
@@ -80,7 +80,7 @@ DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
 
-// Set the throughput to 3,000 request units per second which will give you 30,000 request units per minute as the RU/m budget
+*// Set the throughput to 3,000 request units per second which will give you 30,000 request units per minute as the RU/m budget
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("db"),
     myCollection,
@@ -117,7 +117,7 @@ In this section, we provide an overview of scenarios that are a good fit for ena
 
 **Peace of mind:** Good fit – Savings: 10-20%. Sometimes, you just want to have peace of mind and not worry about potential peaks and throttling. This feature is the right one for you. In that case, we recommend enabling RU/m and slightly lower your per second provisioning. This case is different from the above as you will not try to optimize aggressively your provisioning. This is more of a “Zero Throttling” mindset you are in.
 
-Critical operations with adhoc needs: We sometimes recommend to only let critical operations access RU/m budget so the budget doesn’t get consume by adhoc or less important operations. That can be easily defined in the section below.
+**Critical operations with adhoc needs:** We sometimes recommend to only let critical operations access RU/m budget so the budget doesn’t get consume by adhoc or less important operations. That can be easily defined in the section below.
 
 ## Using the portal metrics to optimize cost and performance
 
