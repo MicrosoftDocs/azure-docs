@@ -195,14 +195,16 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Adobe Sign test user
 
-To enable Azure AD users to log in to Adobe Sign, they must be provisioned into Adobe Sign.  
-In the case of Adobe Sign, provisioning is a manual task.
+To enable Azure AD users to log in to Adobe Sign, they must be provisioned into Adobe Sign. In the case of Adobe Sign, provisioning is a manual task.
+
+>[!NOTE]
+>You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision AAD user accounts. 
 
 **To provision a user account, perform the following steps:**
 
 1. Log in to your **Adobe Sign** company site as administrator.
 
-2. In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **Users & Groups**, and then, click **Create a new user**.
+2. In the menu on the top, click **Account**, and then, in the navigation pane on the left side, click **Users & Groups**, and then, click **Create a new user**.
    
    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
    
@@ -213,12 +215,9 @@ In the case of Adobe Sign, provisioning is a manual task.
    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid AAD account you want to provision into the related textboxes.
    
    b. Click **Create User**.
-   
-	>[!NOTE]
-	>The Azure Active Directory account holder receives an email that includes a link to confirm the account before it becomes active. 
 
 >[!NOTE]
->You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision AAD user accounts. 
+>The Azure Active Directory account holder receives an email that includes a link to confirm the account before it becomes active. 
 
 ### Assigning the Azure AD test user
 
