@@ -60,11 +60,11 @@ The following are a list of considerations when using HDInsight in a virtual net
 
 * __Restricting network traffic__: 
 
-    * __Network Security Groups__: You must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+    * __Network Security Groups__: If you use Network Security Groups, you must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [Network Security Groups](#using-network-security-groups) section.
 
-    * __User-defined routes__: You must define routes to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+    * __User-defined routes__: If you use user-defined routes, you must define routes to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [User-defined routes](#user-defined-routes) section.
 
@@ -99,7 +99,7 @@ Using Virtual Network to link the cloud and your datacenter enables similar scen
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
+> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. If you plan on using a custom DNS server, it must be added to the virtual network before HDInsight. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ##<a id="hdinsight-ip"></a> Required IP Addresses
 
