@@ -154,6 +154,7 @@
 ## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Languages and platforms](app-insights-platforms.md)
 

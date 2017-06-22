@@ -54,12 +54,13 @@
 
 # Resources
 ##  [Rules Engine reference](cdn-rules-engine-reference.md)
-### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
-### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md)
-### [Rules Engine features](cdn-rules-engine-reference-features.md)
 ## [Azure CDN POP locations](cdn-pop-locations.md)
-## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
-## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
+### [Rules Engine features](cdn-rules-engine-reference-features.md)
+### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md)
