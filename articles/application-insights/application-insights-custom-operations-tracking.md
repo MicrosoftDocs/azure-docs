@@ -432,7 +432,7 @@ Refer to the `Enqueue` method in the ServiceBus Queue or Azure Storage Queue exa
 
 ## Next steps
 
-- Learn basics of [telemetry correlation](application-insights-correlation) in Application Insights.
+- Learn basics of [telemetry correlation](application-insights-correlation.md) in Application Insights.
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Report custom [events and metrics](app-insights-api-custom-events-metrics.md) to Application Insights.
 - Check out standard context properties collection [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
