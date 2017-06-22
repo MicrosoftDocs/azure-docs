@@ -50,6 +50,14 @@ General issues to check:
 If you are still encountering issues while trying to sign in, please contact your administrator for further help.
 
 
+## How do I update my password?
+
+If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md) for more details.
+
+##How do I register for password reset?
+
+As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated. For more details, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
+
 
 ## I am having trouble installing the My Apps portal browser extension
 
