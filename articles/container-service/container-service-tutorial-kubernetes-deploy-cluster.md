@@ -86,7 +86,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-At tutorial competition, you have an ACS Kubernetes cluster ready for workload. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
+At tutorial completion, you have an ACS Kubernetes cluster ready for workload. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 
@@ -94,10 +94,10 @@ In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Ta
 
 > [!div class="checklist"]
 > * Deploy a Kubernetes ACS cluster
-> * Installation of the Kubernees CLI (kubectl)
+> * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-Advance to the next tutorial to learn about running application on the cluster.
+Advance to the next tutorial to learn about running an application on the cluster.
 
 > [!div class="nextstepaction"]
 > [Deploy application in Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
