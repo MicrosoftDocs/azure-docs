@@ -26,6 +26,15 @@
 
 Use the following information and examples to gain a more advanced understanding of Azure Active Directory (Azure AD) group-based licensing.
 
+## Usage location
+
+Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
+
+For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+
+> [!NOTE]
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your usage creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+
 ## Use group-based licensing with dynamic groups
 
 You can use group-based licensing with any security group, which means it can be combined with Azure AD dynamic groups. Dynamic groups run rules against user object attributes to automatically add and remove users from groups.
@@ -102,15 +111,6 @@ Directly assigned licenses can be removed, and don’t affect inherited licenses
   - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
 
     ![Screenshot showing how to remove direct assignment](media/active-directory-licensing-group-advanced/remove-direct-license.png)
-
-## Usage location
-
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
-
-For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
-
-> [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set  usage location during user creation in Azure AD - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use PowerShell to see who has inherited and direct licenses
 While group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, you can use it to discover basic information about user state, and see whether licenses are inherited from a group or assigned directly. The following code example shows how an administrator can produce a basic report about license assignments.

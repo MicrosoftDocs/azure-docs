@@ -28,6 +28,9 @@ This article walks through assigning product licenses to a group of users in Azu
 
 In this example, the tenant contains a security group called *HR Department*. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
+> [!NOTE]
+> Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the Usage location property on the user. For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your usage creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
+
 ## Step 1: Assign the required licenses
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com) with an administrator account. To manage licenses, the account must be a Global Administrator role or User Account Administrator.
