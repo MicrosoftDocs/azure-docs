@@ -245,7 +245,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 > [!NOTE]
 >
-> Azure will automatically map Internet requests to embedded Tomcat server which is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you will need to add an enviroment variable to your web app which defines the port for your embedded Tomcat server. To do so, use the following steps:
+> Azure will automatically map Internet requests to embedded Tomcat server which is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you will need to add an environment variable to your web app which defines the port for your embedded Tomcat server. To do so, use the following steps:
 >
 > 1. Browse to the [Azure portal] and log in.
 > 
