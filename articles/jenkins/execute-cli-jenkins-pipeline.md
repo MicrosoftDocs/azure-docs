@@ -167,7 +167,12 @@ Open Jenkins in a web browser, click **New Item**.
 To verify the WAR file is deployed successfully to your web app. Open a web browser:
 
 * go to http://<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
+
+![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+
 * go to http://<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
+
+![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ## Next steps
 In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo. Runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:

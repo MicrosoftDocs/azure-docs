@@ -99,6 +99,12 @@
     items:
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
+  - name: Deploy Spring Boot apps
+    items:
+    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-linux.md
+    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
@@ -107,6 +113,8 @@
     href: /rest/api/compute/containerservices
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: container-service-faq.md
   - name: Templates - ACS Engine
