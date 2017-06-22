@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Usage Reporting API Samples and Definitions | Microsoft Docs'
-description: Guide and sample on how to get reports on B2C Tenant users, authentications, and MFA.
+title: 'Azure Active Directory B2C: Usage reporting API samples and definitions | Microsoft Docs'
+description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
@@ -18,20 +18,20 @@ ms.author: joroja
 ---
 # Accessing usage reports in Azure AD B2C via the reporting API
 
-Azure Active Directory B2C, provides login and MFA-based authentication for all the end users of your family of applications across Identity Providers.  Knowing the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, answers questions like:
-* How many users from each type of Identity Provider (for example, Microsoft Account, LinkedIn) have registered in the last 10 days?
-* How many Multi-Factor-Authentications have completed successfully in the last month?
-* How many login-based authentications were completed this month? Per day? Per application?
-* How can I approximate the expected monthly cost of my B2C Tenant activity?
+Azure Active Directory B2C (Azure AD B2C) provides authentication based on user sign-in and Azure Multi-Factor Authentication. Authentication is provided for end users of your application family across identity providers. When you know the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, you can answer questions like:
+* How many users from each type of identity provider (for example, a Microsoft or LinkedIn account) have registered in the last 10 days?
+* How many authentications using Multi-Factor Authentication have completed successfully in the last month?
+* How many sign-in-based authentications were completed this month? Per day? Per application?
+* How can I estimate the expected monthly cost of my Azure AD B2C tenant activity?
 
-This article focuses on reports most closely tied to billing activity, which is based on number of users, number of billable login-based authentications and number of multi-factor authentications.
+This article focuses on reports tied to billing activity, which is based on the number of users, billable sign-in-based authentications, and multi-factor authentications.
 
 
-## Prerequisites to access the Azure AD reporting API
-Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
+## Prerequisites
+Before you get started, you need to complete the steps in [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here. 
 
 ## PowerShell script
-This script demonstrates the four usage reports using the **TimeStamp** parameter and the **-ApplicationId** filter.
+This script demonstrates the creation of four usage reports by using the `TimeStamp` parameter and the `ApplicationId` filter.
 
 ```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -96,32 +96,32 @@ if ($oauth.access_token -ne $null) {
 
 
 ## Usage report definitions
-**tenantUserCount** – Count of the number of users in the tenant by type of Identity Provider per day in the last 30 days. (optionally, a TimeStamp filter provides User Counts from a specified date to the current date). Report provides:
- * TotalUserCount = Count of all user objects
- * OtherUserCount = # of AAD Directory users (non-B2C users)
- * LocalUserCount = # of B2C user accounts created with credentials local to the B2C Tenant
+* **tenantUserCount**: The number of users in the tenant by type of identity provider, per day in the last 30 days. (Optionally, a `TimeStamp` filter provides user counts from a specified date to the current date). The report provides:
+  * **TotalUserCount**: The number of all user objects.
+  * **OtherUserCount**: The number of Azure Active Directory users (not Azure AD B2C users).
+  * **LocalUserCount**: The number of Azure AD B2C user accounts created with credentials local to the Azure AD B2C tenant.
 
-**AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
+* **AlternateIdUserCount**: The number of Azure AD B2C users registered with external identity providers (for example, Facebook, a Microsoft account, or another Azure Active Directory tenant, also referred to as an `OrgId`).
 
-**b2cAuthenticationCountSummary** – Sum the daily count of billable authentications over the last 30 days by day and by type of authentication flow
+* **b2cAuthenticationCountSummary**: Summary of the daily number of billable authentications over the last 30 days, by day and type of authentication flow.
 
-**b2cAuthenticationCount** -Count the Number of authentications within a time period. Default is last 30 days.  (optional: beginning and ending TimeStamp (s) define a specific period of counts desired) Output includes a StartTimeStamp (earliest date of activity for this tenant) and EndTimeStamp (latest update)
+* **b2cAuthenticationCount**: The number of authentications within a time period. The default is the last 30 days.  (Optional: The beginning and ending `TimeStamp` parameters define a specific time period.) The output includes `StartTimeStamp` (earliest date of activity for this tenant) and `EndTimeStamp` (latest update).
 
-**b2cMfaRequestCountSummary** - Sum the daily count of Multi-Factor Authentications by day and by type of MFA (SMS or Voice)
+* **b2cMfaRequestCountSummary**: Summary of the daily number of multi-factor authentications, by day and type (SMS or voice).
 
 
 ## Limitations
-* User count data is refreshed every 24 to 48 hours.  Authentications are updated several times a day.
-* When using the ApplicationId filter, an empty report response may be due to one of following conditions:
- * The Application Id does not exist in the tenant. Make sure it is correct.
- * The Application Id exists, but no data was found in the reporting period. Review your date time parameters.
+User count data is refreshed every 24 to 48 hours. Authentications are updated several times a day. When using the `ApplicationId` filter, an empty report response can be due to one of following conditions:
+  * The application ID does not exist in the tenant. Make sure it is correct.
+  * The application ID exists, but no data was found in the reporting period. Review your date/time parameters.
 
 
 ## Next steps
-### Estimating your Azure AD monthly bill.
-When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](active-directory-b2c-how-to-enable-billing.md)
+### Monthly bill estimates for Azure AD
+When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful when you plan for changes in tenant behavior that might impact overall cost. You can review actual costs in your [linked Azure subscription](active-directory-b2c-how-to-enable-billing.md).
 
 ### Options for other output formats
+The following code shows examples of sending output to JSON, a name value list, and XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
