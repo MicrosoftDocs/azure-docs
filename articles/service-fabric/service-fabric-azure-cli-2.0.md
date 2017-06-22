@@ -10,7 +10,12 @@ ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
 ---
-# Install Azure CLI 2.0
+# Service Fabric and Azure CLI 2.0
+
+The new Azure CLI 2.0 now includes commands to manage Service Fabric clusters. This documentation includes steps to
+get started with the Azure CLI.
+
+## Install Azure CLI 2.0
 
 The Azure CLI now includes commands to interact and manage Service Fabric clusters. You can follow the
 [standard installation process](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) to get the latest
@@ -18,7 +23,7 @@ Azure CLI.
 
 For more information, check the [Azure CLI 2.0 documentation](https://docs.microsoft.com/en-us/cli/azure/overview)
 
-# CLI syntax
+## CLI syntax
 
 All Azure Service Fabric commands are prefixed with `az sf` in the Azure CLI. For more information about the commands
 available, you can run `az sf -h` for general information. Or, you can run `az sf <command> -h` for detailed help on a
@@ -32,7 +37,7 @@ az sf <object> <action>
 
 Here, `<object>` is the target for `<action>`.
 
-# Selecting a cluster
+## Selecting a cluster
 
 Before you can perform any operations, you must select a cluster to connect to. For example, see the following code
 snippet to connect to an unsecured cluster.
@@ -66,7 +71,7 @@ verification, specify the `--no-verify` option. For example:
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-# Performing basic operations
+## Performing basic operations
 
 Cluster connection information is persisted across different Azure CLI sessions. Once a Service Fabric cluster is
 selected, you can run any Service Fabric command.
@@ -102,12 +107,12 @@ The command results in the following output, assuming JSON output is specified i
 }
 ```
 
-# Tips and FAQ
+## Tips and FAQ
 
 Here is some information that might be helpful when running into issues using the Service Fabric commands in the Azure
 CLI
 
-## Converting a certificate from PFX to PEM 
+### Converting a certificate from PFX to PEM
 
 The Azure CLI supports client-side certificates as PEM (extension `.pem`) files. If using PFX files from Windows, these
 certificates need to be converted to the PEM format. To convert from a PEM file to a PFX file, use the following 
@@ -119,7 +124,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) for details.
 
-## Connection issues
+### Connection issues
 
 When performing operations, you may run into the following error:
 
@@ -128,12 +133,12 @@ When performing operations, you may run into the following error:
 In this case, double check the specified cluster endpoint is reachable and listening. Verify also that the Service
 Fabric Explorer UI is reachable at that host and port. Use `az sf cluster select` to update the endpoint.
 
-## Getting detailed logs
+### Getting detailed logs
 
 When debugging or reporting an issue, it is useful to include detailed logs. The Azure CLI includes a global `--debug`
 flag that increases the verbosity of the logs.
 
-## Command help and syntax
+### Command help and syntax
 
 The Service Fabric commands follow the same convention as the Azure CLI. Specify the `-h` flag to get help about a
 specific command, or group of commands. For example:
