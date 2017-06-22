@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Get started
@@ -48,9 +48,10 @@
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
