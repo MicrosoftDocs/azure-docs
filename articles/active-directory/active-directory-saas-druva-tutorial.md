@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Druva, you need the following items:
 
 - An Azure AD subscription
-- A Druva single-sign on enabled subscription
+- A Druva single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,10 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://cloud.druva.com/home`
-
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Druva Client support team](https://support.druva.com/) to get this value. 
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://cloud.druva.com/home`	
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -122,18 +119,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
 6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
+
+	| Attribute Name      | Attribute Value      |
+	| ------------------- | -------------------- |
 	| insync\_auth\_token |Enter the token generated value |
 	
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_04.png)
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
-
+	
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
@@ -158,9 +154,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single Sign-On Settings](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On Settings")
 	
-	a. Paste **SAML Single Sign-On Service URL** value which you have copied from the azure portal into the **ID Provider Login URL** textbox.
+	a. Paste **SAML Single Sign-On Service URL** value which you have copied from the Azure portal into the **ID Provider Login URL** textbox.
 	
-	b. Paste **Sign-Out URL** value which you have copied from the azure portal into the **ID Provider Logout URL** textbox.
+	b. Paste **Sign-Out URL** value which you have copied from the Azure portal into the **ID Provider Logout URL** textbox.
 	
 	 c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 	 
@@ -275,8 +271,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+ 
+When you click the Druva tile in the Access Panel, you should get automatically signed-on to your Druva application.
 
-When you click the Druva tile in the Access Panel, you should get login page of Druva application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
