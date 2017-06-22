@@ -23,11 +23,12 @@ When you set up B2B communication in your integration account
 between two running business processes or applications, 
 those entities can exchange messages with each other. 
 To check whether these messages are processed correctly, 
-you can use [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+you can track your messages with 
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
 Log Analytics monitors your cloud and on-premises environments to help you 
 maintain their ability and performance. For example, you can use 
-these web-based tracking capabilities to track your messages:
+these web-based tracking capabilities for tracking messages:
 
 * Message count and status
 * Acknowledgments status
@@ -45,12 +46,12 @@ and [how to set up logging for that logic app](logic-apps-monitor-your-logic-app
 Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS.
-
 * An OMS workspace for [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
 Learn more about [how to create this workspace](../log-analytics/log-analytics-get-started.md). 
 
-## Add the Logic Apps B2B solution to Operations Management Suite (OMS)
+* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS.
+
+## Add the Logic Apps B2B solution to the Operations Management Suite (OMS)
 
 To have OMS track B2B messages for your logic app, 
 you must add the **Logic Apps B2B** solution to the OMS portal. 
@@ -69,12 +70,11 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. After the Microsoft Operations Management Suite portal home page opens, 
-choose **Solutions Gallery**.    
+4. After the OMS home page opens, choose **Solutions Gallery**.    
 
    ![Choose Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-5. Choose **Logic Apps B2B**.     
+5. Under **All solutions**, find and choose **Logic Apps B2B**.     
 
    ![Choose Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
 
@@ -89,9 +89,11 @@ choose **Solutions Gallery**.
 
 <a name="message-status-details"></a>
 
-## Track message status and details in the Operations Management Suite portal
+## Track message status and details in the Operations Management Suite
 
-1. After your B2B messages are processed, you can view the status and details for those messages. On the OMS home page, choose the **Logic Apps B2B Messages** tile.
+1. After your B2B messages are processed, 
+you can view the status and details for those messages. 
+On the OMS home page, choose the **Logic Apps B2B Messages** tile.
 
    ![Updated message count](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
@@ -110,7 +112,7 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
    For more details about the properties for each message type, 
    see [Property descriptions for messages](#message-list-property-descriptions).
 
-3. To view and export the inputs and outputs files for specific messages, 
+3. To view and export the input and output details for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
 save the .zip file to your local computer, and then extract that file. For example:
 
@@ -119,11 +121,11 @@ save the .zip file to your local computer, and then extract that file. For examp
    The extracted folder has a folder for each selected message. 
    Each message folder has at least these files: 
    
-   * Human-readable files for "input payload" and "output payload"
-   * Encoded files for inputs and outputs
+   * Human-readable files with the input payload and output payload details
+   * Encoded files with the inputs and outputs
 
    If acknowledgements are set up, 
-   the message folder also includes acknowledgement files. 
+   the message folder also includes files with acknowledgement details.
    
    For each message type, the folder and file names follow these formats:
 
@@ -131,12 +133,12 @@ save the .zip file to your local computer, and then extract that file. For examp
    * [X12](#x12-folder-file-names)
    * [EDIFACT](#edifact-folder-file-names)
 
-4. To view all the actions that have the same run ID, 
+4. To view all actions that have the same run ID, 
 on the **Log Search** page, choose a message from the message list.
 
-   ![Log Search page](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
-
    You can sort these actions by column, or search for specific results.
+
+   ![Actions with the same run ID](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
    * To search results with prebuilt queries, choose **Favorites**.
 
@@ -239,6 +241,8 @@ Here are the property descriptions for each EDIFACT message.
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
+
+### EDIFACT name formats for downloaded messages
 
 Here are the name formats for each downloaded EDIFACT message folder and files.
 

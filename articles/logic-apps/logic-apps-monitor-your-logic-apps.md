@@ -22,20 +22,21 @@ ms.author: LADocs; jehollan
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
 you can check its status, performance, and history in the Azure portal. 
-
-For monitoring real-time events, richer debugging, and notifications about events 
-that might indicate failures or other problems, you can also set up [logging](#azure-diagnostics) and [alerts](#add-azure-alerts). For example, 
-you could create an alert for "when more than five runs fail within an hour." 
-After your logic app runs, you can [view events](#find-events) 
-that happened in your logic app run.
-
-Along with monitoring in the Azure portal, you can also set up monitoring with the 
+For monitoring events in real time, richer debugging, and notifications 
+about failures or other possible problems, you can also set up 
+[logging](#azure-diagnostics) and [alerts](#add-azure-alerts). 
+You can also set up monitoring with the 
 [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+
+For example, you can create an alert for 
+"when more than five runs fail within an hour." 
+After your logic app runs, you can [view the events](#find-events) 
+that happen during your logic app run.
 
 ## View runs and triggers history for your logic app
 
 1. To find your logic app in the [Azure portal](https://portal.azure.com), 
-on the left menu, choose **More services**. Then, in the search box, 
+on the main Azure menu, choose **More services**. In the search box, 
 find "logic apps", and choose **Logic apps**.
 
    ![Find your logic app](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
@@ -57,25 +58,32 @@ choose **Overview**.
    To learn more about the statuses for each run and trigger, 
    see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
 
+   > [!TIP]
+   > If you don't find the data that you expect, 
+   > on the toolbar, choose **Refresh**.
+
 4. You can view the steps for a specific run. 
 Under **Runs history**, select that run. 
 The monitor view shows each step in that run.
 
    ![Actions for a specific run](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-   For more details about the run, like the run's **Correlation ID**, 
-   which you can use with the 
-   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-   choose **Run Details**. This information summarizes the steps, status, 
-   inputs, and outputs for the run.
+   For more details about the run, choose **Run Details**. 
+   This information summarizes the steps, status, inputs, and outputs for the run.
 
-   ![Run Details](media/logic-apps-monitor-your-logic-apps/run-details.png)
+   ![Choose "Run Details"](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
-5. To view the details about each step in the run, like inputs, 
-outputs, and any error messages that might have happened for each step, 
-expand the steps that you want. For example:
+   For example, you can get the run's **Correlation ID**, 
+   which you might need when you use the 
+   [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic),
+
+5. To view the details about a specific step, 
+choose the step that you want to expand. For example:
 
    ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
+
+   You can now review details like inputs, outputs, 
+   and any error messages that might have happened for each step
    
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic App service. 
@@ -83,14 +91,17 @@ expand the steps that you want. For example:
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
-6. You can view details for a specific trigger event, like inputs and outputs. 
-Go back to the **Overview** pane. Under **Trigger history**, select the trigger event.
+6. To view the details for a specific trigger event, 
+go back to the **Overview** pane. Under **Trigger history**, 
+select the trigger event.
+
+   You can now review details like input and output details.
 
    ![Trigger event details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
-## Set up logging for your logic app with Azure Log Analytics
+## Turn on diagnostic data logging for your logic app
 
 For richer debugging with runtime details and events, 
 you can set up diagnostic logging with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
@@ -98,7 +109,7 @@ Log Analytics is a service in [Operations Management Suite (OMS)](../operations-
 that monitors your cloud and on-premises environments 
 to help you maintain their availability and performance. 
 
-Before you start, you need to have a workspace in OMS. Learn more about 
+Before you start, you need to have an OMS workspace. Learn 
 [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
 1. In the [Azure portal](https://portal.azure.com), find and select your logic app. 
@@ -117,10 +128,10 @@ choose **Diagnostics** > **Diagnostic Settings**.
    3. Under **OMS Workspaces**, select the OMS workspace 
    to use for logging.
    4. Under **Log**, select **WorkflowRuntime**.
-   5. Choose your metric interval.
+   5. Choose the metric interval.
    6. When you're done, choose **Save**.
 
-   ![Select OMS workspace and diagnostics data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Select OMS workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 After your logic app runs, you can find the events that happened during that run.
 
@@ -131,7 +142,7 @@ After your logic app runs, you can find the events that happened during that run
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
 
-   ![Find Log Analytics](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
 2. Under **Log Analytics**, find and select your OMS workspace. 
 
@@ -149,14 +160,14 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![On the OMS menu, choose "Log Search"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. In the search box, enter a field that you want to find, and press **ENTER**. 
+5. In the search box, enter a field that you want to find, and press **Enter**. 
 When you start typing, OMS shows you possible matches and operations that you can use. 
 Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
    For example, to find the top 10 events that happened, 
-   enter this search query: **Category=WorkflowRuntime | top 10**
+   enter and select this search query: **Category=WorkflowRuntime |top 10**
 
-   ![Start typing query string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
+   ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
 6. On the results page, in the left bar, choose the timeframe that you want to view.
 To refine your query by adding a filter, choose **+Add**.
@@ -176,27 +187,28 @@ Select the filter, and choose **+Add**.
    ![Select filter value, choose "Apply"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
 9. Now return to the query that you're building. 
-Your query has been updated with your selected filter event and value. 
+Your query is updated with your selected filter and value. 
 Your previous results are now filtered too.
 
    ![Return to your query with filtered results](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. To reuse your query later, save your query to your **Favorites**. 
-Learn [how to save your query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+10. To save your query for future use, choose **Save**. 
+Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 ## Extend how and where you use diagnostic data with other services
 
-Along with Azure Log Analytics, you can set up your 
-[logic app](logic-apps-monitor-your-logic-apps.md) so that diagnostics 
-data is archived with [Azure Storage](../storage/storage-introduction.md) 
-or streamed through [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
-That way, you can get real-time monitoring for your workflows by using the telemetry 
-sent to these Azure services with other services like 
-[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](https://powerbi.microsoft.com). Learn more about 
-[monitoring and diagnostics in Azure](../monitoring-and-diagnostics/monitoring-overview.md). 
+Along with Azure Log Analytics, you can extend how you use your logic app's 
+diagnostic data with other Azure services, for example: 
 
-Based on the options that you want to set up, make sure that you first 
+* [Archive diagnostics data](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) 
+in a storage account with [Azure Storage](../storage/storage-introduction.md).
+* [Stream diagnostics data](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+to an event hub with [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
+
+You can then get real-time monitoring for your workflows by using the telemetry 
+in these services with other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md).
+
+Based on the options that you want set up, make sure that you first 
 [create an Azure storage account](../storage/storage-create-storage-account.md) 
 or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 
@@ -209,19 +221,10 @@ or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 
 ## Set up alerts for your logic app
 
-To notify you about metrics that are met or thresholds 
+To notify you about metrics that you want to measure or thresholds 
 that are crossed while your logic app runs, you can set up 
 [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
-Learn more about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-   > [!TIP]
-   > To run a logic app from an alert, you can include the 
-   > [request trigger](../connectors/connectors-native-reqres.md) in your workflow, 
-   > which lets you perform tasks like these examples:
-   > 
-   > * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-   > * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-   > * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
@@ -232,7 +235,7 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
    1. Under **Resource**, select your logic app, if not already selected. 
    2. Give a name and description for your alert.
-   3. Select a **Metric** that you want to track.
+   3. Select a **Metric** or event that you want to track.
    4. Select a **Condition**, specify a **Threshold** for the metric, 
    and select the **Period** for monitoring this metric.
    5. Select whether to send mail for the alert. 
@@ -243,14 +246,24 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
    ![Create metric alert rule](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
 
-## Azure Diagnostics settings for tracking and monitoring events
+> [!TIP]
+> To run a logic app from an alert, you can include the 
+> [request trigger](../connectors/connectors-native-reqres.md) in your workflow, 
+> which lets you perform tasks like these examples:
+> 
+> * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+> * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-Each event contains details about your logic app and the event, 
-like status. In this example for the `ActionCompleted` event, 
+## Azure Diagnostics event settings and details
+
+Each diagnostic event contains details about your logic app and that event, 
+like status, start time, end time, and so on. 
+In this example for the `ActionCompleted` event, 
 the `clientTrackingId` and `trackedProperties` properties 
 are especially useful for tracking and monitoring:
 
-```
+``` json
 {
     "time": "2016-07-09T17:09:54.4773148Z",
     "workflowId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
@@ -293,37 +306,37 @@ in the trigger request. You can use a request trigger,
 HTTP trigger, or webhook trigger.
 
 * `trackedProperties`: To track inputs or outputs in diagnostics data, 
-you can add tracked properties to actions in the workflow definition. 
+you can add tracked properties to actions in your logic app's JSON definition. 
 
-    For example, suppose you want to track data like an "order ID" in your telemetry. 
-    To track one or more properties, add the `trackedProperties` section and the 
-    properties you want to the action definition.
-    Tracked properties can track only a single action's inputs and outputs, 
-    but you can use the `correlation` properties of events to correlate across actions in a run.
+  For example, suppose you want to track data like an "order ID" in your telemetry. 
+  To track one or more properties, add the `trackedProperties` section and the 
+  properties you want to the action definition.
+  Tracked properties can track only a single action's inputs and outputs, 
+  but you can use the `correlation` properties of events to correlate across actions in a run.
 
-    ``` 
-    {
-        "myAction": {
-            "type": "http",
-            "inputs": {
-                "uri": "http://uri",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": "@triggerBody()"
-            },
-            "trackedProperties":{
-                "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
-                "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
-                "transactionId": "@action()['inputs']['body']['<content>']"
-            }
-        }
-    }
-    ```
+  ``` json
+  {
+      "myAction": {
+          "type": "http",
+          "inputs": {
+              "uri": "http://uri",
+              "headers": {
+                  "Content-Type": "application/json"
+              },
+              "body": "@triggerBody()"
+          },
+          "trackedProperties": {
+              "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
+              "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
+              "transactionId": "@action()['inputs']['body']['<content>']"
+          }
+      }
+  }
+  ```
 
 ## Next steps
 
-* [Create templates for logic app deployment and release management](logic-apps-create-deploy-template.md)
-* [B2B scenarios with Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-* [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
+* [Create templates for logic app deployment and release management](../logic-apps/logic-apps-create-deploy-template.md)
+* [B2B scenarios with Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)
 

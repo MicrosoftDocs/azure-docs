@@ -28,17 +28,18 @@ for example, the interchange control number for the messages that you want to fi
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up diagnostics logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+and [how to set up diagnostics logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
-Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
+Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) 
-and [set up message tracking in OMS](logic-apps-track-b2b-messages-omsportal.md).
+* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) and [set up message tracking in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-After you've met these requirements, you should also have an OMS workspace for Log Analytics.
+* An OMS workspace for [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+After you've met the previous requirements, you should already have an OMS workspace for Log Analytics. 
+Otherwise, learn more about [how to create this workspace](../log-analytics/log-analytics-get-started.md).
 
 ## Create queries with filters in the Operations Management Suite portal
 
@@ -93,7 +94,7 @@ Select the filter, and choose **+Add**.
 
 9. In the left bar, select the filter value that you want to use, and choose **Apply**.
 
-   For this example, we select the interchange control number that we want.
+   This example selects the interchange control number for the messages we want.
 
    ![Select filter value](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
@@ -101,7 +102,7 @@ Select the filter, and choose **+Add**.
 Your query has been updated with your selected filter event and value. 
 Your previous results are now filtered too.
 
-   ![Return to your query with filtered results](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+    ![Return to your query with filtered results](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
 11. To reuse your query later, 
 save your query to your **Favorites**.
@@ -149,7 +150,7 @@ To update the query so you can find different results, edit the query.
 
 ## Next steps
 
-* [Custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)   
-* [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)   
+* [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
