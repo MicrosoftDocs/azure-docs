@@ -102,17 +102,39 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
    ![View message status](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-   The message list for your chosen tile appears. 
-   To export the message list, choose **Download**. For example: 
+   A list of messages appears for your chosen tile. For example, 
+   this list shows AS2 messages:
 
-   ![View or download message list](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![View messages](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-   > [!TIP]
-   > To find the descriptions for message list properties, 
-   > see [Message list property descriptions](#message-list-property-descriptions).
+   For more details about the properties for each message type, 
+   see [Message property descriptions](#message-list-property-descriptions).
+
+3. To view and export the inputs and outputs files for specific messages, 
+select those messages, and choose **Download**. When you're prompted, 
+save the .zip file to your local computer, and then extract that file. For example:
+
+   ![Download message files](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
+
+   > [!NOTE]
+   > Currently, you can download messages only for AS2 and X12.
+
+   The extracted folder has a folder for each selected message. 
+   Each message folder has at least these files: 
+   
+   * Human-readable files for "input payload" and "output payload"
+   * Encoded files for inputs and outputs
+
+   The message folder includes acknowledgement file 
+   only when acknowledgements are set up.
+   
+   Based on the message type, the folder and file names have these formats:
+
+   * [AS2](#as2-folder-file-names)
+   * [X12](#x12-folder-file-names)
 
 4. To view all the actions that have the same run ID, 
-   select a row in the message list. 
+from the message list, select a row. 
 
 5. On the **Log Search** page, you can sort these actions by column, 
 or search for specific results.
@@ -129,9 +151,16 @@ or search for specific results.
 
 <a name="message-list-property-descriptions"></a>
 
-## Message list property descriptions
+## Property descriptions and name formats for AS2, X12, and EDIFACT messages
 
-#### AS2 message list property descriptions
+For each message type, here are the property descriptions 
+and name formats for downloaded messages.
+
+<a name="as2-message-properties"></a>
+
+### AS2 message property descriptions
+
+Here are the property descriptions for each AS2 message.
 
 | Property | Description |
 | --- | --- |
@@ -144,8 +173,25 @@ or search for specific results.
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Message ID |  The AS2 message ID from the AS2 message headers |
 | Timestamp | The time when the AS2 action processed the message |
+|          |             |
 
-#### X12 message list property descriptions
+<a name="as2-folder-file-names"></a>
+
+### AS2 name formats for downloaded messages
+
+Here are the name formats for each downloaded AS2 message folder and files.
+
+| Folder or file | Name format |
+| :------------- | :---------- |
+| Message | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
+|          |             |
+
+<a name="x12-message-properties"></a>
+
+### X12 message property descriptions
+
+Here are the property descriptions for each X12 message.
 
 | Property | Description |
 | --- | --- |
@@ -158,10 +204,27 @@ or search for specific results.
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Msg type | The EDI X12 message type |
 | ICN | The Interchange Control Number for the X12 message |
-| TSCN | The Transactional Set Control Number for the X12 message |
+| TSCN | The Transaction Set Control Number for the X12 message |
 | Timestamp | The time when the X12 action processed the message |
+|          |             |
 
-#### EDIFACT message list property descriptions
+<a name="x12-folder-file-names"></a>
+
+### X12 name formats for downloaded messages
+
+Here are the name formats for each downloaded X12 message folder and files.
+
+| Folder or file | Name format |
+| :------------- | :---------- |
+| Message | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
+|          |             |
+
+<a name="EDIFACT-message-properties"></a>
+
+### EDIFACT message property descriptions
+
+Here are the property descriptions for each EDIFACT message.
 
 | Property | Description |
 | --- | --- |
@@ -174,8 +237,19 @@ or search for specific results.
 | Correlation ID | The ID that correlates all the triggers and actions in a logic app |
 | Msg type | The EDIFACT message type |
 | ICN | The Interchange Control Number for the EDIFACT message |
-| TSCN | The Transactional Set Control Number for the EDIFACT message |
+| TSCN | The Transaction Set Control Number for the EDIFACT message |
 | Timestamp | The time when the EDIFACT action processed the message |
+|          |               |
+
+<a name="edifact-folder-file-names"></a>
+
+Here are the name formats for each downloaded EDIFACT message folder and files.
+
+| Folder or file | Name format |
+| :------------- | :---------- |
+| Message | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
+|          |             |
 
 ## Next steps
 
