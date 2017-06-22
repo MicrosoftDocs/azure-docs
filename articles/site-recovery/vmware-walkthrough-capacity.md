@@ -36,6 +36,8 @@ You gather information about your replication environment, and then plan capacit
 
 ## Replication considerations
 
+Note these considerations before you start deployment:
+
 **Component** | **Details** |
 --- | --- | ---
 **Replication** | **Maximum daily change rate:** A protected machine can only use one process server, and a single process server can handle a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.<br/><br/> **Maximum throughput:** A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of input/output operations per second (IOPS) across a source machine to 20,000. For example, if you have a source machine with 5 disks, and each disk generates 120 IOPS (8K size) on the source machine, then it will be within the Azure per disk IOPS limit of 500. (The number of storage accounts required is equal to the total source machine IOPS, divided by 20,000.)
@@ -47,6 +49,8 @@ The configuration server should be able to handle the daily change rate capacity
 As a best practice, locate the configuration server on the same network and LAN segment as the machines you want to protect. It can be located on a different network, but machines you want to protect should have layer 3 network visibility to it.
 
 ## Sizing recommendations
+
+The table summarizes sizing recommendations based on CPU.
 
 **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines**
 --- | --- | --- | --- | ---
