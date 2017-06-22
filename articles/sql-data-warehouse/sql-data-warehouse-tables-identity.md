@@ -251,7 +251,9 @@ AND     tb.name = 'T1'
 
 ## Next steps
 
-To learn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary]. For more information about best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse Best Practices].  
+* To learn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary].
+ 
+* For more information about best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 
