@@ -1,7 +1,6 @@
 ---
 title: Getting Started with Service Fabric and Azure CLI 2.0
-description: How to use the Service Fabric commands module in the Azure CLI, version 2.0, includes connecting to
-cluster and managing applications
+description: How to use the Service Fabric commands module in the Azure CLI, version 2.0, includes connecting to cluster and managing applications
 services: service-fabric
 author: samedder
 manager: timlt
@@ -10,7 +9,6 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-
 ---
 # Install Azure CLI 2.0
 

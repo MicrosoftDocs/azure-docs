@@ -1,7 +1,6 @@
 ---
 title: Manage Service Fabric applications using Azure CLI 2.0
-description: Describes the process of deploying and removing applications from a Service Fabric cluster using
-Azure CLI 2.0
+description: Describes the process of deploying and removing applications from a Service Fabric cluster using Azure CLI 2.0
 services: service-fabric
 author: samedder
 manager: timlt
@@ -10,7 +9,6 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: edwardsa
-
 ---
 # Prerequisites
 
