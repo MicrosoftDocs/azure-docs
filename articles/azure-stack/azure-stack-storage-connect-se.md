@@ -20,7 +20,7 @@ ms.author: xiaofmao
 # Connect Storage Explorer to an Azure Stack subscription
 
 ## Overview
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. In this article, you learn how to connecting to your Azure Stack storage accounts.
+Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. In this article, you learn how to connect to your Azure Stack storage accounts.
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
