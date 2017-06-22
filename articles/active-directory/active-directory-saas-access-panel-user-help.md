@@ -1,5 +1,5 @@
 ---
-title: Do you need help with the MyApps portal | Microsoft Docs
+title: Do you need help with the MyApps portal in Azure Active Directory | Microsoft Docs
 description: Get instructions to perform common tasks when working with the access panel.
 services: active-directory
 documentationcenter: ''
@@ -13,25 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 06/22/2017
 ms.author: markvi
 
 ---
 # Do you need help with the MyApps portal?
 
-You have probably reached this page because you were unfortunately running into an issue when using the My Apps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, here are some troubleshooting topics that might be able to help, first:
-
-- I cannot sign in to myapps.microsoft.com
-
-- How do I update my password
-
-- How do I register for password reset
-
-- I am having trouble installing the My Apps portal browser extension
-
-- How do I add a new app
-
-- How do I manage my group membership
+You have probably reached this page because you were unfortunately running into an issue when using the My Apps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, here are some troubleshooting topics that might be able to help, first.
 
 ## I cannot sign in to myapps.microsoft.com
 
@@ -87,7 +75,7 @@ After installation try the following steps if you are encountering issues:
 
 - Try clearing your browser’s cookies and trying to sign in again.
 
-## How do I add a new app
+## How do I add a new app?
 
 1.	On the **Apps** page, click **Add App**.
 
@@ -100,7 +88,7 @@ After installation try the following steps if you are encountering issues:
 - If the app requires permission, you may need to wait for admin approval.
 
 
-## How do I manage my group memberships
+## How do I manage my group memberships?
 
 1. Click the Groups app tile. 
 2. To create a group, under Groups I own, click Create group, and then follow the instructions.
