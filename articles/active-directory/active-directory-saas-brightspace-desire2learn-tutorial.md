@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brightspace by Desire2Learn support team](https://www.d2l.com/en-apac/contact/) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/) to get these values.
  
 
 
@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Brightspace by Desire2Learn** side, you need to send the downloaded **Metadata XML** to [Brightspace by Desire2Learn support team](https://www.d2l.com/en-apac/contact/).
+6. To configure single sign-on on **Brightspace by Desire2Learn** side, you need to send the downloaded **Metadata XML** to [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -171,7 +171,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In order to enable Azure AD users to log into Brightspace by Desire2Learn, they must be provisioned into Brightspace by Desire2Learn.  
 
-In the case of Brightspace by Desire2Learn, the user accounts need to be created by your [Brightspace by Desire2Learn support team](https://www.d2l.com/en-apac/contact/).
+In the case of Brightspace by Desire2Learn, the user accounts need to be created by your [Brightspace by Desire2Learn support team](https://www.d2l.com/contact/).
 
 >[!NOTE]
 >You can use any other Brightspace by Desire2Learn user account creation tools or APIs provided by Brightspace by Desire2Learn to provision Azure Active Directory user accounts. 
