@@ -63,7 +63,6 @@
 ## [Gateway SKUs (old)](vpn-gateway-about-skus-legacy.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
-### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
