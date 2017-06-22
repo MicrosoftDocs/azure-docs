@@ -255,7 +255,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
-## Billing Reader
+### Billing Reader
 Can view all Billing information
 
 | **Actions** |  |
