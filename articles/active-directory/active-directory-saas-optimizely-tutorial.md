@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -113,49 +113,39 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern:  `urn:auth0:optimizely:contoso`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Contact [Optimizely Client support team](https://www.optimizely.com/contact) to get these values. 
+	> These values are not the real. You will update the value with the actual Sign-on URL and Identifier, which is explained later in the tutorial. 
 
-4. To get SSO configured for your application, contact your Optimizely Account Manager and provide the following information:
-   
-    a. Downloaded certificate 
-
-    b. The single sign-on service URL
-
-    In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
-
-5. Go back to **Configure App Settings** dialog page, and then perform the following steps:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_url.png)
-
-    a. In the **Sign On URL** textbox, type the **SP-initiated SSO URL** provided by Optimizely.
-
-	b. In the **Identifier** textbox, type the **Service Provider Entity ID** provided by Optimizely.   
-
-6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_certificate.png) 
 
-7. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_general_400.png)
 
-8. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_configure.png) 
 
-9. To configure single sign-on on **Optimizely** side, you need to send the downloaded **Certificate(Base64)** and, **SAML Single Sign-On Service URL** to [Optimizely support](https://www.optimizely.com/contact).
+7. To configure single sign-on on **Optimizely** side, contact your Optimizely Account Manager and provide the downloaded **Certificate (Base64)**, and **SAML Single Sign-On Service URL**. 
 
-10. In a different browser window, sign-on to your Optimizely application.
+8. In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
 
-11. Click you account name in the top right corner and then **Account Settings**.
+	a. Copy the **SP-initiated SSO URL** provided by Optimizely, and paste into the **Sign On URL** textbox in **Optimizely Domain and URLs** section on Azure portal 
+
+	b. Copy the **Service Provider Entity ID** provided by Optimizely, and paste into the **Identifier** textbox in **Optimizely Domain and URLs** section on Azure portal 
+
+9. In a different browser window, sign-on to your Optimizely application.
+
+10. Click you account name in the top right corner and then **Account Settings**.
    
     ![Azure AD Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_09.png)
 
-12. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
+11. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
    
     ![Azure AD Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
 	
-13. Click **Save**
+12. Click **Save**
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
