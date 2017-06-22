@@ -27,7 +27,7 @@ This article has detailed instructions to install PowerShell for Azure Stack. Ho
 > [!NOTE]
 > The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
 
-PowerShell commands for Azure Stack are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell session on the MAS-CON01 computer or on your local computer if you are connected through VPN and run the following command:
+PowerShell commands for Azure Stack are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell session from the MAS-CON01 computer or from your local computer if you are connected through VPN and run the following command:
 
 ```powershell
 # Returns a list of PowerShell module repositories that are registered for the current user.
