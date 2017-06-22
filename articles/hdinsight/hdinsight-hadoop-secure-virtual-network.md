@@ -33,11 +33,39 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 For more information on Azure Virtual Networks, see the [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) documentation.
 
-## Planning checklist
+## Virtual networks
 
+### Classic and Resource Manager virtual networks
 
+The type of virtual network used with HDInsight depends on the operating system used for the cluster.
 
-## Filtering: Network security groups
+| HDInsight operating system | Classic virtual network | Resource Manager virtual network |
+| ---- | ---- | ---- |
+| Linux | no | yes |
+| Windows | yes | no |
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+
+To access resources in an incompatible virtual network, join the two networks. For more information on joining networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+
+### Name resolution and custom DNS
+
+Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+
+* __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
+
+* __Restricting network traffic__: 
+
+    * __Network Security Groups__: You must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+
+        For more information, see the [Network Security Groups](#using-network-security-groups) section.
+
+    * __User-defined routes__: You must define routes to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+
+        For more information, see the [User-defined routes](#user-defined-routes) section.
+
+## Network security groups
 
 Network security groups (NSG) allow you to filter traffic by:
 
