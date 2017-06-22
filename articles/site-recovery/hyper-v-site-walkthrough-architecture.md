@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.date: 06/22/2017
 ms.author: raynew
 ---
 
@@ -56,9 +56,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), to set up replication with the settings you've configured.
 3. The job starts initial replication by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
-        ![Jobs list](media/hyper-v-site-walkthrough-architecture/image1.png)
-        ![Enable protection drill down](media/hyper-v-site-walkthrough-architecture/image2.png)
-
+ 
 ### Replicate the initial data
 
 1. A [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken when initial replication is triggered.
@@ -71,7 +69,6 @@ Learn about the deployment prerequisites and requirements for each of these comp
 ### Finalize protection
 
 1. After the initial replication finishes, the **Finalize protection on the virtual machine** job configures network and other post-replication settings, so that the virtual machine is protected.
-    ![Finalize protection job](media/hyper-v-site-walkthrough-architecture/image3.png)
 2. If you're replicating to Azure, you might need to tweak the settings for the virtual machine so that it's ready for failover. At this point you can run a test failover to check everything is working as expected.
 
 ### Replicate the delta
