@@ -1,5 +1,5 @@
 ---
-title: CI/CD from Jenkins to Azure VMs | Microsoft Docs
+title: Setup CI/CD with Team Services and Jenkins for Azure VM deployment | Microsoft Docs
 description: Set up continuous integration (CI) and continuous deployment (CD) of an app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
 author: ahomer
 manager: douge
@@ -17,9 +17,7 @@ ms.author: ahomer
 ms.custom: mvc
 ---
 
-# Implement continuous deployment of your app using Jenkins to Azure VMs
-
-**Team Services | TFS 2017 | TFS 2015**
+# Implement continuous deployment of your app to Linux VMs using Jenkins and Team Services
 
 Continuous integration (CI) and continuous deployment (CD) means starting an automated deployment process whenever a new successful build is available.
 In this tutorial, you set up CI/CD for a Node.js app by using Jenkins to build it, and Visual Studio Team Services
@@ -159,7 +157,7 @@ To create a deployment group in Team Services or TFS:
    Then choose **Create**.
 
 1. The virtual machines to populate the new deployment group will be created
-   by the Azure Azure Resource Group Deployment task. You don't need to register them manually.
+   by the Azure Resource Group Deployment task. You don't need to register them manually.
 
 ## Create a release definition
 
