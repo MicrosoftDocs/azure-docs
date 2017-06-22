@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 06/22/2017
 ms.author: kumud
 ---
 
@@ -32,9 +32,9 @@ To configure endpoint monitoring, you must specify the following settings on you
 * **Tolerated Number of Failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
 * **Monitoring Timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
 
-![Traffic Manager fast end point failover settings](./media/traffic-manager-monitoring/fast-endpoint-failover-settings.png)
+![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/fast-endpoint-failover-settings.png)
 
-**Figure 1:  Fast endpoint failover settings**
+**Figure 1:  Traffic manager endpoint monitoring**
 
 ## How endpoint monitoring works
 
