@@ -137,9 +137,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. To upload your downloaded Azure Active Directory certificate, click **Select Issuer Certificate** or **Change Issuer Certificate**.
   	
-	b. Paste **SAML Entity ID** value coped from azure portal into the **Issuer** textbox.
+	b. Paste **SAML Entity ID** value, which you have copied from Azure portal into the **Issuer** textbox.
   	
-	c. Paste **SAML Single Sign-On Service URL** value copied from the azure portal into the **Service Provider (SP) Initiated Endpoint** textbox.
+	c. Paste **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **Service Provider (SP) Initiated Endpoint** textbox.
 	    	
 	d. Select **SAML Enabled** as **Enable**.
 
@@ -182,13 +182,10 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a SpringCM test user
 
-To enable Azure Active Directory users to log in to SpringCM, they must be provisioned into SpringCM.  
-
-In the case of SpringCM, provisioning is a manual task.
+To enable Azure Active Directory users to log in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 >[!NOTE]
 >For more information, see [Create and Edit a SpringCM User](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
-> 
 
 **To provision a user account to SpringCM, perform the following steps:**
 
