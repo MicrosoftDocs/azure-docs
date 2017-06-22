@@ -165,6 +165,10 @@
         href: azure-stack-acs-differences.md
       - name: Storage development tools
         href: azure-stack-storage-dev.md
+      - name: Data transfer tools
+        href: azure-stack-storage-transfer.md
+      - name: Connect Storage Explorer
+        href: azure-stack-storage-connect-se.md
     - name: Network
       items:
       - name: iDNS for Azure Stack
