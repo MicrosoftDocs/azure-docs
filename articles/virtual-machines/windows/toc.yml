@@ -133,7 +133,7 @@
       href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create / Manage VM with C#
       href: csharp.md
     - name: Create VM with C# and template
       href: csharp-template.md
@@ -172,8 +172,6 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
-      href: csharp-manage.md
   - name: Connect with RDP
     items:
     - name: Log on to a VM
@@ -407,6 +405,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
