@@ -185,7 +185,6 @@
 ### [Upgrade HDInsight cluster to newer version](hdinsight-upgrade-cluster.md)
 ### [OS patching for HDInsight cluster](hdinsight-os-patching.md)
 ## [Troubleshoot](hdinsight-troubleshoot-guide.md)
-### [Azure HDInsight Troubleshooting](hdinsight-troubleshoot-guide.md)
 ### [HBASE troubleshooting](hdinsight-troubleshoot-hbase.md)
 ### [HDFS troubleshooting](hdinsight-troubleshoot-hdfs.md)
 ### [HIVE troubleshooting](hdinsight-troubleshoot-hive.md)
