@@ -50,7 +50,7 @@ The following table describes the connected sources that are supported by this s
 ## Using the solution
 When you add the solution to your OMS workspace, the **Agent Health** tile will be added to your OMS dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
-Click on the **Agent Health** tile to open the **"Agent Health** dashboard.  The dashboard includes the columns in the following table. Each column lists the top ten events by count that match that column’s criteria for the specified time range. You can run a log search that provides the entire list by selecting **See all** at the right bottom of each column, or by clicking the column header.
+Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The dashboard includes the columns in the following table. Each column lists the top ten events by count that match that column’s criteria for the specified time range. You can run a log search that provides the entire list by selecting **See all** at the right bottom of each column, or by clicking the column header.
 
 | Column | Description | 
 |--------|-------------|
