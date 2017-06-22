@@ -32,6 +32,10 @@ To configure endpoint monitoring, you must specify the following settings on you
 * **Tolerated Number of Failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
 * **Monitoring Timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
 
+![Traffic Manager fast end point failover settings](./media/traffic-manager-monitoring/fast-endpoint-failover-settings.png)
+
+**Figure 1:  Fast endpoint failover settings**
+
 ## How endpoint monitoring works
 
 If the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. If it gets back a 200-OK response, then that endpoint is considered healthy. If the response is a different value, or, if no response is received within the timeout period specified, then the Traffic Manager probing agent re-attempts according to the Tolerated Number of Failures setting (no re-attempts are done if this setting is 0). If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked as unhealthy. 
@@ -98,9 +102,11 @@ An endpoint is unhealthy when any of the following events occur:
 
 For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-The following timeline is a detailed description of the monitoring process of Traffic Manager endpoint that has the following settings: monitoring protocol is HTTP, probing interval is 30 seconds, number of tolerated failures is 3, timeout value is 10 seconds, and DNS TTL is 30 seconds.
+The following timeline in Figure 2 is a detailed description of the monitoring process of Traffic Manager endpoint that has the following settings: monitoring protocol is HTTP, probing interval is 30 seconds, number of tolerated failures is 3, timeout value is 10 seconds, and DNS TTL is 30 seconds.
 
 ![Traffic Manager endpoint failover and failback sequence](./media/traffic-manager-monitoring/timeline.png)
+
+**Figure 2:  Traffic manager endpoint failover and recovery sequence**
 
 1. **GET**. For each endpoint, the Traffic Manager monitoring system performs a GET request on the path specified in the monitoring settings.
 2. **200 OK**. The monitoring system expects an HTTP 200 OK message to be returned within 10 seconds. When it receives this response, it recognizes that the service is available.
