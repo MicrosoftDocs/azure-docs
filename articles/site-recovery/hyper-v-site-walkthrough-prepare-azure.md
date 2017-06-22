@@ -38,7 +38,7 @@ Make sure you've read the [prerequisites](hyper-v-site-walkthrough-prerequisites
 ## Set up an Azure network
 
 - Set up an Azure network. Azure VMs are placed in this network when they're created after failover.
-- - The network should be in the same region as the Recovery Services vault
+- The network should be in the same region as the Recovery Services vault
 - Site Recovery in the Azure portal can use networks set up in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.
 - We recommend you set up a network before you begin. If you don't, you need to do it during Site Recovery deployment.
 - Learn about [virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
