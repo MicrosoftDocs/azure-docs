@@ -231,6 +231,8 @@
     href: /powershell/azure/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
   - name: Stack Overflow
