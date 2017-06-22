@@ -32,7 +32,7 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 For more information about partitions, see the following articles:
 
 * [Event Hubs features overview](../event-hubs/event-hubs-features.md#partitions)
-* [Data partitioning](../architecture/best-practices/data-partitioning.md#partitioning-azure-blob-storage)
+* [Data partitioning](https://docs.microsoft.com/en-us/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
 
 
 ## Streaming units (SUs)
