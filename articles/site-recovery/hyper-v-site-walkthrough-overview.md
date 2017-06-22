@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 21/06/2017
+ms.date: 06/21/2017
 ms.author: raynew
 ---
 
@@ -46,7 +46,7 @@ Make sure you have the prerequisites in place for each deployment component:
 - **Azure prerequisites**: You need a Microsoft Azure account, Azure networks, and storage accounts.
 - **On-premises Hyper-V prerequisites**: Make sure Hyper-V hosts are prepared for Site Recovery deployment.
 - **Replicated VMs**: VMs you want to replicate need to comply with Azure requirements.
-- 
+
 Go to [Step 2: Verify prerequisites and limitations](hyper-v-site-walkthrough-prerequisites.md)
 
 ## Step 3: Plan capacity
