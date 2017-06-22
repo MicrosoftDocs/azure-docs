@@ -163,7 +163,7 @@
         href: azure-stack-storage-overview.md
       - name: Storage considerations
         href: azure-stack-acs-differences.md
-       -name: Storage development tools
+      - name: Storage development tools
         href: azure-stack-storage-dev.md
     - name: Network
       items:
