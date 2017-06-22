@@ -1,5 +1,5 @@
 ---
-title: Plan capacity and scaling for Hyper-V VM replication (Without VMM) to Azure with Azure Site Recovery | Microsoft Docs
+title: Plan capacity and scaling for Hyper-V VM replication (without VMM) to Azure with Azure Site Recovery | Microsoft Docs
 description: Use this article to plan capacity and scale when replicating  Hyper-V VMs to Azure with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
@@ -43,6 +43,7 @@ Based on the information you've gather, you run the [Site Recovery Capacity Plan
 - Quick planning: Run the tool in this mode to get network and server projections based on an average number of VMs, disks, storage, and change rate.
 - Detailed planning: Run the tool in this mode, and provide details of each workload at VM level. Analyze VM compatibility and get network and server projections.
 
+Now run the tool:
 
 1. Download the [tool](http://aka.ms/asr-capacity-planner-excel)
 2. To run the quick planner, follow [these instructions](site-recovery-capacity-planner.md#run-the-quick-planner), and select the scenario **Hyper-V to Azure**.
