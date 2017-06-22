@@ -1,13 +1,38 @@
-# Bing Web Search And Computer Vision API Tutorial
+---
+title: Xamarin Forms Visual Search Sample App Tutorial
+descriptopn: Open Source sample application providing the framework for a basic visual search application written in Xamarin Forms
+services: Bing-web-search-API Cognitive-services-computer-vision-API
+documentationcenter: dev-center-name (no idea what to put here)
+author: Aristoddle (says GitHub-alias-of-only-one-author; not sure if I should have something else here)
+manager: manager-alias
 
-This tutorial explores a Xamarin Forms application which utilizes the Microsoft Cognitive Services Computer Vision APIs to perform OCR on both handwritten and printed text.  The application feeds the text extracted by these APIs into the Bing Web Search API, allowing a user to easily query strings of text contained in images.  This is an open source application which you can use for building your own applications utilizing the Microsoft Computer Vision and Web Search APIs.
+
+ms.service: required
+ms.devlang: c#
+ms.topic: article
+ms.tgt_pltfrm: may be required
+ms.workload: required
+ms.date: 06/22/2017
+ms.author: t-jolanz@microsoft.com
+---
+
+# Bing Web Search And Computer Vision API Tutorial: 
+This tutorial explores how the Microsoft Computer Vision Optical Character Recognition and Bing Web Search API endpoints can be utilized to build an application implementing basic visual search.  This application is written in C# and utilizes Xamarin.Forms, a cross-platform solution for desktop and mobile development.  Over the course of this tutorial we will discuss the following: 
+1) Setting up your system for Xamarin.Forms development
+2) Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
+3) Formatting this data and processing it with the Microsoft Cognitive Services Computer Vision APIs
+4) Structuring and sending requests to the Bing Web Search API
+5) Parsing responses from each of these APIs utilizing the NewtonSoft JSON parser, and and then unpacking these responses utilizing LINQ and through deserialization onto model objects
+6) Inegrating these APIs into cross compiling mobile applications
+  
+This is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/) which you can use as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs.
 
 ## Prerequisites
 ### Platform Requirements
-This example was developed in Xamarin.Forms using <a href="https://www.visualstudio.com/downloads/">Visual Studio 2017 Enterprise Edition</a>.  For more information about setting up Xamarin for Visual Studio, you can either consult <a href="https://developer.xamarin.com/guides/cross-platform/getting_started/">this guide</a>, or continue reading below.
+This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise Edition](https://www.visualstudio.com/downloads/)  For more information about setting up Xamarin for Visual Studio, you can either consult [this guide](https://developer.xamarin.com/guides/cross-platform/getting_started/), or continue reading below.
 
 ### Required Azure Services
-This application utilizes resources from the <a href="https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/">Bing Web Search API</a> and the Cognitive Services <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">Computer Vision API</a>.  For subscription and key management details, see <a href="https://azure.microsoft.com/en-us/try/cognitive-services/"> Subscriptions</a>.
+This application utilizes resources from the [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) and the Cognitive Services <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">Computer Vision API</a>.  For subscription and key management details, see <a href="https://azure.microsoft.com/en-us/try/cognitive-services/"> Subscriptions</a>.
 
 ## Environment Setup
 
@@ -24,7 +49,7 @@ Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile D
 
 <div align="center">
     <img src=./media/XamarinFormsIsEnabled.PNG
-         alt="A picture showing that Xamarin Forms is installed">
+         alt="A picture showing that Xamarin.Forms is installed">
     </img>
 </div>
 
@@ -105,7 +130,7 @@ Please note that the Handwritten OCR endpoint is in preview, and although functi
 ![WebResultsPage Example](./media/WebResultsPage.png)
 
 **Description of WebResultsPage**
-* Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
+* Is a Xamarin.Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Uses the Web Search API:
     * General descripton: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
     * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
