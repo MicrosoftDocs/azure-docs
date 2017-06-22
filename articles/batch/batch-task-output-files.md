@@ -67,7 +67,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## Specify output files for task output
 
-To specify output files for a task, create a collection of [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile?view=azure-dotnet) objects and assign it to the [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles?view=azure-dotnet#Microsoft_Azure_Batch_CloudTask_OutputFiles) property when you create the task. 
+To specify output files for a task, create a collection of [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objects and assign it to the [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) property when you create the task. 
 
 The following .NET code example creates a task that writes random numbers to a file named `output.txt`. The example creates an output file for `output.txt` to be written to the container. The example also creates output files for any log files that match the file pattern `std*.txt` (_e.g._, `stdout.txt` and `stderr.txt`). The container URL requires the SAS that was created previously for the container. The Batch service uses the SAS to authenticate access to the container: 
 
@@ -97,7 +97,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### Specify a file pattern for matching
 
-When you specify an output file, you can use the [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern?view=azure-dotnet#Microsoft_Azure_Batch_OutputFile_FilePattern) property to specify a file pattern for matching. The file pattern may match zero files, a single file, or a set of files that are created by the task.
+When you specify an output file, you can use the [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) property to specify a file pattern for matching. The file pattern may match zero files, a single file, or a set of files that are created by the task.
 
 The **FilePattern** property supports standard filesystem wildcards such as `*` (for non-recursive matches) and `**` (for recursive matches). For example, the code sample above specifies the file pattern to match `std*.txt` non-recursively: 
 
@@ -109,19 +109,19 @@ To upload a single file, specify a file pattern with no wildcards. For example, 
 
 ### Specify an upload condition
 
-The [Output​File​Upload​Options.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition?view=azure-dotnet#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) property permits conditional uploading of output files. A common scenario is to upload one set of files if the task succeeds, and a different set of files if it fails. For example, you may want to upload verbose log files only when the task fails and exits with a nonzero exit code. Similarly, you may want to upload result files only if the task succeeds, as those files may be missing or incomplete if the task fails.
+The [Output​File​Upload​Options.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) property permits conditional uploading of output files. A common scenario is to upload one set of files if the task succeeds, and a different set of files if it fails. For example, you may want to upload verbose log files only when the task fails and exits with a nonzero exit code. Similarly, you may want to upload result files only if the task succeeds, as those files may be missing or incomplete if the task fails.
 
 The code sample above sets the **UploadCondition** property to **TaskCompletion**. This setting specifies that the file is to be uploaded after the tasks completes, regardless of the value of the exit code. 
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-For other settings, see the [Output​File​Upload​Condition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition?view=azure-dotnet) enum.
+For other settings, see the [Output​File​Upload​Condition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) enum.
 
 ### Disambiguate files with the same name
 
 The tasks in a job may produce files that have the same name. For example, `stdout.txt` and `stderr.txt` are created for every task that runs in a job. Because each task runs in its own context, these files don't conflict on the node's file system. However, when you upload files from multiple tasks to a shared container, you'll need to disambiguate files with the same name.
 
-The [Output​File​Blob​Container​Destination.​Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path?view=azure-dotnet#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) property specifies the destination blob or virtual directory for output files. You can use the **Path** property to name the blob or virtual directory in such a way that output files with the same name are uniquely named in Azure Storage. Using the task ID in the path is a good way to ensure unique names and easily identify files.
+The [Output​File​Blob​Container​Destination.​Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) property specifies the destination blob or virtual directory for output files. You can use the **Path** property to name the blob or virtual directory in such a way that output files with the same name are uniquely named in Azure Storage. Using the task ID in the path is a good way to ensure unique names and easily identify files.
 
 If the **FilePattern** property is set to a wildcard expression, then all files that match the pattern are uploaded to the virtual directory specified by the **Path** property. For example, if the container is `mycontainer`, the task ID is `mytask`, and the file pattern is `..\std*.txt`, then the absolute URIs to the output files in Azure Storage will be similar to:
 
@@ -146,7 +146,7 @@ For more information about virtual directories in Azure Storage, see [List the b
 
 ## Diagnose file upload errors
 
-If uploading output files to Azure Storage fails, then the task moves to the **Completed** state and the [Task​Execution​Information.​Failure​Information](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation?view=azure-dotnet#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) property is set. Examine the **FailureInformation** property to determine what error occurred. For example, here is an error that occurs on file upload if the container cannot be found: 
+If uploading output files to Azure Storage fails, then the task moves to the **Completed** state and the [Task​Execution​Information.​Failure​Information](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) property is set. Examine the **FailureInformation** property to determine what error occurred. For example, here is an error that occurs on file upload if the container cannot be found: 
 
 ```
 Category: UserError
@@ -171,7 +171,7 @@ If you are developing in C#, you can use the methods built into the [Batch File 
 string containerName = job.OutputStorageContainerName();
 ```
 
-You can use the [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl?view=azure-dotnet) method to return a shared access signature (SAS) URL that is used to write to the container. You can then pass this SAS to the [Output​File​Blob​Container​Destination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination?view=azure-dotnet) constructor.
+You can use the [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) method to return a shared access signature (SAS) URL that is used to write to the container. You can then pass this SAS to the [Output​File​Blob​Container​Destination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) constructor.
 
 If you are developing in a language other than C#, you will need to implement the File Conventions standard yourself.
 
