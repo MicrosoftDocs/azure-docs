@@ -83,7 +83,7 @@ The following table shows connectivity locations and the service providers for e
 | **Mumbai** |Airtel+, Tata Communications |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Next Generation Data |
-| **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect+, Softbank |
 | **Paris** |Colt, Interxion, Equinix, Orange+ |
 | **Quebec City** | Megaport |
 | **Sao Paulo** |Ascenty Data Centers+, Equinix, Telefonica |
@@ -129,6 +129,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](http://www.cologix.com/)
+  * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](http://www.interxion.com/)
