@@ -110,11 +110,13 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Named locations](active-directory-named-locations.md)
-### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
 ### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
+### Tasks
+#### [Configure named locations](active-directory-named-locations.md)
+#### [Find activity reports](active-directory-reporting-migration.md)
+#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)  
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
