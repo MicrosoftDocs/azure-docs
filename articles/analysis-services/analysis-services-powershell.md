@@ -35,7 +35,7 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 |Cmdlet|Description| 
 |------------|-----------------| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a new server instance.|
+|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Removes a server instance.|  
 |[Suspend-AzureRmAnalysisServicesServe](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspends a server instance.| 
 |[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Resumes a server instance.|  
@@ -43,9 +43,11 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 |[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Tests the existence of a server  instance.| 
 
 ## Database operations
+
 Azure Analysis Services database operations use the same [SqlServer](https://www.powershellgallery.com/packages/SqlServer) module as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services. 
 
 The SqlServer module provides task-specific database management cmdlets as well as the general purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SqlServer module are supported for Azure Analysis Services.
+
   
 |Cmdlet|Description|
 |------------|-----------------| 
@@ -61,6 +63,8 @@ The SqlServer module provides task-specific database management cmdlets as well 
   
 
 ## Related information
+
 * [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)
