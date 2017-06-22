@@ -26,35 +26,34 @@ If you need to quickly accomplish the task, the following section details the ba
 
 Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
+In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `WestUs` location:
+Create a resource group using [az group create](/cli/azure/group#create). This example creates a resource group named `myResourceGroup` in the `WestUs` location:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#create). Even if you wish to use [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md), you need to create a storage account that you upload your VHD to before converting to a managed disk. The following example creates a storage account named `mystorageaccount`:
+Create a storage account to upload your VHD to using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-List the access keys for your storage account with [az storage account keys list](/cli/azure/storage/account/keys#list). Make a note of `key1`:
-
-```azurecli
-az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
-```
-
-Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container#create). The following example creates a container named `mydisks` using the storage key value from `key1`:
-
+Create a container within your storage account using [az storage container create](/cli/azure/storage/container#create). The following example creates a container named *mydisks*:
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Finally, upload your VHD to the container you created with [az storage blob upload](/cli/azure/storage/blob#upload). Specify the local path to your VHD under `/path/to/disk/mydisk.vhd`:
+List the access keys for your storage account using [az storage account keys list](/cli/azure/storage/account/keys#list). Make a note of *key1*:
+
+```azurecli
+az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
+```
+
+Upload your VHD to the container you created with [az storage blob upload](/cli/azure/storage/blob#upload). Specify the local path to your VHD under */path/to/disk/mydisk.vhd*:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -62,9 +61,8 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-### Create a VM
 
-To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
+Convert the uploaded VHD to a managed disk using [az disk create](/cli/azure/disk/create):
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
