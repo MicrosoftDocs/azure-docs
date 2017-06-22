@@ -32,6 +32,11 @@ of your app's [resource blade](../azure-resource-manager/resource-group-portal.m
 * **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials
 for each app is generated automatically at app creation, and is found in the app's publish profile. You cannot manually configure the credentials, but you can reset them for an app anytime.
 
+    > [!NOTE]
+    > In order to give someone access to these credentials via Role Based Access Control (RBAC), you need to make them contributor or higher on the Web App. Readers are not allowed to publish, and hence can't access those credentials.
+    >
+    >
+
 ## <a name="userscope"></a>Set and reset user-level credentials
 
 You can configure your user-level credentials in any app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources). Regardless in which app you configure
