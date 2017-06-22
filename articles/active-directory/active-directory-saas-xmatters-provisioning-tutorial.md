@@ -29,7 +29,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   An Azure Active Active directory tenant
 *   A user account in Xmatters with Admin permissions 
 
-Note: The Azure AD provisioning integration relies on the [Xmatters REST API](https://help.xmatters.com/xmAPI/#xmatters-rest-api) which is available to Xmatters teams on the Business plan or better.
+Note: The Azure AD provisioning integration relies on the [Xmatters REST API](https://help.xmatters.com/xmAPI/#xmatters-rest-api).
 
 ## Assigning users to Xmatters
 
