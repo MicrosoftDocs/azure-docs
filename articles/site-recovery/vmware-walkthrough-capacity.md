@@ -157,4 +157,4 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 
 ## Next steps
 
-Go to [Step 4: Plan networking](site-recovery-network-design.md).
+Go to [Step 4: Plan networking](vmware-walkthrough-network.md).

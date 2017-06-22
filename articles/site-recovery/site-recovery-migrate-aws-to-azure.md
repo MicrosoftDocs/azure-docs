@@ -48,8 +48,7 @@ Here's what you need for this deployment
 
 1. Create a Recovery Services vault
 
-2. The Security Group of your EC2 instances should have the following rules configured:
-![Rules](./media/site-recovery-migrate-aws-to-azure/migration_pic1.png)
+2. The Security Group of your EC2 instances should have rules configured to allow communication between the EC2 instance that you want to migrate, and the instance on which you plan to deploy the Configuration Server.
 
 3. On the same Amazon Virtual Private Cloud as your EC2 instances, deploy an ASR configuration server. Refer the VMware / Physical to Azure prerequisites for configuration server deployment requirements
 ![DeployCS](./media/site-recovery-migrate-aws-to-azure/migration_pic2.png)
