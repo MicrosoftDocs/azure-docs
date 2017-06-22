@@ -60,13 +60,13 @@ The following are a list of considerations when using HDInsight in a virtual net
 
 * __Forced tunneling__: HDInsight does not support forced tunneling.
 
-* __Restricted virtual network__: You can install HDInsight into a virtual network restricts inbound and outbound traffic. You may need to allow specific IP addresses for the Azure region that you are using.
+* __Restricted virtual network__: You can install HDInsight into a virtual network that restricts inbound and outbound traffic. You must allow access to specific IP addresses for the Azure region that you are using.
 
     * __Network Security Groups__: If you use Network Security Groups, you must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [Network Security Groups](#using-network-security-groups) section.
 
-    * __User-defined routes__: If you use user-defined routes, you must define routes to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+    * __User-defined routes__: If you use user-defined routes, you must define routes to several Azure IP addresses. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [User-defined routes](#user-defined-routes) section.
 
@@ -117,7 +117,7 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
+If you restrict access to the virtual network you must allow access to the managment IP addresses. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
