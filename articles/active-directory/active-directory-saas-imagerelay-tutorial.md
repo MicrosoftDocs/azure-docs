@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 
 ---
@@ -155,9 +155,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
     
-    a.In **Login URL** textbox, paste the value of **Single Sign-On Service URL** which you have copied from Azure Portal.
+    a. In **Login URL** textbox, paste the value of **Single Sign-On Service URL** which you have copied from Azure portal.
 
-    b.In **Logout URL**  textbox, paste the value of **Single Sign-Out Service URL** which you have copied from Azure Portal.
+    b. In **Logout URL**  textbox, paste the value of **Single Sign-Out Service URL** which you have copied from Azure portal.
 
     c. As **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
