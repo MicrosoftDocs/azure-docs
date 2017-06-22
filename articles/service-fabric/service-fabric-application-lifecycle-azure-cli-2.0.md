@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: edwardsa
 ---
-# Prequisites
+# Prerequisites
 
 Be sure to install the Azure CLI 2.0 and select your Service Fabric cluster. More information can be found in the
 [getting started with Azure CLI 2.0 documentation](service-fabric-azure-cli-2.0).
@@ -32,7 +32,7 @@ Removing an existing application requires three steps:
 
 1. Delete application
 1. Unprovision associated application type
-1. Delete imagestore content
+1. Delete image store content
 
 # Deploy a new application
 
@@ -40,7 +40,7 @@ To deploy a new application, follow these steps
 
 ## Upload a new application package to the image store
 
-Application packages need to be located in the Service Fabric image store before they can be deployed to the cluster.
+Before creating an application, the application package needs to be uploaded to the Service Fabric image store.
 Suppose then your application package exists in the `app_package_dir` directory. Use the following commands to upload
 the directory:
 
@@ -48,23 +48,22 @@ the directory:
 az sf application upload --path ~/app_package_dir
 ```
 
-This will upload the application package located at `~/app_package_dir`. For large application packages you can specify
-the `--show-progress` option to display the progress of the upload.
+For large application packages, you can specify the `--show-progress` option to display the progress of the upload.
 
 ## Provision application type
 
-Once the upload completes, the application needs to be provisioned. This can be done with the following command
+Once the upload completes, the application needs to be provisioned. To provision the application, use the following command
 
 ```azurecli
 az sf application provision --application-type-build-path app_package_dir
 ```
 
-The `application-type-build-path` will be the same as the name of the directory containing your application package
+The `application-type-build-path` is the same as the name of the directory containing your application package
 that was previously uploaded
 
 ## Create application from application type
 
-Once provisioned, you can name and create your application using the following command:
+After the application has been provisioned, you can name and create your application using the following command:
 
 ```azurecli
 az sf application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
@@ -73,12 +72,12 @@ az sf application create --app-name fabric:/TestApp --app-type TestAppType --app
 Here `app-name` is the name you would like to give to the instance of the application. The other parameters can be found
 from the application manifest that was previously provisioned.
 
-The application name should start with the `fabric:/` prefix, in order to be a valid `fabric` URI.
+The application name should start with the `fabric:/` prefix.
 
 ## Create services for the new application
 
-Once an application has been create you can create services from the application. For this example, we will create a
-new stateless service from our application. The services you can create from an application will be defined in a service
+After an application has been created, you can create services from the application. For this example, we create a
+new stateless service from our application. The services you can create from an application is defined in a service
 manifest inside the previously provisioned application package.
 
 ```azurecli
@@ -126,17 +125,18 @@ command to unprovision the application type
 az sf application unprovision --application-type-name TestAppTye --application-type-version 1.0
 ```
 
-Here, the type name and type version should match those in the application manifest previously provisioned
+Here, the type name and type version should match the name and version in the application manifest previously
+provisioned
 
 ## Delete application package
 
 After the application type has been unprovisioned, the application package can be deleted from the image store if no
-longer needed. This will help reclaim disk space. Use the following command to delete the application package
-from the image store:
+longer needed. Deleting application packages helps reclaim disk space. Use the following command to delete the
+application package from the image store:
 
 ```azurecli
 az sf application package-delete --content-path app_package_dir
 ```
 
-Here, the `content-path` should be the same name as the directory which initially was uploaded when creating the
+Here, the `content-path` should be the same name as the directory that initially was uploaded when creating the
 application

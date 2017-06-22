@@ -22,7 +22,7 @@ For more information, check the [Azure CLI 2.0 documentation](https://docs.micro
 # CLI syntax
 
 All Azure Service Fabric commands are prefixed with `az sf` in the Azure CLI. For more information about the commands
-available you can run `az sf -h` for general information. Or, you can run `az sf <command> -h` for detailed help on a
+available, you can run `az sf -h` for general information. Or, you can run `az sf <command> -h` for detailed help on a
 single command.
 
 Azure Service Fabric commands in the CLI follow a naming pattern
@@ -39,7 +39,7 @@ Before you can perform any operations, you must select a cluster to connect to. 
 snippet to connect to an unsecured cluster.
 
 > [!WARNING]
-> Unsecured Service Fabric clusters should not be used for production environments
+> Do not use unsecured Service Fabric clusters for production environments
 
 ```azurecli
 az sf cluster select --endpoint http://testcluster.com:19080
@@ -57,11 +57,11 @@ az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 For password protected `pem` files, you will be prompted automatically to enter the password.
 
-Often times the certificates used to secure test or dev clusters will fail certificate validation. To bypass certificate
+Often times the certificates used to secure test or dev clusters fail certificate validation. To bypass certificate
 verification, specify the `--no-verify` option. For example:
 
 > [!WARNING]
-> The `no-verify` option should never be used to connect to production Service Fabric clusters.
+> Do not use the `no-verify` option when connecting to production Service Fabric clusters.
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
@@ -78,7 +78,7 @@ For example, to get the Service Fabric cluster health state run the following co
 az sf cluster health
 ```
 
-This results in the following output, assuming JSON output is specified in the Azure CLI configuration
+The command results in the following output, assuming JSON output is specified in the Azure CLI configuration
 
 ```json
 {
@@ -111,7 +111,7 @@ CLI
 ## Converting a certificate from PFX to PEM 
 
 The Azure CLI supports client-side certificates as PEM (extension `.pem`) files. If using PFX files from Windows, these
-certificates will need to be converted to the PEM format. To convert from a PEM file to a PFX file, use the following 
+certificates need to be converted to the PEM format. To convert from a PEM file to a PFX file, use the following 
 command:
 
 ```bash
@@ -126,7 +126,7 @@ When performing operations, you may run into the following error:
 
 > Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
 
-In this case double check the specified cluster endpoint is reachable and listening. Verify also that the Service
+In this case, double check the specified cluster endpoint is reachable and listening. Verify also that the Service
 Fabric Explorer UI is reachable at that host and port. Use `az sf cluster select` to update the endpoint.
 
 ## Getting detailed logs
