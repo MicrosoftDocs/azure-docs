@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -117,29 +117,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_certificate.png) 
 
-5. BenSelect application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this. 
+5. BenSelect application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_06.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-	
-	| Attribute Name  | Attribute Value |
-	| --------------- | -------------------- |    
-	| nameidentifier  | extractmailprefix([userprincipalname]) |	
+6. In the **User Attributes** section on the **Single sign-on** dialog:
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+	a. In the **User Identifier** dropdown list, select **ExtractMailPrefix**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_attribute_04.png)
-
-	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_attribute_05.png)
-	
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Attribute Value** list, type ExtractMailPrefix().
-   	
-	d. From the **Mail** list, type User.userprincipalname.
-	
-	e. Click **Ok**.
+	b. In the **Mail** dropdown list, select **user.userprincipalname**.
 
 7. Click **Save** button.
 
@@ -232,7 +218,6 @@ When you click the BenSelect tile in the Access Panel, you should get automatica
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 
 <!--Image references-->
 
