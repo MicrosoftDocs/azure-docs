@@ -114,7 +114,8 @@
 
 ## Develop
 
-### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
+### [API for custom events and metrics](app-insights-api-custom-events-metrics.md)
+### [Track custom operations in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
 
