@@ -6,10 +6,8 @@ author: mswutao
 ms.author: wuta
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: mysql-database
 ms.custom: mvc
-ms.devlang: php
 ms.topic: article
 ms.date: 06/08/2017
 ---

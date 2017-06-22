@@ -14,12 +14,12 @@ ms.date: 05/31/2017
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for multiple related SQL objects to be bundled together in a single package and can be loaded or removed from your database with a single command. Extensions once loaded into the database can function just like features that are built in. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## How to use PostgreSQL extensions?
-PostgreSQL extensions need to be installed for your database before you can use them. To install a particular extension, run a simple [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
+PostgreSQL extensions need to be installed for your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed below, and you can only install these for your database. You cannot create your own extension with Azure Database for PostgreSQL service.
+Azure Database for PostgreSQL supports a subset of key extensions as listed here. Beyond the ones listed, other extensions are not supported. You cannot create your own extension with Azure Database for PostgreSQL service.
 
 ## Extensions supported by Azure Database for PostgreSQL
-The following is a list of standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. You can also obtain this information by querying pg\_available\_extensions. 
+The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. You can also obtain this information by querying pg\_available\_extensions. 
 
 ### Data types extensions
 | **Extension** | **Description** |
@@ -65,7 +65,7 @@ The following is a list of standard PostgreSQL extensions that are currently sup
 | **Extension** | **Description** |
 |--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
-| address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
+| address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. |
 | [pgrouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
 ## Next steps

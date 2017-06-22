@@ -32,7 +32,7 @@ The window functions are categorized into:
 ## Sample datasets
 This tutorial uses two datasets:
 
-### The QueryLog Sample DataSet
+### QueryLog sample dataset
   
 QueryLog represents a list of what people searched for in search engine. Each query log includes:
   
@@ -55,9 +55,9 @@ QueryLog represents a list of what people searched for in search engine. Each qu
     AS T(Query,Latency,Vertical);
 ```
 
-## The Employees Sample DataSet
+### Employees sample dataset
   
-The Employee dataset includes the following fields:
+The Employees dataset includes the following fields:
   
 * EmpID - Employee ID
 * EmpName - Employee name
@@ -80,10 +80,10 @@ The Employee dataset includes the following fields:
     AS T(EmpID, EmpName, DeptName, DeptID, Salary);
 ```  
 
-## Compare window functions to Grouping
+## Compare window functions to grouping
 Windowing and Grouping are conceptually related. It is helpful to understand this relationship.
 
-### Use aggregation and Grouping
+### Use aggregation and grouping
 The following query uses an aggregation to calculate the total salary for all employees:
 
     @result = 
@@ -260,7 +260,7 @@ The results:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-## Ranking Functions
+## Ranking functions
 Ranking functions return a ranking value (a LONG) for each row in each partition as defined by the PARTITION BY and OVER clauses. The ordering of the rank is controlled by the ORDER BY in the OVER clause.
 
 The following are supported ranking functions:
@@ -651,5 +651,4 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Learn about the U-SQL language](http://usql.io)
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-
 
