@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
@@ -50,7 +50,8 @@
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## Pricing 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

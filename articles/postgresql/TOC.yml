@@ -17,6 +17,8 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
     - name: .NET
       href: connect-csharp.md
 - name: Tutorials
@@ -97,6 +99,8 @@
     href: /cli/azure/postgres
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forum
