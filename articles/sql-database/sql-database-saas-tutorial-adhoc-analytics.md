@@ -138,7 +138,7 @@ Now that the *adhocanalytics* database is set up, run some distributed queries:
 
 1. Ensure you are connected to the **adhocanalytics** database.
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalyticsQueries.sql* in SSMS.
-1. Select the first query, and press **F5**:
+1. Select the *What are the most popular venue types?* query, and press **F5**:
 
     ![query](media/sql-database-saas-tutorial-adhoc-analytics/query.png)
 
@@ -150,7 +150,7 @@ Lets run the query again, but this time, lets inspect the execution plan:
 
     ![execution plan](media/sql-database-saas-tutorial-adhoc-analytics/actual-plan.png)
 
-Note the bulk of the query cost (100% for this query) is performed on the remote server. 
+Note the bulk of the query cost is performed on the remote server, returning just a single row for each venue's aggregate ticket sale count.
 
 
 ## Next steps
