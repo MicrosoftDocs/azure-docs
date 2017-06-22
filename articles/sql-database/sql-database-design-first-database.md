@@ -22,16 +22,16 @@ ms.author: janeng
 
 # Design your first Azure SQL database
 
-Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. This tutorial covers basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learn how to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
 > [!div class="checklist"]
-> * Create a database
-> * Set up a server-level firewall rule
-> * Connect to the database with [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
-> * Create tables
-> * Bulk load data
-> * Query that data
-> * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
+> * Create a database in the Azure portal
+> * Set up a server-level firewall rule in the Azure portal
+> * Connect to the database with SSMS
+> * Create tables with SSMS
+> * Bulk load data with BCP
+> * Query that data with SSMS
+> * Restore the database to a previous [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) in the Azure portal
 
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
@@ -39,7 +39,7 @@ To complete this tutorial, make sure you have installed the newest version of [S
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL database in Azure
+## Create a blank SQL database in the Azure portal
 
 An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](sql-database-features.md). 
 
@@ -87,7 +87,7 @@ Follow these steps to create a blank SQL database.
 
    ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## Create a server-level firewall rule
+## Create a server-level firewall rule in the Azure portal
 
 The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
@@ -121,7 +121,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
-## Get connection information
+## Get connection information in the Azure portal
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
@@ -131,7 +131,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
    ![connection information](./media/sql-database-get-started-portal/server-name.png)
 
-## Connect using Management Studio
+## Connect to the database with SSMS
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
@@ -159,7 +159,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    ![database objects](./media/sql-database-connect-query-ssms/connected.png)  
 
-## Create tables in the database 
+## Create tables in the database with SSMS 
 
 Create a database schema with four tables that model a student management system for universities using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -230,7 +230,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
    ![ssms tables-created](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## Load data into the tables
+## Load data into the tables with SSMS
 
 1. Create a folder called **SampleTableData** in your Downloads folder to store sample data for your database. 
 
@@ -254,7 +254,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
 You have now loaded sample data into the tables you created earlier.
 
-## Query the tables
+## Query the tables with SSMS
 
 Execute the following queries to retrieve information from the database tables. See [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) to learn more about writing SQL queries. The first query joins all four tables to find all the students taught by 'Dominick Pope' who have a grade higher than 75% in his class. The second query joins all four tables and finds all courses in which 'Noe Coleman' has ever enrolled.
 
@@ -291,7 +291,7 @@ Execute the following queries to retrieve information from the database tables. 
    AND person.LastName = 'Coleman'
    ```
 
-## Restore a database to a previous point in time 
+## Restore a database to a previous point in time using the Azure portal
 
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure SQL Database allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new database. You can you this database to recover your deleted data. The following steps restore the sample database to a point before the tables were added.
 
@@ -310,8 +310,6 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
 3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers.md).
-
-
 
 ## Next Steps 
 In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:

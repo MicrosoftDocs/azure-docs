@@ -390,6 +390,8 @@
       href: https://msdn.microsoft.com/library/mt654048.aspx
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: sql-database-faq.md
   - name: Public data sets
