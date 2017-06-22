@@ -96,6 +96,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

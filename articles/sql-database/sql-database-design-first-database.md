@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/30/2017
+ms.date: 06/20/2017
 ms.author: janeng
 
 ---
@@ -129,7 +129,7 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![connection information](./media/sql-database-get-started-portal/server-name.png)
 
 ## Connect using Management Studio
 

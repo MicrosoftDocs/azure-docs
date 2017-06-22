@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -77,7 +77,12 @@ When creating your first Batch account in user subscription mode, perform the fo
 
     ![Subscription access control][subscription_access]
 
-4. On the **Add permissions** blade, select the **Contributor** role, and search for **MicrosoftAzureBatch** (no spaces). Select **MicrosoftAzureBatch**, and click **Save**.
+4. On the **Add permissions** blade, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+
+5. Once you find the Batch API, select it and click **Save**.
 
     ![Add Batch permissions][add_permission]
 
