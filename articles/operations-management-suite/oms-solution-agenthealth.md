@@ -74,13 +74,13 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | Property | Description |
 | --- | --- |
 | Type | *Heartbeat*|
-| Category | Direct agent, OpsMgr agent, or OpsMgr management server.| 
+| Category | Direct Agent, SCOM Agent, or SCOM Management Server.| 
 | Computer | Computer name.| 
 | OSType | Windows or Linux operating system.| 
 | OSMajorVersion | Operating system major version.| 
 | OSMinorVersion | Operating system minor version.| 
 | Version | OMS Agent or Operations Manager Agent version.| 
-| SCAgentChannel | Direct or Operations Manager management server.| 
+| SCAgentChannel | Direct and SCManagementServer.| 
 | IsGatewayInstalled | If OMS Gateway is installed, value is *true*, otherwise value is *false*.| 
 | ComputerIP | IP address of the computer.| 
 | RemoteIPCountry | Geographic location where computer is deployed.| 
