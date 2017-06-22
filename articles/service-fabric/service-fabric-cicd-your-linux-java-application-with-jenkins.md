@@ -26,7 +26,7 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 
 ## Set up Jenkins inside a Service Fabric cluster
 
-You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster.
+You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
 
 ### Prerequisites
 1. Have a Service Fabric Linux cluster ready. A Service Fabric cluster created from the Azure portal already has Docker installed. If you are running the cluster locally, check if Docker is installed by using the command ``docker info``. If it is not installed, install it accordingly by using the following commands:
@@ -38,13 +38,15 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 2. Have the Service Fabric container application deployed on the cluster, by using the following steps:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
-3. Create an azure storage account, say ``sfjenkinsstorage1``. Create a ``File Share`` under that storage account, say ``sfjenkins``. Click on ``Connect`` for the file-share and note the values it displays under ``Connecting from Linux``, say this would look like as follows -
+
+3. You need the connect option details of the Azure storage file-share, where you want to persist the state of the Jenkins container instance. If you are using the Microsoft Azure portal for the same, please follow the steps - Create an Azure storage account, say ``sfjenkinsstorage1``. Create a **File Share** under that storage account, say ``sfjenkins``. Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, say this would look like as follows -
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
 ```
+
 4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
