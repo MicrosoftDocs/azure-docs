@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/13/2017
+ms.date: 06/22/2017
 ms.author: magoedte
 
 ---
@@ -66,7 +66,7 @@ Click on the **Agent Health** tile to open the **"Agent Health** dashboard.  The
 ![Agent Health Solution dashboard example](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## Log Analytics records
-The solution creates one type of record in the OMS repository.
+The solution creates one type of record in the OMS repository.  
 
 ### Heartbeat records
 A record with a type of **Heartbeat** is created.  These records have the properties in the following table.  
@@ -80,7 +80,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | OSMajorVersion | Operating system major version.| 
 | OSMinorVersion | Operating system minor version.| 
 | Version | OMS Agent or Operations Manager Agent version.| 
-| SCAgentChannel | Direct agent or Operations Manager management server.| 
+| SCAgentChannel | Direct or Operations Manager management server.| 
 | IsGatewayInstalled | If OMS Gateway is installed, value is *true*, otherwise value is *false*.| 
 | ComputerIP | IP address of the computer.| 
 | RemoteIPCountry | Geographic location where computer is deployed.| 
@@ -88,6 +88,8 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | SourceComputerId | Unique ID of computer.| 
 | RemoteIPLongitude | Longitude of computer's geographic location.| 
 | RemoteIPLatitude | Latitude of computer's geographic location.| 
+
+Each agent reporting to an Operations Manager management server will send two heartbeats, and SCAgentChannel property's value will include both **Direct** and **SCManagementServer** depending on what Log Analytics data sources and solutions you have enabled in your OMS subscription. If you recall, data from solutions are either sent directly from an Operations Manager management server to the OMS web service, or because of the volume of data collected on the agent, are sent directly from the agent to OMS web service. For heartbeat events which have the value **SCManagementServer**, the ComputerIP value is the IP address of the management server since the data is actually uploaded by it.  For heartbeats where SCAgentChannel is set to **Direct**, it is the public IP address of the agent.  
 
 ## Sample log searches
 The following table provides sample log searches for records collected by this solution. 
