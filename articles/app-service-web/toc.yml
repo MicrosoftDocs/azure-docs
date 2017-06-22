@@ -37,7 +37,7 @@
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: 4 - Add Content Delivery Network
+  - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
 #  - name: 5 - Monitor your app
 #    href: app-service-web-tutorial-monitoring.md
@@ -258,6 +258,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio

@@ -40,4 +40,5 @@
 ## [Partner solution: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact support](../azure-supportability/how-to-create-azure-support-request.md)

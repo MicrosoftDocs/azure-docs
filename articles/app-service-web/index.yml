@@ -6,7 +6,7 @@ metadata:
   title: Azure Web Apps Documentation - Tutorials, API Reference
   meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
   services: app-service
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: app-service
   ms.tgt_pltfrm: na
@@ -67,6 +67,7 @@ sections:
     - html: Create an application using <a href="/en-us/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/en-us/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
     - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
     - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
 - title: Free PluralSight Video Training
   items:
   - type: list
