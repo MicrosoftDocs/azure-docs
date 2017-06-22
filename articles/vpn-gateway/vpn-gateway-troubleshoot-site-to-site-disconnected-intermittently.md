@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Site-to-Site VPN disconnecting intermittently| Microsoft Docs
+title: Troubleshoot Azure Site-to-Site VPN disconnects intermittently| Microsoft Docs
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected regularly. 
 services: vpn-gateway
 documentationcenter: na
