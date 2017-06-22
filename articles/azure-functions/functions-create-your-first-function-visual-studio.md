@@ -12,10 +12,10 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: ms-hero
+ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 06/21/2017
 ms.author: rachelap
 
 ---
