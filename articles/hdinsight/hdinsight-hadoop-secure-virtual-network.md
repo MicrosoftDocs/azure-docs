@@ -33,7 +33,15 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 For more information on Azure Virtual Networks, see the [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) documentation.
 
-## Virtual networks
+## Planning
+
+The following is a checklist of actions you must take before installing HDInsight into an Azure Virtual Network:
+
+* Existing virtual network?
+* Type of virtual network
+* Name resolution
+* Network topology
+* Security
 
 ### Classic and Resource Manager virtual networks
 
