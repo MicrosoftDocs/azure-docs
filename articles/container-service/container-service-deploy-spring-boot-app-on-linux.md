@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 06/21/2017
 ms.author: asirveda;robmcm
 
 ---
 
-# Deploy a Spring Boot Application on Linux in the Azure Container Service
+# Deploy a Spring Boot application on Linux in the Azure Container Service
 
 The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications, and one of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
 
 **[Docker]** is open-source solutions which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
 
-This tutorial will walk you though using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
+This tutorial will walk you through using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
 
-### Prerequisites
+## Prerequisites
 
 In order to complete the steps in this tutorial, you need to have the following:
 
@@ -67,7 +67,7 @@ The following steps will walk you through the steps that are required to create 
    cd gs-spring-boot-docker/complete
    ```
 
-1. If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, for example if you are going to be testing your Spring Boot project locally, you can configure the port by using the following steps:
+1. Optional Step: If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, for example if you are going to be testing your Spring Boot project locally, you can configure the port by using the following steps:
 
    a. Change directory to the resources directory; for example:
    ```
@@ -110,6 +110,13 @@ The following steps will walk you through the steps that are required to create 
    ![Browse Sample App Locally][SB01]
 
 ## Create an Azure Container Registry to use as a Private Docker Registry
+
+The following steps will walk you through using the Azure portal to create an Azure Container Registry.
+
+> [!NOTE]
+>
+> If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0](../container-registry/container-registry-get-started-azure-cli.md).
+>
 
 1. Browse to the [Azure portal] and log in.
 
@@ -255,7 +262,7 @@ The following steps will walk you through the steps that are required to create 
 > ![Saving a custom port number in the Azure portal][LX03]
 >
 
-## Next Steps
+## Next steps
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
@@ -263,7 +270,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 * [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
-## Additional Resources
+## Additional resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
