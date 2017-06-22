@@ -20,10 +20,12 @@ ms.author: sngun
 
 # Install PowerShell for Azure Stack  
 
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell in Azure Stack by using the PowerShell commands. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
+Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell for Azure Stack. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
+
+This article has detailed instructions to install PowerShell for Azure Stack. If you want to quickly install and configure PowerShell, you can use the script provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
 
 > [!NOTE]
-> The following steps require PowerShell 5.0.  To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
+> The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
 
 PowerShell commands for Azure Stack are installed from the PowerShell Gallery. To verify if PowerShell Gallery is available, open a PowerShell session on the MAS-CON01 computer or on your local computer if you are connected through VPN and run the following command:
 
