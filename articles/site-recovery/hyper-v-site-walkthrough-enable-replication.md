@@ -29,7 +29,7 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 
 ## Before you start
 
-Before you start, ensure that your Azure user account has the required  [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
+Before you start, ensure that your Azure user account has the required [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 
 ## Exclude disks from replication
 
@@ -76,4 +76,4 @@ You can track progress of the **Enable Protection** job in **Jobs** > **Site Rec
 ## Next steps
 
 
-Go to [Step 11: Run a test failover](hyper-v-walkthrough-test-failover.md)
+Go to [Step 11: Run a test failover](hyper-v-site-walkthrough-test-failover.md)
