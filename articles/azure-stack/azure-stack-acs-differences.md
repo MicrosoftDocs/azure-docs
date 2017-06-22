@@ -1,6 +1,6 @@
 ---
-title: 'Azure-consistent storage: differences and considerations'
-description: Understand the differences from Azure Storage and other Azure-consistent storage deployment considerations.
+title: 'Azure Stack Storage: differences and considerations'
+description: Understand the differences from Azure Storage and other Azure Stack Storage deployment considerations.
 services: azure-stack
 documentationcenter: ''
 author: xiaofmao
@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/23/2017
+ms.date: 06/22/2017
 ms.author: xiaofmao
 
 ---
-# Azure Stack storage: differences and considerations
-Azure Stack storage is the set of storage cloud services in
-Microsoft Azure Stack. Azure Stack storage provides blob, table, queue, and account
+# Azure Stack Storage: differences and considerations
+Azure Stack Storage is the set of storage cloud services in
+Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account
 management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack storage differences with Azure Storage. It also summarizes other
+This article summarizes the known Azure Stack Storage differences with Azure Storage. It also summarizes other
 considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Storage differences
@@ -56,5 +56,5 @@ The following versions are supported with Azure Stack Storage:
 ## Next steps
 
 * [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack storage](azure-stack-storage-overview.md)
+* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
 

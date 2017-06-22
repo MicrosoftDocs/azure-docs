@@ -1,11 +1,11 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Get started with Azure Stack Storage development tools 
-description: Guidance to get started with Azure Stack Storage using development tools.
+description: Guidance to get started with Azure Stack Storage using development tools
 services: azure-stack 
 author: xiaofmao
 ms.author: xiaofmao
-ms.date: 06/23/2017
+ms.date: 06/22/2017
 ms.topic: get-started-article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: azure-stack
@@ -27,7 +27,7 @@ This article provides quick guidance on how to get started with Azure Stack Stor
 
 There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack.
 
-For more information, see [Azure Stack storage: differences and considerations](azure-stack-acs-differences.md)
+For more information, see [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
 
 ## Azure client libraries
 The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t have full parity with the latest version of Azure Storage REST API. So for the storage client libraries, you need to be aware of the version which is compatible with REST API 2015-04-05.
@@ -103,4 +103,4 @@ Refer to the following Azure Table storage tutorials that are applicable to Azur
 
 ## Next steps
 
-* TBD
+* [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)
