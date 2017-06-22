@@ -72,61 +72,30 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create U-SQL scripts using Data Lake Tools for Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure CLI</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
+
+## Quickstarts
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-get-started-portal.md">Portal</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
+        <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
+        <td><a href="data-lake-analytics-get-started-cli2.md">Azure CLI 2.0</a></td>
+    </tr>
+</table>
+
+## Manage Data Lake Analytics
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-manage-use-portal.md">Portal</a></td>
+        <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
+        <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
+    </tr>
+</table>
 
 ---
  
