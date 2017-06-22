@@ -40,17 +40,31 @@ This article lists the Log Analytics queries that you can use to monitor Azure H
 
 * List all the jobs currently running on all HDInsight clusters
 
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsRunning_d) as AppsRunning by ClusterName_s interval 1HOUR
+
 * List all the jobs submitted to any HDInsight cluster
+
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsSubmitted_d) as AppsSubmitted by ClusterName_s interval 1HOUR
 
 * List all the completed jobs that were submitted to any HDInsight cluster
 
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsCompleted_d) as AppsCompleted by ClusterName_s interval 1HOUR
+
 * List all the jobs that are pending to run on any HDInsight cluster
 
-* 
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsPending_d) as AppsPending by ClusterName_s interval 1HOUR
 
+* List all the jobs that failed to complete successfully on any HDInsight clusters
+
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsFailed_d) as AppsFailed by ClusterName_s interval 1HOUR
+
+* List all the jobs that were forcefully terminated on any HDInsight cluster
+
+        (Type=metrics_resourcemanager_queue_root_CL) |measure max(AppsKilled_d) as AppsKilled by ClusterName_s interval 1HOUR 
 
 ## Queries for cluster logs
 
+        
 
 ## See also
 
