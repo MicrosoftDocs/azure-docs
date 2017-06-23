@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with IQNavigator VMS, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a IQNavigator VMS test user](#creating-a-iqnavigatorvms-test-user)** - to have a counterpart of Britta Simon in IQNavigator VMS that is linked to the Azure AD representation of user.
+3. **[Creating a IQNavigator VMS test user](#creating-a-iqnavigator-vms-test-user)** - to have a counterpart of Britta Simon in IQNavigator VMS that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.iqnavigator.com:443/<instance name>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Reply URL . Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get the value. 
+	> The value is not real. Update the value with the actual Reply URL. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get the value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
