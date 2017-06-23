@@ -1,6 +1,6 @@
 ﻿---
-title: Integrate logs from KeyVault using Eventhubs  | Microsoft Docs
-description: Tutorial going over the necessary steps to make KeyVault logs available to a SIEM by using Azure Log integration
+title: Integrate logs from Key Vault using Event Hubs - Azure  | Microsoft Docs
+description: Tutorial going over the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
 author: barclayn
 manager: MBaldwin
@@ -16,19 +16,19 @@ ms.custom: AzLog
 
 ---
 
-# Azure Log integration tutorial - Processing KeyVault events using Eventhubs
+# Azure Log integration tutorial - Processing Azure Key Vault events using Event Hubs
 
-Azure log integration (AzLog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking KeyVault activity logged to an event hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
+Azure Log Integration (AzLog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking Key Vault activity logged to an Event Hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
 
 >[!NOTE]
 Most of the steps involved in this tutorial involve configuring KeyVault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
 
 There is information provided along the way to help you understand the reasons behind each step and when appropriate links will be included to other articles to give you more detail on certain topics.
 
-Please take note that most of these steps involve the configuration of the event hub and Key Vault.  
+Please take note that most of these steps involve the configuration of the Event Hub and Key Vault.  
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
-- [Event hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure Log Integration](security-azure-log-integration-overview.md).
 
 
@@ -90,7 +90,7 @@ You should see something like what appears in the figure below. </br>
 
 ## Creating a KeyVault
 
-First you will create the KeyVault by typing:
+First you will create the Azure Key Vault by typing:
 
 ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
@@ -100,7 +100,7 @@ Next you will configure logging for KeyVault
 
 ## Generating log activity
 
- Requests need to be sent to keyvault to generate log activity. Actions like key generation, storing secrets or reading secrets from KeyVault will create log entries.
+ Requests need to be sent to Key Vault to generate log activity. Actions like key generation, storing secrets or reading secrets from Key Vault will create log entries.
 
  - The next step simply displays the current storage keys.
     - ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
@@ -117,7 +117,7 @@ Next you will configure logging for KeyVault
 
 ## Configuring Azure Log Integration
 
-Now that you have configured all of the required elements to have KeyVault logging to an event hub you need to take steps to configure Azure Log Integration.
+Now that you have configured all of the required elements to have Key Vault logging to an event hub you need to take steps to configure Azure Log Integration.
 
 1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
 2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace -AuthorizationRuleName RootManageSharedAccessKey```
