@@ -8,7 +8,7 @@ editor: mimig1
 
 ms.service: cosmos-db
 ms.topic: hero-article
-ms.date: 06/13/2017
+ms.date: 06/22/2017
 ms.author: mimig
 ---
 
@@ -35,11 +35,11 @@ In other words, your Golang application only knows that it's connecting to a dat
 
 Clone the sample application and install the required packages.
 
-1. Create a folder named CosmosDBAccess inside the GOROOT\src folder, which is C:\Go\ by default.
-2. Run the following command using a git terminal window such as git bash to clone the sample repository into the CosmosDBAccess folder. 
+1. Create a folder named CosmosDBSample inside the GOROOT\src folder, which is C:\Go\ by default.
+2. Run the following command using a git terminal window such as git bash to clone the sample repository into the CosmosDBSample folder. 
 
     ```bash
-    git clone https://github.com/Golang-Coach/Lessons.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-golang-getting-started.git
     ```
 3.  Run the following command to get the mgo package. 
 
@@ -57,7 +57,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Click **Quick start** in the left navigation menu, and then click **Other** to view the connection string information required by the Go application.
 
-2. In Goglang, open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the connection string information from the Azure portal as shown in the following screenshot. 
+2. In Goglang, open the main.go file in the GOROOT\CosmosDBSample directory and update the following lines of code using the connection string information from the Azure portal as shown in the following screenshot. 
 
     The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image below, the Database name is golang-coach.
 
