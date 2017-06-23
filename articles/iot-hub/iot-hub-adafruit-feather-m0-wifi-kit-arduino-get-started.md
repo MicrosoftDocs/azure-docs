@@ -167,10 +167,14 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 ### Install necessary libraries
 
 1. In the Arduino IDE, click **Sketch** > **Include Library** > **Manage Libraries**.
+<<<<<<< HEAD
 
 2. Search for the following library names one by one. For each library that you find, click **Install**:
 
    * `Adafruit_WINC1500`
+=======
+1. Search for the following library names one by one. For each  library that you find, click **Install**.
+>>>>>>> 0d3070abfd48bc18b6f507c8b6c9e19bf81c3aff
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -179,6 +183,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. Manually install `Adafruit_WINC1500`. Visit [this link](https://github.com/adafruit/Adafruit_WINC1500) and click the **Clone or download** button, then **Download ZIP**. Then in your Arduino IDE, go to **Sketch** -> **Include Library** -> **Add .zip Library** and add the zip file you just downloaded.
 
 ### Use the sample application if you don’t have a real BME280 sensor
 
