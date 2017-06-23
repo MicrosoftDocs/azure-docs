@@ -56,19 +56,18 @@ Following table listed some of the difference.
 
 ## Configuration Options
 
-There are five potential areas that can be tune to improved performance in Azure environment.
+There are four potential areas that can be tune to improved performance in Azure environment.
 
 - Virtual Machine size
 - Network throughput
 - Disk types and configurations
 - Disk cache settings
-- Security
 
 ### Virtual Machine size
 
 If you have existing Oracle database and planning to migrate to Azure. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs etc.) and then choose the VM based on the metrics you collected.
 
-For new implementation, a list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+You may consider running your AWR report during regular and peak workloads, so you can compare the difference. Based on these reports, you can decided if you should size the VMs based on the average workload or at maximum workloads.
 
 #### 1. Initial estimate of VM size is based on CPU/Memory/IO usage from the AWR report.
 
@@ -78,11 +77,11 @@ For example: Diagram below, the log file sync is on the top, which is the number
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
-The next step is look at the number of CPU (cores) and memory. In this example above, 16 cores and 110-GB memory were used
+The next step is look at the number of CPU (cores) and memory. In this example above, 16 cores and 110-GB memory were used.
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
 
-Diagram above shows there are 59-GB read and 247.3-GB write during the time of the report.
+Diagram above shows the total IO of read and write. There are 59-GB read and 247.3-GB write during the time of the report.
 
 #### 2. Estimate the VM size
 
@@ -96,7 +95,7 @@ Once you have chosen the VMs, pay attention to the ACU for the VMs. You may choo
 
 ### Network throughput
 
-The relation between Througput and IOPS as shown below.
+The relation between Throughput and IOPS as shown below.
 
 ![Screenshot of Throughput](./media/oracle-design/throughput.png)
 
@@ -118,7 +117,7 @@ Recommendations
 
 ### Disk types and configurations
 
-- Default OS disk: with persistent data and caching. This disk optimized for OS access at boot up time, not designed for either transactional or Data Warehouse (Analytical) workloads
+- Default OS disk: with persistent data and caching. This disk is optimized for OS access at boot up time, it is not designed for either transactional or Data Warehouse (Analytical) workloads
 
 - Unmanaged disks: you manage the storage accounts that you use to store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
 
@@ -126,13 +125,17 @@ Recommendations
 
 - Premium storage disks: Premium Storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, F series. The Premium disk comes with different sizes and You have choice of various disk sizes from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
+When you create a new managed disk from the portal, you can choose the 'Accout type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (e.g. max number of drives, max IOPs). So once you picked a particular size of VM, it will only shows the available premium storage SKUs based of that VM size.
+
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
 
 For more information, see [the Azure premium storage](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
-Once you configured your storage on a VM, you may want to test the disk performance prior starting Oracle instance. For example, run iostat on VM and record the readings, then start Oracle instance, and then run the iostat again, to see if there are any performance difference. This shows you the actual throughputs available without the overhead.
+Once you configured your storage on a VM, you may want to load test the disks prior create a database. Knowing what the IO rate in terms of both latency and throughput would help you determine if the VMs supports the expected throughput with latency targets.
 
-![Screenshot of running iostat](./media/oracle-design/iostat.png)
+There are a number of tools can be use for load test, such as Oracle Orion, sysbench, fio, etc.
+
+Run the load test again after deployed Oracle database, start your regular and peak workloads, the results would show you the based-line of your environment.
 
 It may be more important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS are 5000, but you only need 200 GB. You may still get the P30 class premium disk even it comes with more than 200-GB storage size.
 
@@ -154,6 +157,8 @@ Recommendations
 - Use data compression to reduce IO (for both data and indexes)
 - Separate Redo logs, system, temp, and undo TS on separate data disks
 - Recommended not to put any application files on default OS disk (/dev/sda). This disk is optimized for fast VM boot time, may not provide good performance for your application.
+
+
 
 
 ### Disk Cache settings
@@ -181,7 +186,9 @@ For more information, see [Premium Storage for Linux VMs](https://docs.microsoft
 Once your data disk setting is saved, the host caching setting cannot change. Instead, you make a snapshot on the disk, then bring it offline and then restore the snapshot to a new disk with new host cache setting.
 
 
-### Security
+## Security
+
+Once you have setup and configured your Azure environment. The next step is to secure your network. Here are some recommendations:
 
 - NSG policy
 
