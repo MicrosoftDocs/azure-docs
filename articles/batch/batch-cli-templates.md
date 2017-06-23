@@ -15,8 +15,6 @@ ms.author: markscu
 
 ---
 
-
-
 # Use Azure Batch CLI Templates and File Transfer (Preview)
 
 Using the Azure CLI it is possible to run Batch jobs end-to-end with no code.
@@ -98,7 +96,7 @@ az component update --add batch-extensions --allow-third-party
 ## Templates
 
 The Azure Batch CLI allows items such as pools, jobs, and tasks to be created by
-specifying a JSON file containing property names and values. E.g.
+specifying a JSON file containing property names and values. For example:
 
 ```azurecli
 az batch pool create –json-file AppPool.json
@@ -160,7 +158,7 @@ The following is an example of a template that creates a pool of Linux VMs with
 ffmpeg installed and only requires a pool id string and the number of VMs to be
 supplied to use:
 
-```azurecli
+```json
 {
     "parameters": {
         "nodeCount": {
@@ -227,7 +225,7 @@ The following is an example of a template that creates a job that uses ffmpeg to
 transcode MP4 video files to one of two lower resolutions, with one task created
 per source video file:
 
-```azurecli
+```json
 {
     "parameters": {
         "poolId": {
@@ -301,7 +299,7 @@ per source video file:
 }
 ```
 
-If the template file was named job-ffmpeg.json, then the template would be
+If the template file was named _job-ffmpeg.json_, then the template would be
 invoked as follows:
 
 ```azurecli
