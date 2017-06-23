@@ -103,6 +103,8 @@
 ### [Virtual networks](virtual-network-manage-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
+#### Classic
+##### [Network configuration file](virtual-networks-using-network-configuration-file.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
