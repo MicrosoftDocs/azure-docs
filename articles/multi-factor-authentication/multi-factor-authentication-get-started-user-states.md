@@ -32,12 +32,11 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 | Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
 | Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |
 
-### Changing a user state
 A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
 
 All users start out *disabled*. When you enroll users in Azure MFA, their state changes *enabled*. When enabled users sign in and complete the registration process, their state changes to *enforced*.  
 
-#### View user states
+### View user states
 
 Use the following steps to access the page where you can view and manage user states:
 
@@ -48,35 +47,35 @@ Use the following steps to access the page where you can view and manage user st
 4. A new page, which displays the user states, opens.
    ![multi-factor authentication user status - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-#### Change the state from disabled to enabled
+### Change the state 
 
 1. Use the preceding steps to get to the multi-factor authentication users page.
-2. Find the user that you want to enable for Azure MFA. You may need to change the view at the top. Ensure that the status is **disabled**.
+2. Find the user that you want to enable for Azure MFA. You may need to change the view at the top. 
    ![Find user - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 3. Check the box next to their name.
-4. On the right, under quick steps, click **Enable**.
+4. On the right, under quick steps, choose **Enable** or **Disable**.
    ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
-5. Select **enable multi-factor auth**.
-   ![Enable multi-factor auth - screenshot](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-6. Notice the user's state has changed from **disabled** to **enabled**.
-   ![See that user is now enabled - screenshot](./media/multi-factor-authentication-get-started-cloud/user.png)
+
+   >[!TIP]
+   >*Enabled* users will automatically switch to *Enforced* when they register for Azure MFA. You shouldn't manually change the user state to Enforced. 
+
+5. Confirm your selection in the pop-up window that opens. 
 
 After you enable users, you should notify them via email. Include the fact that they'll be asked to register the next time they sign in, and that some non-browser apps may not work with two-step verification. You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
 
-#### Change the state from enabled/enforced to disabled
 
-1. Use the steps in [View user states](#view-user-states) to get to the multi-factor authentication users page.
-6. Find the user that you want to disable. You may need to change the view at the top. Ensure that the status is either **enabled** or **enforced**.
-7. Check the box next to their name.
-8. On the right, under quick steps, click **Disable**.
-   ![Disable user - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-9. You are prompted to confirm the action. Click **Yes**.
-10. If the user was successfully disabled, you receive a success message. Click **Close**.
+## Enable Azure MFA with a conditional access policy
 
-## Create a conditional access policy
-
-Conditional access is a paid feature of Azure Active Directory, with many possible configuration options. These steps are one way to create a policy. For more information, read about [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Conditional access is a paid feature of Azure Active Directory, with many possible configuration options. These steps walk through one way to create a policy. For more information, read about [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Go to **Azure Active Directory** > **Conditional access**.
 3. Select **New policy**.
+4. Under **Assignments** select **Users and groups**. Use the **Include** and **Exclude** tabs to specify which users and groups should be managed by the policy.
+5. Under **Assignments** select **Cloud apps**. Choose to include **All cloud apps**.
+6. Under **Access controls** select **Grant**. Choose **Require multi-factor authentication**.
+7. Turn **Enable policy** to **On** and then select **Save**.
+
+The additional options in the conditional access policy configuration allow you to specify exactly when two-step verification should be required. For example, you could make a policy that states, when contractors try to access cloud apps from untrusted networks on devices that are not domain-joined, require two-step verification. 
+
+## Next steps
