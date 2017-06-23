@@ -53,11 +53,13 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 The Wingtip SaaS scripts and application source code are available in the WingtipSaaS GitHub repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
-## Create ticket sales history
+## Create ticket sales data
 
-To run ad-hoc distribute queries, we need some data to query. 
-1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
-1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
+To run queries against a more interesting data set, create ticket sales data by running the ticket-generator.
+
+1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* script and set the following values:
+   * **$DemoScenario** = 1, **Purchase tickets for events at all venues**.
+3. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete if it's still running when you get to that exercise.
 
 
 ## Explore the global views
