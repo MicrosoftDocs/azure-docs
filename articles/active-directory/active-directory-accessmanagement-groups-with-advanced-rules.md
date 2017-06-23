@@ -8,14 +8,17 @@ manager: femila
 editor: ''
 
 ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
-ms.service: active-directoryms.workload: identity
+ms.service: active-directory
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 
 ---
+
 # Populate groups dynamically based on object attributes 
 The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 
@@ -163,6 +166,7 @@ Allowed operators
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or $null |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Any string value or $null |(user.postalCode -eq "value") |
@@ -238,6 +242,7 @@ You can also create a rule that selects device objects for membership in a group
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
+| accountEnabled |true false |(device.accountEnabled -eq true) |
 | displayName |any string value |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |any string value |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |any string value |(device.OSVersion -eq "9.1") |
@@ -253,7 +258,8 @@ You can also create a rule that selects device objects for membership in a group
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |any string value |(device.managementType -eq "") |
 | organizationalUnit |any string value |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |a valid AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.

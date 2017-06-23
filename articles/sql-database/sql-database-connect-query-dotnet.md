@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect, mvc
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -21,6 +21,10 @@ ms.author: andrela
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
 This quick start demonstrates how to use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from the Windows, Mac OS, and Ubuntu Linux platforms.
+
+> [!TIP]
+> For a tutorial on creating and querying a new database using C#, see [Design your first database using C#](sql-database-design-first-database-csharp.md).
+>
 
 ## Prerequisites
 

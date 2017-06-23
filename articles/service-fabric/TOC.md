@@ -1,4 +1,4 @@
-﻿
+
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -200,13 +200,13 @@
 #### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
-#### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
+##### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-manifest.md)
@@ -233,8 +233,6 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
@@ -260,17 +258,19 @@
 
 # Reference
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java API](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
+## [Azure CLI](/cli/azure/sf)
+## [Java API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Common questions about Service Fabric](service-fabric-common-questions.md)
-## [Service Fabric support options](service-fabric-support.md)
-## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Sample code](http://aka.ms/servicefabricsamples)
+## [Service Fabric support options](service-fabric-support.md)
+## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

@@ -9,139 +9,105 @@ editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
-ms.assetid: 
+ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: ms-hero
+ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 06/22/2017
 ms.author: rachelap
 
 ---
-# Create your first Azure Function using the Azure Functions Tools for Visual Studio 
+# Create your first function using the Azure Functions Tools for Visual Studio 
 
-In this tutorial, you will learn how to create an Azure Function app using *Functions Core Tools* for Visual Studio.
+With **Azure Functions**, you can write code to process events and run in a serverless execution model.
 
-## Create a new Azure Functions App project in Visual Studio
+In this tutorial, you learn how to create an Azure Function app using **Azure Function Tools for Visual Studio 2017** for Visual Studio. HTTP trigger invoke your function, so every time there is an HTTP request to your function's URL, your function runs.   
 
-1. Open Visual Studio and launch the *New Project* dialog.
-2. Click *Visual C#* > *Cloud* from the list of templates on the left, then click *Azure Functions*. 
-3. Type a name for your function app, select a location, and click *Ok*.
+![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-new-project.png)
+## Prerequisites
 
-Visual Studio will create a project containing an *appsettings.json* and *host.json* file. You now must create one or more Azure functions for your Function App.
+Before running this sample, you must have the following:
 
-## Create a new Azure Function
+* Install [Visual Studio 2017 (version 15.3) Preview](https://www.visualstudio.com/vs/preview/)  with the Azure development workload.
+* Install [Azure Function Tools for Visual Studio 2017] (https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)
+* Ensure the Azure development workload is installed.
 
-Once you have created your function app, you must add individual functions to it. 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Click File > Add > New File or Right mouse click on the project in Solution Explorer and click *Add* > *New Item*. 
-2. Choose *Azure Function* from the dialog box.
+## Create a functions app project in Visual Studio
 
-![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function.png)
+Open Visual Studio and launch the **New Project** dialog. You'll find the Azure Functions templates under the **Visual C#** > **Cloud** node. Name your function app, select a location, and click **Ok**.
 
-A new dialog will appear giving you more options.
+![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
-4. Select *QueueTrigger* and provide the following information in the next dialog box:
-  * A unique function name. The function's name is the same name that will appear in the portal. If the function is an HTTP trigger function, it also defines the default route.
-  * The name of the storage account connection. 
-  * The path for accessing items in the queue. 
+Visual Studio creates a project containing a [local.settings.json] and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The local.settings.json file specifies connection strings for resources such as storage accounts, including the setting `AzureWebJobsStorage`. To learn more, see the section [Local settings file][local.settings.json] in the article [Code and test Azure functions locally](functions-run-local.md). 
+
+Now that you have created a function project, which represents a function app, create an HTTP triggered function.
+
+## Create a new function
+
+Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**. Choose **Azure Function** from the dialog box.
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-You may be asked for different information, such as which storage account or queue you want to use when selecting other project templates.
+Select **HttpTrigger** and provide the following information in the next dialog box:
 
-Note: All triggers except the HTTP trigger require setting *AzureWebJobsStorage*, because internally the runtime creates queues to schedule work.  
+| Setting      | Suggested value  | Description                                        |
+| ------------ |  ------- | -------------------------------------------------- |
+| Function name  | myFunction | The name of your function.  |
+| Access rights | Anonymous | Determines which HTTP requests can access your function  |
 
-Visual Studio creates the following assets:
+>[!NOTE]
+>If you use triggers other than HTTP, you need to specify a value for the Azure Storage connection string `AzureWebJobsStorage` in the file `local.settings.json`. This storage account is used by the Azure Functions runtime to run triggers. To get a connection string, go to **Cloud Explorer** -> **Storage Account** -> **Your Storage Account**. In the **Properties** view, copy **Primary Connection String** and paste it in [local.settings.json].
 
-* *host.json* : A file for host customizations.
-* *local.settings.json* : A file containing local settings for the Functions Core Tools.
+## Test the function locally
 
-You can view the files in *Solution Explorer*.
+Like other Visual Studio Projects, Azure Functions projects support the use of the built-in debugging tools to test your function.
 
-## Review the function's bindings
-
-The *function.json* file contains settings for the trigger, as well as input and output bindings, and other information. 
-
-```json
-{
-  "bindings": [
-    {
-      "type": "queueTrigger",
-      "queueName": "myqueue-items",
-      "connection": "AzureWebJobsStorage",
-      "direction": "in",
-      "name": "myQueueItem"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "..\\FunctionApp1.dll",
-  "entryPoint": "FunctionApp1.Function1.Run"
-}
-```
-
-## Review the function's code
-
-In the *run.cs* file is the function's code. Since this function is a queue triggered function, there is a string argument representing the queued item. All functions contain an argument of type *TraceWriter* that you can use for logging purposes.
-
-```csharp
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-
-namespace FunctionApp1
-{
-    public static class Function1
-    {
-        [FunctionName("QueueTriggerCSharp")]        
-        public static void Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")]string myQueueItem, TraceWriter log)
-        {
-            log.Info($"C# Queue trigger function processed: {myQueueItem}");
-        }
-    }
-}
-```
-
-## Test the function 
-
-Just as you would with other Visual Studio projects, you can use the built-in debugging tools to test your function.
-
-1. Click *Start* > *Debug* or press *F5* to run the application. Notice that Visual Studio launches a command window that prepares a local environment in which to test your function. To test your HTTP Trigger: 
+Right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. 
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-When you run the function, notice that the build process creates a *function.json* file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the *function.json* file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
+You can obtain the endpoint for your function by examining the output of the functions runtime as shown above. The local runtime displays the local URL, port, and path to where the function is listening. You can then open a browser and navigate to the function's local URL to verify the function works. Don't forget to append a query string named *name* and a value, for example, `http://localhost:7071/api/HttpTriggerCSharp?name=Azure`. The output in the browser window should display the name "Azure". 
 
-2. Obtain the endpoint for your function by examining the output of the functions runtime. You will see a local address, port, and path. 
-3. Open a browser and navigate to the function's HTTP endpoint. Verify that the function works.
+When you run the function, the build process creates a `function.json` file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the `function.json` file from the attributes applied to the `Run` method in your code. When the project is built, Visual Studio creates a `function.json` file for each function in the project, using the attributes defined on the method.
 
-To stop debugging, click the *Stop* button on the Visual Studio toolbar, or click *Debug* > *Stop Debugging*.
+To stop debugging, click the **Stop** button on the Visual Studio toolbar.
 
 ## Publish the function to Azure
 
-1. Click the *Build* menu, then select *Publish* to launch the *Publish* dialog box. Alternatively, you can right mouse click on the project in *Solution Explorer* and select *Publish* from the context menu.
-2. Select *Azure Function App* as your publish target.
-3. Choose *Create New* to publish this as a new function in a new Function App, or choose *Select existing* to publish this function to a Function App that is already deployed to Azure.
-4. Click the *Publish* button.
-5. Fill in the following fields:
+Right click the project node in **Solution Explorer** and choose **Publish**. This displays a dialog where you configure what you want to publish.
 
-| Field | Value |
-|---|---|
-| Function App Name | The function's name. This must be unique.  |
-| Subscription | The MSDN subscription that this function will be published under. |
-| Resource Group | The Azure resource group to contain the function. |
-| App Service Plan | The function's App Service plan.  |
-| Storage Account | The storage account for the function. |
+Choose **Create New** to publish this as a new function in a new Function App to publish this function. When ready, click the **Publish**. You'll be presented with the **Create App Service** dialog. 
 
-6. Verify that your function has been published by logging into the Azure portal and reviewing the function.
+![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish.png)
+
+The table below details the required fields in order to publish your Function App.
+
+| Setting      | Suggested value  | Description                                        |
+| ------------ |  ------- | -------------------------------------------------- |
+| Function App Name | Globally unique name | The function's name. This must be unique.  |
+| Subscription | Choose an existing subscription | The Azure subscription . |
+| Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
+| App Service Plan | Existing App Service Plan name |  The function's App Service plan.  |
+| Storage Account | Globally unique name |  The storage account for the function. |
+
+Click the **Create** button, and the final confirmation page displays. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function. 
+
+![Test function in Azure Portal](./media/functions-create-your-first-function-visual-studio/functions-verify-publish.png)
 
 ## Next steps
 
 For more information about Azure Functions, see the following topics:
 
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
++ [Code and test Azure functions locally](functions-run-local.md)
++ [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md)
+
+<!--Links:-->
+
+
+[local.settings.json]: functions-run-local.md#local-settings-file

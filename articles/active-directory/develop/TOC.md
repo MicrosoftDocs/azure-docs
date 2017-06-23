@@ -1,4 +1,5 @@
 # [Overview](active-directory-developers-guide.md)
+## [Why Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Auth basics](active-directory-authentication-scenarios.md)
 ## [Types of apps](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Get Started
@@ -68,9 +69,10 @@
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md)
 ### [On-Behalf-Of flow](active-directory-protocols-oauth-on-behalf-of.md)
-### [Supported Token and Claim Types](active-directory-token-and-claims.md)
+### [Supported token and claim types](active-directory-token-and-claims.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
-### [Federation Metadata](active-directory-federation-metadata.md)
+### [Federation metadata](active-directory-federation-metadata.md)
+### [Certificate credentials](active-directory-certificate-credentials.md)
 ## [Application objects](active-directory-application-objects.md)
 ### [Apps and Azure AD](active-directory-how-applications-are-added.md)
 ## [Application manifest](active-directory-application-manifest.md)
@@ -101,4 +103,7 @@
 #### [Oauth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Token reference](active-directory-v2-tokens.md)
+#### [Certificate credentials](active-directory-certificate-credentials.md)
 ### [Scopes](active-directory-v2-scopes.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
