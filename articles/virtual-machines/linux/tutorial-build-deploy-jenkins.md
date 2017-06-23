@@ -19,8 +19,6 @@ ms.custom: mvc
 
 # Implement continuous deployment of your app using Jenkins to Azure VMs
 
-**Team Services | TFS 2017 | TFS 2015**
-
 Continuous integration (CI) and continuous deployment (CD) means starting an automated deployment process whenever a new successful build is available.
 
 In this tutorial, you set up CI/CD for a Node.js app by using Jenkins to build it, and Visual Studio Team Services
