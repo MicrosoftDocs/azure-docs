@@ -54,8 +54,8 @@ This topic provides answers to some of the most common questions about running [
 
 7. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
    
-    You do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment, if you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/).
-    
+   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Else you need to pay to license it.
+    
 8. **How are updates and service packs applied on a SQL Server VM?**
    
     Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-sql-automated-patching.md). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
