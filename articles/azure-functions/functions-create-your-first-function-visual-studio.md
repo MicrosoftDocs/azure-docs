@@ -47,13 +47,13 @@ From the **Tools** menu in Visual Studio, select **Extensions and Updates...**, 
 
 Close Visual Studio and accept the prompts to download and install the new tools.    
 
-## Create a functions app project in Visual Studio
+## Create an Azure Functions project in Visual Studio
 
-You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
+The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.   
 
 Open Visual Studio and from the **File** menu select **New** > **Project**.  
 
-In the **New Project** dialog, expand **Visual C#** > **Cloud** node, select Azure Functions, type a **Name** for your function app, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+In the **New Project** dialog, expand **Visual C#** > **Cloud** node, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. You can specify a different   
 
 ![New project dialog to create a function in Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
@@ -73,7 +73,7 @@ Now that you have created an HTTP-triggered function, you can test it on your lo
 
 ## Test the function locally
 
-To run your function app project locally, right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. If prompted, accept the request from Visual Studio to download and install Azure Functions CLI tools. These tools are required to run a function on your local computer. You may also need to enable a firewall exception to enable the the tools to handle HTTP requests.  
+To run your function app project locally, right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. These tools are required to run a function on your local computer. You may also need to enable a firewall exception to enable the tools to handle HTTP requests.  
 
 Copy the URL of your function from the Azure Functions runtime output.  
 
@@ -113,16 +113,24 @@ After the provisioning is complete, click **Publish** to deploy your code to the
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish-profile.png)
 
-To test your function in Azure, copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. Paste this new URL for the HTTP request into your browser's address bar.  As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request. The URL will look like this:
+Make a note of the **Site URL** value, which is the address of your function app in Azure. 
+
+## Test your function in Azure
+
+Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request.
+
+The URL looks like this:
 
     http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-The following shows the response in the browser to the remote GET request returned by the function: 
+Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
 ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
  
 ## Next steps
 
-You have created a function app with a simple HTTP triggered function. 
+You have used Visual Studio to create a C# function app with a simple HTTP triggered function. 
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md). 
