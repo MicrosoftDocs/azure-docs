@@ -130,12 +130,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_certificate.png)
 
-5. Your Lesson.ly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.The following screenshot shows an example for this.
+5. The Lesson.ly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **SAML Token Attributes** configuration.The following screenshot shows an example for this.
 
 	![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png)
       	   
-	| Attribute Name   | Attribute Value |   
-    | ---------------  | ----------------|
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+
+	| Attribute Name   | Attribute Value |
+	| ---------------  | ----------------|
 	| urn:oid:2.5.4.42 |user.givenname |
 	| urn:oid:2.5.4.4  |user.surname |
 	| urn:oid:0.9.2342.19200300.1001.3 |user.mail |
@@ -152,15 +154,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.	 
 
-5. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_general_400.png)
 
-6. On the **Lesson.ly Configuration** section, click **Configure Lesson.ly** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Lesson.ly Configuration** section, click **Configure Lesson.ly** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_configure.png)
 
-7. To configure single sign-on on **Lesson.ly** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Lesson.ly support team](mailto:dev@lessonly.com).
+9. To configure single sign-on on **Lesson.ly** side, you need to send the downloaded **Certificate(Base64)** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Lesson.ly support team](mailto:dev@lessonly.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
