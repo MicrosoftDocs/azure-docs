@@ -58,9 +58,14 @@ You can now add data to your new collection using Data Explorer.
          "id": "1",
          "category": "personal",
          "name": "groceries",
-         "description": "Pick up apples and strawberries."
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
      }
      ```
+
+3. Once you've added the json to **Documents** tab, click **Save**.
+
+    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
      You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to `SELECT * FROM c ORDER BY c.name ASC`, to return all the documents in alphabetic ascending order of the name property. 
  
@@ -78,25 +83,25 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+3. Then open the todo solution file in Visual Studio. 
 
 ## Review the code
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized.
+* The DocumentClient is initialized on line 73.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
     ```
 
-* A new database is created.
+* A new database is created on line 88.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created.
+* A new collection is created on line 107.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
