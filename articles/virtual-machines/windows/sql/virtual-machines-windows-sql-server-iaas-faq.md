@@ -37,7 +37,7 @@ This topic provides answers to some of the most common questions about running [
 
     First create an Azure virtual machine with a SQL Server instance. Then migrate your on-premises databases to that instance. For data migration strategies, see [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instnace?**
+1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
     Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance.
 
