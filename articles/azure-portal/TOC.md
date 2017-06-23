@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Get Started
-## [Deploy with Resource Manager template](../resource-group-template-deploy.md)
+## [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 
 # How To
 ## Deploy
-### [Create Azure Resource Manager templates](../resource-group-authoring-templates.md)
+### [Create Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Manage
-### [Use preview portal to manage resources](resource-group-portal.md)
+### [Use preview portal to manage resources](../azure-resource-manager/resource-group-portal.md)
 ### [Manage access with RBAC](../active-directory/role-based-access-control-configure.md)
-### [Use tags to organize resources](../resource-group-using-tags.md)
+### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Scale your resources](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Create new Azure service principal](../resource-group-create-service-principal-portal.md)
+### [Create new Azure service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Monitor
 ### [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Related
-## [Azure resource manager template functions](../resource-group-template-functions.md)
+## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)
 ## [Best practices for Autoscale](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Common metrics for Autoscale](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks for Autoscale notifications](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -33,6 +33,7 @@
 ## [Azure Insights CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

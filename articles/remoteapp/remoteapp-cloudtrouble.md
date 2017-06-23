@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot RemoteApp cloud collections - creation | Microsoft Docs
 description: Learn how to troubleshoot RemoteApp cloud collection creation failures
@@ -13,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Troubleshoot creating RemoteApp cloud collections
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

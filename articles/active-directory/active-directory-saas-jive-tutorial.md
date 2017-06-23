@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
@@ -173,17 +173,18 @@ In this section, you create a test user in the classic portal called Britta Simo
    
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png) 
+ 
+    ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-jive-tutorial/create_aaduser_07.png) 
@@ -210,17 +211,22 @@ The following screenshot shows an example of the related dialog in Azure AD:
 1. In the Azure Management Portal, on the **Jive** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog.
 2. On the **Enter your Jive credentials to enable automatic user provisioning** page, provide the following configuration settings:
    
-   1. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
-   2. In the **Jive Admin Password** textbox, type the password for this account.
-   3. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
+    a. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
+   
+    b. In the **Jive Admin Password** textbox, type the password for this account.
+   
+    c. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
       
       > [!NOTE]
       > The Jive tenant URL is URL that is used by your organization to log into Jive.  
       > Typically, the URL has the following format: **www.\<organization\>.jive.com**.
       > 
       > 
-   4. Click **validate** to verify your configuration.
-   5. Click the **Next** button to open the **Confirmation** page.
+   
+    d. Click **validate** to verify your configuration.
+
+    e. Click the **Next** button to open the **Confirmation** page.
+
 3. On the **Confirmation** page, click the checkmark to save your configuration.
 
 You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Jive.com.

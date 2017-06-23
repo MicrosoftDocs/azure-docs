@@ -1,9 +1,21 @@
 ---
+title: Azure Active Directory Domain Services Documentation - Tutorials | Microsoft Docs
+description: Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers and manage them with group policies.
+services: active-directory-ds
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-ds
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Active Directory Domain Services Documentation
 
-Azure AD Domain Services (DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory.  This service enables users to deploy a wide range of computing solutions in an agile manner.
+Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,8 +89,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
             </div>
         </div>
         </a>
-    </li>
-    <li>
+    </li>    
     <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds">
         <div class="cardSize">
@@ -97,6 +108,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </div>
         </a>
     </li>
+    <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
         <div class="cardSize">
             <div class="cardPadding">
@@ -152,13 +164,3 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Domain Services Documentation
-        </div>
-    </a>
-</div>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous delivery with Git and Visual Studio Team Services in Azure | Microsoft Docs
 description: Learn how to configure your Visual Studio Team Services team projects to use Git to automatically build and deploy to the Web App feature in Azure App Service or cloud services.
 services: cloud-services
@@ -43,7 +43,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
     ![][4]
 2. You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough. Create a new Azure Cloud Service project,
    or a new ASP.NET MVC project. Make sure that the project targets the .NET Framework 4 or later. If you are creating a cloud service project, add an ASP.NET MVC web role and a worker role.
-   If you want to create a web app, choose the **ASP.NET Web Application** project template, and then choose **MVC**. See [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md) for more information.
+   If you want to create a web app, choose the **ASP.NET Web Application** project template, and then choose **MVC**. See [Create an ASP.NET web app in Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md) for more information.
 3. Open the shortcut menu for the solution, and choose **Commit**.
    
     ![][7]
@@ -184,7 +184,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 10. Navigate to the **Builds** view and find the build that just got triggered for the working branch.
 
 ## Next steps
-To learn more tips on using Git with Visual Studio Team Services, see [Develop and share your code in Git using Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Team Services to publish to Azure, see [Continuous Deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md). For more information on Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+To learn more tips on using Git with Visual Studio Team Services, see [Develop and share your code in Git using Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) and for information about using a Git repository that's not managed by Visual Studio Team Services to publish to Azure, see [Continuous Deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md). For more information on Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

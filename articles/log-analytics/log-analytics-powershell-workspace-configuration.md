@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 11/21/2016
 ms.author: richrund
 
 ---
@@ -186,31 +186,30 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ## Configuring Log Analytics to index Azure diagnostics
 For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a Log Analytics workspace. This approach sends data directly to Log Analytics and does not require data to be written to a storage account. Supported resources include:
 
-+ Metrics
-  - Application Gateways
-  - Batch accounts
-  - Elastic SQL Pool
-  - Event Hub namespace
-  - IoT Hubs
-  - Logic Apps
-  - Redis Cache
-  - Search services
-  - Service Bus namespace
-  - SQL (v12)
-  - Web Sites
-  - Web Server farms
-+ Diagnostic Logs
-  - Application Gateways
-  - Automation accounts
-  - Batch accounts
-  - Data Lake analytics
-  - Data Lake store
-  - Key Vault
-  - Load Balancers
-  - Logic Apps
-  - Network Security Groups
-  - Search services
+| Resource Type | Logs | Metrics |
+| --- | --- | --- |
+| Application Gateways    | Yes | Yes |
+| Automation accounts     | Yes | |
+| Batch accounts          | Yes | Yes |
+| Data Lake analytics     | Yes | | 
+| Data Lake store         | Yes | |
+| Elastic SQL Pool        |     | Yes |
+| Event Hub namespace     |     | Yes |
+| IoT Hubs                |     | Yes |
+| Key Vault               | Yes | |
+| Load Balancers          | Yes | |
+| Logic Apps              | Yes | Yes |
+| Network Security Groups | Yes | |
+| Redis Cache             |     | Yes |
+| Search services         | Yes | Yes |
+| Service Bus namespace   |     | Yes |
+| SQL (v12)               |     | Yes |
+| Web Sites               |     | Yes |
+| Web Server farms        |     | Yes |
 
+For the details of the available metrics, refer to [supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+
+For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

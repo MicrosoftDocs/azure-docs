@@ -1,0 +1,57 @@
+- name: Content Moderator Documentation
+  href: ../index.md
+- name: Overview
+  items: 
+  - name: Learn about the Content Moderator API
+    href: overview.md
+- name: Get started
+  items: 
+  - name: Get started with Content Moderator
+    href: quick-start.md
+- name: How to
+  items: 
+  - name: Review tool user guide
+    items:
+    - name: Human in the loop
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: Create team
+      href: Review-Tool-User-Guide/Sign-up.md
+    - name: Upload images
+      href: Review-Tool-User-Guide/Upload-Images.md
+    - name: Image reviews
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Text reviews
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Team and subteams
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Using workflows
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: Settings
+      href: Review-Tool-User-Guide/Configure.md
+    - name: View dashboard
+      href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Reference
+  items: 
+  - name: API Reference Guide  
+    href: api-reference.md
+    items:
+  - name: Review APIs
+    href: review-api.md
+  - name: Image moderation
+    href: image-moderation-api.md
+  - name: Text moderation
+    href: text-moderation-api.md
+  - name: Text moderation - languages
+    href: Text-Moderation-API-Languages.md
+  - name: Video moderation
+    href: video-moderation-api.md
+- name: Resources
+  items:  
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Windows SDK
+    href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+  - name: FAQ
+    href: FAQs.md

@@ -3,8 +3,8 @@ title: Point a company Internet domain to a Traffic Manager domain name | Micros
 description: This article will help you point your company domain name to a Traffic Manager domain name.
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Point a company Internet domain to an Azure Traffic Manager domain

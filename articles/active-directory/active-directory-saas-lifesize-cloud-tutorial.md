@@ -1,11 +1,10 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
 services: active-directory
-documentationcenter: ''
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: ''
 
 ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
 ms.service: active-directory
@@ -13,40 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Lifesize Cloud
+
 In this tutorial, you learn how to integrate Lifesize Cloud with Azure Active Directory (Azure AD).
 
 Integrating Lifesize Cloud with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Lifesize Cloud
-* You can enable your users to automatically get signed-on to Lifesize Cloud (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+- You can control in Azure AD who has access to Lifesize Cloud
+- You can enable your users to automatically get signed-on to Lifesize Cloud (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
+
 To configure Azure AD integration with Lifesize Cloud, you need the following items:
 
-* An Azure AD subscription
-* A Lifesize Cloud single-sign on enabled subscription
+- An Azure AD subscription
+- A Lifesize Cloud single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-> 
-> 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
-
+In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Lifesize Cloud from the gallery
@@ -57,209 +55,204 @@ To configure the integration of Lifesize Cloud into Azure AD, you need to add Li
 
 **To add Lifesize Cloud from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
-   
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-    ![Applications][4]
-6. In the search box, type **Lifesize Cloud**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_01.png)
-7. In the results pane, select **Lifesize Cloud**, and then click **Complete** to add the application.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_02.png)
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-## Configuring and testing Azure AD single sign-on
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **Lifesize Cloud**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_search.png)
+
+5. In the results panel, select **Lifesize Cloud**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Lifesize Cloud based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Lifesize Cloud is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Lifesize Cloud needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Lifesize Cloud.
+In Lifesize Cloud, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
 To configure and test Azure AD single sign-on with Lifesize Cloud, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Lifesize Cloud test user](#creating-a-lifesize-cloud-test-user)** - to have a counterpart of Britta Simon in Lifesize Cloud that is linked to the Azure AD representation of her.
+3. **[Creating a Lifesize Cloud test user](#creating-a-lifesize-cloud-test-user)** - to have a counterpart of Britta Simon in Lifesize Cloud that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Lifesize Cloud application.
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Lifesize Cloud application.
 
 **To configure Azure AD single sign-on with Lifesize Cloud, perform the following steps:**
 
-1. In the classic portal, on the **Lifesize Cloud** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure portal, on the **Lifesize Cloud** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_samlbase.png)
+
+3. On the **Lifesize Cloud Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
+
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://login.lifesizecloud.com/ls/?acs`
+
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://login.lifesizecloud.com/<companyname>`
+
+	 
+4. Check **Show advanced URL settings**, perform the following step:	
    
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to Lifesize Cloud** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
+
+    In the **Relay state** textbox, type a URL using the following pattern:
+   `https://webapp.lifesizecloud.com/?ent=<identifier>`
    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_04.png) 
-   
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Lifesize Cloud application using the following pattern: **https://login.lifesizecloud.com/ls/?acs**.
-   
-    b. click **Next**
-4. On the **Configure single sign-on at Lifesize Cloud** page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_05.png)
-   
-    a. Click **Download certificate**, and then save the file on your computer.
-   
-    b. Click **Next**.
-5. To get SSO configured for your application, login into the Lifesize Cloud application with Admin privileges.
-6. In the top right corner click on your name and then click on the **Advance Settings**
+   > [!NOTE] 
+   >Please note that these are not the real values. you have to update these values with the actual Sign-On URL, Relay State, and Identifier. Contact [Lifesize Cloud Client support team](https://www.lifesize.com/support) to get Sign-On URL, and Identifier values and you can get Relay State  value from SSO Configuration that is explained later in the tutorial.
+
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_400.png)
+
+6. On the **Lifesize Cloud Configuration** section, click **Configure Lifesize Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_configure.png) 
+
+7. To get SSO configured for your application, login into the Lifesize Cloud application with Admin privileges.
+
+8. In the top right corner click on your name and then click on the **Advance Settings**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
-7. In the Advance Settings now click on the **SSO Configuration** link. This will open the SSO Configuration page for your instance.
+
+9. In the Advance Settings now click on the **SSO Configuration** link. It will open the SSO Configuration page for your instance.
    
     ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
-8. Now configure the following values in the SSO configuration UI.    
+
+10. Now configure the following values in the SSO configuration UI.    
    
     ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    
+	a. In **Identity Provider Issuer** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+
+    b.  In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+
+    c. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
+  
+    d. In the SAML Attribute mappings for the First Name text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    
+	e. In the SAML Attribute mapping for the **Last Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    
+	f. In the SAML Attribute mapping for the **Email** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+
+11. To check the configuration you can click on the **Test** button.
    
-    • Copy the value of Issuer URL from Azure AD and paste that in **Identity Provider Issuer** textbox.
-   
-    • Copy the value of Remote Login URL from Azure AD and paste that in **Login URL** textbox.
-   
-    • Open the downloaded certificate in notepad and copy the content of certificate, excluding the Begin Certificate and End Certificate lines, paste this in the **X.509 Certificate** textbox.
-   
-    • In the SAML Attribute mapping for the **First Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
-   
-    • In the SAML Attribute mapping for the **Last Name** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
-   
-    • In the SAML Attribute mapping for the **Email** text box enter the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
-9. To check the configuration you can click on the **Test** button.
-   
-   > [!NOTE]
-   > For successful testing you need to complete the configuration wizard in Azure AD and also provide access to users or groups who can perform the test.
-   > 
-   > 
-10. Enable the SSO by checking on the **Enable SSO** button.
-11. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value which is generated in the text box. We will need this value in the next steps.
-12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
-13. On the **Single sign-on confirmation** page, click **Complete**.  
-    
-    ![Azure AD Single Sign-On][11]
-14. Now login into the Azure Management Portal **https://portal.azure.com** using the admin credentials
-15. Click on **More Services** link in the left navigation pane
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_09.png)
-16. Search for Azure Active Directory and Click on the **Azure Active Directory** Link
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_10.png)
-17. You will find all your SaaS applications under the **Enterprise Applications** button.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_11.png)
-18. Now click on **All Applications** link in the next blade
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_12.png)
-19. Search for Lifesize application for which you want to setup the RelayState. 
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_13.png)
-20. Now Click **Single sign-on** link in the blade
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_14.png)
-21. You will see the **Show advanced URL settings** check box. Click the check box.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_15.png)
-22. Now configure the RelayState for the application, which you see in the Lifesize application SSO configuration page. 
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_16.png)
-23. Save the settings.
+    >[!NOTE]
+    >For successful testing you need to complete the configuration wizard in Azure AD and also provide access to users or groups who can perform the test.
+
+12. Enable the SSO by checking on the **Enable SSO** button.
+
+13. Now click on the **Update** button so that all the settings are saved. This will generate the RelayState value. Copy the RelayState value, which is generated in the text box, paste it in the **Relay State** textbox under **Lifesize Cloud Domain and URLs** section. 
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
 
-![Create Azure AD User][20]
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
+
+![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_09.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_05.png) 
-   
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_06.png) 
-   
-   a. In the **First Name** textbox, type **Britta**.  
-   
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_07.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-### Creating an Lifesize Cloud test user
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-lifesize-cloud-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a Lifesize Cloud test user
+
 In this section, you create a user called Britta Simon in Lifesize Cloud. Lifesize cloud does support automatic user provisioning. After successful authentication at Azure AD, the user will be automatically provisioned in the application. 
 
 ### Assigning the Azure AD test user
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Lifesize Cloud.
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Lifesize Cloud.
 
 ![Assign User][200] 
 
 **To assign Britta Simon to Lifesize Cloud, perform the following steps:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Assign User][201] 
-2. In the applications list, select **Lifesize Cloud**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_50.png) 
-3. In the menu on the top, click **Users**.
-   
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
-   
-    ![Assign User][205]
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-### Testing Single Sign-On
+	![Assign User][201] 
+
+2. In the applications list, select **Lifesize Cloud**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Lifesize Cloud tile in the Access Panel, you should get automatically signed-on to your Lifesize Cloud application.
+When you click the Lifesize Cloud tile in the Access Panel, you should get login page of Lifesize Cloud application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
+
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -268,13 +261,10 @@ When you click the Lifesize Cloud tile in the Access Panel, you should get autom
 [3]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_general_205.png
+

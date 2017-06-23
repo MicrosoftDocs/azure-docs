@@ -1,10 +1,10 @@
 ---
-title: 'collectd: perf stats for Java on Unix in Application Insights'
-description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights
+title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
+description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
-# collectd: Unix performance metrics in Application Insights
+# collectd: Linux performance metrics in Application Insights
 
 
-To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+To explore Linux system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
@@ -33,7 +33,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 ![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
 
 ## Install collectd and the plug-in
-On your Unix server machines:
+On your Linux server machines:
 
 1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
 2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
@@ -44,7 +44,7 @@ On your Unix server machines:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Add this snippet, using the Instrumentation Key from your resource:
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -53,6 +53,8 @@ On your Unix server machines:
 ```
 
 Here's part of a sample configuration file:
+
+```XML
 
     ...
     # collectd plugins
@@ -80,7 +82,8 @@ Here's part of a sample configuration file:
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
@@ -118,6 +121,14 @@ Separate directives with a newline.
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
   * `sudo collectd -f`
 
+## Known issue
+
+The Application Insights Write plugin is incompatible with certain Read plugins. Some plugins sometimes send "NaN" where the Application Insights plugin expects a floating-point number.
+
+Symptom: The collectd log shows errors that include "AI: ... SyntaxError: Unexpected token N".
+
+Workaround: Exclude data collected by the problem Write plugins. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -128,6 +139,5 @@ Separate directives with a newline.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
 

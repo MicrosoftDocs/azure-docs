@@ -4,7 +4,7 @@ description: Learn how to scale up an app in Azure App Service to add capacity a
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
@@ -32,10 +32,10 @@ This article shows you how to scale your app in Azure App Service. There are two
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 They do not require you to change your code or redeploy your application.
 
-For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
+For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Before you switch an App Service plan from the **Free** tier, you must first remove the [spending limits](/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> Before you switch an App Service plan from the **Free** tier, you must first remove the [spending limits](https://azure.microsoft.com/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 > 
 > 
 
@@ -90,38 +90,38 @@ Depending on the pricing tier, the following developer-oriented features are ava
 <a name="OtherFeatures"></a>
 
 ## Learn about other features
-* For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](/pricing/details/web-sites/).
+* For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
 > 
 > 
 
 <a name="Next Steps"></a>
 
 ## Next steps
-* To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
+* To get started with Azure, see [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * For information about pricing, support, and SLA, visit the following links.
   
-    [Data Transfers Pricing Details](/pricing/details/data-transfers/)
+    [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Microsoft Azure Support Plans](/support/plans/)
+    [Microsoft Azure Support Plans](https://azure.microsoft.com/support/plans/)
   
-    [Service Level Agreements](/support/legal/sla/)
+    [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
   
-    [SQL Database Pricing Details](/pricing/details/sql-database/)
+    [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/)
   
     [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
   
-    [App Service Pricing Details](/pricing/details/app-service/)
+    [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service/)
   
-    [App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
+    [App Service Pricing Details - SSL Connections](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * For videos about scaling App Service apps, see the following resources:
   
-  * [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
-  * [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
+  * [When to Scale Azure Websites - with Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [How Azure Websites Scale - with Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/

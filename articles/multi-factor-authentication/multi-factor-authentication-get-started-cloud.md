@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 03/14/2017
 ms.author: kgremban
 
 ---
@@ -22,21 +22,19 @@ This article walks through how to get started using Azure Multi-Factor Authentic
 
 > [!NOTE]
 > The following documentation provides information on how to enable users using the **Azure Classic Portal**. If you are looking for information on how to set up Azure Multi-Factor Authentication for O365 users, see [Set up multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
-> 
-> 
 
 ![MFA in the Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## Prerequisites
-The following prerequisites are required before you can enable Azure Multi-Factor Authentication for your users.
+## Prerequisite
+[Sign up for an Azure subscription](https://azure.microsoft.com/pricing/free-trial/) - If you do not already have an Azure subscription, you need to sign-up for one. If you are just starting out and using Azure MFA you can use a trial subscription
 
-1. [Sign up for an Azure subscription](https://azure.microsoft.com/pricing/free-trial/) - If you do not already have an Azure subscription, you need to sign-up for one. If you are just starting out and using Azure MFA you can use a trial subscription
-2. [Create a Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md) and assign it to your directory or [assign licenses to users](multi-factor-authentication-get-started-assign-licenses.md)
+## Enable Azure Multi-Factor Authentication
+As long as your users have licenses that include Azure Multi-Factor Authentication, there's nothing that you need to do to turn on Azure MFA. You can start requiring two-step verification on an individual user basis. The licenses that enable Azure MFA are:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Licenses are available for users who have Azure MFA, Azure AD Premium, or Enterprise Mobility Suite (EMS).  MFA is included in Azure AD Premium and the EMS. If you have enough licenses, you do not need to create an Auth Provider.
-> 
-> 
+If you don't have one of these three licenses, or you don't have enough licenses to cover all of your users, that's ok too. You just have to do an extra step and [Create a Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md) in your directory.
 
 ## Turn on two-step verification for users
 To start requiring two-start verification on for a user, change the user's state from disabled to enabled.  For more information on user states, see [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -64,7 +62,7 @@ Use the following procedure to enable MFA for your users.
 After you have enabled your users, you should notify them via email. The next time they try to sign in, they'll be asked to enroll their account for two-step verification. Once they start using two-step verification, they'll also need to set up app passwords to avoid being locked out of non-browser apps.
 
 ## Use PowerShell to automate turning on two-step verification
-To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](../powershell-install-configure.md), you can use the following.  You can change `$st.State` to equal one of the following states:
+To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](/powershell/azure/overview), you can use the following.  You can change `$st.State` to equal one of the following states:
 
 * Enabled
 * Enforced
@@ -72,13 +70,11 @@ To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD
 
 > [!IMPORTANT]
 > We discourage against moving users directly from the Disable state to the Enforced state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). If you have non-browser-based apps and require app passwords, we recommend that you go from a Disabled state to Enabled. This allows users to register and obtain their app passwords. After that, you can move them to Enforced.
-> 
-> 
 
 Using PowerShell would be an option for bulk enabling users. Currently there is no bulk enable feature in the Azure portal and you need to select each user individually. This can be quite a task if you have many users. By creating a PowerShell script using the following, you can loop through a list of users and enable them.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -89,7 +85,7 @@ Here is an example:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

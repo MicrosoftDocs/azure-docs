@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security Center pricing | Microsoft Docs
 description: This article provides information on pricing for Azure Security Center.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 06/16/2017
 ms.author: terrylan
 
 ---
@@ -24,31 +24,26 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 Security Center is offered in two tiers:
 
 * The **Free tier** is automatically enabled on all Azure subscriptions. The Free tier provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
-* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. A **90 day free trial** is available for the Standard tier.
+* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. The Standard tier is offered free for the first 60 days.
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and are charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/blobs/). Storage charges apply even during the trial.
-> 
-> 
+## Try Standard free for 60 days
+The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
 
-## Try Standard free for 90 days
-A 90 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.
+To get the Standard tier:
 
-![Free trial][1]
+1. Select the **Policy** tile on the **Security Center** blade.
+2. Select the subscription that you want to upgrade to Standard.
+3. On the **Security policy** blade, select **Pricing tier**.
+4. On the **Choose your pricing tier** blade, select **Standard**.
+5. Click **Select**.
 
-At the end of 90 days, should you choose to continue using the service, we will automatically start charging for usage.
-
-## Upgrade to Standard
-Upgrade to the Standard tier to add advanced threat detection. To get the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard**.
-
-![Standard tier][2]
 
 ## Why upgrade to Standard?
 The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
+Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are used to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
 
 Security analytics that come with the Standard tier are:
 
@@ -58,25 +53,36 @@ Security analytics that come with the Standard tier are:
 
 In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about that occurrence.
 
-![Security incident][3]
+![Security incident][2]
 
 The **Network communication** alert below provides details about the alert. Details include its full description, its severity, its current state (which in this case is dismissed, meaning the user took action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
 
-![Security alert details][4]
+![Security alert details][3]
 
 ## Enable data collection
-To enable virtual machine behavioral analytics, data collection must be turned on. You may have to enable data collection when you first access Security Center or when you are creating a security policy.
+To enable virtual machine behavioral analytics, data collection must be turned on.
 
-To validate that data collection is enabled, select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions. Select a subscription. If **Data collection** is off, change it to on and save the change. See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md).
+To validate that data collection is enabled:
+
+1. Select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions.
+2. Select a subscription.
+3. If **Data collection** is off, change it to on and save the change.
+
+> [!NOTE]
+> If you are using Azure Security Center Free, you can disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions on the Standard tier.
+>
+>
+
+See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md) for more information.
 
 ## Next steps
 * In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 * To learn more about Security Center’s advanced detection capabilities, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
+* To learn more about how data is managed and safeguarded in Security Center, see [Azure Security Center data security](security-center-data-security.md).
 * If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
 * If you still have questions about using Security Center, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/free-trial.png
-[2]: ./media/security-center-pricing/standard.png
-[3]: ./media/security-center-pricing/incident.png
-[4]: ./media/security-center-pricing/network-alert.png
+[1]: ./media/security-center-pricing/standard.png
+[2]: ./media/security-center-pricing/incident.png
+[3]: ./media/security-center-pricing/network-alert.png

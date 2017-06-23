@@ -1,6 +1,6 @@
-﻿---
-title: Visual Studio templates for Azure Batch | Microsoft Docs
-description: Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch
+---
+title: Start building Batch solutions with Visual Studio project templates - Azure | Microsoft Docs
+description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
 services: batch
 documentationcenter: .net
 author: fayora
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 02/27/2017
+ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Visual Studio project templates for Azure Batch
+# Use Visual Studio project templates to jump-start Batch solutions
+
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
 > [!IMPORTANT]
@@ -49,7 +51,7 @@ As shown in the diagram below, a compute job that uses these templates will go t
 ## Prerequisites
 To use the Batch templates, you will need the following:
 
-* A computer with Visual Studio 2015, or newer, already installed on it.
+* A computer with Visual Studio 2015 installed. Batch templates are currently only supported for Visual Studio 2015.
 * The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
   
   * Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
@@ -62,7 +64,7 @@ To use the Batch templates, you will need the following:
 ## Preparation
 We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
 
-1. Open Visual Studio 2015 and select **File** > **New** > **Project**.
+1. Open Visual Studio and select **File** > **New** > **Project**.
 2. Under **Templates**, expand **Other Project Types**, click **Visual Studio Solutions**, and then select **Blank Solution**.
 3. Type a name that describes your application and the purpose of this solution (e.g., "LitwareBatchTaskPrograms").
 4. To create the new solution, click **OK**.
@@ -81,7 +83,7 @@ The Job Manager template helps you to implement a job manager task that can perf
 ### Create a Job Manager using the template
 To add a job manager to the solution that you created earlier, follow these steps:
 
-1. Open your existing solution in Visual Studio 2015.
+1. Open your existing solution in Visual Studio.
 2. In Solution Explorer, right-click the solution, click **Add** > **New Project**.
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Job Manager with Job Splitter**.
 4. Type a name that describes your application and identifies this project as the job manager (e.g. "LitwareJobManager").
@@ -250,7 +252,7 @@ The actions performed by the task processor can be as simple or complex, and as 
 ### Create a Task Processor using the template
 To add a task processor to the solution that you created earlier, follow these steps:
 
-1. Open your existing solution in Visual Studio 2015.
+1. Open your existing solution in Visual Studio.
 2. In Solution Explorer, right-click the solution, click **Add**, and then click **New Project**.
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
 4. Type a name that describes your application and identifies this project as the task processor (e.g. "LitwareTaskProcessor").

@@ -1,10 +1,10 @@
 ---
-title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
+title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
 documentationcenter: ''
 author: beckylino
-manager: douge
+manager: carmonm
 
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/10/2016
-ms.author: awills
+ms.date: 11/23/2016
+ms.author: cfreeman
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -21,10 +21,8 @@ ms.author: awills
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service.
 
-Currently these features are available for the ASP.NET SDK.
-
 * [Sampling](app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* [Filtering with Telemetry Processors](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
+* Filtering with Telemetry Processors [for ASP.NET](#filtering) or [Java](app-insights-java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
 * [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
 
@@ -186,7 +184,7 @@ public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
 
-    if (request != null && request.Duration.Milliseconds < 100)
+    if (request != null && request.Duration.TotalMilliseconds < 100)
     {
         return;
     }
@@ -197,99 +195,6 @@ public void Process(ITelemetry item)
 
 #### Diagnose dependency issues
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
-
-## Filtering (Java)
-
-In ApplicationInsights.xml, you'll find a number of predefined filters that you can parameterize. For example:
-
-```XML
-
-    <ApplicationInsights>
-      <TelemetryProcessors>
-        <BuiltInProcessors>
-           <Processor type="TraceTelemetryFilter">
-                  <Add name="FromSeverityLevel" value="ERROR"/>
-           </Processor>
-
-           <Processor type="RequestTelemetryFilter">
-                  <Add name="MinimumDurationInMS" value="100"/>
-                  <Add name="NotNeededResponseCodes" value="200-400"/>
-           </Processor>
-
-           <Processor type="PageViewTelemetryFilter">
-                  <Add name="DurationThresholdInMS" value="100"/>
-                  <Add name="NotNeededNames" value="home,index"/>
-                  <Add name="NotNeededUrls" value=".jpg,.css"/>
-           </Processor>
-
-           <Processor type="TelemetryEventFilter">
-                  <!-- Names of events we don't want to see -->
-                  <Add name="NotNeededNames" value="Start,Stop,Pause"/>
-           </Processor>
-
-           <!-- Exclude telemetry from availability tests and bots -->
-           <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
-                     comma-separated
-                     - default is all synthetics -->
-                <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
-           </Processor>
-
-        </BuiltInProcessors>
-      </TelemetryProcessors>
-    </ApplicationInsights
-
-```
-
-[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
-
-### Custom filters in Java
-
-You can also create your own filters.
-
-In your code, create a class that implements `TelemetryProcessor`:
-
-```Java
-
-    public class MyOpNameProcessor implements TelemetryProcessor {
-
-       /* This method is called for each item of telemetry to be sent.
-          Return false to discard it.
-		  Return true to allow other processors to inspect it. */
-
-       public boolean process(Telemetry telemetry) {
-          return ! telemetry.getContext().getOperation().getName()
-                   .contains(notNeeded);
-       }
-
-      /* Any parameters that are required to support the filter.*/
-
-       private final String notNeeded;
-
-       /* Initializers for the parameters, named "setParameterName" */
-
-       public void setNotNeeded(String notNeeded) throws Throwable {
-	      this.notNeeded = notNeeded;
-       }
-    }
-
-```
-
-In ApplicationInsights.xml, add a segment like this:
-
-```XML
-
-    <ApplicationInsights.
-      <TelemetryProcessors>
-        <CustomProcessors>
-          <Processor type="com.microsoft.applicationinsights.sample.MyOpNameProcessor">
-            <!-- Values for each parameter you defined -->
-            <Add name="NotNeeded" value="Home"/>
-           </Processor>
-        </CustomProcessors>
-      </TelemetryProcessors>
-    </ApplicationInsights>
-```
 
 
 <a name="add-properties"></a>
@@ -438,21 +343,6 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs][diagnostic]
+* [Search events and logs](app-insights-diagnostic-search.md)
 * [Sampling](app-insights-sampling.md)
-* [Troubleshooting][qna]
-
-<!--Link references-->
-
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
+* [Troubleshooting](app-insights-troubleshoot-faq.md)

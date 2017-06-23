@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 
 ---
@@ -110,10 +110,10 @@ Now we need code to call the Key Vault API and retrieve the secret. The followin
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 
@@ -131,9 +131,9 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 4. Add a Certificate to your Web App
 
 **Get or Create a Certificate**
-For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files to be created.
+For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
 
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
     pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below.
@@ -141,29 +141,26 @@ Make note of the end date and the password for the .pfx (in this example: 07/31/
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 **Associate the Certificate with an Azure AD application**
-Now that you have a certificate, you need to associate it with an Azure AD application. But the Azure Management Portal does not support this right now. Instead you have to use Powershell. Following are the commands that you need to run:
+Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure Portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $x509.Import("C:\data\KVWebApp.cer")
+    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-    PS C:\> $x509.Import("C:\data\KVWebApp.cer")
+    # If you used different dates for makecert then adjust these values
+    $now = [System.DateTime]::Now
+    $yearfromnow = $now.AddYears(1)
 
-    PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
-    PS C:\> $now = [System.DateTime]::Now
+    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    # this is where the end date from the cert above is used
-    PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
-
-    PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
-
-    PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
-
-    PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
     # get the thumbprint to use in your app settings
-    PS C:\>$x509.Thumbprint
+    $x509.Thumbprint
 
-After you have run these commands, you can see the application in Azure AD. If you don't see the application at first, search for "Applications my company owns" instead of "Applications my company uses".
+After you have run these commands, you can see the application in Azure AD. When searching, ensure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog.
 
 To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)
 

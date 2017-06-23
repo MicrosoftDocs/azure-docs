@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 
 ---
@@ -28,7 +28,7 @@ When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.n
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
-Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
+Do you already understand what CNAME and A records are? [Jump past the explanation](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
 > The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
@@ -73,7 +73,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
      
        **OR**
-   * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -110,7 +110,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
      
        **OR**
-   * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

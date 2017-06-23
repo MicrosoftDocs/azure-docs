@@ -3,8 +3,8 @@ title: How to use Azure Service Bus with the WebJobs SDK
 description: Learn how to use Azure Service Bus queues and topics with the WebJobs SDK.
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # How to use Azure Service Bus with the WebJobs SDK
@@ -151,7 +151,7 @@ The following features were added in release 1.1:
 * A `MessageProcessor` strategy pattern allows you to specify a processor per queue/topic.
 * Message processing concurrency is supported by default. 
 * Easy customization of `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
-* Allow [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) to be specified on `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (for scenarios where you might not have Manage rights). 
+* Allow [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) to be specified on `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (for scenarios where you might not have Manage rights). Note that Azure WebJobs is unable to automatically provision non-existent queues and topics without Manage AccessRights.
 
 ## <a id="queues"></a>Related topics covered by the storage queues how-to article
 For information about WebJobs SDK scenarios not specific to Service Bus, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

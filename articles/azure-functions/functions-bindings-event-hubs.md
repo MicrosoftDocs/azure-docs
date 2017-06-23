@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Event Hub bindings | Microsoft Docs
-description: Understand how to use Azure Event Hub bindings in Azure Functions.
+title: Azure Functions Event Hubs bindings | Microsoft Docs
+description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -15,55 +15,55 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
 
 ---
-# Azure Functions Event Hub bindings
+# Azure Functions Event Hubs bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. 
+This article explains how to configure and use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindings for Azure Functions.
 Azure Functions supports trigger and output bindings for Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-If you are new to Azure Event Hubs, see the [Azure Event Hub overview](../event-hubs/event-hubs-overview.md).
+If you are new to Azure Event Hubs, see the [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
-## Event Hub trigger
-Use the Event Hub trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
+## Event hub trigger
+Use the Event Hubs trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
 
-The Event Hub trigger to a function uses the following JSON object in the `bindings` array of function.json:
+The Event Hubs function trigger uses the following JSON object in the `bindings` array of function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
-    "consumerGroup": "Consumer group to use - see below", 
+    "path": "<Name of the event hub>",
+    "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-overview.md#consumer-groups) 
+`consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-features.md#event-consumers)
 used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used.  
-`connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
-Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
+`connection` must be the name of an app setting that contains the connection string to the event hub's namespace.
+Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
 itself. This connection string must have at least read permissions to activate the trigger.
 
-[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune Event Hub triggers.  
+[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune Event Hubs triggers.  
 
 <a name="triggerusage"></a>
 
 ## Trigger usage
-When an Event Hub trigger function is triggered, the message that triggers it is passed into the function as a string.
+When an Event Hubs trigger function is triggered, the message that triggers it is passed into the function as a string.
 
 <a name="triggersample"></a>
 
 ## Trigger sample
-Suppose you have the following Event Hub trigger in the `bindings` array of function.json:
+Suppose you have the following Event Hubs trigger in the `bindings` array of function.json:
 
 ```json
 {
@@ -116,11 +116,11 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## Event Hub output binding
-Use the Event Hub output binding to write events to an event hub event stream. You must have send permission to an 
-event hub to write events to it. 
+## Event Hubs output binding
+Use the Event Hubs output binding to write events to an event hub event stream. You must have send permission to an
+event hub to write events to it.
 
-The output binding uses the following JSON object in the `bindings` array of function.json: 
+The output binding uses the following JSON object in the `bindings` array of function.json:
 
 ```json
 {
@@ -132,14 +132,23 @@ The output binding uses the following JSON object in the `bindings` array of fun
 }
 ```
 
-`connection` must be the name of an app setting that contains the connection string to the event hub's namespace. 
-Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
+`connection` must be the name of an app setting that contains the connection string to the event hub's namespace.
+Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
 itself. This connection string must have send permissions to send the message to the event stream.
+
+## Output usage
+This section shows you how to use your Event Hubs output binding in your function code.
+
+You can output messages to the configured event hub with the following parameter types:
+
+* `out string`
+* `ICollector<string>` (to output multiple messages)
+* `IAsyncCollector<string>` (async version of `ICollector<T>`)
 
 <a name="outputsample"></a>
 
 ## Output sample
-Suppose you have the following Event Hub output binding in the `bindings` array of function.json:
+Suppose you have the following Event Hubs output binding in the `bindings` array of function.json:
 
 ```json
 {
@@ -172,6 +181,18 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
+Or, to create multiple messages:
+
+```cs
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+{
+    string message = $"Event Hub message created at: {DateTime.Now}";
+    log.Info(message);
+    outputEventHubMessage.Add("1 " + message);
+    outputEventHubMessage.Add("2 " + message);
+}
+```
+
 <a name="outfsharp"></a>
 
 ### Output sample in F# #
@@ -190,12 +211,26 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    context.log('Event Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.done();
+};
+```
+
+Or, to send multiple messages,
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+    var message = 'Event Hub message created at: ' + timeStamp;
+
+    context.bindings.outputEventHubMessage = [];
+
+    context.bindings.outputEventHubMessage.push("1 " + message);
+    context.bindings.outputEventHubMessage.push("2 " + message);
     context.done();
 };
 ```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

@@ -13,16 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
-
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
 
 This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 
@@ -30,8 +25,6 @@ For more information on Cloud Services, and how they compare to Azure Websites a
 
 > [!TIP]
 > Looking to build a simple website? If your scenario involves just a simple website front-end, consider [using a lightweight web app]. You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
->
->
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You will use the compute emulator to test your application locally, then deploy it using PowerShell command-line tools.
 
@@ -42,8 +35,6 @@ The application is a simple "hello world" application:
 ## Prerequisites
 > [!NOTE]
 > This tutorial uses Azure PowerShell, which requires Windows.
->
->
 
 * Install and configure [Azure Powershell].
 * Download and install the [Azure SDK for .NET 2.7]. In the install setup, select:
@@ -82,8 +73,6 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
    > [!NOTE]
    > If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here is the code:
 
@@ -97,7 +86,9 @@ The Node.js app is defined in the file **server.js**, located in the directory f
 This code is essentially the same as the "Hello World" sample on the [nodejs.org] website, except it uses the port number assigned by the cloud environment.
 
 ## Deploy the application to Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. You can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or [sign up for a free account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Download the Azure publishing settings
 To deploy your application to Azure, you must first download the publishing settings for your Azure subscription.
@@ -113,12 +104,13 @@ To deploy your application to Azure, you must first download the publishing sett
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
+    > [!NOTE]
+    > After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
 
 ### Publish the application
 To publish, run the following commands:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
@@ -131,8 +123,6 @@ After publishing succeeds, you will see a response similar to the following:
 
 > [!NOTE]
 > It can take several minutes for the application to deploy and become available when first published.
->
->
 
 Once the deployment has completed, a browser window will open and navigate to the cloud service.
 
@@ -169,8 +159,6 @@ After deploying your application, you may want to disable it so you can avoid ex
 
    > [!NOTE]
    > Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. If nothing else is using the storage, you may want to delete it.
-   >
-   >
 
 ## Next steps
 For more information, see the [Node.js Developer Center].
@@ -178,10 +166,10 @@ For more information, see the [Node.js Developer Center].
 <!-- URL List -->
 
 [Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[using a lightweight web app]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure Powershell]: ../powershell-install-configure.md
+[using a lightweight web app]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: ../powershell-install-configure.md#step-3-connect
+[Connect PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/

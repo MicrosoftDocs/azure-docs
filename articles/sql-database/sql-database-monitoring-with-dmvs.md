@@ -10,11 +10,12 @@ tags: ''
 
 ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/20/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---

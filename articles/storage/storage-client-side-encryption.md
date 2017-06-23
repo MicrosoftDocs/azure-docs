@@ -4,7 +4,7 @@ description: The Azure Storage Client Library for .NET supports client-side encr
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
@@ -38,6 +38,7 @@ Encryption via the envelope technique works in the following way:
 3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.
    
     The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.
+
 4. The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
 
 ### Decryption via the envelope technique
@@ -45,7 +46,7 @@ Decryption via the envelope technique works in the following way:
 
 1. The client library assumes that the user is managing the key encryption key (KEK) either locally or in Azure Key Vaults. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
 2. The client library downloads the encrypted data along with any encryption material that is stored on the service.
-3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider’s unwrapping algorithm.
+3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider's unwrapping algorithm.
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
@@ -151,83 +152,88 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
 ```csharp
-    // Create the IKey used for encryption.
-     RsaKey key = new RsaKey("private:key1" /* key identifier */);
+// Create the IKey used for encryption.
+ RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-     // Create the encryption policy to be used for upload and download.
-     BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+ // Create the encryption policy to be used for upload and download.
+ BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-     // Set the encryption policy on the request options.
-     BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+ // Set the encryption policy on the request options.
+ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-     // Upload the encrypted contents to the blob.
-     blob.UploadFromStream(stream, size, null, options, null);
+ // Upload the encrypted contents to the blob.
+ blob.UploadFromStream(stream, size, null, options, null);
 
-     // Download and decrypt the encrypted contents from the blob.
-     MemoryStream outputStream = new MemoryStream();
-     blob.DownloadToStream(outputStream, null, options, null);
+ // Download and decrypt the encrypted contents from the blob.
+ MemoryStream outputStream = new MemoryStream();
+ blob.DownloadToStream(outputStream, null, options, null);
 ```
+
 ### Queue service encryption
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
 ```csharp
-    // Create the IKey used for encryption.
-     RsaKey key = new RsaKey("private:key1" /* key identifier */);
+// Create the IKey used for encryption.
+ RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-     // Create the encryption policy to be used for upload and download.
-     QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+ // Create the encryption policy to be used for upload and download.
+ QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
-     // Add message
-     QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
-     queue.AddMessage(message, null, null, options, null);
+ // Add message
+ QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
+ queue.AddMessage(message, null, null, options, null);
 
-     // Retrieve message
-     CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
+ // Retrieve message
+ CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 ```
+
 ### Table service encryption
 In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [EncryptProperty] attribute on the entity.
 
 #### Using the resolver
+
 ```csharp
-    // Create the IKey used for encryption.
-     RsaKey key = new RsaKey("private:key1" /* key identifier */);
+// Create the IKey used for encryption.
+ RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-     // Create the encryption policy to be used for upload and download.
-     TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+ // Create the encryption policy to be used for upload and download.
+ TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
 
-     TableRequestOptions options = new TableRequestOptions()
+ TableRequestOptions options = new TableRequestOptions()
+ {
+    EncryptionResolver = (pk, rk, propName) =>
      {
-        EncryptionResolver = (pk, rk, propName) =>
+        if (propName == "foo")
          {
-            if (propName == "foo")
-             {
-                return true;
-             }
-             return false;
-         },
-         EncryptionPolicy = policy
-     };
+            return true;
+         }
+         return false;
+     },
+     EncryptionPolicy = policy
+ };
 
-     // Insert Entity
-     currentTable.Execute(TableOperation.Insert(ent), options, null);
+ // Insert Entity
+ currentTable.Execute(TableOperation.Insert(ent), options, null);
 
-     // Retrieve Entity
-     // No need to specify an encryption resolver for retrieve
-     TableRequestOptions retrieveOptions = new TableRequestOptions()
-     {
-        EncryptionPolicy = policy
-     };
+ // Retrieve Entity
+ // No need to specify an encryption resolver for retrieve
+ TableRequestOptions retrieveOptions = new TableRequestOptions()
+ {
+    EncryptionPolicy = policy
+ };
 
-     TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
-     TableResult result = currentTable.Execute(operation, retrieveOptions, null);
+ TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
+ TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 ```
+
 #### Using attributes
 As mentioned above, if the entity implements TableEntity, then the properties can be decorated with the [EncryptProperty] attribute instead of specifying the **EncryptionResolver**.
 
 ```csharp
-    [EncryptProperty]
-     public string EncryptedProperty1 { get; set; }
+[EncryptProperty]
+ public string EncryptedProperty1 { get; set; }
 ```
+
 ## Encryption and performance
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Visualize and troubleshoot Stream Analytics jobs | Microsoft Docs
 description: Learn how to visualize a Stream Analytics job pipeline for self-service troubleshooting using the diagnostics diagram feature.
 keywords: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---

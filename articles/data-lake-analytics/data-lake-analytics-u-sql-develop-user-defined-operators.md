@@ -1,6 +1,6 @@
-﻿---
-title: Develop U-SQL User defined operators for Azure Data Lake Analytics jobs | Microsoft Docs
-description: 'Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. '
+---
+title: Develop U-SQL user-defined operators (UDOs) | Microsoft Docs
+description: 'Learn how to develop user-defined operators to be used and reused in Data Lake Analytics jobs. '
 services: data-lake-analytics
 documentationcenter: ''
 author: edmacauley
@@ -13,31 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Develop U-SQL User defined operators for Azure Data Lake Analytics jobs
-Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. You will develop a custom operator to convert country names.
+# Develop U-SQL user-defined operators (UDOs)
+Learn how to develop user-defined operators to process data in a U-SQL job.
 
-## Prerequisites
-* Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed
-* Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
-* A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
-* Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-get-started.md) tutorial.
-* Connect to Azure.
-* Upload the source data, see [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-get-started.md). 
+For instructions on developing general-purpose assemblies for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
 
-## Define and use user defined operator in U-SQL
+## Define and use a user-defined operator in U-SQL
 **To create and submit a U-SQL job**
 
-1. From the **File** menu, click **New**, and then click **Project**.
-2. Select the **U-SQL Project** type.
-
-    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Click **OK**. Visual studio creates a solution with a Script.usql file.
-4. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
-5. Paste the following code into the file:
+1. From the Visual Studio select **File > New > Project > U-SQL Project**.
+2. Click **OK**. Visual Studio creates a solution with a Script.usql file.
+3. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
+4. Paste the following code into the file:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -52,7 +43,7 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
                         "Deutschland", "Germany"
                     },
                     {
-                        "Schwiiz", "Switzerland"
+                        "Suisse", "Switzerland"
                     },
                     {
                         "UK", "United Kingdom"
@@ -94,7 +85,7 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
                 }
             }
         }
-6. Open Script.usql, and paste the following U-SQL script:
+6. Open **Script.usql**, and paste the following U-SQL script:
 
         @drivers =
             EXTRACT UserID      string,
@@ -123,13 +114,14 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
         OUTPUT @drivers_CountryName
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**.
-8. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
-9. If you haven't connect to your Azure subscription, you will be prompt to enter your Azure account credentials.
-10. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
-11. You must click the Refresh button to see the latest job status and refresh the screen.
+7. Specify the Data Lake Analytics account, Database, and Schema.
+8. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**.
+9. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**.
+10. If you haven't connected to your Azure subscription, you will be prompted to enter your Azure account credentials.
+11. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
+12. Click the **Refresh** button to see the latest job status and refresh the screen.
 
-**To see the job output**
+**To see the output**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the Default Storage, and then click **Explorer**.
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.

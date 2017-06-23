@@ -1,10 +1,10 @@
-﻿---
+---
 title: Replace a StorSimple device controller | Microsoft Docs
 description: Explains how to remove and replace one or both controller modules on your StorSimple device.
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 03/03/2017
 ms.author: alkohli
 
 ---
@@ -36,7 +36,7 @@ The following table shows the supported controller replacement scenarios.
 | Case | Replacement scenario | Applicable procedure |
 |:--- |:--- |:--- |
 | 1 |One controller is in a failed state, the other controller is healthy and active. |[Single controller replacement](#replace-a-single-controller), which describes the [logic behind a single controller replacement](#single-controller-replacement-logic), as well as the [replacement steps](#single-controller-replacement-steps). |
-| 2 |Both the controllers have failed and require replacement. The chassis, disks, and.disk enclosure are healthy. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
+| 2 |Both the controllers have failed and require replacement. The chassis, disks, and disk enclosure are healthy. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
 | 3 |Controllers from the same device or from different devices are swapped. The chassis, disks, and disk enclosures are healthy. |A slot mismatch alert message will appear. |
 | 4 |One controller is missing and the other controller fails. |[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps). |
 | 5 |One or both controllers have failed. You cannot access the device through the serial console or Windows PowerShell remoting. |[Contact Microsoft Support](storsimple-contact-microsoft-support.md) for a manual controller replacement procedure. |
@@ -103,7 +103,8 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 > [!NOTE]
 > If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
-> 
+>
+> Starting Update 4, you can also use the cmdlet `Get-HCSControllerReplacementStatus` in the Windows PowerShell interface of the device to monitor the status of the controller replacement process.
 > 
 
 ## Replace both controllers

@@ -1,42 +1,66 @@
 ---
-title: What is Azure Event Hubs? | Microsoft Docs
-description: Overview and description of Azure Event Hubs
+title: What is Azure Event Hubs and why use it | Microsoft Docs
+description: Overview and introduction to Azure Event Hubs - Cloud-scale telemetry ingestion from websites, apps, and devices
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
-ms.assetid: 4391d750-5bbe-456d-9091-b416127bc754
+ms.assetid:
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: sethm
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/15/2017
+ms.author: sethm; babanisa
 
 ---
-# What is Azure Event Hubs?
-Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information and technical details, see the [Event Hubs overview](event-hubs-overview.md).
+# What is Event Hubs?
 
-## Event Hubs capabilities
-Event Hubs is an event processing service that provides event and telemetry processing at massive scale, with low latency and high reliability. This service is especially useful for:
+Azure Event Hubs is a highly scalable data streaming platform and event ingestion service capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. With the ability to provide [publish-subscribe capabilities](https://msdn.microsoft.com/library/aa560414.aspx) with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data.
+
+## Why use Event Hubs?
+
+Event Hubs event and telemetry handling capabilities make it especially useful for:
 
 * Application instrumentation
 * User experience or workflow processing
 * Internet of Things (IoT) scenarios
 
-Some other key Event Hubs capabilities include behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
+For example, Event Hubs enables behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines, connected vehicles, or other devices.
+
+## Azure Event Hubs overview
+
+The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. The following figure depicts this architecture:
+
+![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
+
+Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. As such, Event Hubs is different from [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging, and does not implement some of the capabilities that are available for [Service Bus messaging](/azure/service-bus-messaging/) entities, such as topics.
+
+## Event Hubs features
+
+Event Hubs contains the following key elements:
+
+- [**Event producers/publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
+- [**Partitions**](event-hubs-features.md#partitions): Enables each consumer to only read a specific subset, or partition, of the event stream.
+- [**SAS tokens**](event-hubs-features.md#sas-tokens): used to identify and authenticate the event publisher.
+- [**Event consumers**](event-hubs-features.md#event-consumers): An entity that reads event data from an event hub. Event consumers connect via AMQP 1.0. 
+- [**Consumer groups**](event-hubs-features.md#consumer-groups): Provides each multiple consuming application with a separate view of the event stream, enabling those consumers to act independently.
+- [**Throughput units**](event-hubs-features.md#capacity): Pre-purchased units of capacity. A single partition has a maximum scale of one throughput unit.
+
+For technical details about these and other Event Hubs features, see the [Event Hubs features overview](event-hubs-features.md). 
 
 ## Next steps
-For detailed information about Event Hubs, see the following topics.
 
-* [Event Hubs overview](event-hubs-overview.md)
-* [Event Hubs programming guide](event-hubs-programming-guide.md)
-* [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
-* Get started with an [Event Hubs tutorial][Event Hubs tutorial]
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs]
+For detailed Event Hubs pricing information, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+For more information about Event Hubs, visit the following links:
+
+* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
+* [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+ 
+ 
+

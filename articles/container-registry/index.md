@@ -1,10 +1,22 @@
 ---
+title: Azure Container Registry Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to create and maintain container registries to store your deployment images with a managed Docker registry service. Tutorials, API reference, and more.
+services: container-registry
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Azure Container Registry Documentation
 
-Azure Container Registry (preview) is a private registry for hosting container images. Using the Azure Container Registry, you can store Docker-formatted images for all types of container deployments. Azure Container Registry integrates well with orchestrators hosted in Azure Container Service, including Docker Swarm, DC/OS, and Kubernetes. 
+Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -63,35 +75,32 @@ Azure Container Registry (preview) is a private registry for hosting container i
     </li>
 </ul>
 
-## Reference
-
+---
+ 
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/acr">
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>CLI</h3>
-                        <p>CLI Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/acr">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <a href="/rest/api/containerregistry">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/containerregistry">REST API</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>

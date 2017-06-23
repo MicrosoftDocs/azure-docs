@@ -4,7 +4,7 @@ description: Implementing a layered security architecture with App Service Envir
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601

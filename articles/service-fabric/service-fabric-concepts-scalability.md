@@ -77,7 +77,7 @@ A solution is to create an instance of this service for every different instance
 Advanced versions of this type of manager can even create pools of the services that it manages, so that when a new request comes in it doesn't have to wait for the service to spin up. Instead it can just pick one that it knows is not currently busy from the pool, or route randomly. This makes handling new requests faster, since it is less likely that the request has to wait for a new service to be spun up; creating new services after all is quick, but not free or instantaneous. You'll often see this pattern when response times matter the most. Queuing the request and creating the service in the background and _then_ passing it on is also a popular manager pattern, as is creating and deleting services based on some tracking of the amount of work that service currently has pending. 
 
 ## Scaling by creating or removing new named application instances
-Creating and deleting whole application instances is similar to the pattern of craeting and deleting services. Usually there's some manager service that is making the decision based on the requests that it is seeing and the information it is receiving from the other services inside the cluster. 
+Creating and deleting whole application instances is similar to the pattern of creating and deleting services. Usually there's some manager service that is making the decision based on the requests that it is seeing and the information it is receiving from the other services inside the cluster. 
 
 When should creating a new named application instance be used instead of creating a new named service instance (in some already existing application)? There's a few cases:
 
@@ -92,7 +92,7 @@ When should creating a new named application instance be used instead of creatin
 
 
 ## Scaling at the partition level
-Service Fabric supports partitioning. Partitioning is a useful capability that allows a "whole" service to be split into several logical and physical partitions, each of which operates independely. This is particularly useful with stateful services, since no one set of replicas has to handle all the calls and manipulate all of the state at once. The [partitioning overview](service-fabric-concepts-partitioning.md) provides information on the types of partitioning schemes that are supported. In practice, the replicas of each partition are spread across the nodes in a cluster, spreading the work that service represents out in the cluster as well, giving each partition access to its own set of resrouces while also ensuring that a subset of the total traffic and state is managed by that one partition. 
+Service Fabric supports partitioning. Partitioning is a useful capability that allows a "whole" service to be split into several logical and physical partitions, each of which operates independently. This is particularly useful with stateful services, since no one set of replicas has to handle all the calls and manipulate all of the state at once. The [partitioning overview](service-fabric-concepts-partitioning.md) provides information on the types of partitioning schemes that are supported. In practice, the replicas of each partition are spread across the nodes in a cluster, spreading the work that service represents out in the cluster as well, giving each partition access to its own set of resources while also ensuring that a subset of the total traffic and state is managed by that one partition. 
 
 Consider a service that uses a ranged partitioning scheme with a low key of 0, a high key of 99, and a partition count of 4. In a three-node cluster, the service might be laid out with four replicas that share the resources on each node as shown here:
 
@@ -113,7 +113,7 @@ If you increase the number of nodes, Service Fabric will utilize the resources o
 ## Scaling by adding and removing nodes from the cluster 
 Another option for scaling with Service Fabric is to change the size of the cluster. Changing the size of the cluster is typically achieved by adding or removing nodes for one or more of the node types in the cluster. For example, consider a case where all of the nodes in the cluster are hot (the cluster's resources are almost all consumed). In this case, adding more nodes to the cluster is the best way to scale, since once the new nodes join the cluster the Service Fabric Cluster Resource Manager will move services to them (or, in the case of a stateless service with instance count = -1, create more service instances), resulting in less total load on the existing nodes. 
 
-Adding and removing nodes to the cluster can be accomplished via the Service Fabric Azure Resource Manager Powershell module.
+Adding and removing nodes to the cluster can be accomplished via the Service Fabric Azure Resource Manager PowerShell module.
 
 ```posh
 Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 

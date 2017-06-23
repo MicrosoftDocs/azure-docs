@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Stream Analytics outputs: Options for storage, analysis | Microsoft Docs'
 description: Learn about targeting Stream Analytics data outputs options including Power BI for analysis results.
 keywords: data transformation, analysis results, data storage options
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -24,7 +24,7 @@ When authoring a Stream Analytics job, consider how the resulting data will be c
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. At this time, creation and configuration of Data Lake Store outputs is supported only in the Azure Classic Portal. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store Preview (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
 
 ### Authorize an Azure Data Lake Store
 When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
@@ -209,6 +209,37 @@ For a walk-through of configuring a Power BI output and dashboard, please see th
 > 
 > 
 
+### Schema Creation
+Azure Stream Analytics creates a Power BI dataset and table on behalf of the user if one does not already exist. In all other cases, the table is updated with new values.Currently, there is a the limitation that only one table can exist within a dataset.
+
+### Data type conversion from ASA to Power BI
+Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
+
+This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
+
+
+From Stream Analytics | To Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | String
+datetime | Datetime
+float | Double
+Record array | String type, Constant value “IRecord” or “IArray”
+
+### Schema Update
+Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that may not fit into the original schema.
+
+The `SELECT *` query should be avoided to prevent dynamic schema update across rows. In addition to potential performance implications, it could also result in indeterminacy of the time taken for the results. The exact fields that need to be shown on Power BI dashboard should be selected. Additionally, the data values should be compliant with the chosen data type.
+
+
+Previous/Current | Int64 | String | Datetime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | String | String | String |  | String | 
+Datetime | String | String |  Datetime | String
+
+
 ### Renew Power BI Authorization
 You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
@@ -266,47 +297,24 @@ The table below lists the property names and their description for creating a ta
 | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
-## DocumentDB
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+## Azure Cosmos DB
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
 
-The table below lists the property names and their description for creating a DocumentDB output.
+The below list details the property names and their description for creating an Azure Cosmos DB output.
 
-<table>
-<tbody>
-<tr>
-<td>PROPERTY NAME</td>
-<td>DESCRIPTION</td>
-</tr>
-<tr>
-<td>Account Name</td>
-<td>The name of the DocumentDB account.  This can also be the endpoint for the account.</td>
-</tr>
-<tr>
-<td>Account Key</td>
-<td>The shared access key for the DocumentDB account.</td>
-</tr>
-<tr>
-<td>Database</td>
-<td>The DocumentDB database name.</td>
-</tr>
-<tr>
-<td>Collection Name Pattern</td>
-<td>The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0.<BR>E.g. The followings are valid inputs:<BR>MyCollection{partition}<BR>MyCollection<BR>Note that collections must exist before the Stream Analytics job is started and will not be created automatically.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>The name of the field in output events used to specify the key for partitioning output across collections.</td>
-</tr>
-<tr>
-<td>Document ID</td>
-<td>The name of the field in output events used to specify the primary key which insert or update operations are based on.</td>
-</tr>
-</tbody>
-</table>
+* **Output Alias** – An alias to refer this output in your ASA query  
+* **Account Name** – The name or endpoint URI of the Cosmos DB account.  
+* **Account Key** – The shared access key for the Cosmos DB account.  
+* **Database** – The Cosmos DB database name.  
+* **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
+  1\) MyCollection – One collection named “MyCollection” must exist.  
+  2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
+* **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
+* **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:

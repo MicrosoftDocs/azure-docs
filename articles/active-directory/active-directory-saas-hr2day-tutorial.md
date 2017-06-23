@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with HR2day by Merces | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HR2day by Merces.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
@@ -58,19 +58,25 @@ To configure the integration of HR2day by Merces into Azure AD, you need to add 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **HR2day by Merces**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_01.png)
+
 7. In the results pane, select **HR2day by Merces**, and then click **Complete** to add the application.
 
 ## Configuring and testing Azure AD single sign-on
@@ -101,6 +107,7 @@ Before you can configure the SAML assertion, you need to contact your HR2day sup
 1. In the Azure classic portal, on the **HR2day by Merces** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_06.png) 
+
 2. To add the required attribute mappings, perform the following steps, perform the following steps: 
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_07.png) 
@@ -121,15 +128,19 @@ Before you can configure the SAML assertion, you need to contact your HR2day sup
 
 
 1. Click **Apply Changes**.
+
 2. In the menu on the top, click **Quick Start** to open the **Quick Start** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_general_08.png) 
+
 3. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 4. On the **How would you like users to sign on to HR2day by Merces** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_03.png) 
+
 5. On the **Configure App Settings** dialog page, perform the following steps: 
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_04.png) 
@@ -145,12 +156,13 @@ Before you can configure the SAML assertion, you need to contact your HR2day sup
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
+
 2. To get SSO configured for your application, contact your HR2day by Merces support team via [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) and attach the downloaded certificate file to your email. Also please do provide the SAML SSO URL, Sign Out URL and Issuer URL so that they can be configured for SSO integration.
 
-> [!NOTE]
-> Please mention to Merces team that this integration need Entity ID to be set with this pattern **https://hr2day.force.com/INSTANCENAME**
-> 
-> 
+    > [!NOTE]
+    > Please mention to Merces team that this integration need Entity ID to be set with this pattern **https://hr2day.force.com/INSTANCENAME**
+    > 
+    > 
 
 1. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
@@ -169,13 +181,17 @@ The objective of this section is to create a test user in the Azure classic port
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_09.png) 
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png) 
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_05.png) 
@@ -185,22 +201,25 @@ The objective of this section is to create a test user in the Azure classic port
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_07.png) 
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_08.png) 
@@ -228,13 +247,17 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
+
 2. In the applications list, select **HR2day by Merces**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_50.png) 
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203] 
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]

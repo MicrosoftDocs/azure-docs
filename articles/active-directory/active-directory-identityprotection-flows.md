@@ -1,4 +1,4 @@
-﻿---
+---
 title: Sign-in experiences with Azure AD Identity Protection| Microsoft Docs
 description: Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy.
 services: active-directory
@@ -6,7 +6,6 @@ keywords: azure active directory identity protection, cloud app discovery, manag
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---

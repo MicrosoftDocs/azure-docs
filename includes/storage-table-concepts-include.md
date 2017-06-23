@@ -20,7 +20,7 @@ increases.
 ## Table Service Concepts
 The Table service contains the following components:
 
-![Table1][Table1]
+![Table service component diagram][Table1]
 
 * **URL format:** Code addresses tables in an account using this
   address format:   

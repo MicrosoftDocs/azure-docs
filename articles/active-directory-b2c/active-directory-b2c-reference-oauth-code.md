@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C  | Microsoft Docs
+title: 'Azure Active Directory B2C: Authorization Code Flow | Microsoft Docs'
 description: Building web applications by using the Azure Active Directory implementation of the OpenID Connect authentication protocol.
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---

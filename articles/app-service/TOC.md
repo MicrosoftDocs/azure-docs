@@ -21,12 +21,12 @@
 ### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
 
 ## Create web app
-### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
-### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
-### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Java](../app-service-web/web-sites-java-get-started.md)
-### [Marketplace app](../app-service-web/web-sites-php-web-site-gallery.md)
-### [PHP](../app-service-web/app-service-web-php-get-started.md)	
+### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
+### [PHP](../app-service-web/app-service-web-get-started-php.md)	
+### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
+### [Java](../app-service-web/app-service-web-get-started-java.md)
+### [Python](../app-service-web/app-service-web-get-started-python.md)
+### [HTML](../app-service-web/app-service-web-get-started-html.md)
 
 # How to
 
@@ -79,7 +79,8 @@
 #### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [On-premises connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Hybrid connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Hybrid connections v2](app-service-hybrid-connections.md)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Advanced configuration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Resource groups](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -145,16 +146,15 @@
 ### [Streaming logs and the console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Reference
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# Resources
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Service updates](https://azure.microsoft.com/updates/?product=app-service) 
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
-
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [Service updates](https://azure.microsoft.com/updates/?product=app-service) 
