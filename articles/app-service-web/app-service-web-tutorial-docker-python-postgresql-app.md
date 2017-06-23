@@ -443,7 +443,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. 
+In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config#set) command. 
 
 The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 
