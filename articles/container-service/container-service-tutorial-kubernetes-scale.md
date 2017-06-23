@@ -28,7 +28,7 @@ In this tutorial, you scale out the pods in the app and try pod autoscaling. You
 > [!div class="checklist"]
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
-> * Scale the Kuernetes Azure agent nodes
+> * Scale the Kubernetes Azure agent nodes
 
 ## Before you begin
 
@@ -149,7 +149,7 @@ In this tutorial, you used different scaling features in your Kubernetes cluster
 > [!div class="checklist"]
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
-> * Scale the Kuernetes Azure agent nodes
+> * Scale the Kubernetes Azure agent nodes
 
 Advance to the next tutorial to learn about updating application in Kubernetes.
 

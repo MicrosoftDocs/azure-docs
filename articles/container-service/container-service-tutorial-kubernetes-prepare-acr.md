@@ -32,7 +32,7 @@ In subsequent tutorials, this ACR instance is integrated with an Azure Container
 
 ## Before you begin
 
-In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-app.md), container images were created for a simple Azure Voting application. In this tutorial, these images are pushed to an Azure Container Registry. If you have not created the Azure Voting app images, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). Alternatively, the steps detailed here will work with any container image.
+In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-app.md), container images were created for a simple Azure Voting application. In this tutorial, these images are pushed to an Azure Container Registry. If you have not created the Azure Voting app images, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). Alternatively, the steps detailed here work with any container image.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

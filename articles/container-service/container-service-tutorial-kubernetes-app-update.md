@@ -83,7 +83,7 @@ If using ACR, get the login server name with the [az acr list](/cli/azure/acr#li
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, makign sure to update the command with your ACR login server or public registry hostname.
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, making sure to update the command with your ACR login server or public registry hostname.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2

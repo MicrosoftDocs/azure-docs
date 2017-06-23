@@ -79,7 +79,7 @@ Once completed, a virtual disk is created and attached to the resulting Kubernet
 
 ### Secure sensitive values
 
-[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage for sensitive information. Using the `pod-secrets.yaml` file, the Azure Vote database credentials are stored in a secret. 
+[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide secure storage for sensitive information. Using the `pod-secrets.yaml` file, the Azure Vote database credentials are stored in a secret. 
 
 Run the following to create the secrets objects.
 
