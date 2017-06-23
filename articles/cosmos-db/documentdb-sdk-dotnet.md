@@ -188,7 +188,7 @@ ms.custom: H1Hack27Feb2017
 * **[Fixed]** Localization issues when using non en culture info such as nl-NL, etc. 
 
 ### <a name="1.4.0"/>1.4.0
-* Added ID based routing
+* Added ID-based routing
   * New UriFactory helper to assist with constructing ID-based resource links
   * New overloads on DocumentClient to take in URI
 * Added IsValid() and IsValidDetailed() in LINQ for geospatial
