@@ -25,6 +25,7 @@ This article describes how to set up a replication policy when you're replicatin
 
 Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+
 ## Configure a policy
 
 Get a quick video overview before you start:
