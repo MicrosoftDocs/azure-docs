@@ -61,13 +61,33 @@ VOTE2VALUE = 'Half Empty'
 SHOWHOST = 'false'
 ```
 
-Use `docker-compose` to re-create the front-end image and run the application.
+Use `docker build` to re-create the front-end image.
 
 ```bash
-docker-compose up --build -d
+docker build --no-cache ./azure-voting-app/azure-vote -t azure-vote-front
 ```
 
 ## Test application
+
+Create a Docker network. This network is used for communication between the containers.  
+
+```bash
+docker network create azure-vote
+```
+
+Run an instance of the back-end container image using the `docker run` command.
+
+```bash
+docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+```
+
+Run an instance of the front-end container image.
+
+Environment variables are being used to configure the database connection information.
+
+```bash
+docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front:v2
+```
 
 Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If an error is encountered, try again.
 

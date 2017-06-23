@@ -82,7 +82,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container images
 
-Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing the container image to a container registry.
+Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing the container image.
 
 To see a list of current images, use the `docker images` command.
 
@@ -100,7 +100,7 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the ACR instance. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
+Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This tag indicates the image version number.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -134,7 +134,7 @@ tiangolo/uwsgi-nginx-flask                               flask               788
 
 Push the *azure-vote-front* image to the registry. 
 
-Using the following example, replace the ACR loginServer name with the loginServer from your environment.
+Using the following example, replace the ACR loginServer name with the loginServer from your environment. This takes a couple of minutes to complete.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1

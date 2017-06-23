@@ -50,16 +50,16 @@ Inside the application directory, pre-created Dockerfiles and Kubernetes manifes
 
 ## Create container images
 
-Change directories so that you are in the cloned directory.
+To create a container image for the applications front end, use the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
 
 ```bash
-cd ./azure-voting-app/
+docker build ./azure-voting-app/azure-vote -t azure-vote-front
 ```
 
-At the root of the cloned directory, is a *docker-compose.yaml* file. Run the docker-compose.yaml file to create the container images, and start the application. 
+Repeat the command, this time for the back-end container image.
 
 ```bash
-docker-compose up -d
+docker build ./azure-voting-app/azure-vote-mysql -t azure-vote-back
 ```
 
 When completed, use the `docker images` command to see the created images. 
@@ -78,7 +78,33 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-And the `docker ps` command to see the running containers. 
+## Test application
+
+Now that two container images have been created, these images are tested in your local development environment. 
+
+First, create a Docker network. This network is used for communication between the containers.  
+
+```bash
+docker network create azure-vote
+```
+
+Run an instance of the back-end container image using the `docker run` command.
+
+In this example, the mysql database file is being stored inside the container. Once this application is moved to the Kubernetes clusters, an external data volume is used to store the database file. Also, environment variables are being used to set MySQL credentials.
+
+```bash
+docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+```
+
+Run an instance of the front-end container image.
+
+Environment variables are being used to configure the database connection information.
+
+```bash
+docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front
+```
+
+When complete, run `docker ps` to see the running containers.  
 
 ```bash
 docker ps
@@ -92,9 +118,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 5ae60b3ba181        azure-vote-backend   "docker-entrypoint..."   59 seconds ago      Up 58 seconds       0.0.0.0:3306->3306/tcp          azure-vote-back
 ```
 
-## Test application
-
-Browse to [http://localhost:8080](http://localhost:8080) to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
+Browse to `http://localhost:8080` to see the running application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
@@ -102,16 +126,22 @@ Browse to [http://localhost:8080](http://localhost:8080) to see the running appl
 
 Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
 
-Run the following to stop the running containers.
+Stop and delete the front-end container with the [docker rm](https://docs.docker.com/engine/reference/commandline/rm/) command. 
 
 ```bash
-docker-compose stop
+docker rm -f azure-vote-front
 ```
 
-And delete the container with the following command:
+Stop and delete the back-end container with the [docker rm](https://docs.docker.com/engine/reference/commandline/rm/) command. 
 
 ```bash
-docker-compose rm --force
+docker rm -f azure-vote-back
+```
+
+Delete the network with the [docker network rm](https://docs.docker.com/engine/reference/commandline/network_rm/) command.
+
+```bash
+docker network rm azure-vote
 ```
 
 At completion, you have two container images that make up the Azure Vote application.
