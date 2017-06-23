@@ -107,5 +107,5 @@ In a Windows machine, start the Remote Desktop client and input your Linux VM DN
 
 Log in with the user name and password of your Linux VM.
 
-## Next
+## Next steps
 For more information about using xrdp, see [http://www.xrdp.org/](http://www.xrdp.org/).
