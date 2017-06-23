@@ -18,7 +18,7 @@ ms.author: dastrock
 
 ---
 # Azure Active Directory B2C: Web sign-in with OpenID Connect
-OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users into web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure AD. This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
@@ -88,7 +88,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | p |Required |The policy that will be executed. It is the name of a policy that is created in your B2C tenant. The policy name value should begin with `b2c\_1\_`. Learn more about policies and the [extensible policy framework](active-directory-b2c-reference-policies.md). |
 | prompt |Optional |The type of user interaction that is required. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
 
-At this point, the user is asked to complete the policy's workflow. This might involve the user entering their user name and password, signing in with a social identity, signing up for the directory, or any other number of steps, depending on how the policy is defined.
+At this point, the user is asked to complete the policy's workflow. This might involve the user entering their username and password, signing in with a social identity, signing up for the directory, or any other number of steps, depending on how the policy is defined.
 
 After the user completes the policy, Azure AD returns a response to your app at the indicated `redirect_uri` parameter, by using the method that is specified in the `response_mode` parameter. The response is the same for each of the preceding cases, independent of the policy that is executed.
 
@@ -123,7 +123,7 @@ error=access_denied
 | state |See the full description in the first table in this section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## Validate the ID token
-Just receiving an ID token is not enough to authenticate the user--you must validate the ID token's signature and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
+Just receiving an ID token is not enough to authenticate the user. You must validate the ID token's signature and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
 There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic. The information here will be useful in figuring out how to properly use those libraries.
 
@@ -294,10 +294,10 @@ p=b2c_1_sign_in
 | Parameter | Required? | Description |
 | --- | --- | --- |
 | p |Required |The policy that you want to use to sign the user out of your application. |
-| post_logout_redirect_uri |Recommended |The URL that the user should be redirected to after successful sign-out. If it is not included, the user is shown a generic message by Azure AD B2C. |
+| post_logout_redirect_uri |Recommended |The URL that the user should be redirected to after successful sign-out. If it is not included, Azure AD B2C shows the user a generic message. |
 
 > [!NOTE]
-> While directing the user to the `end_session` endpoint will clear some of the user's single sign-on state with Azure AD B2C, it will not sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they will be reauthenticated, without entering their credentials. If a user wants to sign out of your B2C application, it does not necessarily mean they want to sign out of their Facebook account. However, in the case of local accounts, the user's session will be ended properly.
+> Although directing the user to the `end_session` endpoint will clear some of the user's single sign-on state with Azure AD B2C, it will not sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they will be reauthenticated, without entering their credentials. If a user wants to sign out of your B2C application, it does not necessarily mean they want to sign out of their Facebook account. However, in the case of local accounts, the user's session will be ended properly.
 > 
 > 
 
@@ -305,6 +305,6 @@ p=b2c_1_sign_in
 If you want to try these requests for yourself, you must first perform these three steps, and then replace the example values described earlier with your own:
 
 1. [Create a B2C tenant](active-directory-b2c-get-started.md), and use the name of your tenant in the requests.
-2. [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID and a `redirect_uri`. Include a web app/web API in your app. Optionally, create an application secret.
+2. [Create an application](active-directory-b2c-app-registration.md) to obtain an application ID. Include a web app/web API in your app. Optionally, create an application secret.
 3. [Create your policies](active-directory-b2c-reference-policies.md) to obtain your policy names.
 
