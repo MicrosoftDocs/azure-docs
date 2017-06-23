@@ -256,7 +256,7 @@
       href: ../app-service/app-service-environment/create-external-ase.md
     - name: Create using Azure Resource Manager
       href: ../app-service/app-service-environment/create-from-template.md
-    - name: Internal Load Balanced
+    - name: Internal Load Balanced ASE
       href: ../app-service/app-service-environment/create-ilb-ase.md
     - name: Networking Considerations
       href: ../app-service/app-service-environment/network-info.md
