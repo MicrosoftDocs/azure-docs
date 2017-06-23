@@ -125,13 +125,16 @@ Here is an example of what this process may look like:
 
 3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
-4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all enabled services. Note that the *Microsoft Stream* service has been automatically added and enabled in this group, in addition to the *Exchange Online* service:
+4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all enabled services.
+> [!NOTE]
+> The *Microsoft Stream* service has been automatically added and enabled in this group, in addition to the *Exchange Online* service:
 
   ![Screenshot of new service added to a group license](media/active-directory-licensing-group-advanced/manage-new-services.png)
 
 5. If you want to disable the new service in this group, click the **On/Off** toggle next to the service and click the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group will not have the *Microsoft Stream* service enabled.
 
-  Note that the users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
+  > [!NOTE]
+  > Users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
 
 6. If needed, perform the same steps for other groups with this product assigned.
 
