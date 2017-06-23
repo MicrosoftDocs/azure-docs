@@ -29,23 +29,24 @@ elements in your logic app workflow:
 let your logic app run different actions based on whether specific conditions are met.
 
 * [Loops](../logic-apps/logic-apps-loops-and-scopes.md) let your logic app run steps repeatedly. 
-For example, you can repeat actions over an array only when a specific condition 
-is met when you use a For_each loop. Or you can repeat actions until a condition 
-is met when you use an Until loop.
+For example, you can repeat actions over an array when you use a **For_each** loop. 
+Or you can repeat actions until a condition is met when you use an **Until** loop.
 
 * [Scopes](../logic-apps/logic-apps-loops-and-scopes.md) let you group series 
 of actions together, for example, to implement exception handling.
 
-* [Debatching](../logic-apps/logic-apps-loops-and-scopes.md) lets your logic app start separate workflows for items in an array when you use the SplitOn command.
+* [Debatching](../logic-apps/logic-apps-loops-and-scopes.md) lets your logic app 
+start separate workflows for items in an array when you use the **SplitOn** command.
 
 This topic introduces other concepts for building your logic app:
 
 * Code view to edit an existing logic app
 * Options for starting a workflow
 
-## Add a condition to your logic app
+## Conditions: Runs steps only after meeting a condition
 
-To have your logic app run steps only when data meets specific criteria, you can add a condition that compares data in the workflow against specific fields or values.
+To have your logic app run steps only when data meets specific criteria, 
+you can add a condition that compares data in the workflow against specific fields or values.
 
 For example, suppose you have a logic app that sends you too many emails 
 for posts on a website's RSS feed. You can add a condition so that your 
