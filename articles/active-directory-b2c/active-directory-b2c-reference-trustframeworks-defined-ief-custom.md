@@ -20,9 +20,9 @@ ms.author: joroja
 
 # Define Trust Frameworks with Azure AD B2C Identity Experience Framework
 
-Azure Active Directory (Azure AD) B2C custom policies that leverage the Identity Experience Framework provide your organization with a centralized service. This service reduces the complexity of identity federation in a large community of interest to a single trust relationship and a single metadata exchange.
+Azure Active Directory B2C (Azure AD B2C) custom policies that leverage the Identity Experience Framework provide your organization with a centralized service. This service reduces the complexity of identity federation in a large community of interest to a single trust relationship and a single metadata exchange.
 
-Azure AD B2C custom policies that leverage the Identity Experience Framework to enable you to answer the following questions.
+Azure AD B2C custom policies that leverage the Identity Experience Framework to enable you to answer the following questions:
 
 - What are the legal, security, privacy, and data protection policies that must be adhered to?
 - Who are the contacts and what are the processes for becoming an accredited participant?
@@ -74,13 +74,13 @@ Currently there's widespread agreement on the benefit of such an approach. There
 
 For that reason, Azure AD B2C custom policies that leverage the Identity Experience Framework uses the specification as the basis of its data representation for a TF to facilitate interoperability.  
 
-Azure AD B2C Custom policies that leverage the Identity Experience Framework represent a TF specification as a mixture of human and machine-readable data. Some sections of this model (typically sections that are more oriented towards governance) are represented as references to published security and privacy policy documentation along with the related procedures (if any). Other sections describe in detail the configuration metadata and runtime rules that facilitate operational automation.
+Azure AD B2C Custom policies that leverage the Identity Experience Framework represent a TF specification as a mixture of human and machine-readable data. Some sections of this model (typically sections that are more oriented toward governance) are represented as references to published security and privacy policy documentation along with the related procedures (if any). Other sections describe in detail the configuration metadata and runtime rules that facilitate operational automation.
 
 ## Understand Trust Framework policies
 
 In terms of implementation, the TF specification consists of a set of policies that allow complete control over identity behaviors and experiences.  Azure AD B2C custom policies that leverage the Identity Experience Framework enable you to author and create your own TF through such declarative policies that can define and configure:
 
-- The document reference(s) that defines the federated identity ecosystem of the community that relates to the TF. They are links to the TF documentation. The (predefined) operational “runtime” rules, or the user journeys that automate and/or control the exchange and usage of the claims. These user journeys are associated with a LOA (and a LOP). A policy can therefore have user journeys with varying LOAs (and LOPs).
+- The document reference or references that define the federated identity ecosystem of the community that relates to the TF. They are links to the TF documentation. The (predefined) operational “runtime” rules, or the user journeys that automate and/or control the exchange and usage of the claims. These user journeys are associated with a LOA (and a LOP). A policy can therefore have user journeys with varying LOAs (and LOPs).
 
 - The identity and attribute providers, or the claims providers, in the community of interest and the technical profiles they support along with the (out-of-band) LOA/LOP accreditation that relates to them.
 
@@ -102,7 +102,7 @@ In terms of implementation, the TF specification consists of a set of policies t
 
 - The binding and encryption.
 
-- The claims storage
+- The claims storage.
 
 ### Understand claims
 
@@ -121,8 +121,8 @@ They are assumed to be *living documents* because there is  a good chance that t
 
 Federation setup and maintenance are vastly simplified by shielding relying parties from ongoing trust and connectivity reconfigurations as different claims providers/verifiers join or leave (the community represented by) the set of policies.
 
-Interoperability is another significant challenge. Additional claims providers/verifiers have to be integrated, since relying parties are unlikely to support all the necessary protocols. Azure AD B2C custom policies solve this problem by supporting industry-standard protocols and by applying specific user journeys to transpose requests when relying parties and attribute providers do not support the same protocol.  
+Interoperability is another significant challenge. Additional claims providers/verifiers have to be integrated, because relying parties are unlikely to support all the necessary protocols. Azure AD B2C custom policies solve this problem by supporting industry-standard protocols and by applying specific user journeys to transpose requests when relying parties and attribute providers do not support the same protocol.  
 
 User journeys include protocol profiles and metadata that are used to plumb “on the wire” interoperability between the relying party and other participants. There are also operational runtime rules that are applied to identity information exchange request/response messages for enforcing compliance with published policies as part of the TF specification. The idea of user journeys is key to the customization of the customer experience. It also sheds light on how the system works at the protocol level.
 
-On that basis, relying party applications and portals can, depending on their context, invoke Azure AD B2C custom policies that leverage the Identity Experience Framework passing the name of a specific policy and get precisely the behavior and information exchange they want without any muss, fuss or risk.
+On that basis, relying party applications and portals can, depending on their context, invoke Azure AD B2C custom policies that leverage the Identity Experience Framework passing the name of a specific policy and get precisely the behavior and information exchange they want without any muss, fuss, or risk.
