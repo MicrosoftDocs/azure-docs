@@ -87,4 +87,4 @@ Other resources include:
 * [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 * [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md) 
