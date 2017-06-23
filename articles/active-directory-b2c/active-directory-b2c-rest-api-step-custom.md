@@ -136,7 +136,7 @@ The claim `city` is not yet defined anywhere in our schema. So, add a definition
 Add a step to the profile edit user journey, after the user has been authenticated (orchestration steps 1-4 in the following XML) and the user has provided the updated profile information (step 5).
 
 > [!NOTE]
-> There are many use cases where the REST API call can be used as an orchestration step. As an orchestration step, it can be used as an update to an external system after a user has successfully completed a task like first-time registration, or as a profile update to keep information synchronized.  In this case, it's used to augment the information provided to the application after the profile edit.
+> There are many use cases where the REST API call can be used as an orchestration step. As an orchestration step, it can be used as an update to an external system after a user has successfully completed a task like first-time registration, or as a profile update to keep information synchronized. In this case, it's used to augment the information provided to the application after the profile edit.
 
 Copy the profile edit user journey XML code from the TrustFrameworkBase.xml file to your TrustFrameworkExtensions.xml file inside the `<UserJourneys>` element. Then make the modification under step 6.
 
@@ -229,9 +229,9 @@ After you add the new claim, the technical profile looks like this:
 
 ## Step 6: Upload your changes and test
 
-You will overwrite existing versions of the policy.
+Overwrite the existing versions of the policy.
 
-1.	(Optional:) Save the existing version (by downloading) of your extensions file before you proceed. To keep initial complexity low, we recommend that you do not upload multiple versions of the extensions file.
+1.	(Optional:) Save the existing version (by downloading) of your extensions file before you proceed. To keep the initial complexity low, we recommend that you do not upload multiple versions of the extensions file.
 2.	(Optional:) Rename the new version of the policy ID for the policy edit file by changing   `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.	Upload the extensions file.
 4.	Upload the policy edit RP file.
