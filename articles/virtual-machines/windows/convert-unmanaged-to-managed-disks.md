@@ -14,22 +14,36 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/23/2017
 ms.author: cynthn
 
 ---
-# Convert a VM from unmanaged disks to managed disks
+# Convert a Windows VM from unmanaged disks to managed disks
 
-If you have existing Linux VMs in Azure that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. This process converts both the OS disk and any attached data disks. The conversion process requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. The migration process is not reversible. Be sure to test the migration process by migrating a test virtual machine before performing the migration in production. Before starting,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+If you have existing Windows VMs in Azure that use unmanaged disks in storage accounts and you want those VMs to take advantage of [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. This process converts both the OS disk and any attached data disks. 
 
+This article shows you how to convert VMs with Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
-> [!IMPORTANT] 
-> During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
+## Planning considerations
+
+* Before starting, review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+
+* The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
+
+* The conversion is not reversible. 
+
+* Be sure to test the conversion. Migrate a test virtual machine before performing the migration in production.
+
+* During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
+
+* You can't convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account previously encrypted using Azure Storage Service Encryption. For steps to copy and use these VHDs in managed disks, see [later in this article](#managed-disks-and-azure-storage-service-encryption).
 
 ## Prepare availability set for conversion
 
 > [!NOTE] 
 > Skip this step if your VM is not in an availability set.
+
+The following example updates the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -43,7 +57,7 @@ Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
 
 Error: The specified fault domain count 3 must fall in the range 1 to 2.
 
-Above error is thrown if the region where your availability set is located has only 2 managed fault domain but number of unmanaged fault domain is 3. To resolve the error, update the fault domain to 2 along with updating sku to aligned as shown below:
+This error is thrown if the region where your availability set is located has only 2 managed fault domains but the number of unmanaged fault domains is 3. To resolve the error, update the fault domain to 2 along with updating `Sku` to `aligned` as follows:
 
 ```powershell
 $avSet.PlatformFaultDomainCount = 2
@@ -128,13 +142,17 @@ A simple retry usually unblocks the situation.
 
 
 
-## Managed Disks and Azure Storage Service Encryption (SSE)
+## Managed Disks and Azure Storage Service Encryption
 
-You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged disks that are, or have been, in an encrypted storage account:
+You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted using [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to convert unmanaged disks that have been in an encrypted storage account:
 
-- Copy the virtual hard disk (VHD) with use [AzCopy](../../storage/storage-use-azcopy.md) to a storage account that has never been enabled for Azure Storage Service Encryption.
-- Create a VM that uses managed disks and specify that VHD file during creation with `New-AzureRmVm`, or
-- Attach the copied VHD with `Add-AzureRmVmDataDisk` to a running VM with managed disks.
+1. Copy the virtual hard disk (VHD) using [AzCopy](../../storage/storage-use-azcopy.md) to a storage account that has never been enabled for Azure Storage Service Encryption.
+
+2. Use the copied VM in one of the following ways:
+
+  * Create a VM that uses managed disks and specify that VHD file during creation with `New-AzureRmVm`
+
+  * Attach the copied VHD with `Add-AzureRmVmDataDisk` to a running VM with managed disks
 
 ## Next steps
 
