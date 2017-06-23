@@ -49,7 +49,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 1. In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.
 2. Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.
 
-   We recommend you select the same location as your resource group. Doing so assists with processing speed and reduces the cost of data transfer.
+   We recommend that you select the same location as that of your resource group. Doing so assists with processing speed and reduces the cost of data transfer.
 
    ![Create a web app](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
@@ -58,7 +58,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 ## Configure the web app to read data from your IoT hub
 
 1. Open the web app you’ve just provisioned.
-2. Click **Application settings**, and then add the following key/value pairs under **App settings**:
+2. Click **Application settings**, and then, under **App settings**, add the following key/value pairs:
 
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
@@ -76,7 +76,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 On GitHub, we've made available a web application that displays real-time sensor data from your IoT hub. All you need to do is configure the web app to work with a Git repository, download the web application from GitHub, and then upload it to Azure for the web app to host.
 
-1. In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**.
+1. In the web app, click **Deployment options** > **Choose Source** > **Local Git Repository**.
 
    ![Configure your web app deployment to use the local Git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
