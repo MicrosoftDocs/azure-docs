@@ -18,13 +18,13 @@ Each example is based on the two prerequisites: an asymmetric key from your key 
 USE master;
 GO
 
-sp_configure 'show advanced options', 1;
+sp_configure [show advanced options], 1;
 GO
 RECONFIGURE;
 GO
 
 -- Enable EKM provider
-sp_configure 'EKM provider enabled', 1;
+sp_configure [EKM provider enabled], 1;
 GO
 RECONFIGURE;
 
