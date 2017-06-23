@@ -193,15 +193,17 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 
         Do not continue with step 5 until **Registered** appears in the output after you enter the previous command. Your output must look like the following output before continuing:
     
-        ```
-        FeatureName                       ProviderName      RegistrationState
-        -----------                       ------------      -----------------
+        ```powershell
+        FeatureName                        ProviderName      RegistrationState
+        -----------                        ------------      -----------------
         AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
         ```
+        
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
       >
 5. In your browser, copy the following script:
+
     ```powershell
     $RgName="MyResourceGroup"
     $Location="westus2"
@@ -264,6 +266,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -VM $VmConfig
     #
     ```
+    
 6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, confirm that:
     - You are registered for the preview, as explained in step 4
     - If you changed VM size, operating system type, or location values in the script before executing it, that the values are listed in the [Limitations](#Limitations) section of this article.
@@ -295,7 +298,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     sudo update-rc.d bondvf.sh defaults
     ```
 
-    Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+    If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
 
 10. Restart the VM by entering the `sudo shutdown -r now` command.
 11. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
