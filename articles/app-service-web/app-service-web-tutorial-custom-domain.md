@@ -117,7 +117,7 @@ Add a CNAME record to map a subdomain to the app's default hostname (`<app_name>
 
 For the `www.contoso.com` domain example, add a CNAME record that maps the name `www` to `<app_name>.azurewebsites.net`.
 
-After you add the CNAME,the DNS records page looks like the following example:
+After you add the CNAME, the DNS records page looks like the following example:
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -195,7 +195,7 @@ In the example screenshot, you select **Add** to create a record. Some providers
 To map an A record to an app, App Service requires **two** DNS records:
 
 - An **A** record to map to the app's IP address.
-- A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`. App Service uses this record only at configuration time, to verify that you own the custom domain. After your custom domain is validate and configured in App Service, you can delete this TXT record. 
+- A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`. App Service uses this record only at configuration time, to verify that you own the custom domain. After your custom domain is validated and configured in App Service, you can delete this TXT record. 
 
 For the `contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain). 
 
