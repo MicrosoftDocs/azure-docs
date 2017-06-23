@@ -16,6 +16,8 @@ ms.author: sajagtap
 
 Use Content Moderator’s text moderation API [(see API reference)](api-reference.md "Content Moderator API Reference") to moderate text for profanity in more than 100 languages, and match against custom and shared lists that are specific to your business and users.
 
+Try it live on the API Reference page by using the "Open API Testing Console" buttons and selecting your region (of your API key).
+
 ## Language detection
 
 The first step to using the text moderation API is to have the algorithm detect the language of the content to be moderated. The API supports more than [100 languages](Text-Moderation-API-Languages.md). The **Detect Language** operation returns language codes for the predominant language comprising the submitted text in the following format:
@@ -23,7 +25,7 @@ The first step to using the text moderation API is to have the algorithm detect 
 
 ## Screening for profanity
 
-The text moderation API’s **Screen** operation does it all – screen the incoming text (maximum 1024 characters) for profanity and PII, while matching against custom lists of terms.
+The text moderation API’s **Screen** operation does it all – screen the incoming text (maximum 1024 characters) for profanity and Personally Identifiable Information (PII), while matching against custom lists of terms.
 
 The response may include:
 
@@ -31,10 +33,21 @@ The response may include:
 - Original text
 - Language
 - PII
-- Location of detected terms within the submitted text
+- Location of detected profanity terms within the submitted text
 - Terms: detected profanity content
 
 Let’s look at these fields in greater detail.
+
+## Profanity terms
+
+If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
+
+## PII
+The PII feature outputs this information if detected within the text input:
+
+1. Email
+1. Phone
+1. Mailing Address
 
 ## Auto-correction
 
@@ -46,9 +59,7 @@ If you ask for auto-correction, the response will contain the corrected version 
 
 	“The quick brown fox jumps over the lazy dog."
 
-## Profanity terms
 
-If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
 
 ## Creating and managing your custom lists of terms
 

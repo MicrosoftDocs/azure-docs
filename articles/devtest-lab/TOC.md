@@ -2,17 +2,19 @@
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
+### [Use labs for developers](devtest-lab-developer-lab.md)
 ### [Use labs for training](devtest-lab-training-lab.md)
 
-# Get Started
+# Get started
 ## [Create lab](devtest-lab-create-lab.md)
 ## [Create your first VM](devtest-lab-create-first-vm.md)
 ## [Set starting policies](devtest-lab-get-started-with-lab-policies.md)
 
-# How To
+# How-to guides
 ## Use VMs in a lab
 ### [Create VMs](devtest-lab-add-vm.md)
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md)
+### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
 
 ## Use environments in a lab
 ### [Create an environment](devtest-lab-create-environment-from-arm.md)
@@ -45,6 +47,8 @@
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
 ### [Select IP configuration option](devtest-lab-shared-ip.md)
 
+## [Scale your lab](devtest-lab-scale-lab.md)
+
 # Reference
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
@@ -61,3 +65,5 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Pricing](https://azure.microsoft.com/pricing/details/devtest-lab/)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -1,34 +1,34 @@
 ---
 title: Create recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
-description: Describes how to create and customize recovery plans to fail over and recover VMs and physical servers in Azure Site Recovery
+description: Describes how to create and customize recovery plans in Azure Site Recovery, to fail over and recover VMs and physical servers
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
-ms.service: site-recovery
+ms.service: storage-backup-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 05/24/2017
 ms.author: raynew
 
 ---
 # Create recovery plans
 
 
-This article provides information about creating and customizing recovery plans in [Azure Site Recovery?](site-recovery-overview.md).
+This article provides information about creating and customizing recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Recovery plans do the following:
+ Create recovery plans to do the following:
 
 * Define groups of machines that fail over together, and then start up together.
 * Model dependencies between machines, by grouping them together into a recovery plan group. For example, to fail over and bring up a specific application, you group all of the VMs for that application into the same recovery plan group.
-* Fail over. You can run a test, planned, or unplanned failover on a recovery plan.
+* Run a failover. You can run a test, planned, or unplanned failover on a recovery plan.
 
 
 ## Create a recovery plan
@@ -67,7 +67,7 @@ You can use PowerShell scripts in your recovery plans.
 If you're using VMM in your deployment:
 
 * Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions for the remote share on which the script is located. Test the script to run at the VMM service account privilege level.
-* VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script: 
+* VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script:
    - Import-Module -Name virtualmachinemanager. [Learn more](https://technet.microsoft.com/library/hh875013.aspx).
 * Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
     * If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
@@ -89,7 +89,7 @@ You can add a script to the default recovery plan group after you've added VMs o
 6. Do a failover of the recovery plan, to make sure the script works as expected.
 
 
-### VMM script
+### Add a VMM script
 
 If you have a VMM source site, you can create a script on the VMM server, and include it in your recovery plan.
 

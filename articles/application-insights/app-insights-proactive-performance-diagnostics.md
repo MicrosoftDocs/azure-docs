@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Smart Detection - Performance Anomalies
@@ -58,7 +58,7 @@ Smart Detection notifications are enabled by default and sent to those who have 
   
   ![Smart Detection Settings](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * The **unsubscribe** link in the Smart Detection email also 
+  * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
 
 Emails about Smart Detections performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
 

@@ -20,7 +20,7 @@ To read a detailed overview of the Video Indexer service, see the [overview](vid
 
 ## Sign up and sign in
 
-To start developing with Video Indexer, you must first Sign up and sign in to the [Video Indexer](https://www.vi.microsoft.com) portal. 
+To start developing with Video Indexer, you must first Sign up and sign in to the [Video Indexer](http://vi.microsoft.com) portal. 
 
 You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, or MSA account. 
 

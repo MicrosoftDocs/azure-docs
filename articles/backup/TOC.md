@@ -1,4 +1,4 @@
-﻿
+
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
@@ -17,12 +17,22 @@
 ### [Windows Server in classic portal](backup-client-automation-classic.md)
 
 ## Azure Backup Server
-### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
-### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
-### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
-### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
-### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
-### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
+### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
+### Install or upgrade
+#### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
+#### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
+#### [Add storage to Azure Backup Server](backup-mabs-add-storage.md)
+#### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v2.md)
+#### [Unattended installation of Azure Backup Server](backup-mabs-unattended-install.md)
+### Protect workloads
+#### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+#### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
+#### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
+#### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
+#### [Protect system state and bare metal recovery](backup-mabs-system-state-and-bmr.md)
+### Troubleshoot
+#### [Troubleshoot Azure Backup Server](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Prepare DPM workloads in Azure portal](backup-azure-dpm-introduction.md)
@@ -33,19 +43,25 @@
 ### [Use DPM to back up a SharePoint farm](backup-azure-backup-sharepoint.md)
 
 ## Azure VMs
-### [Prepare Azure virtual machines](backup-azure-vms-prepare.md)
-### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
-### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
-### [Back up Azure virtual machines to Backup vault](backup-azure-vms.md)
-### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
-### [Back up and restore encrypted virtual machines](backup-azure-vms-encryption.md)
-### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
-### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
-### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
-### [Recover files from Azure VM backups](backup-azure-restore-files-from-vm.md)
-### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
-### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
-### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
+### Prepare the VM
+#### [Prepare Azure virtual machines](backup-azure-vms-prepare.md)
+#### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
+### Plan your environment
+#### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
+### Back up VMs
+#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
+#### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
+#### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
+### Manage and monitor VMs
+#### [Manage and monitor Azure VM backups in classic portal](backup-azure-manage-vms-classic.md)
+#### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
+#### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
+### Restore data from VMs
+#### [Recover files from Azure VM backups](backup-azure-restore-files-from-vm.md)
+#### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
+#### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
+#### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restore encrypted virtual machines](backup-azure-vms-encryption.md)
 
 ## Azure SQL Database
 ### [Configure long-term backup retention](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
@@ -66,14 +82,15 @@
 ## Troubleshoot
 ### [Azure VM backup problems in Azure portal](backup-azure-vms-troubleshoot.md)
 ### [Azure VM backup problems in classic portal](backup-azure-vms-troubleshoot-classic.md)
-### [Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 ### [Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Slow backup of files and folders in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Concepts
+## [Overview of Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
+## [Upgrading a Backup vault to Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
-## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 ## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
@@ -83,7 +100,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

@@ -1,5 +1,5 @@
 - name: Linux VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
+  - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
@@ -139,6 +139,20 @@
       href: move-vm.md
     - name: Create highly available VMs
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md
+    - name: Ansible
+      items:
+      - name: Install and configure
+        href: ansible-install-configure.md
+      - name: Create basic VM
+        href: ansible-create-vm.md
+      - name: Create complete VM
+        href: ansible-create-complete-vm.md
     - name: Deploy an app with VM template
       items:
       - name: Tutorial overview
@@ -193,7 +207,9 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
-    - name: Create Azure-endorsed images
+    - name: Create image with Packer
+      href: build-image-with-packer.md
+    - name: Create Azure images
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -205,6 +221,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -296,16 +314,24 @@
       href: extensions-customscript.md
     - name: OMS Agent Extension
       href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Overview
+        href: cloudfoundry-get-started.md
+      - name: Deploy your first app
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Data Science VM overview
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Deploy LAMP stack
@@ -353,19 +379,25 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSH connections
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
+    - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Troubleshoot access to applications
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
+    - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Troubleshoot allocation failures
+    - name: Allocation failures
       href: allocation-failure.md
-    - name: Troubleshoot deployment issues
+    - name: Deployment issues
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI
@@ -392,6 +424,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

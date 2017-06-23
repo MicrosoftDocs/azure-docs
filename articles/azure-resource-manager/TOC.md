@@ -1,6 +1,6 @@
-﻿# Overview
+# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
-## [Supported services](resource-manager-supported-services.md)
+## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
 ## [Managed Applications](managed-application-overview.md)
@@ -24,7 +24,6 @@
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
-### [Sequential loop](resource-manager-sequential-loop.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Multiple resource group deployment](resource-manager-cross-resource-group-deployment.md)
+### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
@@ -65,16 +64,16 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
-### [Security considerations](best-practices-resource-manager-security.md)
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Portal policy assignment](resource-manager-policy-portal.md)
-### [Script policy assignment](resource-manager-policy-create-assign.md)
-### [Resource tag policies](resource-manager-policy-tags.md)
-### [Storage policies](resource-manager-policy-storage.md)
-### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Use portal to assign policy](resource-manager-policy-portal.md)
+### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
+### Examples
+#### [Resource tags](resource-manager-policy-tags.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Use managed applications
 ### [Publish managed application](managed-application-publishing.md)
@@ -120,8 +119,9 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

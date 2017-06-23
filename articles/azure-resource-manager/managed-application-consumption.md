@@ -10,7 +10,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 
 ---
@@ -45,8 +45,7 @@ az group create --name managedResourceGroup --location westcentralus
 Next, use the following command to deploy the applianceMainTemplate.json in the mainResourceGroup:
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-  	--templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 When the preceding template executes, it prompts you for the values of the parameters that are defined in the template. In addition to the parameters needed for provisioning resources in a template, you need two key parameter values:
@@ -90,9 +89,9 @@ This command returns the appliance definition. You need the value of **Id** prop
 
 The support to consume managed applications published by the ISVs is also present in the portal. You can follow the following steps:
 
-Select the Managed Application from the Create blade in Azure portal -
+Select the Service Catalog Managed Application from the Create blade in Azure portal -
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 Next, you see the list of offers from various ISVs/partners. Select the one you would like to create and click "Create"
 

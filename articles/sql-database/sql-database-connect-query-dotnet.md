@@ -9,27 +9,34 @@ editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
 This quick start demonstrates how to use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from the Windows, Mac OS, and Ubuntu Linux platforms.
 
+> [!TIP]
+> For a tutorial on creating and querying a new database using C#, see [Design your first database using C#](sql-database-design-first-database-csharp.md).
+>
+
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install .NET
 
-The steps in this section assume that you are familiar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **C#** and then select your operating system.
+The steps in this section assume that you are familiar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **C#** and then select your operating system.
 
 ### **Windows .NET framework and .NET core**
 

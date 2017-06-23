@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Network.PublicIpAddressCombo UI element
-A group of controls for selecting a new or existing public IP address.
+A group of controls for selecting a new or existing public IP address. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -87,6 +87,7 @@ If the user selects a new or existing IP address, the following output is expect
 - When `options.hideNone` is specified, `newOrExistingOrNone` always returns **none**.
 - When `options.hideDomainNameLabel` is specified, `domainNameLabel` is undeclared.
 
-## Next Steps
+## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

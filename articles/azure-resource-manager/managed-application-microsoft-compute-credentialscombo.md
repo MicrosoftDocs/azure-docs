@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Compute.CredentialsCombo UI element
-A group of controls with built-in validation for Windows and Linux passwords and SSH public keys.
+A group of controls with built-in validation for Windows and Linux passwords and SSH public keys. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -112,6 +112,7 @@ If the user provided an SSH public key, then the following output is expected:
 }
 ```
 
-## Next Steps
+## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: REST API claims exchange as a step in your B2C Custom Policies| Microsoft Docs'
+title: 'Azure Active Directory B2C: REST API Claims Exchange Orchestration Step | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies integrating with API
 services: active-directory-b2c
 documentationcenter: ''
@@ -48,26 +48,25 @@ We have set up an Azure Function that receives a claim `email`, and simply retur
 
 The `userMessage` claim returned by the Azure Function is optional in this context and will be ignored by the IEF.  It could potentially be used as a message passed to the application and presented to the user later.
 
-```
+```csharp
 if (requestContentAsJObject.email == null)
+{
+    return request.CreateResponse(HttpStatusCode.BadRequest);
+}
+
+var email = ((string) requestContentAsJObject.email).ToLower();
+
+return request.CreateResponse<ResponseContent>(
+    HttpStatusCode.OK,
+    new ResponseContent
     {
-        return request.CreateResponse(HttpStatusCode.BadRequest);
-    }
-
-    var email = ((string) requestContentAsJObject.email).ToLower();
-
-
-     return request.CreateResponse<ResponseContent>(
-            HttpStatusCode.OK,
-            new ResponseContent
-            {
-                version = "1.0.0",
-                status = (int) HttpStatusCode.OK,
-                userMessage = "User Found",
-                city = "Redmond"
-            },
-            new JsonMediaTypeFormatter(),
-            "application/json");
+        version = "1.0.0",
+        status = (int) HttpStatusCode.OK,
+        userMessage = "User Found",
+        city = "Redmond"
+    },
+    new JsonMediaTypeFormatter(),
+    "application/json");
 ```
 
 **Azure Function Apps** makes it easy to Get Function URL, which includes the identifier of the specific function.  In this case, the URL is: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==, and you may use it for testing purposes.
@@ -81,26 +80,26 @@ A technical profile is the full configuration of the exchange desired with the R
 
 ```XML
 <ClaimsProvider>
-        <DisplayName>REST APIs</DisplayName>
-        <TechnicalProfiles>
-            <TechnicalProfile Id="AzureFunctions-LookUpLoyaltyWebHook">     
-                <DisplayName>Check LookUpLoyalty Web Hook Azure Function</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <Metadata>
-                    <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
-                    <Item Key="AuthenticationType">None</Item>
-                    <Item Key="SendClaimsIn">Body</Item>
-                </Metadata>
-                <InputClaims>
-                    <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
-                </InputClaims>
-                <OutputClaims>
-                    <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
-                </OutputClaims>
-                <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-            </TechnicalProfile>
-        </TechnicalProfiles>
-    </ClaimsProvider>
+    <DisplayName>REST APIs</DisplayName>
+    <TechnicalProfiles>
+        <TechnicalProfile Id="AzureFunctions-LookUpLoyaltyWebHook">
+            <DisplayName>Check LookUpLoyalty Web Hook Azure Function</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
+                <Item Key="AuthenticationType">None</Item>
+                <Item Key="SendClaimsIn">Body</Item>
+            </Metadata>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+            </InputClaims>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+            </OutputClaims>
+            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+    </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
 The `<InputClaims>` element defines the claims that will be sent from the IEF to the REST service. In the above example, the contents of the claim `givenName` will be sent to the REST service as claim `email`.  
@@ -113,9 +112,9 @@ The claim `city` is not otherwise defined anywhere in our schema. So we will add
 
 ```XML
 <BuildingBlocks>
-<!--The claimtype city must be added to the TrustFrameworkPolicy-->
-<!-- You can add new claims in the BASE file Section III, or in the extensions file-->
-<ClaimsSchema>
+    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
+    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
+    <ClaimsSchema>
         <ClaimType Id="city">
             <DisplayName>City</DisplayName>
             <DataType>string</DataType>
@@ -123,12 +122,12 @@ The claim `city` is not otherwise defined anywhere in our schema. So we will add
             <UserInputType>TextBox</UserInputType>
         </ClaimType>
     </ClaimsSchema>
-  </BuildingBlocks>
+</BuildingBlocks>
 ```
 
 ## Step 4 - Include the REST service claims exchange as an Orchestration Step in your Profile Edit User journey in your TrustFrameworkExtensions.xml
 
-We have decided to add the step the profile edit user journey, after the user has authenticated (Orchestration steps 1-4 – see below), and the user has provided the updated profile information (Step 5).
+We have decided to add a step to the profile edit user journey, after the user has authenticated (Orchestration steps 1-4 – see below), and the user has provided the updated profile information (Step 5).
 
 > [!NOTE]
 > There are many use cases where the REST API Call can be used as an Orchestration Step.  As an Orchestration Step, it may be used as an update to an external system once a user has successfully completed a task like first time registration, or profile update to keep information synchronized.  In this case it is used to augment the information provided to the application after profile edit.
@@ -137,10 +136,10 @@ Copy the profile edit user journey XML code from the `TrustFrameworkBase.xml` fi
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
-		  <ClaimsExchanges>
-				<ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-			</ClaimsExchanges>
-		</OrchestrationStep>
+    <ClaimsExchanges>
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    </ClaimsExchanges>
+</OrchestrationStep>
 ```
 
 > [!IMPORTANT]
@@ -150,58 +149,58 @@ The final UserJourney XML should look like this:
 
 ```XML
 <UserJourney Id="ProfileEdit">
-      <OrchestrationSteps>
+    <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
+            <ClaimsProviderSelections>
+                <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+                <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
         </OrchestrationStep>
         <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
+            <ClaimsExchanges>
+                <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+                <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
         </OrchestrationStep>
         <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-              <Value>authenticationSource</Value>
-              <Value>localAccountAuthentication</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-          </ClaimsExchanges>
+            <Preconditions>
+                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                    <Value>authenticationSource</Value>
+                    <Value>localAccountAuthentication</Value>
+                    <Action>SkipThisOrchestrationStep</Action>
+                </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+                <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+            </ClaimsExchanges>
         </OrchestrationStep>
         <OrchestrationStep Order="4" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-              <Value>authenticationSource</Value>
-              <Value>socialIdpAuthentication</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
+            <Preconditions>
+                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+                    <Value>authenticationSource</Value>
+                    <Value>socialIdpAuthentication</Value>
+                    <Action>SkipThisOrchestrationStep</Action>
+                </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+                <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
         </OrchestrationStep>
         <OrchestrationStep Order="5" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-          </ClaimsExchanges>
-           </OrchestrationStep>
-           <!-- Add a step 6 to the user journey before the jwt token is created-->
+            <ClaimsExchanges>
+                <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
+            </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- Add a step 6 to the user journey before the jwt token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
-          <ClaimsExchanges>
+            <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
             </ClaimsExchanges>
-            </OrchestrationStep>
+        </OrchestrationStep>
         <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
+    </OrchestrationSteps>
+    <ClientDefinition ReferenceId="DefaultWeb" />
+</UserJourney>
 ```
 
 ## Step 5 - Add the Claim “city” to your Relying Party policy file so the claim is sent to your application

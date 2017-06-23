@@ -1,5 +1,5 @@
 ---
-title: Understand and resolve WebHCat errors on HDInsight
+title: Understand and resolve WebHCat errors on HDInsight - Azure | Microsoft Docs
 description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
 services: hdinsight
 documentationcenter: ''
@@ -37,7 +37,7 @@ Learn about errors received when using WebHCat with HDInsight, and how to resolv
 * For **Linux** clusters: Use Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ### Default configuration
 

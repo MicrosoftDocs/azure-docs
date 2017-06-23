@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+
+![portal][2]
 
 ## Results
 
@@ -74,6 +76,24 @@ The following tables show the different fault types (id under results from the p
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
+## Supported Gateway types
+
+The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+|  |  |
+|---------|---------|
+|**Gateway types**   |         |
+|VPN      | Supported        |
+|ExpressRoute | Not Supported |
+|Hypernet | Not Supported|
+|**VPN types** | |
+|Route Based | Supported|
+|Policy Based | Not Supported|
+|**Connection types**||
+|IPSec| Supported|
+|VNet2Vnet| Supported|
+|ExpressRoute| Not Supported|
+|Hypernet| Not Supported|
+|VPNClient| Not Supported|
 
 ## Log files
 
@@ -189,7 +209,8 @@ Elapsed Time            330 sec
 
 ## Next steps
 
-Learn how to diagnose VPN Gateways and Connections with PowerShell by visiting [Gateway troubleshooting - PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+Learn how to diagnose VPN Gateways and Connections through the portal by visiting [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png

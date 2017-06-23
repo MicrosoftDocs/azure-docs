@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 
 ---
 # CreateUiDefinition elements
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. The schema for most elements is as follows:
+This article describes the schema and properties for all supported elements of a CreateUiDefinition. You use these elements when [creating an Azure Managed Application](managed-application-publishing.md). The schema for most elements is as follows:
 
 ```json
 {
@@ -60,5 +60,6 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 
-## Next Steps
+## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).

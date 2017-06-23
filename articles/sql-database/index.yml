@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Azure SQL Database Documentation
 metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
@@ -56,6 +57,7 @@ sections:
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
     - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
 - title: Free PluralSight Video Training
   items:
   - type: list

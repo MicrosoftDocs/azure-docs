@@ -28,7 +28,7 @@ Below policies can be configured to check if the certificate is expired:
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter > DateTime.Now)" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter < DateTime.Now)" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>

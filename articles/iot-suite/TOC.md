@@ -30,7 +30,6 @@
 ### [C on Windows](iot-suite-connecting-devices.md)
 ### [C on Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Connect your mbed device](iot-suite-connecting-devices-mbed.md)
 ## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
 ## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
@@ -52,6 +51,7 @@
 ## [Machine Learning](/azure/machine-learning/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

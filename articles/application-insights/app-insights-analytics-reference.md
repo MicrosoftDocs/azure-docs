@@ -3,7 +3,7 @@ title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Reference for Analytics
@@ -39,7 +39,7 @@ Additional sources of information:
 **Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Numeric series** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -2359,7 +2359,30 @@ range t from 1 to 1 step 1
 |2.0|3.0|
 |3.0|6.0|
 |4.0|10.0|
+### series_outliers 
 
+The series_outliers() function takes a column containing dynamic array as input and generates a dynamic numeric array of the same length as the input. Each value of the array indicates a score indicating a possible anomaly using Tukey's test. A value greater than 1.5 or less than -1.5 indicates a rise or decline anomaly respectively in the same element of the input.  
+
+**Syntax**  
+
+```
+series_outliers(x,kind)  
+```
+**Arguments** 
+* *x:* Dynamic array cell which is an array of numeric values. The values are assumed to be equidistant, otherwise it may yield unexpected results.  
+* *kind:* Algorithm of outlier detection. Currently supports "tukey".  
+Most convenient way of using this function is applying it to results of make-series operator.  
+
+**Examples** 
+
+For the following input   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() returns  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+meaning the 5 is an anomaly on decline and 80 is an anomaly on rise compared to the rest of the series. 
 
 ### series_periods
 
@@ -3113,7 +3136,7 @@ To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON str
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
-> ![NOTE]
+> [!NOTE]
 > Double-quotes (`"`) must be used to enclose labels and string values in JSON. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
 > 
 
@@ -3310,7 +3333,7 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![NOTE]
+> [!NOTE]
 > Double-quote characters must be used to enclose labels and string values in JSON. 
 >
 

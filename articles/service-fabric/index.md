@@ -123,7 +123,7 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/module/azurerm.servicefabric">PowerShell (Azure)</a></p>
-                        <p><a href="/powershell/azure/overview?view=azureservicefabricps">PowerShell</a></p>
+                        <p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -135,8 +135,9 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/java/api">Java API</a></p>
-                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/cli/azure/sf">Azure CLI</a></p>
+                        <p><a href="/java/api/overview/azure/servicefabric">Java API</a></p>
+                        <p><a href="/dotnet/api/overview/azure/servicefabric?view=azure-dotnet">.NET</a></p>
                     </div>
                 </div>
             </div>

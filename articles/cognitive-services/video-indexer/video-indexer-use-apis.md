@@ -22,7 +22,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 
 1. Sign in.
 
-	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](https://www.vi.microsoft.com) portal. 
+	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](http://vi.microsoft.com) portal. 
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
 

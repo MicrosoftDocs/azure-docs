@@ -3,7 +3,7 @@ title: Azure AD Windows Store Getting Started | Microsoft Docs
 description: Build Windows Store apps that integrate with Azure AD for sign-in and call Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: jmprieur
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD with Windows Store apps

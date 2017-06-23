@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 
 ---
@@ -144,7 +144,7 @@ The supported logical operators are:
 
 The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
-You can nest logical operators. The following example shows a **Not** operation that is nested within an **And** operation. 
+You can nest logical operators. The following example shows a **not** operation that is nested within an **allOf** operation. 
 
 ```json
 "if": {
@@ -189,27 +189,7 @@ The following fields are supported:
 * `location`
 * `tags`
 * `tags.*` 
-* property aliases
-
-You use property aliases to access specific properties for a resource type. The supported aliases are:
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* property aliases - for a list, see [Aliases](#aliases).
 
 ### Effect
 Policy supports three types of effect - `deny`, `audit`, and `append`. 
@@ -231,6 +211,122 @@ For **append**, you must provide the following details:
 ```
 
 The value can be either a string or a JSON format object. 
+
+## Aliases
+
+You use property aliases to access specific properties for a resource type. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
+| Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
+| Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
+| Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
+| Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/virtualMachines/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
+| Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
+| Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Set the computer name prefix for all  the virtual machines in the scale set. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Set the blob URI for user image. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Set the container URLs that are used to store operating system disks for the scale set. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Set the size of virtual machines in a scale set. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Set the tier of virtual machines in a scale set. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Set the size of the gateway. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Set the type of this virtual network gateway. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Set the gateway SKU name. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Set the version of the server. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Set the edition of the database. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Set the name of the elastic pool the database is in. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Set the configured service level objective ID of the database. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Set the name of the configured service level objective of the database.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Description |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Set the total shared DTU for the database elastic pool. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Set the edition of the elastic pool. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Set the access tier used for billing. |
+| Microsoft.Storage/storageAccounts/accountType | Set the SKU name. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Set whether the service encrypts the data as it is stored in the blob storage service. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
+| Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
+
 
 ## Policy examples
 

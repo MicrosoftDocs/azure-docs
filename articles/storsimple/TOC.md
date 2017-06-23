@@ -1,4 +1,4 @@
-﻿# StorSimple Virtual Array
+# StorSimple Virtual Array
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
@@ -19,7 +19,8 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-05.md)
+#### [Install latest update](storsimple-virtual-array-install-update-06.md)
+##### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
 ##### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
@@ -41,7 +42,8 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 0.5 - current](storsimple-virtual-array-update-05-release-notes.md)
+### [Update 0.6 - current](storsimple-virtual-array-update-06-release-notes.md)
+### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
 ### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
@@ -214,14 +216,15 @@
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
-## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Support blog](http://blogs.msdn.com/b/storsimple/)
 ## [Third-party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 

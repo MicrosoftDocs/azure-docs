@@ -1,5 +1,5 @@
 ---
-title: What is HBase in HDInsight? | Microsoft Docs
+title: What is HBase in Azure HDInsight? | Microsoft Docs
 description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
 keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
 services: hdinsight
@@ -11,12 +11,12 @@ editor: cgronlun
 
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
 
 ---

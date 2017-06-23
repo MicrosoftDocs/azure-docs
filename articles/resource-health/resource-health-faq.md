@@ -57,7 +57,7 @@ Resource health performs various checks based on the [resource type](resource-he
 There are three different health statuses:
 1. Available: There aren't any known problems in the Azure platform that could be impacting this resource
 2. Unavailable: Resource health has detected issues that are impacting the resource
-3. Unknown: Resource health can determine the health of a resource because it has stopped receiving information about it. 
+3. Unknown: Resource health can not determine the health of a resource because it has stopped receiving information about it. 
 
 ## What does the unknown status mean? Is something wrong with my resource?
 The health status is set to unknown when resource health stops receiving information about a specific resource. While this status is not a definitive indication of the state of the resource, in cases where you are experiencing problems, it may indicate there is an Azure problem.
