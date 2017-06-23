@@ -191,4 +191,4 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.
 
 > [!div class="nextstepaction"]
-> [Deploy ACS cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)
+> [Deploy Kubernetes cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)

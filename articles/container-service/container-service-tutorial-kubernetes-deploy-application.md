@@ -33,7 +33,9 @@ In subsequent tutorials, this application is scaled out, updated, and the Kubern
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). At minimum, this tutorial requires a Kubernetes cluster.
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+
+At minimum, this tutorial requires a Kubernetes cluster.
 
 ## Kubernetes objects
 
@@ -57,7 +59,7 @@ The manifest files are found in the following directory of the cloned repo.
 /azure-voting-app/kubernetes-manifests/
 ```
 
-## Step-by-step deployment
+## Run application
 
 ### Storage objects
 
@@ -87,13 +89,13 @@ Run the following to create the secrets objects.
 kubectl create -f pod-secrets.yaml
 ```
 
-## Create deployments
+### Create deployments
 
 A [Kubernetes deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) manages the state of Kubernetes pods. This management includes things like ensuring that the desired replica counts are running, volumes are mounted, and the proper container images are being used.
 
 The `azure-vote-deployment.yaml` manifest file creates a deployment for the front-end and back-end portions of the Azure Vote application.
 
-### Update image names
+#### Update image names
 
 If using Azure Container Registry to store images, the image names need to be prepended with the ACR logins server name.
 
@@ -123,7 +125,7 @@ containers:
         image: <acrLoginServer>/azure-vote-front:v1
 ```
 
-### Create deployment
+#### Create deployment objects
 
 Run [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) to start the Azure Vote application.
 
