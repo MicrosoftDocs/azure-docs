@@ -22,27 +22,40 @@ ms.custom: mvc
 **Team Services | TFS 2017 | TFS 2015**
 
 Continuous integration (CI) and continuous deployment (CD) means starting an automated deployment process whenever a new successful build is available.
+
 In this tutorial, you set up CI/CD for a Node.js app by using Jenkins to build it, and Visual Studio Team Services
 or Team Foundation Server (TFS) to deploy it to an Azure deployment group; including how to:
 
-* Build your app in Jenkins
-* Configure Jenkins for CI with Team Services or TFS
-* Create a deployment group for the Azure virtual machines
-* Create a release definition that configures the VMs and deploys the app
+> [!div class="checklist"]
+> * Build your app in Jenkins
+> * Configure Jenkins for CI with Team Services or TFS
+> * Create a deployment group for the Azure virtual machines
+> * Create a release definition that configures the VMs and deploys the app
 
-## Get set up
+## Before you begin
 
-You'll need a [Team Services account](https://www.visualstudio.com/team-services/pricing/)
-or a [Team Foundation Server account](https://www.visualstudio.com/tfs/).
+You'll need a [Team Services account](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) to start.
+
+For a quick guide on connecting Team Services, read [Connect to Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+
 You'll also need to have an app that you want to deploy stored in a Git repository,
 and configure the required plugins in Jenkins to interface with Team Services,
 as described next.
 
-### Get the sample app
+This tutorial uses a sample app (provided below) that you can use as you follow along.
+
+## Get the sample app
 
 For this tutorial, we recommend you use [this sample app available from
 GitHub](https://github.com/azooinmyluggage/fabrikam-node). You can
-copy this app into your own Git repository if you prefer.
+copy this app into your own Git repository if you prefer; just take note of the new location (URL) for use in future steps.
+
+
+
+## About the sample app
+
+This section describes the sample app you'll use in this tutorial. You can skip to [Configure Jenkins plugins](#Configure Jenkins plugins) if you just want to keep going.
+
 The app was built using [Yeoman](http://yeoman.io/learning/index.html);
 it uses **Express**, **bower**, and **grunt**; and it has some **npm** packages as dependencies.
 
@@ -68,9 +81,9 @@ machines after the deployment has succeeded. This script:
 
 * Configures Nginx and PM2, then starts the Node app
 
-This is the script, named **deployscript.sh**:
+Optionally, run the following script from `bash` (or other shell) to confirm the app:
 
-```
+```bash
 sudo apt-get update
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
 sudo apt-get install -y nodejs
@@ -86,39 +99,41 @@ sudo pm2 startup systemd
 sudo pm2 save
 ```
 
-### Configure Jenkins plugins
+## Configure Jenkins plugins
 
-You need to configure plugins for NodeJS and integration with Team Services or TFS.
+First configure plugins for NodeJS and integration with Team Services or TFS.
 
-1. Open your Jenkins account and choose **Manage Jenkins**.
+To start, open your Jenkins account and choose **Manage Jenkins**.
 
-1. In the **Manage Jenkins** page, choose **Manage Plugins**.
+In the **Manage Jenkins** page, choose **Manage Plugins**.
 
-1. Filter the list to locate the the **NodeJS** plugin and install it without restart.
+Filter the list to locate the the **NodeJS** plugin and install it without restart.
 
-  ![Adding the NodeJS plugin to Jenkins](media/tutorial-build-deploy-jenkins/add-ts-extension-in-jenkins.png)
+![Adding the NodeJS plugin to Jenkins](media/tutorial-build-deploy-jenkins/add-ts-extension-in-jenkins.png)
 
-1. Filter the list to find the **Team Foundation Server** plugin and install it without restart.
+Filter the list to find the **Team Foundation Server** plugin and install it. (This plug-in works for both Team Services and Team Foundation Server.) Restarting Jenkins is not necessary.
 
 ## Configure Jenkins build 
 
 In Jenkins, create a new build project and configure it as follows:
 
-1. In the **General** tab, enter a name for your build project.
+In the **General** tab, enter a name for your build project.
 
-1. In the **Source Code Management** tab, select **Git** and enter details
-  of the repository and branch containing your app code.
+In the **Source Code Management** tab, select **Git** and enter details
+of the repository and branch containing your app code.
 
-1. In the **Build Triggers** tab, select **Poll SCM** and enter the schedule `H/03 * * * *`
-  to poll the Git repository for changes every three minutes. 
+NEED DETAILS HERE. HELP USER FILL OUT ACCURATELY FOR THIS SAMPLE. NEEDS SCREENSHOT.
 
-1. In the **Build Environment** tab, select **Provide Node &amp; npm bin/ folder PATH**
-  and enter `NodeJS` for the Node JS Installation value. Leave **npmrc file** set to
-  "use system default".
+In the **Build Triggers** tab, select **Poll SCM** and enter the schedule `H/03 * * * *`
+to poll the Git repository for changes every three minutes. 
 
-1. In the **Build** tab, enter the command `npm install` to ensure all dependencies are updated.
+In the **Build Environment** tab, select **Provide Node &amp; npm bin/ folder PATH**
+and enter `NodeJS` for the Node JS Installation value. Leave **npmrc file** set to
+"use system default".
 
-1. In the **Post-build Actions** tab:
+In the **Build** tab, enter the command `npm install` to ensure all dependencies are updated.
+
+In the **Post-build Actions** tab:
  
    - For **Files to archive**, enter `**/*` to include all files.
 
@@ -128,61 +143,60 @@ In Jenkins, create a new build project and configure it as follows:
 
    ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/jenkins-build-actions.png)
 
-   [How do I create a personal access token for Team Services and TFS?](../../../setup-admin/team-services/use-personal-access-tokens-to-authenticate.md)
+   [How do I create a personal access token for Team Services and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md)
 
-1. Save the build project.
+Save the build project.
 
-## Configure Team Services or TFS
+## Configure Team Services
 
-You'll need a connection to Jenkins so that Team Services or TFS can 
+You'll need a connection to Jenkins so that Team Services can 
 download the build artifacts and deploy them.
 
-1. Open the **Services** tab of the administration page, and add a new **Jenkins** service endpoint.
+Open the **Services** tab of the administration page, and add a new **Jenkins** service endpoint.
 
-   ![Adding a Jenkins service endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
+![Adding a Jenkins service endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 
-1. In the **Add new Jenkins Connection** dialog, enter a name you will use to refer to the service endpoint.
+In the **Add new Jenkins Connection** dialog, enter a name you will use to refer to the service endpoint.
 
-1. Enter the URL of your Jenkins server, and the credentials to connect to it.
+Enter the URL of your Jenkins server, and the Jenkins credentials to connect to it.
 
-1. Use the **Verify connection** link to check the connection, and then choose **OK**.
+Use the **Verify connection** link to check the connection, and then choose **OK**.
 
 ## Create a deployment group
 
 You need a deployment group containing the virtual machines you will deploy to.
 To create a deployment group in Team Services or TFS:
  
-1. Open the **Releases** tab of the **Build &amp; Release** hub,
-   open the **Deployment groups** tab, and choose **+ New**.
+Open the **Releases** tab of the **Build &amp; Release** hub, then
+open the **Deployment groups** tab, and choose **+ New**.
 
-1. Enter a name for the deployment group, and optionaly a description.
-   Then choose **Create**.
+Enter a name for the deployment group, and an optional description.
+Then choose **Create**.
 
-1. The virtual machines to populate the new deployment group will be created
-   by the Azure Azure Resource Group Deployment task. You don't need to register them manually.
+The virtual machines to populate the new deployment group will be created
+by the Azure Resource Group Deployment task. You don't need to register them manually.
 
 ## Create a release definition
 
-To create the release definition in Team Services or TFS:
+To create the release definition in Team Services:
 
-1. Open the **Releases** tab of the **Build &amp; Release** hub, open the **+** drop-down
-   in the list of release definitions, and choose the **Create release definition**. 
+Open the **Releases** tab of the **Build &amp; Release** hub, open the **+** drop-down
+in the list of release definitions, and choose the **Create release definition**. 
 
-1. Select the **Empty** template and choose **Next**.
+Select the **Empty** template and choose **Next**.
 
-1. In **Artifacts** section, choose **Jenkins** and select your Jenkins service endpoint connection. 
-   Then select the Jenkins source job and choose **Create**.
+In **Artifacts** section, choose **Jenkins** and select your Jenkins service endpoint connection. 
+Then select the Jenkins source job and choose **Create**.
 
-1. In the new release definition, choose **+ Add tasks** and add an **Azure Resource Group Deployment** task
-   to the default environment.
+In the new release definition, choose **+ Add tasks** and add an **Azure Resource Group Deployment** task to the default environment.
 
-1. Choose the drop-down arrow next to the **+ Add tasks** link and add a deployment group phase to the definition.
+Choose the drop-down arrow next to the **+ Add tasks** link and add a deployment group phase to the definition.
 
-   ![Adding a deployment group phase](media/tutorial-build-deploy-jenkins/add-depgroup-phase.png) 
+![Adding a deployment group phase](media/tutorial-build-deploy-jenkins/add-depgroup-phase.png) 
 
-1. In the Task catalog, open the **Utility** section and add an instance of the **Shell Script** task.
+In the Task catalog, open the **Utility** section and add an instance of the **Shell Script** task.
 
-1. Configure the tasks as follows:
+Configure the tasks as follows (see the screen below):
 
    | Task step | Parameters |
    | --------- | ---------- |
@@ -192,23 +206,23 @@ To create the release definition in Team Services or TFS:
    > The default settings for the Azure Resource Group Deployment task are to create or update a resource,
    and to do so incrementally. The task will create the VMs the first time it runs, and subsequently just update them.
 
-1. Optionally, change the name of the environment by clicking on the name. 
+Optionally, change the name of the environment by clicking on the name. 
 
-1. Edit the name of the release definition to the name you specified in the
-   **Post-build Actions** tab of the build in Jenkins. This is necessary for 
-   Jenkins to be able to trigger a new release when the source artifacts are updated.
+Edit the name of the release definition to the name you specified in the
+**Post-build Actions** tab of the build in Jenkins. This is necessary for 
+Jenkins to be able to trigger a new release when the source artifacts are updated.
 
-1. Choose **Save**, and choose **OK**.
+Choose **Save**, and choose **OK**.
 
 ## Start a manual deployment
 
-1. Choose **+ Release** and select **Create Release**.
+Choose **+ Release** and select **Create Release**.
 
-1. Select the build you just completed in the highlighted drop-down list and choose **Create**.
+Select the build you just completed in the highlighted drop-down list and choose **Create**.
 
-1. Choose the release link in the popup message. For example: "Release **Release-1** has been created".
+Choose the release link in the popup message. For example: "Release **Release-1** has been created".
 
-1. Open the **Logs** tab to watch the release console output.
+Open the **Logs** tab to watch the release console output.
 
 ## View the deployed app
 
@@ -217,44 +231,26 @@ In your browser, open the URL of one of the servers you added to your deployment
 
 ## Start a CI/CD deployment
 
-1. In the release definition, uncheck the **Enabled** checkbox in the **Control Options**
-   section of the settings for the Azure Resource Group Deployment task.
-   For subsequent deployments to the existing deployment group, you do not need
-   to re-execute this task.
+In the release definition, uncheck the **Enabled** checkbox in the **Control Options**
+section of the settings for the Azure Resource Group Deployment task.
+For subsequent deployments to the existing deployment group, you do not need
+to re-execute this task.
 
-1. Go to your source Git repository and modify one of the application files.
+Go to your source Git repository and modify one of the application files.
 
-1. After a few minutes, you will see a new release created in the **Releases** 
-   page of Team Services or TFS. Open the release to see the deployment taking place.
+After a few minutes, you will see a new release created in the **Releases** 
+page of Team Services or TFS. Open the release to see the deployment taking place.
 
-## Q&A
+## Next Steps
+In this tutorial, you ---. You learned how to:
 
-<!-- BEGINSECTION class="md-qanda" -->
+> [!div class="checklist"]
+> * Build your app in Jenkins
+> * Configure Jenkins for CI with Team Services or TFS
+> * Create a deployment group for the Azure virtual machines
+> * Create a release definition that configures the VMs and deploys the app
 
-### Can I deploy to a production environment automatically after the app is approved?
+Follow this link to see pre-built virtual machine script samples.
 
-Yes. This tutorial shows how to deploy to one environment (one set of target machines
-in a deployment group). You can create a deployment group for other target machines, such as
-production servers, and deploy to these in exactly the same way.
-For example, you could [add a second environment](../../actions/work-with-release-definitions.md#add-envir)
-that deploys to the production servers, and configure a 
-[pre-deployment approval rule](../../concepts/definitions/release/environments.md#approvals)
-for the environment so that specific users (or one or more members of a specific group) must
-approve the release before it is deployed to production.
-
-### Can I add additional tasks to the release definition?
-
-Yes, you can add tasks such as Test tasks that run as part of your deployment process.
-For a list of tasks, see the [index of tasks](../../define/build.md).
-
-### If I use GitHub to store my app, can I get better integration for changes to the source?
-
-Yes, you can configure GitHub to automatically notify Jenkins when a change to the source code
-occurs. This is more efficient than polling. You'll need to install the
-[GitHub Plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) into Jenkins for this. 
-
-[!INCLUDE [temp](../../_shared/qa-versions.md)]
-
-<!-- ENDSECTION -->
-
-[!INCLUDE [rm-help-support-shared](../../_shared/rm-help-support-shared.md)]
+> [!div class="nextstepaction"]
+> [Team Services CI/CD documentation](https://www.visualstudio.com/en-us/docs/build/overview)
