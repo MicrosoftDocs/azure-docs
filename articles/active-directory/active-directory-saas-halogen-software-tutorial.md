@@ -212,7 +212,7 @@ The objective of this section is to create a user called Britta Simon in Halogen
 	
     b. In the **Last Name** textbox, type last name of the user like **Simon**. 
 
-    c. In the **Username** textbox, type **Brita Simon**, the user name as in the Azure portal.
+    c. In the **Username** textbox, type **Britta Simon**, the user name as in the Azure portal.
 
     d. In the **Password** textbox, type a password for Britta.
     
