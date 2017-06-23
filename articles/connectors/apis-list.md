@@ -14,23 +14,23 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 06/21/2017
 ms.author: mandia; ladocs
 
 ---
 # Connectors list
 > [!TIP]
-> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps. [Connectors details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
+> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps. [Connector details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
 
-Connectors are integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
+Connectors are an integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
 
-* **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, DropBox, GoogleDrive, Power BI, Oracle Database, OneDrive, and many more.
+* **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, Power BI, Oracle Database, OneDrive, and many more.
 
-* **Integration account connectors**: These are available when you purchase an integration account. Using these connectors, you can transform and validate XML, process business-to-business messages with AS2 / X12 / EDIFACT, and encode and decode flat files. If you work with BizTalk Server, then these connectors are a good fit to expand your BizTalk workflows into Azure.  
+* **Integration account connectors**: Available when you purchase an integration account. Using these connectors, you can transform and validate XML, process business-to-business messages with AS2 / X12 / EDIFACT, and encode and decode flat files. If you work with BizTalk Server, then these connectors are a good fit to expand your BizTalk workflows into Azure.  
 
     BizTalk Server also has a [Logic Apps adapter](https://msdn.microsoft.com/library/mt787163.aspx) that includes receiving from a logic app, and sending to a logic app.
 
-* **Enterprise connectors**: Includes MQ and SAP. These are also an additional cost. 
+* **Enterprise connectors**: Includes MQ and SAP. Available at an additional cost. 
 
 [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [Pricing model](../logic-apps/logic-apps-pricing.md) provide more details on the costs. 
 
@@ -40,7 +40,7 @@ There are thousands of applications and millions of executions that are successf
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | If you want to automate any tasks with your storage account, then you should look at this connector. Supports CRUD (create, read, update, delete) operations. | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Create functions that run custom snippets of C# or node.js, and then use these functions in your logic apps.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | This is one of the most-asked for connectors. It has triggers and actions to help automate workflows with leads, and more. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consume and publish events on an Event Hub. For example, you can get output from your logic app using Event Hubs, and then send to a real-time analytics provider. |
+| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | One of the most-asked for connectors. It has triggers and actions to help automate workflows with leads, and more. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consume and publish events on an Event Hub. For example, you can get output from your logic app using Event Hubs, and then send the output to a real-time analytics provider. |
 | [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | If your FTP server is accessible from the internet, then you can automate workflows to work with files and folders. <br/><br/>SFTP is also available with the SFTP connector. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Use logic apps to communicate with any endpoint over HTTP. |
 | [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Lots of triggers, and a lot more actions to use Office 365 email and events within your workflows. <br/><br/>This connector includes an *approval email* action to approve vacation requests, expense reports, and so on. <br/><br/>Office 365 users are also available with the Office 365 Users connector.| [![API Icon][HTTP-Requesticon]<br/>**Request / Response**][HTTP-Requestdoc] | This connector provides an HTTPS URL. When the logic app receives a request to this URL, the logic app starts. |
 | [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Easily sign in with your Salesforce account to get access to objects, such as Leads, and more. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | The most popular connector within logic apps, it includes triggers and actions to do asynchronous messaging and publish/subscribe with queues, subscriptions, and topics. |
@@ -63,12 +63,12 @@ Connect to your enterprise applications within your logic apps.
 
 |  |  |
 | --- | --- |
-|![API Icon][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>A-Z complete list
 
-[Connectors details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
+[Connector details](/connectors/) list any triggers and actions defined in the swagger, and also lists any limits for each connector.
 
 | | | | | | | | | | | | | |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -77,7 +77,7 @@ Connect to your enterprise applications within your logic apps.
 
 | | |
 |---|---|
-|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Azure API Management<br/>Azure App Services<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure Cosmos DB<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure Queues<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Benchmark Email<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services Text Analytics<br/>Common Data Service<br/>Control-Terminate<br/>[Custom APIs / web apps][api/web-appdoc]<br/><br/><a name="d"></a>Data Operations<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[Flat File][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integration Account<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Medium<br/>Microsoft Translator<br/>Microsoft Teams<br/>MQ<br/>MSN Weather<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365 Users<br/>Office 365 Video<br/>OneDrive<br/>OneDrive for Business<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer<br/>Outlook Tasks<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Request / Response][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Schedule][recurrencedoc]<br/>Scope<br/>SendGrid<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[Transform XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variables<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML Validation][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Azure API Management<br/>Azure App Services<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure Queues<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Benchmark Email<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services Text Analytics<br/>Common Data Service<br/>Content Conversion<br/>Control-Terminate<br/>[Custom APIs / web apps][api/web-appdoc]<br/><br/><a name="d"></a>Data Operations<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[Flat File][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>Freshservice<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integration Account<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Medium<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Weather<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365 Users<br/>Office 365 Video<br/>OneDrive<br/>OneDrive for Business<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer<br/>Outlook Tasks<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Request / Response][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Schedule][recurrencedoc]<br/>Scope<br/>SendGrid<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[Transform XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variables<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML Validation][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > To get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app. No credit cards required; no commitments.
@@ -113,7 +113,7 @@ Logic apps include built-in actions that can change or manipulate your payload d
 | **Filter array** (query) | Filter a result set to the entries that interest you. For example, search all tweets with `#Azure`, and then "filter" the returned tweets to only return results that are `Tweeted_by_followers > 50`. |
 | **Join** | Join an array by some delimeter. For example, the Detect Key Phrases operation returns an array of key phrases. You could "join" them with a `,` or something similar. So instead of `["Some", "Phrase"]`, you have `"Some, Phrase"`. |
 | **Parse JSON** | Parse out and access values from a JSON object in the designer. For example, if your Azure Function returns a JSON payload, then you can parse it to access the JSON properties later in another step. The action also validates that the JSON matches the specified schema at runtime. | 
-| **Select** | Select certain properties of an array for further processing. If you "List records" from SQL, and it returns 15 columns, then select just a few of those columns for further processing (output is an array that only contains the properties you select). |
+| **Select** | Select certain properties of an array for further processing. If you "List records" from SQL, and it returns 15 columns, then select just a few of those columns for further processing. The output is an array that only contains the properties you select. |
 
 ## Custom connectors and Azure certification 
 
@@ -126,6 +126,8 @@ If you want to make your custom API Apps public and available to use in Azure, t
 To ask questions, answer questions, and see what other Azure Logic Apps users are doing, go to the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 To help improve Azure Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+Are we missing a connector topic, or any details you think are important? If yes, then help us by adding to our existing topics, or write your own. Our documentation is open source, and hosted on GitHub. Get started at our [GitHub repository](https://github.com/Microsoft/azure-docs). 
 
 ## Next steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -149,6 +151,7 @@ To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account. Send and receive emails, manage your calendar and contacts, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database to add, insert, delete rows, and more"
+[mqdoc]: ./connectors-create-api-mq.md "Connect to MQ on-premises or Azure, and send and receive messages"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Trigger recurring actions for logic apps"
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 
 ---
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_032.png)
 
-6. On Azure Portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+6. On Azure portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url.png)
 
@@ -129,25 +129,44 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.linkedIn.com/checkpoint/enterprise/login/<AccountId>?application=lookup`
 	 
 	> [!NOTE] 
-	> Please note that it is not the real value. The user has to update these values with the actual Sign-On URL. Contact [LinkedIn Lookup Client support team](https://business.LinkedIn.com/lookup) to get this value.
+	> This is not real value. The user has to update these values with the actual Sign-On URL. Contact [LinkedIn Lookup Client support team](https://business.LinkedIn.com/lookup) to get this value.
 
 8. Your **LinkedIn Lookup** application expects the SAML assertions in a specific format. The user has to add custom attribute mappings to the SAML token attributes configuration. The following screenshot shows an example. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Lookup expects this to be mapped with the user's email address. You can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add another claim named **department** and the value is to be mapped with **user.department**.
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **email**,  **department**, **firstname**, and **lastname** and the value is to be mapped with **user.mail**, **user.department**, **user.givenname**, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
-	| --- | --- |    
+	| --- | --- |
+	| email| user.mail |    
 	| department| user.department |
+	| firstname| user.givenname |
+	| lastname| user.surname |
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+	a. Click **Add Attribute** to open the **Add Attribute** dialog.
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/4.png)
    
-   b. Click **Ok** to save the attribute.
+    ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/5.png)
+   
+    b. In the **Name** textbox, type the attribute name shown for that row.
+	
+    c. From the **Value** list, type the attribute value shown for that row.
+	
+    d. Click **Ok**
+
+10. Perform the following steps on the **name** attribute-
+
+	a. Click on the attribute to open the **Edit Attribute** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/url_update.png)
+
+	b. Delete the URL value from the **namespace**.
+	
+	c. Click **Ok** to save the setting.
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -167,7 +186,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -235,6 +254,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
+
 	
 ### Testing single sign-on
 
@@ -242,14 +262,12 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the LinkedIn Lookup tile in the Access Panel, you should be redirected to Organizational page where you have to provide your personal LinkedIn account details. It links your personal account with your LinkedIn business account. 
 
-For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

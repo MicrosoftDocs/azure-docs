@@ -37,7 +37,7 @@
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: 4 - Add Content Delivery Network
+  - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
 #  - name: 5 - Monitor your app
 #    href: app-service-web-tutorial-monitoring.md
@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-      - name: Remote debug Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Remote debug IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Django app with MySQL
@@ -262,6 +258,8 @@
     href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
@@ -282,8 +280,6 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Configuration and management FAQ
         href: app-service-web-configuration-and-management-faq.md
-      - name: More FAQ
-        href: app-service-web-others-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

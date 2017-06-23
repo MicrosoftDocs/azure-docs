@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Gremlin support | Microsoft Docs
 description: Learn about the Gremlin language from Apache TinkerPop, which features and steps and available in Azure Cosmos DB 
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
@@ -9,12 +9,12 @@ editor: ''
 tags: ''
 
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/19/2017
+ms.date: 06/10/2017
 ms.author: arramac
 
 ---
@@ -89,7 +89,7 @@ The following table lists the TinkerPop features that are implemented by Azure C
 
 Azure Cosmos DB uses the [GraphSON format](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) when returning results from Gremlin operations. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON. 
 
-For example, the following snippet shows a GraphSON representation of a vertex in Azure Cosmos DB. 
+For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
 
 ```json
   {

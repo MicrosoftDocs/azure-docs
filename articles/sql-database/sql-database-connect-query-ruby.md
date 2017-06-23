@@ -9,19 +9,18 @@ editor: ''
 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
+ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
-
 ---
 
 # Azure SQL Database: Use Ruby to connect and query data
 
-This quick start demonstrates how to use [Ruby](https://Ruby.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
+This quick start demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
 
 ## Prerequisites
 

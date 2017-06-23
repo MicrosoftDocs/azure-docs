@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/13/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 
@@ -25,6 +25,8 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
+
+Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## What you do
 
@@ -156,13 +158,13 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Clone the sample application by running the following command:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberry-pi-client-app
    ```
 1. Open the config file by running the following commands:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-clientapp
-   nano config.json
+   cd iot-hub-c-raspberry-pi-client-app
+   nano config.h
    ```
 
    ![Config file](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)

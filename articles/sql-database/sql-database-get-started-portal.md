@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/24/2017
+ms.date: 05/30/2017
 ms.author: carlrab
 
 ---
@@ -90,13 +90,13 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the SQL databases page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170411.database.windows.net**) and provides options for further configuration.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration. Copy this fully qualified server name for use later.
 
    > [!IMPORTANT]
-   > You will need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
+   > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
@@ -104,7 +104,6 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
-
 
 3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -118,6 +117,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+>
 
 ## Query the SQL database
 
@@ -137,7 +137,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 5. After you are authenticated, type the following query in the query editor pane.
 
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p

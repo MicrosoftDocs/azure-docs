@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 05/30/2017
 ms.author: donnam
 
 ---
@@ -402,6 +402,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## Configuring binding data at runtime
+
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
 ## Next steps
 For more information on a specific binding, see the following articles:

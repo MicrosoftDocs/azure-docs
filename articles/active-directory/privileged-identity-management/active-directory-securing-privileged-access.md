@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
+ms.custom: pim
 
 ---
 # Securing privileged access in Azure AD

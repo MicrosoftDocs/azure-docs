@@ -17,15 +17,17 @@ ms.date: 03/27/2017
 ms.author: rajanaki
 ---
 
-#  Prerequisites for replication to Azure using Azure Site Recovery
+#  Prerequisites for replication from on-premises to Azure using Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Replicate from on-premises to Azure](site-recovery-prereq.md)
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of Azure virtiual machine to another Azure region and on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can fail over to a secondary location to keep apps and workloads available. You can fail back to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md).
 
-This article summarizes the prerequisites required to begin Site Recovery replication to Azure.
+This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
 
 Post any comments at the bottom of the article, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
 
 ## Azure requirements
 
@@ -40,7 +42,7 @@ Post any comments at the bottom of the article, or ask technical questions on th
 **Network mapping** | If you replicate Hyper-V VMs in Virtual Machine Manager clouds, you need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover.
 
 >[!NOTE]
->The following sections describe the prerequisites for various components in the customer environment. For more about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
+>The following sections describe the prerequisites for various components in the customer environment. For more details about support for specific configurations, read the [support matrix](site-recovery-support-matrix.md).
 >
 
 ## Disaster recovery of VMware virtual machines or physical Windows or Linux servers to Azure

@@ -30,23 +30,29 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## Configure IPsec/IKE policies on connections
-### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Configure Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Configure forced tunneling
-### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
+## Configure Site-to-Site and ExpressRoute coexisting connections
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Configure multiple Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (classic)](vpn-gateway-multi-site.md)
-## [Configure BGP for a VPN gateway](vpn-gateway-bgp-resource-manager-ps.md)
-## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
+## Connect multiple policy-based VPN devices
+### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
+## Configure IPsec/IKE policies on connections
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Configure highly available active-active connections
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Configure BGP for a VPN gateway
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## Configure forced tunneling
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
 ## Modify local network gateway settings
+### [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Delete a VPN gateway
@@ -54,9 +60,12 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [Gateway SKUs (old)](vpn-gateway-about-skus-legacy.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall devices settings](vpn-gateway-third-party-settings.md)
+### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [Site-to-Site connection cannot connect](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -74,6 +83,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
