@@ -45,9 +45,9 @@ In some instances, you may wish to remove a server from being monitored. Here's 
 When deleting a server, be aware of the following:
 
 * This action stops collecting any further data from that server. This server is removed from the monitoring service. After this action, you are not able to view new alerts, monitoring, or usage analytics data for this server.
-* This action does not uninstall the health agent from your server. If you have not uninstalled the health agent before performing this step, you may see errors related to the health agent on the server.
+* This action does not uninstall the Health Agent from your server. If you have not uninstalled the Health Agent before performing this step, you may see errors related to the Health Agent on the server.
 * This action does not delete the data already collected from this server. That data is deleted as per the Azure data retention policy.
-* After performing this action, if you wish to start monitoring the same server again, you must uninstall and reinstall the health agent on this server.
+* After performing this action, if you wish to start monitoring the same server again, you must uninstall and reinstall the Health Agent on this server.
 
 ### To delete a server from the Azure AD Connect Health service
 Azure AD Connect Health for Active Directory Federation Services (AD FS) and Azure AD Connect (Sync):
@@ -71,9 +71,9 @@ In some instances, you may wish to remove a service instance. Here's what you ne
 When deleting a service instance, be aware of the following:
 
 * This action removes the current service instance from the monitoring service.
-* This action does not uninstall or remove the health agent from any of the servers that were monitored as part of this service instance. If you have not uninstalled the health agent before performing this step, you may see errors related to the health agent on the server(s).
+* This action does not uninstall or remove the Health Agent from any of the servers that were monitored as part of this service instance. If you have not uninstalled the Health Agent before performing this step, you may see errors related to the Health Agent on the server(s).
 * All data from this service instance is deleted as per the Azure data retention policy.
-* After performing this action, if you wish to start monitoring the service, uninstall and reinstall the health agent on all the servers. After performing this action, if you wish to start monitoring the same server again, uninstall, reinstall, and register the health agent on that server.
+* After performing this action, if you wish to start monitoring the service, uninstall and reinstall the Health Agent on all the servers. After performing this action, if you wish to start monitoring the same server again, uninstall, reinstall, and register the Health Agent on that server.
 
 #### To delete a service instance from the Azure AD Connect Health service
 1. Open the **Service** blade from the **Service List** blade by selecting the service identifier (farm name) that you wish to remove.
@@ -83,7 +83,7 @@ When deleting a service instance, be aware of the following:
    <br><br>
 
 [//]: # (Start of RBAC section)
-## Manage access With Role-Based Access Control
+## Manage access with Role-Based Access Control
 [Role-Based Access Control (RBAC)](../role-based-access-control-configure.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
 
 ### Roles
@@ -98,7 +98,7 @@ Azure AD Connect Health supports the following built-in roles:
 All other roles (such as User Access Administrators or DevTest Labs Users) have no impact to access within Azure AD Connect Health, even if the roles are available in the portal experience.
 
 ### Access scope
-Azure AD Connect supports managing access at two levels:
+Azure AD Connect Health supports managing access at two levels:
 
 * **All service instances**: This is the recommended path in most cases. It controls access for all service instances (for example, an AD FS farm) across all role types that are being monitored by Azure AD Connect Health.
 * **Service instance**: In some cases, you may need to segregate access based on role types or by a service instance. In this case, you can manage access at the service instance level.  
