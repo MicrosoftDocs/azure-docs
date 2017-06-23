@@ -168,7 +168,6 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
 
 1. In the Arduino IDE, click **Sketch** > **Include Library** > **Manage Libraries**.
 1. Search for the following library names one by one. For each  library that you find, click **Install**.
-   * `Adafruit_WINC1500`
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -177,6 +176,7 @@ Install the package for Feather M0 WiFi in the Arduino IDE:
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. Manually install `Adafruit_WINC1500`. Visit [this link](https://github.com/adafruit/Adafruit_WINC1500) and click the **Clone or download** button, then **Download ZIP**. Then in your Arduino IDE, go to **Sketch** -> **Include Library** -> **Add .zip Library** and add the zip file you just downloaded.
 
 ### Don’t have a real BME280 sensor?
 
