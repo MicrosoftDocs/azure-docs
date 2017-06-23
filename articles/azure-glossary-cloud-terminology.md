@@ -143,7 +143,7 @@ See [About virtual machine extensions and features (Windows)](virtual-machines/w
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. An [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) lets you establish connections between virtual networks and [between a virtual network and an on-premises network](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within a virtual network.  
 See [Virtual Network Overview](virtual-network/virtual-networks-overview.md)  
 
-## See
+## See also
 
 * [Get started with Azure](https://azure.microsoft.com/get-started/)
 * [Cloud resource center](https://azure.microsoft.com/resources/)  
