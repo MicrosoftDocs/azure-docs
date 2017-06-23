@@ -56,7 +56,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. (You can separately scale the pods in the `azure-vote-back` deployment.) This example increases the number to 4:
+Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 4:
 
 ```bash
 kubectl scale --replicas=5 deployment/azure-vote-front

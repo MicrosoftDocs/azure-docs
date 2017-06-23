@@ -21,14 +21,14 @@ ms.author: nepeters
 
 # Update an application in Kubernetes
 
-Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
+Once an application has been deployed in a Kubernetes, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
 In this tutorial, the sample Azure Vote app is updated. Tasks completed include:
 
 > [!div class="checklist"]
 > * Updating the front-end application code
-> * Creating updated container images
-> * Pushing container images to ACR
+> * Creating an updated container image
+> * Pushing the container image to ACR
 > * Deploying updated application
 
 ## Before you begin
@@ -77,11 +77,13 @@ Browse to `http://localhost:8080` to see the updated application. The applicatio
 
 Tag the *azure-vote-front* image with the loginServer of the container registry.
 
-Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
+If using ACR, get the login server name with the [az acr list](/cli/azure/acr#list) command.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image, makign sure to update the command with your ACR login server or public registry hostname.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
@@ -97,7 +99,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ### Verify multiple replicas
 
-To ensure a staged deployment, ensure that you have multiple running instances of the azure-vote-front container.
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
 ```bash
 kubectl get pod
@@ -127,7 +129,7 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 
 ### Update application
 
-To update the application, run the following command. Update `<acrLoginServer>` with your ACR logging server name.
+To update the application, run the following command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
 ```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
@@ -165,10 +167,9 @@ In this tutorial, an application was updated and this update rolled out to a Kub
 
 > [!div class="checklist"]
 > * Updating the front-end application code
-> * Creating updated container images
-> * Pushing container images to ACR
+> * Creating an updated container image
+> * Pushing the container image to ACR
 > * Deploying updated application
-
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]

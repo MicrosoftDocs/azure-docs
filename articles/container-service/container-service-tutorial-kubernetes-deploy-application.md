@@ -24,7 +24,7 @@ ms.author: nepeters
 In this tutorial, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
-> * Understand Kubernetes objects
+> * Kubernetes objects introduction
 > * Download Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
@@ -45,7 +45,7 @@ For details on all Kubernetes object, see [Kubernetes Concepts](https://kubernet
 
 ## Get manifest files
 
-For this tutorial, Kubernetes objects are deployed using Kubernetes manifests. A Kubernetes manifest is a YAML file container object configuration instructions.
+For this tutorial, Kubernetes objects are deployed using Kubernetes manifests. A Kubernetes manifest is a YAML file containing object configuration instructions.
 
 The manifest files for each object in this tutorial are available in the Azure Vote application repo, which was cloned in a pervious tutorial. If you have not already done so, clone the repo with the following command: 
 
@@ -79,9 +79,7 @@ Once completed, a virtual disk is created and attached to the resulting Kubernet
 
 ### Secure sensitive values
 
-[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage environment for sensitive information. These secrets can then be used inside Kubernetes deployments.
-
-Using the `pod-secrets.yaml` file, the Azure Vote database credentials are stored in a secret. The values for each secret are stored in the Kubernetes manifest as base64 encoded strings. For this sample, notes have been placed inside the manifest with the decoded values.
+[Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) provide a secure storage for sensitive information. Using the `pod-secrets.yaml` file, the Azure Vote database credentials are stored in a secret. 
 
 Run the following to create the secrets objects.
 
@@ -105,7 +103,7 @@ Get the ACR login server name with the [az acr list](/cli/azure/acr#list) comman
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Update the *azure-vote-front* container image name in the `azure-vote-deployment.yaml` file.
+Update the *azure-vote-front* and *azure-vote-back* container image names in the `azure-vote-deployment.yaml` file.
 
 Front-end image name example:
 
@@ -114,8 +112,6 @@ containers:
       - name: azure-vote-front
         image: <acrLoginServer>/azure-vote-front:v1
 ```
-
-Update the *azure-vote-back* container image name in the `azure-vote-deployment.yaml` file.
 
 Back-end image name example:
 
@@ -171,7 +167,7 @@ Browse to the returned external IP address to see the application.
 In this tutorial, the Azure vote application was deployed to an Azure Container Service Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * Understand Kubernetes objects
+> * Kubernetes objects introduction
 > * Download Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
