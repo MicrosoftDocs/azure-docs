@@ -1,5 +1,5 @@
 ---
-title: Step 2: Prerequisites for VMware to Azure replication using Azure Site Recovery | Microsoft Docs
+title: Prerequisites for VMware to Azure replication using Azure Site Recovery | Microsoft Docs
 description: Summarizes the prerequisites for replicating workloads running on VMware VMs to Azure, using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
