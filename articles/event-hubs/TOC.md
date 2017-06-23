@@ -19,13 +19,11 @@
 
 # How to
 ## Plan and design
-### [🔧 Common integration scenarios with Azure services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
+### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ## Develop
-### [🔧 Handling errors and retry](event-hubs-handling-errors-retry.md)
-### [🔧 Managing performance and scale](event-hubs-performance-scale.md)
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -56,9 +54,10 @@
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Code samples](event-hubs-samples.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

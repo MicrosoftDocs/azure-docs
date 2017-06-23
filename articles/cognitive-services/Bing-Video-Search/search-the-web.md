@@ -21,10 +21,9 @@ If you're building a videos-only search results page to find videos that are rel
 
 ## Search query term
 
-If you're requesting videos from Bing, your user experience must provide a search box where the user enters a search query term. You can determine the maximum term length that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query) query parameter. For example, if the user entered *sailing dinghies*, you would set `q` to *sailing+dinghies* or *sailing%20dinghies*.
-
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
   
 ## Getting videos
 
@@ -122,7 +121,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 
 If the user clicks the thumbnail, the following are the video viewing options:
 
-- Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-hostpageurl) to view the video on the host website (for example, Youtube)  
+- Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)  
   
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-websearchurl) to view the video in the Bing video browser  
 

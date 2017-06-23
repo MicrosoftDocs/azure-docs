@@ -1,6 +1,6 @@
 ## Typical output
 
-The following is an example of the output written to the log file by the Hello World sample. The output is formatted for legibility:
+The following example shows the output written to the log file by the Hello World sample. The output is formatted for legibility:
 
 ```json
 [{
@@ -36,9 +36,9 @@ This section discusses some key sections of the code in the hello\_world sample.
 
 ### IoT Edge gateway creation
 
-The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and sets everything up to function correctly. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the IoT Edge modules to load.
+You must implement a *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and configures the gateway process. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, pass it the path to a JSON file that specifies the IoT Edge modules to load.
 
-You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
+You can find the code for the gateway process in the *Hello World* sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
 
 ```c
 int main(int argc, char** argv)
@@ -62,9 +62,9 @@ int main(int argc, char** argv)
 The JSON settings file contains a list of IoT Edge modules to load and the links between the modules. Each IoT Edge module must specify a:
 
 * **name**: a unique name for the module.
-* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. We provide loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use IoT Edge modules written in different languages, see the [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) samples.
-    * **name**: name of the loader used to load the module.
-    * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader's entry point is a .js file. The Java loader's entry point is a classpath plus a class name. The .NET loader's entry point is an assembly name plus a class name.
+* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. IoT Edge provides loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use IoT Edge modules written in different languages, see the [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) samples.
+    * **name**: the name of the loader used to load the module.
+    * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader entry point is a .js file. The Java loader entry point is a classpath and a class name. The .NET loader entry point is an assembly name and a class name.
 
 * **args**: any configuration information the module needs.
 
@@ -98,10 +98,10 @@ The following code shows the JSON used to declare all the IoT Edge modules for t
 
 The JSON file also contains the links between the modules that are passed to the broker. A link has two properties:
 
-* **source**: a module name from the `modules` section, or "\*".
+* **source**: a module name from the `modules` section, or `\*`.
 * **sink**: a module name from the `modules` section.
 
-Each link defines a message route and direction. Messages from module `source` are delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module are received by `sink`.
+Each link defines a message route and direction. Messages from the **source** module are delivered to the **sink** module. You can set the **source** module to `\*`, which indicates that the **sink** module receives messages from any module.
 
 The following code shows the JSON used to configure links between the modules used in the hello\_world sample on Linux. Every message produced by the `hello_world` module is consumed by the `logger` module.
 
@@ -180,7 +180,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 The logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
-The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The following snippet shows an amended version with comments added and some error handling code removed for legibility:
+The **Logger_Receive** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The following snippet shows an amended version with comments added and some error handling code removed for legibility:
 
 ```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -223,14 +223,13 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## Next steps
 
-To learn about how to use the Azure IoT Edge, see the following articles:
+In this article, you ran a simple IoT Edge gateway that writes messages to a log file. To run a sample that sends messages to IoT Hub, see [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated-linux] or [IoT Edge – send device-to-cloud messages with a simulated device using Windows][lnk-gateway-simulated-windows].
 
-* [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
-* [Azure IoT Edge][lnk-iot-edge] on GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/
-[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-linux]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-windows]: ../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md

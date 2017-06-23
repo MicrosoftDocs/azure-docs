@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,7 +16,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
-ms.editor: gahug
 ms.custom: it-pro
 
 ---
@@ -139,7 +139,7 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
 
 If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
 
-* [Restart the Azure AD Connect Sync Service](#restart-the-azure-AD-Connect-sync-service)
+* [Restart the Azure AD Connect Sync Service](#restart-the-azure-ad-connect-sync-service)
 * [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
 * [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
 * [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
@@ -194,6 +194,27 @@ We recommend, you perform this step only after attempting the first two steps de
 These steps re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
 If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest release.
+
+## Verify whether Azure AD Connect has the required permission for Password writeback 
+Azure AD Connect requires AD **Reset Password** permission to perform Password writeback. To find out if Azure AD Connect has the permission for a given on-premises AD User account, you can use the Windows Effective Permission feature:
+
+1. Log in to Azure AD Connect server and start the **Synchronization Service Manager** (Start → Synchronization Service).
+2. Under the **Connectors** tab, select the on-premises **AD connector** and click **Properties**.  
+![Effective Permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. In the pop-up dialog, select the **Connect to Active Directory Forest** tab and note down the **User name** property. This is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform Password writeback, the AD DS account must have Reset Password permission.  
+![Effective Permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. Log in to an on-premises Domain Controller and start the **Active Directory Users and Computers** application.
+5. Click **View** and make sure **Advanced Features** option is enabled.  
+![Effective Permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. Look for the AD User account you want to verify. Right-click on the account and select **Properties**.  
+![Effective Permission - step 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. In the pop-up dialog, go to the **Security** tab and click **Advanced**.  
+![Effective Permission - step 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. In the Advanced Security Settings pop-up dialog, go to the **Effective Access** tab.
+9. Click on **Select a user** and select the AD DS account used by Azure AD Connect (see step 3). Then click **View effective access**.  
+![Effective Permission - step 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. Scroll down and look for **Reset password**. If the entry is checked, it means that the AD DS account has permission to reset the password of the selected AD User account.  
+![Effective Permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## Azure AD forums
 

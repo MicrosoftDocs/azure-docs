@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,7 +16,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: joflore
-ms.editor: gahug
 ms.custom: it-pro
 
 ---
@@ -77,7 +77,7 @@ We recommend that you use the auto-update feature of [Azure AD Connect](./connec
 
 DirSync and Azure AD Sync are no longer supported means of enabling password writeback the article [Upgrade from DirSync and Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) has more information to help with your transition.
 
-The steps below assume you have already configured Azure AD Connect in your envionment using the [Express](./connect/active-directory-aadconnect-get-started-express.md) or [Custom](./connect/active-directory-aadconnect-get-started-custom.md) settings.
+The steps below assume you have already configured Azure AD Connect in your environment using the [Express](./connect/active-directory-aadconnect-get-started-express.md) or [Custom](./connect/active-directory-aadconnect-get-started-custom.md) settings.
 
 1. To configure and enable password writeback log in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
 2. On the Welcome screen click **Configure**.

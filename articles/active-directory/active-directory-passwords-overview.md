@@ -6,6 +6,7 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,7 +16,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: joflore
-ms.editor: gahug
 ms.custom: it-pro
 
 ---

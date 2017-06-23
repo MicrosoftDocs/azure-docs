@@ -99,10 +99,11 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Office 365 Admin Portal) |
 
 
-## Internet of Things (IoT)
+## [Internet of Things](documentation-government-services-iot-hub.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
+| [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) | Yes | Yes |
 | Event Hubs | Yes | Yes |
 | Notification Hubs | No | No (Go to [Legacy portal](https://manage.windowsazure.us/)) |
 
@@ -149,6 +150,6 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 

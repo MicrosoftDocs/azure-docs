@@ -48,6 +48,7 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
@@ -139,10 +140,11 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners

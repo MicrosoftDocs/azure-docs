@@ -3,7 +3,7 @@ title: Overview of the Azure Relay .NET Standard APIs | Microsoft Docs
 description: Relay .NET Standard API overview
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
-ms.author: jotaub
+ms.author: sethm
+
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview

@@ -12,17 +12,12 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 
 ---
 # Fail back from Azure to an on-premises site
-
-> [!div class="op_single_selector"]
-> * [VMware/physical machines from Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Hyper-V VMs from Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
 
 This article describes how to fail back virtual machines from Azure Virtual Machines to the on-premises site. Follow the instructions in this article to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using the [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md) tutorial.
 
@@ -71,7 +66,7 @@ If the on-premises virtual machine does not exist before reprotecting the virtua
 
 A physical machine, when failed over to Azure, can be failed back only as a VMware virtual machine (also referred to as P2A2V). This flow falls under the alternate location recovery.
 
-* A Windows Server 2008 R2 SP1 server, if protected and failed over to Azure, cannot be failed back.
+* A Windows Server 2008 R2 SP1 physical server, if protected and failed over to Azure, cannot be failed back.
 * Ensure that you discover at least one master target server and the necessary ESX/ESXi hosts to which you need to fail back.
 
 ## Have you completed reprotection?
@@ -107,7 +102,7 @@ Note that application-consistent recovery points can be behind in time, and ther
 
 ### What happens to VMware tools post failback?
 
-During failover to Azure, the VMware tools cannot be running on the Azure virtual machine. In case of a Windows virtual machine, ASR disables the VMware tools during failover. In case of Linux virtual machine, ASR uninstalls the VMware tools during failover. 
+During failover to Azure, the VMware tools cannot be running on the Azure virtual machine. In case of a Windows virtual machine, ASR disables the VMware tools during failover. In case of Linux virtual machine, ASR uninstalls the VMware tools during failover.
 
 During failback of the Windows virtual machine, the VMware tools are re-enabled upon failback. Similarly, for a linux virtual machine, the VMware tools are reinstalled on the machine during failback.
 

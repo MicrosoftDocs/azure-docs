@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
@@ -40,12 +40,7 @@
 #### [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
-### Virtual network peering
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Public IP addresses](virtual-network-public-ip-address.md)
+### [Virtual network peering](virtual-network-create-peering.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
@@ -108,6 +103,8 @@
 ### [Virtual networks](virtual-network-manage-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
+#### Classic
+##### [Network configuration file](virtual-networks-using-network-configuration-file.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -118,6 +115,7 @@
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
 ### Virtual machines
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
+### [Public IP addresses](virtual-network-public-ip-address.md)
 
 ## Troubleshoot
 ### Network security groups
@@ -147,6 +145,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)

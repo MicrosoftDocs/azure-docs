@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/02/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
 
 ---
@@ -33,15 +33,16 @@ If you want to connect your on-premises sites securely to a virtual network, you
 * What type of VPN gateway is required for the solution you want to create?
 * Which gateway SKU should you use?
 
+
+### Planning table
 The following table can help you decide the best connectivity option for your solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-#### Aggregate throughput by SKU and VPN type
+
+### Gateway SKUs
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### Supported configurations by SKU and VPN type
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>Workflow
 The following list outlines the common workflow for cloud connectivity:

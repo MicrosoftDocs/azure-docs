@@ -1,4 +1,4 @@
-﻿
+
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
@@ -48,7 +48,7 @@
 #### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
-### Back up servers and workloads
+### Back up VMs
 #### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
@@ -100,7 +100,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

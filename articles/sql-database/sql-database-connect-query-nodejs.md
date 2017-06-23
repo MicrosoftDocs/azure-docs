@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect, mvc
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs

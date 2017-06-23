@@ -1,5 +1,5 @@
 ---
-title: Use Script Action to install Solr on Linux-based HDInsight | Microsoft Docs
+title: Use Script Action to install Solr on Linux-based HDInsight - Azure | Microsoft Docs
 description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/23/2017
 ms.author: larryfr
 
 ---
@@ -27,7 +27,7 @@ Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a p
     > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!IMPORTANT]
-> The sample script used in this document creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
+> The sample script used in this document installs Solr 4.9 with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
 
 ## <a name="whatis"></a>What is Solr
 
@@ -42,7 +42,7 @@ Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a p
 
 This script makes the following changes to the HDInsight cluster:
 
-* Installs Solr into `/usr/hdp/current/solr`
+* Installs Solr 4.9 into `/usr/hdp/current/solr`
 * Creates a user, **solrusr**, which is used to run the Solr service
 * Sets **solruser** as the owner of `/usr/hdp/current/solr`
 * Adds an [Upstart](http://upstart.ubuntu.com/) configuration that starts Solr automatically.

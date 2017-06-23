@@ -6,12 +6,11 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/19/2017
 ---
 
 # Azure Database for PostgreSQL: Use Node.js to connect and query data
@@ -315,6 +314,6 @@ function queryDatabase()
 }
 ```
 
-## Next Steps
-- [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)
-- [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
+## Next steps
+> [!div class="nextstepaction"]
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)

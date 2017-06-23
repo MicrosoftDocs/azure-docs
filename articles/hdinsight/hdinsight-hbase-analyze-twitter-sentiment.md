@@ -1,5 +1,5 @@
 ---
-title: Analyze real-time Twitter sentiment with HBase | Microsoft Docs
+title: Analyze real-time Twitter sentiment with HBase - Azure | Microsoft Docs
 description: Learn how to do real-time sentiment analysis of big data from Twitter using HBase in an HDInsight (Hadoop) cluster.
 services: hdinsight
 documentationcenter: ''
