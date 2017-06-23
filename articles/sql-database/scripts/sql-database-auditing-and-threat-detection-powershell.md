@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Configure database auditing & threat detection | Microsoft Docs
-description: Azure PowerShell Script Sample - Configure SQL Database auditing & threat detection using PowerShell
+title: PowerShell example-auditing-threat detection-Azure SQL database  | Microsoft Docs
+description: Azure PowerShell example script to configure auditing & threat detection in an Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -15,13 +15,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Configure SQL Database auditing and threat detection using PowerShell
+# Use PowerShell to configure SQL Database auditing and threat detection
 
-This sample PowerShell script configures SQL Database auditing and threat detection. 
+This PowerShell script example configures SQL Database auditing and threat detection. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
