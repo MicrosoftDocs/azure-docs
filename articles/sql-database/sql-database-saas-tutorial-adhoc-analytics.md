@@ -53,6 +53,12 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 The Wingtip SaaS scripts and application source code are available in the WingtipSaaS GitHub repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
+## Create ticket sales history
+
+To run ad-hoc distribute queries, we need some data to query. 
+1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
+1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
+
 
 ## Explore the global views
 
@@ -91,7 +97,7 @@ To examine the definition of the *Venues* view:
 
 Script any of the other *Venue* views to see how they add the *VenueId*.
 
-## Deploy the database used for ad-hoc analytics queries
+## Deploy the database used for ad-hoc distributed queries
 
 This exercise deploys the *adhocanalytics* database. This is the head database that will contain the schema used for querying across all tenant databases. The database is deployed to the existing catalog server, which is the server used for all management-related databases in the sample app.
 
@@ -102,7 +108,7 @@ This exercise deploys the *adhocanalytics* database. This is the head database t
 
 In the next section, you add schema to the database so it can be used to run distributed queries.
 
-## Add analytics schema to the ad-hoc analytics database
+## Configure the database for running distributed queries
 
 This exercise adds schema (the external data source and external table definitions) to the ad-hoc analytics database that enables querying across all tenant databases.
 
@@ -132,25 +138,38 @@ This exercise adds schema (the external data source and external table definitio
 
 Now you can run distributed queries, and gather insights across all tenants!
 
-## Run Ad-hoc analytics queries
+## Run ad-hoc distributed queries
 
-Now that the *adhocanalytics* database is set up, run some distributed queries:
+Now that the *adhocanalytics* database is set up, go ahead and run some distributed queries. Include the execution plan for a better understanding of where the query processing is happening. 
 
-1. Ensure you are connected to the **adhocanalytics** database.
+When inspecting the execution plan, hover over the plan icons for details. 
+
+Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we defined the external data source, improves performance for many scenarios. Because each *VenueId* maps to a single database, filtering is easily done remotely, returning only the data we need.
+
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalyticsQueries.sql* in SSMS.
-1. Select the *What are the most popular venue types?* query, and press **F5**:
-
-    ![query](media/sql-database-saas-tutorial-adhoc-analytics/query.png)
-
-Lets run the query again, but this time, lets inspect the execution plan:
-
+1. Ensure you are connected to the **adhocanalytics** database.
 1. Select the **Query** menu and click **Include Actual Execution Plan**
-1. Press **F5** to run the query.
-1. Open the **Execution plan**:
+1. Highlight the *Which venues are currently registered?* query, and press **F5**.
 
-    ![execution plan](media/sql-database-saas-tutorial-adhoc-analytics/actual-plan.png)
+   The query returns the entire venue list, illustrating how quick and easy it is to query across all tenants and return data from each tenant.
 
-Note the bulk of the query cost is performed on the remote server, returning just a single row for each venue's aggregate ticket sale count.
+   Inspect the plan and see that the entire cost is the remote query because we're simply going to each tenant database and selecting the venue information.
+
+   ![SELECT * FROM dbo.Venues](media/sql-database-saas-tutorial-adhoc-analytics/query1-plan.png)
+
+1. Select the next query, and press **F5**.
+
+   This query joins data from the tenant databases and the local *VenueTypes* table (local, as its a table in the *adhocanalytics* database).
+
+   Inspect the plan and see that the majority of cost is the remote query because we query each tenant's venue info (dbo.Venues), and then do a quick local join with the local *VenueTypes* table to display the friendly name.
+
+   ![Join on remote and local data](media/sql-database-saas-tutorial-adhoc-analytics/query2-plan.png)
+
+1. Now select the *On which day were the most tickets sold?* query, and press **F5**.
+
+   This query does a bit more complex joining and aggregation. What's important to note is that most of the processing is done remotely, and once again, we bring back only the rows we need, returning just a single row for each venue's aggregate ticket sale count per day.
+
+   ![query](media/sql-database-saas-tutorial-adhoc-analytics/query3-plan.png)
 
 
 ## Next steps
