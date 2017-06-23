@@ -140,4 +140,4 @@ This scenario is an example of how to read entries in NSG flow logs without havi
 
 ## Next steps
 
-Visit [visualize Azure Network Watcher NSG flow logs using open source tools](../network-watcher-visualize-nsg-flow-logs-open-source-tools.md) to learn more about other ways to view NSG flow logs.
+Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) to learn more about other ways to view NSG flow logs.
