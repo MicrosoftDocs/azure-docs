@@ -57,4 +57,4 @@ Make sure you've read the [prerequisites](vmware-walkthrough-prerequisites.md)
 
 ## Next steps
 
-Go to [Step 6: Prepare Azure resources](vmware-walkthrough-prepare-azure.md)
+Go to [Step 6: Prepare VMware resources](vmware-walkthrough-prepare-vmware.md)
