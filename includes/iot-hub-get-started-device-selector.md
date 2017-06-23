@@ -4,7 +4,7 @@
 > * [Simulated device with Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Simulated device with Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 > * [Simulated IoT Edge gateway on Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
-> * [Simulated IoT Edge gateway Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
+> * [Simulated IoT Edge gateway on Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
 > * [Raspberry Pi with Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi with C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)
 > * [Intel Edison with Node.js](../articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md)
