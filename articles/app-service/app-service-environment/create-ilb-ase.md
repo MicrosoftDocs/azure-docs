@@ -195,13 +195,13 @@ For more information about the Azure App Service platform, see [Azure App Servi
 [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
-[Intro]: ./app-service-env-intro.md
-[MakeExternalASE]: ./app-service-env-create-external-ase.md
-[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
-[MakeILBASE]: ./app-service-env-create-ilb-ase.md
-[ASENetwork]: ./app-service-env-network-info.md
-[ASEReadme]: ./app-service-env-readme.md
-[UsingASE]: ./app-service-env-using-an-ase.md
+[Intro]: ./intro.md
+[MakeExternalASE]: ./create-external-ase.md
+[MakeASEfromTemplate]: ./create-from-template.md
+[MakeILBASE]: ./create-ilb-ase.md
+[ASENetwork]: ./network-info.md
+[ASEReadme]: ./readme.md
+[UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/virtual-networks-nsg.md
 [ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
