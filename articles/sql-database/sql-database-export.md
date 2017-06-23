@@ -93,47 +93,6 @@ while ($importStatus.Status -eq "InProgress")
 $importStatus
 ```
 
-### Export SQL database example
-The following example exports an existing Azure SQL database to a BACPAC and then shows how to check the status of the export operation.
-
-To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure portal](https://portal.azure.com), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
-
-Replace the following `VARIABLE-VALUES` with values for your specific Azure resources. The database name is the existing database you want to export.
-
-```powershell
-$subscriptionId = "YOUR AZURE SUBSCRIPTION ID"
-
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $subscriptionId
-
-# Database to export
-$DatabaseName = "DATABASE-NAME"
-$ResourceGroupName = "RESOURCE-GROUP-NAME"
-$ServerName = "SERVER-NAME
-$serverAdmin = "ADMIN-NAME"
-$serverPassword = "ADMIN-PASSWORD" 
-$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
-$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
-
-# Generate a unique filename for the BACPAC
-$bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
-
-# Storage account info for the BACPAC
-$BaseStorageUri = "https://STORAGE-NAME.blob.core.windows.net/BLOB-CONTAINER-NAME/"
-$BacpacUri = $BaseStorageUri + $bacpacFilename
-$StorageKeytype = "StorageAccessKey"
-$StorageKey = "YOUR STORAGE KEY"
-
-$exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-  -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
-  -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
-
-$exportRequest
-
-# Check status of the export
-Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
-```
-
 ## Next steps
 
 * To learn about long-term backup retention of an Azure SQL database backup as an alternative to exported a database for archive purposes, see [Long-term backup retention](sql-database-long-term-retention.md).
