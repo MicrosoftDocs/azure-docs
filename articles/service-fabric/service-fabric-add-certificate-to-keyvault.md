@@ -1,5 +1,5 @@
 ---
-title: Add certificate to KeyValult | Microsoft Docs
+title: Add certificate to Keyvault | Microsoft Docs
 description: This article describes how to set up a keyvault and upload your certificate to it. The certificate can then be used to set secure Service Fabric cluster in Azure or for use in your applications running in azure.
 services: service-fabric
 documentationcenter: .net
@@ -18,11 +18,11 @@ ms.author: chackdan
 ---
 # Set up a Key Vault and upload your certificate to it using Azure Resource Manager
 
-This step-by-step guide walks you through setting up a key vault and uploading an x509 certificate to it, such that it can be used for setting up  a secure Service Fabric Cluster. You follow the same steps for uploading additional certificates to the same keyvault, that you may need to rollover old certificates in your cluster.
+This step-by-step guide walks you through setting up a key vault and uploading an x509 certificate to it, such that it can be used for setting up  a secure Service Fabric Cluster. You follow the same steps for uploading additional certificates to the same keyvault, that you may need to roll over old certificates in your cluster.
 
 ##Prerequisites
  
-You need to have [azure-powershell 4.1.0][azure-powershell 4.1.0] or higher installed .
+You need to have [azure powershell 4.1.0][azure-powershell4.1.0] or higher installed.
 
 ## Sign in to your Azure account
 Start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -280,8 +280,8 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 ## Use the certificate you uploaded to Keyvault to Create or add to your Service Fabric cluster 
 
 You have two options
-1. Use the [Portal to deploy your cluster](service-fabric-cluser-creation-via-portal.md)
-2. Use the [Azure resource manager template to deploy your cluster](service-fabric-cluser-creation-via-arm.md)
+1. Use the [Portal to deploy your cluster](service-fabric-cluster-creation-via-portal.md)
+2. Use the [Azure Resource Manager template to deploy your cluster](service-fabric-cluster-creation-via-arm.md)
 
 
  <a name="secure-linux-cluster"></a>
@@ -312,7 +312,7 @@ az account set --subscription
 ## Set up a key vault and uploading a certificate to it.
 This section discusses creating a key vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide to Azure Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
 
-Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster ARM template is deployed, the Azure resource provider that's responsible for creating virtual machine scale sets, pulls certificates from Key Vault and installs them on the VMs. 
+Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster Azure Resource Manager template is deployed, the Azure resource provider that's responsible for creating virtual machine scale sets, pulls certificates from Key Vault and installs them on the VMs. 
 
 The following diagram illustrates the relationship between Azure Key Vault, a Service Fabric cluster, and the Azure resource provider that uses certificates stored in a key vault when it creates a cluster:
 
@@ -323,6 +323,8 @@ The first step is to create a resource group specifically for your key vault. We
 
 If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  
 
+To use an existing key vault, you _must enable it for deployment_ to allow the compute resource provider to get certificates from it and install it on cluster nodes
+
 #### Uploading the certificate that you already have 
  
 Use the helper script to create (or use an existing) Resource group and upload your CA signed certificate to the keyvault (new or existing).
@@ -331,7 +333,7 @@ The certificate's subject name must match the domain that you use to access the 
 
 We recommend that you put the key vault into its own resource group. This action lets you keep your keys and secrets, even if you remove the resource group that contains your Service Fabric cluster. The resource group that contains your key vault _must be in the same region_ as the cluster that is using it.
 
-If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  The script below will create the Resource group, if it does not exist.
+If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  The script below creates a new Resource group, if it does not exist.
 
 ```sh
 ./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
@@ -401,23 +403,16 @@ This command returns the following three strings as the output:
 Use the certificate you uploaded to Keyvault to Create or add to your Service Fabric cluster 
 
 You have two options
-1. Use the [Portal to deploy your secure Service Fabric cluster](service-fabric-cluser-creation-via-portal.md)
-2. Use the [Azure resource manager template to deploy your secure Service Fabric cluster](service-fabric-cluser-creation-via-arm.md)
+1. Use the [Portal to deploy your secure Service Fabric cluster](service-fabric-cluster-creation-via-portal.md)
+2. Use the [Azure Resource Manager template to deploy your secure Service Fabric cluster](service-fabric-cluster-creation-via-arm.md)
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[azure-powershell 4.1.0]:https://azure.microsoft.com/downloads/ 
+[azure-powershell4.1.0]:https://azure.microsoft.com/downloads/ 
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
-[azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
-[service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
-[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
-[x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
+
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
