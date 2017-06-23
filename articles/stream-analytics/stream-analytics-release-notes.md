@@ -33,7 +33,7 @@ This update is for our troubleshooting documentation release.
 
 The [troubleshooting guide](stream-analytics-troubleshooting-guide.md) and other docs were released. Please review, feedback is welcome.
 
-## Notes for 06/14/2017 update of Stream Analytics Tools for Visual Studio
+## Notes for 04/24/2017 update of Stream Analytics Tools for Visual Studio
 This update is for our Visual Studio Tools. This release contains the following new features.
 
 | Title | Description |
