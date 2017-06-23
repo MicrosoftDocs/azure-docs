@@ -33,7 +33,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
-    ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)    
+    ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Before you begin, you must download and install the Azure Functions Tools for Vi
 
 From the **Tools** menu in Visual Studio, select **Extensions and Updates...**, then select **Online** > **Visual Studio Marketplace**, select **Azure Functions Tools for Visual Studio 2017**, and click **Download**.
  
-![Install Azure Functions Tools for Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vstools-install.png) 
+![Install Azure Functions Tools for Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vstools-install.png)
 
 Close Visual Studio and accept the prompts to download and install the new tools.    
 
@@ -53,13 +53,11 @@ The Azure Functions project template in Visual Studio creates a project that can
 
 Open Visual Studio and from the **File** menu select **New** > **Project**.  
 
-In the **New Project** dialog, expand **Visual C#** > **Cloud** node, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. You can specify a different   
+In the **New Project** dialog, expand **Visual C#** > **Cloud** node, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. 
 
 ![New project dialog to create a function in Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
-Visual Studio creates a project containing a [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
-
-Now that you have created the function app project, you can create your first function.
+Now that you have created the project, you can create your first function.
 
 ## Create the function
 
@@ -87,13 +85,15 @@ To stop debugging, click the **Stop** button on the Visual Studio toolbar.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
-## Publish the function to Azure
+## Publish the project to Azure
+
+You must have a function app in your Azure subscription before you can publish your project. You can create a function app right from Visual Studio.
 
 In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then click **Publish**. 
 
 ![Publish create new function app](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish-new-function-app.png)
 
-If you aren't already connected your Azure account to Visual Studio, click **Add an account...**.  
+If you haven't already connected Visual Studio to your Azure account, click **Add an account...**.  
 
 In the **Create App Service** dialog, use the hosting settings as specified in the table. 
 
@@ -109,7 +109,7 @@ In the **Create App Service** dialog, use the hosting settings as specified in t
 
 Click **Create** to create a function app in Azure with these settings. 
 
-After the provisioning is complete, click **Publish** to deploy your code to the new function app. 
+After the provisioning is complete, click **Publish** to deploy your project code to the new function app. 
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish-profile.png)
 
@@ -119,7 +119,7 @@ Make a note of the **Site URL** value, which is the address of your function app
 
 Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request.
 
-The URL looks like this:
+The URL that calls your HTTP triggered function looks like this:
 
     http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
