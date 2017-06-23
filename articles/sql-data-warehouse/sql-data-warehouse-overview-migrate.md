@@ -52,7 +52,7 @@ To perform a successful migration, you need to plan for migrating your table sch
 
 -  [Migrate your schemas](sql-data-warehouse-migrate-schema.md)
 -  [Migrate your code](sql-data-warehouse-migrate-code.md)
--  [Migrate your data](sql-data-warehouse-migrate-data). 
+-  [Migrate your data](sql-data-warehouse-migrate-data.md). 
 
 ## Perform the migration
 
@@ -67,13 +67,8 @@ The CAT (Customer Advisory Team) also has some great SQL Data Warehouse guidance
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your schema]: sql-data-warehouse-migrate-schema.md
-[Migrate your data]: sql-data-warehouse-migrate-data.md
-[Migrate your code]: sql-data-warehouse-migrate-code.md
-
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
