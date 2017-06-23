@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/23/2017
 ms.author: billgib; sstein
 
 ---
@@ -47,7 +47,7 @@ One of the great opportunities with SaaS applications is to use the vast amount 
 
 Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use [Elastic Query](sql-database-elastic-query-overview.md), which enables querying across a distributed set of databases with common schema. Elastic Query uses a single *head* database in which external tables are defined that mirror tables or views in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to provide the location of the tenant databases. Setup and query are straightforward using standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), and support ad-hoc querying from tools like Power BI and Excel.
 
-By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency is often higher than for equivalent queries submitted to a single multi-tenant database. Care should be taken when designing queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries don't perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database and how much data is being returned. Queries that require complex analytical processing are better served by extracting tenant data into a dedicated database or data warehouse optimized for analytics queries. This pattern is explained in the [tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md). 
+By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Care should be taken when designing queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries don't perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database and how much data is being returned. Queries that require complex analytical processing may be better served in some cases by extracting tenant data into a dedicated database or data warehouse optimized for analytics queries. This pattern is explained in the [tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md). 
 
 ## Get the Wingtip application scripts
 
@@ -64,7 +64,7 @@ To run queries against a more interesting data set, create ticket sales data by 
 
 ## Explore the global views
 
-The Wingtip SaaS application is built using a tenant-per-database model, so the tenant database schema is defined from a single-tenant perspective. Tenant-specific information exists in one table, *Venue*, which always has a single row, and is furthermore designed as a heap, without a primary key. Other tables in the schema don't need to be related to the *Venue* table, because in normal use, there is never any doubt which tenant the data belongs to.
+The Wingtip SaaS application is built using a tenant-per-database model, so the tenant database schema is defined from a single-tenant perspective. Tenant-specific information exists in one table, *Venue*, which always has a single row, and is implemented as a heap, without a primary key. Other tables in the schema don't need to be related to the *Venue* table, because in normal use, there is never any doubt which tenant the data belongs to.
 
 However, when querying across all databases, it's important that Elastic Query can treat the data as if it is part of a single logical database sharded by tenant. To achieve this, a set of 'global' views are added to the tenant database that project a tenant id into each of the tables that are queried globally. For example, the *VenueEvents* view adds a computed *VenueId* to the columns projected from the *Events* table. By defining the external table in the head database over *VenueEvents* (rather than the underlying *Events* table), Elastic Query is able to push down joins based on *VenueId* so they can be executed in parallel on each remote database (rather than on the head database). This dramatically reduces the amount of data that is returned, which results in a substantial increase in performance for many queries. These global views have been pre-created in all tenant databases (and in *basetenantdb*).
 
@@ -122,11 +122,11 @@ This exercise adds schema (the external data source and external table definitio
 
     ![create credential](media/sql-database-saas-tutorial-adhoc-analytics/create-credential.png)
 
-   The external data source, that is defined to use the tenant shard map in the catalog database. By using this as the external data source, queries are distributed to all databases registered in the catalog when the query is run. In this initialization script, the location of the catalog database is constructed by retrieved from the location of the current server (@@servername) where the script is being run.
+   The external data source, that is defined to use the tenant shard map in the catalog database. By using this as the external data source, queries are distributed to all databases registered in the catalog when the query is run. Because server names are different for each deployment, this initialization script gets the location of the catalog database by retrieving the current server (@@servername) where the script is executed.
 
     ![create external data source](media/sql-database-saas-tutorial-adhoc-analytics/create-external-data-source.png)
 
-   The external tables that reference the global views described in the previous section.
+   The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to a single database, this improves performance for many scenarios as shown in the next section.
 
     ![create external tables](media/sql-database-saas-tutorial-adhoc-analytics/external-tables.png)
 
