@@ -20,13 +20,15 @@ ms.custom: it-pro
 
 # How to require two-step verification for a user or group
 
-There are two approaches for requiring two-step verification. The first option is to enable each individual user for Azure Multi-Factor Authentication. When users are enabled this way, they are always required to perform two-step verification (with some exceptions, like when they sign in from trusted IP addresses or if the remembered devices feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
+There are two approaches for requiring two-step verification. The first option is to enable each individual user for Azure Multi-Factor Authentication. When users are enabled individually, they always perform two-step verification (with some exceptions, like when they sign in from trusted IP addresses or if the remembered devices feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
-## Enable Azure MFA by changing user states
+These two methods should be treated as mutually exclusive. Enabling a user for Azure MFA overrides any conditional access policies.
+
+## Enable Azure MFA by changing user status
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-| State | Description | Non-browser apps affected |
+| Status | Description | Non-browser apps affected |
 |:---:|:---:|:---:|
 | Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |
 | Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
@@ -36,7 +38,7 @@ A user's state reflects whether an admin has enrolled them in Azure MFA, and whe
 
 All users start out *disabled*. When you enroll users in Azure MFA, their state changes *enabled*. When enabled users sign in and complete the registration process, their state changes to *enforced*.  
 
-### View user states
+### View the status for a user
 
 Use the following steps to access the page where you can view and manage user states:
 
@@ -47,7 +49,7 @@ Use the following steps to access the page where you can view and manage user st
 4. A new page, which displays the user states, opens.
    ![multi-factor authentication user status - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-### Change the state 
+### Change the status for a user
 
 1. Use the preceding steps to get to the multi-factor authentication users page.
 2. Find the user that you want to enable for Azure MFA. You may need to change the view at the top. 
@@ -57,11 +59,11 @@ Use the following steps to access the page where you can view and manage user st
    ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
 
    >[!TIP]
-   >*Enabled* users will automatically switch to *Enforced* when they register for Azure MFA. You shouldn't manually change the user state to Enforced. 
+   >*Enabled* users automatically switch to *enforced* when they register for Azure MFA. You shouldn't manually change the user state to enforced. 
 
 5. Confirm your selection in the pop-up window that opens. 
 
-After you enable users, you should notify them via email. Include the fact that they'll be asked to register the next time they sign in, and that some non-browser apps may not work with two-step verification. You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
+After you enable users, you should notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they'll need to create app passwords. You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
 
 
 ## Enable Azure MFA with a conditional access policy
@@ -71,11 +73,11 @@ Conditional access is a paid feature of Azure Active Directory, with many possib
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Go to **Azure Active Directory** > **Conditional access**.
 3. Select **New policy**.
-4. Under **Assignments** select **Users and groups**. Use the **Include** and **Exclude** tabs to specify which users and groups should be managed by the policy.
-5. Under **Assignments** select **Cloud apps**. Choose to include **All cloud apps**.
-6. Under **Access controls** select **Grant**. Choose **Require multi-factor authentication**.
+4. Under **Assignments**, select **Users and groups**. Use the **Include** and **Exclude** tabs to specify which users and groups will be managed by the policy.
+5. Under **Assignments**, select **Cloud apps**. Choose to include **All cloud apps**.
+6. Under **Access controls**, select **Grant**. Choose **Require multi-factor authentication**.
 7. Turn **Enable policy** to **On** and then select **Save**.
 
-The additional options in the conditional access policy configuration allow you to specify exactly when two-step verification should be required. For example, you could make a policy that states, when contractors try to access cloud apps from untrusted networks on devices that are not domain-joined, require two-step verification. 
+The other options in the conditional access policy allow you to specify exactly when two-step verification should be required. For example, you could make a policy that states: when contractors try to access our procurement app from untrusted networks on devices that are not domain-joined, require two-step verification. 
 
 ## Next steps
