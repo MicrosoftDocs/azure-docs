@@ -52,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for Request Unit per Minute (RU/m) feature.
+*	Added support for the request unit per minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
 *	Added support for query metrics for individual partitions.
 *	Added support for limiting the size of the continuation token for queries.
