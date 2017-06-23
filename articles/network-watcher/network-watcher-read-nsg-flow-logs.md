@@ -30,7 +30,7 @@ In the following scenario, we step through how to read the latest event in an NS
 
 Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
-## Setup variables
+## Setup variables and retrieve block list
 
 The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the block blob.
 
