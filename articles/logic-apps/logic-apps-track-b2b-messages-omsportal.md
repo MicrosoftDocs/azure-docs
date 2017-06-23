@@ -17,18 +17,16 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Track AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS) with Azure Log Analytics
+# Track AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS)
 
 When you set up B2B communication in your integration account 
 between two running business processes or applications, 
 those entities can exchange messages with each other. 
 To check whether these messages are processed correctly, 
-you can track your messages with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+you can track your messages with [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). 
-Log Analytics monitors your cloud and on-premises environments to help you 
-maintain their ability and performance. For example, you can use 
-these web-based tracking capabilities for tracking messages:
+For example, you can use these web-based tracking capabilities 
+for tracking messages:
 
 * Message count and status
 * Acknowledgments status
@@ -40,16 +38,16 @@ these web-based tracking capabilities for tracking messages:
 
 * A logic app that's set up with diagnostics logging. 
 Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's set up with monitoring and logging. 
-Learn [how to create an integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-and [how to set up monitoring and logging for that account](logic-apps-monitor-b2b-message.md).
+Learn [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
 * An OMS workspace for [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
 Learn more about [how to create this workspace](../log-analytics/log-analytics-get-started.md). 
 
-* If you haven't already, [publish diagnostic data to Log Analytics](logic-apps-track-b2b-messages-omsportal.md) in OMS.
+* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
 
 ## Add the Logic Apps B2B solution to the Operations Management Suite (OMS)
 
@@ -114,7 +112,8 @@ Choose the tile for **AS2**, **X12**, or **EDIFACT**.
 
 3. To view and export the input and output details for specific messages, 
 select those messages, and choose **Download**. When you're prompted, 
-save the .zip file to your local computer, and then extract that file. For example:
+save the .zip file to your local computer, and then extract that file. 
+For example:
 
    ![Download message files](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
 
@@ -153,7 +152,7 @@ on the **Log Search** page, choose a message from the message list.
 ## Property descriptions and name formats for AS2, X12, and EDIFACT messages
 
 For each message type, here are the property descriptions 
-and name formats for downloaded messages.
+and name formats for downloaded message files.
 
 <a name="as2-message-properties"></a>
 
@@ -176,14 +175,14 @@ Here are the property descriptions for each AS2 message.
 
 <a name="as2-folder-file-names"></a>
 
-### AS2 name formats for downloaded messages
+### AS2 name formats for downloaded message files
 
 Here are the name formats for each downloaded AS2 message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -209,14 +208,14 @@ Here are the property descriptions for each X12 message.
 
 <a name="x12-folder-file-names"></a>
 
-### X12 name formats for downloaded messages
+### X12 name formats for downloaded message files
 
 Here are the name formats for each downloaded X12 message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -242,20 +241,20 @@ Here are the property descriptions for each EDIFACT message.
 
 <a name="edifact-folder-file-names"></a>
 
-### EDIFACT name formats for downloaded messages
+### EDIFACT name formats for downloaded message files
 
 Here are the name formats for each downloaded EDIFACT message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
 | Message | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
+| Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 ## Next steps
 
-* [Track B2B messages with queries in Operations Management Suite](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
-* [Custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)
-* [AS2 tracking schemas](logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Query for B2B messages in Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
+* [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

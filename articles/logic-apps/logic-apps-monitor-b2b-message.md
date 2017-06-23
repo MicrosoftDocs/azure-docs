@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B transactions - Azure Logic Apps | Microsoft Docs
-description: Monitor AS2, X12, and EDIFACT messages and log diagnostics data for your integration account and logic apps
+title: Monitor and log B2B transactions - Azure Logic Apps | Microsoft Docs
+description: Set up monitoring and logging for AS2, X12, and EDIFACT messages for your integration account and logic apps
 author: padmavc
 manager: anneta
 editor: ''
@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor AS2, X12, and EDIFACT messages and log diagnostics data to check success, errors, and message properties
+# Monitor AS2, X12, and EDIFACT messages and set up logging to check success, errors, and message properties
 
 When you set up B2B communication in your integration account for your logic app 
 between two running business processes or applications, 
@@ -32,11 +32,11 @@ You can monitor and track messages that use these B2B protocols: AS2, X12, and E
 ## Requirements
 
 * A logic app that's set up with diagnostics logging. 
-Learn [how to create a logic app](logic-apps-create-a-logic-app.md) 
-and [how to set up logging for that logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) 
+and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * An integration account that's linked to your logic app. Learn 
-[how to create an integration account with a link your logic app](logic-apps-enterprise-integration-create-integration-account.md).
+[how to create an integration account with a link your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 * A workspace in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
 so you can use [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
@@ -44,14 +44,20 @@ Log Analytics is a service in OMS that monitors your cloud and on-premises
 environments to help you maintain their availability and performance. 
 Learn [how to create this workspace](../log-analytics/log-analytics-get-started.md).
 
-## Turn on diagnostics data logging for your integration account
+## Turn on logging for your integration account
+
+For richer debugging with runtime details and events, 
+you can set up diagnostic logging with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+Log Analytics is a service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 
+that monitors your cloud and on-premises environments 
+to help you maintain their availability and performance. 
 
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service), 
 which provides [basic monitoring with infrastructure-level data](../monitoring-and-diagnostics/monitoring-overview.md). 
 Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
-### Turn on diagnostics data logging directly from your integration account
+### Turn on logging directly from your integration account
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your integration account. 
@@ -84,16 +90,16 @@ Otherwise, select the values that you want:
    2. Under **Log Analytics**, choose **Configure**. 
    3. Under **OMS Workspaces**, select the OMS workspace 
    to use for logging.
-   4. Under **Log**, select **IntegrationAccountTrackingEvents**.
+   4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. Choose **Save**.
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages through Log Analytics in OMS](logic-apps-track-b2b-messages-omsportal.md).
+5. Now [set up tracking for your B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
-### Turn on diagnostics data logging through the Monitor service
+### Turn on logging through the Azure Monitor service
 
 1. In the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, choose **Monitor**, **Diagnostics logs**. 
@@ -120,18 +126,18 @@ Otherwise, select the values that you want:
 
    ![Turn on Azure Diagnostics](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Now select the OMS workspace and data to use for logging as shown:
+4. Now select the OMS workspace and event category for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
    3. Under **OMS Workspaces**, select the OMS workspace 
    to use for logging.
-   4. Under **Log**, select **IntegrationAccountTrackingEvents**.
+   4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. When you're done, choose **Save**.
 
    ![Set up Log Analytics so you can send diagnostics data to a log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Now [set up tracking for your B2B messages through Log Analytics in OMS](logic-apps-track-b2b-messages-omsportal.md).
+5. Now [set up tracking for your B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Extend how and where you use diagnostic data with other services
 
@@ -142,7 +148,7 @@ diagnostic data with other Azure services, for example:
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 You can then get real-time monitoring for your workflows by using the telemetry 
-in these services with other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+in these services and other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -161,12 +167,12 @@ or [create an Azure event hub](../event-hubs/event-hubs-create.md):
 Azure supports these tracking schema types, 
 which all have fixed schemas except the Custom type.
 
-* [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
+* [AS2 tracking schema](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 tracking schema](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## Next steps
 
-* [Track B2B messages through Log Analytics in OMS](logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in OMS")
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
+* [Track B2B messages in OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in OMS")
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 

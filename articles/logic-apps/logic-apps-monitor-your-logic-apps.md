@@ -1,6 +1,6 @@
 ---
-title: Monitor performance, start logging, and get alerts for Azure Logic Apps | Microsoft Docs
-description: View history, turn on event logging, and set up alerts for logic apps
+title: Monitor performance, start logging, and get alerts - Azure Logic Apps | Microsoft Docs
+description: View run history, log diagnostic data, and set up alerts for your logic apps in Azure
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -18,20 +18,18 @@ ms.date: 06/23/2017
 ms.author: LADocs; jehollan
 ---
 
-# Monitor performance, set up logging, and turn on alerts for logic apps
+# Monitor status and performance, set up logging, and turn on alerts for Azure Logic Apps
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
-you can check its status, performance, and history in the Azure portal. 
+you can check its status, performance, and run history in the Azure portal. 
 For monitoring events in real time, richer debugging, and notifications 
-about failures or other possible problems, you can also set up 
+about failures or other possible problems, you can set up 
 [logging](#azure-diagnostics) and [alerts](#add-azure-alerts). 
-You can also set up monitoring with the 
-[REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
 For example, you can create an alert for 
 "when more than five runs fail within an hour." 
 After your logic app runs, you can [view the events](#find-events) 
-that happen during your logic app run.
+that happened during your logic app run.
 
 ## View runs and triggers history for your logic app
 
@@ -55,8 +53,7 @@ choose **Overview**.
 
    ![Logic app runs history and trigger history](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   To learn more about the statuses for each run and trigger, 
-   see [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+   For status descriptions, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
    > [!TIP]
    > If you don't find the data that you expect, 
@@ -77,13 +74,13 @@ The monitor view shows each step in that run.
    which you might need when you use the 
    [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic),
 
-5. To view the details about a specific step, 
-choose the step that you want to expand. For example:
+5. To get details about a specific step, 
+choose that step. For example:
 
    ![Step details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
 
    You can now review details like inputs, outputs, 
-   and any error messages that might have happened for each step
+   and any errors that happened for that step.
    
    > [!NOTE]
    > All runtime details and events are encrypted within the Logic App service. 
@@ -91,17 +88,17 @@ choose the step that you want to expand. For example:
    > You can also control access to these events with 
    > [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
-6. To view the details for a specific trigger event, 
+6. To get details about a specific trigger event, 
 go back to the **Overview** pane. Under **Trigger history**, 
 select the trigger event.
 
-   You can now review details like input and output details.
+   You can now review details like inputs and outputs.
 
    ![Trigger event details](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
 <a name="azure-diagnostics"></a>
 
-## Turn on diagnostic data logging for your logic app
+## Turn on logging for your logic app
 
 For richer debugging with runtime details and events, 
 you can set up diagnostic logging with [Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
@@ -112,32 +109,33 @@ to help you maintain their availability and performance.
 Before you start, you need to have an OMS workspace. Learn 
 [how to create an OMS workspace](../log-analytics/log-analytics-get-started.md).
 
-1. In the [Azure portal](https://portal.azure.com), find and select your logic app. 
+1. In the [Azure portal](https://portal.azure.com), 
+find and select your logic app. 
 
 2. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Diagnostic Settings**.
 
 3. Under **Diagnostics settings**, choose **On**.
 
-   ![Turn on Azure Diagnostics](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+   ![Turn on diagnostic logs](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Now select the OMS workspace and data to use for logging as shown:
+4. Now select the OMS workspace and event category for logging as shown:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
    3. Under **OMS Workspaces**, select the OMS workspace 
    to use for logging.
-   4. Under **Log**, select **WorkflowRuntime**.
+   4. Under **Log**, select the **WorkflowRuntime** category.
    5. Choose the metric interval.
    6. When you're done, choose **Save**.
 
    ![Select OMS workspace and data for logging](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
-After your logic app runs, you can find the events that happened during that run.
+After your logic app runs, you can find events and other data for those runs.
 
 <a name="find-events"></a>
 
-## Find events from your logic app runs
+## Find events and data for your logic app runs
 
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:
@@ -204,7 +202,7 @@ diagnostic data with other Azure services, for example:
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 You can then get real-time monitoring for your workflows by using the telemetry 
-in these services with other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+in these services and other Azure services, like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -259,10 +257,14 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 ## Azure Diagnostics event settings and details
 
 Each diagnostic event contains details about your logic app and that event, 
-like status, start time, end time, and so on. 
-In this example for the `ActionCompleted` event, 
-the `clientTrackingId` and `trackedProperties` properties 
-are especially useful for tracking and monitoring:
+like status, start time, end time, and so on. You can use these details 
+to set up tracking, monitoring, and logging with the 
+[REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic), 
+[REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics#microsoftlogicworkflows).
+
+For example, the `ActionCompleted` event has the 
+`clientTrackingId` and `trackedProperties` properties 
+that you can use for tracking and monitoring:
 
 ``` json
 {
