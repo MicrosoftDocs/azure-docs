@@ -47,7 +47,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 You can now add data to your new collection using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
+1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -63,7 +63,7 @@ You can now add data to your new collection using Data Explorer.
      }
      ```
 
-3. Once you've added the json to **Documents** tab, click **Save**.
+3. Once you've added the json to the **Documents** tab, click **Save**.
 
     ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
