@@ -52,12 +52,12 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 8. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
 
-We've now specified a license template for the HR Department group. A background process in Azure AD has been started to process all existing members of that group. This initial operation might take some time, depending on the current size of the group. In the next step, we'll describe how to verify that the process has completed and determine if further attention is required to resolve problems.
+We've now specified a license template for the HR Department group. A background process in Azure AD has been started to process all existing members of that group. This initial operation might take some time, depending on the current size of the group. In the next step, we'll describe how to verify that the process has finished and determine if further attention is required to resolve problems.
 
 > [!NOTE]
 > You can start the same assignment from an alternative location: **Users and groups** in Azure AD. Go to **Azure Active Directory** > **Users and groups** > **All groups**. Then find the group, select it, and go to the **Licenses** tab. The **Assign** button on top of the blade opens the license assignment blade.
 
-## Step 2: Verify that the initial assignment has completed
+## Step 2: Verify that the initial assignment has finished
 
 1. Go to **Azure Active Directory** > **Users and groups** > **All groups**. Then find the **HR Department** group that licenses were assigned to.
 
