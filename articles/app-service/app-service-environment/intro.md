@@ -77,13 +77,13 @@ In ASEv1, you need to manage all of the resources manually. That includes the fr
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you need to pay for each core allocated. That includes cores used for front-ends or workers that are not hosting any workloads. In ASEv1, default maximum scale size of an App Service Environment is 55 total hosts. That includes workers and front-ends. The one advantage to ASEv1 is that it can be deployed in a classic virtual network as well as a resource manager virtual network. You can learn more about ASEv1 from here: [App Service Environment v1 introduction][ASEv1Intro]
 
 <!--Links-->
-[Intro]: ./app-service-env-intro.md
-[MakeExternalASE]: ./app-service-env-create-external-ase.md
-[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
-[MakeILBASE]: ./app-service-env-create-ilb-ase.md
-[ASENetwork]: ./app-service-env-network-info.md
-[ASEReadme]: ./app-service-env-readme.md
-[UsingASE]: ./app-service-env-using-an-ase.md
+[Intro]: ./intro.md
+[MakeExternalASE]: ./create-external-ase.md
+[MakeASEfromTemplate]: ./create-from-template.md
+[MakeILBASE]: ./create-ilb-ase.md
+[ASENetwork]: ./network-info.md
+[ASEReadme]: ./readme.md
+[UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/virtual-networks-nsg.md
 [ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
