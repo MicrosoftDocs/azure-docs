@@ -1,5 +1,5 @@
 ## Use the Azure portal
-1. Select the VM you wish to redeploy, the select the *Redeploy* button in the *Settings* blade. Scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
+1. Select the VM you wish to redeploy, then select the *Redeploy* button in the *Settings* blade. You may need to scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
    
     ![Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 2. To confirm the operation, select the *Redeploy* button:

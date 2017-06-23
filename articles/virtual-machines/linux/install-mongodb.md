@@ -45,12 +45,6 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](/cli/azure/vm#show):
-
-```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
-```
-
 SSH to the VM using your own username and the `publicIpAddress` listed in the output from the previous step:
 
 ```bash
@@ -223,7 +217,7 @@ az group deployment show \
 ## Next steps
 In these examples, you connect to the MongoDB instance locally from the VM. If you want to connect to the MongoDB instance from another VM or network, ensure the appropriate [Network Security Group rules are created](nsg-quickstart.md).
 
-These examples deploy the core MongoDB environment for development purposes. Apply the required security configuration options for your environment. For more information, see the [MongoDB seucirty docs](https://docs.mongodb.com/manual/security/).
+These examples deploy the core MongoDB environment for development purposes. Apply the required security configuration options for your environment. For more information, see the [MongoDB security docs](https://docs.mongodb.com/manual/security/).
 
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
