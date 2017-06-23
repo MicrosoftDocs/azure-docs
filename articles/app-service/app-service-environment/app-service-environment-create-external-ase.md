@@ -108,13 +108,13 @@ You can still create instances of the first version of the ASE feature (ASEv1). 
 
 
 <!--Links-->
-[Intro]: ./app-service-env-intro.md
-[MakeExternalASE]: ./app-service-env-create-external-ase.md
-[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
-[MakeILBASE]: ./app-service-env-create-ilb-ase.md
-[ASENetwork]: ./app-service-env-network-info.md
-[ASEReadme]: ./app-service-env-readme.md
-[UsingASE]: ./app-service-env-using-an-ase.md
+[Intro]: ./app-service-environment-intro.md
+[MakeExternalASE]: ./app-service-environment-create-external-ase.md
+[MakeASEfromTemplate]: ./app-service-environment-create-from-template.md
+[MakeILBASE]: ./app-service-environment-create-ilb-ase.md
+[ASENetwork]: ./app-service-environment-network-info.md
+[ASEReadme]: ./app-service-environment-readme.md
+[UsingASE]: ./app-service-environment-using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/virtual-networks-nsg.md
 [ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
