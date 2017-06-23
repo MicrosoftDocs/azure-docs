@@ -43,7 +43,7 @@ A collection of virtual machines that are managed together to provide applicatio
 See [Manage the availability of Windows virtual machines](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="classic-model"></a>Azure classic deployment model
-One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. Guidance for each Azure service details which model(s) they support.
+One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
 ## <a name="cli"></a>Azure command-line interface (CLI)
 A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI 2.0](/cli/azure/overview)
@@ -53,7 +53,7 @@ A command-line interface to manage Azure services via a command line from Window
 See [How to install and configure Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="arm-model"></a>Azure Resource Manager deployment model
-One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. Guidance for each Azure service details which model(s) they support.
+One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
 ## fault domain
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
@@ -123,7 +123,7 @@ A customer's agreement with Microsoft that enables them to obtain Azure services
 See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 ## tag
-An indexing term that enables you to categorize resources according to your requirements for managing or billing. You can use tags when you have a complex collection of resource groups and resources, and you need to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
+An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](resource-group-using-tags.md)
 
 ## update domain
@@ -140,7 +140,7 @@ A resource that implements behaviors or features that either help other programs
 See [About virtual machine extensions and features (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [About virtual machine extensions and features (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>virtual network
-A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
+A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. An [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) lets you establish connections between virtual networks and [between a virtual network and an on-premises network](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within a virtual network.  
 See [Virtual Network Overview](virtual-network/virtual-networks-overview.md)  
 
 ## See
