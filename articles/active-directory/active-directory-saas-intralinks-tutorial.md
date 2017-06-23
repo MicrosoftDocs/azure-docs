@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
+ms.date: 06/23/2017
 ms.author: jeedes
 
 ---
@@ -214,17 +214,17 @@ After that you can follow the below procedure to add another Intralinks applicat
 
 	![Applications][3]
 
-5. On **Add an application** page, click **Non-gallery application**.
-   
-   ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_nongalleryapp.png)
+4. In the search box, type **Intralinks**.
 
-6. On **Add your own application** perform the following steps:
+	![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_search.png)
 
-   ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_addyourownapp.png)
+5. On **Intralinks Add app** perform the following steps:
 
-   a. In **Name** textbox, enter appropriate name of the application e.g. **Intralinks Elite**.
+    ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_addapp.png)
 
-   b. Click **Add** button.
+    a. In **Name** textbox, enter appropriate name of the application e.g. **Intralinks Elite**.
+
+    b. Click **Add** button.
 
 6.  In the Azure portal, on the **Intralinks** application integration page, click **Single sign-on**.
 
