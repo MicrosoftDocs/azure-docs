@@ -77,7 +77,7 @@ cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
 
-This sample repository contains a [Flask](http://http://flask.pocoo.org/) application. 
+This sample repository contains a [Flask](http://flask.pocoo.org/) application. 
 
 ### Run the application
 
@@ -98,7 +98,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 
 When the app is fully loaded, you see something similar to the following message:
 
-```
+```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
@@ -122,7 +122,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Azure App Service.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
-```azurecli-interactive 
+```azurecli
 az login 
 ``` 
    
@@ -213,7 +213,7 @@ psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<po
 
 Create the database and user from the PostgreSQL CLI.
 
-```
+```bash
 CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
@@ -232,7 +232,7 @@ FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="
 
 When the app is fully loaded, you see something similar to the following message:
 
-```
+```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
@@ -255,13 +255,13 @@ docker build -t flask-postgresql-sample .
 
 Docker displays a confirmation that it successfully created the container.
 
-```
+```bash
 Successfully built 7548f983a36b
 ```
 
 Add database environment variables to an environment variable file *db.env*. The app will connect to the PostgreSQL production database in Azure.
 
-```
+```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
 DBUSER="manager@<postgresql_name>"
 DBNAME="eventregistration"
@@ -276,7 +276,7 @@ docker run -it --env-file db.env -p 5000:5000 flask-postgresql-sample
 
 The output is similar to what you saw earlier. However, the initial database migration no longer needs to be performed and therefore is skipped.
 
-```
+```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
  * Serving Flask app "app"
@@ -443,12 +443,12 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command. 
+In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. 
 
 The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 
 ```azurecli-interactive
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
 ### Configure Docker container deployment 
@@ -456,7 +456,7 @@ az appservice web config appsettings update --name <app_name> --resource-group m
 AppService can automatically download and run a Docker container.
 
 ```azurecli
-az appservice web config container update --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
+az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-custom-image-name "<registry_name>.azurecr.io/flask-postgresql-sample" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
 Whenever you update the Docker container or change the settings, restart the app. Restarting ensures that all settings are applied and the latest container is pulled from the registry.
