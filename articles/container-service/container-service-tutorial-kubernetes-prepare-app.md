@@ -15,32 +15,28 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 06/26/2017
 ms.author: nepeters
 ---
 
 # Create container images to be used with Azure Container Service
 
-Azure Container Service provides simple deployment of production ready Kubernetes clusters. In this tutorial set, an application is taken from source, into a Kubernetes cluster, where it is then scaled, upgraded, and monitored. Throughout these steps, a Kubernetes cluster and an Azure Container Registry are deployed, and the underlying Azure components explained. 
-
-In this first tutorial, a sample application is tested and packed up into portable Docker container images. Steps completed include:
+In this tutorial, an application is prepared for Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
-> * Clone an existing application's code repository
-> * Create container images from the application
-> * Test the application locally
+> * Cloning the application source from GitHub  
+> * Creating container images from application source
+> * Testing the images in a local Docker environment
 
-## Prerequisites
+In subsequent tutorials, these container images are uploaded to an Azure Container Registry, and then run in an Azure hosted Kubernetes cluster.
 
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) on docker.com for a primer on container basics. 
+## Before you begin
 
-**Docker environment** - to complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure a Docker environment on any Mac or Windows system.
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics. 
 
-[Docker for Mac]( https://docs.docker.com/docker-for-mac/)
+To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure a Docker environment on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
-[Docker for Windows](https://docs.docker.com/docker-for-windows/) 
-
-## Create container images
+## Get application code
 
 The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end database. 
 
@@ -50,48 +46,17 @@ Use git to download a copy of the application to your development environment.
 git clone https://github.com/Azure-Samples/azure-voting-app.git
 ```
 
-Inside the cloned directory, is pre-created Docker and Kubernetes configuration files. These files are used to create assets throughout the tutorial set. 
+Inside the application directory, pre-created Dockerfiles and Kubernetes manifest files can be found. These files are used to create assets throughout the tutorial set. 
+
+## Create container images
 
 Change directories so that you are in the cloned directory.
 
 ```bash
 cd ./azure-voting-app/
 ```
-Docker Compose can be used to automate the build out of container images, and automate the deployment of multi-container systems. 
 
-At the root of the cloned directory, is a *docker-compose.yaml* file. This file, shown below, results in two container images (azure-vote-front and azure-vote-back), configured environment variables, and exposed container ports.
-
-```yaml
-version: '3'
-services:
-  azure-vote-back:
-    build: ./azure-vote-mysql
-    image: azure-vote-back
-    container_name: azure-vote-back
-    environment:
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: Password12
-      MYSQL_DATABASE: azurevote
-      MYSQL_ROOT_PASSWORD: Password12
-    ports:
-        - "3306:3306"
-
-  azure-vote-front:
-    build: ./azure-vote
-    depends_on:
-        - azure-vote-back
-    image: azure-vote-front
-    container_name: azure-vote-front
-    environment:
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: Password12
-      MYSQL_DATABASE: azurevote
-      MYSQL_HOST: azure-vote-back
-    ports:
-        - "8080:80"
-```
-
-Run the docker-compose.yaml file to create the container images, and start the application. 
+At the root of the cloned directory, is a *docker-compose.yaml* file. Run the docker-compose.yaml file to create the container images, and start the application. 
 
 ```bash
 docker-compose up -d
@@ -133,7 +98,7 @@ Browse to [http://localhost:8080](http://localhost:8080) to see the running appl
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 
-## Delete resources
+## Clean up resources
 
 Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. These images are uploaded to an Azure Container Registry instance in the next tutorial.
 
@@ -153,12 +118,12 @@ At completion, you have two container images that make up the Azure Vote applica
 
 ## Next steps
 
-In this tutorial, an application was tested and container images created for the application. The following steps were covered. 
+In this tutorial, an application was tested and container images created for the application. The following steps were completed:
 
 > [!div class="checklist"]
-> * Clone an existing application's code repository
-> * Create container images from the application
-> * Test the application locally
+> * Cloning the application source from GitHub  
+> * Creating container images from application source
+> * Testing the images in a local Docker environment
 
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 

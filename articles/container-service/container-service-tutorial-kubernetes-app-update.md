@@ -23,21 +23,17 @@ ms.author: nepeters
 
 Once an application has been deployed in a Kubernetes cluster, it can be updated by specifying a new container image or image version. When updating an application, the update rollout is staged such that only a portion of the deployment is concurrently updated. This staged update allows the application to stay running during the update, and provides a rollback mechanism if a deployment failure occurs. 
 
-In this tutorial, the sample Azure Vote app is updated. Tasks completed in this tutorial include:
+In this tutorial, the sample Azure Vote app is updated. Tasks completed include:
 
 > [!div class="checklist"]
-> * Update the front-end application code
-> * Create update container images
-> * Push container images to ACR
-> * Deploy updated application
+> * Updating the front-end application code
+> * Creating updated container images
+> * Pushing container images to ACR
+> * Deploying updated application
 
-## Prerequisites
+## Before you begin
 
-This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
-
-**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
-
-**App deployed** - This tutorial assumes you’ve deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). At minimum, this tutorial requires a Kubernetes cluster with a running application.
 
 ## Update application
 
@@ -53,7 +49,7 @@ Open the `config_file.cfg` file with any code or text editor. This file is found
  /azure-voting-app/azure-vote/azure-vote/config_file.cfg
 ```
 
-Change the values for `VOTE1VALUE` and `VOTE2VALUES`, and save the file.
+Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and save the file.
 
 ```bash
 # UI Configurations
@@ -69,19 +65,27 @@ Use `docker-compose` to re-create the front-end image and run the application.
 docker-compose up --build -d
 ```
 
+## Test application
+
 Browse to `http://localhost:8080` to see the updated application. The application takes a few seconds to initialize. If an error is encountered, try again.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## Tag and push images
 
-Tag the new image with `v2` to indicate a new version. Replace `<acrLoginServer>` with your ACR login server name.
+Tag the *azure-vote-front* image with the loginServer of the container registry.
+
+Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
+
+```azurecli-interactive
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
+Push the image to your registry. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -100,7 +104,7 @@ kubectl get pod
 If needed, scale the front-end deployment so that multiple instances are running.
 
 ```bash
-kubectl scale --replicas= deployment/azure-vote-front
+kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
 In a state where the front-end deployment has been scaled to three, the pods should look like the following.
@@ -158,10 +162,10 @@ Browse to the IP address to see the updated application.
 In this tutorial, an application was updated and this update rolled out to a Kubernetes cluster. Tasks completed include:  
 
 > [!div class="checklist"]
-> * Update the front-end application code
-> * Create update container images
-> * Push container images to ACR
-> * Deploy updated application
+> * Updating the front-end application code
+> * Creating updated container images
+> * Pushing container images to ACR
+> * Deploying updated application
 
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
