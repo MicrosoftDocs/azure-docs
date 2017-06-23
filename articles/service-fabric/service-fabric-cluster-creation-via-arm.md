@@ -29,7 +29,7 @@ The guide covers the following procedures:
 
 * Setting up an Azure key vault to upload certificates for cluster and application security
 * Creating a secured cluster in Azure by using Azure Resource Manager
-* Authenticating users by using Azure Active Directory (Azure AD) for cluster management
+* Authenticating users/clients by using Azure Active Directory (Azure AD) for cluster management
 
 A secure cluster is a cluster that prevents unauthorized access to management operations. This includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
 
@@ -54,14 +54,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 ## Set up a key vault
 This section discusses creating a key vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide to Azure Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
 
-Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster is deployed in Azure, the Azure resource provider that's responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
+Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster ARM template is deployed, the Azure resource provider that's responsible for creating virtual machine scale sets, pulls certificates from Key Vault and installs them on the VMs. 
 
 The following diagram illustrates the relationship between Azure Key Vault, a Service Fabric cluster, and the Azure resource provider that uses certificates stored in a key vault when it creates a cluster:
 
 ![Diagram of certificate installation][cluster-security-cert-installation]
 
-### Create a resource group
-The first step is to create a resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. The resource group that contains your key vault _must be in the same region_ as the cluster that is using it.
+### Create a resource group for the key vault
+The first step is to create a resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you keep your keys and secrets, even if you remove the resource group that contains your Service Fabric cluster. The resource group that contains your key vault _must be in the same region_ as the cluster that is using it.
 
 If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  
 

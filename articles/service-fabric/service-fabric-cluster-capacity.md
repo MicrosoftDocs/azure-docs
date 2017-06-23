@@ -74,7 +74,7 @@ This privilege is expressed in the following values:
 
 ### Recommendations on when to use Silver or Gold durability levels
 
-The durability feature is biased towards data retention, So it will slow the deployment operations down. You get to choose durablity level for each of your node-types. You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. Maintain a minimum count of 5 nodes for any Node-type/VMSS that has a durability of Gold or silver.
+The durability feature is biased towards data retention, So it will slow the deployment operations down. You get to choose durability level for each of your node-types. You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. Maintain a minimum count of 5 nodes for any Node-type that has a durability of Gold or silver.
 
 **Rule of thumb** : If your operational priority is data retention and cluster up-time, then choose Silver or Gold. If your operational priority is agility, then choose Bronze durability.
 
@@ -87,7 +87,7 @@ For example: Use silver durability for all node types that hosts stateful servic
 	 
 **Disadvantages of using Silver or Gold durability levels**
  
-1. Deployments to your VMSS (and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or by concurrent upgrade and maintenance activity at the infrastructure level. 
+1. Deployments to your Virtual Machine Scale Set (VMSS) and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or by concurrent upgrade and maintenance activity at the infrastructure level. 
 2. Reduces overall deployment performance.
 3. Increases the number of replica lifecycle events (e.g. primary swaps) due to automated node deactivations during Azure infrastructure operations
 
