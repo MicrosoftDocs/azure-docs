@@ -1,1 +1,4 @@
-redirect_url: /azure-docs-pr/articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md
+---
+redirect_url: /azure-docs-pr/articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh
+
+---
