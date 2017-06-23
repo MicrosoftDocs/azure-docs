@@ -70,9 +70,10 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 12. Navigate to the [Applicaton Registration Portal](https://apps.dev.microsoft.com) and log in.
 
 13. Click on your application name. make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
+
 > [!NOTE]
 >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
->
+
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -122,8 +123,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
    
    > [!NOTE]
    > Make sure to replace the "your hub name" placeholder with the name of the notification hub that appears in the Azure Portal. Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained from the **Access Polices** page of your Notification Hub in a previous section.
-   > 
-   > 
+
 5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
    
         InitNotificationsAsync();
@@ -181,8 +181,7 @@ To send notifications by using a .NET console application follow these steps.
    
    > [!NOTE]
    > Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
-   > 
-   > 
+   
 6. Add the following lines in the **Main** method:
    
          SendNotificationAsync();
