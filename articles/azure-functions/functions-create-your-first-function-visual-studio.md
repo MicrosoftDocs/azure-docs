@@ -134,3 +134,4 @@ You have used Visual Studio to create a C# function app with a simple HTTP trigg
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md). 
+
