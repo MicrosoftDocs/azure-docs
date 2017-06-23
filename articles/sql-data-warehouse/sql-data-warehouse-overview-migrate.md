@@ -23,7 +23,7 @@ This overview explains what is involved in migrating an existing database soluti
 
 
 ## Profile your workload
-Before migrating, you want to be certain SQL Data Warehouse is the right solution for your workload. SQL Data Warehouse is a distributed system designed to perform analytics on large data.  Migrating to SQL Data Warehouse requires some design changes which are not too hard to understand but will take some time to implement. The benefits are worth it if your business requires an enterprise-class data warehouse. However, if you don't need the power of SQL Data Warehouse, it will be more more cost-effective for you to use SQL Server or Azure SQL Database.
+Before migrating, you want to be certain SQL Data Warehouse is the right solution for your workload. SQL Data Warehouse is a distributed system designed to perform analytics on large data.  Migrating to SQL Data Warehouse requires some design changes that are not too hard to understand but might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of SQL Data Warehouse, it is more cost-effective to use SQL Server or Azure SQL Database.
 
 Consider using SQL Data Warehouse when you:
 - Have one or more Terabytes of data
@@ -43,7 +43,7 @@ Don't use SQL Data Warehouse for operational (OLTP) workloads that have:
 
 Once you have decided to migrate an existing solution to SQL Data Warehouse, it is important to plan the migration before getting started. 
 
-One goal of planning is to ensure your data, your table schemas, and your code are compatible with SQL Data Warehouse. There are some compatibility differences to workaround between your current system and SQL Data Warehous. Plus, migrating large amounts of data to Azure takes time. Careful planning will expedite getting your data to Azure if it is not there already. 
+One goal of planning is to ensure your data, your table schemas, and your code are compatible with SQL Data Warehouse. There are some compatibility differences to work around between your current system and SQL Data Warehouse. Plus, migrating large amounts of data to Azure takes time. Careful planning expedites getting your data to Azure. 
 
 Another goal of planning is to make design adjustments to ensure your solution takes advantage of the high query performance SQL Data Warehouse is designed to provide. Designing data warehouses for scale introduces different design patterns and so traditional approaches aren't always the best. Although you can make some design adjustments after migration, making changes sooner in the process will save time later.
 
@@ -62,7 +62,7 @@ To perform a successful migration, you need to plan for migrating your table sch
 
 
 ## Next steps
-The CAT (Customer Advisory Team) also has some great SQL Data Warehouse guidance which they publish through blogs.  Take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] for additional guidance on migration.
+The CAT (Customer Advisory Team) also has some great SQL Data Warehouse guidance, which they publish through blogs.  Take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] for additional guidance on migration.
 
 <!--Image references-->
 
