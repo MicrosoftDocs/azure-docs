@@ -43,7 +43,7 @@ This topic introduces other concepts for building your logic app:
 * Code view to edit an existing logic app
 * Options for starting a workflow
 
-## Conditions: Runs steps only after meeting a condition
+## Conditions: Run steps only after meeting a condition
 
 To have your logic app run steps only when data meets specific criteria, 
 you can add a condition that compares data in the workflow against specific fields or values.
@@ -162,7 +162,7 @@ find the `queries` section, and replace the query value with
 	Now you can change the website's RSS feed by 
 	passing a different URL through the `currentFeedURL` object.
 
-Learn more about [how to Author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
+Learn more about [how to author logic app definitions](../logic-apps/logic-apps-author-definitions.md).
 
 ## Start logic app workflows
 
@@ -188,3 +188,9 @@ See [Start workflows by calling logic app endpoints as triggers](../logic-apps/l
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
+
+## Next steps
+
+* [Switch statements](../logic-apps/logic-apps-switch-case.md) 
+* [Loops, scopes, and debatching](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Author logic app definitions](../logic-apps/logic-apps-author-definitions.md)
