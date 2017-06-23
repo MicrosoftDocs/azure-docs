@@ -1,5 +1,5 @@
 ---
-title: Configure an Azure App Service Environments
+title: Using an Azure App Service Environments
 description: How to create, publish and scale apps in an Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ---
-# Configure an App Service Environment #
+# Using an App Service Environment #
 
 ## Overview ##
 
