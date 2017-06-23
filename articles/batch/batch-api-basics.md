@@ -418,6 +418,20 @@ When you create a pool of compute nodes in Azure Batch, you can specify a subnet
 
 * If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Additionally, enable outbound connections to Azure Storage on port 443.
 
+The following table describes the inbound ports in detail:
+
+|    Destination Port(s)    |    Source IP address      |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user   |
+|---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
+|    29876,   29877         |    Only Batch service role IP addresses |    Yes. Batch adds NSGs at the level of network interfaces (NIC) attached to VMs. These NSGs allow traffic only from Batch service role IP addresses. Even if you open these ports for the  entire web, the traffic will get blocked at the NIC.    |    Yes                              |  You do not need to specify an NSG, because Batch allows only Batch IP addresses. <br /><br /> However, if you do specify an NSG, please ensure that these ports are open for inbound traffic. <br /><br /> If you specify * as the source IP in your NSG, Batch still adds NSGs at the level of NIC attached to VMs.    |
+|    3389, 22               |    User machines, used for debugging purposes, so that you can remotely access the VM.    |    No                                                                                                                                                                                                                                                  |    No                               |    Add NSGs if you want to permit remote access (RDP/SSH) to the VM.   |                    
+
+The following table describes the outbound port in detail:
+
+|    Outbound Port(s)    |    Destination    |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user    |
+|------------------------|---------------------|----------------------------|-------------------------------------|--------------------------------------------------------------------------------------|
+|    443    |    Azure Storage    |    No    |    Yes    |    If you add any NSGs, then ensure that this port is open to outbound   traffic.    |
+
+
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
 ### VNets for pools provisioned in the Batch service
