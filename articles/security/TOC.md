@@ -42,7 +42,7 @@
 #### [Get started with Azure log integration](security-azure-log-integration-get-started.md)
 #### [Integrate Azure Active Directory audit logs](security-azure-log-integration-ad.md)
 #### [Integrate Security Center alerts](security-azure-log-integration-security-center.md)
-#### [Integrate logs from KeyVault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
+#### [Integrate logs from Key Vault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## Identity management
