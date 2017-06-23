@@ -101,8 +101,8 @@ When you deploy a solution on Azure in the SAP CAL, you might find that you can 
 
 Let's deploy a solution from the **Solutions** page of the SAP CAL. The SAP CAL has two sequences to deploy:
 
-- A basic sequence that uses one page to define the system to be deployed.
-- An advanced sequence that gives you certain choices on VM sizes. 
+- A basic sequence that uses one page to define the system to be deployed
+- An advanced sequence that gives you certain choices on VM sizes 
 
 We demonstrate the basic path to deployment here.
 
@@ -112,7 +112,7 @@ We demonstrate the basic path to deployment here.
 
     b. Enter an instance **Name**.
 
-    c. Select an Azure **Region**. The SAP CAL suggests a region. If you need another Azure region and you don't have an SAP CAL subscription, you need to order a CAL subscription with SAP.)
+    c. Select an Azure **Region**. The SAP CAL suggests a region. If you need another Azure region and you don't have an SAP CAL subscription, you need to order a CAL subscription with SAP.
 
     d. Enter a master **Password** for the solution of eight or nine characters. The password is used for the administrators of the different components.
 
@@ -146,11 +146,11 @@ We demonstrate the basic path to deployment here.
 
     The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords, which you can use to sign in to the deployed system. 
 
-    a. For example, if you use the SAP GUI that's preinstalled on the Windows Remote Desktop machine, the S/4 system might look like this:
+    For example, if you use the SAP GUI that's preinstalled on the Windows Remote Desktop machine, the S/4 system might look like this:
 
    ![SM50 in the preinstalled SAP GUI](./media/cal-s4h/gui_sm50.png)
 
-    b. Or if you use the DBACockpit, the instance might look like this:
+    Or if you use the DBACockpit, the instance might look like this:
 
    ![SM50 in the DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
 
