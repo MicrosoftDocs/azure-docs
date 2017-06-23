@@ -24,22 +24,22 @@ ms.author: xshi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## What you will learn
+## What you learn
 
 You learn how to create an Azure storage account and an Azure Function App to store IoT Hub messages in Azure table storage.
 
-## What you will do
+## What you do
 
 - Create an Azure storage account.
 - Prepare for IoT Hub connection to read messages.
 - Create and deploy an Azure Function App.
 
-## What you will need
+## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-  - An active Azure subscription.
-  - An Azure IoT hub under your subscription.
-  - A running application that sends messages to your Azure IoT hub.
+- [Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md), which covers the following requirements:
+  - An active Azure subscription
+  - An Iot hub under your subscription 
+  - A running application that sends messages to your IoT hub
 
 ## Create an Azure storage account
 
