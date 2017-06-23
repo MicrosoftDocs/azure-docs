@@ -39,15 +39,46 @@ The following is a checklist of actions you must take before installing HDInsigh
 
 * New or existing virtual network
 * Type of virtual network
-* Network topology
+* Available IP addresses
 * Name resolution
 * Security
 
-### New or existing virtual network
+## New or existing virtual network
 
-When adding HDInsight to an existing virtual network, you may need to make modifications to the network configuration. For example, HDInsight requires unrestricted network access to specific IP addresses in the Azure network.
+When adding HDInsight to an existing virtual network, you may need to make modifications to the network configuration. Use the following information to understand changes that you must make:
 
-### Type of virtual network
+* If you use Network Security Groups or user-defined routes to restrict access to the virtual network, you must add exceptions for the Azure health monitoring endpoints. These services are required by HDInsight.
+
+    If you are not sure if your existing network uses Network Security Groups or user-defined routes, see the following sections of this document:
+
+    * [How to check for existing Network Security Groups]()
+
+    * [How to check for existing user-defined routes]()
+
+* If you use a Network Virtual Appliance firewall, you must allow the following ports through the firewall:
+
+
+
+### How to check for existing Network Security Groups
+
+```powershell
+get-azurermnetworksecuritygroup -resourcegroupname <groupname>
+```
+
+```bash
+az network nsg list --resource-group <groupname>
+```
+
+### How to check for existing user-defined routes
+
+```powershell
+get-azurermroutetable -resourcegroupname <groupname>
+```
+
+```bash
+az network route-table list --resource-group <groupname>
+
+## Type of virtual network
 
 The type of virtual network used with HDInsight depends on the operating system used for the cluster.
 
@@ -61,25 +92,19 @@ The type of virtual network used with HDInsight depends on the operating system 
 
 To access resources in an incompatible virtual network, join the two networks. For more information on joining networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-### Network topology
+## Available IP addresses
 
-The network topology is the arrangement of elements within the network. This is important for the following reasons:
+When you create a subnet within a virtual network, you set the number of internal IP addresses that are available in the subnet. You must create a subnet that has enough IP addresses for HDInsight.
 
-* If you plan on joining the virtual network to another network. For example, another virtual network or your on-premises network.
+HDInsight clusters consist of multiple nodes, such as head nodes, worker nodes, and Zookeeper nodes. Each node is implemented as an Azure Virtual Machine. Each virtual machine is allocated a single internal IP address. The type and default number of nodes vary by cluster type. You can modify the number of worker nodes in a cluster during or after cluster creation. For more information, see the [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) document.
 
-* If you plan on implementing security. For example, user-defined routes allow you to define how data is routed between resources in the network.
+Use the following to determine how many IP addresses you should allocate.
 
-* When you create subnets within a virtual network, you set the number of internal IP addresses that are contained in the subnet. You must create a subnet that has enough IP addresses for HDInsight.
+* Determine how many nodes are used by your planned HDInsight configuration. HDInsight also creates two gateways, which use two more IP addresses. The subnet must contain at least this number of IP addresses.
 
-    * HDInsight clusters consist of multiple nodes, such as head nodes, worker nodes, and Zookeeper nodes. Each node is implemented as an Azure Virtual Machine. Each virtual machine is allocated a single internal IP address.
+* Allocate additional worker nodes if you plan on scaling out the cluster. Scaling out the cluster adds additional worker nodes. There must be an available (unused) IP address for each worker node added.
 
-    * The type and default number of nodes vary by cluster type. You can modify the number of worker nodes in a cluster during or after cluster creation. For more information, see the [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) document.
-
-    * Determine how many nodes are used for the HDInsight configuration you will use, then add two for the public gateway. The subnet must contain at least this number of IP addresses.
-
-    * When scaling a cluster by adding additional worker nodes, each worker node requires an IP address. So you should add extra IP addresses for scale out capability.
-
-### Name resolution and custom DNS
+## Name resolution and custom DNS
 
 Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN).
 
@@ -103,7 +128,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-### Security
+## Security
 
 * __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
 
@@ -137,22 +162,5 @@ Network Virtual Appliances (NVA) allow you to perform network functions such as 
 
     * User-defined routes (UDR) allow you to create custom route tables that control how traffic is routed for the subnets in a virtual network. To learn more, see the [User-defined routes](../virtual-network/virtual-networks-udr-overview.md) documentation.
 
-### how to check for existing NSGs
 
-```powershell
-get-azurermnetworksecuritygroup -resourcegroupname <groupname>
-```
-
-```bash
-az network nsg list --resource-group <groupname>
-```
-
-### How to check for existing UDRs
-
-```powershell
-get-azurermroutetable -resourcegroupname <groupname>
-```
-
-```bash
-az network route-table list --resource-group <groupname>
 ```
