@@ -115,5 +115,4 @@ For more information, see the following resources:
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
-* [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 
