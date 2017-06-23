@@ -27,23 +27,21 @@ This document provides a rough overview of various optimization features and whe
 > [!NOTE]
 > Your “optimized for” menu options can vary based on the provider you select. CDN providers apply enhancement in different ways, depending on the scenario. 
 
-> ### Provider Options
+> * Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming and large file download. 
 
-> Azure CDN from Akamai supports general web delivery, general media streaming, video on demand media streaming and large file download. 
+> * Azure CDN from Verizon supports general web delivery only, which can be used with video on demand and large file download without selecting an optimization type.
 
-> Azure CDN from Verizon supports general web delivery only, which can be used with video on demand and large file download without selecting an optimization type.
-
-> It is highly recommended that you test  performance variations between different providers to select the optimal provider for your delivery.
+> * It is highly recommended that you test  performance variations between different providers to select the optimal provider for your delivery.
 
 ## Selecting and Configuring Optimization Types
 
 You can begin creating a new CDN endpoint, by selecting from the drop-down menu that best matches the scenario and the type of content that you use the endpoint to deliver. "General web delivery" is the default selection. You can update the optimization option for any existing Akamai endpoint at any time. This change will not interrupt CDN delivery.  
 
-### 1.	Select an endpoint within a Standard Akamai Profile.
+1.	Select an endpoint within a Standard Akamai Profile.
 
 ![Select an endpoint.](./media/cdn-optimization-overview/01_Akamai.png)
 
-### 2. Select Optimization from the sidebar, then select a type from the dropdown.
+2. Select Optimization from the sidebar, then select a type from the dropdown.
 
 ![Select Optimization and Type.](./media/cdn-optimization-overview/02_Select.png)
 
@@ -58,7 +56,7 @@ You can optimize the CDN endpoint for one of the following scenarios:
 
 The four scenario optimization configurations type are explained below. 
 
-## 1. General Web Delivery Optimization
+### General web delivery optimization
 
 General web delivery is the most common option. It is designed for general web content optimization, such as web pages and web applications. This optimization can also be used for file and video downloads.
 
@@ -69,9 +67,9 @@ A typical website usually contains both static and dynamic content. Static conte
 
 > If you use Azure CDN from Akamai, you might want to use this optimization when the average file size is smaller than 10MB. Use "optimized for: large file download" when average file size is larger than 10MB.
 
-## 2. General Media Streaming Optimization
+### General media streaming optimization
 
-General media streaming is recommended if you need to use the endpoint for both live streaming and video-on-demand streaming.
+General media streaming is recommended if you need to use the endpoint for both live streaming and video on demand streaming.
 
 For example, media streaming is time sensitive because packets arriving late on the client can cause degraded viewing experience, such as frequent buffering of video content. Media Streaming optimization reduces the latency of media content delivery and provides smooth streaming experience for end users. 
 
@@ -81,7 +79,7 @@ Azure CDN from Verizon can use the general web delivery optimization type to del
 
 Learn more about Media Streaming Optimization [here](cdn-media-streaming-optimization.md) .
 
-## 3. Video-on-Demand Streaming Optimization
+### Video on demand streaming optimization
 
 Video on demand (VOD) media streaming optimization will improve VOD streaming content. When you use an endpoint for VOD streaming, you may want to use this option.
 
@@ -94,7 +92,7 @@ Learn more about Media Streaming Optimization [here](cdn-media-streaming-optimiz
 
 > When the endpoint primarily serves VOD content. The major difference between this optimization and general media streaming optimization is the connection retry timeout being much shorter to work with live streaming scenarios.
 
-## 4. Large File Download Optimization
+### Large file download optimization
 
 For Azure CDN from Akamai you must use this optimization to deliver files larger than 1.8GB.  Azure CDN from Verizon does not have a limitation on file download size in their general web delivery optimization.
 
