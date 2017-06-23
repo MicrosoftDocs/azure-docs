@@ -69,7 +69,7 @@ This section guides you through connecting your Azure AD to Samanage's user acco
 
 5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password** of your Samanage's account. 
 
-6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Team Admin permissions and try step 5 again.
+6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Samanage app. If the connection fails, ensure your Samanage account has Admin permissions and try step 5 again.
 
 7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

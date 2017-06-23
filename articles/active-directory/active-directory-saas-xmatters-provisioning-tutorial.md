@@ -68,7 +68,7 @@ This section guides you through connecting your Azure AD to Xmatters's user acco
 
 5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password&Domain** of your Xmatters's account. 
 
-6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Xmatters app. If the connection fails, ensure your Xmatters account has Team Admin permissions and try step 5 again.
+6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Xmatters app. If the connection fails, ensure your Xmatters account has Admin permissions and try step 5 again.
 
 7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

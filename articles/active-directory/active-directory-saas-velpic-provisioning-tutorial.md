@@ -69,7 +69,7 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
 ![Authorization Values](./media/active-directory-saas-velpic-provisioning-tutorial/Velpic2.png)
 
-6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Team Admin permissions and try step 5 again.
+6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Admin permissions and try step 5 again.
 
 7) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
