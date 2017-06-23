@@ -32,7 +32,11 @@ In an Azure AD tenant, every user in the tenant (except users with existing Micr
 In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. Today, we also support arbitrary user names (just plain strings) as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types in the Azure AD B2C service.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
-We currently support Facebook, Google+, LinkedIn, and Amazon. We will add support for other popular social identity providers based on customer demand.
+We currently support Facebook, Google+, LinkedIn, and Amazon out of the box. We will add support for other popular social identity providers based on customer demand.
+
+Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html), OAuth2.0, or SAML. 
+
+To checkout some example custom policies, checkout the [custom policy examples](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
