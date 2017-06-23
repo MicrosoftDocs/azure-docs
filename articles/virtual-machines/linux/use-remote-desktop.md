@@ -125,7 +125,7 @@ If the xrdp service is not listening, on an Ubuntu VM restart the service as fol
 sudo service xrdp restart
 ```
 
-Review logs in */var/log* on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
+Review logs in */var/log*Thug  on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
 
 ```bash
 tail -f /var/log/syslog
