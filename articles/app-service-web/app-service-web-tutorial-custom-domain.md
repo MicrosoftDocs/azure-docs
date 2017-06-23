@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -195,9 +195,9 @@ In the example screenshot, you select **Add** to create a record. Some providers
 To map an A record to an app, App Service requires **two** DNS records:
 
 - An **A** record to map to the app's IP address.
-- A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`. This record lets App Service verify that you own the custom domain you want to map.
+- A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`. App Service uses this record only at configuration time, to verify that you own the custom domain. After your custom domain is validate and configured in App Service, you can delete this TXT record. 
 
-For the `www.contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain). 
+For the `contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain). 
 
 | Record type | Host | Value |
 | - | - | - |
