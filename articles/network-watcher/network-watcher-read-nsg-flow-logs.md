@@ -18,11 +18,11 @@ ms.author: gwallace
 
 # Read NSG flow logs
 
-Learn to read NSG flow logs with PowerShell.
+Learn how to read NSG flow logs entries with PowerShell.
 
-NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. While the logs are only generated every hour the logs are being updated with new entries every few minutes with the latest data.  This article takes you through how to read the latest events in a NSG flow log.
+NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data.  This article takes you through how to read the latest events in an NSG flow log.
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the blockblob.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the block blob.
 
 ```powershell
 # The SubscriptionID to use
@@ -62,7 +62,7 @@ $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICl
 $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 
-The `$blockList` variable returns a list of the blocks in the blob. Each block blob will contain at least 2 blocks.  The first block has a length of `21`, this block contains the opening brackets of the json log. The other block will be the closing brackets and will always be a length of `9`.  As you can see the example log below has 7 entries in it, each being an individual entry. All new entries in the log will be added to the end right before the final block.
+The `$blockList` variable returns a list of the blocks in the blob. Each block blob contains at least two blocks.  The first block has a length of `21` bytes, this block contains the opening brackets of the json log. The other block is the closing brackets and has a length of `9` bytes.  As you can see the following example log has seven entries in it, each being an individual entry. All new entries in the log are added to the end right before the final block.
 
 ```
 Name                                         Length Committed
@@ -97,7 +97,7 @@ for($i=0; $i -lt $blocklist.count; $i++)
 # Create a byte array object to story the bytes from the block
 $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block
+# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
 $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
 
 # Increment the index by adding the current block length to the previous index
@@ -112,9 +112,9 @@ $valuearray += $value
 }
 ```
 
-Now the `$valuearray` array contains the string value of each block. To verify get the 2nd to the last value from the array by running `$valuearray[$valuearray.Length-2]`. We do not want the last value is just the closing bracket.
+Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. We do not want the last value is just the closing bracket.
 
-The results of this value are shown in the following example.
+The results of this value are shown in the following example:
 
 ```json
 		{
@@ -136,7 +136,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 		}
 ```
 
-This is just an example of how to read entries in NSG flow logs without having to parse the entire log.  By using the block ID or by tracking the length of blocks stored in the blockblob you can read new entries in the log as they are written.
+This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
 
 ## Next steps
 
