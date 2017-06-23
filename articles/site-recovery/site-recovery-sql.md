@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -96,18 +96,18 @@ Set up Active Directory, in the secondary recovery site, for SQL Server to run p
 The instructions in this article presume that a domain controller is available in the secondary location. [Read more](site-recovery-active-directory.md) about protecting Active Directory with Site Recovery.
 
 
-## Integrate with SQL Server Always On for replication to Azure 
+## Integrate with SQL Server Always On for replication to Azure
 
 Here's what you need to do:
 
-1. Import scripts into your Azure Automation account. This contains the scripts to failover SQL Availability Group in a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [Classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). 
+1. Import scripts into your Azure Automation account. This contains the scripts to failover SQL Availability Group in a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [Classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
 	[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Add ASR-SQL-FailoverAG as a pre action of the first group of the recovery plan.
 
-1. Follow the instructions available in the script to create an automation variable to provide the name of the availability groups. 
+1. Follow the instructions available in the script to create an automation variable to provide the name of the availability groups.
 
 ### Steps to do a test failover
 
@@ -119,13 +119,13 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 	![Restore from Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Force a quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup. 
+1. [Force a quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup.
 
-1. Update IP of the listener to an IP available in the test failover network. 
- 
+1. Update IP of the listener to an IP available in the test failover network.
+
 	![Update Listener IP](./media/site-recovery-sql/update-listener-ip.png)
 
-1. Bring listener online. 
+1. Bring listener online.
 
 	![Bring Listener Online](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -139,7 +139,7 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 ### Steps to do a failover
 
-Once you have added the script in the recovery plan and validated the recovery plan by doing a test failover, you can do failover of the recovery plan. 
+Once you have added the script in the recovery plan and validated the recovery plan by doing a test failover, you can do failover of the recovery plan.
 
 
 ## Integrate with SQL Server Always On for replication to a secondary on-premises site
@@ -150,7 +150,7 @@ If the SQL Server is using availability groups for high availability (or an FCI)
 1. Create a virtual network on the secondary site.
 1. Set up a site-to-site VPN connection between the virtual network, and the primary site.
 1. Create a virtual machine on the recovery site, and install SQL Server on it.
-1. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy. 
+1. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
 1. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
 1. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 

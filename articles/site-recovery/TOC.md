@@ -15,10 +15,33 @@
 
 # Get Started
 ## [Replicate Azure VMs (preview)](site-recovery-azure-to-azure.md)
-## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
+## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
+### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
+### [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
+### [Step 4: Plan networking](vmware-walkthrough-network.md)
+### [Step 5: Prepare Azure](vmware-walkthrough-prepare-azure.md)
+### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
+### [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](vmware-walkthrough-source-target.md)
+### [Step 9: Set up a replication policy](vmware-walkthrough-replication.md)
+### [Step 10: Install the Mobility service](vmware-walkthrough-install-mobility.md)
+### [Step 11: Enable replication](vmware-walkthrough-enable-replication.md)
+### [Step 12: Run a test failover](vmware-walkthrough-test-failover.md)
+## [Replicate Hyper-V VMs to Azure](hyper-v-site-walkthrough-overview.md)
+### [Step 1: Review the architecture](hyper-v-site-walkthrough-architecture.md)
+### [Step 2: Verify prerequisites and limitations](hyper-v-site-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](hyper-v-site-walkthrough-capacity.md)
+### [Step 4: Plan networking](hyper-v-site-walkthrough-network.md)
+### [Step 5: Prepare Azure](hyper-v-site-walkthrough-prepare-azure.md)
+### [Step 6: Prepare Hyper-V hosts](hyper-v-site-walkthrough-prepare-hyper-v.md)
+### [Step 7: Create a vault](hyper-v-site-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](hyper-v-site-walkthrough-source-target.md)
+### [Step 9: Set up a replication policy](hyper-v-site-walkthrough-replication.md)
+### [Step 10: Enable replication](hyper-v-site-walkthrough-enable-replication.md)
+### [Step 11: Run a test failover](hyper-v-site-walkthrough-test-failover.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
-## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
+## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
 ## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
 ## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
@@ -26,7 +49,7 @@
 # How To
 ## Plan
 ### [Prerequisites for Azure replication](site-recovery-azure-to-azure-prereq.md)
-### Networking
+### Plan networking
 #### [Plan networking for Azure to Azure replication (preview)](site-recovery-azure-to-azure-networking-guidance.md)
 #### [Plan networking for on-premises machine replication](site-recovery-network-design.md)
 #### [Plan network mapping for Azure VM replication](site-recovery-network-mapping-azure-to-azure.md)
@@ -35,8 +58,7 @@
 #### [Plan capacity for VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 #### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 #### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
-### [Control VM replication with role-based access](site-recovery-role-based-linked-access-control.md)
-
+### [Plan role-based access for VM replication](site-recovery-role-based-linked-access-control.md)
 ## Configure
 ### Set up the source environment
 #### [Source environment for VMware to Azure](site-recovery-set-up-vmware-to-azure.md)
@@ -51,7 +73,7 @@
 ### Enable replication
 #### [Enable Azure to Azure replication](site-recovery-replicate-azure-to-azure.md)
 #### [Enable VMware to Azure replication](site-recovery-replicate-vmware-to-azure.md)
-## Failover and failback
+## Fail over and fail back
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### Run a test failover
@@ -105,8 +127,9 @@
 ## [Azure Automation](/azure/automation/)
 
 # Resources
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)

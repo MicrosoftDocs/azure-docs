@@ -6,7 +6,6 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
 ms.devlang: azure-cli
 ms.topic: article
@@ -18,7 +17,10 @@ ms.date: 06/13/2017
 ## Prerequisites
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md)
-- Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in your web browser.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Backup happens automatically
 When using Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
@@ -30,19 +32,7 @@ Using this automatic backup feature you may restore the server and all its datab
 ## Restore a database to a previous point in time using the Azure CLI
 Azure Database for PostgreSQL allows you to restore the server to a previous point in time. The restored data is copied into a new server, and the existing server is left as is. For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon. Then retrieve the missing table and data from the restored copy of the server. 
 
-Use the [az postgres server restore](/cli/azure/postgres/server#restore) command from the Azure CLI to do the restore.
-
-You may use the Azure Cloud Shell in the browser to run the Azure CLI command, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer.
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-### Sign in to Azure
-If you are using the Azure Cloud Shell follow the on screen prompts to sign in. 
-
-If you are using an Azure CLI installed on a computer, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli
-az login
-```
+Use the [az postgres server restore](/cli/azure/postgres/server#restore) Azure CLI command to do the restore.
 
 ### Run the restore command
 ```azurecli-interactive

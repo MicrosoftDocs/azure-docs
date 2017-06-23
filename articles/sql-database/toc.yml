@@ -33,8 +33,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB
+  - name: 1 - Create/design new SQL DB using SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Create/design new SQL DB using .NET
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
@@ -100,7 +102,7 @@
     - name: TDE with SQL DB
       href: https://msdn.microsoft.com/library/dn948096
     - name: Always encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
+      href: /sql/relational-databases/security/encryption/always-encrypted-database-engine.md?toc=%2fazure%2fsql-database%2ftoc.json
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
@@ -342,9 +344,9 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
+    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
-    href: /powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
+    href: https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
   - name: Azure CLI 2.0
     href: /cli/azure/sql
   - name: .NET
@@ -388,6 +390,8 @@
       href: https://msdn.microsoft.com/library/mt654048.aspx
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: sql-database-faq.md
   - name: Public data sets

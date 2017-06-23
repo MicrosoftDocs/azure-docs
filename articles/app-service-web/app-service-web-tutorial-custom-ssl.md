@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -102,15 +102,39 @@ When you see the following notification, the scale operation is complete.
 
 You are ready to upload your SSL certificate to your web app.
 
+### Merge intermediate certificates
+
+If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. For example, create a file for the merged certificate, called _mergedcertificate.crt_, and then order your certificates according to the following template:
+
+```
+-----BEGIN CERTIFICATE-----
+<your Base64 encoded SSL certificate>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<Base64 encoded intermediate certificate 1>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<Base64 encoded intermediate certificate 2>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<Base64 encoded root certificate>
+-----END CERTIFICATE-----
+```
+
 ### Export certificate to PFX
 
-You must export your custom SSL certificate with the private key that your certificate request was generated with.
+Export your merged SSL certificate with the private key that your certificate request was generated with.
 
-If you generated your certificate request using OpenSSL, then you have created a private key. To export your certificate to PFX, run the following command:
+If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_.
 
 ```bash
-openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
+
+When prompted, define an export password. You'll use this password when uploading your SSL certificate to App Service later.
 
 If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -132,11 +156,14 @@ When App Service finishes uploading your certificate, it appears in the **SSL ce
 
 ### Bind your SSL certificate
 
-You should now see your uploaded certificate back in the **SSL certificate** page.
-
 In the **SSL bindings** section, click **Add binding**.
 
 In the **Add SSL Binding** page, use the dropdowns to select the domain name to secure, and the certificate to use.
+
+> [!NOTE]
+> If you have uploaded your certificate but don't see the domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
+>
+>
 
 In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
 
@@ -230,7 +257,7 @@ You can automate SSL bindings for your web app with scripts, using the [Azure CL
 The following command uploads an exported PFX file and gets the thumbprint.
 
 ```bash
-thumprint=$(az appservice web config ssl upload \
+thumbprint=$(az appservice web config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \

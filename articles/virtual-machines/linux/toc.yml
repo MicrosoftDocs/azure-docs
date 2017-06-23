@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
+  - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
@@ -139,6 +139,12 @@
       href: move-vm.md
     - name: Create highly available VMs
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Install and configure
@@ -201,6 +207,8 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
     - name: Create Azure images
       items:
       - name: Ubuntu
@@ -311,13 +319,19 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Overview
+        href: cloudfoundry-get-started.md
+      - name: Deploy your first app
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Data Science VM overview
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Deploy LAMP stack
@@ -410,6 +424,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
