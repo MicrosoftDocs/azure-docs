@@ -120,7 +120,7 @@ After configuring storage account for reports using recovery services vault, it 
 
 4. **Will I see all my data in reports after configuring storage account?**
 
-   All the data generated after **"configuring storage account"** will be pushed to storage account and will be available in reports. However, **In Progress Jobs are not pushed** for Reporting. Once the job compeletes or failed, it is sent to reports.
+   All the data generated after **"configuring storage account"** will be pushed to storage account and will be available in reports. However, **In Progress Jobs are not pushed** for Reporting. Once the job completes or fails, it is sent to reports.
 
 5. **If I have already configured storage account to view reports, can I change the configuration to use another storage account?** 
 
