@@ -283,7 +283,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
 9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
 
-    ```
+    ```bash
     wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
  
     chmod +x ./bondvf.sh
@@ -297,7 +297,6 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
     Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
 
-10. Hold down the **Ctrl+X** keys, enter **Y**, then press the **Enter** key to save the file.
-11. Restart the VM by entering the `sudo shutdown -r now` command.
-12. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
-13.	Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. **Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+10. Restart the VM by entering the `sudo shutdown -r now` command.
+11. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
+12.	Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. **Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
