@@ -4,7 +4,7 @@ description: Describes how to deploy Azure Site Recovery in a multi-tenant envir
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
-manager: jwhit
+manager: rochakm
 editor: ''
 
 ms.assetid: ''
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/23/2017
 ms.author: manayar
 
 ---
