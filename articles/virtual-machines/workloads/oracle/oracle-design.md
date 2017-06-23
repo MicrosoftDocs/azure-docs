@@ -1,5 +1,5 @@
 ---
-title: Design and implementation of Oracle database on Azure | Microsoft Docs
+title: Design and implement of Oracle database on Azure | Microsoft Docs
 description: Design and implement Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,11 +18,11 @@ ms.author: rclaus
 ---
 
 
-# Design and implementation of Oracle database on Azure
+# Design and implement of Oracle database on Azure
 
 ## Assumptions
 
-- Have existing Oracle database running on-premisess and plan to migrate to Azure
+- Have existing Oracle database running on-premises and plan to migrate to Azure
 - Understanding of various metrics of Oracle AWR reports
 
 ## Goals
@@ -32,7 +32,7 @@ ms.author: rclaus
 
 ### On-premises vs on Azure
 
-Here are some important considerations when migrate on-prem applications to Azure. Unlike on-premises, resources (VM, disks, VNet etc.) in Azure is share among other clients. In addition, resource can be throttle based on the requirements. Instead of focusing on avoidling failing (MTBF), Azure is more toward surviving the failure (MTTR).
+Here are some important considerations when migrate on-prem applications to Azure. Unlike on-premises, resources (VM, disks, VNet etc.) in Azure is share among other clients. In addition, resource can be throttle based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more toward surviving the failure (MTTR).
 
 Following table listed some of the difference.
 
@@ -63,17 +63,43 @@ There are four potential areas that can be tune to improved performance in Azure
 - Disk types and configurations
 - Disk cache settings
 
+### Generate AWR report
+
+If you have existing Oracle database and planning to migrate to Azure. You can run the Oracle AWR report to get the metrics (IOPS, Mbps GiBs etc.) and then choose the VM based on the metrics you collected. Or you can contact your infrastructure team to get similar information.
+
+You may consider running your AWR report during the time of regular and peak workloads, so you can compare the difference. Based on these reports, you could size the VMs based on either the average workload or at maximum workloads.
+
+Following is an example of how to generate an AWR report.
+
+```bash
+$ sqlplus / as sysdba
+SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
+SQL> @?/rdbms/admin/awrrpt.sql
+```
+
+### Key metrics
+
+The followings are the metrics that can be obtained from the AWR report.
+
+- Total number of Core
+- CPU clock speed
+- Total memory in GB
+- CPU utilization
+- Peak data transfer rate
+- Rate of IO changes (Read/Write)
+- Redo log rate (MBPs)
+- Network throughput
+- Network latency rate (low/high)
+- Database size in GB
+- bytes received via SQL*Net from/to client
+
 ### Virtual Machine size
-
-If you have existing Oracle database and planning to migrate to Azure. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs etc.) and then choose the VM based on the metrics you collected.
-
-You may consider running your AWR report during regular and peak workloads, so you can compare the difference. Based on these reports, you can decided if you should size the VMs based on the average workload or at maximum workloads.
 
 #### 1. Initial estimate of VM size is based on CPU/Memory/IO usage from the AWR report.
 
-The first thing you may look at is the top five timed foreground events that, indicated where the system bottlenecks are.
+One thing you may look at is the top five timed foreground events that, indicated where the system bottlenecks are.
 
-For example: Diagram below, the log file sync is on the top, which is the number of waits for the LGWR to write the log buffer to the redo log file. This could indicated a better perform storage/disks are required.
+For example: Diagram below, the log file sync is on the top, which is the number of waits for the LGWR to write the log buffer to the redo log file. This indicated a better perform storage/disks are required.
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
@@ -81,11 +107,11 @@ The next step is look at the number of CPU (cores) and memory. In this example a
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
 
-Diagram above shows the total IO of read and write. There are 59-GB read and 247.3-GB write during the time of the report.
+Diagram above shows the total IO of read and write. There are 59 GB read and 247.3 GB write during the time of the report.
 
 #### 2. Estimate the VM size
 
-Based on the information you collected from the AWR report, the next step is chosen a VM with similar size that meets your requirements. A list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+Based on the information you collected from the AWR report, the next step is choose a VM with similar size that meets your requirements. A list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
 
 #### 3. Fine-tune the VM sizing with similar VM series based on the ACU
 
@@ -95,7 +121,7 @@ Once you have chosen the VMs, pay attention to the ACU for the VMs. You may choo
 
 ### Network throughput
 
-The relation between Throughput and IOPS as shown below.
+The relation between Throughput and IOPS as shown following.
 
 ![Screenshot of Throughput](./media/oracle-design/throughput.png)
 
@@ -125,15 +151,15 @@ Recommendations
 
 - Premium storage disks: Premium Storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, F series. The Premium disk comes with different sizes and You have choice of various disk sizes from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
-When you create a new managed disk from the portal, you can choose the 'Accout type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (e.g. max number of drives, max IOPs). So once you picked a particular size of VM, it will only shows the available premium storage SKUs based of that VM size.
+When you create a new managed disk from the portal, you can choose the 'Accout type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop-down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (for example, max number of drives, max IOPs). So once you picked a particular size of VM, it only show the available premium storage SKUs based of that VM size.
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
 
 For more information, see [the Azure premium storage](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
-Once you configured your storage on a VM, you may want to load test the disks prior create a database. Knowing what the IO rate in terms of both latency and throughput would help you determine if the VMs supports the expected throughput with latency targets.
+Once you configured your storage on a VM, you may want to load test the disks prior create a database. Knowing what the IO rate in terms of both latency and throughput could help you determine if the VMs support the expected throughput with latency targets.
 
-There are a number of tools can be use for load test, such as Oracle Orion, sysbench, fio, etc.
+There are a number of tools for load test, such as Oracle Orion, Sysbench, Fio, etc.
 
 Run the load test again after deployed Oracle database, start your regular and peak workloads, the results would show you the based-line of your environment.
 
@@ -173,7 +199,7 @@ There are three options for Host Caching.
 
 Recommendations
 
-To maximize the throughput, it is recommended to start with 'None' for Host Caching. It is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. You must update the /etc/fstab file witht the UUID to the disks.
+To maximize the throughput, it is recommended to start with 'None' for Host Caching. It is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. You must update the /etc/fstab file with the UUID to the disks.
 
 For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
