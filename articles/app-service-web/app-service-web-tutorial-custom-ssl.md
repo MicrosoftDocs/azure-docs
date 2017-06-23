@@ -104,23 +104,23 @@ You are ready to upload your SSL certificate to your web app.
 
 ### Merge intermediate certificates
 
-If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. For example, create a file for the merged certificate, called _myserver.crt_, and then order your certificates according to the following template:
+If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. For example, create a file for the merged certificate, called _mergedcertificate.crt_, and then order your certificates according to the following template:
 
 ```
 -----BEGIN CERTIFICATE-----
-<content of your custom SSL certificate>
+<your Base64 encoded SSL certificate>
 -----END CERTIFICATE-----
 
 -----BEGIN CERTIFICATE-----
-<content of intermediate certificate 1>
+<Base64 encoded intermediate certificate 1>
 -----END CERTIFICATE-----
 
 -----BEGIN CERTIFICATE-----
-<content of intermediate certificate 2>
+<Base64 encoded intermediate certificate 2>
 -----END CERTIFICATE-----
 
 -----BEGIN CERTIFICATE-----
-<content of root certificate>
+<Base64 encoded root certificate>
 -----END CERTIFICATE-----
 ```
 
@@ -131,10 +131,10 @@ Export your merged SSL certificate with the private key that your certificate re
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_.
 
 ```bash
-openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-When prompted, define an export password. You'll use this password when uploading your SSL certificate to App Service.
+When prompted, define an export password. You'll use this password when uploading your SSL certificate to App Service later.
 
 If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
