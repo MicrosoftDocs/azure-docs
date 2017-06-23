@@ -58,7 +58,7 @@ Go to [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
 
 You need to do some network planning to ensure that Azure VMs are connected to networks after failover occurs, and  that that they have the right IP addresses.
 
-Go to [Step 4: Plan networking](site-recovery-network-design.md)
+Go to [Step 4: Plan networking](vmware-walkthrough-network.md)
 
 ##  Step 5: Prepare Azure resources
 
