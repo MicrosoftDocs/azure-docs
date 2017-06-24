@@ -133,7 +133,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-If you do not have multiple pod instances running the azure-vote-front image, scale the *azure-vote-front* deployment.
+If you do not have multiple pods running the azure-vote-front image, scale the *azure-vote-front* deployment.
 
 
 ```bash
@@ -148,7 +148,7 @@ To update the application, run the following command. Update `<acrLoginServer>` 
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-To monitor the deployment, use the [kubectl get pod]((https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you will see pods terminating, and being re-created with the new container image.
+To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you will see pods terminating, and being re-created with the new container image.
 
 ```bash
 kubectl get pod
