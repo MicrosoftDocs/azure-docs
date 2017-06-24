@@ -70,7 +70,7 @@ To create an ILB ASE:
 	If you know the custom domain names that you will want to use with the apps that you deploy onto your ILB ASE, then pick a domain for the ILB ASE during ILB ASE creation that won’t have a conflict. In this example, it could be something like _contoso-internal.com_.
 8.  Select **Ok** and then **Create**.
 
-![][1]
+	![][1]
 
 Within the Virtual Network blade, there is a **Virtual Network Configuration** option. This lets you select between an External VIP or Internal VIP. The default is **External**. If you select **External**, then your ASE will use an internet accessible VIP. If you select **Internal**, your ASE will be configured with an ILB on an IP address within your Virtual Network.
 
@@ -89,7 +89,7 @@ Creating an app in an ILB ASE is the same as creating an app in an ASE normally.
 5.  Select or create App Service plan. If you want to create a new App Service plan, then select your ASE as the location and select the worker pool you want your App Service plan to be created in. When you create the App Service plan, you select your ASE as the location and the worker pool. When you specify the name of the app, you will see that the domain under your app name is replaced by the domain for your ASE.
 6.  Select **Create**. You should select the **Pin to dashboard** checkbox if you want the app to show up on your dashboard.
 
-![][2]
+	![][2]
 
 Under the app name, the domain name gets updated to reflect the domain of your ASE.
 
