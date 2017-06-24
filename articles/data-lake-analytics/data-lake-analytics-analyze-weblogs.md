@@ -20,7 +20,18 @@ ms.author: saveenr
 # Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
-## Prerequisites
+## Run Website Log Analysis interactive tutorial
+
+1. From the Portal, click **Microsoft Azure** from the left menu to open the StartBoard.
+2. Click the tile that is linked to your Data Lake Analytics account.
+3. Click **Explore interactive tutorials** from the **Essentials** bar.
+   
+    ![Data Lake Analytics interactive tutorials](./media/data-lake-analytics-use-interactive-tutorials/data-lake-analytics-explore-interactive-tutorials.png)
+4. If you see an orange warning saying "Samples not set up, click ...", click **Copy Sample Data** to copy the sample data to the default Data Lake Store account. The interactive tutorial needs the data to run.
+5. From the **Interactive Tutorials** blade, click **Website Log Analytics**. The portal opens the tutorial in a new portal blade.
+6. Click **Introduction** and then follow the instructions
+
+## Prerequisites for using Visual Studio
 * **Visual Studio 2015 or Visual Studio 2013**.
 * **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
 
