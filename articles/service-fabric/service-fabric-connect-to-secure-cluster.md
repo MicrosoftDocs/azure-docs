@@ -109,6 +109,8 @@ az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact
 with the cluster.
 
+<a id="connectsecurecluster"></a>
+
 ## Connect to a cluster using PowerShell
 Before you perform operations on a cluster through PowerShell, first establish a connection to the cluster. The cluster connection is used for all subsequent commands in the given PowerShell session.
 
