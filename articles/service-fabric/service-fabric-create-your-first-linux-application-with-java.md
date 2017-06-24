@@ -47,7 +47,9 @@ The Service Fabric Yeoman templates include a build script for [Gradle](https://
   ```
 
 ## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+Once the application is built, you can deploy it to the local cluster.
+
+### Using XPlat CLI
 
 1. Connect to the local Service Fabric cluster.
 
@@ -61,9 +63,17 @@ Once the application is built, you can deploy it to the local cluster using the 
     ./install.sh
     ```
 
-3. Open a browser and navigate to [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
+### Using Azure CLI 2.0
 
-4. Expand the **Applications** node and note that there is now an entry for your application type and another for the first instance of that type.
+Deploying the built application is the same as any other Service Fabric application. See the documentation on
+[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2.0.md) for
+detailed instructions.
+
+Parameters to these commands can be found in the generated manifests inside the application package.
+
+Once the application has been deployed, open a browser and navigate to [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Then, expand the **Applications** node and note that there is now an entry for your application type and another for
+the first instance of that type.
 
 ## Start the test client and perform a failover
 Actors do not do anything on their own, they require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.

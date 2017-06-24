@@ -22,7 +22,6 @@
 ## [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
 ## [Create your first container app](service-fabric-get-started-containers.md)
-## [Azure CLI 2.0 and Service Fabric](service-fabric-azure-cli-2.0.md)
 
 # How To
 ## Build an application
@@ -216,7 +215,8 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
+### [Manage a cluster using Azure CLI 2.0 COmmands](service-fabric-azure-cli-2.0.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -260,7 +260,7 @@
 # Reference
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](/cli/azure/sf)
+## [Azure CLI 2.0 Service Fabric Commands](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)

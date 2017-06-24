@@ -114,8 +114,8 @@ If you are using the environment as root, you may need to set the variable with 
 > You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
 >
 
-## Set up the Azure CLI
-The [Azure CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
+## Setup the XPlat Service Fabric CLI
+The [XPlat CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
 
 1. Clone the github repo to your development machine.
 
@@ -144,9 +144,12 @@ The [Azure CLI][azure-xplat-cli-github] includes commands for interacting with S
     source ~/azure.completion.sh
     ```
 
-> [!NOTE]
-> Service Fabric commands are not yet available in Azure CLI 2.0.
+### Setup Azure CLI 2.0
 
+As an alternative to the XPlat CLI, there is now a Service Fabric command module included in the Azure CLI.
+
+For more information on installing the Azure CLI 2.0 and using the Service Fabric commands, see the 
+[getting started documentation](service-fabric-azure-cli-2.0.md).
 
 ## Set up a local cluster
 If everything has installed successfully, you should be able to start a local cluster.
@@ -232,18 +235,13 @@ To update to the latest version of the SDK and runtime, run the following comman
 
 > [!NOTE]
 > Updating the packages may result in your local development cluster being stopped. Restart your local cluster after an upgrade by following instructions on this page.
->
->
-
-For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating.  The release notes may contain additional steps.
-
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
-* [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
+* [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
 <!-- Links -->

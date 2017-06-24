@@ -61,6 +61,10 @@ az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 For more information, see the
 [detailed document on connecting to secure clusters](service-fabric-connect-to-secure-cluster.md).
 
+> [!NOTE]
+> The select command does not perform any requests prior to returning. To verify a cluster has been correctly
+> specified, run a command such as `az sf cluster health`, and check the command returns no errors.
+
 ## Performing basic operations
 
 Cluster connection information is persisted across different Azure CLI sessions. Once a Service Fabric cluster is
