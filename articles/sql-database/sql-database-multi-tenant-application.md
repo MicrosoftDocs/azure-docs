@@ -66,7 +66,7 @@ Follow these steps to create a SQL server and an elastic pool that will host all
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Login to Azure and create a SQL server and elastic pool 

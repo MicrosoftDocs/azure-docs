@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is SQL Server on Azure VMs?](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Pricing](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -43,9 +43,10 @@
 ## [REST](/rest/api/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
-## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
+## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2016
+ms.date: 06/14/2016
 ms.author: owend
 
 ---
@@ -46,4 +46,5 @@ Use the following client libraries if you are in a production environment and re
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## Next steps
-[Connect to an Azure Analysis Services server](analysis-services-connect.md).
+[Connect with Excel](analysis-services-connect-excel.md)    
+[Connect with Power BI](analysis-services-connect-pbi.md)

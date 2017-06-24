@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Built-in Policies | Microsoft Docs'
+title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,21 +17,20 @@ ms.date: 01/26/2017
 ms.author: sama
 
 ---
-# Azure Active Directory B2C: Built-in Policies
+# Azure Active Directory B2C: Built-in policies
 
-## The basics
 
-The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in, or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
-* Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
-* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
-* Use of Multi-Factor Authentication.
-* The look-and-feel of all sign-up pages.
-* Information (which manifests as claims in a token) that the application receives when the policy run finishes.
+* Account types (social accounts such as Facebook or local accounts such as email addresses) that consumers can use to sign up for the application
+* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up
+* Use of Azure Multi-Factor Authentication
+* The look and feel of all sign-up pages
+* Information (which manifests as claims in a token) that the application receives when the policy run finishes
 
-You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
+You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This flexibility enables developers to define and modify consumer identity experiences with minimal or no changes to their code.
 
-Policies are available for use via a simple developer interface. Your application triggers a policy using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests invoking a sign-up policy and those invoking a sign-in policy is the policy name used in the "p" query string parameter:
+Policies are available for use via a simple developer interface. Your application triggers a policy by using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests that invoke a sign-up policy and requests that invoke a sign-in policy is the policy name that's used in the "p" query string parameter:
 
 ```
 
@@ -61,7 +60,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
 
@@ -85,13 +84,21 @@ This policy handles both consumer sign-up & sign-in experiences with a single co
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## How to link a sign-up or sign-in policy with a password reset policy?
-When you create a sign-up or sign-in policy (with local accounts), the consumer will see a "Forgot password?" link on the first page of the experience. Clicking on this link doesn't automatically trigger a password reset policy. Instead a specific error code `AADB2C90118` is returned back to your app. Your app needs to handle this and invoke a specific password reset policy. A sample that demonstrates this approach of linking together policies is [here](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+## Frequently asked questions
 
-## Should I use a sign-up or sign-in policy or a sign-up policy and a sign-in policy?
-It is recommended that you use a sign-up or sign-in policy over a sign-up policy and a sign-in policy.  The sign-up or sign-in policy is built with more capabilities than the sign-in policy, it allows you to use page UI customization and has better support for localization.  The sign-in policy is recommended if you don't need to localize your policies, only need minor customization capabilities for branding and want password reset built into it.
+### How do I link a sign-up or sign-in policy with a password reset policy?
+When you create a sign-up or sign-in policy (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset policy. 
 
-## Additional resources
-* [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+Instead, the error code **`AADB2C90118`** is returned to your app. Your app needs to handle this error code by invoking a specific password reset policy. For more information, see a [sample that demonstrates the approach of linking policies](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
+### Should I use a sign-up or sign-in policy or a sign-up policy and a sign-in policy?
+We recommend that you use a sign-up or sign-in policy over a sign-up policy and a sign-in policy.  
+
+The sign-up or sign-in policy has more capabilities than the sign-in policy. It also enables you to use page UI customization and has better support for localization. 
+
+The sign-in policy is recommended if you don't need to localize your policies, only need minor customization capabilities for branding, and want password reset built into it.
+
+## Next steps
+* [Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md)
 * [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 

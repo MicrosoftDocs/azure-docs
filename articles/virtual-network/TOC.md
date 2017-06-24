@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
@@ -103,6 +103,8 @@
 ### [Virtual networks](virtual-network-manage-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
+#### Classic
+##### [Network configuration file](virtual-networks-using-network-configuration-file.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -143,6 +145,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
