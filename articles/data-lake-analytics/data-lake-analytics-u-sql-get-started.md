@@ -3,8 +3,8 @@ title: 'Get started with U-SQL language | Microsoft Docs'
 description: Learn the basics of the U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
+ms.date: 06/23/2017
+ms.author: saveenr
 
 ---
 # Get started with U-SQL
@@ -225,12 +225,7 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
 
 For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
 
-## See also
+## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
-## Let us know what you think
-* [Submit a feature request](http://aka.ms/adlafeedback)
-* [Get help in the forums](http://aka.ms/adlaforums)
-* [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
