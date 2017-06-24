@@ -1,4 +1,4 @@
---
+---
 title: Teams and subteams in the Content Moderator API | Microsoft Docs
 description: Learn how to use teams and subteams in the Content Moderator API for Cognitive Services.
 services: cognitive-services
