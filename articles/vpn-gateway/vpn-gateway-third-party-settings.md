@@ -1,6 +1,6 @@
 ---
-title: 'Community-suggested third-party VPN or firewall devices settings for Azure VPN gatway | Microsoft Docs'
-description: Learn about community-suggested third-party VPN or firewall devices settings for Azure VPN gatway.
+title: 'Community-suggested third-party VPN or firewall device settings for Azure VPN gateway | Microsoft Docs'
+description: Learn about community-suggested third-party VPN or firewall device settings for Azure VPN gateway.
 services: vpn-gateway
 documentationcenter: ''
 author: Deland-Han
@@ -19,11 +19,9 @@ ms.author: delhan
 
 ---
 
-# Community-suggested third-party VPN or firewall devices settings for Azure VPN gateway
+# Community-suggested third-party VPN or firewall device settings for Azure VPN gateway
 
-## Summary
-
-This article provides several suggested solutions for third-party VPN or firewall devices that are using with Azure VPN gateway.
+This article provides several suggested solutions for third-party VPN or firewall devices that are used with Azure VPN gateway.
 
 > [!Note]
 > Technical support for third-party VPN or firewall devices is provided by the device vendor. 
