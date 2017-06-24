@@ -17,7 +17,7 @@ ms.date: 05/07/2017
 ms.author: joroja
 
 ---
-# Troubleshoot Azure Active Directory B2C custom policies and Identity Experience Framework
+# Troubleshoot Azure AD B2C custom policies and Identity Experience Framework
 
 If you use Azure Active Directory (Azure AD) B2C custom policies, you might experience challenges setting up the Identity Experience Framework in its policy language XML format.  Learning to write custom policies can be like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
 
