@@ -1,5 +1,5 @@
 ---
-title: Using an Azure App Service Environments
+title: Using an Azure App Service Environment
 description: How to create, publish and scale apps in an Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -52,11 +52,11 @@ To create a web app in an ASE:
 1. Select a subscription.
 2. Provide a name for a new resource group or select **Use existing** and pick one from the drop down.
 3. Select an existing App Service plan in your ASE or create a new one with the following steps:
-	- Select **Create New**.
-	- Provide the name for your App Service plan.
-	- Select your ASE in the **Location** drop down.
-	- Select an **Isolated** pricing tier. Click **Select**.
-	- Click **Okay**.
+	1. Select **Create New**.
+	2. Provide the name for your App Service plan.
+	3. Select your ASE in the **Location** drop down.
+	4. Select an **Isolated** pricing tier. Click **Select**.
+	5. Click **Okay**.
 	
 	![][2]
 1. Click **Create**.
