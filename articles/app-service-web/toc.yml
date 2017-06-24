@@ -250,21 +250,21 @@
       href: automation-manage-web-app.md
   - name: App Service Environment
     items:
-    - name: Using an App Service Environment
+    - name: Use an App Service Environment
       href: ../app-service/app-service-environment/using-an-ase.md
-    - name: Create an External App Service Environment
+    - name: Create an external App Service Environment
       href: ../app-service/app-service-environment/create-external-ase.md
     - name: Create using Azure Resource Manager
       href: ../app-service/app-service-environment/create-from-template.md
-    - name: Internal Load Balanced ASE
+    - name: Create with an Internal Load Balancer
       href: ../app-service/app-service-environment/create-ilb-ase.md
-    - name: Networking Considerations
+    - name: Networking considerations
       href: ../app-service/app-service-environment/network-info.md
-    - name: Custom Settings
+    - name: Configure custom settings
       href: ./app-service-app-service-environment-custom-settings.md
-    - name: Web Application Firewall
+    - name: Integrate with a Web Application Firewall
       href: ./app-service-app-service-environment-web-application-firewall.md
-    - name: Geographically Distributed Scale
+    - name: Geographically distributed scale
       href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Reference
   items:
