@@ -1,6 +1,6 @@
 ---
-title: Getting started with AAD authentication using the Azure portal| Microsoft Docs
-description: This topic shows how to use the Azure portal to access Azure Active Directory (AAD) authentication used to consume Azure Media Services API. 
+title: Getting started with Azure AD authentication by using the Azure portal| Microsoft Docs
+description: Learn how to use the Azure portal to access Azure Active Directory (Azure AD) authentication to consume the Azure Media Services API. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,17 +16,17 @@ ms.date: 06/17/2017
 ms.author: juliako
 
 ---
-# Getting started with AAD authentication using the Azure portal
+# Getting started with Azure AD authentication by using the Azure portal
 
-This topic shows how to use the Azure portal to access Azure Active Directory (AAD) authentication settings used to consume Azure Media Services API.
+Learn how to use the Azure portal to access Azure Active Directory (Azure AD) authentication settings to consume the Azure Media Services API.
 
 ## Prerequisites
 
-- An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-- A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md)
-- Make sure to review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) topic. 
+- An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
+- A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](media-services-portal-create-account.md)
+- Make sure you review the [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
 
-When using AAD authentication with Azure Media Services (AMS), you can authenticate in one of two ways:
+When you use Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
 - **User authentication** is used to authenticate a person who is using the app to interact with AMS resources. The interactive application should first prompt the user for credentials. For example, a management console app used by authorized users to monitor encoding jobs or live streaming. 
 - **Service principal authentication** is used to authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services or scheduled jobs: Web Apps, Function Apps, Logic Apps, API, Microservice.
@@ -99,7 +99,7 @@ Click the **Manage application** button to open the AAD Application blade. On th
 
 Once you select the AAD application, you will be able to manage the application and permissions. Click **Manage Permissions** to allow your AAD application to talk to other applications. Click **Manage Application** to perform management tasks, such as changing keys and reply URLs or editing the application’s manifest.
 
-### Editing app's settings or manifest
+### Edit the app's settings or manifest
 
 If you need to edit the app's settings or manifest. Click on the **Manage application** button.
 
