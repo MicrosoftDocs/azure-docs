@@ -45,7 +45,9 @@ When you prepare to reprotect virtual machines, take or consider the following p
   > If snapshots are present on the on-premises master target or the virtual machine, reprotection fails. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine are automatically merged during a reprotect job.
 
 * Before you fail back, create two additional components:
+
   * **Process server**: The [process server](site-recovery-vmware-setup-azure-ps-resource-manager.md) receives data from the protected virtual machine in Azure and sends data to the on-premises site. A low-latency network is required between the process server and the protected virtual machine. Thus, you can have an on-premises process server if you're using an Azure ExpressRoute connection or an Azure-based process server and a VPN.
+  
   * **Master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
     * [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
     * A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
