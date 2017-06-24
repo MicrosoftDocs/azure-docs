@@ -71,10 +71,10 @@ To create an ASE during App Service plan creation:
 
     ![][4]
 1. Choose either **Create New** or **Select Existing**. The option to select an existing Virtual Network is only available if you have a Virtual Network in the selected region. If you select **Create New**, you provide a name for the Virtual Network, and a new Resource Manager Virtual Network with that name will be created with the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
-    - Select the Virtual Network address block if you have more than one.
-    - Provide a new subnet name.
-    - Select the size of the subnet. **Reminder: This should be something large enough to accommodate any future growth of your ASE.** The recommended size is a `/25` which has 128 addresses and can handle a maximum sized ASE. `/28` is not recommended, for example, because only 16 addresses are available. Infrastructure needs would use up at least 5 addresses, leaving you with just a maximum scaling of 11 instances in a `/28` subnet.
-    - Select the subnet IP range.
+    1. Select the Virtual Network address block if you have more than one.
+    2. Provide a new subnet name.
+    3. Select the size of the subnet. **Reminder: This should be something large enough to accommodate any future growth of your ASE.** The recommended size is a `/25` which has 128 addresses and can handle a maximum sized ASE. `/28` is not recommended, for example, because only 16 addresses are available. Infrastructure needs would use up at least 5 addresses, leaving you with just a maximum scaling of 11 instances in a `/28` subnet.
+    4. Select the subnet IP range.
 
 The ASE creation process will begin after you select **Create**. This will also create the App Service plan and the app. The ASE, App Service plan and app will all be under the same subscription and also in the same resource group. If you need your ASE to be in a separate resource group from your App Service plan and app, or if you need an ILB ASE, then use the standalone ASE creation experience.
 
