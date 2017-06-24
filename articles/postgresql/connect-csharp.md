@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: article
+ms.topic: hero-article
 ms.date: 05/31/2017
 ---
 
