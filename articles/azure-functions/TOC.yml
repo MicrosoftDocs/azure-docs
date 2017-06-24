@@ -59,6 +59,8 @@
       href: functions-reference-node.md    
   - name: Performance considerations
     href: functions-best-practices.md 
+  - name: Functions Proxies
+    href: functions-proxies.md 
   - name: Functions Runtime
     href: functions-runtime-overview.md
 - name: How-to guides
@@ -97,7 +99,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Event Hub
+    - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: External file
       href: functions-bindings-external-file.md
@@ -123,6 +125,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regional availability
@@ -131,6 +135,8 @@
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
