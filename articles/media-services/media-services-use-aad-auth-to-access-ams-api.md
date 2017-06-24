@@ -62,7 +62,7 @@ The following diagram shows a typical interactive application authentication flo
 In the preceding diagram, the numbers represent the flow of the requests in chronological order.
 
 > [!NOTE]
-> When you use the user authentication method, all apps share the same (default) "native pplication client ID" and "native application redirect URI.". 
+> When you use the user authentication method, all apps share the same (default) native application client ID and native application redirect URI. 
 
 1. Prompt a user for credentials.
 2. Request an Azure AD access token with the following parameters:  
@@ -80,34 +80,34 @@ In the preceding diagram, the numbers represent the flow of the requests in chro
 		
 		The URI represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
 
-	To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) using the "user authentication option".
+	To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) using the user authentication option.
 
 3. The Azure AD access token is sent to the client.
-4. The client sends a request to Azure Media REST API, with the Azure AD access token.
-5. The client receives the data from Media Services.
+4. The client sends a request to the Azure Media REST API with the Azure AD access token.
+5. The client gets back the data from Media Services.
 
 For information about how to use Azure AD authentication to communicate with REST requests by using the Media Services .NET client SDK, see [Use Azure AD authentication to access the Media Services API with .NET](media-services-dotnet-get-started-with-aad.md). 
 
-If you are not using Media Services .NET client SDK, you must manually create an Azure AD access token request by using the parameters described in **step 2**. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
+If you are not using the Media Services .NET client SDK, you must manually create an Azure AD access token request by using the parameters described in **step 2**. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
 ### Service principal authentication
 
-Applications that commonly use this authentication method are apps that run middle-tier services and scheduled jobs: web apps, function apps, logic apps, APIs, and microservices. This authentication method also is suitable for interactive applications that might want to use a service account to manage resources.
+Applications that commonly use this authentication method are apps that run middle-tier services and scheduled jobs: web apps, function apps, logic apps, APIs, and microservices. This authentication method also is suitable for interactive applications in which you might want to use a service account to manage resources.
 
-When using the service principal authentication method for building "consumer scenarios", the authentication is typically handled in the middle-tier (through some API) and not directly in a mobile or desktop application. 
+When using the service principal authentication method to build consumer scenarios, authentication typically is handled in the middle tier (through some API) and not directly in a mobile or desktop application. 
 
-To use this method, you need to create an Azure AD application and service principal in its own tenant. After the application is created, give the app Contributor or Owner role access to the Media Services account. These steps can be accomplished through the Azure portal, Azure CLI, or PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You can also do it using [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+To use this method, create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application. You can register and manage your Azure AD app and service principal [in the Azure portal](media-services-portal-get-started-with-aad.md). You also can do this by using [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) or [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Middle-tier apps](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-After you create your Azure AD application, you get values for the following settings, which you will need to use for authentication.
+After you create your Azure AD application, you get values for the following settings. You need these values for authentication:
 
 - Client ID 
 - Client secret 
 
 In the preceding figure, the numbers represent the flow of the requests in chronological order:
 	
-1. A middle-tier app (web API or web application) requests an Azure AD access token with the following parameters:  
+1. A middle-tier app (web API or web application) requests an Azure AD access token that has the following parameters:  
 
 	1. Azure AD tenant endpoint.
 
@@ -116,31 +116,31 @@ In the preceding figure, the numbers represent the flow of the requests in chron
 
 		This URI is the same for Media Services accounts that are located in the same Azure environment (for example, https://rest.media.azure.net).
 
-	3. Resource URI for Media REST Services.
+	3. Resource URI for REST Media Services.
 
 		The URI represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
 
-	4. Azure AD application values: the **Client ID** and **Client secret**.
+	4. Azure AD application values: the **client ID** and **client secret**.
 	
 	To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) by using the service principal authentication option.
 
 2. The Azure AD access token is sent to the middle tier.
-4. The middle tier sends request to Azure Media REST API together with the Azure AD token.
-5. The middle tier gets the data back from Media Services.
+4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
+5. The middle tier gets back the data from Media Services.
 
-For information about how to use Azure AD authentication for communicating with REST requests using the Media Services .NET client SDK, see [this](media-services-dotnet-get-started-with-aad.md) topic. 
+For more information about how to use Azure AD authentication to communicate with REST requests by using the Media Services .NET client SDK, see [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md). 
 
-If you are not using Media Services .NET client SDK, you will be required to manually create an Azure AD token request using parameters described in **step 1**. For more information, see [How to use ADAL libraries to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
+If you are not using the Media Services .NET client SDK, you must manually create an Azure AD token request by using parameters described in **step 1**. For more information, see [How to use the Azure AD Authentication Library to get the Azure AD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
 ## Troubleshooting
 
 Exception: "The remote server returned an error: (401) Unauthorized."
 
-Solution: For the the Media Services REST request to succeed, the calling user must be a Contributor or Owner role in the Media Services account it is trying to access. For more information, see the [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control) section.
+Solution: For the Media Services REST request to succeed, the calling user must be a Contributor or Owner role in the Media Services account it is trying to access. For more information, see the [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control) section.
 
 ## Resources
 
-The following list of articles have overviews of Azure AD authentication concepts: 
+The following articles are overviews of Azure AD authentication concepts: 
 
 - [Authentication scenarios addressed by Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Add, update, or remove an application in Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
@@ -148,6 +148,6 @@ The following list of articles have overviews of Azure AD authentication concept
 
 ## Next steps
 
-* [Use the Azure portal to access Azure AD authentication used to consume Azure Media Services API](media-services-portal-get-started-with-aad.md)
-* [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
+* [Use the Azure portal to access Azure AD authentication to consume Azure Media Services API](media-services-portal-get-started-with-aad.md)
+* [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md)
 
