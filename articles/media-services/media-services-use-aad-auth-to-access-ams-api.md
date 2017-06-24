@@ -33,7 +33,7 @@ For the Azure Media REST request to succeed, the calling user must have a Contri
 Only a user with the Owner role can give media resource (account) access to new users or apps. The Contributor role can access only the media resource.
 Unauthorized requests fail, with status code of 401. If you see this error code, check whether your user has the Contributor or Owner role assigned for the user's Media Services account. You can check this in the Azure portal. Search for your media account, and then click the **Access control** tab. 
 
-![Access control tab](./media/media-services-use-aad-auth-to-access-Media Services-api/media-services-access-control.png)
+![Access control tab](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
 ## Types of authentication 
  
