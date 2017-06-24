@@ -52,24 +52,14 @@ az sf cluster select --endpoint http://testcluster.com:19080
 The cluster endpoint must be prefixed by `http` or `https`, and should include the port for the HTTP gateway. This
 port and address is the same as the Service Fabric Explorer URL.
 
-For clusters secure with a certificate, either unencrypted `pem` or, `crt` and `key` files are supported. Specify the
-path to each file. For example:
+For clusters secure with a certificate, either unencrypted `pem` or, `crt` and `key` files are supported.
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-For password protected `pem` files, you will be prompted automatically to enter the password.
-
-Often times the certificates used to secure test or dev clusters fail certificate validation. To bypass certificate
-verification, specify the `--no-verify` option. For example:
-
-> [!WARNING]
-> Do not use the `no-verify` option when connecting to production Service Fabric clusters.
-
-```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
-```
+For more information, see the
+[detailed document on connecting to secure clusters](service-fabric-connect-to-secure-cluster.md).
 
 ## Performing basic operations
 
