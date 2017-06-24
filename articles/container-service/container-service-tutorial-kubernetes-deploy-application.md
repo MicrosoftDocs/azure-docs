@@ -39,7 +39,7 @@ At minimum, this tutorial requires a Kubernetes cluster.
 
 ## Kubernetes objects
 
-When deploying a containerized application into Kubernetes, many different Kubernetes objects are created. Each object represents the desired state for a portion of the deployment. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
+When deploying a containerized application into Kubernetes, many different Kubernetes objects are created. Each object represents the desired state for the cluster. For example, a simple application may consist of a pod, which is a grouping of closely related containers, a persistent volume, which is a piece of networked storage, and a deployment, which manages the state of the application. 
 
 For details on all Kubernetes object, see [Kubernetes Concepts](https://kubernetes.io/docs/concepts/) on kubernetes.io.
 
@@ -131,7 +131,7 @@ kubectl create -f azure-vote-deployment.yaml
 
 ### Expose application
 
-A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) defines how a deployment is accessed. With the Azure Vote app, the back-end deployment must be internally accessible by deployment name. The font-end deployment must be accessible over the internet. The Azure Vote app service configurations are defined in the `services.yaml` manifest file.
+A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) defines how a pod is accessed. With the Azure Vote app, the back-end deployment must be internally accessible by deployment name. The font-end deployment must be accessible over the internet. The Azure Vote app service configurations are defined in the `services.yaml` manifest file.
 
 Run the following to create the services.
 

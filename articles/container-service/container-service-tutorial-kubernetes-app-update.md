@@ -83,8 +83,6 @@ docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_
 
 Run an instance of the front-end container image.
 
-Environment variables are being used to configure the database connection information.
-
 ```bash
 docker run -d -p 8080:80 --name azure-vote-front --network=azure-vote -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote -e MYSQL_HOST=azure-vote-back azure-vote-front:v2
 ```
@@ -115,23 +113,11 @@ Push the image to your registry. Replace `<acrLoginServer>` with your ACR login 
 docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
-## Deploy updated application
+## Deploy update to Kubernetes
 
-### Verify multiple replicas
+### Verify multiple POD replicas
 
 To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
-
-```bash
-kubectl get pod
-```
-
-If needed, scale the front-end deployment so that multiple instances are running.
-
-```bash
-kubectl scale --replicas=3 deployment/azure-vote-front
-```
-
-In a state where the front-end deployment has been scaled to three, the pods should look like the following.
 
 ```bash
 kubectl get pod
@@ -147,6 +133,13 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
+If you do not have multiple pod instances running the azure-vote-front image, scale the *azure-vote-front* deployment.
+
+
+```bash
+kubectl scale --replicas=3 deployment/azure-vote-front
+```
+
 ### Update application
 
 To update the application, run the following command. Update `<acrLoginServer>` with the login server or host name of your container registry.
@@ -155,7 +148,7 @@ To update the application, run the following command. Update `<acrLoginServer>` 
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-To monitor the deployment, run the following command:
+To monitor the deployment, use the [kubectl get pod]((https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, you will see pods terminating, and being re-created with the new container image.
 
 ```bash
 kubectl get pod
@@ -170,6 +163,8 @@ azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
 azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 ```
+
+## Test updated application
 
 Get the external IP address of the *azure-vote-front* service.
 
@@ -190,6 +185,7 @@ In this tutorial, an application was updated and this update rolled out to a Kub
 > * Creating an updated container image
 > * Pushing the container image to ACR
 > * Deploying updated application
+
 Advance to the next tutorial to learn about monitoring Kubernetes with Operations Management Suite.
 
 > [!div class="nextstepaction"]
