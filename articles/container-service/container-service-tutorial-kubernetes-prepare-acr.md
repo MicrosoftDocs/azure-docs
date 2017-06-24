@@ -82,7 +82,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container images
 
-Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing the container image.
+Each container image needs to be tagged with the `loginServer` name of the registry. This tag is used for routing when pushing container images to an image registry.
 
 To see a list of current images, use the `docker images` command.
 
@@ -121,13 +121,13 @@ docker images
 Output:
 
 ```bash
-REPOSITORY                                               TAG                 IMAGE ID            CREATED             SIZE
-mycontainerregistry8781.azurecr.io/azure-vote-front:v1   latest              a3d423cf3260        About an hour ago   716 MB
-azure-vote-front                                         latest              a3d423cf3260        About an hour ago   716 MB
-azure-vote-back                                          latest              ad6b280678eb        About an hour ago   407 MB
-mycontainerregistry8781.azurecr.io/azure-vote-back:v1    latest              ad6b280678eb        About an hour ago   407 MB
-mysql                                                    latest              e799c7f9ae9c        5 weeks ago         407 MB
-tiangolo/uwsgi-nginx-flask                               flask               788ca94b2313        8 months ago        694 MB
+REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
+azure-vote-back                                      latest              a9dace4e1a17        7 minutes ago       407 MB
+mycontainerregistry082.azurecr.io/azure-vote-back    v1                  a9dace4e1a17        7 minutes ago       407 MB
+azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1                  eaf2b9c57e5e        8 minutes ago       716 MB
+mysql                                                latest              e799c7f9ae9c        6 weeks ago         407 MB
+tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
 
 ## Push images to ACR

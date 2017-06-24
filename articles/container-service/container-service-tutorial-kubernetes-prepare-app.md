@@ -24,7 +24,7 @@ ms.author: nepeters
 In this tutorial, an application is prepared for Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
-> * Cloning the application source from GitHub  
+> * Cloning application source from GitHub  
 > * Creating container images from application source
 > * Testing the images in a local Docker environment
 
@@ -34,7 +34,7 @@ In subsequent tutorials, these container images are uploaded to an Azure Contain
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics. 
 
-To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure a Docker environment on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 ## Get application code
 
@@ -50,7 +50,7 @@ Inside the application directory, pre-created Dockerfiles and Kubernetes manifes
 
 ## Create container images
 
-To create a container image for the applications front end, use the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
+To create a container image for the application front-end, use the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
 
 ```bash
 docker build ./azure-voting-app/azure-vote -t azure-vote-front

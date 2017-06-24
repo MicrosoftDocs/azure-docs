@@ -64,7 +64,7 @@ SHOWHOST = 'false'
 Use `docker build` to re-create the front-end image.
 
 ```bash
-docker build --no-cache ./azure-voting-app/azure-vote -t azure-vote-front
+docker build --no-cache ./azure-voting-app/azure-vote -t azure-vote-front:v2
 ```
 
 ## Test application
@@ -152,7 +152,7 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 To update the application, run the following command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
 ```bash
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2 --record
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
 To monitor the deployment, run the following command:
@@ -171,7 +171,7 @@ azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 ```
 
-Get the external IP address of the service.
+Get the external IP address of the *azure-vote-front* service.
 
 ```bash
 kubectl get service
