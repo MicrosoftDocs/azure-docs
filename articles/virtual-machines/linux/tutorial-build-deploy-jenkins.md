@@ -38,17 +38,13 @@ For a quick guide on connecting Team Services, read [Connect to Team Services](h
 
 You'll also need to have an app that you want to deploy stored in a Git repository,
 and configure the required plugins in Jenkins to interface with Team Services,
-as described next.
-
-This tutorial uses a sample app (provided below) that you can use as you follow along.
+as described next. This tutorial uses a sample app (provided below) that you can use as you follow along.
 
 ## Get the sample app
 
 For this tutorial, we recommend you use [this sample app available from
 GitHub](https://github.com/azooinmyluggage/fabrikam-node). You can
 copy this app into your own Git repository if you prefer; just take note of the new location (URL) for use in future steps.
-
-
 
 ## About the sample app
 
@@ -107,7 +103,7 @@ In the **Manage Jenkins** page, choose **Manage Plugins**.
 
 Filter the list to locate the the **NodeJS** plugin and install it without restart.
 
-![Adding the NodeJS plugin to Jenkins](media/tutorial-build-deploy-jenkins/add-ts-extension-in-jenkins.png)
+![Adding the NodeJS plugin to Jenkins](media/tutorial-build-deploy-jenkins/jenkins-nodejs-plugin.png)
 
 Filter the list to find the **Team Foundation Server** plugin and install it. (This plug-in works for both Team Services and Team Foundation Server.) Restarting Jenkins is not necessary.
 
@@ -139,7 +135,7 @@ In the **Post-build Actions** tab:
      (for example, `https://your-account-name.visualstudio.com`), the project name,
      the name of the release definition you will create, and the credentials to connect to your account.<p /> 
 
-   ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/jenkins-build-actions.png)
+   ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 
    [How do I create a personal access token for Team Services and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md)
 
@@ -152,7 +148,7 @@ download the build artifacts and deploy them.
 
 Open the **Services** tab of the administration page, and add a new **Jenkins** service endpoint.
 
-![Adding a Jenkins service endpoint](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
+![Adding a Jenkins service endpoint](media/tutorial-build-deploy-jenkins/jenkins-service-endpoint.png)
 
 In the **Add new Jenkins Connection** dialog, enter a name you will use to refer to the service endpoint.
 
@@ -190,18 +186,38 @@ In the new release definition, choose **+ Add tasks** and add an **Azure Resourc
 
 Choose the drop-down arrow next to the **+ Add tasks** link and add a deployment group phase to the definition.
 
-![Adding a deployment group phase](media/tutorial-build-deploy-jenkins/add-depgroup-phase.png) 
+![Adding a deployment group phase](media/tutorial-build-deploy-jenkins/deployment-group-phase-in-release-definition.png) 
 
 In the Task catalog, open the **Utility** section and add an instance of the **Shell Script** task.
 
 Configure the tasks as follows (see the screen below):
 
-   | Task step | Parameters |
-   | --------- | ---------- |
-   | ![Deploy: Azure Resource Group Deployment](../../steps/deploy/media/tutorial-build-deploy-jenkins/azure-resource-group-deployment-icon.png)<br/>[Deploy: Azure Resource Group Deployment](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment)<br/>Create the deployment group using an Azure Resource Group template  | **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections**. If no connections appear, choose **Manage**, select **New Service Endpoint** then **Azure Resource Manager**, and follow the prompts. Then return to your release definition, refresh the **AzureRM Subscription** list, and select the connection you just created.<br/>**Resource group**: Enter a name of the resource group you created earlier.<br />**Location**: Select a region for the deployment.<br />**Template location**: `URL of the file`<br />**Template link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.json`<br />**Template parameters link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.parameters.json`<br />**Override template parameters**: A list of the override values, for example: `-location {location} -virtualMachineName {machine] -virtualMachineSize Standard_DS1_v2 -adminUsername {username} -virtualNetworkName fabrikam-node-rg-vnet -networkInterfaceName fabrikam-node-websvr1 -networkSecurityGroupName fabrikam-node-websvr1-nsg -adminPassword $(adminpassword) -diagnosticsStorageAccountName fabrikamnodewebsvr1 -diagnosticsStorageAccountId Microsoft.Storage/storageAccounts/fabrikamnodewebsvr1 -diagnosticsStorageAccountType Standard_LRS -addressPrefix 172.16.8.0/24 -subnetName default -subnetPrefix 172.16.8.0/24 -publicIpAddressName fabrikam-node-websvr1-ip -publicIpAddressType Dynamic`<br />**Enable prerequisites**: `Configure with Deployment Group agent`<br />**TFS/VSTS endpoint**: Select the Jenkins service endpoint connection you created earlier.<br />**Team project**: Select your current project<br />**Deployment Group**: Enter the same deployment group name as you used for the **Resource group** parameter above. |
-   | ![Utility: Shell Script](../../steps/utility/media/tutorial-build-deploy-jenkins/shell-script.png)<br/>[Utility: Shell Script](../../steps/utility/shell-script.md)<br/>Run a script on each server to install Node.js and start the app  | **Script Path**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`<br />**Specify Working Directory**: `Checked`<br/>**Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node` |
+   > **Deployment Step 1**: Create the deployment group using an [Azure Resource Group template](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment). 
+   > Populate the Azure Resource Group template with the following:
+   >
+   > * **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections**. 
+   >
+   >   If no connections appear, choose **Manage**, select **New Service Endpoint** then **Azure Resource Manager**, and follow the prompts.
+   > Return to your release definition, refresh the **AzureRM Subscription** 
+   >list, and select the connection you just created.
+   > * **Resource group**: Enter a name of the resource group you created earlier.
+   > * **Location**: Select a region for the deployment.
+   > * **Template location**: `URL of the file`
+   > * **Template link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.json`
+   > * **Template parameters link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.parameters.json`
+   > * **Override template parameters**: A list of the override values, for example: `-location {location} -virtualMachineName {machine] -virtualMachineSize Standard_DS1_v2 -adminUsername {username} -virtualNetworkName fabrikam-node-rg-vnet -networkInterfaceName fabrikam-node-websvr1 -networkSecurityGroupName fabrikam-node-websvr1-nsg -adminPassword $(adminpassword) -diagnosticsStorageAccountName fabrikamnodewebsvr1 -diagnosticsStorageAccountId Microsoft.Storage/storageAccounts/fabrikamnodewebsvr1 -diagnosticsStorageAccountType Standard_LRS -addressPrefix 172.16.8.0/24 -subnetName default -subnetPrefix 172.16.8.0/24 -publicIpAddressName fabrikam-node-websvr1-ip -publicIpAddressType Dynamic`
+   > * **Enable prerequisites**: `Configure with Deployment Group agent`
+   > * **TFS/VSTS endpoint**: Select the Jenkins service endpoint connection you created earlier.
+   > * **Team project**: Select your current project.
+   > * **Deployment Group**: Enter the same deployment group name as you used for the **Resource group** parameter above.
+
+   > **Deployment Step 2**: Provide the configuration for a script to run on each server to install Node.js and start the app.
+   >
+   > * **Script Path**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`
+   > * **Specify Working Directory**: `Checked`
+   > * **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
    
-   > The default settings for the Azure Resource Group Deployment task are to create or update a resource,
+   The default settings for the Azure Resource Group Deployment task are to create or update a resource,
    and to do so incrementally. The task will create the VMs the first time it runs, and subsequently just update them.
 
 Optionally, change the name of the environment by clicking on the name. 
