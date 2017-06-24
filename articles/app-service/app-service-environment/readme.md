@@ -39,10 +39,13 @@ Apps frequently need to access corporate resources such as internal databases an
 
 
 ## Videos
+Master Modern PaaS for the Enterprise with Azure App Service
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
 
+Deploying Hily Scalable and Secure Apps
 >[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
+Running Enterprise Web and Mobile Apps on Azure App Service
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
 ## ASEv1 ##
