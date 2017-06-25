@@ -1,6 +1,6 @@
 ---
-title: Create your first function using the Azure Functions Tools for Visual Studio 
-description: Use Visual Studio to write code that runs serverless in Azure. 
+title: Create your first function in Azure using Visual Studio | Microsoft Docs
+description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions Tools for Visual Studio. 
 services: functions
 documentationcenter: na
 author: rachelappel
@@ -15,15 +15,15 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 06/25/2017
 ms.author: rachelap, glenga
 
 ---
-# Create your first function using the Azure Functions Tools for Visual Studio 
+# Create your first function using Visual Studio 
 
-With **Azure Functions**, you can write code to process events and run in a serverless execution model.
+Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. 
 
-In this tutorial, you learn how to create an Azure Function app using **Azure Function Tools for Visual Studio 2017** for Visual Studio. The HTTP trigger invokes your function, so every time there is an HTTP request to your function's URL, your function runs.   
+In this topic, you learn how to use the Azure Function Tools for Visual Studio 2017 to create and test a "hello world" function locally. You will then publish the function to Azure.
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -51,7 +51,9 @@ Close Visual Studio and accept the prompts to download and install the new tools
 
 The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.   
 
-Open Visual Studio and from the **File** menu select **New** > **Project**.  
+In this tutorial, you learn how to create an Azure Function app using **** for Visual Studio. HTTP trigger invoke your function, so every time there is an HTTP request to your function's URL, your function runs. 
+
+Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**. Choose **Azure Function** from the dialog box.
 
 In the **New Project** dialog, expand **Visual C#** > **Cloud** node, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. 
 
