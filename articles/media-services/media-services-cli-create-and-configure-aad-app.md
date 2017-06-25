@@ -23,7 +23,7 @@ This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azu
 
 ## Prerequisites
 
-- An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+- An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 
 ## Use the Azure Cloud Shell
