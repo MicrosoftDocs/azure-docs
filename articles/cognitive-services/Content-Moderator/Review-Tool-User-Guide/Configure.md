@@ -28,7 +28,7 @@ Manage your team and subteams from this tab. You can only have one team, but you
 
 This is where you can define your custom tags  by entering the short code, name, and description for your tags. After you have created it, it is available during reviews. You can use different tags for different reviews, by turning the visibility off and on.
 
-![Content Moderator Tags Settings](images/settings-3-tag.png)
+![Content Moderator Tags Settings](images/settings-3-tags.png)
 
 ## Connectors ##
 
