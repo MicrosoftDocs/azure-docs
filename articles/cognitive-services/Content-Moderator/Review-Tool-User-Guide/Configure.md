@@ -1,5 +1,5 @@
 ---
-title: Configure the Review Tool | Microsoft Docs
+title: Configure Content Moderator's Review Tool Settings | Microsoft Docs
 description: Configure or get your team, tags, connectors, workflows, and credentials.
 services: cognitive-services
 author: sanjeev3
@@ -8,40 +8,44 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# Configure or get the Review Tool settings #
+# About Review Tool settings #
 
-## Team ##
+Using the Settings tab on the Review Tool Dashboard, it is easy to define and change many components.
 
-After you have sent out invites, you can monitor them, change permissions for team members, and invite additional users on the screens shown below. You can also create subteams and assign existing members. The users can be either administrators or reviewers. The difference between the two roles is that administrators can invite other users, while reviewers cannot.
+![Content Moderator Review Settings](images/settings-1.png)
 
-![Teams](images/7-settings-team.png)
+## Team and Subteams ## 
+
+Manage your team and subteams from this tab. You can only have one team, but you can create multiple subteams  and send invitations to future members. After you have sent out invites, you can monitor them, change permissions for team members, and invite additional users. After team members have accepted your invitation, you can assign those members to different subteams. You can set team members’ roles to be either administrators or reviewers: administrators can invite other users, while reviewers cannot.
+
+![Content Moderator Team Settings](images/settings-2-team.png)
 
 ## Tags ##
 
-This is where you can define your custom tags by entering the short code, name, and description for your tags and using the **Add** button. You will see your new tag on the screen. Click the **Save** button to save your new tag and make it available during reviews.
+This is where you can define your custom tags  by entering the short code, name, and description for your tags. After you have created it, it is available during reviews. You can use different tags for different reviews, by turning the visibility off and on.
 
-![Tags](images/7-settings-tags-combined.png)
+![Content Moderator Tags Settings](images/settings-3-tag.png)
 
 ## Connectors ##
 
-The Content Moderator review tool calls the Content Moderator APIs with the **default** workflow to moderate content. It will auto-provision the Moderator API credentials for you when you sign up for the review tool.
+Workflows add functionality by using connectors to communicate with the Review Tool. The Review Tool calls the Content Moderator APIs with the default workflow for moderating content. When you sign up for the Review Tool, it auto-provisions the Moderator API credentials for you.  It also supports integrating other connector APIs, as long as a connector is available. We have made a few connectors available out of the box.
 
-It also supports integrating other APIs as long as a connector is available. We have made a few connectors available out of the box. You can enter your credentials for these APIs by using the **Connect** button. You can then use these connectors in your custom workflows, as shown in the next section.
+The Connectors tab is where you manage connectors . You can add or delete connectors, and find your subscription key for a particular connector. Click Connect to add these to your custom workflows. 
 
-![Connectors](images/7-settings-connectors.png)
+![Content Moderator Connectors Settings](images/settings-4-connectors.png)
 
 ## Workflows ##
 
-This is where you can see the **default** workflow. You can also define custom workflows for image and text by using the API Connectors available under the Connectors section. For a detailed example of how to define custom workflows, please see the **[Workflows](workflows.md)** section.
+Manage workflows from the Workflows tab. You can test workflows by uploading a sample file. You can also define [custom workflows](workflows.md) for image and text by using the available API connectors (found on the Connectors tab). 
 
-![Workflows](images/7-settings-workflows.png)
+![Content Moderator Workflow Settings](images/settings-5-workflow.png)
 
 ## Credentials ##
 
-In this section, you can access your Content Moderator subscription key to use with the APIs (Image, Text, List, Workflow, and Review APIs) included with Content Moderator. You will use these APIs to integrate your content with the various Content Moderator capabilities, whether for scanning or for both scanning and enabling human review workflows.
-
-![Credentials](images/7-Settings-Credentials3.PNG )
+This tab provides quick access to your Content Moderator subscription key, which you will need to use the APIs included with Content Moderator (Image Moderation, Text Moderation, List Management, Workflow, and Review APIs).
+ 
+![Content Moderator Credentials](images/settings-6-credentials.png)
