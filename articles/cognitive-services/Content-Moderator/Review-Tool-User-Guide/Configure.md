@@ -42,7 +42,7 @@ The Connectors tab is where you manage connectors . You can add or delete connec
 
 Manage workflows from the Workflows tab. You can test workflows by uploading a sample file. You can also define [custom workflows](workflows.md) for image and text by using the available API connectors (found on the Connectors tab). 
 
-![Content Moderator Workflow Settings](images/settings-5-workflow.png)
+![Content Moderator Workflow Settings](images/settings-5-workflows.png)
 
 ## Credentials ##
 
