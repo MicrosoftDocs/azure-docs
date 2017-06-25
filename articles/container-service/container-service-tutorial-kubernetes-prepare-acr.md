@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. Using the following example, update the name with some random characters.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Managed_Standard --admin-enabled true
 ```
 
 ## Get ACR information 
@@ -100,7 +100,7 @@ mysql                        latest              e799c7f9ae9c        4 weeks ago
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ago         694 MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1:` to the end of the image name. This tag indicates the image version number.
+Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version number.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

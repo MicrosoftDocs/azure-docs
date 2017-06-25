@@ -80,7 +80,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        8 months ag
 
 ## Test application
 
-Now that two container images have been created, these images are tested in your local development environment. 
+Now that two container images have been created, test these images in your local development environment. 
 
 First, create a Docker network. This network is used for communication between the containers.  
 
@@ -90,7 +90,7 @@ docker network create azure-vote
 
 Run an instance of the back-end container image using the `docker run` command.
 
-In this example, the mysql database file is being stored inside the container. Once this application is moved to the Kubernetes clusters, an external data volume is used to store the database file. Also, environment variables are being used to set MySQL credentials.
+In this example, the mysql database file is stored inside the container. Once this application is moved to the Kubernete clusters, an external data volume is used to store the database file. Also, environment variables are being used to set MySQL credentials.
 
 ```bash
 docker run -p 3306:3306 --name azure-vote-back -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
