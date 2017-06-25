@@ -1,5 +1,5 @@
 ---
-title: Use tags in Azure Content Moderator | Microsoft Docs
+title: Using tags in Azure Content Moderator | Microsoft Docs
 description: Content Moderator includes default tags, and you can create custom tags for moderating content specific to your business.
 services: cognitive-services
 author: sanjeev3
