@@ -1,6 +1,6 @@
 ---
 title: Use CLI 2.0 to create an Azure AD app and configure it to access Azure Media Services API | Microsoft Docs
-description: This topic shows how to use CLI 2.0 to create Azure AD app and configure it to access Azure Media Services API.
+description: This topic shows how to use CLI 2.0 to create an Azure AD app and configure it to access Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,9 +17,9 @@ ms.author: juliako
 
 ---
 
-# Use CLI 2.0 to create AAD app and configure it to access Azure Media Services API
+# Use CLI 2.0 to create an AAD app and configure it to access Azure Media Services API
 
-This topic shows how to use CLI 2.0 to create Azure Active Directory (Azure AD) application and service principal to access Azure Media Services resources. 
+This topic shows you how to use CLI 2.0 to create an Azure Active Directory (Azure AD) application and service principal to access Azure Media Services resources. 
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This topic shows how to use CLI 2.0 to create Azure Active Directory (Azure AD) 
 ## Use the Azure Cloud Shell
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Launch the Cloud Shell from the top navigation of the portal.
+2. Launch the Cloud Shell from the upper navigation pane of the portal.
 
 	![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
 
