@@ -1,13 +1,12 @@
 ---
-title: Xamarin Forms Visual Search Sample App Tutorial
-descriptopn: Open Source sample application providing the framework for a basic visual search application written in Xamarin Forms
-services: Bing-web-search-API Cognitive-services-computer-vision-API
+title: Azure Visual Search Using Xamarin.Forms
+descriptopn: Open Source sample application using the Microsoft Computer Vision and Bing Web Search APIs to provide a framework for a simple visual search application written in Xamarin.Forms
+services: Bing-web-search-API, Cognitive-services-computer-vision-API
 documentationcenter: dev-center-name (no idea what to put here)
-author: Aristoddle (says GitHub-alias-of-only-one-author; not sure if I should have something else here)
-manager: manager-alias
+author: Aristoddle 
+manager: bking
 
-
-ms.service: required
+ms.service: multiple
 ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: may be required
@@ -17,67 +16,55 @@ ms.author: t-jolanz@microsoft.com
 ---
 
 # Bing Web Search And Computer Vision API Tutorial: 
-This tutorial explores how the Microsoft Computer Vision Optical Character Recognition and Bing Web Search API endpoints can be utilized to build an application implementing basic visual search.  This application is written in C# and utilizes Xamarin.Forms, a cross-platform solution for desktop and mobile development.  Over the course of this tutorial we will discuss the following: 
-1) Setting up your system for Xamarin.Forms development
-2) Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
-3) Formatting this data and processing it with the Microsoft Cognitive Services Computer Vision APIs
-4) Structuring and sending requests to the Bing Web Search API
-5) Parsing responses from each of these APIs utilizing the NewtonSoft JSON parser, and and then unpacking these responses utilizing LINQ and through deserialization onto model objects
-6) Inegrating these APIs into cross compiling mobile applications
-  
-This is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/) which you can use as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs.
+This tutorial will explore how the Microsoft Cognitive Services Computer Vision and Bing Web Search API endpoints can be used to build an application implementing basic visual search.  This application is written in C# and utilizes Xamarin.Forms, a cross-platform solution for desktop and mobile development.  Over the course of this tutorial we will discuss the following: 
+* Setting up your system for Xamarin.Forms development
+* Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
+* Formatting images and parsing text from them using the Microsoft Cognitive Services Computer Vision APIs
+* Structuring and sending text-based requests to the Bing Web Search API
+* Parsing responses from the Bing Web Search and Computer Vision APIs with the NewtonSoft JSON parser, both with LINQ and model object deserialization
+* Inegrating these APIs into a C# based Xamarin.Forms application 
 
 ## Prerequisites
 ### Platform Requirements
-This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise Edition](https://www.visualstudio.com/downloads/)  For more information about setting up Xamarin for Visual Studio, you can either consult [this guide](https://developer.xamarin.com/guides/cross-platform/getting_started/), or continue reading below.
+This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise Edition](https://www.visualstudio.com/downloads/).  For more information about setting up Xamarin for Visual Studio, you can consult [this guide](https://developer.xamarin.com/guides/cross-platform/getting_started/), or continue reading below.
 
-### Required Azure Services
-This application utilizes resources from the [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) and the Cognitive Services <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">Computer Vision API</a>.  For subscription and key management details, see <a href="https://azure.microsoft.com/en-us/try/cognitive-services/"> Subscriptions</a>.
+### Azure Services
+This application utilizes resources from the [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) and the Cognitive Services [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  For a 30 day trial key, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/), and for more information about attaining keys for yourself, see [Pricing](http://www.google.com).
 
-## Environment Setup
+### Legal:
+#### Web Search API:
+Use of the Bing Web Search API requires adherance to the Bing Web Search [Use and Display Requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Web-Search/UseAndDisplayRequirements).  
+**Computer Vision API**: Microsoft receives the images that you upload to the Computer Vision APIs and may use them to improve these APIs along with related services.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).  
+**Licensing**: This is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/) which you can use as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs.
 
-### Installing Xamarin
-With Visual Studio 2017 installed, open the Visual Studio Installer, open the hamburger menu associated with your visual studio installation, and select "Modify".
-
-<div align="center">
-    <img src=./media/VisualStudioInstallerPhoto.PNG
-         alt="A picture of the visual studio installer">
-    </img>
-</div>
+## Environment Setup  
+### Installing Xamarin  
+With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select "Modify".
+![A picture of the visual studio installer](./media/VisualStudioInstallerPhoto.PNG) 
 
 Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile Development with .NET"
-
-<div align="center">
-    <img src=./media/XamarinFormsIsEnabled.PNG
-         alt="A picture showing that Xamarin.Forms is installed">
-    </img>
-</div>
+![A picture showing that Xamarin.Forms is installed](./media/XamarinFormsIsEnabled.PNG)
 
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
 
 ## Building and running the sample app
 ### Step 0: Download the sample
-The sample can be found at <a href="https://github.com/Azure-Samples/XamFormsVisualSearch">XamFormsVisualSearch</a>. Download it using Visual Studio or GitHub.
+The sample can be found at [XamFormsVisualSearch](https://github.com/Azure-Samples/XamFormsVisualSearch). You can download it using Visual Studio or directly from GitHub.
 
 ### Step 1: Install the sample
 In Visual Studio, open **XamFormsVisualSearch\VisualSearchApp.sln**.  It may take a few moments to initialize all of the required components. 
 
 ### Step 2: Build the sample
-Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.  This should build the solution for all available platforms.  If you're trying to compile and test code for iOS while using a windows machine, you can reference <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/"> this guide</a> for help.
+Press **Ctrl+Shift+B**, or click **Build** on the ribbon menu, then select **Build Solution**.  This should build the solution for all available platforms.  If you're trying to compile and test code for iOS while using a windows machine, you can reference <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/"> this guide</a> for help.
 
 ### Step 3: Configure your deployment
-Before running the application, you will need to select a target Configuration, Platform and Project.  These settings should be available in the toolbar below the top ribbon menu.  For this guide I'll be compiling the application in a Debug build for Android, and testing it on my Nexus 6P.  
-
-<div align="center">
-    <img src=./media/ConfigurationSelection.PNG
-         alt="An image showing Visual Studio configured to compile for an Android phone">
-    </img>
-</div> 
+Before running the application, you will need to select a target Configuration, Platform and Project.  Xamarin.Forms applications will compile to native code for Windows, Android and iOS.  For this guide I will be compiling the application to run on the Universal Windows Platform.  
+![An image showing Visual Studio configured to compile for an Android phone](./media/ConfigurationSelection.PNG)
 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5** to deploy the sample to your target platform.  
-2) Once the application boots, you will be taken to the page shown below (defined in code as the AddKeysPage).  From here, you can input the API keys needed to access the Microsoft Cognitive Services endpoints used by the application.  If you would like to skip this page, you can manually add your keys in the App.xaml.cs page of the codebase. 
+2) Once the application boots, you will be taken to the page below (defined in code as *AddKeysPage.xaml*).  From here, you can input the API keys needed to access the Microsoft Cognitive Services endpoints used by the application.  If you would like to skip this page, you can manually add your keys in the App.xaml.cs page of the codebase. 
 <div align="center">
     <img src=./media/AddKeysPage.png
          alt="A picture of the page where a user can add their Cognitive Services keys">
