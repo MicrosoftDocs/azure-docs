@@ -92,9 +92,16 @@ Note that the Handwritten OCR endpoint is in preview, and although functional at
 Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
 
 ### Key Entry Page
-The primary logic for this page is covered in *AddKeysPage.xaml.cs*.  Here, calls are sent to each of the API endpoints to ensure that their Azure subscription keys are valid.  While the specific arguments and parameters sent with these requests are discussed in later files, this is a great place to start examining how to reach the cognitive services endpoints and unpack their responses. 
-
-At the class level we define the root URI locations of each of the Azure endpoints.  While this file interacts with the endpoints in relatively simple ways, in larger applications this abstraction can be very useful. 
+The primary logic for this page is covered in *AddKeysPage.xaml.cs*.  Here, calls are sent to each of the API endpoints to ensure that their Azure subscription keys are valid.  While the specific parameters sent with these requests are discussed in later files, this is a great place to establich the basic structure of how the Azure endpoints are accessed from a C# codebase.  This basic interaction can be summarized as follows: 
+1) Establish the root URI for each endpoint as a class constant
+2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
+3) Attach any desired headers (defined in each endpoint's API reference) to your HttpClient object
+4) Attach any desired parameters to your endpoint URI
+5) Send a POST or GET request with your data
+6) Check that the response was successful
+7) Pass on the response for further parsing
+ 
+Step 1 is carried out in the first few lines of our class.  Here, we initialize our endpoint URIs as constants to be accessed later.
 
     public partial class AddKeysPage : ContentPage
 	{
@@ -103,51 +110,22 @@ At the class level we define the root URI locations of each of the Azure endpoin
         private bool bingSearchKeyWorks = false;
 
         // URIs of the endpoints used in the test requests
-        private string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
-        private string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?";
+        private const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
+        private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?";
         //CLASS CONTINUES BELOW
 
-
-With those set, we can look into how each of the endpoints are pinged and checked.  
-
-The Computer Vision 
-
-        // send a test POST request to see if the Vision API Key is functional
-        async Task CheckComputerVisionKey(object sender = null, EventArgs e = null)
-        {
-            HttpResponseMessage response;
-            byte[] emptyImage = new byte[10];
-            HttpClient VisionApiClient = new HttpClient();
-
-            VisionApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", ComputerVisionKeyEntry.Text);
-            using (var content = new ByteArrayContent(emptyImage))
-            {
-                // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await VisionApiClient.PostAsync(ocrUri, content);
-            }
-            if ((int)response.StatusCode != 401)
-            {
-                ComputerVisionKeyEntry.BackgroundColor = Color.Green;
-                ApiKeys.computerVisionKey = ComputerVisionKeyEntry.Text;
-                computerVisionKeyWorks = true;
-            }
-            else
-            {
-                ComputerVisionKeyEntry.BackgroundColor = Color.Red;
-                computerVisionKeyWorks = false;
-            }
-        }
-
-And here we check the other thing
+Steps 2 through 6 are then executed within their respective functions.  
 
         // send a test GET request to see if the Bing Search API key is functional
         async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
         {
-            searchUri += "q=test" 
+            HttpResponseMessage response;
             HttpClient SearchApiClient = new HttpClient();
+
             SearchApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingSearchKeyEntry.Text);
-            HttpResponseMessage response = await SearchApiClient.GetAsync(searchUri);
+            var searchQuery = searchUri + "q=test";
+
+            response = await SearchApiClient.GetAsync(searchQuery);
             if ((int)response.StatusCode != 401)
             {
                 BingSearchKeyEntry.BackgroundColor = Color.Green;
@@ -161,26 +139,6 @@ And here we check the other thing
             }
         }
 
-
-Finally, this class is called when a user hits the "Add Keys" button
-
-        async void TryToAddKeys(object sender, EventArgs e)
-        {
-            if (!computerVisionKeyWorks)
-                await CheckComputerVisionKey();
-            if (!bingSearchKeyWorks)
-                await CheckBingSearchKey();
-
-            if (bingSearchKeyWorks && computerVisionKeyWorks)
-            {
-                await Navigation.PopModalAsync();
-            }
-            else
-            {
-                await DisplayAlert("Error","One or more of your keys are invalid.  Please update them and try again", "OK");
-            }
-        }
-    }
 
 ### OcrSelectPage:
 ![OcrSelectPage Example](./media/OcrSelectPage.png)
