@@ -6,13 +6,13 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 
-ms.assetid: ae522539-5280-4292-8a64-9c3b37e985c7
+ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/29/2017
 ms.author: jeedes
 
 ---
@@ -76,7 +76,7 @@ To configure the integration of InsideView in to Azure AD, you need to add Insid
 	![Creating an Azure AD test user](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with InsideView based on a test user called "Britta Simon" .
+In this section, you configure and test Azure AD single sign-on with InsideView based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in InsideView is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in InsideView needs to be established.
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@hackerone.com) to get these values.
+	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
@@ -135,13 +135,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Add a New SAML](./media/active-directory-saas-insideview-tutorial/ic794136.png "Add a New SAML")
    
-   a. In the **STS Name** textbox, type a name for your configuration.
+	a. In the **STS Name** textbox, type a name for your configuration.
 
-   b. on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicited EndPoint** textbox.
+	b. In **SamlP/WS-Fed Unsolicited EndPoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+	
+	c. Open your certificate in notepad, which you downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox.
 
-   c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
-
-   d. Complete the following:
+	d. Complete the following as:
    
 	* In the **Crm User Id Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 		
@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* In the **Crm First Name Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 	* In the **Crm lastName Mapping** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-   e. Click **Save**.
+	e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,7 +190,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
 
-To get users or contacts created in InsideView, Contact [InsideView support team](mailto:support@hackerone.com).
+To get users or contacts created in InsideView, Contact [InsideView support team](mailto:support@insideview.com).
 
 >[!NOTE]
 >You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.
