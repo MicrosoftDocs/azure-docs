@@ -119,7 +119,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 
 1. From the Ambari UI click **Spark**, click **Configs**, expand **Custom spark2-defaults**, click on **Add Property ...**.
     
-    ![spark2-defaults, add Property](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-add-property.PNG "Add property to Custom spark2-defaults")
+    ![spark2-defaults, add Property](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-add-property.png "Add property to Custom spark2-defaults")
     
 2. Add following configuration pairs:
 
@@ -129,7 +129,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
     
 3. Verify that the [external YARN shuffle service](https://spark.apache.org/docs/latest/running-on-yarn.html#configuring-the-external-shuffle-service) is configured. By default this is enabled, because the Spark SQL Thrift service is configured using Dynamic Allocation. From the Ambari UI click **YARN**, click **Configs**, click **Advanced**, expand **Node Manager**. Verify that `yarn.nodemanager.aux-services` at least contains `spark_shuffle,spark2_shuffle`. 
 
-    ![YARN aux services](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-yarn-spark-shuffle.PNG "Verify YARN aux services.")
+    ![YARN aux services](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-yarn-spark-shuffle.png "Verify YARN aux services.")
 
 
 ## I do not use BI with Spark cluster. How do I take the resources back?
