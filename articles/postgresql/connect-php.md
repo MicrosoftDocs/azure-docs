@@ -67,34 +67,40 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	$password = "<server_admin_password>";
 
 	// Initialize connection object.
-	$connection = pg_connect("host=$host dbname=$database user=$user password=$password") or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
+	$connection = pg_connect("host=$host dbname=$database user=$user password=$password") 
+		or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
 	print "Successfully created connection to database.<br/>";
 
 	// Drop previous table of same name if one exists.
 	$query = "DROP TABLE IF EXISTS inventory;";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 	print "Finished dropping table (if existed).<br/>";
 
 	// Create table.
 	$query = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 	print "Finished creating table.<br/>";
 
 	// Insert some data into table.
 	$name = '\'banana\'';
 	$quantity = 150;
 	$query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 
 	$name = '\'orange\'';
 	$quantity = 154;
 	$query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 
 	$name = '\'apple\'';
 	$quantity = 100;
 	$query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error()). "<br/>";
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error()). "<br/>";
 
 	print "Inserted 3 rows of data.<br/>";
 
@@ -126,7 +132,8 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 
 	// Perform some SQL queries over the connection.
 	$query = "SELECT * from inventory";
-	$result_set = pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	$result_set = pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 	while ($row = pg_fetch_row($result_set))
 	{
 		print "Data row = ($row[0], $row[1], $row[2]). <br/>";
@@ -165,7 +172,8 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	$new_quantity = 200;
 	$name = '\'banana\'';
 	$query = "UPDATE inventory SET quantity = $new_quantity WHERE name = $name;";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). ".<br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). ".<br/>");
 	print "Updated 1 row of data. </br>";
 
 	// Closing connection
@@ -191,14 +199,15 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 
 	// Initialize connection object.
 	$connection = pg_connect("host=$host dbname=$database user=$user password=$password")
-				or die("Failed to create connection to database: ". pg_last_error(). ". </br>");
+			or die("Failed to create connection to database: ". pg_last_error(). ". </br>");
 
 	print "Successfully created connection to database. <br/>";
 
 	// Delete some data from table.
 	$name = '\'orange\'';
 	$query = "DELETE FROM inventory WHERE name = $name;";
-	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). ". <br/>");
+	pg_query($connection, $query) 
+		or die("Encountered an error when executing given sql statement: ". pg_last_error(). ". <br/>");
 	print "Deleted 1 row of data. <br/>";
 
 	// Closing connection
