@@ -12,22 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2017
+ms.date: 06/26/2017
 ms.author: cfreeman
 
 ---
 # Overview of Application Insights for DevOps
 
-
-[Application Insights](app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers. It helps you find out how your app is performing and being used when it's live. And if there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+With [Application Insights](app-insights-overview.md) you can quickly find out how your app is performing and being used when it's live. If there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
 
 Here's an account from a team that develops web applications:
 
 * *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
-Let's see how a typical web development team uses Application Insights for performance management. We'll follow the team in Fabrikam Bank that develops the online banking system (OBS).
+In this article we'll follow a team in Fabrikam Bank that develops the online banking system (OBS) to see how they use Application Insights to quickly respond to customers and make updates.  
 
-The team works on a devOps cycle like this:
+The team works on a DevOps cycle like this:
 
 ![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
