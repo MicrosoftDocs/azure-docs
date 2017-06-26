@@ -76,9 +76,40 @@ This example deletes the index only if it matches the original version. If you a
         // Delete fails if the ETag of index3 is different from the ETag created with the object
         serviceClient.Indexes.Delete(index3.Name, accessCondition: AccessCondition.GenerateIfMatchCondition(index3.ETag)); 
 
-## HowToExample
+## HowTo Example (Short)
 
-The following code illustrates optimistic concurrency using accessContition that blocks an overwrite of inflight modifications to a synonymMap.
+A common case where checking access conditions is appropriate might include updates to a synonymMap.
+
+        private static void AddNewSynonymsSafely(SearchServiceClient serviceClient)
+        {
+            var synonymMap = serviceClient.SynonymMaps.Get("desc-synonymmap");
+            synonymMap.Synonyms = synonymMap.Synonyms + "\ninternet,wifi";
+
+            // Simulate modifying the synonym map seperately
+            AddNewSynonyms(serviceClient);
+            
+            // This request will fail, because the synonymMap has changed since it was last gotten.
+            try
+            {
+                serviceClient.SynonymMaps.CreateOrUpdate(synonymMap, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
+            }
+            catch (CloudException e) when (e.IsAccessConditionFailed())
+            {
+                // Since the request failed with an AccessCondition failure GET the latest version of the SynonymMap, apply the change again and update
+                synonymMap = serviceClient.SynonymMaps.Get("desc-synonymmap");
+                synonymMap.Synonyms = synonymMap.Synonyms + "\ninternet,wifi";
+                serviceClient.SynonymMaps.CreateOrUpdate(synonymMap, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
+            }
+        }
+
+        private static void AddNewSynonyms(SearchServiceClient serviceClient)
+        {
+            var synonymMap = serviceClient.SynonymMaps.Get("desc-synonymmap");
+            synonymMap.Synonyms = synonymMap.Synonyms + "\nfive star=>luxury";
+            serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
+        }
+
+## HowTo Example (Verbose)
 
 First, the intitial code:
 
