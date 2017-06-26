@@ -75,7 +75,7 @@ You can get the values for these parameters on the **Connect to Media Services A
 When the **Service Principal** blade opens, the first Azure AD application that meets the following criteria is selected:
 
 - It is a registered Azure AD application.
-- It has Contributor or Owner role-based access control permissions on the account.
+- It has Contributor or Owner Role-Based Access Control permissions on the account.
 
 After you create or select an Azure AD app, you can create and copy a client secret (key) and the client ID (Application ID). The client secret and client ID are required to get the access token in this scenario.
 

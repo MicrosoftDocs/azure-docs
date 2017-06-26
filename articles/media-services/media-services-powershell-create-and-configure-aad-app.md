@@ -52,9 +52,9 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 For more information, see the following articles:
 
-- [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-- [Manage role-based access control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
-- [How to manually configure daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad).
+- [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+- [Manage Role-Based Access Control by using Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [How to manually configure daemon apps by using certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## Next steps
 
