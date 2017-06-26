@@ -33,7 +33,7 @@ When you're using Azure AD authentication with Azure Media Services, you can aut
 - **Service principal authentication** is used to authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, including Web Apps, Function Apps, Logic Apps, APIs, or Microservices.
 
 >[!IMPORTANT]
->Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 1st, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
+>Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 1, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
 
 ## Get an Azure AD access token
 
@@ -48,12 +48,12 @@ You also have the option of replacing the default implementation of the **AzureA
 ## Install and configure Azure Media Services .NET SDK
 
 >[!NOTE] 
->To use Azure AD authentication with the Media Services .NET SDK, you need to have the latest [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) package. Also, add a reference to the **Microsoft.IdentityModel.Clients.ActiveDirectory** assembly. If you are are using an existing app, include the **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** assembly. 
+>To use Azure AD authentication with the Media Services .NET SDK, you need to have the latest [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) package. Also, add a reference to the **Microsoft.IdentityModel.Clients.ActiveDirectory** assembly. If you are using an existing app, include the **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** assembly. 
 
 1. Create a new C# console application in Visual Studio.
 2. Use the [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet package to install **Azure Media Services .NET SDK**. 
 
-	To add references by using NuGet, do the following: in **Solution Explorer**, right-click the project name, and then select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices** and select **Install**.
+	To add references by using NuGet, take the following steps: in **Solution Explorer**, right-click the project name, and then select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices** and select **Install**.
 	
 	-or-
 
@@ -86,7 +86,7 @@ The following code example creates a token.
 	var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
 	var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
   
-To start programming against Media Services you need to create a **CloudMediaContext** instance that represents the server context. The **CloudMediaContext** includes references to important collections including jobs, assets, files, access policies, and locators. 
+To start programming against Media Services, you need to create a **CloudMediaContext** instance that represents the server context. The **CloudMediaContext** includes references to important collections including jobs, assets, files, access policies, and locators. 
 
 You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. To get the resource URI for Media REST Services, sign in to the Azure portal, select your Azure Media Services account, select **API access**, and then select **Connect to Azure Media Services with user authentication**. 
 
@@ -151,7 +151,7 @@ You can also specify the **AzureAdTokenCredentials** constructor that takes **Az
 								new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
 								AzureEnvironments.AzureCloudEnvironment);
 
-To start programming against Media Services you need to create a **CloudMediaContext** instance that represents the server context. You alos need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
+To start programming against Media Services you need to create a **CloudMediaContext** instance that represents the server context. You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
 
 The following code example creates a **CloudMediaContext** instance.
 
