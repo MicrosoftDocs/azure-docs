@@ -53,7 +53,7 @@ Applications that should use the user authentication method are management or mo
 > [!NOTE]
 > This authentication method should not be used for consumer-facing applications. 
 
-A native application has to first acquire an access token from Azure AD, and then use it when you make HTTP requests to the Media Services REST API. Add the access token to the request header. 
+A native application must first acquire an access token from Azure AD, and then use it when you make HTTP requests to the Media Services REST API. Add the access token to the request header. 
 
 The following diagram shows a typical interactive application authentication flow: 
 
@@ -72,7 +72,7 @@ In the preceding diagram, the numbers represent the flow of the requests in chro
 		The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.
 	* Media Services resource URI. 
 
-		This URI is the same for Media Services accounts that are located in the same Azure environment (for example, https://rest.media.azure.net).
+		This URI is the same for Media Services accounts that are in the same Azure environment (for example, https://rest.media.azure.net).
 
 	* Media Services (native) application client ID.
 	* Media Services (native) application redirect URI.
