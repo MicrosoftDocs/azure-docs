@@ -20,16 +20,18 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites on the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls writing to index, indexer, datasource, suggester, and synonymMap resources 
+In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites on the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers modify the same object, only the first save prevails. 
 
 ## How it works
 
-Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent updates of the same resource by checking its version first. 
+Optimistic concurrency is implemented through access condition checks in API calls writing to index, indexer, datasource, suggester, and synonymMap resources. 
+
+Resources have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent updates of the same resource by checking its version first. 
 
 + The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
 + The .NET SDK sets the Etag through its accessCondition object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) has an accessCondition object.
 
-If you implement concurrency management, version information changes with each resource update. Given two concurrent development efforts on the same object, the first set of saved changes will force a new object version. As such the second set of changes will fail based on version discrepancy unless the updated resource is obtained first.
+If you implement concurrency management, version information changes with each resource update. Given two concurrent updates, the first update forces a new object version. The second update fails based on version discrepancy, unless the updated resource is obtained first.
 
 A version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
 
