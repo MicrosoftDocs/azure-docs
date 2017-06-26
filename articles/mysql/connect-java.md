@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: article
 ms.devlang: java
-ms.date: 06/19/2017
+ms.date: 06/20/2017
 ---
 
 # Azure Database for MySQL: Use Java to connect and query data
@@ -23,8 +23,8 @@ This quickstart uses the resources created in either of these guides as a starti
 
 You also need to:
 - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Put the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath.
-- Ensure connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
+- Include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath.
+- Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -42,137 +42,100 @@ Use the following code to connect and load the data using the function with an *
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
 ```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class CreateTableInsertRows {
 
-	
-	static Connection connect (String host, String database, String user, String password)
+	public static void main (String[] args)  throws Exception
 	{
+		// Initialize connection variables.	
+		String host = "myserver4demo.mysql.database.azure.com";
+		String database = "quickstartdb";
+		String user = "myadmin@myserver4demo";
+		String password = "<server_admin_password>";
+
+		// check that the driver is installed
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
-			System.out.println("JDBC driver NOT detected in library path");
-			
-			e.printStackTrace();
-			return null;
+			throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
 		}
 
-		System.out.println("JDBC driver detected in library path");
+		System.out.println("MySQL JDBC driver detected in library path.");
 
 		Connection connection = null;
-		
+
+		// Initialize connection object
 		try
 		{
-			String url = "jdbc:mysql://" + host + "/" + database;
-			
-			/*
-			 * Set connection properties.
-			 */
+			String url = String.format("jdbc:mysql://%s/%s", host, database);
+
+			// Set connection properties.
 			Properties properties = new Properties();
 			properties.setProperty("user", user);
 			properties.setProperty("password", password);
 			properties.setProperty("useSSL", "true");
 			properties.setProperty("verifyServerCertificate", "true");
 			properties.setProperty("requireSSL", "false");
-			
-			 /*
-			 * Obtain connection object.
-			 */
-			connection = DriverManager.getConnection(url, properties);
 
+			// get connection
+			connection = DriverManager.getConnection(url, properties);
 		}
 		catch (SQLException e)
 		{
-			System.out.println("Failed to create connection to database");
-			System.out.println("SQLException: " + e.getMessage());
-		    System.out.println("SQLState: " + e.getSQLState());
-		    System.out.println("VendorError: " + e.getErrorCode());
-		    
-			return null;
+			throw new SQLException("Failed to create connection to database.", e);
 		}
+		if (connection != null) 
+		{ 
+			System.out.println("Successfully created connection to database.");
 		
-		if (connection != null)
-		{
-			System.out.println("Successfully created connection to database");
-		}
-		else
-		{
-			System.out.println("Failed to create connection to database");
-		}
-		
-		return connection;
-	}
-		
+			// Perform some SQL queries over the connection.
+			try
+			{
+				// Drop previous table of same name if one exists.
+				Statement statement = connection.createStatement();
+				statement.execute("DROP TABLE IF EXISTS inventory;");
+				System.out.println("Finished dropping table (if existed).");
 	
-	public static void main (String[] args)
-	{
+				// Create table.
+				statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
+				System.out.println("Created table.");
+				
+				// Insert some data into table.
+				int nRowsInserted = 0;
+				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
+				preparedStatement.setString(1, "banana");
+				preparedStatement.setInt(2, 150);
+				nRowsInserted += preparedStatement.executeUpdate();
+
+				preparedStatement.setString(1, "orange");
+				preparedStatement.setInt(2, 154);
+				nRowsInserted += preparedStatement.executeUpdate();
+
+				preparedStatement.setString(1, "apple");
+				preparedStatement.setInt(2, 100);
+				nRowsInserted += preparedStatement.executeUpdate();
+				System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
 	
-		/*
-		 * Initialize connection variables.
-		 */
-		String host = "myserver4demo.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
-		String password = "<server_admin_password>";
-		
-		/*
-		 * Initialize connection object.
-		 */
-		Connection connection = connect(host, database, user, password);
-		
-		try
-		{
-			/*
-			 * Drop previous table of same name if one exists.
-			 */
-			Statement statement = connection.createStatement();
-			statement.execute("DROP TABLE IF EXISTS inventory;");
-			System.out.println("Finished dropping table (if existed)");
-
-			/*
-			 * Create table.
-			 */
-			statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
-			System.out.println("Finished creating table");
-
-			/*
-			 * Insert some data into table.
-			 */
-			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
-			preparedStatement.setString(1, "banana");
-			preparedStatement.setInt(2, 150);
-			preparedStatement.executeUpdate();
-
-			preparedStatement.setString(1, "orange");
-			preparedStatement.setInt(2, 154);
-			preparedStatement.executeUpdate();
-
-			preparedStatement.setString(1, "apple");
-			preparedStatement.setInt(2, 100);
-			preparedStatement.executeUpdate();
-			System.out.println("Inserted 3 rows of data");
-
-			/*
-			 * NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			 */
-		} catch (SQLException ex) {
-	    
-		// handle any errors
-	    System.out.println("SQLException: " + ex.getMessage());
-	    System.out.println("SQLState: " + ex.getSQLState());
-	    System.out.println("VendorError: " + ex.getErrorCode());
+				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+	
+			}
+			catch (SQLException e)
+			{
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
+			}		
 		}
+		else {
+			System.out.println("Failed to create connection to database.");
+		}
+		System.out.println("Execution finished.");
 	}
 }
+
 ```
 
 ## Read data
@@ -181,42 +144,39 @@ Use the following code to read the data with a **SELECT** SQL statement. The [ge
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
 ```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
-public class ReadRows {
+public class ReadTable {
 
-	
-	static Connection connect (String host, String database, String user, String password)
+	public static void main (String[] args)  throws Exception
 	{
+		// Initialize connection variables.
+		String host = "myserver4demo.mysql.database.azure.com";
+		String database = "quickstartdb";
+		String user = "myadmin@myserver4demo";
+		String password = "<server_admin_password>";
+
+		// check that the driver is installed
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
-			System.out.println("JDBC driver NOT detected in library path");
-			
-			e.printStackTrace();
-			return null;
+			throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
 		}
 
-		System.out.println("JDBC driver detected in library path");
+		System.out.println("MySQL JDBC driver detected in library path.");
 
 		Connection connection = null;
-		
+
+		// Initialize connection object
 		try
 		{
-			String url = "jdbc:mysql://" + host + "/" + database;
-			
-			/*
-			 * Set connection properties.
-			 */
+			String url = String.format("jdbc:mysql://%s/%s", host, database);
+
+			// Set connection properties.
 			Properties properties = new Properties();
 			properties.setProperty("user", user);
 			properties.setProperty("password", password);
@@ -224,75 +184,43 @@ public class ReadRows {
 			properties.setProperty("verifyServerCertificate", "true");
 			properties.setProperty("requireSSL", "false");
 			
-			 /*
-			 * Obtain connection object.
-			 */
+			// get connection
 			connection = DriverManager.getConnection(url, properties);
-
 		}
 		catch (SQLException e)
 		{
-			System.out.println("Failed to create connection to database");
-			System.out.println("SQLException: " + e.getMessage());
-		    System.out.println("SQLState: " + e.getSQLState());
-		    System.out.println("VendorError: " + e.getErrorCode());
-		    
-			return null;
+			throw new SQLException("Failed to create connection to database", e);
 		}
+		if (connection != null) 
+		{ 
+			System.out.println("Successfully created connection to database.");
 		
-		if (connection != null)
-		{
-			System.out.println("Successfully created connection to database");
-		}
-		else
-		{
-			System.out.println("Failed to create connection to database");
-		}
-		
-		return connection;
-	}
-		
-	
-	public static void main (String[] args)
-	{
-		/*
-		 * Initialize connection variables.
-		 */
-		String host = "myserver4demo.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
-		String password = "<server_admin_password>";
-			
-		/*
-		 * Initialize connection object.
-		 */
-		Connection connection = connect(host, database, user, password);
-		
-		try
-		{
-			Statement statement = connection.createStatement();
-			ResultSet results = statement.executeQuery("SELECT * from inventory;");
-			while (results.next())
+			// Perform some SQL queries over the connection.
+			try
 			{
-				String outputString = 
-					String.format(
-						"Data row = (%s, %s, %s)",
-						results.getString(1),
-						results.getString(2),
-						results.getString(3));
-				System.out.println(outputString);
+	
+				Statement statement = connection.createStatement();
+				ResultSet results = statement.executeQuery("SELECT * from inventory;");
+				while (results.next())
+				{
+					String outputString = 
+						String.format(
+							"Data row = (%s, %s, %s)",
+							results.getString(1),
+							results.getString(2),
+							results.getString(3));
+					System.out.println(outputString);
+				}
 			}
-
-			/*
-			 * NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			 */
-		} catch (SQLException ex) {
-	    
-		// handle any errors
-	    System.out.println("SQLException: " + ex.getMessage());
-	    System.out.println("SQLState: " + ex.getSQLState());
-	    System.out.println("VendorError: " + ex.getErrorCode());
+			catch (SQLException e)
+			{
+				throw new SQLException("Encountered an error when executing given sql statement", e);
+			}		
 		}
+		else {
+			System.out.println("Failed to create connection to database.");	
+		}
+		System.out.println("Execution finished.");
 	}
 }
 ```
@@ -303,162 +231,119 @@ Use the following code to change the data with an **UPDATE** SQL statement. The 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
 ```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
-public class UpdateRows {
-
-	
-	static Connection connect (String host, String database, String user, String password)
+public class UpdateTable {
+	public static void main (String[] args)  throws Exception
 	{
+		// Initialize connection variables.	
+		String host = "myserver4demo.mysql.database.azure.com";
+		String database = "quickstartdb";
+		String user = "myadmin@myserver4demo";
+		String password = "<server_admin_password>";
+
+		// check that the driver is installed
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
-			System.out.println("JDBC driver NOT detected in library path");
-			
-			e.printStackTrace();
-			return null;
+			throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
 		}
-
-		System.out.println("JDBC driver detected in library path");
+		System.out.println("MySQL JDBC driver detected in library path.");
 
 		Connection connection = null;
-		
+
+		// Initialize connection object
 		try
 		{
-			String url = "jdbc:mysql://" + host + "/" + database;
+			String url = String.format("jdbc:mysql://%s/%s", host, database);
 			
-			/*
-			 * Set connection properties.
-			 */
+			// set up the connection properties
 			Properties properties = new Properties();
 			properties.setProperty("user", user);
 			properties.setProperty("password", password);
 			properties.setProperty("useSSL", "true");
 			properties.setProperty("verifyServerCertificate", "true");
 			properties.setProperty("requireSSL", "false");
-			
-			 /*
-			 * Obtain connection object.
-			 */
-			connection = DriverManager.getConnection(url, properties);
 
+			// get connection
+			connection = DriverManager.getConnection(url, properties);
 		}
 		catch (SQLException e)
 		{
-			System.out.println("Failed to create connection to database");
-			System.out.println("SQLException: " + e.getMessage());
-		    System.out.println("SQLState: " + e.getSQLState());
-		    System.out.println("VendorError: " + e.getErrorCode());
-		    
-			return null;
+			throw new SQLException("Failed to create connection to database.", e);
 		}
+		if (connection != null) 
+		{ 
+			System.out.println("Successfully created connection to database.");
 		
-		if (connection != null)
-		{
-			System.out.println("Successfully created connection to database");
-		}
-		else
-		{
-			System.out.println("Failed to create connection to database");
-		}
-		
-		return connection;
-	}
-		
+			// Perform some SQL queries over the connection.
+			try
+			{
+				// Modify some data in table.
+				int nRowsUpdated = 0;
+				PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
+				preparedStatement.setInt(1, 200);
+				preparedStatement.setString(2, "banana");
+				nRowsUpdated += preparedStatement.executeUpdate();
+				System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
 	
-	public static void main (String[] args)
-	{
-	
-		/*
-		 * Initialize connection variables.
-		 */
-		String host = "myserver4demo.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
-		String password = "<server_admin_password>";
-		
-		/*
-		 * Initialize connection object.
-		 */
-		Connection connection = connect(host, database, user, password);
-		
-		try
-		{
-			/*
-			 * Modify some data in table.
-			 */
-			PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
-			preparedStatement.setInt(1, 200);
-			preparedStatement.setString(2, "banana");
-			preparedStatement.executeUpdate();
-
-			System.out.println("Updated 1 row of data");
-
-			/*
-			 * NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			 */
+				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+			}
+			catch (SQLException e)
+			{
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
+			}		
 		}
-		catch (SQLException ex) {
-	    
-		// handle any errors
-	    System.out.println("SQLException: " + ex.getMessage());
-	    System.out.println("SQLState: " + ex.getSQLState());
-	    System.out.println("VendorError: " + ex.getErrorCode());
+		else {
+			System.out.println("Failed to create connection to database.");
 		}
+		System.out.println("Execution finished.");
 	}
 }
 ```
+
 ## Delete data
 Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL.  The methods [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
 ```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
-public class DeleteRows {
-
-	
-	static Connection connect (String host, String database, String user, String password)
+public class DeleteTable {
+	public static void main (String[] args)  throws Exception
 	{
+		// Initialize connection variables.
+		String host = "myserver4demo.mysql.database.azure.com";
+		String database = "quickstartdb";
+		String user = "myadmin@myserver4demo";
+		String password = "<server_admin_password>";
+		
+		// check that the driver is installed
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (ClassNotFoundException e)
 		{
-			System.out.println("JDBC driver NOT detected in library path");
-			
-			e.printStackTrace();
-			return null;
+			throw new ClassNotFoundException("MySQL JDBC driver NOT detected in library path.", e);
 		}
 
-		System.out.println("JDBC driver detected in library path");
+		System.out.println("MySQL JDBC driver detected in library path.");
 
 		Connection connection = null;
-		
+
+		// Initialize connection object
 		try
 		{
-			String url = "jdbc:mysql://" + host + "/" + database;
+			String url = String.format("jdbc:mysql://%s/%s", host, database);
 			
-			/*
-			 * Set connection properties.
-			 */
+			// set up the connection properties
 			Properties properties = new Properties();
 			properties.setProperty("user", user);
 			properties.setProperty("password", password);
@@ -466,74 +351,38 @@ public class DeleteRows {
 			properties.setProperty("verifyServerCertificate", "true");
 			properties.setProperty("requireSSL", "false");
 			
-			 /*
-			 * Obtain connection object.
-			 */
+			// get connection
 			connection = DriverManager.getConnection(url, properties);
-
 		}
 		catch (SQLException e)
 		{
-			System.out.println("Failed to create connection to database");
-			System.out.println("SQLException: " + e.getMessage());
-		    System.out.println("SQLState: " + e.getSQLState());
-		    System.out.println("VendorError: " + e.getErrorCode());
-		    
-			return null;
+			throw new SQLException("Failed to create connection to database", e);
 		}
+		if (connection != null) 
+		{ 
+			System.out.println("Successfully created connection to database.");
 		
-		if (connection != null)
-		{
-			System.out.println("Successfully created connection to database");
-		}
-		else
-		{
-			System.out.println("Failed to create connection to database");
-		}
-		
-		return connection;
-	}
-		
+			// Perform some SQL queries over the connection.
+			try
+			{
+				// Delete some data from table.
+				int nRowsDeleted = 0;
+				PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
+				preparedStatement.setString(1, "orange");
+				nRowsDeleted += preparedStatement.executeUpdate();
+				System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
 	
-	public static void main (String[] args)
-	{
-	
-		/*
-		 * Initialize connection variables.
-		 */
-		String host = "myserver4demo.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
-		String password = "<server_admin_password>";
-		
-	
-		/*
-		 * Initialize connection object.
-		 */
-		Connection connection = connect(host, database, user, password);
-		
-		try
-		{
-			/*
-			 * Delete some data from table.
-			 */
-			PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
-			preparedStatement.setString(1, "orange");
-			preparedStatement.executeUpdate();
-
-			System.out.println("Deleted 1 row of data");
-
-			/*
-			 * NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			 */
+				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
+			}
+			catch (SQLException e)
+			{
+				throw new SQLException("Encountered an error when executing given sql statement.", e);
+			}		
 		}
-		catch (SQLException ex) {
-	    
-		// handle any errors
-	    System.out.println("SQLException: " + ex.getMessage());
-	    System.out.println("SQLState: " + ex.getSQLState());
-	    System.out.println("VendorError: " + ex.getErrorCode());
+		else {
+			System.out.println("Failed to create connection to database.");
 		}
+		System.out.println("Execution finished.");
 	}
 }
 ```

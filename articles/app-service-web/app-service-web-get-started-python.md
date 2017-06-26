@@ -91,7 +91,7 @@ Use the [az appservice web config update](/cli/azure/app-service/web/config#upda
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 

@@ -37,7 +37,7 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 Select what you want to replicate, and where you want to replicate to.
 
 1. Click **Recovery Services vaults** > vault.
-2. In the Resource Menu, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
 3. In **Protection goal**, select **To Azure** > **Yes, with VMware vSphere Hypervisor**.
 
     ![Choose goals](./media/vmware-walkthrough-create-vault/choose-goals2.png)
