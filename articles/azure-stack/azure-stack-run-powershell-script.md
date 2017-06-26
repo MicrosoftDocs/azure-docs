@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack development kit | Microsoft Docs
-description: Learn how to prepare the Azure Stack development kit and run the PowerShell script to deploy Azure Stack development kit.
+description: Learn how to prepare the Azure Stack development kit and run the PowerShell script to deploy it.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,11 +18,11 @@ ms.author: erikje
 
 ---
 # Deploy Azure Stack development kit
-To deploy the Azure Stack development kit, you must complete the following steps:
+To deploy the development kit, you must complete the following steps:
 
 1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
-2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the development kit host) on which you want to install Azure Stack development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
-3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the development kit host to install the Azure Stack development kit.
+2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
+3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the development kit host to install the development kit.
 4. **NEW step for Technical Preview 3**: If your deployment uses Azure Active Directory, [activate the portals](#activate-the-administrator-and-tenant-portals) to give the Azure Stack portal and Azure Resource Manager the correct permissions for all users of the directory .
 
 > [!NOTE]
@@ -114,7 +114,7 @@ To deploy the Azure Stack development kit, you must complete the following steps
     .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass
     ```
 
-    To deploy the Azure Stack development kit with Active Directory Federation Services instead, run the following script (you just need to add the -UseADFS parameter):
+    To deploy the development kit with Active Directory Federation Services instead, run the following script (you just need to add the -UseADFS parameter):
 
     ```powershell
     cd C:\CloudDeployment\Setup 
