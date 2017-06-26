@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
 
 ---
@@ -70,6 +70,25 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
+### Scenario: The runbook job start was attempted three times, but it failed to start each time
+**Error:**
+Your runbook fails with the error "“The job was tried three times but it failed."
+
+**Reason for the error:**
+This error can be caused by the following reasons:  
+
+1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure/azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
+
+2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a “Command not found” or "Cannot bind parameter" message. 
+
+**Troubleshooting tips:**
+Any of the following solutions will fix the problem:  
+
+* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
+
+* You need to update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation/automation-update-azure-modules.md).  
+
+
 ### Scenario: Runbook fails because of deserialized object
 **Error:**
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
