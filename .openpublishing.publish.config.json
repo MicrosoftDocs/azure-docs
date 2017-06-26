@@ -30,7 +30,7 @@
 		}
 	},
 	"notification_subscribers": [],
-	"branches_to_filter": [],	
+	"branches_to_filter": ["live"],	
 	"skip_source_output_uploading": false,
 	"need_preview_pull_request": true,
 	"git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
