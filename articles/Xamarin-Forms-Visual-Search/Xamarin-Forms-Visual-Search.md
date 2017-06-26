@@ -69,23 +69,23 @@ Before running the application, you need to select a target Configuration, Platf
 3) Adding a set of working Azure keys takes you to the following page (defined in code as the OcrSelectPage).  ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)  From here, you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
 
 
-Please note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and funtionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
+Note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
 
 ## Review and Learn:
-Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Microsoft Cognitive Services toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it will be valuable to walk through the application screen by screen and examine exactly how it works.
+Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
 
 ### Required Libraries:  
-This app makes use of the libraries below.  The first two can be installed using the NuGet Package manager, while the third can be found in the reference guide linked below.
+This app makes use of the following libraries.  The first two can be installed using the NuGet Package manager, while the third can be found in the linked Xamarin referene guide.
 * [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
-* [Newtonsoft JSON parser](http://www.newtonsoft.com/json)
+* [NewtonSoft JSON parser](http://www.newtonsoft.com/json)
 * [Xamarin Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
 ### Key Entry Page
 #### UI
-The first page that a user will see when they enter the app will be the key entry page shown here.  Its UI is defined in *AddKeysPage.xaml*, and most of the logic controlling that UI is defined in *AddKeysPage.xaml.cs*.  
+The first page that a user sees when they enter the app is the key entry page shown here.  Its UI is defined in *AddKeysPage.xaml*, and most of the logic controlling that UI is defined in *AddKeysPage.xaml.cs*.  
 The UI for this page is relatively simple; it is a Xamarin.Forms StackedLayout containing elements for the two text input boxes and the Add Keys button, which calls the *TryToAddKeys* method in *AddKeysPage.xaml.cs*. 
 #### Backing Logic:
-*AddKeysPage.xaml.cs* sends test calls to each of the utilized Azure Cognitive Services endpoints to check the user-defined keys and to ensure their functionality.  This is done in the functions *CheckComputerVisionKey* and *CheckBingSearchKey*  Although we will go over the specifics of how to optimally structure these calls later, this is a great place to start examining exactly how to hit the cognitive services endpoints and unpack their responses.  
+*AddKeysPage.xaml.cs* sends test calls to each of the utilized Azure endpoints to check the user-defined keys and to ensure their functionality.  This is done in the functions *CheckComputerVisionKey* and *CheckBingSearchKey*  Although we go over the specifics of how to optimally structure these calls later, this file is a great place to start examining how exactly to reach the cognitive services endpoints and and unpack their responses.  
 
 First I establish the root
 
