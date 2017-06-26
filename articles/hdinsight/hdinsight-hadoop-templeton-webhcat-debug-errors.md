@@ -82,7 +82,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Cause | Resolution |
 | --- | --- |
 | Internal garbage collection is occurring within the WebHCat process |Wait for garbage collection to finish or restart the WebHCat service |
-| Time out waiting on a response from the ResourceManager service. This can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. See [Modifying configuration](#modifying-configuration) for more information |
+| Time out waiting on a response from the ResourceManager service. This error can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. For more information, see the [Modifying configuration](#modifying-configuration) section. |
 | Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Do not retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job id. Or, do not use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |

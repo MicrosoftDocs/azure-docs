@@ -1,5 +1,5 @@
 ---
-title: Run Hadoop MapReduce examples in jar files on HDInsight - Azure | Microsoft Docs
+title: Run Hadoop MapReduce examples on HDInsight - Azure | Microsoft Docs
 description: Get started using MapReduce samples in jar files included in HDInsight. Use SSH to connect to the cluster, and then use the Hadoop command to run sample jobs.
 keywords: hadoop example jar,hadoop examples jar,hadoop mapreduce examples,mapreduce examples
 services: hdinsight
@@ -20,11 +20,11 @@ ms.date: 06/26/2017
 ms.author: larryfr
 
 ---
-# Run the Mapreduce examples in jar files included in HDInsight
+# Run the MapReduce examples included in HDInsight
 
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Learn about MapReduce examples that are included in jar files on HDInsight and how to run them on a Hadoop cluster.
+Learn how to run the MapReduce examples included with Hadoop on HDInsight.
 
 ## Prerequisites
 
@@ -41,28 +41,28 @@ Learn about MapReduce examples that are included in jar files on HDInsight and h
 
 **Contents**: The following samples are contained in this archive:
 
-* **aggregatewordcount**: An Aggregate based mapreduce program that counts the words in the input files.
-* **aggregatewordhist**: An Aggregate based mapreduce program that computes the histogram of the words in the input files.
-* **bbp**: A mapreduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
-* **dbcount**: An example job that counts the pageview logs stored in a database.
-* **distbbp**: A mapreduce program that uses a BBP-type formula to compute exact bits of Pi.
-* **grep**: A mapreduce program that counts the matches of a regex in the input.
-* **join**: A job that performs a join over sorted, equally partitioned datasets.
-* **multifilewc**: A job that counts words from several files.
-* **pentomino**: A mapreduce tile laying program to find solutions to pentomino problems.
-* **pi**: A mapreduce program that estimates Pi using a quasi-Monte Carlo method.
-* **randomtextwriter**: A mapreduce program that writes 10 GB of random textual data per node.
-* **randomwriter**: A mapreduce program that writes 10 GB of random data per node.
-* **secondarysort**: An example defining a secondary sort to the reduce phase.
-* **sort**: A mapreduce program that sorts the data written by the random writer.
-* **sudoku**: A sudoku solver.
-* **teragen**: Generate data for the terasort.
-* **terasort**: Run the terasort.
-* **teravalidate**: Checking results of terasort.
-* **wordcount**: A mapreduce program that counts the words in the input files.
-* **wordmean**: A mapreduce program that counts the average length of the words in the input files.
-* **wordmedian**: A mapreduce program that counts the median length of the words in the input files.
-* **wordstandarddeviation**: A mapreduce program that counts the standard deviation of the length of the words in the input files.
+* `aggregatewordcount`: An Aggregate based mapreduce program that counts the words in the input files.
+* `aggregatewordhist`: An Aggregate based mapreduce program that computes the histogram of the words in the input files.
+* `bbp`: A mapreduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
+* `dbcount`: An example job that counts the pageview logs stored in a database.
+* `distbbp`: A mapreduce program that uses a BBP-type formula to compute exact bits of Pi.
+* `grep`: A mapreduce program that counts the matches of a regex in the input.
+* `join`: A job that performs a join over sorted, equally partitioned datasets.
+* `multifilewc`: A job that counts words from several files.
+* `pentomino`: A mapreduce tile laying program to find solutions to pentomino problems.
+* `pi`: A mapreduce program that estimates Pi using a quasi-Monte Carlo method.
+* `randomtextwriter`: A mapreduce program that writes 10 GB of random textual data per node.
+* `randomwriter`: A mapreduce program that writes 10 GB of random data per node.
+* `secondarysort`: An example defining a secondary sort to the reduce phase.
+* `sort`: A mapreduce program that sorts the data written by the random writer.
+* `sudoku`: A sudoku solver.
+* `teragen`: Generate data for the terasort.
+* `terasort`: Run the terasort.
+* `teravalidate`: Checking results of terasort.
+* `wordcount`: A mapreduce program that counts the words in the input files.
+* `wordmean`: A mapreduce program that counts the average length of the words in the input files.
+* `wordmedian`: A mapreduce program that counts the median length of the words in the input files.
+* `wordstandarddeviation`: A mapreduce program that counts the standard deviation of the length of the words in the input files.
 
 **Source code**: Source code for these samples is included on the HDInsight cluster at `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
@@ -91,7 +91,7 @@ Learn about MapReduce examples that are included in jar files on HDInsight and h
 
         Usage: wordcount <in> [<in>...] <out>
 
-    This message indicates that you can provide several input paths for the source documents. The final path is where the output (count of words in the source documents,) is stored.
+    This message indicates that you can provide several input paths for the source documents. The final path is where the output (count of words in the source documents) is stored.
 
 4. Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:
 
@@ -159,7 +159,7 @@ The results appear similar to the following text:
 
 ## Pi (π) example
 
-The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points are placed at random in a unit square. The square also contains a circle. The probability that the points will fall within the circle are equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
+The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points are placed at random in a unit square. The square also contains a circle. The probability that the points fall within the circle are equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R. R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
 Use the following command to run this sample. This command uses 16 maps with 10,000,000 samples each to estimate the value of pi:
 
@@ -167,13 +167,13 @@ Use the following command to run this sample. This command uses 16 maps with 10,
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 ```
 
-The value returned by this should be similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
+The value returned by this command is similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
 ## 10 GB Greysort example
 
-GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum.
+GraySort is a benchmark sort. The metric is the sort rate (TB/minute) that is achieved while sorting large amounts of data, usually a 100 TB minimum.
 
-This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/) site.
+This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy. These applications won the annual general-purpose ("daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/) site.
 
 This sample uses three sets of MapReduce programs:
 
@@ -181,7 +181,7 @@ This sample uses three sets of MapReduce programs:
 
 * **TeraSort**: Samples the input data and uses MapReduce to sort the data into a total order
 
-    TeraSort is a standard MapReduce sort, except for a custom partitioner that uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This guarantees that the outputs of reduce i are all less than the output of reduce i+1.
+    TeraSort is a standard MapReduce sort, except for a custom partitioner. The partitioner uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This partitioner guarantees that the outputs of reduce i are all less than the output of reduce i+1.
 
 * **TeraValidate**: A MapReduce program that validates that the output is globally sorted
 
@@ -195,7 +195,7 @@ Use the following steps to generate data, sort, and then validate the output:
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10 GB worth of data and to store it at `/example/data/10GB-sort-input`.
+    The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10 GB of data and to store it at `/example/data/10GB-sort-input`.
 
 2. Use the following command to sort the data:
 
