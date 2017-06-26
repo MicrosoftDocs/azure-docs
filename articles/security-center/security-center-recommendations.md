@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: terrylan
 
 ---
@@ -45,7 +45,7 @@ After setting a security policy, Security Center analyzes the security state of 
 
 To see the details of each recommendation:
 
-1. Click the **Recommendations tile** on the **Security Center** blade. The **Recommendations** blade opens.
+Select the **Recommendations tile** on the **Security Center** blade. The **Recommendations** blade opens.
 
 The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
 
@@ -94,7 +94,7 @@ Use the table below as a reference to help you understand the available recommen
 
 You can filter and dismiss recommendations.
 
-1. Click **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
+1. Select **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
 
     ![Filter recommendations][2]
 2. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. One way is to right click an item, and then select **Dismiss**. The other is to hover over an item, click the three dots that appear to the right, and then select **Dismiss**. You can view dismissed recommendations by clicking **Filter**, and then selecting **Dismissed**.

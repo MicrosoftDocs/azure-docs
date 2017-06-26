@@ -79,8 +79,14 @@ Here are the list of the Service Fabric versions that are supported and their su
 | All cluster versions prior to 5.3.121 |January 20, 2017 |
 | 5.3.* |February 24, 2017 |
 | 5.4.* |May 10,2017     |
-| 5.5.* |Current version and so no end date
+| 5.5.* |July 10,2017    |
+| 5.6.* |Current version and so no end date
 
+<a id="previewversion"></a>
+## Service Fabric Preview Versions - unsupported for production use.
+From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric) and will have details on the features included.
+
+There is no paid support option for these preview releases. Use one of the options listed under [Report Azure Service Fabric issues](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) to ask questions or provide feedback.
 
 ## Next steps
 

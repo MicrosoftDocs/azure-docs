@@ -1,4 +1,4 @@
----
+﻿---
 title: Common cloud service management tasks (classic) | Microsoft Docs
 description: Learn how to manage cloud services in the Azure classic portal.
 services: cloud-services
@@ -74,7 +74,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you would like to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap will fail.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole command in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole command in Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md) for more details.
 

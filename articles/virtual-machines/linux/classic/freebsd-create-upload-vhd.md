@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and upload a FreeBSD VM image | Microsoft Docs
 description: Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine
 services: virtual-machines-linux
@@ -176,7 +176,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Step 4: Upload the .vhd file
 When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:

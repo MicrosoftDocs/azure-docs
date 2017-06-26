@@ -265,6 +265,7 @@ For the **description** field, the index is as follows:
 | comfortable |	3
 | distance | 1
 | island | 2
+| kauaʻi | 2
 | located |	2
 | north | 2
 | ocean | 1, 2, 3

@@ -1,9 +1,9 @@
 ---
-title: Create a web front end for your application using ASP.NET Core | Microsoft Docs
-description: Expose your Service Fabric application to the web by using an ASP.NET Core Web API project and inter-service communication via ServiceProxy.
+title: Create a web front end for your Azure Service Fabric app using ASP.NET Core | Microsoft Docs
+description: Expose your Service Fabric application to the web by using an ASP.NET Core project and inter-service communication via Service Remoting.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/30/2017
-ms.author: seanmck
+ms.date: 04/28/2017
+ms.author: vturecek
 
 ---
 # Build a web service front end for your application using ASP.NET Core
@@ -23,7 +23,11 @@ By default, Azure Service Fabric services do not provide a public interface to t
 In this tutorial, we will pick up where we left off in the [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) tutorial and add a web service in front of the stateful counter service. If you have not already done so, you should go back and step through that tutorial first.
 
 ## Add an ASP.NET Core service to your application
-ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
+ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article, but for now you can follow this guide to get started quickly.
+
+Let's add an ASP.NET Web API project to our existing application.
+
 
 > [!NOTE]
 > This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
@@ -43,7 +47,7 @@ ASP.NET Core is a lightweight, cross-platform web development framework that you
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way. Each can be independently versioned and upgraded.
 
 > [!TIP]
-> To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+> To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
 > 
 
 ## Run the application
@@ -71,7 +75,7 @@ We will start by creating the interface to act as the contract between the state
     ![Creating an interface project for your stateful service][vs-add-class-library-project]
 
 3. In order for an interface to be usable by `ServiceProxy`, it must derive from the IService interface. This interface is included in one of the Service Fabric NuGet packages. To add the package, right-click your new class library project and choose **Manage NuGet Packages**.
-4. Search for the **Microsoft.ServiceFabric.Services** package and install it.
+4. Search for the **Microsoft.ServiceFabric.Services.Remoting** package and install it.
    
     ![Adding the Services NuGet package][vs-services-nuget-package]
 
@@ -155,12 +159,13 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 1. In your ASP.NET project, add a reference to the class library that contains the `ICounter` interface.
 
-2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+2. Add the Microsoft.ServiceFabric.Services.Remoting package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
 
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
@@ -194,12 +199,11 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 ## Kestrel and WebListener
 
-The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). As a result, the ASP.NET templates for Service Fabric use [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
+The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). As a result, the ASP.NET Core stateless service template for Service Fabric uses [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
 
-If you will not be serving direct internet traffic and would prefer to use Kestrel as your web server, you can change it in your service listener configuration. Simply replace `return new WebHostBuilder().UseWebListener()` with `return new WebHostBuilder().UseKestrel()`. All other configurations on the web host can remain the same.
- 
+To learn more about Kestrel and WebListener in Service Fabric services, please refer to [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## What about actors?
+## Connecting to a Reliable Actors service
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
 
 When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
@@ -214,9 +218,11 @@ By contrast, when you run a web service locally, you need to ensure that only on
 To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## Next steps
-* [Create a cluster in Azure for deploying your application to the cloud](service-fabric-cluster-creation-via-portal.md)
-* [Learn more about communicating with services](service-fabric-connect-and-communicate-with-services.md)
-* [Learn more about partitioning stateful services](service-fabric-concepts-partitioning.md)
+Now that you have a web front end set up for your application with ASP.NET Core, learn more about how ASP.NET Core integrates with Service Fabric in this article about [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
+
+Next, [learn more about communicating with services](service-fabric-connect-and-communicate-with-services.md) in general to get a complete picture of how service communication works in Service Fabric.
+
+Once you have a good understanding of how service communication works, [create a cluster in Azure and deploy your application to the cloud](service-fabric-cluster-creation-via-portal.md).
 
 <!-- Image References -->
 

@@ -42,18 +42,3 @@ Follow the steps in this article to create a local working branch on your comput
 ## Publishing
 * Articles are published at approximately 10:00 AM and 3:00 PM Pacific Time, Monday-Friday. It can take up to 30 minutes for articles to appear online after publishing. Remember your pull request has to be merged by a pull request reviewer before the changes can be included in the next scheduled publishing run. You need to work with your pull request reviewer ahead of time to ensure a pull request is merged for a specific publishing run. Otherwise, PRs are reviewed in the order they were submitted.
 * If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be merged.
-
-## Working with release branches
-When you are working with a release branch, the best way to create a local working branch from the release branch is to use this command syntax:
-
-    git checkout -b <local working branch name> upstream/<upstream branch name>
-
-This creates the local branch directly from the upstream branch, avoiding any local merging.
-
-Then, to keep your local copy of the release branch up to date with the upstream version, run:
-
-    git pull upstream <release-branch-name>
-    
-The person repsonsible for managing the release from the content side needs to update the release branch with updates from master on a daily basis.
-
-**TIP:** If you receive a *fatal: Cannot update paths and switch to branch 'release-branch' at the same time* error when issuing the `checkout` command, execute `git fetch upstream`, then the checkout command. The `fetch` grabs all the new remote-tracking branches (such as the release branch you want to work with) and tags without merging those changes into your own branches.

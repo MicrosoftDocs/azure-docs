@@ -54,7 +54,7 @@ DocumentDB is designed to have policy-based geo-fencing capabilities. Geo-fencin
 DocumentDB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of replicating data across partitions in parallel, DocumentDB ensures that when a new region comes online, DocumentDB is available within 30 minutes anywhere in the world for up to 100 TBs. 
 
 ### <a id="FailoverPriorities"></a>Failover priorities
-To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified.
+To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in DocumentDB](documentdb-regional-failovers.md).
 
 **A tenant of DocumentDB can configure the failover priority order (right pane) for regions associated with a database account**
 

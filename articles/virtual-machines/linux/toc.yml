@@ -4,7 +4,7 @@
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Azure CLI
@@ -13,20 +13,32 @@
     href: quick-create-portal.md
   - name: Create VM - PowerShell
     href: quick-create-powershell.md
+- name: Tutorials
+  items:
+  - name: 1 - Create / manage VMs
+    href: tutorial-manage-vm.md
+  - name: 2 - Create / manage disks
+    href: tutorial-manage-disks.md
+  - name: 3 - Automate configuration
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
+    href: tutorial-load-balancer.md
+  - name: 8 - Manage networking
+    href: tutorial-virtual-network.md
+  - name: 9 - Manage VM security
+    href: tutorial-azure-security.md
 - name: Samples
   items:
   - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
-- name: Tutorials
-  items:
-  - name: Create and manage a VM
-    href: tutorial-manage-vm.md
-  - name: Load balance highly available VMs
-    href: tutorial-load-balance-nodejs.md
-  - name: Create a VM Scale Set
-    href: tutorial-create-vmss.md
 - name: Concepts
   items:
   - name: Azure-endorsed distributions

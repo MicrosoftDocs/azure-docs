@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -49,7 +49,7 @@ During processing, the script performs the following actions:
 * Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services so that they pick up the new storage account information.
 
 > [!WARNING]
-> If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center and across the public internet, which can introduce latency. Also, sending data out of a regional data center may cost more, as an egress charge is applied when data leaves a data center.
+> Using a storage account in a different location than the HDInsight cluster is not supported.
 
 ## The script
 
@@ -121,9 +121,15 @@ To work around this problem, you must remove the existing entry for the storage 
 
 If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center and across the public internet, which can introduce latency.
 
+> [!WARNING]
+> Using a storage account in a different region than the HDInsight cluster is not supported.
+
 ### Additional charges
 
 If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center, even if the traffic is destined for another Azure data center in a different region.
+
+> [!WARNING]
+> Using a storage account in a different region than the HDInsight cluster is not supported.
 
 ## Next steps
 

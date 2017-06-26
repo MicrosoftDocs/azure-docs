@@ -436,9 +436,9 @@ status code and media type. If no example or schema found, the content is empty.
 ```xml  
 <return-response>  
    <set-status code="401" reason="Unauthorized"/>  
-     <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-     </set-header>  
+   <set-header name="WWW-Authenticate" exists-action="override">  
+      <value>Bearer error="invalid_token"</value>  
+   </set-header>  
 </return-response>  
   
 ```  

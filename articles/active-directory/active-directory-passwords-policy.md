@@ -1,32 +1,46 @@
 ---
-title: Password policies and restrictions in Azure Active Directory | Microsoft Docs
-description: Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration
+title: 'Policy: Azure AD SSPR | Microsoft Docs'
+description: Azure AD self-service password reset policy options
 services: active-directory
+keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
-author: curtand
+author: MicrosoftGuyJFlo
 manager: femila
-editor: ''
 
-ms.assetid: e7cae5cf-e0ee-467b-9a90-db6fdf56cd52
+ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: joflore
 
 ---
 # Password policies and restrictions in Azure Active Directory
-This article describes the password policies and complexity    requirements associated with user accounts stored in your Azure AD directory.
 
-> [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
->
->
+This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD tenant.
+
+## Administrator password policy differences
+
+Microsoft enforces a strong default password reset policy for any Azure administrator role (Example: Global Administrator, Helpdesk Administrator, Password Administrator, etc.)
+
+This disables administrators from using security questions and enforces the following.
+
+One gate policy, requiring one piece of authentication data, applies in the following circumstances
+
+* First 30 days of a trial **OR**
+* Vanity domain is not present (*.onmicrosoft.com) **AND** Azure AD Connect is not synchronizing identities
+
+Two gate policy, requiring two pieces of authentication data, applies in the following circumstances
+
+* 30 days have elapsed in a trial **OR**
+* Vanity domain is present (contoso.com) **OR**
+* Azure AD Connect is synchronizing identities from your on-premises directory
 
 ## UserPrincipalName policies that apply to all user accounts
-Every user account that needs to sign in to the Azure AD authentication    system must have a unique user principal name (UPN) attribute value    associated with that account. The following table outlines the polices    that apply to both on-premises Active Directory-sourced user accounts    (synced to the cloud) and to cloud-only user accounts.
+
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The table below outlines the polices that apply to both on-premises Active Directory user accounts synchronized to the cloud and to cloud-only user accounts.
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
@@ -35,7 +49,8 @@ Every user account that needs to sign in to the Azure AD authentication    syste
 | Length constraints |<ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul> |
 
 ## Password policies that apply only to cloud user accounts
-The following table describes the available password policy settings that can be applied to user accounts that are created and managed in    Azure AD.
+
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in Azure AD.
 
 | Property | Requirements |
 | --- | --- |
@@ -47,16 +62,54 @@ The following table describes the available password policy settings that can be
 | Password Expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
 | Password **change** history |Last password **cannot** be used again when **changing** a password. |
 | Password **reset** history | Last password **may** be used again when **resetting** a forgotten password. |
-| Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
+| Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations. |
+
+## Set password expiration policies in Azure Active Directory
+
+A global administrator for a Microsoft cloud service can use the Microsoft Azure Active Directory Module for Windows PowerShell to set up user passwords not to expire. You can also use Windows PowerShell cmdlets to remove the never-expires configuration, or to see which user passwords are set up not to expire. This guidance applies to other providers such as Microsoft Intune and Office 365, which also rely on Microsoft Azure Active Directory for identity and directory services.
+
+> [!NOTE]
+> Only passwords for user accounts that are not synchronized through directory synchronization can be configured to not expire. For more information about directory synchronization see[Connect AD with Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+>
+>
+
+## Set or check password policies using PowerShell
+
+To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Once you have it installed, you can follow the steps below to configure each field.
+
+### How to check expiration policy for a password
+1. Connect to Windows PowerShell using your company administrator credentials.
+2. Execute one of the following commands:
+
+   * To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+
+### Set a password to expire
+
+1. Connect to Windows PowerShell using your company administrator credentials.
+2. Execute one of the following commands:
+
+   * To set the password of one user so that the password expires, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * To set the passwords of all users in the organization so that they expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+
+### Set a password to never expire
+
+1. Connect to Windows PowerShell using your company administrator credentials.
+2. Execute one of the following commands:
+
+   * To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## Next steps
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
-* [Manage your passwords from anywhere](active-directory-passwords.md)
-* [How Password Management works](active-directory-passwords-how-it-works.md)
-* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
-* [Customize Password Management](active-directory-passwords-customize.md)
-* [Password Management Best Practices](active-directory-passwords-best-practices.md)
-* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
-* [Password Management FAQ](active-directory-passwords-faq.md)
-* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Learn More](active-directory-passwords-learn-more.md)
+
+The following links provide additional information regarding password reset using Azure AD
+
+* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
+* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
+* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
+* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
+* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
+* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
+* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
+* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
+* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR

@@ -17,8 +17,7 @@ ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with ScreenSteps
-The objective of this tutorial is to show the integration of Azure and ScreenSteps.  
-
+The objective of this tutorial is to show the integration of Azure and ScreenSteps.
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -41,24 +40,24 @@ The objective of this section is to outline how to enable the application integr
 **To enable the application integration for ScreenSteps, perform the following steps:**
 
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
-   
+
     ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
+
     ![Applications](./media/active-directory-saas-screensteps-tutorial/IC700994.png "Applications")
 4. Click **Add** at the bottom of the page.
-   
+
     ![Add application](./media/active-directory-saas-screensteps-tutorial/IC749321.png "Add application")
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
+
     ![Add an application from gallerry](./media/active-directory-saas-screensteps-tutorial/IC749322.png "Add an application from gallerry")
 6. In the **search box**, type **ScreenSteps**.
-   
+
     ![Application gallery](./media/active-directory-saas-screensteps-tutorial/IC778517.png "Application gallery")
 7. In the results pane, select **ScreenSteps**, and then click **Complete** to add the application.
-   
+
     ![ScreenSteps](./media/active-directory-saas-screensteps-tutorial/IC778518.png "ScreenSteps")
    
 ## Configure single sign-on
@@ -67,79 +66,73 @@ The objective of this section is to outline how to enable users to authenticate 
 **To configure single sign-on, perform the following steps:**
 
 1. In the Azure classic portal, on the **ScreenSteps** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
-   
+
     ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configure single sign-on")
 2. On the **How would you like users to sign on to ScreenSteps** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
+
     ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configure single sign-on")
-3. On the **Configure App URL** page, in the **ScreenSteps Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.ScreenSteps.com*", and then click **Next**.
-   
-    ![Configure app URL](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configure app URL")
-4. On the **Configure single sign-on at ScreenSteps** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
-   
-    ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configure single sign-on")
-5. In a different web browser window, log into your ScreenSteps company site as an administrator.
-6. Click **Account Management**.
-   
+
+3. In a different web browser window, log into your ScreenSteps company site as an administrator.
+
+4. Click **Account Management**.
+
     ![Account management](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Account management")
-7. Click **Remote Authentication**.
-   
+
+5. Click **Single Sign-on**.
+
     ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Remote authentication")
-8. Click **Create authentication endpoint**.
-   
+
+6. Click **Create Single Sign-on Endpoint**.
+
     ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Remote authentication")
-9. In the **Create an Authentication Endpoint** section, perform the following steps:
-   
+
+7. In the **Create Single Sign-on Endpoint** section, perform the following steps:
+
     ![Create an authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778526.png "Create an authentication endpoint")
-  
-   1. In the **Title** textbox, type a title.
-   2. From the **Mode** list, select **SAML**.
-   3. Click **Create**.
 
-10. In the **Remote Authentication Endpoint** section, perform the following steps:
-    
+    1. In the **Title** textbox, type a title.
+    2. From the **Mode** list, select **SAML**.
+    3. Click **Create**.
+
+8. Edit the new endpoint.
+
+    ![Edit endpoint](./media/active-directory-saas-screensteps-tutorial/IC778528.png "Edit endpoint")
+
+9. In the **Edit Single Sign-on Endpoint** section, perform the following steps:
+
     ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
-    
-   1. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
-   2. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Logout URL** value, and then paste it into the **Log out URL** textbox.
-   3. Click **Choose a file**, and then upload the downloaded certificate.
-   4. Click **Update**.
 
-11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-    
+    1. Copy the **SAML Consumer URL** to the clipboard.
+
+10. On the **Configure App URL** page of the Azure classic portal, in the **ScreenSteps Sign In URL** textbox, paste the **SAML Consumer URL**, and then click **Next**.
+
+    ![Configure app URL](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configure app URL")
+
+11. On the **Configure single sign-on at ScreenSteps** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+
+    ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778522.png "Configure single sign-on")
+
+
+12. Return to the **Edit Single Sign-on Endpoint** section and perform the following steps:
+
+    ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
+
+    1. Click **Upload new SAML Certificate file**, and then upload the downloaded certificate.
+    2. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Login URL** value, and then paste it into the **Remote Login URL** textbox.
+    3. In the Azure classic portal, on the **Configure single sign-on at ScreenSteps** page, copy the **Remote Logout URL** value, and then paste it into the **Log out URL** textbox.
+    4. Select a **Group** to assign users to when they are provisioned.
+    5. Click **Update**.
+    6. Return to the **Edit Single Sign-on Endpoint**.
+    7. Click the **Make default for account** button to use this endpoint for all users who log into ScreenSteps. Alternatively you can click the **Add to Site** button to use this endpoint for specific sites in **ScreenSteps**.
+
+
+12. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+
     ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778542.png "Configure single sign-on")
-    
-## Configure user provisioning
 
-In order to enable Azure AD users to log into **ScreenSteps**, they must be provisioned into **ScreenSteps**.  
+## Configuring user provisioning
 
-In the case of **ScreenSteps**, provisioning is a manual task.
 
-**To provision a user account to ScreenSteps, perform the following steps:**
-
-1. Log in to your **ScreenSteps** tenant.
-
-2. Click **Account Management**.
-   
-    ![Account management](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Account management")
-3. Click **Users**.
-   
-    ![Users](./media/active-directory-saas-screensteps-tutorial/IC778544.png "Users")
-4. Click **Create a user**.
-   
-    ![All Users](./media/active-directory-saas-screensteps-tutorial/IC778545.png "All Users")
-5. From the **User Role** list, select a role for your user.
-6. In the User Role section, Type the “**First name**, **Last name**, **Email**, **Login**, **Password** and **Password Confirmation**” of a valid AAD account you want to provision into the related textboxes.
-   
-    ![New user](./media/active-directory-saas-screensteps-tutorial/IC778546.png "New user")
-7. In the Groups section, select **Authentication Group (SAML)**, and then click **Create User**.
-   
-    ![Groups](./media/active-directory-saas-screensteps-tutorial/IC778547.png "Groups")
-
->[!NOTE]
->You can use any other ScreenSteps user account creation tools or APIs provided by ScreenSteps to provision AAD user accounts.
-> 
-> 
 
 ## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
@@ -148,10 +141,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1. In the Azure classic portal, create a test account.
 2. On the **ScreenSteps** application integration page, click **Assign users**.
-   
+
     ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
+
 
 If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

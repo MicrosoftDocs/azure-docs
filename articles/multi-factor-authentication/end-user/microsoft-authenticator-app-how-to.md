@@ -13,10 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/25/2016
+ms.date: 04/25/2017
 ms.author: kgremban
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, end-user
 ---
 # Get started with the Microsoft Authenticator app
 The Microsoft Authenticator app provides an additional level of security in your Azure account (for example, bsimon@contoso.onmicrosoft.com), your on-premises work account (for example, bsimon@contoso.com), or your Microsoft account (for example, bsimon@outlook.com).
@@ -29,7 +29,7 @@ The app works in one of two ways:
 The Microsoft Authenticator app replaces the Azure Authenticator app.  The Azure Authenticator app will continue to work, but if you decide to move to the new Microsoft Authenticator app, this article can assist you.  
 
 ## Install the app
-The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Add accounts to the app
 For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures.
@@ -40,7 +40,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 ### Add a work or school account to the app using the QR code scanner
 1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Check the box next to **Azure Authenticator app** then select **Configure**.
+2. Check the box next to **Authenticator app** then select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
 

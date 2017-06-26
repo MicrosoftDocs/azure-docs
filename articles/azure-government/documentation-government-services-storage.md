@@ -35,6 +35,11 @@ For details on this service and how to use it, see [Azure Storage public documen
 | [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
+> [!NOTE]
+> Zone Redundant Storage (ZRS) is not available in US Gov Virginia and US Gov Iowa.
+>
+>
+
 ### Variations
 The URLs for storage accounts in Azure Government are different:
 

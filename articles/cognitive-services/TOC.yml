@@ -1,0 +1,69 @@
+- name: Overview
+  href: index.md
+  items:
+  - name: What is Cognitive Services?
+    href: Welcome.md
+- name: Get Started
+  items:
+  - name: Create an account
+    href: cognitive-services-apis-create-account.md
+- name: Services/APIs
+  items:
+  - name: Academic Knowledge
+    href: Academic-Knowledge/Home.md
+  - name: Bing Autosuggest
+    href: Bing-Autosuggest/get-suggested-search-terms.md
+  - name: Bing Image Search
+    href: Bing-Image-Search/search-the-web.md
+  - name: Bing News Search
+    href: Bing-News-Search/search-the-web.md
+  - name: Bing Speech
+    href: Speech/Home.md
+  - name: Bing Spell Check
+    href: Bing-Spell-Check/proof-text.md
+  - name: Bing Video Search
+    href: Bing-Video-Search/search-the-web.md
+  - name: Bing Web Search
+    href: Bing-Web-Search/search-the-web.md
+  - name: Computer Vision
+    href: Computer-vision/Home.md
+  - name: Content Moderator
+    href: Content-Moderator/overview.md
+  - name: Custom Speech Service
+    href: Custom-Speech-Service/Home.md
+  - name: Emotion
+    href: Emotion/Home.md
+  - name: Entity Linking
+    href: EntityLinking/Home.md
+  - name: Face
+    href: Face/Overview.md
+  - name: Knowledge Exploration Service
+    href: KES/Overview.md
+  - name: Linguistic Analysis
+    href: LinguisticAnalysisAPI/Home.md
+  - name: Language Understanding Intelligent Services
+    href: LUIS/Home.md
+  - name: QnAMaker
+    href: QnAMaker/Home.md
+  - name: Recommendations
+    href: Recommendations/overview.md
+  - name: Speaker Recognition
+    href: Speaker-recognition/Home.md
+  - name: Text Analytics
+    href: Text-Analytics/overview.md
+  - name: Translator
+    href: Translator/translator-info-overview.md
+  - name: Video
+    href: Video/Home.md
+  - name: Web Language Model
+    href: Web-Language-Model/Home.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Code of conduct
+    href: http://go.microsoft.com/fwlink/?LinkId=698895

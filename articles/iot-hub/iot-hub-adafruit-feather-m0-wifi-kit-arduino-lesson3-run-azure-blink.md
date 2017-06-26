@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, arduino send data to cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 92cce319-2b17-4c9b-889d-deac959e3e7c
 ms.service: iot-hub
 ms.devlang: arduino

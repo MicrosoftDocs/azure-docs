@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Single Sign-on | Microsoft Docs'
-description: This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services.
+title: 'Azure AD Connect: Seamless Single Sign On | Microsoft Docs'
+description: This topic describes Azure Active Directory (Azure AD) Seamless Single Sign On and how it allows you to provide true single sign on for corporate desktop users inside your corporate network.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: billmath
+author: swkrish
 manager: femila
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,125 +12,160 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 04/26/2017
 ms.author: billmath
 ---
 
-# What is Single Sign On (SSO) (preview)
-Single sign-on is an option that can be enabled in Azure Active Directory Connect with either [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md). When enabled, users only need to type their username and do not need to type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.
+# Azure Active Directory Seamless Single Sign On
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso1.png)
+## What is Azure Active Directory Seamless Single Sign On?
 
-By providing your end users with SSO, access to cloud based services is more familiar and provides the organization with a secure and simple process that doesn’t require any additional on-premises components.
+Azure Active Directory Seamless Single Sign On (Azure AD Seamless SSO) provides true single sign on for users signing in on their corporate desktops connected on the corporate network. When enabled, users won't need to type in their passwords to sign in to Azure AD, and in most cases, even type in their usernames. This feature provides your users easy access to your cloud-based services without needing any additional on-premises components.
 
-SSO is a feature that is enabled through Azure AD Connect and works with password sync or Pass-through authentication and your on-premises Active Directory. For your end users to use single sign-on in your environment, you need to ensure that users are:
+Seamless SSO can be enabled via Azure AD Connect and can be combined with either [password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [pass-through authentication](active-directory-aadconnect-pass-through-authentication.md).
 
-- On a domain joined machine
-- Have a direct connection to a domain controller, for example on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
-- Define the Kerberos end-points in the cloud as part of the browser's Intranet zone.
+>[!NOTE]
+>This feature is NOT applicable to Active Directory Federation Services (ADFS), which already provides this capability.
 
-If any of these requirements are not present, such as the machine is off the corporate network, then the user is prompted to enter their password as they would without single sign-on.
+For this feature to work for a specific user, the following conditions need to be met:
 
-## Supported Clients
-Single sign-on is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on machines capable of Kerberos authentication, such as Windows. The matrix below provides details of the browser-based clients on various operating systems.
+- Your user is signing in on a corporate desktop.
+- The desktop has been previously joined to your Active Directory (AD) domain.
+- The desktop has a direct connection to your Domain Controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
+- Our service endpoints have been included to the browser's Intranet zone.
 
-| OS\Browser |Internet Explorer|Chrome|Firefox|Edge
+If any of the above conditions are not met, then the user will be prompted to enter their username and password as before.
+
+![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso1.png)
+
+## What's available during preview?
+
+>[!NOTE]
+>Azure AD Seamless SSO is currently in preview. It is a free feature and you don't need any paid editions of Azure AD to use it.
+
+Seamless SSO is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on desktops capable of Kerberos authentication, such as Windows-based desktops. The matrix below provides details of the browser-based clients on various operating systems.
+
+| OS\Browser |Internet Explorer|Google Chrome|Mozilla Firefox|Edge
 | --- | --- |--- | --- | --- |
-|Windows 10|Yes|Yes|Yes*|No
-|Windows 8.1|Yes|Yes|Yes*|N/A
-|Windows 8|Yes|Yes|Yes*|N/A
-|Windows 7|Yes|Yes|Yes*|N/A
-|Mac|N/A|N/A|N/A|N/A
+|Windows 10|Yes|Yes|Yes\*|No
+|Windows 8.1|Yes|Yes|Yes\*|N/A
+|Windows 8|Yes|Yes|Yes\*|N/A
+|Windows 7|Yes|Yes|Yes\*|N/A
+|Mac OS X|N/A|Yes\*|Yes\*|N/A
 
-\*Requires separate configuration.
-
->[!NOTE]
->For Windows 10 based clients, the recommendation is to use [Azure AD join](../active-directory-azureadjoin-overview.md) for the best experience with Azure AD.
-
-## How single sign-on works
-
-When you enable single sign-on in Azure AD Connect, a computer account named AZUREADSSOACCT is created in the on-premises Active Directory and the Kerberos decryption key is shared securely with Azure AD. In addition, two Kerberos service principal names (SPNs) are created to represent the cloud URLs that are used during authentication between the client and Azure AD.
-
-Once this setup is complete, the process of authentication is the same as any other Integrated Windows Authentication (IWA) based application. If you are familiar with how IWA works, then you already know how single sign-on works with Azure AD. If you’re not familiar, the process for IWA is as follows:
-
-![Single sign-on](./media/active-directory-aadconnect-sso/sso2.png)
-
-First the user attempts to access a resource that trusts tokens issued from Azure AD, such as SharePoint Online. SharePoint Online then redirects the user to authenticate with Azure AD. The user then provides their username so that Azure AD can establish if single sign-on is enabled for their organization. Assuming single sign-on is enabled for the organization the following traffic occurs.
-
-1.	Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
-2.	The client requests a ticket from Active Directory for Azure AD.
-3.	Active Directory locates the machine account, created by Azure AD Connect, and returns a Kerberos ticket to the client encrypted with the machine account's secret. The ticket includes the identity of the user currently signed in to the computer.
-4.	The client sends the Kerberos ticket it acquired from Active Directory to Azure AD.
-5.	Azure AD decrypts the Kerberos ticket using the previously shared key. Then it either returns a token to the user or asks the user to provide additional proofs such as multi-factor authentication as required by the resource.
-
-Single sign-on is an opportunistic feature, which means that if it fails for some reason, the user only needs to enter their password on the sign-in page as usual.
-
-## Single Sign On (SSO) prerequisites
-If you are enabling ‘Single Sign On’ with ‘Pass-through authentication’, there are no additional pre-requisites beyond what is required for ‘Pass-through authentication’.
-
-If you are enabling ‘Single Sign On’ with ‘Password Sync’, and if there is a firewall between Azure AD Connect and Azure AD, make sure that:
-- The Azure AD Connect server can communicate with *.msappproxy.net
-- Azure AD Connect can make HTTPS requests to Azure AD on the ports below:
-
-|Protocol|Port Number|Description
-| --- | --- | ---
-|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
-
-## Enabling SSO with Pass-through Authentication or Password Sync
-Azure AD Connect provides a simple process to enable single sign-on with Pass-through authentication or Password sync. Ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account. The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.
-
-When installing Azure AD Connect, select a custom installation so that you are able to select the single sign-on option on the user sign-in page. For more information, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-
-![Single sign-on](./media/active-directory-aadconnect-sso/sso3.png)
-
-Once single sign-on is enabled, you can continue through the installation wizard until you get to the Single sign-on page.
-
-![Single sign-on](./media/active-directory-aadconnect-sso/sso4.png)
-
-For each forest listed, provide the appropriate account details and single sign-on is enabled for your Azure directory.
+\*Requires additional configuration.
 
 >[!NOTE]
->Azure AD Connect needs to be able to communicate with \*.msappproxy.net on port 9090 (TCP) to configure SSO. This port opening is only necessary during configuration and is not used during authentications by end users.
+>For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal experience with Azure AD.
 
-## Ensuring Clients sign in automatically
-By default, browsers do not attempt to send credentials to web servers unless the URL is defined as being in the Intranet zone. Generally, the browser can calculate the right zone by looking at the URL. For example, if the URL is http://intranet/ then the browser automatically send credentials as it maps to a URL in the intranet zone. However, if the URL contains a period, for example http://intranet.contoso.com/, then the computer does not automatically send credentials and treats the URL as it would any internet site.
+If an Azure AD sign-in request includes the `domain_hint` or `login_hint` parameter (initiated by an application on your tenant), Seamless SSO will take advantage of it and the user will avoid entering their username and password.
 
-Because the URLs used for single sign-on in Azure AD contain a period, they need to be explicitly added to the machine's Intranet zone. This setting makes the browser to automatically send the currently logged in user's credentials in the form of a Kerberos ticket to Azure AD. The easiest way to add the required URLs to the Intranet zone is to create a group policy in Active Directory.
+## How does Azure AD Seamless SSO work?
 
-1.	Open the Group Policy Management tools.
-2.	Edit the Group policy that is applied to all users, for example the **Default Domain Policy**.
-3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List**.
+You can enable Seamless SSO in Azure AD Connect as shown [below](#how-to-enable-azure-ad-seamless-sso?). Once enabled, a computer account named AZUREADSSOACCT is created in your on-premises Active Directory (AD) and its Kerberos decryption key is shared securely with Azure AD. In addition, two Kerberos service principal names (SPNs) are created to represent two service URLs that are used during Azure AD sign-in.
+
+>[!NOTE]
+> The computer account and the Kerberos SPNs need to be created in each AD forest that you synchronize to Azure AD (via Azure AD Connect) and for whose users you want to enable Seamless SSO. If your AD forest has organizational units (OUs) for computer accounts, after enabling the Seamless SSO feature, move the AZUREADSSOACCT computer account to an OU to ensure that it is not deleted and is managed in the same way as other computer accounts.
+
+Once this setup is complete, Azure AD sign-in works the same way as any other sign-in that uses Integrated Windows Authentication (IWA). The Seamless SSO process works as follows:
+
+Let's say that your user attempts to access a cloud-based resource that is secured by Azure AD, such as SharePoint Online. SharePoint Online redirects the user's browser to Azure AD for sign-in.
+
+If the sign-in request to Azure AD includes a `domain_hint` (identifies your Azure AD tenant; for example, contoso.onmicrosoft.com) or a `login_hint` (identifies the user's username; for example, user@contoso.onmicrosoft.com or user@contoso.com) parameter, then steps 1-5 occur.
+
+If either of those two parameters are not included in the request, the user will be asked to provide their username on the Azure AD sign-in page. Steps 1-5 occur only after the user tabs out of the username field or clicks the "Continue" button.
+
+1. Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
+2. The client requests a ticket from Active Directory for Azure AD (represented by the computer account which was setup earlier).
+3. Active Directory locates the computer account and returns a Kerberos ticket to the client encrypted with the computer account's secret. The ticket includes the identity of the user currently signed in to the desktop.
+4. The client sends the Kerberos ticket it acquired from Active Directory to Azure AD.
+5. Azure AD decrypts the Kerberos ticket using the previously shared key. If successful, Azure AD either returns a token or asks the user to perform additional proofs such as multi-factor authentication as required by the resource.
+
+Seamless SSO is an opportunistic feature, which means that if it fails for any reason, the user sign-in experience falls back to its regular behavior - i.e, the user will need to enter their password on the sign-in page.
+
+The process is also illustrated in the diagram below:
+
+![Seamless Single Sign On](./media/active-directory-aadconnect-sso/sso2.png)
+
+## How to enable Azure AD Seamless SSO?
+
+### Pre-requisites
+
+If you are enabling Seamless SSO with Pass-through authentication, there are no additional pre-requisites beyond what is required for the Pass-through authentication feature.
+
+If you are enabling Seamless SSO with Password synchronization, and if there is a firewall between Azure AD Connect and Azure AD, make sure that:
+
+- The Azure AD Connect server can communicate with `*.msappproxy.net` URLs.
+- Azure AD Connect (versions 1.1.484.0 or higher) can make HTTPS requests to Azure AD over port 443. This is only used for enabling the feature, not for the actual user sign-ins.
+- Azure AD Connect can also make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Again, this is only used for enabling the feature.
+
+>[!NOTE]
+> Older versions of Azure AD Connect (lower than 1.1.484.0) need to be able to communicate with Azure AD over port 9090.
+
+### Enabling the Azure AD Seamless SSO feature
+
+Azure AD Seamless SSO can be enabled via Azure AD Connect.
+
+If you are performing a new installation of Azure AD Connect, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the "User sign-in" page, check the "Enable single sign on" option.
+
+![Azure AD Connect - User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
+
+If you already have an installation of Azure AD Connect, setup using the [express installation](active-directory-aadconnect-get-started-express.md) or the [custom installation](active-directory-aadconnect-get-started-custom.md) path, choose "Change user sign-in page" on Azure AD Connect and click "Next". Then check the "Enable single sign on" option.
+
+![Azure AD Connect - Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+
+Continue through the installation wizard till you get to the "Enable single sign on" page. You will need to provide domain administrator credentials for each AD forest that you synchronize to Azure AD (via Azure AD Connect) and for whose users you want to enable Seamless SSO. Note that the domain administrator credentials are not stored in Azure AD Connect or Azure AD but are only used to create the computer account and configure the Kerberos SPNs as described earlier.
+
+At this point Seamless SSO is enabled on your tenant. Note that you will still have to complete the steps in the next section before your users can benefit from this feature.
+
+## Rolling the feature out to your users
+
+To roll the Seamless SSO feature out to your users, you will need to add two Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) to the users' Intranet zone settings via group policy in Active Directory. Note that this only works for Internet Explorer and Google Chrome (if it shares the same set of trusted site URLs as Internet Explorer). You will need to separately configure for Mozilla Firefox.
+
+### Why do you need this?
+
+By default, browsers don't send Kerberos tickets to a cloud endpoint unless its URL is defined as being part of the browser's Intranet zone. The browser automatically calculates the right zone (Internet or Intranet) from the URL. For example, http://contoso/ will be mapped to the Intranet zone, whereas http://intranet.contoso.com/ will be mapped to the Internet zone (because the URL contains a period).
+
+Because the Azure AD URLs used for Seamless SSO contain a period, they need to be explicitly added to the each browser's Intranet zone settings. This makes the browser automatically send the currently logged in user's Kerberos tickets to Azure AD. While you can do this manually on each desktop, the easiest way to add the required URLs to the Intranet zone across all users is to create a group policy in Active Directory.
+
+### Detailed steps
+
+1. Open the Group Policy Management tool.
+2. Edit the group policy that is applied to all users, for example, the **Default Domain Policy**.
+3. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List**.
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)  
-4.	Enable the policy, and enter the following values/data in the dialog box.  
+4. Enable the policy, and enter the following values/data in the dialog box. These are the Azure AD URLs where the Kerberos tickets are sent.
 
 		Value: https://autologon.microsoftazuread-sso.com  
     	Data: 1  
     	Value: https://aadg.windows.net.nsatc.net  
     	Data: 1  
-5.	It should look similar to the following:  
+5. Click **OK** and **OK** again.
+
+It should look like this:
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
-6.	Click **OK** and **OK** again.
-
-Your users are now ready for single sign-on.
-
 >[!NOTE]
->By default, Chrome uses the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, then you need to update these sites separately.
+>By default, Chrome uses the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, then you need to update those settings separately.
 
-## Troubleshooting single sign-on issues
-It is important to make sure the client is correctly configured for single sign-on including the following:
+## Troubleshooting Seamless SSO
 
-1.	Both https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net are defined within the Intranet zone.
-2.	Ensure the workstation is joined to the domain.
-3.	Ensure the user is logged on with a domain account.
-4.	Ensure the machine is connected to the corporate network.
-5.	Ensure that the machine's time is synchronized with the Active Directory and the domain controllers time is within 5 minutes of the correct time.
-6.	Purge the clients existing Kerberos tickets, for example by running the command **klist purge** from a command prompt.
+Use the following checklist for troubleshooting Seamless SSO:
 
-If you have been able to confirm the above requirements, then you can review the console logs of the browser for additional information. The console logs can be found under developer tools. These logs help you determine the potential problem.
+1. Check if the Seamless SSO feature is enabled on your tenant in the Azure AD Connect tool. If you can't enable the feature (for example, due to a blocked port), make sure that you have all the [pre-requisites](#pre-requisites) in place. If you are still facing issues with enabling the feature, contact Microsoft Support.
+2. Both the service URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are defined to be part of the Intranet zone settings.
+3. Ensure the corporate desktop is joined to the AD domain.
+4. Ensure the user is logged on to the desktop using an AD domain account.
+5. Ensure that the user's account is from an AD forest where Seamless SSO has been setup.
+6. Ensure the desktop is connected on the corporate network.
+7. Ensure that the desktop's time is synchronized with the Active Directory's and the Domain Controllers' time and is within 5 minutes of each other.
+8. Purge existing Kerberos tickets from their desktop. This can be done by running the **klist purge** command from a command prompt.
+9. Review the console logs of the browser (under "Developer Tools") to help determine potential issues.
 
-## Event log entries
-If success auditing is enabled, then every time a user sign in with single sign-on an entry is recorded in the event log of the domain controller. To find these events, you can review the Event logs for the security Event 4769 associated with computer account **AzureADSSOAcc$**. The filter below finds all security events associated with the computer account:
+### Domain Controller logs
+
+If success auditing is enabled on your Domain Controller, then every time a user signs in using Seamless SSO a security entry (event 4769 associated with computer account **AzureADSSOAcc$**) is recorded in the Event log. You can find these security events by using the following query:
 
 ```
 	<QueryList>

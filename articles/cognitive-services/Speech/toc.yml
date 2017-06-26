@@ -1,0 +1,39 @@
+- name: Bing Speech Documentation
+  href: ../index.md
+- name: Overview
+  href: Home.md
+- name: Get started
+  items:
+  - name: Objective C on iOS
+    href: GetStarted/Get-Started-ObjectiveC-iOS.md
+  - name: cURL
+    href: GetStarted/GetStarted-cURL.md
+  - name: C# for .NET
+    href: GetStarted/GetStartedCSharpDesktop.md
+  - name: C# for .NET - Service Library
+    href: GetStarted/GetStartedCSharpServiceLibrary.md
+  - name: C# for .NET Universal Apps on Windows 10
+    href: GetStarted/GetStartedCSharpWin10.md
+  - name: C# for .NET on Windows Phone 8.1
+    href: GetStarted/GetStartedCSharpWinPhone.md
+  - name: Java on Android
+    href: GetStarted/GetStartedJavaAndroid.md
+  - name: JavaScript
+    href: GetStarted/GetStartedJS.md
+- name: Reference
+  items: 
+  - name: Speech recognition API reference
+    href: API-Reference-REST/BingVoiceRecognition.md
+  - name: Text-to-speech API reference
+    href: API-Reference-REST/BingVoiceOutput.md
+  - name: SDKs
+    items:
+    - name: Android
+      href: https://github.com/Microsoft/Cognitive-Speech-STT-Android
+    - name: iOS
+      href: https://github.com/Microsoft/Cognitive-Speech-STT-iOS
+    - name: JavaScript
+      href: https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-Speech-STT-Windows
+  

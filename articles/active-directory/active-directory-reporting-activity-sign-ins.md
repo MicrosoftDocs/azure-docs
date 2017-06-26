@@ -40,7 +40,7 @@ With the information provided by the user sign-in report, you find answers to qu
 * How many users have users signed in over a week?
 * What’s the status of these sign-ins?
 
-Your first entry point to all sign-in activities data is **Sign-ins**s in the Activity section of **Azure Active**. Directory.
+Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.
 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")

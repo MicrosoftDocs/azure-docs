@@ -33,13 +33,14 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 * The master target should be on a network that can communicate with the process server and the configuration server.
 * The version of the master target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the master target can be 9.4 or 9.3 but not 9.5.
 * The master target can only be a VMware virtual machine and not a physical server.
-* The master target needs to faollow the following sizing guideline
+
+## Master target sizing guideline
+
+The master target needs to be created with the following sizing guideline
 	* RAM - 6GB or more
-	* OS Disk size - 50GB or more (to install CentOS6.6)
+	* OS Disk size - 100GB or more (to install CentOS6.6)
 	* Additional disk size for retention drive - 1TB
 	* CPU cores - 4 Cores or more
-
-
 
 
 ## Steps to deploy the master target server

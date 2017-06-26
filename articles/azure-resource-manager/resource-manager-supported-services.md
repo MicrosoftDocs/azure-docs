@@ -33,7 +33,7 @@ The following tables list which Microsoft services support deployment and manage
 | Container Registry |Yes |[Container Registry REST](/rest/api/containerregistry) |[Container Registry resources](/azure/templates/microsoft.containerregistry/registries) |
 | Container Service |Yes |[Container Service REST](/rest/api/compute/containerservices) |[Container Service resources](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Yes | | |
-| Scale Sets |Yes |[Scale Set REST](/rest/api/compute/virtualmachinescalesets) |[Scale Set resources](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Scale Sets |Yes |[Scale Set REST](/rest/api/virtualmachinescalesets/) |[Scale Set resources](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Yes |[Service Fabric Rest](/rest/api/servicefabric) | [Service Fabric resources](/azure/templates/microsoft.servicefabric/clusters) |
 | Virtual Machines |Yes |[VM REST](/rest/api/compute/virtualmachines) |[VM resources](/azure/templates/microsoft.compute/virtualmachines) |
 | Virtual Machines (classic) |Limited |- |- |
@@ -122,7 +122,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | Service Bus |Yes |[Service Bus REST](/rest/api/servicebus) |[Service Bus resources](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## Identity & Access Management
-Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Active Directory, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Azure Active Directory, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 ## Developer Services
 | Service | Resource Manager Enabled | REST API | Template format |

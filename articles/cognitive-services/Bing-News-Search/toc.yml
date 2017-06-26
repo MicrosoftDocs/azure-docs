@@ -1,0 +1,34 @@
+- name: Bing News Search Documentation
+  href: ../index.md
+- name: Overview
+  items:
+    - name: Search the web for news
+      href: search-the-web.md
+    - name: Upgrade from v5 to v7 Preview
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Use and display requirements
+      href: UseAndDisplayRequirements.md
+- name: Quickstarts
+  items:
+  - name: Get started
+    href: quick-start.md
+- name: How to
+  items:
+  - name: Handle hit highlighting
+    href: hit-highlighting.md
+  - name: Page news
+    href: paging-news.md
+  - name: Resize and crop thumbnails
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  items:
+  - name: REST v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
+  - name: REST v7 Preview
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
+- name: Resources
+  items:
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553

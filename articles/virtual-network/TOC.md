@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
@@ -46,7 +46,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Network interfaces](virtual-network-network-interface.md)
+### Network interfaces
+#### [Settings and tasks](virtual-network-network-interface.md)
+#### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
+#### [Add to or remove from virtual machines](virtual-network-network-interface-vm.md) 
 
 ### [Public IP addresses](virtual-network-public-ip-address.md)
 
@@ -68,9 +71,8 @@
 ##### [CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Multiple network interfaces
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Template](virtual-network-deploy-multinic-arm-template.md)
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
@@ -126,8 +128,8 @@
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

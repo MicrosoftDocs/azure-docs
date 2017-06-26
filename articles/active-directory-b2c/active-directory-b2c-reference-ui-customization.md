@@ -332,6 +332,9 @@ On this page, users can verify their phone numbers (using text or voice) during 
 
 ```
 
+## Localizing your HTML content
+You can localze your HTML content by turning on ['Language customization'](active-directory-b2c-reference-language-customization.md).  Enabling this will allow Azure AD B2C to forward the OIDC parameter, `ui-locales`, to your endpoint.  You can use this to provide language-specific custom UI pages.  
+
 ## Things to remember when building your own content
 If you are planning to use the page UI customization feature, review the following best practices:
 

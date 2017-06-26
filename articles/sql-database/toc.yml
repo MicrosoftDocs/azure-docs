@@ -4,9 +4,7 @@
   items:
   - name: About SQL DB
     href: sql-database-technical-overview.md
-  - name: Compare SQL DB
-    href: sql-database-features.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create DB - Portal
@@ -35,18 +33,21 @@
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+- name: Tutorials
+  items:
+  - name: 1 - Create/design new SQL DB
+    href: sql-database-design-first-database.md
+  - name: 2 - Migrate existing SQL Server
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Secure your SQL DB
+    href: sql-database-security-tutorial.md
 - name: Samples
   items:
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
     href: sql-database-powershell-samples.md
-- name: Tutorials
-  items:
-  - name: Design a database
-    href: sql-database-design-first-database.md
-  - name: Migrate a database
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: Concepts
   items:
   - name: DBs and servers
@@ -57,8 +58,6 @@
       href: sql-database-server-overview.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Use elastic pool?
-      href: sql-database-elastic-pool-guidance.md
   - name: Resources
     items:
     - name: Service tiers
@@ -69,8 +68,12 @@
       href: sql-database-benchmark-overview.md
     - name: Limits
       href: sql-database-resource-limits.md
-  - name: Tools
-    href: sql-database-manage-overview.md
+    - name: PaaS or IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: Features
+      href: sql-database-features.md
+    - name: Tools
+      href: sql-database-manage-overview.md
   - name: Partition data
     items:
     - name: Sharded databases
@@ -211,16 +214,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: How-to guides
   items:
-  - name: Manage firewall
-    items:
-    - name: Portal
-      href: sql-database-configure-firewall-settings.md
-    - name: PowerShell
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: REST API
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: Transact-SQL
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: Manage elastic pools
     items:
     - name: Portal
@@ -241,30 +234,16 @@
     items:
     - name: Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name: Auditing
-      href: sql-database-auditing-portal.md
-    - name: Threat detection
-      href: sql-database-threat-detection-portal.md
     - name: Encrypt - cert store
       href: sql-database-always-encrypted.md
     - name: Encrypt - key vault
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: Configure masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: Recovery
-    items:
-    - name: Portal
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: PowerShell
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: Single table
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: Retention
-    items:
-    - name: Retention - Portal
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: Retention - PowerShell
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: Recover single table
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: Configure vault for backups
+    href: sql-database-long-term-backup-retention-configure.md
   - name: Geo-replicate data
     items:
     - name: Portal
@@ -408,6 +387,8 @@
   items:
   - name: FAQ
     href: sql-database-faq.md
+  - name: Public data sets
+    href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: Pricing
@@ -434,3 +415,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Elastic pool custom dashboard
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

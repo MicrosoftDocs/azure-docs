@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Delete a virtual network gateway: PowerShell: Azure classic | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the classic deployment model. 
 services: vpn-gateway
@@ -32,7 +32,7 @@ You can delete a VPN gateway in the classic deployment model by using PowerShell
 
 ### 1. Install the latest PowerShell cmdlets.
 
-Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ### 2. Connect to your Azure account. 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 
 ---
@@ -25,9 +25,8 @@ Connectors are what make Azure AD Application Proxy possible. They are simple, e
 
 Application Proxy works after you install the Windows Server service, called a connector, on your network. You can install multiple connectors based on your high availability and scalability needs. Start with one and add more as needed. Each time a connector is installed, it is added to the pool of connectors that serves your tenant.
 
-We recommend that you do not install the connectors on the same servers that host your applications.
+We recommend that you do not install the connectors on the same servers that host your applications. However, you must be able to access the application from the server where you install the connector.
 
-You don't have to manually delete connectors that are unused. When a connector is running, it remains active as it connects to the service. Connectors not being used are tagged as _inactive_ and will be removed after 10 days of inactivity. 
 
 ## Connector maintenance
 The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporary not available, it will not respond to this traffic.
@@ -39,8 +38,22 @@ You can monitor your connectors from the machine they are running on, using eith
 
  ![AzureAD Application Proxy Connectors](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
 
+You don't have to manually delete connectors that are unused. When a connector is running, it remains active as it connects to the service. Connectors not being used are tagged as _inactive_ and will be removed after 10 days of inactivity. 
+
+## Automatic updates to the Connector
+
+With the Connector Updater service, we offer an automated way to keep up-to-date. This way you have the continued advantage of all new features, and security and performance enhancements.
+
+Azure AD supports automatic updates for all connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](active-directory-application-proxy-enable.md) to get any updates.
+
+You may experience downtime when your connector updates if:
+
+- You only have one connector. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).
+
+- A connector was in the middle of a transaction when the update began. Your browser should automatically retry the operation, or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
+
 ## All networking is outbound
-Connectors only send outbound requests, so the connection is always initiated by the connector(s). There is no need to open inbound ports, because the traffic flows both ways once a session has been established.
+Connectors only send outbound requests, so the connection is always initiated by the connector. There is no need to open inbound ports, because the traffic flows both ways once a session has been established.
 
 The outbound traffic is sent to the Application Proxy service and to the published applications. The traffic to the service is sent to Azure datacenters to several different ports numbers. For more information about which ports are used, see [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md).
 
@@ -52,7 +65,7 @@ Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-por
 
 ## Network security
 
-Connectors can be installed anywhere on the network that allows them to send requests to both the service and the backend applications. They work fine if you install them inside the corpnet, within a demilitarized zone (DMZ), or even on a virtual machine that. What's important is that the computer running the connector also has access to your apps.
+Connectors can be installed anywhere on the network that allows them to send requests to both the Application Proxy service and the backend applications. They work fine if you install them inside the corpnet, within a demilitarized zone (DMZ), or even on a virtual machine that runs in the cloud. What's important is that the computer running the connector also has access to your apps.
 
 DMZ deployments are more complicated. One reason you may want to deploy connectors in a DMZ, though, is to use other infrastructure like backend application load balancers or intrusion detection systems.
 
@@ -67,7 +80,7 @@ Connectors can also be joined to domains or forests that have a partial trust, o
 Usually, connector deployment is straightforward and requires no special configuration. However, there are some unique conditions that should be considered:
 
 * Organizations that limit the outbound traffic must [open required ports](active-directory-application-proxy-enable.md#open-your-ports).
-* FIPS compliant machines might be required to change their configuration to allow the connector service, the connector updater service, and its installer to generate and store a certificate on that machine.
+* FIPS-compliant machines might be required to change their configuration to allow the connector service, the connector updater service, and its installer to generate and store a certificate.
 * Organizations that lock down their environment based on the processes that issue the networking requests have to make sure that both connector services are enabled to access all required ports and IPs.
 * In some cases, outbound forward proxies may break the two-way certificate authentication and cause the communication to fail.
 
@@ -97,18 +110,6 @@ Another factor that affects performance is the quality of the networking between
 * **The online service:** Slow or high-latency connections influence the connector service. It is best if your organization is connected to Azure via Express Route. Otherwise, have your networking team ensure that connections to Azure are handled in an efficient way.  
 * **The backend applications:** In some cases, there are additional proxies between the connector and the backend applications. Troubleshoot this scenario by opening a browser from the connector machine and accessing these applications. If you run the connectors in Azure, and the applications are on-premises, the experience might not be as your users expect.
 * **The domain controllers:** If the connectors are performing SSO using Kerberos Constrained Delegation (KCD), they contact the domain controllers before they send the request to the backend. The connectors have a cache of Kerberos tickets, but in a busy environment the responsiveness of the domain controllers can affect the experience. This issue is more common for connectors that run in Azure while the domain controllers are on-premises.
-
-## Automatic updates to the Connector
-
-With the Connector Updater service, we offer an automated way to keep up-to-date. This way you have the continued advantage of all new features, and security and performance enhancements.
-
-Azure AD supports automatic updates for all connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](active-directory-application-proxy-enable.md) to get any updates.
-
-You may experience downtime when your connector updates if:
-
-- You only have one connector. Because there is no other connector to reroute traffic through, the service is unavailable during the update. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).
-
-- A connector was in the middle of a transaction when the update began. Your browser should automatically retry the operation, or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
 ## Under the hood
 

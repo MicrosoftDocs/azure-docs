@@ -1,4 +1,4 @@
----
+﻿---
 title: Use PowerShell to manage Azure Event Hubs resources | Microsoft Docs
 description: Use PowerShell module to create and manage Event Hubs
 services: event-hubs
@@ -19,7 +19,7 @@ ms.author: sethm
 ---
 # Use PowerShell to manage Event Hubs resources
 
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) to provision and manage Event Hubs entities (namespaces, Event Hubs, and consumer groups) using a local Azure PowerShell console or script.
+Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Event Hubs Resource Manager PowerShell module](/powershell/module/azurerm.eventhub) to provision and manage Event Hubs entities (namespaces, Event Hubs, and consumer groups) using a local Azure PowerShell console or script.
 
 You can also manage Event Hubs resources using Azure Resource Manager templates. For more information, see the article [Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -148,7 +148,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 
 ## Next steps
 
-- See the complete Event Hubs Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub). This page lists all available cmdlets.
+- See the complete Event Hubs Resource Manager PowerShell module documentation [here](/powershell/module/azurerm.eventhub). This page lists all available cmdlets.
 - For information about using Azure Resource Manager templates, see the article [Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md).
 - Information about [Event Hubs .NET management libraries](event-hubs-management-libraries.md).
 

@@ -31,8 +31,23 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.486.0
+Released: April 2017
+
+**Fixed issues:**
+* Fixed the issue where Azure AD Connect will not install successfully on localized version of Windows Server.
+
 ## 1.1.484.0
 Released: April 2017
+
+**Known issues:**
+
+* This version of Azure AD Connect will not install successfully if the following conditions are all true:
+   1. You are performing either DirSync in-place upgrade or fresh installation of Azure AD Connect.
+   2. You are using a localized version of Windows Server where the name of built-in Administrator group on the server isn't "Administrators".
+   3. You are using the default SQL Server 2012 Express LocalDB installed with Azure AD Connect instead of providing your own full SQL.
+
+**Fixed issues:**
 
 Azure AD Connect sync
 * Fixed an issue where the sync scheduler skips the entire sync step if one or more connectors are missing run profile for that sync step. For example, you manually added a connector using the Synchronization Service Manager without creating a Delta Import run profile for it. This fix ensures that the sync scheduler continues to run Delta Import for other connectors.
@@ -291,7 +306,7 @@ Released: November 2015
 **New preview features:**
 
 * [Azure AD Connect Health for sync](../connect-health/active-directory-aadconnect-health-sync.md).
-* Support for [Azure AD Domain Services](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
+* Support for [Azure AD Domain Services](../active-directory-passwords-update-your-own-password.md) password synchronization.
 
 **New supported scenario:**
 
@@ -304,7 +319,15 @@ Released: November 2015
   * Selecting a new OU to include in sync does not require a full password sync.
   * When a disabled user is enabled the password does not sync.
   * The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-  * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
+<<<<<<< HEAD
+<<<<<<< HEAD
+  * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+=======
+  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
+=======
+  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 * Not able to change the group that is used for group filtering after the initial installation.
 * No longer creates a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.

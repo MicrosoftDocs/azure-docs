@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
@@ -43,8 +43,8 @@ One of two [deployment models](resource-manager-deployment-model.md) used to dep
 A [command-line interface](cli-install-nodejs.md) that can be used to manage Azure services from Windows, OSX, and Linux PCs.
 
 ### <a name="powershell"></a>Azure PowerShell
-A [command-line interface](/powershell/azureps-cmdlets-docs) to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI. Guidance for each individual Azure resource details which model(s) a resource can be deployed with.   
-See also [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
+A [command-line interface](/powershell/azure/overview) to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI. Guidance for each individual Azure resource details which model(s) a resource can be deployed with.   
+See also [How to install and configure Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>Azure Resource Manager deployment model
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure resources can be deployed in one model or the other, while others can be deployed in both models. Guidance for individual Azure resources detail which model(s) a resource can be deployed with.

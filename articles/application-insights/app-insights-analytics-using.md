@@ -132,7 +132,7 @@ This means that, when you put together a dashboard to help you monitor the perfo
 You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
 
 ### Dashboard refresh
-The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every two hours.
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every hours. You can also click the Refresh button.
 
 ### Automatic simplifications
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # Microsoft Authenticator app FAQ
 

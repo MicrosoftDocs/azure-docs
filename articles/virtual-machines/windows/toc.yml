@@ -4,7 +4,7 @@
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Portal
@@ -13,25 +13,40 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+- name: Tutorials
+  items:
+  - name: 1 - Create / manage a VM
+    href: tutorial-manage-vm.md
+  - name: 2 - Create / manage disks
+    href: tutorial-manage-data-disk.md
+  - name: 3 - Automate configuration
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
+    href: tutorial-load-balancer.md
+  - name: 8 - Manage networking
+    href: tutorial-virtual-network.md
+  - name: 9 - Manage VM security
+    href: tutorial-azure-security.md
+
 - name: Samples
   items:
   - name: PowerShell
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
-- name: Tutorials
-  items:
-  - name: Create and manage a VM
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Load balance highly available VMs
-    href: load-balanced-iis-tutorial.md
 - name: Concepts
   items:
   - name: Regions and availability
     href: regions-and-availability.md
   - name: Storage
     href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Setworking
+  - name: Networking
     href: network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -261,7 +276,7 @@
     - name: Manage access
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Encrypt a disk
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: Apply policies to VMs
       href: policy.md
     - name: Set up Key Vault

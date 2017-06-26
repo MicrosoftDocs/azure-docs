@@ -33,7 +33,7 @@ Ambari is a management and monitoring utility provided with Linux-based HDInsigh
 * A Linux-based HDInsight cluster. For information on creating cluster, see [Get started with Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Open the Hive view
 
@@ -64,7 +64,7 @@ As tables are added through the steps in this document, you can use the refresh 
 Use the following steps from the Hive view to execute a Hive query.
 
 1. In the **Query Editor** section of the page, paste the following HiveQL statements into the worksheet:
-   
+
     ```hiveql
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -72,12 +72,12 @@ Use the following steps from the Hive view to execute a Hive query.
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
-   
+
     These statements perform the following actions:
-   
+
    * **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
 
-   * **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. 
+   * **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive.
    External tables store only the table definition in Hive. The data is left in the original location.
 
    * **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
@@ -85,42 +85,42 @@ Use the following steps from the Hive view to execute a Hive query.
    * **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
 
    * **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
-     
+
      > [!NOTE]
      > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or by another MapReduce operation. Dropping an external table does *not* delete the data, only the table definition.
 
 2. To start the query, use the **Execute** button at the bottom of the Query Editor. It turns orange and the text changes to **Stop execution**. A **Query Process Results** section should appear beneath the Query Editor and display information about the job.
-   
+
    > [!IMPORTANT]
    > Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
- 
+
 3. Once the query has finished, The **Query Process Results** section displays the results of the operation. The **Stop execution** button also changes back to a green **Execute** button when the query completes. The **Results** tab should contain the following information:
-   
+
         sev       cnt
         [ERROR]   3
-   
+
     The **Logs** tab can be used to view the logging information created by the job.
-   
+
    > [!TIP]
    > T **Save results** drop-down dialog in the upper left of the **Query Process Results** section allows you to download or save results.
 
 4. Select the first four lines of this query, then select **Execute**. Notice that there are no results when the job completes. Using the **Execute** button when part of the query is selected only runs the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use **Execute**, you should see the expected results.
 
 5.To add a new worksheet, use the **New Worksheet** button at the bottom of the **Query Editor**. In the new worksheet, enter the following HiveQL statements:
-   
+
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
-   
+
   These statements perform the following actions:
-   
+
    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, an internal table is created. An internal table is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table deletes the underlying data as well.
 
    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 
    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
-     
+
      Use the **Execute** button to run this query. The **Results** tab does not contain any information when the query returns zero rows. The status should show as **SUCCEEDED** once the query completes.
 
 ### Hive settings
@@ -170,13 +170,13 @@ Notifications are messages that are generated when running queries. For example,
 ## Saved queries
 
 1. From the Query Editor, create a worksheet and enter the following query:
-   
+
     ```hiveql
     SELECT * from errorLogs;
     ```
-   
+
     Execute the query to verify that it works. The results are similar to the following example:
-   
+
         errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
         2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
         2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
@@ -231,4 +231,3 @@ For information on other ways you can work with Hadoop on HDInsight:
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-

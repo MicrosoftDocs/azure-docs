@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -604,6 +604,85 @@ Example:
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 This example returns one event (the latest event) per EventID.
+
+### Join
+Joins the results of two queries to form a single result set.  Supports multiple join types described in the follow table.
+  
+| Join type | Description |
+|:--|:--|
+| inner | Return only records with a matching value in both queries. |
+| outer | Return all records from both queries.  |
+| left  | Return all records from left query and matching records from right query. |
+
+
+- Joins do not currently support queries that include the **IN** keyword, the **Measure** command or the **Extend** command if it targets a field from the right query.
+- You can currently include only a single field in a join.
+- A single search may not include more than one join.
+
+**Syntax**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**Examples**
+
+To illustrate the different join types, consider joining a data type collected from a custom log called MyBackup_CL with the heartbeat for each computer.  These datatypes have the following data.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Computer | LastBackupStatus |
+|:---|:---|:---|
+| 4/20/2017 01:26:32.137 AM | srv01.contoso.com | Success |
+| 4/20/2017 02:13:12.381 AM | srv02.contoso.com | Success |
+| 4/20/2017 02:13:12.381 AM | srv03.contoso.com | Failure |
+
+`Type = Hearbeat` (Only a subset of fields shown)
+
+| TimeGenerated | Computer | ComputerIP |
+|:---|:---|:---|
+| 4/21/2017 12:01:34.482 PM | srv01.contoso.com | 10.10.100.1 |
+| 4/21/2017 12:02:21.916 PM | srv02.contoso.com | 10.10.100.2 |
+| 4/21/2017 12:01:47.373 PM | srv04.contoso.com | 10.10.100.4 |
+
+#### inner join
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Returns the following records where the computer field matches for both datatypes.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Success | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+
+
+#### outer join
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Returns the following records for both datatypes.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success  | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:14:12.381 AM | Success  | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 4/20/2017 01:33:35.974 AM | Failure  | 4/21/2017 12:01:47.373 PM | | |
+| srv04.contoso.com |                           |          | 4/21/2017 12:01:47.373 PM | 10.10.100.2 | Heartbeat |
+
+
+
+#### left join
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Returns the following records from MyBackup_CL with any matching fields from Heartbeat.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Success | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 4/20/2017 02:13:12.381 AM | Failure | | | |
 
 
 ### Extend

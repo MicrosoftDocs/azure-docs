@@ -151,7 +151,7 @@ that string must be escaped by using @@. The following examples show how express
 |" @"|A 2 character string that contains ' @' is returned.|  
   
 With *string interpolation*, expressions can also appear inside strings where expressions are wrapped in `@{ ... }`. 
-For example: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+For example: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 The result is always a string, which makes this feature similar to the `concat` function. 
 Suppose you defined `myNumber` as `42` and `myString` as `sampleString`:  
@@ -236,8 +236,8 @@ The following functions only apply to strings. You can also use some collection 
 |toUpper|Converts a string to uppercase. For example, this function returns `TWO BY TWO IS FOUR`: <p>`toUpper('Two by Two is Four')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string to convert to upper casing. If a character in the string does not have an uppercase equivalent, the character is included unchanged in the returned string.|  
 |indexof|Find the index of a value within a string case insensitively. For example, this function returns `7`: <p>`indexof('hello, world.', 'world')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value to search the index of.|  
 |lastindexof|Find the last index of a value within a string case insensitively. For example, this function returns `3`: <p>`lastindexof('foofoo', 'foo')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value to search the index of.|  
-|startswith|Checks if the string starts with a value case insensitively. For example, this function returns `true`: <p>`lastindexof('hello, world', 'hello')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may start with.|  
-|endswith|Checks if the string ends with a value case insensitively. For example, this function returns `true`: <p>`lastindexof('hello, world', 'world')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may end with.|  
+|startswith|Checks if the string starts with a value case insensitively. For example, this function returns `true`: <p>`startswith('hello, world', 'hello')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may start with.|  
+|endswith|Checks if the string ends with a value case insensitively. For example, this function returns `true`: <p>`endswith('hello, world', 'world')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that may contain the value. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The value the string may end with.|  
 |split|Splits the string using a separator. For example, this function returns `["a", "b", "c"]`: <p>`split('a;b;c',';')` <p> **Parameter number**: 1 <p> **Name**: String <p> **Description**: Required. The string that is split. <p> **Parameter number**: 2 <p> **Name**: String <p> **Description**: Required. The separator.|  
   
 ### Logical functions  

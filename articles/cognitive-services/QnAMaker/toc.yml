@@ -1,0 +1,28 @@
+- name: QnAMaker API Documentation
+  href: ../index.md
+- name: Overview
+  items:
+  - name: Learn about QnAMaker
+    href: Home.md
+- name: Quickstart
+  items: 
+  - name: Get started with AnAMaker
+    href: Quickstart.md
+- name: How to Guides
+  items: 
+  - name: Create a knowledge base
+    href: Guides/CreateKB.md
+  - name: Publish a knowledge base
+    href: Guides/PublishKB.md
+  - name: Train a knowledge base
+    href: Guides/TrainKB.md
+  - name: Update a knowledge base
+    href: Guides/UpdateKB.md
+  - name: Authentication
+    href: SubscriptionKeys.md
+- name: Reference
+  items: 
+  - name: API Reference
+    href: HTTPEndPoint.md
+  - name: FAQ
+    href: FAQs.md

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: terrylan
 
 ---
 # Enable data collection in Azure Security Center
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, event logs, and more. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy (see [Disabling data collection](#disabling-data-collection)). If you turn off data collection, Security Center will recommend that you turn on data collection in the security policy for that subscription.
+To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, and event logs. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy (see [Disabling data collection](#disabling-data-collection)). If you turn off data collection, Security Center recommends that you turn on data collection in the security policy for that subscription.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment. This is not a step-by-step guide.
@@ -49,10 +49,10 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configurations and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
 
 ## Disabling data collection
-You can disable data collection at any time, which automatically removes any Monitoring Agents previously installed by Security Center. You must select a subscription to turn data collection off.
+You can disable data collection at any time, which automatically removes any Monitoring Agents previously installed by Security Center. You must select a subscription to turn off data collection.
 
 > [!NOTE]
-> Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
+> Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn off data collection.
 >
 >
 

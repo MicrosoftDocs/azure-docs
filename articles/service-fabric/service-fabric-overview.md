@@ -59,7 +59,7 @@ For more information on creating clusters on-premises, read [creating a cluster 
 
 ![Service Fabric platform][Image1]
 
-## Stateless and stateful micrososervices for Service Fabric
+## Stateless and stateful microservices for Service Fabric
 Service Fabric enables you to build applications that consist of microservices. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices.
 
 Why have stateful microservices along with stateless ones? The two main reasons are:

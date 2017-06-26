@@ -69,8 +69,7 @@ By clicking an item in the list view, you get all available details about it.
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
 - Date range
-- Initiated by
-- Category
+- Initiated by (Actor)
 - Category
 - Activity resource type
 - Activity
@@ -88,7 +87,7 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **initiated by** filter enables you to define an actor's name or its universal pricipal name (UPN).
+The **initiated by** filter enables you to define an actor's name or its universal principal name (UPN).
 
 The **category** filter enables you to select one of the following filter:
 
@@ -307,7 +306,7 @@ With application-based audit reports, you can get answers to questions such as:
 * Have the names of applications been changed?
 * Who gave consent to an application?
 
-If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Application** as preselected **Activity Resource Type**.
+If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** as preselected **Activity Resource Type**.
 
 ![Audit logs](./media/active-directory-reporting-activity-audit-logs/134.png "Audit logs")
 

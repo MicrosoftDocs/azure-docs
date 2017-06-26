@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started Azure MFA in the cloud | Microsoft Docs
 description: This is the Microsoft Azure Multi-Factor authentication page that describes how to get started with Azure MFA in the cloud.
 services: multi-factor-authentication
@@ -62,7 +62,7 @@ Use the following procedure to enable MFA for your users.
 After you have enabled your users, you should notify them via email. The next time they try to sign in, they'll be asked to enroll their account for two-step verification. Once they start using two-step verification, they'll also need to set up app passwords to avoid being locked out of non-browser apps.
 
 ## Use PowerShell to automate turning on two-step verification
-To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](/powershell/azureps-cmdlets-docs), you can use the following.  You can change `$st.State` to equal one of the following states:
+To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](/powershell/azure/overview), you can use the following.  You can change `$st.State` to equal one of the following states:
 
 * Enabled
 * Enforced

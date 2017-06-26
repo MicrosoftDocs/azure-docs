@@ -14,20 +14,23 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 
 ---
 # Azure SQL Database: Use PHP to connect and query data
 
-Use [PHP](http://php.net/manual/en/intro-whatis.php) to connect to and query an Azure SQL database. This guide details using PHP to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure Development Environment
+## Install PHP and database communications software
+
+The steps in this section assume that you are familar with developing using PHP and are new to working with Azure SQL Database. If you are new to developing with PHP, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **PHP** and then select your operating system.
+
 ### **Mac OS**
 Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
 
@@ -69,24 +72,26 @@ At this point you should have the dll's registered with PHP.
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
     
-## Select Data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+## Select data
+Use the following code to query for the top 20 products by category using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The sqlsrv_query function is used to retrieve a result set from a query against a SQL database. This function accepts a query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```PHP
 <?php
-$serverName = "yourserver.database.windows.net";
+$serverName = "your_server.database.windows.net";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -107,15 +112,15 @@ sqlsrv_free_stmt($getResults);
 
 
 ## Insert data
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+Use the following code to insert a new product into the SalesLT.Product table using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
 
 ```PHP
 <?php
-$serverName = "yourserver.database.windows.net";
+$serverName = "your_server.database.windows.net";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -133,15 +138,15 @@ else{
 ```
 
 ## Update data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update data in your Azure SQL database using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```PHP
 <?php
-$serverName = "yourserver.database.windows.net";
+$serverName = "your_server.database.windows.net";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -159,15 +164,15 @@ else{
 ```
 
 ## Delete data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function and the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
 ```PHP
 <?php
-$serverName = "yourserver.database.windows.net";
+$serverName = "your_server.database.windows.net";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -184,7 +189,13 @@ else{
 ```
 
 ## Next steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/).
-* [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+- More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/).
+- [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).

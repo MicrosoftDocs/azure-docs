@@ -1,4 +1,4 @@
----
+﻿---
 title: Creating a virtual machine image for the Azure Marketplace | Microsoft Docs
 description: Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase.
 services: Azure Marketplace
@@ -184,7 +184,7 @@ To learn more about VM images, review the following blog posts:
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-* [How to setup PowerShell](/powershell/azureps-cmdlets-docs)
+* [How to setup PowerShell](/powershell/azure/overview)
 * [How to setup Azure CLI](../cli-install-nodejs.md)
 
 ### 4.1 Create a user VM image

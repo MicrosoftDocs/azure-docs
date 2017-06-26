@@ -27,8 +27,8 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
-- [General purpose](../windows/sizes-general.md)
-- [Compute optimized](../windows/sizes-compute.md)
+- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
@@ -36,9 +36,9 @@ ms.author: cynthn
 
 ## Next steps
 
-- For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-- Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a virtual network | Azure Resource Manager template | Microsoft Docs
 description: Learn how to create a virtual network using an Azure Resource Manager template.
 services: virtual-network
@@ -108,7 +108,7 @@ You can download the existing template for creating a VNet and two subnets from 
 
 Complete the following steps to deploy the template you downloaded by using PowerShell:
 
-1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 2. Run the following command to create a new resource group:
 
 	```powershell

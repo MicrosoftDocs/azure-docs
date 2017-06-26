@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Conditional access in Azure Active Directory - preview
+# Conditional access in Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-conditional-access-azure-portal.md)
 > * [Azure classic portal](active-directory-conditional-access.md)
 
-
-The behavior outlined in this topic is currently in [preview](active-directory-preview-explainer.md).
-
-In a mobile first, cloud first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and 3rd party SaaS apps, IT professionals are faced with two opposing goals:
+In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and 3rd party SaaS apps, IT professionals are faced with two opposing goals:
 
 - Empower the end users to be productive wherever and whenever
 - Protect the corporate assets at any time
@@ -80,7 +77,7 @@ If you have more than one requirement selected in a conditional access policy, y
 ![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### Session controls
-Sessions controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
+Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
 
 ![Control](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 
@@ -167,7 +164,7 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 ### Does conditional access work with Exchange ActiveSync?
 
-No, you cannot use Exchange ActiveSync in a conditional access policy at this point.
+Yes, you can use Exchange ActiveSync in a conditional access policy.
 
 
 ### What happens if I require multi-factor authentication or a compliant device?

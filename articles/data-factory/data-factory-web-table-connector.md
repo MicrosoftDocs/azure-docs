@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 
 ---
@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to move
 
 Data factory currently supports only moving data from a Web table to other data stores, but not moving data from other data stores to a Web table destination.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This Web connector currently supports only extracting table content from an HTML page. To retrieve data from a HTTP/s endpoint, use [HTTP connector](data-factory-http-connector.md) instead.
 
 ## Getting started

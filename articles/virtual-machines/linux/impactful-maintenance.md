@@ -69,7 +69,7 @@ as North Europe can be under maintenance at the same time as East US.
 Read more about [Azure region
 pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### Single instance VMs vs. availability aet or VM scale set
+### Single instance VMs vs. availability set or VM scale set
 
 When deploying a workload using virtual machines in Azure, you can create the VMs within an availability set in order to provide
 high availability to your application. This configuration ensures that during

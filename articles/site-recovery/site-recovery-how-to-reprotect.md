@@ -22,6 +22,10 @@ ms.author: ruturajd
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
 
+> [!WARNING]
+> If you have [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved the virtual machine to another resource group, or deleted the Azure virtual machine, you cannot failback after that.
+
+
 After reprotect finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
 
 Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -34,15 +38,18 @@ For a quick overview, watch the following video about how to fail over from Azur
 Following are the prerequisite steps that you need to take or consider when you prepare for reprotect.
 
 * If the virtual machines that you want to fail back to are managed by a vCenter server, you need to make sure that you have the required permissions for discovery of virtual machines on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* If snapshots are present on the on-premises virtual machine, then reprotection will fail. You can delete the snapshots before you proceed to reprotect.
-* Before you fail back you’ll need to create two additional components:
+
+> [!WARNING] 
+> If snapshots are present on the on-premises mater target or the virtual machine then reprotection will fail. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine wll be automatically merged during reprotect job.
+
+* Before you fail back you willll need to create two additional components:
   * **Create a process server**. The process server receives data from the protected virtual machine in Azure and sends data to the on-premises site. A low-latency network is required between the process server and the protected virtual machine. Thus, you can have an on-premises process server if you are using an Azure ExpressRoute connection or an Azure process server if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
 		* [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
 		* A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
 * A configuration server is required on premises when you do a failback. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback won't be successful. Make sure that you take regularly scheduled backups of your server. If there is a disaster, you need to restore the server with the same IP address so that failback works.
 * Ensure that you set the disk.EnableUUID=true setting in configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
-* *You cannot use Storage vMaster for master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+* *You cannot use Storage vMotion on master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it. To prevent this, exclude the master target servers from your vMotion list.
 * You need add a new drive to the master target server. This drive is called a retention drive. Add a new disk and format the drive.
 * Master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -72,6 +79,11 @@ Remember that replication will happen only over the S2S VPN or the private peeri
 
 Read more about how to install an [Azure process server](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> We always recommend using an Azure based process server during failback. The replication performance is higher if the process server is closer to the replicating virtual machine (the failed over machine in Azure). However, during your proof of concepts or demonstrations, you can use the on-premises process server along with ExpressRoute with private peering to complete the POC faster.
+
+
+
 ### What are the ports to be open on different components so that reprotect can work?
 
 ![Failover-failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
@@ -90,9 +102,12 @@ Click the following links to read about how to install a master target server:
 
 * If the virtual machine is present on premises on the vCenter server, the master target server needs access to the on-premises virtual machine's VMDK. Access is needed to write the replicated data to the virtual machine's disks. Ensure that the on-premises virtual machine's datastore is mounted on the master target's host with read/write access.
 
-* If the virtual machine is not present on premises on the vCenter server, you need to create a new virtual machine during reprotect. This virtual machine will be created on the ESX host on which you create the master target. Choose the ESX host carefully, so that the failback virtual machine is created on the host that you want.
+* If the virtual machine is not present on premises on the vCenter server, Site recovery service needs to create a new virtual machine during reprotect. This virtual machine will be created on the ESX host on which you create the master target. Choose the ESX host carefully, so that the failback virtual machine is created on the host that you want.
 
 * *You cannot use Storage vMotion for the master target server*. This can cause the failback to fail. The virtual machine will not start because the disks will not be made available to it.
+
+> [!WARNING]
+> In case a master target undergoes a storage vMotion post reprotect, the protected virtual machines disks that are attached to the master target will migrate to the target of the vMotion. If you try to failback after this, detach of the disk fails citing that the disks are not found. After this, it becomes very hard to find the disks in your storage accounts. You will need to find them manually and attach them to the virtual machine. After that the on-premises virtual machine can be booted.
 
 * You need to add a new drive to your existing Windows master target server. This drive is called a retention drive. Add a new disk and format the drive. The retention drive is used to stop the points in time when the virtual machine replicates back to the on-premises site. Following are some criteria of a retention drive without which the drive will not be listed for the master target server.
 
@@ -109,6 +124,11 @@ Click the following links to read about how to install a master target server:
    * The default retention volume for Windows is R volume.
 
    * The default retention volume for Linux is /mnt/retention.
+   
+   > [!IMPORTANT]
+   > You need to add a new drive in case you are using an existing CS+PS machine or a scale or PS+MT machine. The new drive should meet the above requirements. If the retention drive is not present, none will be listed in the selection drop down on the portal. After you add a drive to the on-premises master target, it takes upto fifteen minutes for the drive to reflect in the selection on the portal. You can also refresh the configuration server if the drive does not appear after fifteen minutes.
+
+
 
 * A Linux failed-over virtual machine needs a Linux master target server. A Windows failed-over virtual machine requires a Windows master target server.
 
@@ -159,6 +179,8 @@ You can also reprotect at the level of a recovery plan. A replication group can 
 > [!NOTE]
 > A replication group should be protected back by using the same master target. If they are protected back by using a different master target server, the server cannot provide a common point in time.
 
+> [!NOTE]
+> The on-premises virtual machine will be turned off during reprotect. This is to ensure the data consistency during replication. Do not turn on the virtual machine after reprotect completes.
 
 After the reprotect succeed, the virtual machine will enter a protected state.
 

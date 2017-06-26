@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 # Using Java Command Line App To Access An API with Azure AD

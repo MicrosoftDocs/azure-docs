@@ -1,24 +1,7 @@
 ---
-title: (deprecated) Forecasting - Exponential Smoothing - Azure | Microsoft Docs
-description: '(deprecated) Web service: Forecasting-Exponential Smoothing'
-services: machine-learning
-documentationcenter: ''
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: yijichen
 
 ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+redirect_url: https://gallery.cortanaintelligence.com/
 
 ---
 # (deprecated) Forecasting - Exponential Smoothing

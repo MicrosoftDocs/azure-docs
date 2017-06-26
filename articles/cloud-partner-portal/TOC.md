@@ -24,7 +24,7 @@
 ### [Migrate to cloud partner portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ## [Azure Marketplace seller guide](./cloud-partner-portal-seller-guide.md)
 
-## [Marketing lead management](./cloud-partner-portal-marketing-lead-management.md)
+## [Get customer leads](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM online](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -32,5 +32,4 @@
 
 ## [Manage publisher profile](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Manage users](./cloud-partner-portal-manage-users.md)
-## [Give feedback](./cloud-partner-portal-give-feedback.md)
 ## [Get support](./cloud-partner-portal-support-for-cloud-partner-portal.md)
