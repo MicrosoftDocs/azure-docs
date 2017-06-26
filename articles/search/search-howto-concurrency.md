@@ -20,22 +20,23 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend coding practices to avoid overwriting changes to the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls that write to an index, indexer, datasource, suggester, or synonymMap. 
+In a multi-user development environment, we recommend that you adopt coding practices to avoid overwriting changes to the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls that write to an index, indexer, datasource, suggester, or synonymMap. 
 
 ## How it works
 
-Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent overwrites of the same resource by checking for a version number prior to update. 
+Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent overwrites of the same resource by checking the version number prior to update. 
 
-The REST API uses an ETag set on the request header. The .NET SDK sets the Etag through its **AccessCondition** object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) or using [an ETag (REST)]https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) can implement concurrency control.
++ The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) set on the request header.
++ The .NET SDK sets the Etag through its accessCondition object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) or using [an ETag (REST)]https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) can implement concurrency control.
 
-After the first update, the ETag is different for subsequent updates. Write operations failing due to an ETag version discrepancy return HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
+The object version information is changed each time the resource is updated. Two developers who get and modify a resource start with local objects having the same ETag, but the person who saves first will force a new object version. Any subsequent write operation failing due to an ETag version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
 
 ## Conceptual examples
 
-The following code snippets demonstrate the concept of **accessCondition** checks on update and delete index operations. If the check fails, the operation fails.
+The following code snippets demonstrate the concept of accessCondition checks on update and delete index operations. If the check fails, the operation fails.
 
 **Scenario 1: Fail an update if the index no longer exists**
 
@@ -76,9 +77,11 @@ This example deletes the index only if it matches the original version. If you a
         // Delete fails if the ETag of index3 is different from the ETag created with the object
         serviceClient.Indexes.Delete(index3.Name, accessCondition: AccessCondition.GenerateIfMatchCondition(index3.ETag)); 
 
-## HowTo Example (Short)
+## Design pattern
 
-A common case where checking access conditions is appropriate might include updates to a synonymMap.
+A design pattern for implementing optimistic concurrency should include testing for the access condition, communicating failures with an informative message, and optionally retrieving the updated object (risking an overwrite to your local object).
+
+This code snippet illustrates an update to a synonymMap, created in the [Synonym (preview) C# tutorial for Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). This snippet checks for the object version, throws an exception if the check fails, and then gets the latest object before re-attempting the update.
 
         private static void AddNewSynonymsSafely(SearchServiceClient serviceClient)
         {
@@ -95,7 +98,7 @@ A common case where checking access conditions is appropriate might include upda
             }
             catch (CloudException e) when (e.IsAccessConditionFailed())
             {
-                // Since the request failed with an AccessCondition failure GET the latest version of the SynonymMap, apply the change again and update
+                // If accessCondition fails, GET the latest version, re-apply the change, and update
                 synonymMap = serviceClient.SynonymMaps.Get("desc-synonymmap");
                 synonymMap.Synonyms = synonymMap.Synonyms + "\ninternet,wifi";
                 serviceClient.SynonymMaps.CreateOrUpdate(synonymMap, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
@@ -108,262 +111,6 @@ A common case where checking access conditions is appropriate might include upda
             synonymMap.Synonyms = synonymMap.Synonyms + "\nfive star=>luxury";
             serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
         }
-
-## HowTo Example (Verbose)
-
-First, the intial code:
-
-```
-using System;
-using System.Configuration;
-using System.Linq;
-using System.Threading;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
-using Microsoft.Rest.Azure;
-
-namespace AzureSearch.SDKHowToSynonyms
-{
-    class Program
-    {
-        // This sample shows how to delete, create, upload documents and query an index with a synonym map
-        static void Main(string[] args)
-        {
-            SearchServiceClient serviceClient = CreateSearchServiceClient();
-
-            Console.WriteLine("{0}", "Cleaning up resources...\n");
-            CleanupResources(serviceClient);
-
-            Console.WriteLine("{0}", "Creating index...\n");
-            CreateHotelsIndex(serviceClient);
-
-            ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-
-            Console.WriteLine("{0}", "Uploading documents...\n");
-            UploadDocuments(indexClient);
-
-            ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
-
-            RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
-
-            Console.WriteLine("{0}", "Adding synonyms...\n");
-            UploadSynonyms(serviceClient);
-            EnableSynonymsInHotelsIndex(serviceClient);
-            Thread.Sleep(10000); // Wait for the changes to propagate
-
-            RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
-
-            Console.WriteLine("{0}", "Adding more synonyms...\n");
-
-            AddNewSynonymsSafely(serviceClient);
-
-            RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
-
-            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-
-            Console.ReadKey();
-        }
-
-        private static SearchServiceClient CreateSearchServiceClient()
-        {
-            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-            string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"];
-
-            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-            return serviceClient;
-        }
-
-        private static SearchIndexClient CreateSearchIndexClient()
-        {
-            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-            string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
-
-            SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
-            return indexClient;
-        }
-
-        private static void CleanupResources(SearchServiceClient serviceClient)
-        {
-            if (serviceClient.Indexes.Exists("hotels"))
-            {
-                serviceClient.Indexes.Delete("hotels");
-            }
-
-            if (serviceClient.SynonymMaps.Exists("desc-synonymmap"))
-            {
-                serviceClient.SynonymMaps.Delete("desc-synonymmap");
-            }
-        }
-
-        private static void CreateHotelsIndex(SearchServiceClient serviceClient)
-        {
-            var definition = new Index()
-            {
-                Name = "hotels",
-                Fields = FieldBuilder.BuildForType<Hotel>()
-            };
-
-            serviceClient.Indexes.Create(definition);
-        }
-
-        private static void EnableSynonymsInHotelsIndex(SearchServiceClient serviceClient)
-        {
-            Index index = serviceClient.Indexes.Get("hotels");
-            index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-            index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
-
-            serviceClient.Indexes.CreateOrUpdate(index);
-        }
-
-        private static void UploadSynonyms(SearchServiceClient serviceClient)
-        {
-            var synonymMap = new SynonymMap()
-            {
-                Name = "desc-synonymmap",
-                Format = "solr",
-                Synonyms = "hotel, motel\neconomy,inexpensive=>budget"
-            };
-
-            serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-        }
-```
-
-Include `accessCondition` to block updates on an object already marked as changed.
-
-```
-        private static void AddNewSynonymsSafely(SearchServiceClient serviceClient)
-        {
-            var synonymMap = serviceClient.SynonymMaps.Get("desc-synonymmap");
-            var synonymMap2 = serviceClient.SynonymMaps.Get("desc-synonymmap");
-
-            synonymMap.Synonyms = synonymMap.Synonyms + "\nfive star=>luxury";
-            synonymMap2.Synonyms = synonymMap2.Synonyms + "\ninternet,wifi";
-
-            serviceClient.SynonymMaps.CreateOrUpdate(synonymMap, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
-
-            // This request will fail, because the synonymMap has changed since it was last gotten.
-            try
-            {
-                serviceClient.SynonymMaps.CreateOrUpdate(synonymMap2, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
-            }
-            catch (CloudException e) when (e.IsAccessConditionFailed())
-            {
-                // Since the request failed with an AccessCondition failure, GET the latest version of the SynonymMap, apply the change again and update
-                synonymMap2 = serviceClient.SynonymMaps.Get("desc-synonymmap");
-                synonymMap2.Synonyms = synonymMap2.Synonyms + "\ninternet,wifi";
-                serviceClient.SynonymMaps.CreateOrUpdate(synonymMap2, accessCondition: AccessCondition.GenerateIfMatchCondition(synonymMap.ETag));
-            }
-        }
-
-        private static void UploadDocuments(ISearchIndexClient indexClient)
-        {
-            var hotels = new Hotel[]
-            {
-               new Hotel()
-                { 
-                    HotelId = "1", 
-                    BaseRate = 199.0, 
-                    Description = "Best hotel in town",
-                    DescriptionFr = "Meilleur hôtel en ville",
-                    HotelName = "Fancy Stay",
-                    Category = "Luxury", 
-                    Tags = new[] { "pool", "view", "wifi", "concierge" },
-                    ParkingIncluded = false, 
-                    SmokingAllowed = false,
-                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                    Rating = 5, 
-                    Location = GeographyPoint.Create(47.678581, -122.131577)
-                },
-                new Hotel()
-                { 
-                    HotelId = "2", 
-                    BaseRate = 79.99,
-                    Description = "Cheapest hotel in town",
-                    DescriptionFr = "Hôtel le moins cher en ville",
-                    HotelName = "Roach Motel",
-                    Category = "Budget",
-                    Tags = new[] { "motel", "budget" },
-                    ParkingIncluded = true,
-                    SmokingAllowed = true,
-                    LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-                    Rating = 1,
-                    Location = GeographyPoint.Create(49.678581, -122.131577)
-                },
-                new Hotel() 
-                { 
-                    HotelId = "3", 
-                    BaseRate = 129.99,
-                    Description = "Close to town hall and the river"
-                }
-            };
-
-            var batch = IndexBatch.Upload(hotels);
-
-            try
-            {
-                indexClient.Documents.Index(batch);
-            }
-            catch (IndexBatchException e)
-            {
-                // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-                // the batch. Depending on your application, you can take compensating actions like delaying and
-                // retrying. For this simple demo, we just log the failed document keys and continue.
-                Console.WriteLine(
-                    "Failed to index some of the documents: {0}",
-                    String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-            }
-
-            Console.WriteLine("Waiting for documents to be indexed...\n");
-            Thread.Sleep(2000);
-        }
-
-        private static void RunQueriesWithNonExistentTermsInIndex(ISearchIndexClient indexClient)
-        {
-            SearchParameters parameters;
-            DocumentSearchResult<Hotel> results;
-
-            Console.WriteLine("Search with terms nonexistent in the index:\n");
-
-            parameters =
-                new SearchParameters()
-                {
-                    SearchFields = new[] { "category", "tags" },
-                    Select = new[] { "hotelName", "category", "tags" },
-                };
-
-            Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
-            results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
-            WriteDocuments(results);
-
-            Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
-            results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
-            WriteDocuments(results);
-
-            Console.WriteLine("Search the entire index for the term 'internet':\n");
-            results = indexClient.Documents.Search<Hotel>("internet", parameters);
-            WriteDocuments(results);
-        }
-
-        private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
-        {
-            if (searchResults.Results.Count != 0)
-            {
-                foreach (SearchResult<Hotel> result in searchResults.Results)
-                {
-                    Console.WriteLine(result.Document);
-                }
-            } 
-            else
-            {
-                Console.WriteLine("no document matched");
-            }
-
-            Console.WriteLine();
-        }
-    }
-}
-```
 
 ## Next steps
 
