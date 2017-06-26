@@ -87,12 +87,11 @@ myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/
 Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the name of your managed disk (`--attach-os-disk`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --os-type linux \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myManagedDisk
+az vm create --resource-group myResourceGroup --location westus --name myVM \
+   --os-type linux --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+   --attach-os-disk myManagedDisk
 ```
-
+<!-- this is specialized - do we need username and ssh? -->
 
 ## Requirements
 To complete the following steps, you need:
