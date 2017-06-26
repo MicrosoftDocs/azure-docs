@@ -18,15 +18,15 @@ ms.author: cfreeman
 ---
 # Overview of Application Insights for DevOps
 
-With [Application Insights](app-insights-overview.md) you can quickly find out how your app is performing and being used when it's live. If there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
+With [Application Insights](app-insights-overview.md), you can quickly find out how your app is performing and being used when it's live. If there's a problem, it lets you know about it, helps you assess the impact, and helps you determine the cause.
 
 Here's an account from a team that develops web applications:
 
 * *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
-In this article we'll follow a team in Fabrikam Bank that develops the online banking system (OBS) to see how they use Application Insights to quickly respond to customers and make updates.  
+In this article we follow a team in Fabrikam Bank that develops the online banking system (OBS) to see how they use Application Insights to quickly respond to customers and make updates.  
 
-The team works on a DevOps cycle like this:
+The team works on a DevOps cycle depicted in the following illustration:
 
 ![DevOps cycle](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
@@ -54,7 +54,7 @@ Failures show up as red dots on the web test chart:
 
 ![Display of web tests that have run over the preceding period](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-But more importantly, an alert about any failure will be emailed to the development team. In that way, they know about it before nearly all the customers.
+But more importantly, an alert about any failure is emailed to the development team. In that way, they know about it before nearly all the customers.
 
 ## Monitor Performance
 On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](app-insights-web-monitor-performance.md).
@@ -81,7 +81,7 @@ So she sets an [alert](app-insights-metrics-explorer.md), for response times gre
 Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
 ## Stay informed with Smart Detection Alerts
-Next day, an alert email does arrive from Application Insights. But when she opens it, she finds isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
+Next day, an alert email does arrive from Application Insights. But when she opens it, she finds it isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
 
 Failed requests are where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now." Or, at absolute embarrassing worst, a stack dump appears on the user's screen, courtesy of the web server.
 
@@ -167,7 +167,7 @@ What fraction of users are affected? To obtain a rough answer, divide the failur
 
 ![Charts of failed requests and sessions](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-In the case of slow response, compare the table of slowest-responding requests with the usage frequency of each page.
+When there are slow responses, compare the table of slowest-responding requests with the usage frequency of each page.
 
 How important is the blocked scenario? If this is a functional problem blocking a particular user story, does it matter much? If customers can't pay their bills, this is serious; if they can't change their screen color preferences, maybe it can wait. The detail of the event or exception, or the identity of the slow page, tells you where customers are having trouble.
 
@@ -189,7 +189,7 @@ Some slow dependency issues are geolocation problems. Fabrikam Bank uses Azure v
 Fabrikam had an intermittent problem with inter-account transfers, but only with certain account types. To understand better what was happening, they inserted TrackTrace() calls at key points in the code, attaching the account type as a property to each call. That made it easy to filter out just those traces in Diagnostic Search. They also attached parameter values as properties and measures to the trace calls.
 
 ## Respond to discovered issues
-Once you've diagnosed the issue, you can make a plan to fix it. Maybe you need to roll back a recent change, or maybe you can just go ahead and fix it. Once the fix is done, Application Insights will tell you whether you succeeded.  
+Once you've diagnosed the issue, you can make a plan to fix it. Maybe you need to roll back a recent change, or maybe you can just go ahead and fix it. Once the fix is done, Application Insights tells you whether you succeeded.  
 
 Fabrikam Bank's development team take a more structured approach to performance measurement than they used to before they used Application Insights.
 
@@ -227,6 +227,6 @@ You can get started in several ways, depending on the characteristics of your ap
 * [ASP.NET web application](app-insights-asp-net.md)
 * [Java web application](app-insights-java-get-started.md)
 * [Node.js web application](app-insights-nodejs.md)
-* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) or [Azure](app-insights-azure.md).
+* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-azure.md).
 * [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.
