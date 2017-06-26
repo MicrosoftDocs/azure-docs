@@ -42,7 +42,7 @@ Create a new C# generic WebHook named `MyTaskList`.
 1. Expand your existing functions list, and select the **+** sign to create a new function.
 2. Select **GenericWebHook-CSharp** and name it `MyTaskList`
 
-![Add new C# Generic WebHook Function App](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
+    ![Add new C# Generic WebHook Function App](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## Add an output binding
 
@@ -51,37 +51,37 @@ An Azure function can have one trigger and any number of input or output binding
 1. Select on the function's **Integrate** tab to view or modify the function's trigger and bindings.
 2. Select the **New Output** link located at the top right of the page.
 
-![Add new Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+    ![Add new Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-1. Enter the required information to create the binding. Use the table below to determine the values.
+3. Enter the required information to create the binding. Use the table below to determine the values.
 
-![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-  | Setting      | Suggested value  | Description                                |
-  | ------------ | ---------------- | ------------------------------------------ |
-  | Document parameter name | mytasklist | Name that refers to the Cosmos DB object in code |
-  | Database name | mytasklist | Name of database to save documents |
-  | Collection name | mytasklist | Name of collection of Cosmos DB databases |
-  | Would you like the Cosmos DB and collection created for you | Yes | Yes or No |
-  | Cosmos DB account connection | mytasklist | Connection string pointing to Cosmos DB database |
+    | Setting      | Suggested value  | Description                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | Document parameter name | mytasklist | Name that refers to the Cosmos DB object in code |
+    | Database name | mytasklist | Name of database to save documents |
+    | Collection name | mytasklist | Name of collection of Cosmos DB databases |
+    | Would you like the Cosmos DB and collection created for you | Yes | Yes or No |
+    | Cosmos DB account connection | mytasklist | Connection string pointing to Cosmos DB database |
 
 You must also configure the connection to the Cosmos DB database.
 
-1. Select the **New** link next to the **Cosmos DB document connection** label.
-2. Fill in the fields and select the appropriate options needed to create the Cosmos DB document.
+4. Select the **New** link next to the **Cosmos DB document connection** label.
+5. Fill in the fields and select the appropriate options needed to create the Cosmos DB document.
 
-![Configure Cosmos DB connection](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    ![Configure Cosmos DB connection](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-| Setting      | Suggested value  | Description                                |
-| ------------ | ---------------- | ------------------------------------------ |
-| Id | Name of database | Unique ID for the Cosmos DB database  |
-| NoSQL API | Cosmos DB | Cosmos DB or MongoDB  |
-| Subscription | Azure Subscription | Azure Subscription  |
-| Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
-| Location  | WestEurope | WestEurope  |
+    | Setting      | Suggested value  | Description                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | Id | Name of database | Unique ID for the Cosmos DB database  |
+    | NoSQL API | Cosmos DB | Cosmos DB or MongoDB  |
+    | Subscription | Azure Subscription | Azure Subscription  |
+    | Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
+    | Location  | WestEurope | WestEurope  |
 
-1. Select the **Ok** button. You may need to wait a few minutes while Azure creates the resources.
-2. Select the **Save** button.
+6. Select the **Ok** button. You may need to wait a few minutes while Azure creates the resources.
+7. Select the **Save** button.
 
 ## Update the function code
 
@@ -135,7 +135,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 2. Select the **Run** link.
 3. Verify that the function returned an `HTTP 200 OK` Response code.
 
-![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
 Confirm that an entry was made in the Cosmos DB database.
 
@@ -144,7 +144,7 @@ Confirm that an entry was made in the Cosmos DB database.
 3. Expand the nodes until you reach the document's entries.
 4. Confirm the database entry. There will be additional metadata in the database alongside your data.
 
-![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+    ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
 If the data is in the document then you have successfully created an Azure function that stores unstructured data in a Cosmos DB database.
 
@@ -154,11 +154,7 @@ If the data is in the document then you have successfully created an Azure funct
 
 For more information about Azure Functions, see the following topics:
 
-<<<<<<< HEAD
-> [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-> [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-=======
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
->>>>>>> 234f25f754d2b099d87bf1656818ed49591f5575
+
+
