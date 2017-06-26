@@ -62,40 +62,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-### Azure Managed Disks
-You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
-
-```azurecli
-az disk create --resource-group myResourceGroup --name myManagedDisk \
-  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
-```
-
-Obtain the details of the managed disk you created with [az disk list](/cli/azure/disk/list):
-
-```azurecli
-az disk list --resource-group myResourceGroup \
-  --query [].{Name:name,ID:id} --output table
-```
-
-The output is similar to the following example:
-
-```azurecli
-Name               ID
------------------  ----------------------------------------------------------------------------------------------------
-myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
-```
-
-Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the name of your managed disk (`--attach-os-disk`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
-
-```azurecli
-az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --os-type linux \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myManagedDisk
-```
-
-### Unmanaged disks
-To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+Specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -212,41 +179,6 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## Create VM from custom disk
-Again, you can create a VM using Azure Managed Disks or unmanaged disks. For both types, specify the URI to the managed or unmanaged disk when you create a VM. For unmanaged disks, ensure that the destination storage account matches where your custom disk is stored. You can create your VM using the Azure 2.0 or Resource Manager JSON template.
-
-### Azure CLI 2.0 - Azure Managed Disks
-To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create). The following example creates a managed disk named `myManagedDisk` from the VHD you uploaded to your named storage account and container:
-
-```azurecli
-az disk create --resource-group myResourceGroup --name myManagedDisk \
-  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
-```
-
-Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
-
-```azurecli
-az disk list --resource-group myResourceGroup \
-  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
-```
-
-The output is similar to the following example:
-
-```azurecli
-Name               URI
------------------  ----------------------------------------------------------------------------------------------------
-myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
-```
-
-Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the URI of your managed disk (`--image`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
-
-```azurecli
-az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --os-type linux \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myUMDiskFromVHD
-```
-
-### Azure 2.0 - unmanaged disks
 To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 You specify the `--image` parameter with [az vm create](/cli/azure/vm#create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
@@ -264,7 +196,7 @@ az vm create --resource-group myResourceGroup --location westus \
 You still need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as username and SSH keys.
 
 
-### Resource Manager template - unmanaged disks
+## Resource Manager template - unmanaged disks
 Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md).
 
 Within the `Microsoft.Compute/virtualMachines` provider of your template, you have a `storageProfile` node that contains the configuration details for your VM. The two main parameters to edit are the `image` and `vhd` URIs that point to your custom disk and your new VM's virtual disk. The following shows an example of the JSON for using a custom disk:
