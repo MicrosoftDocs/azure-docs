@@ -23,19 +23,18 @@ ms.author: aelnably;wesmc;mikono
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
+## Overview ##
 
-With the latest update to our backend, we introduced support for .NET Core v.1.0 and .NET Core v.1.1. We are not currently supporting .NET Core v.2.0 yet. By setting the configuration of your Linux web app, you can change the application stack.
+This document explains step-by-step instructions how to create a .NET Core app on Azure Web App on Linux.
 
 ## Prerequisites ##
 
 * **.NET Core SDK** is installed from [Download .NET Core](https://www.microsoft.com/net/download/core) to your local machine.
-
 * [Git](https://git-scm.com/downloads) is installed on your development machine
-* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Step 1 - Creating a .NET Core app ##
 
-First you need to create an empty web app. Log in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) and navigate through as shown in the following image:
+First you need to create an empty web app. Log in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) and navigate to create a new [Web App on Linux](https://portal.azure.com/#create/Microsoft.AppSvcLinux).
 
 ![Creating a web app][1]
 
