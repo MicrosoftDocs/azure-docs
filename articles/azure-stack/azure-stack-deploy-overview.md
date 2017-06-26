@@ -24,7 +24,7 @@ The [Azure Stack development kit](azure-stack-poc.md) is a testing and developme
 
 1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-microsoft-azure-stack-development-kit-host). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-microsoft-azure-stack-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
 
 3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by running the PrepareBootFromVHD.ps1 script. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
 
