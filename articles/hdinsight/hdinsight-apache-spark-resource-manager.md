@@ -118,6 +118,9 @@ Spark Thrift Server driver memory is configured to 25% of the head node RAM size
 Spark provides a mechanism to dynamically adjust the resources your application occupies based on the workload. This means that your application may give resources back to the cluster if they are no longer used and request them again later when there is demand. This feature is particularly useful if multiple applications share resources in your Spark cluster. See more at: [Spark: Job Scheduling](https://spark.apache.org/docs/latest/job-scheduling.html#dynamic-resource-allocation) This is available from Spark 2.0.
 
 1. From the Ambari UI click **Spark**, click **Configs**, expand **Custom spark2-defaults**, click on **Add Property ...**.
+    
+    ![spark2-defaults, add Property](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-add-property.PNG "Add property to Custom spark2-defaults")
+    
 2. Add following configuration pairs:
 
         spark.dynamicAllocation.enabled=true
@@ -125,6 +128,8 @@ Spark provides a mechanism to dynamically adjust the resources your application 
     
     
 3. Verify that the [external YARN shuffle service](https://spark.apache.org/docs/latest/running-on-yarn.html#configuring-the-external-shuffle-service) is configured. By default this is enabled, because the Spark SQL Thrift service is configured using Dynamic Allocation. From the Ambari UI click **YARN**, click **Configs**, click **Advanced**, expand **Node Manager**. Verify that `yarn.nodemanager.aux-services` at least contains `spark_shuffle,spark2_shuffle`. 
+
+    ![YARN aux services](./media/hdinsight-apache-spark-resource-manager/dynamic-allocation-yarn-spark-shuffle.PNG "Verify YARN aux services.")
 
 
 ## I do not use BI with Spark cluster. How do I take the resources back?
