@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Network FAQ | Microsoft Docs
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 services: virtual-network
@@ -146,7 +146,7 @@ No. You cannot specify a custom DNS suffix for your VNets.
 Yes. All network interfaces (NIC) attached to a VM deployed through the Resource Manager deployment model must be connected to a VNet. VMs deployed through the classic deployment model can optionally be connected to a VNet.
 
 ### What are the different types of IP addresses I can assign to VMs?
-* **Private:** Assigned to each NIC within each VM. The address is assigned using either the static or dynamic allocation method. Private IP addresses are assigned from the range that you specified in the subnet settings of your VNet. Resources deployed through the classic deployment model receive private IP addresses, even if they're not connected to a VNet. A dynamic private IP address remains assigned to a resource until the resource is deallocated (VMs) or deleted (VMs or Cloud Service deployment slots). A static private IP address remains assigned to a resource until the resource is deleted.
+* **Private:** Assigned to each NIC within each VM. The address is assigned using either the static or dynamic method. Private IP addresses are assigned from the range that you specified in the subnet settings of your VNet. Resources deployed through the classic deployment model are assigned private IP addresses, even if they're not connected to a VNet. A private IP address assigned with the dynamic method remains assigned to a resource until the resource is deleted (VMs or Cloud Service deployment slots). A private IP address assigned with the dynamic method may change when a VM is restarted after having been in the stopped (deallocated) state. A private IP address assigned with the static method remains assigned to a resource until the resource is deleted. If you need to ensure that the private IP address for a resource never changes until the resource is deleted, assign a private IP address with the static method.
 * **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](virtual-networks-reserved-public-ip.md), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](virtual-networks-instance-level-public-ip.md) addresses and can be assigned dynamically.
 
 ### Can I reserve a private IP address for a VM that I will create at a later time?
@@ -213,5 +213,5 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.  

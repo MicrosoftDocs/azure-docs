@@ -1,11 +1,12 @@
 ---
-title: How to update your own password using Azure Active Directory| Microsoft Docs
-description: Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it.
+title: 'Azure AD: Reset Your Password | Microsoft Docs'
+description: Use self-service password reset to regain access to your Work or School user account
 services: active-directory
+keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
+editor: gahug
 
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -13,229 +14,102 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.custom: end-user
 
 ---
-# How to update your own password
-If you are unsure how to manage your work or school account password, you've come to the right place! Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
+# Help, I forgot my Azure AD password
 
-* [**Don’t lose access to your account!**](#dont-lose-access-to-your-account)
-* [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
-* [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
-* [**How to reset your password**](#how-to-reset-your-password)
-* [**How to unlock your account**](#how-to-unlock-your-account)
-* [**Common problems and their solutions**](#common-problems-and-their-solutions)
+If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
-## Don’t lose access to your account!
-> [!IMPORTANT]
-> **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we only use this information to keep your account more secure. The steps presented here should help you to reach your goal.
->
->
-
-The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
-
-1. Navigate to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
-2. Enter your username and password.
-3. Choose an option to register for by clicking **set it up now**. In this case, I demonstrate registering my **authentication phone**. Your administrator may require you to register for more than one option. 
-
-   ![][101]
-4. Select your country code from the dropdown and enter your **full phone number including area code** and choose **text me** or **call me** either option provides you a code. In this example I chose text me.
-
-   ![][102]
-5. Once the code arrives, enter it into the input box, and then click "verify." 
-
-   ![][103]
-6. When you see **finish**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-
-   ![][104]
-
-   > [!IMPORTANT]
-   > If your admin lets you register for more than one option, we highly recommend you also register a back-up option in case you lose your phone or access to your email.
-   >
+   > [!NOTE]
+   > If you are trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
    >
 
-## How to change your password from O365
-Follow the steps below to change your work or school account password in Office 365. If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
+## Reset or unlock my password for a work or school account
 
-1. Sign in to Office 365 with your work or school account.
-2. Go to **Settings** > **Office 365 settings** > **Password** > **Change password**.
-3. Type your old password, and then type a new password and confirm it.
-4. Click **Save**.
+If you unable to access your account because of one of the following:
 
-You can read more about this on the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
+* Your password is not working and you would like to reset it.
+* You know your password but your account is locked out and you would like to unlock your account.
 
-## How to change your password from the access panel
-Follow the steps below to change your work or school account password from the [Access Panel](https://myapps.microsoft.com). If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
+Follow the steps that follow to access Azure AD self-service password reset, SSPR as we like to call it, and get back into your account.
 
-1. Sign into https://myapps.microsoft.com with your work or school account.
-2. Click the **profile** tab.
-3. Click the **change my password** tile on the right-hand side of the screen.
-4. Type your old password, and then type a new password and confirm it.
-5. Click **Submit**.
+1. From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).
 
-   Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
+    ![Can't access your account?][Login]
 
-## How to reset your password
-Follow the steps below to reset your work or school account password from any work or school account sign in screen.
+2. Enter your work or school **User ID**, prove you aren't a robot by entering the characters you see on the screen, then click **Next**.
 
-> [!IMPORTANT]
-> This feature is only available to you if your admin has turned it on. If it's not turned on, you will see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
->
-> If your admin has enabled you for this feature, you are required to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
->
->
+   > [!NOTE]
+   > If your IT staff has not enabled this functionality, a "contact your administrator" link appears so your IT staff can help, via email or a web portal of their own.
+   > 
+   > If you need to unlock your account, at this point choose the option "I know my password, but still can't sign in".
+   > 
 
-1. On any work or school account sign-in page, click the "can't access your account?" link, or navigate to https://passwordreset.microsoftonline.com directly.
+3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
-   ![][110]
-2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
+   * **Email my alternate email**
+   * **Text my mobile phone**
+   * **Call my mobile phone**
+   * **Call my office phone**
+   * **Answer my security questions**
 
-   ![][111]
-3. Click the "next" button.
-4. Choose an option to reset your password. Depending on how your admin has configured the system, you might see one or more of the following choices:
+   Choose an option, provide the correct responses, and click **Next**.
 
-   * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
-   * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
-   * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-   * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-   * **Answer my security questions** - displays your pre-registered security questions for you to answer.
+   ![Verify your authentication data][Verification]
 
-   ![][109]
-5. We'll use the "text my mobile phone" option as an example. If you are using a phone-based option, you need to verify your phone number before we send a text. Enter your full phone number and then click **Text** to verify it's correct and send a text.
+4. Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.
+5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
+6. When you see, **Your password has been reset**, you can sign in with your new password.
 
-6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from. It might take several minutes to get the text.
+    ![Your password has been reset][Complete]
 
-7. Now, enter the code you just received on your phone into the input box on the page and choose **Next**.
+You should now be able to access your account, if not you should contact your organization's IT staff for further help.
 
-8. Your administrator may require an additional verification step, in which case repeat step 4 with a different option selected.
-9. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
+You may receive a confirmation email that comes from an account like "Microsoft on behalf of \<your organization>". If you get an email like this, and you did not use self-service password reset to regain access to your account, contact your organization's IT staff.
 
-   ![][107]
+## Change my password
 
-10. Once your password is accepted, you can sign in with the new password.
+If you know your password already and want to change it, use the steps that follow to change your password.
 
-    ![][108]
+### Change your password from the Office 365 portal
 
-Run into a problem resetting your password? Read about [common problems and their solutions](#common-problems-and-their-solutions).
+Use this method if you normally access your applications using the Office portal
 
-## How to unlock your account
-Follow the steps below to unlock your local account from any work or school account sign in screen. 
+1. Sign into your [Office 365 account](https://www.office.com) using your existing password
+2. Click on your profile on the upper right side, and click **View account**
+3. Click **Security & privacy** > **Password**
+4. Enter your old password, set and confirm your new password, and then click **Submit**
 
-> [!NOTE]
-> You are only able to unlock your account if it has been locked on-premises.
+### Change your password from the Azure Access Panel
 
-> [!IMPORTANT]
-> This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature. You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
->
-> If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
->
->
+Use this method if you normally access your applications from the Azure Access Portal
 
-1. On any work or school account sign in page, click the "can't access your account?" link, or navigate to https://passwordreset.microsoftonline.com directly.
-
-   ![][110]
-2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
-
-   ![][111]
-3. Click the "next" button.
-4. Choose an option to unlock your account. Depending on how your administrator has configured the system, you might see one or more of the following choices:
-
-   * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
-   * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
-   * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
-   * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
-   * **Answer my security questions** - displays your pre-registered security questions for you to answer.
-
-   ![][112]
-5. We'll use the "Answer my security questions" option as an example. Fill in the answers to your security questions and select **Next** to verify your identity.
-
-6. Your administrator may require an additional verification step, in which case you must repeat step 4 with a different option selected.
-7. Once you see the success page, you are good to go! Your on-premises account has been unlocked and you can now sign in once more.
-
-   ![][113]
-
-   > [!IMPORTANT]
-   > Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
-   >
-   >
-
-Run into a problem unlocking your account? Read about [common problems and their solutions](#common-problems-and-their-solutions).
+1. Sign in to the [Azure Access Portal](https://myapps.microsoft.com/) using your existing password
+2. Click on your profile on the upper right side, then click **Profile**
+3. Click **Change password**
+4. Enter your old password, set and confirm your new password, and then click **Submit**
 
 ## Common problems and their solutions
-Here are some common error cases and their solutions:
 
-<table>
-          <tbody><tr>
-            <td>
-              <p>
-                <strong>Error Case</strong>
-              </p>
-            </td>
-            <td>
-              <p>
-                <strong>What error do you see?</strong>
-              </p>
-            </td>
-            <td>
-              <p>
-                <strong>Solution</strong>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I get a "please contact your admin" page after entering my user ID</p>
-            </td>
-            <td>
-              <p>Please contact your admin <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>You will need to contact your admin or helpdesk for any further assistance. </p>
-            </td>
-            <td>
-              <p>You are seeing this message because your administrator manages your password in your on-premises environment and does not allow you to reset your password from the <b>Can't access your account link</b>. <br><br> To reset your password, please contact your administrator directly for help, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I get a "your account is not enabled for password reset" error after entering my user ID</p>
-            </td>
-            <td>
-              <p>Your account is not enabled for password reset<br><br>We're sorry, but your administrator has not set up your account for use with this service.<br><br> If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
-            </td>
-            <td>
-              <p>You are seeing this message because your administrator has not enabled password reset for your organization from the <b>Can't access your account</b> link, or hasn't licensed you to use the feature. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I get a "we could not verify your account" error after entering my user ID</p>
-            </td>
-            <td>
-              <p>We could not verify your account<br><br>If you'd like, we can contact an administrator in your organization to reset your password for you. </p>
-            </td>
-            <td>
-              <p>You are seeing this message because you are enabled for password reset, but you have not registered to use the service.  To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin.</p>
-            </td>
-          </tr>
-        </tbody></table>
+ Here are some common error cases and their solutions:
+
+| Error Case| What error do you see?| Solution |
+| --- | --- | --- |
+| I get a "please contact your administrator" page after entering my user ID | Please contact your administrator <br> <br> We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br> <br> You need to contact your IT staff for any further assistance. | You are seeing this message because your IT staff manages your password in your on-premises environment and does not allow you to reset your password from the Can't access your account link. <br> <br> To reset your password,  contact your IT staff directly for help, and let them know you want to reset your password so they can enable this feature for you.|
+| I get a "your account is not enabled for password reset" error after entering my user ID | Your account is not enabled for password reset <br> <br> We're sorry, but your IT staff has not set up your account for use with this service. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You are seeing this message because your IT staff has not enabled password reset for your organization from the Can't access your account link, or hasn't licensed you to use the feature. <br> <br> To reset your password, click the contact an administrator link to send an email to your company's IT staff, and let them know you want to reset your password so they can enable this feature for you. |
+| I get a "we could not verify your account" error after entering my user ID | We could not verify your account <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You are seeing this message because you are enabled for password reset, but you have not registered to use the service. To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br> <br> To reset your password, click the contact an administrator link to send an email to your company's IT staff. |
 
 ## Next steps
-If you have further questions about Self Service Password Rest (SSPR), please contact your Administrator or follow the links below.
 
-* [Need to register your SSPR information?](http://aka.ms/ssprsetup)
-* [Can't access your account?](https://passwordreset.microsoftonline.com)
-* [Office 365 password reset info](https://support.office.com/en-us/article/Reset-user-passwords-in-Office-365-3254c031-04c9-44f1-8fda-2563847a6b31?ui=en-US&rs=en-US&ad=US)
-* [Access Panel](https://myapps.microsoft.com)
+* [How to register to use self-service password reset](active-directory-passwords-reset-register.md)
+* [Password reset registration page](http://aka.ms/ssprsetup)
+* [Password reset portal](https://passwordreset.microsoftonline.com/)
+* [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
-[101]: ./media/active-directory-passwords-update-your-own-password/password-1-dont-lose-access.png "password-1-dont-lose-access.png"
-[102]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-response.png "password-2-verification-response.png"
-[103]: ./media/active-directory-passwords-update-your-own-password/password-2-verification-text.png "password-2-verification-text.png"
-[104]: ./media/active-directory-passwords-update-your-own-password/password-3-registration-complete.png "password-3-registration-complete.png"
-[105]: ./media/active-directory-passwords-update-your-own-password/password-4-reset-cant-access.png "password-4-reset-cant-access.png"
-[106]: ./media/active-directory-passwords-update-your-own-password/password-4-reset-captcha.png "password-4-reset-captcha.png"
-[107]: ./media/active-directory-passwords-update-your-own-password/password-4-reset-change.png "password-4-reset-change.png"
-[108]: ./media/active-directory-passwords-update-your-own-password/password-4-reset-finished.png "password-4-reset-finished.png"
-[109]: ./media/active-directory-passwords-update-your-own-password/password-4-reset-verification.png "password-4-reset-verification.png"
-[110]: ./media/active-directory-passwords-update-your-own-password/password-5-unlock-cant-access.png "password-5-unlock-cant-access.png"
-[111]: ./media/active-directory-passwords-update-your-own-password/password-5-unlock-captcha.png "password-5-unlock-captcha.png"
-[112]: ./media/active-directory-passwords-update-your-own-password/password-5-unlock-verification.png "password-5-unlock-verification.png"
-[113]: ./media/active-directory-passwords-update-your-own-password/password-5-unlock-finished.png "password-5-unlock-finished.png"
+[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Login page Can't access your account?"
+[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verify your authentication data"
+[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Change your password"
+[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Password has been reset"

@@ -1,9 +1,9 @@
 ---
-title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
-description: This topic describes the built in roles for role-based access control (RBAC).
+title: Actions and NotActions - Azure role-based access control (RBAC) | Microsoft Docs
+description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness. 
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,38 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
-ms.author: kgremban
+ms.date: 06/21/2017
+ms.author: curtand
+ms.reviewer: 
 
 ms.custom: H1Hack27Feb2017
 ---
-# Built-in roles for Azure Role-Based Access Control
+# Built-in roles for Azure role-based access control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
 ## Roles in Azure
 The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
+The action defines what type of operations you can perform on a given resource type. For example:
+- **Write** enables you to perform PUT, POST, PATCH, and DELETE operations.
+- **Read** enables you to perform GET operations. 
+
+This article only addresses the different roles that exist today. When you assign a role to a user, though, you can limit the allowed actions further by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group. 
+
 > [!NOTE]
-> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
->
->
+> The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet to list all current roles. You can dive in to a specific role using `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) to list operations of specific Azure resource providers. 
+
 
 | Role name | Description |
 | --- | --- |
-| [API Management Service Contributor](#api-management-service-contributor) |Can manage API Management services |
+| [API Management Service Contributor](#api-management-service-contributor) |Can manage API Management service and the APIs |
+| [API Management Service Operator Role](#api-management-service-operator-role) | Can manage API Management service, but not the APIs themselves |
+| [API Management Service Reader Role](#api-management-service-reader-role) | Read-only access to API Management service and APIs |
 | [Application Insights Component Contributor](#application-insights-component-contributor) |Can manage Application Insights components |
 | [Automation Operator](#automation-operator) |Able to start, stop, suspend, and resume jobs |
 | [Backup Contributor](#backup-contributor) | Can manage backup in Recovery Services vault |
 | [Backup Operator](#backup-operator) | Can manage backup except removing backup, in Recovery Services vault |
 | [Backup Reader](#backup-reader) | Can view all backup management services  |
+| [Billing Reader](#billing-reader) | Can view all billing information  |
 | [BizTalk Contributor](#biztalk-contributor) |Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) |Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
-| [DocumentDB Account Contributor](#documentdb-account-contributor) |Can manage DocumentDB accounts |
+| [Azure Cosmos DB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
+| Logic App Contributor | Can manage all aspects of a Logic App, but not create a new one. |
+| Logic App Operator |Can start and stop workflows defined within a Logic App. |
+| [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
+| [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
 | [Network Contributor](#network-contributor) |Can manage all network resources |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) |Can manage New Relic Application Performance Management accounts and applications |
 | [Owner](#owner) |Can manage everything, including access |
@@ -58,6 +71,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [SQL Server Contributor](#sql-server-contributor) |Can manage SQL servers and databases, but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) |Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) |Can manage storage accounts |
+| [Support Request Contributor](#support-request-contributor) | Can create and manage support requests |
 | [User Access Administrator](#user-access-administrator) |Can manage user access to Azure resources |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) |Can manage classic virtual machines, but not the virtual network or storage account to which they are connected |
 | [Virtual Machine Contributor](#virtual-machine-contributor) |Can manage virtual machines, but not the virtual network or storage account to which they are connected |
@@ -73,7 +87,41 @@ Can manage API Management services
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |Create and manage API Management Services |
+| Microsoft.ApiManagement/Service/* |Create and manage API Management service |
+| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read roles and role assignments |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### API Management Service Operator Role
+Can manage API Management services
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/backup/action | Back up API Management Service to the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/delete | Delete an API Management Service instance |
+| Microsoft.ApiManagement/Service/managedeployments/action | Change SKU/units; add or remove regional deployments of API Management Service |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
+| Microsoft.ApiManagement/Service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
+| Microsoft.ApiManagement/Service/updatehostname/action | Set up, update, or remove custom domain names for an API Management Service |
+| Microsoft.ApiManagement/Service/write | Create a new instance of API Management Service |
+| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Insights/alertRules/* |Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
+| Microsoft.Resources/deployments/* |Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Read roles and role assignments |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### API Management Service Reader Role
+Can manage API Management services
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Read API Management Service instances |
+| Microsoft.ApiManagement/Service/read | Read metadata for an API Management Service instance |
 | Microsoft.Authorization/*/read |Read authorization |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
@@ -211,6 +259,15 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
+## Billing Reader
+Can view all Billing information
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
+| Microsoft.Billing/*/read |Read Billing information |
+| Microsoft.Support/* |Create and manage support tickets |
+
 ### BizTalk Contributor
 Can manage BizTalk services
 
@@ -308,8 +365,8 @@ Can manage DNS zones and records.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/\* |Create and manage Support tickets |
 
-### DocumentDB Account Contributor
-Can manage DocumentDB accounts
+### Azure Cosmos DB Account Contributor
+Can manage Azure Cosmos DB accounts
 
 | **Actions** |  |
 | --- | --- |
@@ -333,6 +390,36 @@ Can manage Intelligent Systems accounts
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Monitoring Reader
+Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */read |Read resources of all types, except secrets. |
+| Microsoft.OperationalInsights/workspaces/search/action |Search Log Analytics data |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### Monitoring Contributor
+Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */read |Read resources of all types, except secrets. |
+| Microsoft.Insights/AlertRules/* |Read/write/delete alert rules. |
+| Microsoft.Insights/components/* |Read/write/delete Application Insights components. |
+| Microsoft.Insights/DiagnosticSettings/* |Read/write/delete diagnostic settings. |
+| Microsoft.Insights/eventtypes/* |List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log. |
+| Microsoft.Insights/LogDefinitions/* |This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
+| Microsoft.Insights/MetricDefinitions/* |Read metric definitions (list of available metric types for a resource). |
+| Microsoft.Insights/Metrics/* |Read metrics for a resource. |
+| Microsoft.Insights/Register/Action |Register the Microsoft.Insights provider. |
+| Microsoft.Insights/webtests/* |Read/write/delete Application Insights web tests. |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Read/write/delete Log Analytics solution packs. |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Read/write/delete Log Analytics saved searches. |
+| Microsoft.OperationalInsights/workspaces/search/action |Search Log Analytics workspaces. |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |List keys for a Log Analytics workspace. |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Read/write/delete Log Analytics storage insight configurations. |
 
 ### Network Contributor
 Can manage all network resources
@@ -532,6 +619,15 @@ Can manage storage accounts, but not access to them.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Storage/storageAccounts/* |Create and manage storage accounts |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Support Request Contributor
+Can create and manage support tickets at the subscription scope 
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read | Read authorization |
+| Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 
 ### User Access Administrator
 Can manage user access to Azure resources

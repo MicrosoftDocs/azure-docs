@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: pblachar, librown
 
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
@@ -13,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: kgremban
-
+ms.reviewer: librown
+ms.custom: end-user
 ---
 # Microsoft Authenticator app FAQ
 
@@ -27,13 +27,25 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 ### What are the codes in the app for? Why does the number keep counting down?
 
-When you open the Microsoft Authenticator app, you'll see the accounts you've added and a six- or eight-digit number by each of them. You might see a thirty-second timer counting down.
+When you open the Microsoft Authenticator app, you see the accounts you've added and a six- or eight-digit number by each of them. You might see a 30-second timer counting down.
 
 These codes are used when you sign in to your account. After you enter your username and password, you might be asked to enter a verification code. Open the Microsoft Authenticator app and copy the code that's currently showing. Enter that code in the sign-in page to finish.
 
-The reason that the codes change every 30 seconds is so that you never use the same code twice. It's not like a password that you're supposed to remember. The idea is that only someone with access to your phone will know your verification code.
+The reason that the codes change every 30 seconds is so that you never use the same code twice. It's not like a password that you're supposed to remember. The idea is that only someone with access to your phone knows your verification code.
 
-The codes don't require internet or data, so you don't have to worry about having phone service to sign in, or that the app will use up your data plan. When you close the app, it doesn't keep running in the background so it won't drain your battery. You can close the app and ignore it until the next time that you sign in.  
+The codes don't require internet or data, so you don't have to worry about having phone service to sign in. When you close the app, it doesn't keep running in the background and it doesn't drain your battery. You can close the app and ignore it until the next time that you sign in.  
+
+### I only get notifications when I have the app open. If the app isn't open, I don't get any notifications.
+
+If you get notifications, but they don't make noise or vibrate despite your ringer being on, first check the app settings. Enable the app to use sound or vibrate with its notifications.
+
+If you don't get notifications at all, check the following cases:
+
+- Is your phone in Do Not Disturb or Quiet mode? That mode can keep apps from sending notifications.
+- Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to talk to your service provider for help with the second option.
+- Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications. 
+
+If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far. 
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -69,7 +81,7 @@ Here is a full list of permissions we may ask for, and how they are used in the 
 * **Draw over other apps**: When you receive a notification to verify your identity, we display that notification over any other app that might be running.
 * **Receive data from the internet**: This permission is required for sending notifications.
 * **Prevent phone from sleeping**: If you register your device with your organization, they can change this policy on your phone.
-* **Control vibration**: You have the option to choose whether you would like a vibration whenever you receive a notification to verify your identity.
+* **Control vibration**: You can choose whether you would like a vibration whenever you receive a notification to verify your identity.
 * **Use fingerprint hardware**: Some work and school accounts require an additional PIN whenever you verify your identity. TO make the process easier, we allow you to use your fingerprint instead of entering the PIN.
 * **View network connections**: When you add a Microsoft account, the app requires network/internet connection.
 * **Read the contents of your storage**: This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.
@@ -78,7 +90,11 @@ Here is a full list of permissions we may ask for, and how they are used in the 
 
 ### Why does the Microsoft Authenticator App allow you to approve a request without unlocking the device?
 
-This is by design. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is the password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.)  Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
+You don't have to unlock your device to approve verification requests because all you need to prove is that you have your phone with you. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is your password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.) Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
+
+### What does the lock icon in the account list mean?
+
+The padlock icon indicates that the device is registered in Azure AD and registered to the account. Device registration for iOS takes place during Microsoft Intune enrollment.
 
 ## Next steps
 

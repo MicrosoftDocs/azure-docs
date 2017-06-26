@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 
@@ -42,7 +42,7 @@ recovery into a single-click recovery action.
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Click the customize button to begin adding a runbook. 
+1. Click the customize button to begin adding a runbook.
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -50,10 +50,10 @@ recovery into a single-click recovery action.
 1. Right-click on the start group 1 and select to add a 'Add post action'.
 2. Select to choose a script in the new blade.
 3. Name the script 'Hello World'.
-4. Choose an Automation Account name. 
+4. Choose an Automation Account name.
 	>[!NOTE]
 	> Automation account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
-	
+
 5. Select a runbook from the Automation Account. This runbook is the script that will run during the execution of the recovery plan after the recovery of first group.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
@@ -80,13 +80,13 @@ Following is an example of how the context variable looks.
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
                 { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-				
+
 				"ResourceGroupName":"ContosoRG",
-				
+
 				"CloudServiceName":"pod02hrweb-Chicago-test",
 
                 "RoleName":"Fabrikam-Hrweb-frontend-test",
-				
+
 				"RecoveryPointId":"TimeStamp"}
 
                 }
@@ -174,14 +174,14 @@ In the script, acquire the variables' values by using the following reference co
 	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
 	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-	$NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+	$NSGnameVar = Get-AutomationVariable -Name $NSGValue
 	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 ```
 
 Next you can use the variables in the runbook and apply the NSG to the Network Interface of the failed over virtual machine.
 
 ```
-	 InlineScript { 
+	 InlineScript {
 	 	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
 			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
 			Write-output $NSG.Id
@@ -222,17 +222,17 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 3. Use this variable in your runbook and apply the NSG on the virtual machine if any of the given VMGUID is found in the recovery plan context.
 
 	```
-		$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+		$VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
 	```
 
 4. In your runbook, loop through the VMs of the recovery plan context and check if the VM also exists in **$VMDetailsObj**. If it exists, apply the NSG by accessing the properties of the variable.
 	```
 		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 		$vmMap = $RecoveryPlanContext.VmMap
-		   
+
 		foreach($VMID in $VMinfo) {
 			Write-output $VMDetailsObj.value.$VMID
-			
+
 			if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
 				$VM = $vmMap.$VMID
 				# Access the properties of the variable
@@ -247,25 +247,15 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 You can use the same script with different recovery plans and provide different parameters by storing the value corresponding to different recovery plans in different variable.
 
 ## Sample scripts
-For a repository of scripts that you can directly import into your automation account, see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+Deploy sample scripts into your Automation account using the Deploy to Azure button below.
 
-The script here is an Azure Resource Manager template that will deploy all the following scripts
+[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
+Also view a quick video about recovering a two tier WordPress application to Azure.
 
-The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that allows default communication
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-The Public IP runbook assigns Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
-
-* CustomScript
-
-The CustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
-
-* NSGwithCustomScript
-
-The NSGwithCustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
 
 ## Additional Resources
 [Azure Automation Service Run as Account](../automation/automation-sec-configure-azure-runas-account.md)

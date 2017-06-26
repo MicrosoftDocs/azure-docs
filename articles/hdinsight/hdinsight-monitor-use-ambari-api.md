@@ -1,5 +1,5 @@
 ---
-title: Monitor Hadoop clusters in HDInsight using the Ambari API | Microsoft Docs
+title: Monitor Hadoop clusters in HDInsight using the Ambari API - Azure | Microsoft Docs
 description: Use the Apache Ambari APIs for creating, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/07/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Monitor Hadoop clusters in HDInsight using the Ambari API
@@ -58,14 +59,14 @@ There are several ways to use Ambari to monitor HDInsight clusters.
 
 **Use Azure PowerShell**
 
-The following Azure PowerShell script gets the MapReduce job tracker information *in an HDInsight 3.1 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
+The following Azure PowerShell script gets the MapReduce job tracker information *in an HDInsight 3.5 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
     $clusterPassword = "<HDInsightClusterPassword>"
 
-    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName/services/YARN/components/RESOURCEMANAGER"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
     $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
@@ -162,8 +163,8 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-documentation]: /documentation/services/hdinsight/
+[hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png

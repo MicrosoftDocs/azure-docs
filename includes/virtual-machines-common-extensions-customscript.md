@@ -6,7 +6,7 @@ Ever since its launch, the Custom Script extension has been used widely to confi
 Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in JSON language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
 
 * [Resource Group Overview](../articles/azure-resource-manager/resource-group-overview.md)
-* [Deploying Templates with Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Deploying Templates with Azure PowerShell](../articles/virtual-machines/windows/ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Prerequisites
 1. Download the Azure command-line tools for your operating system from [here](https://azure.microsoft.com/downloads/).

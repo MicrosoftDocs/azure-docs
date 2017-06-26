@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: ''
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: cd7660f4-7b8b-4091-8d71-bb8723165b0b
 ms.service: iot-hub
 ms.devlang: 
@@ -19,7 +22,7 @@ ms.author: xshi
 
 ---
 # Lesson 5: Create your first Azure IoT Gateway module
-While the Gateway SDK allows you to build modules written in Java, .NET, or Node.js, this tutorial walks you through the steps for building a module in C.
+While Azure IoT Edge allows you to build modules written in Java, .NET, or Node.js, this tutorial walks you through the steps for building a module in C.
 
 ## What you will do
 
@@ -35,7 +38,7 @@ While the Gateway SDK allows you to build modules written in Java, .NET, or Node
 
 ## What you need
 
-The Azure IoT Gateway SDK that has been installed on your host computer.
+Azure IoT Edge that has been installed on your host computer.
 
 ## Folder structure
 
@@ -97,7 +100,7 @@ To compile and run the `hello_world` app, follow these steps on your host comput
 
 The steps below walk you through creating a new module and compile it on Intel NUC. The module prints out messages with a timestamp upon receiving them. You will create your first customized gateway module in this section.
 
-Any Azure IoT Gateway SDK module must implement the following interfaces:
+Any Azure IoT Edge module must implement the following interfaces:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson

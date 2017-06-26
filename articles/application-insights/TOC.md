@@ -12,17 +12,20 @@
 ### [Web apps already live](app-insights-monitor-performance-live-website-now.md)
 ### [Windows services](app-insights-windows-services.md)
 ### [Windows desktop](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Monitor Java apps
 ### [Web apps](app-insights-java-get-started.md)
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+## Monitor Node.js apps
+### [Node.js](app-insights-nodejs.md)
+
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Monitor other platforms
-### [Node.js apps](app-insights-nodejs.md)
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
@@ -30,16 +33,17 @@
 # How to
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
-### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
-### [Usage analysis with Application Insights](app-insights-overview-usage.md)
-### [Separating Application Insights resources](app-insights-separate-resources.md)
+### [Separate development, test, and production](app-insights-separate-resources.md)
+### [Monitor apps with multiple components](app-insights-monitor-multi-role-apps.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
 
 ## Configure
 ### Azure
+#### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Previews](app-insights-previews.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)
@@ -49,8 +53,7 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [FAQ](app-insights-troubleshoot-faq.md)
-
+#### [Snapshot Debugger](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Log traces](app-insights-java-trace-logs.md)
@@ -76,6 +79,7 @@
 #### [Dashboards](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
+#### [Live stream](app-insights-live-stream.md)
 
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
@@ -86,12 +90,19 @@
 #### [Trends](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
 
+### Usage
+#### [Overview](app-insights-usage-overview.md)
+#### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Workbooks](app-insights-usage-workbooks.md)
+
 ### Analytics
 
 #### [Overview](app-insights-analytics.md)
 #### [Tour](app-insights-analytics-tour.md)
 #### [Using](app-insights-analytics-using.md)
 #### [Import](app-insights-analytics-import.md)
+#### [Diagnostics](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
@@ -99,19 +110,19 @@
 ### [Create resources](app-insights-powershell-script-create-resource.md)
 ### [Set alerts](app-insights-powershell-alerts.md)
 ### [Get Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automate with Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Develop
 
 ### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Manage
-### [Manage pricing and quota](app-insights-pricing.md)
+### [Manage pricing and data volume](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
-##Export
+## Export
 ### [Continuous export](app-insights-export-telemetry.md)
 ### [Export data model](app-insights-export-data-model.md)
 ### [Export to Power BI](app-insights-export-power-bi.md)
@@ -131,32 +142,38 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Data access API](https://dev.applicationinsights.io/)
+## [Data model](application-insights-data-model.md)
+### [Request](application-insights-data-model-request-telemetry.md)
+### [Dependency](application-insights-data-model-dependency-telemetry.md)
+### [Exception](application-insights-data-model-exception-telemetry.md)
+### [Trace](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [Metric](application-insights-data-model-metric-telemetry.md)
+### [Context](application-insights-data-model-context.md)
+## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Languages and platforms](app-insights-platforms.md)
 
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [Samples and walkthroughs](app-insights-code-samples.md)
-### [Walkthrough: Enabling telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Code sample: Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## News
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Service updates](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
-### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Support](app-insights-get-dev-support.md)
+### [Support](https://azure.microsoft.com/support/)
 
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
 
 ---
@@ -112,7 +112,18 @@ Now that you have an application, try running it.
    
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
-## Switch cluster mode
+## Cleaning up the local cluster (optional)
+Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
+
+1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
+2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+
+## Deploy your application to an Azure cluster
+Now that you have deployed your application locally, you can deploy the same application to Azure. The [create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md) document walks through the steps using Azure PowerShell or the portal.
+
+Once you have set up an Azure cluster, you can publish this application from Visual Studio to Azure by following the [publish to an Azure cluster](service-fabric-publish-app-remote-cluster.md) article.  
+
+## Switch cluster mode of your local development cluster
 By default, the local development cluster is configured to run as a five-node cluster, which is useful for debugging services deployed across multiple nodes. Deploying an application to the five-node development cluster can take some time, however. If you want to iterate code changes quickly, without running your app on five nodes, switch the development cluster to one-node mode. To run your code on a cluster with one node, right-click on the Local Cluster Manager in the system tray and select **Switch Cluster Mode -> 1 Node**.  
 
 ![Switch cluster mode][switch-cluster-mode]
@@ -132,11 +143,7 @@ You can also change the cluster mode using PowerShell:
    
     ![Cluster setup output][cluster-setup-success-1-node]
 
-## Cleaning up
-Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
 
-1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
-2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).

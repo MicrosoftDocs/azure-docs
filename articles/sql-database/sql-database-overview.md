@@ -6,10 +6,9 @@ documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
 editor: ''
-
 ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -38,7 +37,7 @@ For more information, see [Managing Databases and Logins in Azure SQL Database](
 - **SQL Database firewall**: To help protect your data, a SQL Database firewall prevents all access to your database server or its databases until you specify which computers have permission. See [Firewalls](sql-database-firewall-configure.md)
 
 ## What collations are supported?
-The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is not possible to alter the collation for V12 databases. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## What are the naming requirements for database objects?
 
@@ -51,9 +50,10 @@ For information about supported features, see [Features](sql-database-features.m
 ## How do I manage an Azure SQL database?
 
 You can manage Azure SQL Database logical servers using several methods:
-- [Azure portal](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
-- [Transact-SQL](sql-database-manage-azure-ssms.md)
+- [Azure portal](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
+- [Transact-SQL](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [REST](/rest/api/sql/)
 
 ## Next steps

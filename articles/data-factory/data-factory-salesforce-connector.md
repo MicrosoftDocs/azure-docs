@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
@@ -30,19 +30,91 @@ This connector supports the following editions of Salesforce: Developer Edition,
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. Note the following:
-* If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures;
-* If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
+Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
+
+- If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
+- If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
 
 You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
-## Copy Data wizard
-The easiest way to create a pipeline that copies data from Salesforce to any of the supported sink data stores is to use the Copy Data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline by using the Copy Data wizard.
+## Getting started
+You can create a pipeline with a copy activity that moves data from Salesforce by using different tools/APIs.
 
+The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+
+You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+
+1. Create **linked services** to link input and output data stores to your data factory.
+2. Create **datasets** to represent input and output data for the copy operation. 
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from Salesforce, see [JSON example: Copy data from Salesforce to Azure Blob](#json-example-copy-data-from-salesforce-to-azure-blob) section of this article. 
+
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to Salesforce: 
+
+## Linked service properties
+The following table provides descriptions for JSON elements that are specific to the Salesforce linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **Salesforce**. |Yes |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
+| username |Specify a user name for the user account. |Yes |
+| password |Specify a password for the user account. |Yes |
+| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
+
+## Dataset properties
+For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
+
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for a dataset of the type **RelationalTable** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in Salesforce. |No (if a **query** of **RelationalSource** is specified) |
+
+> [!IMPORTANT]
+> The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+
+## Copy activity properties
+For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
+
+The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
+
+In copy activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. |No (if the **tableName** of the **dataset** is specified) |
+
+> [!IMPORTANT]
+> The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Query tips
+### Retrieving data using where clause on DateTime column
+When specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
+
+* **SOQL sample**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SQL sample**:
+    * **Using copy wizard to specify the query:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Using JSON editing to specify the query (escape char properly):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+
+### Retrieving data from Salesforce Report
+You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`,for example,. `"query": "{call \"TestReport\"}"`.
+
+### Retrieving deleted records from Salesforce Recycle Bin
+To query the soft deleted records from Salesforce Recycle Bin, you can specify **"IsDeleted = 1"** in your query. For example,
+
+* To query only the deleted records, specify "select * from MyTable__c **where IsDeleted= 1**"
+* To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
+
+## JSON example: Copy data from Salesforce to Azure Blob
 The following example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Salesforce to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
-
-## Sample: Copy data from Salesforce to an Azure blob
-This sample copies data from Salesforce to an Azure blob every hour. The JSON properties that are used in these examples are described in sections after the examples. You can copy data directly to any of the sinks that are listed in the [data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article by using Copy Activity in Azure Data Factory.
 
 Here are the Data Factory artifacts that you'll need to create to implement the scenario. The sections that follow the list provide details about these steps.
 
@@ -56,7 +128,7 @@ Here are the Data Factory artifacts that you'll need to create to implement the 
 
 This example uses the **Salesforce** linked service. See the [Salesforce linked service](#linked-service-properties) section for the properties that are supported by this linked service.  See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get the security token.
 
-```JSON
+```json
 {
     "name": "SalesforceLinkedService",
     "properties":
@@ -73,7 +145,7 @@ This example uses the **Salesforce** linked service. See the [Salesforce linked 
 ```
 **Azure Storage linked service**
 
-```JSON
+```json
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -86,7 +158,7 @@ This example uses the **Salesforce** linked service. See the [Salesforce linked 
 ```
 **Salesforce input dataset**
 
-```JSON
+```json
 {
     "name": "SalesforceInput",
     "properties": {
@@ -115,8 +187,6 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
->
->
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -124,7 +194,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 Data is written to a new blob every hour (frequency: hour, interval: 1).
 
-```JSON
+```json
 {
     "name": "AzureBlobOutput",
     "properties":
@@ -146,11 +216,11 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 **Pipeline with Copy Activity**
 
-The pipeline contains Copy Activity, which is configured to use the above input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and the **sink** type is set to **BlobSink**.
+The pipeline contains Copy Activity, which is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and the **sink** type is set to **BlobSink**.
 
 See [RelationalSource type properties](#copy-activity-properties) for the list of properties that are supported by the RelationalSource.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
@@ -198,74 +268,9 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 ```
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
->
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
-## Linked service properties
-The following table provides descriptions for JSON elements that are specific to the Salesforce linked service.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| type |The type property must be set to: **Salesforce**. |Yes |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify e.g. "https://[domain].my.salesforce.com". |No |
-| username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account. |Yes |
-| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
-
-## Dataset properties
-For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
-
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for a dataset of the type **RelationalTable** has the following properties:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| tableName |Name of the table in Salesforce. |No (if a **query** of **RelationalSource** is specified) |
-
-> [!IMPORTANT]
-> The "__c" part of the API Name is needed for any custom object.
->
->
-
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
-
-## Copy activity properties
-For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
-
-The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
-
-In copy activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
-
-| Property | Description | Allowed values | Required |
-| --- | --- | --- | --- |
-| query |Use the custom query to read data. |A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. |No (if the **tableName** of the **dataset** is specified) |
-
-> [!IMPORTANT]
-> The "__c" part of the API Name is needed for any custom object.
->
->
-
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
-
-## Query tips
-### Retrieving data using where clause on DateTime column
-When specify the SOQL or SQL query, pay attention to the DateTime format difference. For example:
-
-* **SOQL sample**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **SQL sample**:
-    * **Using copy wizard to specify the query:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Using JSON editing to specify the query (escape char properly):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
-
-### Retrieving data from Salesforce Report
-You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
-
-### Retrieving deleted records from Salesforce Recycle Bin
-To query the soft deleted records from Salesforce Recycle Bin, you can specify **"IsDeleted = 1"** in your query. For example,
-
-* To query only the deleted records, specify "select * from MyTable__c **where IsDeleted= 1**"
-* To query all the records including the existing and the deleted, specify "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Type mapping for Salesforce
 | Salesforce type | .NET-based type |
@@ -290,7 +295,8 @@ To query the soft deleted records from Salesforce Recycle Bin, you can specify *
 | Text (Encrypted) |String |
 | URL |String |
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

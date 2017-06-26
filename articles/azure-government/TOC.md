@@ -12,6 +12,7 @@
 ## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 ## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
+## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Available services](documentation-government-services.md)
 
 # How To
@@ -38,10 +39,11 @@
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
 ### [Media Services](documentation-government-services-media.md)
-
+### [Internet of Things](documentation-government-services-iot-hub.md)
 
 # Resources
+## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Pricing](https://azure.microsoft.com/pricing/)
 ## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
-## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)

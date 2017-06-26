@@ -4,7 +4,7 @@ description: This article demonstrates how to send job status and runbook job st
 services: automation
 documentationcenter: ''
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 06/02/2017
 ms.author: magoedte
 
 ---
@@ -78,7 +78,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 
 After running this script, you will see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
 
-To see the logs, run the following query:
+To see the logs, run the following query in Log Analytics log search:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
@@ -113,7 +113,7 @@ In the output ensure that:
 
 
 ## Log Analytics records
-Diagnostics from Azure Automation creates two types of records in Log Analytics. 
+Diagnostics from Azure Automation creates two types of records in Log Analytics and are tagged as **Type=AzureDiagnostics**.
 
 ### Job Logs
 | Property | Description |
@@ -174,7 +174,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
 2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`  You can also group by the RunbookName by using: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
-3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
+3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### Find all jobs that have completed with errors
 In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases PowerShell produces an error stream, but the non-terminating errors do not cause your job to suspend or fail.    

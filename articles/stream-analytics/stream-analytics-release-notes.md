@@ -13,11 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics release notes
+
+## Notes for 06/14/2017 update of Stream Analytics Tools for Visual Studio
+This update is for our Visual Studio Tools. This release contains the following new features.
+
+| Title | Description |
+| --- | --- |
+| Java script editor support |You can enjoy the native java script editor experience after creating your java script functions.|
+| View job run time error message | If there are runtime errors during job execution, you can view them in the Errors tab by adjusting the display time window. By default it shows the error messages for last 30 minutes. |
+| CSV and Avro support for local testing input | Besides JSON, now you can use CSV and Avro file format for local testing input.|
+
+## Notes for 05/03/2017 update of Stream Analytics
+This update is for our troubleshooting documentation release.
+
+The [troubleshooting guide](stream-analytics-troubleshooting-guide.md) and other docs were released. Please review, feedback is welcome.
+
+## Notes for 04/24/2017 update of Stream Analytics Tools for Visual Studio
+This update is for our Visual Studio Tools. This release contains the following new features.
+
+| Title | Description |
+| --- | --- |
+| View local test result in Visual Studio | To view the output result of the local test, just press ENTER in the output console window or close it. The result will be shown in a window in Visual Studio in table format. |
+| Output local result in JSON format | When you run a local test, the output result will be generated as both JSON and CSV file formats. |
+| Preview Blob/table storage inputs/outputs data | By double clicking on a blob or table storage input/output in the job view, you can preview the data inside Visual Studio very easily. |
+| View error message for inputs/outputs | If there are some runtime errors related to you job's inputs or outputs, it will be shown on the job diagram where you can hover on it to see the detailed error message.|
+
+
 ## Notes for 02/01/2017 release of Stream Analytics
 This release contains the following update.
 
@@ -74,7 +100,7 @@ This release contains the following updates.
 | --- | --- |
 | Azure IoT Suite Public Preview |Stream Analytics is included in the Public Preview of the Azure IoT Suite. |
 | Azure Portal integration |In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Portal](https://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to. |
-| Support for DocumentDB output |Stream Analytics jobs can now output to [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Support for Cosmos DB output |Stream Analytics jobs can now output to [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Support for IoT Hub input |Stream Analytics jobs can now ingest data from IoT Hubs. |
 | TIMESTAMP BY for heterogeneous events |When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case. |
 
@@ -132,7 +158,7 @@ This release contains the following updates.
 | PowerBI datasets can only contain one table |PowerBI does not support more than one table in a given dataset. |
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

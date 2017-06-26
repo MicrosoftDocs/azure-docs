@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: juanpere
 
 ---
@@ -21,18 +21,18 @@ ms.author: juanpere
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables an back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
+Azure IoT Hub is a fully managed service that enables a back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
 * Update desired properties
 * Update tags
 * Invoke direct methods
 
-Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an back-end app can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
+Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, a back-end app can use a job to invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  It can then track progress as each of those devices receive and execute the reboot method.
 
 Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
+* Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 
@@ -47,9 +47,9 @@ At the end of this tutorial, you have a Node.js console device app and a .NET (C
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
-* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* Visual Studio 2015 or Visual Studio 2017.
+* Node.js version 0.12.x or later. The article [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -62,21 +62,26 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage NuGet Packages**.
-3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
+1. In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This step downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
     ![NuGet Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Add the following `using` statement if not already present in the default statements.
+
+        using System.Threading.Tasks;
         
-5. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
         
-6. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
    
         public static async Task MonitorJob(string jobId)
         {
@@ -89,7 +94,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
         }
                 
-7. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
 
         public static async Task StartMethodJob(string jobId)
         {
@@ -104,7 +109,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             Console.WriteLine("Started Method Job");
         }
 
-8. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
 
         public static async Task StartTwinUpdateJob(string jobId)
         {
@@ -123,7 +128,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         }
  
 
-9. Finally, add the following lines to the **Main** method:
+1. Finally, add the following lines to the **Main** method:
    
         jobClient = JobClient.CreateFromConnectionString(connString);
 
@@ -140,8 +145,8 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         MonitorJob(twinUpdateJobId).Wait();
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
-                   
-10. Build the solution.
+
+1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ScheduleJob** project is **Start**. Build the solution.
 
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.
@@ -151,13 +156,13 @@ In this section, you create a Node.js console app that responds to a direct meth
     ```
     npm init
     ```
-2. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+1. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
-4. Add the following 'require' statements at the start of the **simDevice.js** file:
+1. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
+1. Add the following 'require' statements at the start of the **simDevice.js** file:
    
     ```
     'use strict';
@@ -165,13 +170,13 @@ In this section, you create a Node.js console app that responds to a direct meth
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a **Client** instance.  
+1. Add a **connectionString** variable and use it to create a **Client** instance. Make sure to replace the placeholders with values appropriate to your setup.
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function to handle the **lockDoor** method.
+1. Add the following function to handle the **lockDoor** method.
    
     ```
     var onLockDoor = function(request, response) {
@@ -188,7 +193,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Locking Door!');
     };
     ```
-7. Add the following code to register the handler for the **lockDoor** method.
+1. Add the following code to register the handler for the **lockDoor** method.
    
     ```
     client.open(function(err) {
@@ -200,7 +205,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         }
     });
     ```
-8. Save and close the **simDevice.js** file.
+1. Save and close the **simDevice.js** file.
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -215,29 +220,30 @@ You are now ready to run the apps.
     ```
     node simDevice.js
     ```
-2. Run the C# console app **ScheduleJob**- right click on the **ScheduleJob** project, select **Debug** and **Start new instance**.
+1. Run the C# console app **ScheduleJob** by right-clicking on the **ScheduleJob** project, then selecting **Debug** and **Start new instance**.
 
-3. You see the output from both device and back-end apps.
+1. You see the output from both device and back-end apps.
+
+    ![Run the apps to schedule jobs][img-schedulejobs]
 
 ## Next steps
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
+To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update][lnk-fwupdate].
 
-[Tutorial: How to do a firmware update][lnk-fwupdate]
-
-To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-schedule-jobs/createnetapp.png
+[img-schedulejobs]: media/iot-hub-csharp-node-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

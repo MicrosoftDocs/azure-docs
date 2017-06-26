@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 06/14/2017
 ms.author: owend
 
 ---
-# Create an Analysis Services server
+# Create an Azure Analysis Services server in Azure portal
 This article walks you through creating an Analysis Services server resource in your Azure subscription.
 
 ## Before you begin
@@ -29,13 +29,13 @@ To get started, you need:
 * **Resource group**: Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> Creating an Analysis Services server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
+> Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 > 
 > 
 
-## Create an Analysis Services server
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Intelligence + analytics** > **Analysis Services**.
+## To create a server in Azure portal
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.
    
     ![Create server](./media/analysis-services-create-server/aas-create-server-blade.png)
@@ -44,19 +44,12 @@ To get started, you need:
    * **Subscription**: Select the subscription this server bills to.
    * **Resource group**: These containers are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/resource-group-overview.md).
    * **Location**: This Azure datacenter location hosts the server. Choose a location nearest your largest user base.
-   * **Pricing tier**: Select a pricing tier. Tabular models up to 100 GB are supported. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
+   * **Pricing tier**: Select a pricing tier. Tabular models up to 400 GB are supported. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Click **Create**.
 
 Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
-
-## Automate server creation
-You can automate server provisioning on-the-fly with Azure Resource Manager template files. To learn more, watch this helpful video.
-
->[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation/player]
->
->
 
 
 ## Next steps

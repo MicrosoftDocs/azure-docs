@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 06/12/2017
 ms.author: juliako
 
 ---
@@ -57,7 +57,15 @@ Contains a sequence of the following elements.
 | **SyncMode**<br/><br/> minOccurs="0" | |Feature will be exposed in a future releases. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Collection of output video layers. |
 
+### Attributes
+| Name | Type | Description |
+| --- | --- | --- |
+| **Condition** |**xs:string** | When the input has no video, you may want to force the encoder to insert a monochrome video track. To do that, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (to insert a video at only the lowest bitrate) or Condition="InsertBlackIfNoVideo" (to insert a video at all output bitrates). For more information, see [this](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) topic.|
+
 ## <a name="H264Layers"></a> H264Layers
+
+By default, if you send an input to the encoder that contains only audio, and no video, the output asset will contain files with audio data only. Some players may not be able to handle such output streams. You can use the H264Video's **InsertBlackIfNoVideo** attribute setting to force the encoder to add a video track to the output in that scenario. For more information, see [this](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) topic.
+              
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
@@ -82,7 +90,7 @@ Contains a sequence of the following elements.
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Number of B frames between reference frames. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Number of reference frames in a GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Could be one of the following values: **Cabac** and **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) |
+| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**NOTE** If you are creating a custom preset for multiple-bitrate encoding, then all layers of the preset **must** use the same value of FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copy from Azure media encoder |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determines how many slices a frame is divided into. Recommend using default. |
 

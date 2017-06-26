@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/01/2017
-ms.author: cakarst
 ms.custom: loading
+ms.date: 03/01/2017
+ms.author: cakarst;barbkess
+
 
 ---
 # Load data with PolyBase in SQL Data Warehouse

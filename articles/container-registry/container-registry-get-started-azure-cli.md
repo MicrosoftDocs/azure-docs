@@ -11,11 +11,11 @@ keywords: ''
 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -37,27 +37,48 @@ Use commands in the [Azure CLI 2.0](https://github.com/Azure/azure-cli) to creat
 Run the `az acr create` command to create a container registry.
 
 > [!TIP]
-> When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers. The registry name in the examples is `myRegistry`, but substitute a unique name of your own.
+> When you create a registry, specify a globally unique top-level domain name, containing only letters and numbers. The registry name in the examples is `myRegistry1`, but substitute a unique name of your own.
 >
 >
 
-The following command uses the minimal parameters to create container registry `myRegistry` in the resource group `myResourceGroup` in the South Central US location:
+The following command uses the minimal parameters to create container registry `myRegistry1` in the resource group `myResourceGroup`, and using the *Basic* sku:
 
 ```azurecli
-az acr create -n myRegistry -g myResourceGroup -l southcentralus
+az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
 ```
 
-* `--storage-account-name` or `-s` is optional. If not specified, a storage account is created with a random name in the specified resource group.
+* `--storage-account-name` is optional. If not specified, a storage account is created with a name consisting of the registry name and a timestamp in the specified resource group.
 
-The output is similar to the following:
+When the registry is created, the output is similar to the following:
 
-![az acr create output](./media/container-registry-get-started-azure-cli/acr_create.png)
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T18:36:29.124842+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
+/registries/myRegistry1",
+  "location": "southcentralus",
+  "loginServer": "myregistry1.azurecr.io",
+  "name": "myRegistry1",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myregistry123456789"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 
 
 Take special note:
 
 * `id` - Identifier for the registry in your subscription, which you need if you want to assign a service principal.
-* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is `myregistry.exp.azurecr.io` (all lowercase).
+* `loginServer` - The fully qualified name you specify to [log in to the registry](container-registry-authentication.md). In this example, the name is `myregistry1.exp.azurecr.io` (all lowercase).
 
 ## Assign a service principal
 Use CLI 2.0 commands to assign an Azure Active Directory service principal to a registry. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.
@@ -66,7 +87,7 @@ Use CLI 2.0 commands to assign an Azure Active Directory service principal to a 
 In the following command, a new service principal is assigned Owner role access to the registry identifier passed with the `--scopes` parameter. Specify a strong password with the `--password` parameter.
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry --role Owner --password myPassword
+az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
 ```
 
 
@@ -75,7 +96,7 @@ az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx
 If you already have a service principal and want to assign it Owner role access to the registry, run a command similar to the following example. You pass the service principal app ID using the `--assignee` parameter:
 
 ```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry --role Owner --assignee myAppId
+az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
 ```
 
 
@@ -85,17 +106,17 @@ An admin account is automatically created for each container registry and is dis
 
 ### Obtain admin user credentials
 ```azurecli
-az acr credential show -n myRegistry
+az acr credential show -n myRegistry1
 ```
 
 ### Enable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --admin-enabled true
+az acr update -n myRegistry1 --admin-enabled true
 ```
 
 ### Disable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --admin-enabled false
+az acr update -n myRegistry1 --admin-enabled false
 ```
 
 ## List images and tags
@@ -109,14 +130,14 @@ Use the `az acr` CLI commands to query the images and tags in a repository.
 The following example lists the repositories in a registry, in JSON (JavaScript Object Notation) format:
 
 ```azurecli
-az acr repository list -n myRegistry -o json
+az acr repository list -n myRegistry1 -o json
 ```
 
 ### List tags
 The following example lists the tags on the **samples/nginx** repository, in JSON format:
 
 ```azurecli
-az acr repository show-tags -n myRegistry --repository samples/nginx -o json
+az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
 ```
 
 ## Next steps

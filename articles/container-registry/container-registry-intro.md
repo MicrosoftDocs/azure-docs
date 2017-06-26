@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -35,7 +35,7 @@ For background about Docker and containers, see:
 Pull images from an Azure container registry to various deployment targets:
 
 * **Scalable orchestration systems** that manage containerized applications across clusters of hosts, including [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/), and [Kubernetes](http://kubernetes.io/docs/).
-* **Azure services** that support building and running applications at scale, including [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
+* **Azure services** that support building and running applications at scale, including [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md), and others.
 
 Developers can also push to a container registry as part of a container development workflow. For example, target a container registry from a continuous integration and deployment tool such as [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) or [Jenkins](https://jenkins.io/).
 
@@ -44,9 +44,7 @@ Developers can also push to a container registry as part of a container developm
 
 
 ## Key concepts
-* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments.
-
-  Registries are named in a root domain based on the subscription's [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). For example, if you have an organizational account in the Contoso domain, your fully qualified registry name is of the form `myregistry-contoso.azurecr.io`.
+* **Registry** - Create one or more container registries in your Azure subscription. Each registry is backed by a standard Azure [storage account](../storage/storage-introduction.md) in the same location. Take advantage of local, network-close storage of your container images by creating a registry in the same Azure location as your deployments. A fully qualified registry name has the form `myregistry.azurecr.io`.
 
   You [control access](container-registry-authentication.md) to a container registry using an Azure Active Directory-backed [service principal](../active-directory/active-directory-application-objects.md) or a provided admin account. Run the standard `docker login` command to authenticate with a registry.
 
@@ -67,5 +65,5 @@ Developers can also push to a container registry as part of a container developm
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [this tutorial](../container-service/container-service-setup-ci-cd.md).
+* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [this tutorial](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * If you want to set up your own Docker private registry in Azure (without a public endpoint), see [Deploying Your Own Private Docker Registry on Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).

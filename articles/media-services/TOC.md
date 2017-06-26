@@ -6,7 +6,13 @@
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Connect programmatically
+## [Use AAD auth to access API](media-services-use-aad-auth-to-access-ams-api.md)
+###[Use portal to manage AAD auth](media-services-portal-get-started-with-aad.md)
+###[Access API with .NET](media-services-dotnet-get-started-with-aad.md)
+###[Access API with REST](media-services-rest-connect-with-aad.md)
+###[Use CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
+###[Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
+## Connect programmatically with ACS keys
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -41,6 +47,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
+### [Upload files with StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
@@ -210,13 +217,14 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Resources
-## [Release notes](media-services-release-notes.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
+## [Release notes](media-services-release-notes.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 
 ---
@@ -28,11 +28,11 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
-Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports application load balancing capabilities such as SSL termination, cookie based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer. This means that Application Gateway deals with web traffic only (HTTP/HTTPS/WebSocket). It supports application load balancing capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
 
 **Q. What protocols does Application Gateway support?**
 
@@ -40,7 +40,7 @@ Application Gateway supports HTTP, HTTPS, and WebSocket.
 
 **Q. What resources are supported today as part of backend pool?**
 
-Backend pools can be comprised of NICs, virtual machine scale sets (VMSS), public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
 
 **Q. What regions is the service available in?**
 
@@ -62,7 +62,6 @@ When using a public IP address as an endpoint, this information can be found on 
 
 The VIP can change if the gateway is stopped and started by the customer. The DNS associated with Application Gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the Application Gateway.
 
-
 **Q. Does Application Gateway support static IP?**
 
 No, Application Gateway does not support static public IP addresses, but it does support static internal IPs.
@@ -73,7 +72,7 @@ Only one public IP address is supported on an Application Gateway.
 
 **Q. Does Application Gateway support x-forwarded-for headers?**
 
-Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
+Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
 ## Configuration
 
@@ -87,11 +86,17 @@ Application Gateway can talk to instances outside of the virtual network that it
 
 **Q. Can I deploy anything else in the Application Gateway subnet?**
 
-No, but you can deploy other application gateways in the subnet
+No, but you can deploy other application gateways in the subnet.
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
-Network Security Groups are supported on the Application Gateway subnet, but exceptions must be put in for ports 65503-65534 for backend health to work correctly. Outbound internet connectivity should not be blocked.
+Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
+
+* Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
+
+* Outbound internet connectivity should not be blocked.
+
+* Traffic from the AzureLoadBalancer tag must be allowed.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
@@ -119,11 +124,21 @@ Custom probes do not support wildcard or regex on response data.
 
 **Q. What does the Host field for custom probes signify?**
 
-Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>. 
+Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
 
-**Q. Does Application Gateway also support multi-tenant backends?**
+**Q. Can I whitelist Application Gateway access to a few source IPs?**
 
-No, currently Application Gateway preserves the incoming host header and sends the same header to backend. If the backend requires a different header then this will not work. Similarly if the backend is multi tenant and end-to-end SSL is enabled, the backend would expect server name in SNI extension. Application Gateway does not currently send SNI header in backend requests in end-to-end SSL scenarios which would cause probe and data path issues. 
+This can be done using NSGs on Application Gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
+
+* Allow incoming traffic from source IP/IP range.
+
+* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+
+* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Block all other incoming traffic with a Deny all rule.
+
+* Allow outbound traffic to the internet for all destinations.
 
 ## Performance
 
@@ -215,7 +230,7 @@ Yes, WAF supports all the features in the Standard SKU.
 
 **Q. What is the CRS version Application Gateway supports?**
 
-Application Gateway supports CRS 2.2.9
+Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 **Q. How do I monitor WAF?**
 
@@ -227,11 +242,11 @@ No, detection mode only logs traffic, which triggered a WAF rule.
 
 **Q. How do I customize WAF rules?**
 
-Currently WAF rules are not customizable.
+Yes, WAF rules are customizable, for more information on how to customize them visit [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
 
 **Q. What rules are currently available?**
 
-WAF currently supports CRS 2.2.9, which provides baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), which provide baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * SQL injection protection
 
@@ -247,9 +262,9 @@ WAF currently supports CRS 2.2.9, which provides baseline security against most 
 
 * Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
-**Q. Does WAF also support DDos prevention?**
+**Q. Does WAF also support DDoS prevention?**
 
-No, WAF does not provide DDos prevention.
+No, WAF does not provide DDoS prevention.
 
 ## Diagnostics and Logging
 

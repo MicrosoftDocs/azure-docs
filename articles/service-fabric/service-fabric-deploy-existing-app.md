@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
-ms.author: msfussell;mikhegn
+ms.date: 04/07/2016
+ms.author: mfussell;mikhegn
 
 ---
 # Deploy a guest executable to Service Fabric
@@ -32,7 +32,7 @@ There are several advantages to running a guest executable in a Service Fabric c
 * Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
 
 ## Samples
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Overview of application and service manifest files
@@ -40,7 +40,7 @@ As part of deploying a guest executable, it is useful to understand the Service 
 
 * **Application manifest**
   The application manifest is used to describe the application. It lists the services that compose it, and other parameters that are used to define how one or more services should be deployed, such as the number of instances.
-  
+
   In Service Fabric, an application is a unit of deployment and upgrade. An application can be upgraded as a single unit where potential failures and potential rollbacks are managed. Service Fabric guarantees that the upgrade process is either successful, or, if the upgrade fails, does not leave the application in an unknown or unstable state.
 * **Service manifest**
   The service manifest describes the components of a service. It includes data, such as the name and type of service, and its code and configuration. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
@@ -68,16 +68,16 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 
 > [!NOTE]
 > You don't have to create the `config` and `data` directories if you don't need them.
-> 
-> 
+>
+>
 
 ## Package an existing executable
 When packaging a guest executable, you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
 
 > [!TIP]
 > The easiest way to package an existing Windows executable into a service is to use Visual Studio.
-> 
-> 
+>
+>
 
 ## Use Visual Studio to package an existing executable
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
@@ -121,8 +121,8 @@ Service Fabric does an `xcopy` of the content of the application root directory,
 
 > [!NOTE]
 > Make sure that you include all the files and dependencies that the application needs. Service Fabric copies the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs to run. Do not assume that the dependencies are already installed.
-> 
-> 
+>
+>
 
 ### Edit the service manifest file
 The next step is to edit the service manifest file to include the following information:
@@ -264,6 +264,11 @@ In the `ServiceManifestImport` element, you can specify one or more services tha
 For guest executables, it is useful to be able to see console logs to find out if the application and configuration scripts show any errors.
 Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element.
 
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+>
+>
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -303,7 +308,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 
 >[!TIP]
-> [Compress the package](service-fabric-application-model.md#compress-a-package) before copying to the image store if the package is large or has many files. Read more [here](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+> [Compress the package](service-fabric-package-apps.md#compress-a-package) before copying to the image store if the package is large or has many files. Read more [here](service-fabric-deploy-remove-applications.md#upload-the-application-package).
 >
 
 A Service Fabric service can be deployed in various "configurations." For example, it can be deployed as single or multiple instances, or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.
@@ -330,19 +335,18 @@ If you browse to the directory by using Server Explorer, you can find the workin
 
 ## Creating a guest executable using Yeoman for Service Fabric on Linux
 
-The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application. 
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
 
 1. In a terminal, type `yo azuresfguest`.
 2. Name your application.
-3. Choose the type of your first service and name it. Choose **Guest Binary** for a guest executable (and **Guest Container** for a container), and provide the details including path of the executable and the parameters it must be invoked with.
+3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
 
 Yeoman would have created an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
 
-* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 * [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-

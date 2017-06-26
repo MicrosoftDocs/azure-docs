@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure SQL Database Documentation
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database Documentation - Tutorials, API Reference
+  meta.description: Learn how to use Azure SQL databases.
+  services: sql-database
+  author: carolz
+  manager: carolz
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/03/2017
+  ms.author: carolz
+abstract:
+  description: Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      width: 250  
+    title: Create a SQL database on Azure. (3:12)
+    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a SQL Database, manage it using SQL Management Studio, and develop with it in C#, Java, Python, Node.js, and Ruby:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create, manage, and migrate databases using SQL DB
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a>
+    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
+    - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
+    - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
+- title: Free PluralSight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/video-training-dotnet.png
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/sql/">REST API Reference</a></p>
+    - title: SQL Server Tools
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Database Management Library package</a></p>
+    - title: SQL Server Drivers
+      html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

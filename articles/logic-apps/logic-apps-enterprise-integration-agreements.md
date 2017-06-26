@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
-ms.author: estfan
+ms.author: LADocs
 
 ---
 # Partner agreements for B2B communication with Azure Logic Apps and Enterprise Integration Pack

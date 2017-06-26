@@ -9,14 +9,17 @@ editor: ''
 
 ms.assetid: a9022c1f-43c1-4d38-841f-52540025fb46
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 
 ---
+
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [The Azure portal](site-recovery-vmware-to-azure.md)
@@ -221,7 +224,7 @@ For more information about Azure networks, see [Virtual networks overview](../vi
 ## Step 3: Install the VMware components
 If you want to replicate VMware virtual machines, follow these steps on the management server:
 
-1. [Download](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) and install VMware vSphere PowerCLI 6.0.
+1. [Download](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) and install VMware vSphere PowerCLI 6.0.
 2. Restart the server.
 
 ## Step 4: Download a vault registration key
@@ -575,7 +578,7 @@ Protection status can also be monitored in **Protected Items** > *protection gro
 3. You can change these settings:
 
    * **Azure VM name**: This is the name that will be given to the machine in Azure after failover. The name must comply with Azure requirements.
-   * **Azure VM size**: The number of network adapters is dictated by the size that you specify for the target virtual machine. For more information about sizes and adapters, see the [size tables](../virtual-machines/virtual-machines-linux-sizes.md). Note that:
+   * **Azure VM size**: The number of network adapters is dictated by the size that you specify for the target virtual machine. For more information about sizes and adapters, see the [size tables](../virtual-machines/linux/sizes.md). Note that:
 
      * When you modify the size of a virtual machine and save the settings, the number of network adapters will change when you open the **Configure** tab the next time. The minimum number of network adapters on target virtual machines is equal to the minimum number of network adapters on a source virtual machine. The maximum number of network adapters is determined by the size of the virtual machine.
        * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, the target will have the same number of adapters as the source.

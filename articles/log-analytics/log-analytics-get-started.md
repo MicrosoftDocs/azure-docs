@@ -3,7 +3,7 @@ title: Get started with an Azure Log Analytics workspace | Microsoft Docs
 description: You can get up and running with a workspace in Log Analytics in minutes.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
 
 ---
 # Get started with a Log Analytics workspace
@@ -22,7 +22,7 @@ You can get up and running quickly with Azure Log Analytics, which helps you eva
 This article serves as an introduction to Log Analytics using a brief tutorial to walk you through a minimal deployment in Azure so that you can start using the service. The logical container where your management data in Azure is stored is called a workspace. After you've reviewed this information and completed your own evaluation, you can remove the evaluation workspace. Because this article is a tutorial, it doesn't address business requirements, planning, or architecture guidance.
 
 >[!NOTE]
->If you use the Microsoft Azure Government Cloud, use [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
+>If you use the Microsoft Azure Government Cloud, use [Azure Government Monitoring + Management documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
 
 Here's a quick look at the process used to get started:
 
@@ -50,7 +50,7 @@ The next step is to create a workspace.
    * **Pricing tier**  
        ![quick create](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Click **OK** to see a list of your workspaces.
-4. Select a workspace to see it's details in the Azure portal.       
+4. Select a workspace to see its details in the Azure portal.       
     ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## 3 Add solutions and solution offerings

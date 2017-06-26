@@ -7,10 +7,9 @@ author: douglaslMS
 manager: jhubbard
 editor: ''
 tags: ''
-
+ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
-ms.custom: 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -54,5 +53,5 @@ Browse this list of public data sets for data that you can use to prototype and 
 | Data source | About the data | About the files |
 |---|---|---|
 | [GitHub archive](https://www.githubarchive.org/) | "GitHub Archive is a project to record the public GitHub timeline [of events], archive it, and make it easily accessible for further analysis." | Download JSON-encloded event archives in .gz (Gzip) format from a web client. |
-| [GitHub activity data from The GHTorrent project](http://ghtorrent.org/) | "The GHTorrent project [is] an effort to create a scalable, queriable, offline mirror of data offered through the Github REST API. GHTorrent monitors the Github public event time line. For each event, it retrieves its contents and their dependencies, exhaustively." | MySQL database dumps are in CSV format. |
+| [GitHub activity data from The GHTorrent project](http://ghtorrent.org/) | "The GHTorrent project [is] an effort to create a scalable, queriable, offline mirror of data offered through the GitHub REST API. GHTorrent monitors the GitHub public event time line. For each event, it retrieves its contents and their dependencies, exhaustively." | MySQL database dumps are in CSV format. |
 | [Stack Overflow data dump](https://archive.org/details/stackexchange) | "This is an anonymized dump of all user-contributed content on the Stack Exchange network [including Stack Overflow]." | "Each site [such as Stack Overflow] is formatted as a separate archive consisting of XML files zipped via 7-zip using bzip2 compression. Each site archive includes Posts, Users, Votes, Comments, PostHistory, and PostLinks." |

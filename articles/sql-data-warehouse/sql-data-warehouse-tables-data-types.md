@@ -1,9 +1,9 @@
 ---
-title: Data types for tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with data types for Azure SQL Data Warehouse tables.
+title: Data types guidance - Azure SQL Data Warehouse | Microsoft Docs
+description: Recommendations to define data types that are compatible with SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: barbkess
 editor: ''
 
@@ -13,60 +13,28 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.custom: tables
+ms.date: 06/02/2017
+ms.author: shigu;barbkess
 
 ---
-# Data types for tables in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
+# Guidance for defining data types for tables in SQL Data Warehouse
+Use these recommendations to define table data types that are compatible with SQL Data Warehouse. In addition to compatibility, minimizing the size of data types improves query performance.
 
-SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][create table].
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) in the CREATE TABLE statement. 
 
-| **Supported Data Types** |  |  |
-| --- | --- | --- |
-| [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
-| [binary][binary] |[float][float] |[smallmoney][smallmoney] |
-| [bit][bit] |[int][int] |[sysname][sysname] |
-| [char][char] |[money][money] |[time][time] |
-| [date][date] |[nchar][nchar] |[tinyint][tinyint] |
-| [datetime][datetime] |[nvarchar][nvarchar] |[uniqueidentifier][uniqueidentifier] |
-| [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
-| [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## Data type best practices
- When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][NVARCHAR].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+## Minimize row length
+Minimizing the size of data types shortens the row length, which leads to better query performance. Use the smallest data type that works for your data. 
 
-## Polybase limitation
-If you are using Polybase to load your tables, ensure that the length of the data does not exceed 1 MB.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  
+- Avoid defining character columns with a large default length. For example, if the longest value is 25 characters, then define your column as VARCHAR(25). 
+- Avoid using [NVARCHAR][NVARCHAR] when you only need VARCHAR.
+- When possible, use NVARCHAR(4000) or VARCHAR(8000) instead of NVARCHAR(MAX) or VARCHAR(MAX).
 
-## Unsupported data types
-If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encounter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
+If you are using Polybase to load your tables, the defined length of the table row cannot exceed 1 MB. When a row with variable-length data exceeds 1 MB, you can load the row with BCP, but not with PolyBase.
 
-| Data Type | Workaround |
-| --- | --- |
-| [geometry][geometry] |[varbinary][varbinary] |
-| [geography][geography] |[varbinary][varbinary] |
-| [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [image][ntext,text,image] |[varbinary][varbinary] |
-| [text][ntext,text,image] |[varchar][varchar] |
-| [ntext][ntext,text,image] |[nvarchar][nvarchar] |
-| [sql_variant][sql_variant] |Split column into several strongly typed columns. |
-| [table][table] |Convert to temporary tables. |
-| [timestamp][timestamp] |Rework code to use [datetime2][datetime2] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column then use [BINARY][BINARY](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values. |
-| [xml][xml] |[varchar][varchar] |
-| [user defined types][user defined types] |convert back to their native types where possible |
-| default values |default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported. |
-
-The below SQL can be run on your current SQL database to identify columns which are not be supported by Azure SQL Data Warehouse:
+## Identify unsupported data types
+If you are migrating your database from another SQL database, you might encounter data types that are not supported in SQL Data Warehouse. Use this query to discover unsupported data types in your existing SQL schema.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -77,8 +45,37 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
  AND  y.[is_user_defined] = 1;
 ```
 
+
+## <a name="unsupported-data-types"></a>Use workarounds for unsupported data types
+
+The following list shows the data types that SQL Data Warehouse does not support and gives alternatives that you can use instead of the unsupported data types.
+
+| Unsupported data type | Workaround |
+| --- | --- |
+| [geometry][geometry] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
+| [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
+| [image][ntext,text,image] |[varbinary][varbinary] |
+| [text][ntext,text,image] |[varchar][varchar] |
+| [ntext][ntext,text,image] |[nvarchar][nvarchar] |
+| [sql_variant][sql_variant] |Split column into several strongly typed columns. |
+| [table][table] |Convert to temporary tables. |
+| [timestamp][timestamp] |Rework code to use [datetime2][datetime2] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column, then use [BINARY][BINARY](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values. |
+| [xml][xml] |[varchar][varchar] |
+| [user-defined type][user defined types] |Convert back to the native data type when possible. |
+| default values | Default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported. |
+
+
 ## Next steps
-To learn more, see the articles on [Table Overview][Overview], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+To learn more, see:
+
+- [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices]
+- [Table Overview][Overview]
+- [Distributing a Table][Distribute]
+- [Indexing a Table][Index]
+- [Partitioning a Table][Partition]
+- [Maintaining Table Statistics][Statistics]
+- [Temporary Tables][Temporary]
 
 <!--Image references-->
 

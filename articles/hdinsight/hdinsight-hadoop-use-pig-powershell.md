@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with PowerShell in HDInsight | Microsoft Docs
+title: Use Hadoop Pig with PowerShell in HDInsight - Azure | Microsoft Docs
 description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -33,7 +33,7 @@ This document provides an example of using Azure PowerShell to submit Pig jobs t
 * **An Azure HDInsight cluster**
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -58,13 +58,13 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
 1. Open a new Windows PowerShell command prompt. Change directories to the location of the **pigjob.ps1** file, then use the following command to run the script:
-   
+
         .\pigjob.ps1
-   
+
     You are prompted to log in to your Azure subscription. Then, you are asked for the HTTPs/Admin account name and password for the HDInsight cluster.
 
 2. When the job completes, it should return information similar to the following text:
-   
+
         Start the Pig job ...
         Wait for the Pig job to complete ...
         Display the standard output ...
@@ -101,4 +101,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-

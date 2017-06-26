@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: markvi
 
 ---
 # How to configure automatic registration of Windows domain-joined devices with Azure Active Directory
 
-To use [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md), your computers must be registered with Azure Active Directory (Azure AD). You can get a list of registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](https://docs.microsoft.com/en-us/powershell/msonline/). 
+To use [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md), your computers must be registered with Azure Active Directory (Azure AD). You can get a list of registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 This article provides you with the steps for configuring the automatic registration of Windows domain-joined devices with Azure AD in your organization.
 
@@ -28,6 +28,7 @@ For more information about:
 
 - Conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md). 
 - Windows 10 devices in the workplace and the enhanced experiences when registered with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
+- Windows 10 Enterprise E3 in CSP, see the [Windows 10 Enterprise E3 in CSP Overview](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## Before you begin
@@ -132,7 +133,10 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later. 
+The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
+
+- Uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+- Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
@@ -298,7 +302,7 @@ In the claim above,
 
 
 For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
-To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -414,7 +418,7 @@ The following script helps you with the creation of the issuance transform rules
     ]
     => issue(
         Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
-        Value = "http://<verified-domain-name>/adfs/services/trust/"
+        Value = "http://' + $oneOfVerifiedDomainNames + '/adfs/services/trust/"
     );'
     }
 
@@ -457,7 +461,7 @@ The following script helps you with the creation of the issuance transform rules
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$oneOfVerifiedDomainNames** in the script to **$true**.
+- If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
 ## Step 3: Enable Windows down-level devices
 
@@ -519,7 +523,9 @@ To avoid certificate prompts when users in register devices authenticate to Azur
 
 ## Step 4: Control deployment and rollout
 
-When you have completed the required steps, domain-joined devices are ready to automatically register with Azure AD. All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in. New devices register with Azure AD when the device restarts after the domain join operation completes.
+When you have completed the required steps, domain-joined devices are ready to automatically register with Azure AD. All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in. New devices register with Azure AD when the device restarts after the domain join operation is completed.
+
+Devices that were previously workplace-joined to Azure AD (for example for Intune) transition to “*Domain Joined, AAD Registered*”; however it takes some time for this process to complete across all devices due to the normal flow of domain and user activity.
 
 ### Remarks
 
@@ -561,7 +567,7 @@ The installer creates a scheduled task on the system that runs in the user’s c
 
 ## Step 5: Verify registered devices
 
-You can check successful registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](https://docs.microsoft.com/en-us/powershell/msonline/).
+You can check successful registered devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 The output of this cmdlet shows devices registered in Azure AD. To get all devices, use the **-All** parameter, and then filter them using the **deviceTrustType** property. Domain joined devices have a value of **Domain Joined**.
 

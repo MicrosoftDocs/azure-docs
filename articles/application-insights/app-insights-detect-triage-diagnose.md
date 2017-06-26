@@ -1,7 +1,7 @@
 ---
 title: Detect and diagnose web app issues - Azure Application Insights | Microsoft Docs
 description: Analyse crashes and detect  and diagnose performance issues in your applications
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: ''
 manager: carmonm
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
+ms.date: 05/21/2017
+ms.author: cfreeman
 
 ---
 # Detect, Triage, and Diagnose with Application Insights
@@ -149,18 +149,6 @@ Exceptions and events show up in the [Diagnostic Search](app-insights-diagnostic
 
 ![In Diagnostic Search, use filters to show particular types of data](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoring user activity
-When response time is consistently good and there are few exceptions, the dev team can move on to usability. They can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
-
-For example, a typical user journey through the web site has a clear "funnel." Many customers look at the rates of different types of loan. A smaller number go on to fill in the quotation form. Of those who get a quotation, a few go ahead and take out the loan.
-
-![Page view counts](./media/app-insights-detect-triage-diagnose/12-funnel.png)
-
-By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases, there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
-
-Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. TrackEvent() can be used to count any user actions, from the fine detail of individual button clicks, to significant achievements such as paying off a loan.
-
-The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
 
 ## Proactive monitoring
 Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
@@ -211,8 +199,23 @@ Fabrikam Bank's development team take a more structured approach to performance 
 * They set performance targets in terms of specific measures in the Application Insights overview page.
 * They design performance measures into the application from the start, such as the metrics that measure user progress through 'funnels.'  
 
-## Usage
-Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. [Read more](app-insights-web-track-usage.md).
+
+## Monitoring user activity
+When response time is consistently good and there are few exceptions, the dev team can move on to usability. They can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
+
+Application Insights can also be used to learn what users do with an app. Once it's running smoothly, the team would like to know which features are the most popular, what users like or have difficulty with, and how often they come back. That will help them prioritize their upcoming work. And they can plan to measure the success of each feature as part of the development cycle. 
+
+For example, a typical user journey through the web site has a clear "funnel." Many customers look at the rates of different types of loan. A smaller number go on to fill in the quotation form. Of those who get a quotation, a few go ahead and take out the loan.
+
+![Page view counts](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+
+By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases, there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
+
+Whatever the reasons, the data helps the team work out what users are doing. More tracking calls can be inserted to work out more detail. TrackEvent() can be used to count any user actions, from the fine detail of individual button clicks, to significant achievements such as paying off a loan.
+
+The team is getting used to having information about user activity. Nowadays, whenever they design a new feature, they work out how they will get feedback about its usage. They design tracking calls into the feature from the start. They use the feedback to improve the feature in each development cycle.
+
+[Read more about tracking usage](app-insights-usage-overview.md).
 
 ## Your applications
 So that's how one team use Application Insights not just to fix individual issues, but to improve their development lifecycle. I hope it has given you some ideas about how Application Insights can help you with application performance management in your own applications.

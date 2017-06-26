@@ -9,7 +9,7 @@
 # Get started
 ## [Create a VM using the portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
-## [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Install Azure PowerShell](/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 
 # How to
@@ -88,7 +88,7 @@
 ## [Reset RDP password](reset-rdp.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
@@ -99,6 +99,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

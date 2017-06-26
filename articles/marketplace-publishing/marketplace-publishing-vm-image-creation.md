@@ -184,7 +184,7 @@ To learn more about VM images, review the following blog posts:
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-* [How to setup PowerShell](/powershell/azureps-cmdlets-docs)
+* [How to setup PowerShell](/powershell/azure/overview)
 * [How to setup Azure CLI](../cli-install-nodejs.md)
 
 ### 4.1 Create a user VM image
@@ -192,15 +192,15 @@ To learn more about VM images, review the following blog posts:
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
@@ -355,9 +355,9 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
     f. In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
 
-        - Make sure that your image file name and **".vhd"** are in the URI.
-        - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
-        - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+       - Make sure that your image file name and **".vhd"** are in the URI.
+       - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
+       - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
 
 11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 

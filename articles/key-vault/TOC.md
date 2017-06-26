@@ -14,24 +14,32 @@
 ### [Service limits](key-vault-service-limits.md)
 ### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### Overviews
+#### [Security worlds overview](key-vault-ovw-security-worlds.md)
+#### [Soft-delete overview](key-vault-ovw-soft-delete.md)
+#### [Storage account keys overview](key-vault-ovw-storage-keys.md)
+#### [Throttling overview](key-vault-ovw-throttling.md)
 
 ## Manage
-### [Azure Key Vault Logging](key-vault-logging.md)
+### [Azure Key Vault logging](key-vault-logging.md)
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
+### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
 ## Automate
-### [Azure Automation](automation-manage-key-vault.md)
-### [Create and Manage using CLI](key-vault-manage-with-cli.md)
+### [Azure automation](automation-manage-key-vault.md)
+### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure CLI 2.0](/cli/azure/keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Related
@@ -41,8 +49,9 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
-## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.technet.com/b/kv/)
+## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)

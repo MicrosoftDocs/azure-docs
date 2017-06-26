@@ -19,7 +19,7 @@ ms.author: ryansoc
 ---
 # Azure Government Compute
 ## Virtual Machines
-For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
 The products (VMs) are available in Azure Government:

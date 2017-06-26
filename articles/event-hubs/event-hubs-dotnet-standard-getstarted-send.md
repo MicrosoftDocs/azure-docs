@@ -1,9 +1,9 @@
 ---
-title: Send events to Azure Event Hubs by using .NET Standard | Microsoft Docs
+title: Send events to Azure Event Hubs using .NET Standard | Microsoft Docs
 description: Get started sending events to Event Hubs in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,29 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: jotaub
+ms.date: 03/27/2017
+ms.author: sethm
+
 ---
 
 # Get started sending messages to Azure Event Hubs in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-This tutorial shows how to write a .NET Core console application that sends a set of messages to an Event Hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your Event Hub values. Or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that sends a set of messages to an event hub. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) solution as-is, replacing the `EhConnectionString` and `EhEntityPath` strings with your event hub values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
-* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
+* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 * An Azure subscription.
-* An Event Hubs namespace.
+* An event hub namespace.
 
-To send messages to an Event Hub, we will use Visual Studio to write a C# console application.
+To send messages to an event hub, we will use Visual Studio to write a C# console application.
 
-## Create an Event Hubs namespace and an Event Hub
+## Create an Event Hubs namespace and an event hub
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and an Event Hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the event hub type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.
 
 ## Create a console application
 
@@ -47,16 +48,17 @@ Start Visual Studio. From the **File** menu, click **New**, and then click **Pro
 
 Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package to your project.
 
-## Write some code to send messages to the Event Hub
+## Write some code to send messages to the event hub
 
 1. Add the following `using` statements to the top of the Program.cs file.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
 	using System.Text;
+	using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual Event Hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the Event Hub.
+2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual event hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the event hub.
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -88,10 +90,10 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-4. Add a new method named `SendMessagesToEventHub` to the `Program` class like the following:
+4. Add a new method named `SendMessagesToEventHub` to the `Program` class, as follows:
 
     ```csharp
-    // Creates an Event Hub client and sends 100 messages to the event hub.
+    // Creates an event hub client and sends 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -161,7 +163,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	            Console.ReadLine();
 	        }
 
-	        // Creates an Event Hub client and sends 100 messages to the event hub.
+	        // Creates an event hub client and sends 100 messages to the event hub.
 	        private static async Task SendMessagesToEventHub(int numMessagesToSend)
 	        {
 	            for (var i = 0; i < numMessagesToSend; i++)
@@ -188,14 +190,14 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 
 6. Run the program, and ensure that there are no errors.
 
-Congratulations! You have now sent messages to an Event Hub.
+Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
 * [Receive events from Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png

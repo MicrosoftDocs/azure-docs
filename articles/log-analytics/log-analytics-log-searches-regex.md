@@ -18,31 +18,31 @@ ms.author: bwren
 ---
 # Using regular expressions to filter log searches in Log Analytics
 
-[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expression) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
+[Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expressions) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
 
 This article provides details on the regular expression syntax used by Log Analytics.
 
 
 ## RegEx keyword
 
-Use the following syntax to use the **RegEx** keyword in a log search.  You can use the other sections in this article to determine the syntax of the regular expression itself. 
+Use the following syntax to use the **RegEx** keyword in a log search.  You can use the other sections in this article to determine the syntax of the regular expression itself.
 
 	field:Regex("Regular Expression")
 	field=Regex("Regular Expression")
 
-For example, to use a regular expression to return alert records with a type of *Warning* or *Error*, you would use the following log search. 
+For example, to use a regular expression to return alert records with a type of *Warning* or *Error*, you would use the following log search.
 
 	Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## Partial matches
 Note that the regular expression must match the entire text of the property.  Partial matches will not return any records.  For example, if you were trying to return records from a computer named srv01.contoso.com, the following log search would **not** return any records.
 
-	Computer=RegEx("srv..") 
+	Computer=RegEx("srv..")
 
-This is because only the first part of the name matches the regular expression.  The following two log searches would return records from this computer because they match the entire name. 
+This is because only the first part of the name matches the regular expression.  The following two log searches would return records from this computer because they match the entire name.
 
 	Computer=RegEx("srv..@")
-	Computer=RegEx("srv...contoso.com") 
+	Computer=RegEx("srv...contoso.com")
 
 ## Characters
 Specify different characters.

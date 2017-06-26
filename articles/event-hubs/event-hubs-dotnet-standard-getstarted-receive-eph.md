@@ -1,9 +1,9 @@
 ---
-title: Receive events from Azure Event Hubs by using .NET Standard | Microsoft Docs
-description: Get started receiving messages with EventProcessorHost in .NET Standard
+title: Receive events from Azure Event Hubs using .NET Standard | Microsoft Docs
+description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,28 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
-ms.author: jotaub;sethm
+ms.date: 03/27/2017
+ms.author: sethm
+
 ---
 
 # Get started receiving messages with the Event Processor Host in .NET Standard
 
 > [!NOTE]
-> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an Event Hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) solution as-is, replacing the strings with your Event Hub and storage account values. Or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
-* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015, but Visual Studio 2017 is also supported.
+* [Microsoft Visual Studio 2015 or 2017](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017, but Visual Studio 2015 is also supported.
 * [.NET Core Visual Studio 2015 or 2017 tools](http://www.microsoft.com/net/core).
 * An Azure subscription.
 * An Azure Event Hubs namespace.
 * An Azure storage account.
 
-## Create an Event Hubs namespace and an Event Hub  
+## Create an Event Hubs namespace and an event hub  
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.  
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace for the Event Hubs type, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), and then proceed with the following steps.  
 
 ## Create an Azure storage account  
 
@@ -49,32 +50,9 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a console application
 
-1. Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
+Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
 
-	![New project][2]
-
-2. In Solution Explorer, double-click the **project.json** file to open it in the Visual Studio editor.
-3. Add the string `"portable-net45+win8"` to the `"imports"` declaration, within the `"frameworks"` section. That section should now appear as follows. This string is necessary due to the Azure Storage dependency on OData:
-
-	```json
-	"frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-	```
-
-4. From the **File** menu, click **Save All**.
-
-Note that this tutorial shows how to write a .NET Core application. If you want to target the full .NET Framework, add the following line of code to the project.json file, in the `"frameworks"` section:
-
-```json
-"net451": {
-},
-```
+![New project][2]
 
 ## Add the Event Hubs NuGet package
 
@@ -89,9 +67,9 @@ Add the following NuGet packages to the project:
 2. Open the SimpleEventProcessor.cs file and add the following `using` statements to the top of the file.
 
     ```csharp
-	using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+	using System.Threading.Tasks;
     ```
 
 3. Implement the `IEventProcessor` interface. Replace the entire contents of the `SimpleEventProcessor` class with the following code:
@@ -137,9 +115,10 @@ Add the following NuGet packages to the project:
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+	using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string, Event Hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -229,13 +208,13 @@ Add the following NuGet packages to the project:
 
 4. Run the program, and ensure that there are no errors.
 
-Congratulations! You have now received messages from an Event Hub by using the Event Processor Host.
+Congratulations! You have now received messages from an event hub by using the Event Processor Host.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png

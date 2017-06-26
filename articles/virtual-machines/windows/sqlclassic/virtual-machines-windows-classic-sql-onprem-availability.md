@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 05/31/2017
 ms.author: mikeray
 
 ---
@@ -27,13 +27,16 @@ This tutorial assumes you have the following:
 
 * An active Azure subscription. You can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An existing Always On Availability Group on-premises. For more information on Availability Groups, see [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx).
-* Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Azure classic portal](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Create a Site-to-Site connection using the Azure portal (classic)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Add Azure Replica Wizard
 This section shows you how to use the **Add Azure Replica Wizard** to extend your Always On Availability Group solution to include Azure replicas.
+
+> [!IMPORTANT]
+> The **Add Azure Replica Wizard** only supports virtual machines created with the Classic deployment model. New VM deployments should use the newer Resource Manager model. If you are using VMs with Resource Manager, then you must manually add the secondary Azure replica using Transact-SQL commmands (not shown here). This wizard will not work in the Resource Manager scenario.
 
 1. From within SQL Server Management Studio, expand **Always On High Availability** > **Availability Groups** > **[Name of your Availability Group]**.
 2. Right-click **Availability Replicas**, then click **Add Replica**.

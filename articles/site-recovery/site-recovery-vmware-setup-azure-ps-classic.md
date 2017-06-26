@@ -12,8 +12,8 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 2/2/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: anoopkv
 ---
 
@@ -25,7 +25,7 @@ ms.author: anoopkv
 During failback, it is recommended to deploy Process Server in Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure, and manage the process servers running in Azure.
 
 > [!NOTE]
-> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> This article is to be used if you used Classic as the deployment model for the virtual machines during failover. If you used Resource Manager as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
 ## Prerequisites
 

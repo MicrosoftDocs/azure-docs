@@ -3,7 +3,7 @@ title: Working with Reliable Collections | Microsoft Docs
 description: Learn the best practices for working with Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: JeffreyRichter
+author: rajak
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: jeffreyr
+ms.date: 04/19/2017
+ms.author: rajak
 
 ---
 # Working with Reliable Collections

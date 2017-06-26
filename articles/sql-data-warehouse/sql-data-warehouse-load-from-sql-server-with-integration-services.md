@@ -3,7 +3,7 @@ title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Microsof
 description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
 ms.custom: loading
+ms.date: 03/30/2017
+ms.author: cakarst;douglasl;barbkess
+
 
 ---
 # Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
@@ -51,14 +52,14 @@ SQL Server Integration Services (SSIS) is a flexible set of tools that provides 
 To step through this tutorial, you need:
 
 1. **SQL Server Integration Services (SSIS)**. SSIS is a component of SQL Server and requires an evaluation version or a licensed version of SQL Server. To get an evaluation version of SQL Server 2016 Preview, see [SQL Server Evaluations][SQL Server Evaluations].
-2. **Visual Studio**. To get the free Visual Studio 2015 Community Edition, see [Visual Studio Community][Visual Studio Community].
-3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio 2015, see [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
+2. **Visual Studio**. To get the free Visual Studio Community Edition, see [Visual Studio Community][Visual Studio Community].
+3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio, see [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
 4. **Sample data**. This tutorial uses sample data stored in SQL Server in the AdventureWorks sample database as the source data to be loaded into SQL Data Warehouse. To get the AdventureWorks sample database, see [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases].
 5. **A SQL Data Warehouse database and permissions**. This tutorial connects to a SQL Data Warehouse instance and loads data into it. You have to have permissions to create a table and to load data.
 6. **A firewall rule**. You have to create a firewall rule on SQL Data Warehouse with the IP address of your local computer before you can upload data to the SQL Data Warehouse.
 
 ## Step 1: Create a new Integration Services project
-1. Launch Visual Studio 2015.
+1. Launch Visual Studio.
 2. On the **File** menu, select **New | Project**.
 3. Navigate to the **Installed | Templates | Business Intelligence | Integration Services** project types.
 4. Select **Integration Services Project**. Provide values for **Name** and **Location**, and then select **OK**.

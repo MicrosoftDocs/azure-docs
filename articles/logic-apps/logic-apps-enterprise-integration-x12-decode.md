@@ -1,6 +1,6 @@
 ---
 title: Decode X12 messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate XML for transaction sets with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
 
-With the Decode X12 message connector, you can validate EDI and partner-specific properties, 
-generate an XML document for each transaction set, 
-and generate acknowledgment for processed transactions. 
+With the Decode X12 message connector, you can validate the envelope against a trading partner agreement, validate EDI and partner-specific properties, split interchanges into transactions sets or preserve entire interchanges, and generate acknowledgments for processed transactions. 
 To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start
@@ -82,7 +80,6 @@ select the X12 flat file message to decode.
 The X12 Decode connector performs these tasks:
 
 * Validates the envelope against trading partner agreement
-* Generates an XML document for each transaction set.
 * Validates EDI and partner-specific properties
   * EDI structural validation, and extended schema validation
   * Validation of the structure of the interchange envelope.
@@ -93,14 +90,29 @@ The X12 Decode connector performs these tasks:
   * Checks the interchange control number against previously received interchanges.
   * Checks the group control number against other group control numbers in the interchange.
   * Checks the transaction set control number against other transaction set control numbers in that group.
-* Converts the entire interchange to XML 
-  * Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, X12 Decode suspends only those transaction sets.
-  * Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange.
-  * Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. X12 Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-  * Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange, 
+* Splits the interchange into transaction sets, or preserves the entire interchange:
+  * Split Interchange as transaction sets - suspend transaction sets on error: 
+  Splits interchange into transaction sets and parses each transaction set. 
+  The X12 Decode action outputs only those transaction sets 
+  that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+  * Split Interchange as transaction sets - suspend interchange on error: 
+  Splits interchange into transaction sets and parses each transaction set. 
+  If one or more transaction sets in the interchange fail validation, 
+  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  * Preserve Interchange - suspend transaction sets on error: 
+  Preserve the interchange and process the entire batched interchange. 
+  The X12 Decode action outputs only those transaction sets that fail validation to `badMessages`, 
+  and outputs the remaining transactions sets to `goodMessages`.
+  * Preserve Interchange - suspend interchange on error: 
+  Preserve the interchange and process the entire batched interchange. 
+  If one or more transaction sets in the interchange fail validation, 
+  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`. 
 * Generates a Technical and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
   * A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
+
+## View the swagger
+See the [swagger details](/connectors/x12/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

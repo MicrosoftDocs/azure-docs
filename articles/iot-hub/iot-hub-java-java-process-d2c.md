@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
@@ -56,7 +56,8 @@ In this section, you modify the simulated device app you created in the [Get sta
 
         public void run()  {
             try {
-                double avgWindSpeed = 10; // m/s
+                double minTemperature = 20;
+                double minHumidity = 60;
                 Random rand = new Random();
 
                 while (true) {
@@ -67,10 +68,12 @@ In this section, you modify the simulated device app you created in the [Get sta
                         msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+                        double currentTemperature = minTemperature + rand.nextDouble() * 15;
+                        double currentHumidity = minHumidity + rand.nextDouble() * 20; 
                         TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
                         telemetryDataPoint.deviceId = deviceId;
-                        telemetryDataPoint.windSpeed = currentWindSpeed;
+                        telemetryDataPoint.temperature = currentTemperature;
+                        telemetryDataPoint.humidity = currentHumidity;
 
                         msgStr = telemetryDataPoint.serialize();
                         msg = new Message(msgStr);
@@ -221,7 +224,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-c2d]: iot-hub-java-java-process-d2c.md
+[lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java

@@ -13,12 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 
 ---
 
 # File and compression formats supported by Azure Data Factory
+*This topic applies to the following connectors: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [File System](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), and [SFTP](data-factory-sftp-connector.md).*
+
 Azure Data Factory supports the following file format types:
 
 * [Text format](#text-format)
@@ -43,7 +45,7 @@ If you want to read from a text file or write to a text file, set the `type` pro
 | treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
 
 ### TextFormat example
-In the following JSON definition for a dataset, some of the optional properties are specified. 
+In the following JSON definition for a dataset, some of the optional properties are specified.
 
 ```json
 "typeProperties":
@@ -76,7 +78,7 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 * You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
 
 ## JSON format
-To **import/export a JSON file as-is into/from DocumentDB**, the see [Import/export JSON documents](data-factory-azure-documentdb-connector.md#importexport-json-documents) section in [Move data to/from Azure DocumentDB](data-factory-azure-documentdb-connector.md) article. 
+To **import/export a JSON file as-is into/from Azure Cosmos DB**, the see [Import/export JSON documents](data-factory-azure-documentdb-connector.md#importexport-json-documents) section in [Move data to/from Azure Cosmos DB](data-factory-azure-documentdb-connector.md) article.
 
 If you want to parse the JSON files or write the data in JSON format, set the `type` property in the `format` section to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
 
@@ -448,7 +450,7 @@ Note the following points:
 * Complex data types are not supported (MAP, LIST)
 * Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
 
-## Compression support 
+## Compression support
 Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. Currently, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
 
 To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   

@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing Media Services Assets across Multiple Storage Accounts | Microsoft Docs
 description: This articles give you guidance on how to manage media services assets across multiple storage accounts.
 services: media-services
@@ -23,7 +23,7 @@ Starting with Microsoft Azure Media Services 2.2, you can attach multiple storag
 * Load balancing your assets across multiple storage accounts.
 * Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
 
-This topic demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
+This topic demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ## Considerations
 When attaching multiple storage accounts to your Media Services account, the following considerations apply:
@@ -39,7 +39,7 @@ Media Services uses the value of the **IAssetFile.Name** property when building 
 
 ## To attach storage accounts  
 
-To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), as shown in the following example.
+To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](/powershell/module/azurerm.media), as shown in the following example.
 
 	$regionName = "West US"
 	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

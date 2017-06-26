@@ -13,56 +13,30 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 06/16/2017
 ms.author: yurid
 
 ---
-# Security alerts by type in Azure Security Center
-This article helps you to understand the different types of security alerts that are available in Azure Security Center. For more information on how to manage alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
+# Understanding security alerts in Azure Security Center
+This article helps you to understand the different types of security alerts and related insights that are available in Azure Security Center. For more information on how to manage alerts and incidents, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > To set up advanced detections, upgrade to Azure Security Center Standard. A free 60-day trial is available. To upgrade, select **Pricing Tier** in the [security policy](security-center-policies.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## What type of alerts are available?
-Azure Security Center provides a variety of alerts that align with the stages of the cyber kill chain. The following illustration shows various alerts as they relate to some of these stages.
-
-![Kill chain](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Target and attack**
-
-* Inbound RDP/SSH attacks
-* Application and DDoS attacks (WAF partners)
-* Intrusion detection (NG Firewall partners)
-
-**Install and exploit**
-
-* Known malware signatures (AM partners)
-* In-memory malware and exploit attempts
-* Suspicious process execution
-* Evasive maneuvers to avoid discovery
-* Lateral movement
-* Internal reconnaissance
-* Suspicious PowerShell activity
-
-**Post breach**  
-
-* Communication to a known malicious IP (data exfiltration or command and control)
-* Using compromised resources to mount additional attacks (outbound port scanning RDP/SSH brute force attacks, and spam)
-
-Different types of attacks are associated with each stage, and they target different subsystems. To address attacks during these stages, Security Center has three categories of alerts:
+Azure Security Center uses a variety of [detection capabilities](security-center-detection-capabilities.md) to alert customers to potential attacks targeting their environments. These alerts contain valuable information about the what triggered the alert, the resources targeted, and the source of the attack. The information included in an alert varies based on the type of analytics used to detect the threat. Incidents may also contain additional contextual information that can be useful when investigating a threat.  This article provides information about the following alert types:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
 * Resource Analysis
+* Contextual Information
 
 ## Virtual machine behavioral analysis
 Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine event logs. For example, Process Creation Events and Login Events. In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
 
 > [!NOTE]
 > For more information on how Security Center detection capabilities work, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
->
 >
 
 ### Crash analysis
@@ -144,11 +118,63 @@ This is an example of this type of alert:
 ![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### Multiple domain accounts queried
-Security Center can detect multiple attempts to query domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
+Security Center can detect multiple attempts to query Active Directory domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify the users, identify the domain admin accounts, identify the computers that are domain controllers, and also identify the potential domain trust relationship with other domains.
 
 This is an example of this type of alert:
 
 ![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### Local Administrators group members were enumerated
+
+Security Center is going to trigger an alert when the security event 4798, in Windows Server 2016 and Windows 10, is trigged. This happens when local administrator groups are enumerated, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the identity of users with administrative privileges.
+
+This is an example of this type of alert:
+
+![Local admin](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### Anomalous mix of upper and lower case characters
+
+Security Center will trigger an alert when it detects the use of a mix of upper and lower case characters at the command line. Some attackers may use this technique to hide from case-sensitive or hash based machine rule.
+
+This is an example of this type of alert:
+
+![Anomalous mix](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### Suspected Kerberos Golden Ticket attack
+
+A compromised [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) key can be used by an attacker to create Kerberos "Golden Tickets," allowing the attacker to impersonate any user they wish. Security Center is going to trigger an alert when it detects this type of activity.
+
+> [!NOTE] 
+> For more information about Kerberos Golden Ticket, read [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+This is an example of this type of alert:
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### Suspicious account created
+
+Security Center will trigger an alert when an account is created with close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account to avoid being noticed by human verification.
+ 
+This is an example of this type of alert:
+
+![Suspicious account](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### Suspicious Firewall rule created
+
+Attackers might try to circumvent host security by creating custom firewall rules to allow malicious applications to communicate with command and control, or to launch attacks through the network via the compromised host. Security Center will trigger an alert when it detects that a new firewall rule was created from an executable file in a suspicious location.
+ 
+This is an example of this type of alert:
+
+![Firewall rule](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### Suspicious combination of HTA and PowerShell
+
+Security Center will trigger an alert when it detects that a Microsoft HTML Application Host (HTA) is launching PowerShell commands. This is a technique used by attackers to launch malicious PowerShell scripts.
+ 
+This is an example of this type of alert:
+
+![HTA and PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## Network analysis
 Security Center network threat detection works by automatically collecting security information from your Azure IPFIX (Internet Protocol Flow Information Export) traffic. It analyzes this information, often correlating information from multiple sources, to identify threats.
@@ -202,6 +228,18 @@ This alert is triggered when an application error is detected on a database. Thi
 This alert is triggered when an access event from an unfamiliar IP address was detected on the server, which was not seen in the last period.
 
 ![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## Contextual information
+During an investigation, analysts need extra context to reach a verdict about the nature of the threat and how to mitigate it.  For example, a network anomaly was detected, but without understanding what else is happening on the network or with regard to the targeted resource it is every hard to understand what actions to take next. To aid with that, a Security Incident may include artifacts, related events and information that may help the investigator. The availability of additional information will vary based on the type of threat detected and the configuration of your environment, and will not be available for all Security Incidents.
+
+If additional information is available, it will be shown in the Security Incident below the list of alerts. This could contain information like:
+
+- Log clear events
+- PNP device plugged from unknown device
+- Alerts which are not actionable 
+
+![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## See also
 In this article, you learned about the different types of security alerts in Security Center. To learn more about Security Center, see the following:

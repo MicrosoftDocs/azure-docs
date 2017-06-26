@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI | Microsoft Docs
-description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI
+title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI 2.0 | Microsoft Docs
+description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,25 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher Azure CLI
+# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher Azure CLI 2.0
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
+Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
+
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## Before you begin
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
+
+For a list of supported gateway types visit, [Supported Gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## Overview
 
@@ -42,35 +48,43 @@ Resource troubleshooting provides the ability troubleshoot issues that arise wit
 In this example, resource troubleshooting is being ran on a Connection. You can also pass it a Virtual Network Gateway. The following cmdlet lists the vpn-connections in a resource group.
 
 ```azurecli
-azure network vpn-connection list -g resourceGroupName
+az network vpn-connection list --resource-group resourceGroupName
 ```
 
-You can also run the command to see the connections in a subscription.
+Once you have the name of the connection, you can run this command to get its resource Id:
 
 ```azurecli
-azure network vpn-connection list -s subscription
-```
-
-Once you have the name of the storage account, you can run this command to get its resource Id:
-
-```azurecli
-azure network vpn-connection show -g resourceGroupName -n connectionName
+az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
 ## Create a storage account
 
 Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. In this step, we create a storage account, if an existing storage account exists you can use it.
 
-```azurecli
-azure storage account create -n storageAccountName -l location -g resourceGroupName
-```
+1. Create the storage account
+
+    ```azurecli
+    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
+    ```
+
+1. Get the storage account keys
+
+    ```azurecli
+    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
+    ```
+
+1. Create the container
+
+    ```azurecli
+    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
+    ```
 
 ## Run Network Watcher resource troubleshooting
 
-You troubleshoot resources with the `network watcher troubleshoot` cmdlet. We pass the cmdlet the resource group, the name of the Network Watcher, the Id of the connection, the Id of the storage account, and the path to the blob to store the troubleshoot results in.
+You troubleshoot resources with the `az network watcher troubleshooting` cmdlet. We pass the cmdlet the resource group, the name of the Network Watcher, the Id of the connection, the Id of the storage account, and the path to the blob to store the troubleshoot results in.
 
 ```azurecli
-azure network watcher -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
+az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
 Once you run the cmdlet, Network Watcher reviews the resource to verify the health. It returns the results to the shell and stores logs of the results in the storage account specified.

@@ -26,7 +26,7 @@ Refernce article:
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
-You can also [attach a data disk to a Linux VM in the Azure portal](../../virtual-machines-linux-attach-disk-portal.md).
+You can also [attach a data disk to a Linux VM in the Azure portal](../../linux/attach-disk-portal.md).
 
 Before you attach a disk, review these tips:
 
@@ -64,7 +64,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
-    ![Open Server Manager](./media/attach-disk/fileandstorageservices.png)
+    ![Open Server Manager](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Select **Disks**.
 4. The **Disks** section lists the disks. Most often, a virtual machine has disk 0, disk 1, and disk 2. Disk 0 is the operating system disk, disk 1 is the temporary disk, and disk 2 is the data disk newly attached to the virtual machine. The data disk lists the Partition as **Unknown**.

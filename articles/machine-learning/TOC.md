@@ -114,7 +114,6 @@
 #### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
 #### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
-#### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Experiment lifecycle management](machine-learning-version-control.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Author custom R modules](machine-learning-custom-r-modules.md)
 ##### [Execute Python scripts](machine-learning-execute-python-scripts.md)
 
-## Deploy and consume models
+## Operationalize models
 ### [Overview](machine-learning-deploy-consume-web-service-guide.md)
 ### Deploy models
-#### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Deploy a web service](machine-learning-publish-a-machine-learning-web-service.md)
+#### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Prepare for deployment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Use external data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Deploy in multi-regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Use web service parameters](machine-learning-web-service-parameters.md)
 #### [Enable logging](machine-learning-web-services-logging.md)
 ### Manage web services
-#### [Create endpoints](machine-learning-create-endpoint.md)
 #### [Use Web Services portal](machine-learning-manage-new-webservice.md)
 #### [Manage with APIs](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Create endpoints](machine-learning-create-endpoint.md)
 #### [Scaling](machine-learning-scaling-webservice.md)
 ### Retrain models
 #### [Overview](machine-learning-retrain-machine-learning-model.md)
@@ -155,7 +155,7 @@
 #### [Retrain an existing web service](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Troubleshoot](machine-learning-troubleshooting-retraining-models.md)
 ### Consume models
-#### [Overview](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Overview](machine-learning-consume-web-services.md)
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
@@ -173,7 +173,7 @@
 
 # Reference
 
-## [PowerShell module (New)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST API reference](/rest/api/machinelearning)
@@ -196,14 +196,7 @@
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
-#### [Text analytics](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Recommendations
-##### [Overview](machine-learning-recommendation-api-sample-application.md)
-##### [Quick start](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Reference](machine-learning-recommendation-api-documentation.md)
-##### [Use JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [FAQ](machine-learning-recommendation-api-faq.md)
 #### Predictive maintenance
 ##### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
@@ -214,6 +207,7 @@
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)

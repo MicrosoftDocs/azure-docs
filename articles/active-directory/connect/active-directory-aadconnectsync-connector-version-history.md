@@ -1,4 +1,4 @@
----
+﻿---
 title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 06/16/2017
 ms.author: billmath
 
 ---
@@ -34,11 +34,53 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
+## 1.1.552.0 (AADConnect 1.1.553.0)
+
+### Fixed issues:
+
+* Generic Web Services:
+  * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. Because of this, there were problems with serialization this Json array for the REST request.
+  * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
+
+### Enhancements:
+
+* Generic SQL:
+  * **Scenario: Reimplemeted:** "*" feature
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### Fixed issues:
+
+* Generic Web Services:
+  * Can’t import Server configuration if WebService Connector is present
+  * WebService Connector is not working with multiple  Web Services
+
+* Generic SQL:
+  * No object types are listed for single value referenced attribute
+  * Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
+  * OverflowException in GSQL connector with DB2 on AS/400
+
+Lotus:
+  * Added option to enable\disable searching OUs before opening GlobalParameters page
+
 ## 1.1.443.0
 
 Released: 2017 March
 
 ### Enhancements
+
 * Generic SQL:</br>
   **Scenario Symptoms:**  It is a well-known limitation with the SQL Connector where we only allow a reference to one object type and require cross reference with members. </br>
   **Solution description:** In the processing step for references where "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.
@@ -69,7 +111,6 @@ Could not find a part of the path
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Generic LDAP:
- * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  * GLDAP Connector does not see all attributes in AD LDS
  * Wizard breaks when no UPN attributes are detected from the LDAP directory schema
  * Delta Imports Failing with discovery errors not present during full import, when "objectclass" attribute is not selected
@@ -78,6 +119,7 @@ LDAP MA. They showed only objects from RootDSE partition.
 
 
 * Generic SQL:
+ * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
  * When exporting deleted\added values of multivalued attribute, they are not deleted\added in data source.  
 
 

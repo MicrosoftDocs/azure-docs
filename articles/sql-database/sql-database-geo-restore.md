@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-geo-restore-portal
+redirect_url: /azure/sql-database/sql-database-restore-database-portal
 --- 

@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
-ms.author: pullabhk;markg;
+ms.date: 06/08/2017
+ms.author: pullabhk;markgal;
 
 ---
 
@@ -22,8 +22,13 @@ ms.author: pullabhk;markg;
 
 You can troubleshoot errors encountered while using Azure Backup Server with information listed in the following table.
 
->
->
+
+## Installation issues
+
+| Operation | Error details | Workaround |
+|-----------|---------------|------------|
+|Installation | Setup could not update registry metadata. This update failure could lead to over usage of storage consumption. To avoid this please update the ReFS Trimming registry entry. | Adjust the registry key, SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim. Set the value Dword to 1. |
+|Installation | Setup could not update registry metadata. This update failure could lead to over usage of storage consumption. To avoid this please update the Volume SnapOptimization registry entry. | Create the registry key, SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds, with an empty string value. |
 
 ## Registration and Agent related issues
 | Operation | Error details | Workaround |
@@ -39,6 +44,7 @@ You can troubleshoot errors encountered while using Azure Backup Server with inf
 | Configuring Protection groups | DPM could not enumerate application component  on protected computer (Protected computer Name) | Click 'Refresh' on the configure protection group UI screen at the relevant datasource/component level |
 | Configuring Protection groups | Unable to configure protection | If the protected server is a SQL server, please check whether sysadmin role permissions have been provided to the system account (NTAuthority\System) on the protected computer as stated in [this article](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)
 | Configuring Protection groups | There is insufficient free space in the storage pool for this protection group | The disks which are added to the storage pool [should not contain a partition](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Delete any existing volumes on the disks and then add it to the storage pool|
+| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |**Cause:**<br/>This error comes when security settings are enabled, you try to reduce retention range below the minimum values specified above and you are on unsupported  version (below MAB version 2.0.9052 and Azure Backup server update 1). <br/>**Recommended Action:**<br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly) to proceed with policy related udpates. Optionally, preferred approach would be to update backup agent and Azure Backup Server to leverage all the security updates. |
 
 ## Backup
 | Operation | Error details | Workaround |
@@ -51,3 +57,8 @@ You can troubleshoot errors encountered while using Azure Backup Server with inf
 | Backup | Backup failure for BMR | If BMR size is huge, retry after moving some application files to OS drive |
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested [here](https://technet.microsoft.com/library/hh757911.aspx)|
 
+## Change Passphrase
+| Operation | Error details | Workaround |
+| --- | --- | --- |
+| Change Passphrase |Security PIN entered is incorrect. Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
+| Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error comes when security settings are enabled, you try to change passphrase and you are on unsupported version.<br/>**Recommended Action:**<br/> To change passphrase, you must first update backup agent to minimum version minimum 2.0.9052 and Azure Backup server to minimum update 1, then enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
-ms.author: karolz@microsoft.com
+ms.author: karolz
 
 ---
 # Collect logs directly from an Azure Service Fabric service process
@@ -49,15 +49,15 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. Add the following packages: 
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
     * (to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
     * (we are going to send the logs to an Azure Application Insights resource)  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
     * (enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
 
 > [!NOTE]
-> `Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package. 
+> `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package. 
 
 After all the packages are installed, the next step is to configure and enable EventFlow in the service.
 

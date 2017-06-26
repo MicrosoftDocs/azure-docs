@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 
 ---
@@ -21,13 +21,13 @@ ms.author: gwallace
 # Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting.  Resource troubleshooting can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network gateway or a Connection and returns its findings.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
 This article takes you through the different management tasks that are currently available for resource troubleshooting.
 
@@ -40,10 +40,11 @@ ARMclient is used to call the REST API using PowerShell. ARMClient is found on c
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
+For a list of supported gateway types visit, [Supported Gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+
 ## Overview
 
 Network Watcher troubleshooting provides the ability troubleshoot issues that arise with Virtual Network gateways and Connections. When a request is made to the resource troubleshooting, logs are querying and inspected. When inspection is complete, the results are returned. The troubleshoot API requests are long running requests, which could take multiple minutes to return a result. Logs are stored in a container on a storage account.
-
 
 ## Log in with ARMClient
 

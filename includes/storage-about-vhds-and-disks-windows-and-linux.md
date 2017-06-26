@@ -1,17 +1,7 @@
-### Disk Persistence 
-
-The following table illustrates the different states for the different disks in an Azure VM and whether the data is persisted or not in each state.
-
-| Disk | Start | Stop/<br>Deallocate | Pause | Re-<br>boot | Shut-<br>down | Delete | Failure | Resize | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| OS Disk | Yes | Yes  | Yes | Yes | Yes  | No | No  | Yes | 
-| RAM  | Yes | Yes | Yes | Yes | No   | No | No | No | 
-| Local Temp Disk | Yes | No | Yes | No | No  | No | No | No | 
-| Attached Data Disk | Yes | Yes | Yes | Yes | Yes  | Yes | Yes | Yes | 
 
 ## About VHDs
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
 
 Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -37,7 +27,7 @@ For more information about using Standard Storage with VM disks, please see [Sta
 
 ### Premium storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
 
 ### Unmanaged disks
 
@@ -60,6 +50,7 @@ The following table provides a comparison of Premium vs Standard for both unmana
 | Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
 | Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
 | Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Unmanaged Disks: 1 GB – 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Max Throughput per Disk | 200 MB/s | 60 MB/s |
-| Max IOPS per Disk | 5000 IOPS | 500 IOPS |
+| Disk Size | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
+| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+

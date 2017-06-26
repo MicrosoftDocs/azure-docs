@@ -1,0 +1,440 @@
+- name: Linux VMs Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Virtual Machines
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create VM - Azure CLI
+    href: quick-create-cli.md
+  - name: Create VM - Portal
+    href: quick-create-portal.md
+  - name: Create VM - PowerShell
+    href: quick-create-powershell.md
+- name: Tutorials
+  items:
+  - name: 1 - Create / manage VMs
+    href: tutorial-manage-vm.md
+  - name: 2 - Create / manage disks
+    href: tutorial-manage-disks.md
+  - name: 3 - Automate configuration
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
+    href: tutorial-load-balancer.md
+  - name: 8 - Manage networking
+    href: tutorial-virtual-network.md
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
+  - name: 11 - Manage VM security
+    href: tutorial-azure-security.md
+  - name: 12 - Deploy Jenkins
+    href: tutorial-jenkins-github-docker-cicd.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: PowerShell
+    href: powershell-samples.md
+- name: Concepts
+  items:
+  - name: Azure-endorsed distributions
+    href: endorsed-distros.md
+  - name: Regions and availability
+    href: regions-and-availability.md
+  - name: Storage
+    href: azure-vm-storage-overview.md
+  - name: Networking
+    href: azure-vm-network-overview.md
+  - name: VM Scale Sets
+    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: Instance Metadata Service 
+    href: ../virtual-machines-instancemetadataservice-overview.md
+  - name: Containers
+    href: containers.md
+  - name: Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    items:
+    - name: Deployment models
+      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Templates for VMs
+      href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Linux agent
+    href: agent-user-guide.md
+  - name: Azure Security Center
+    href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Disaster recovery
+    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Planned maintenance
+    href: planned-maintenance.md
+    items:
+    - name: Preserving maintenance
+      href: maintenance-in-place.md
+    - name: Restarting maintenance
+      href: impactful-maintenance.md
+  - name: VM sizes
+    items:
+    - name: VM sizes overview
+      href: sizes.md
+      items:
+      - name: General purpose
+        href: sizes-general.md
+      - name: Compute optimized
+        href: sizes-compute.md
+      - name: Memory optimized
+        href: sizes-memory.md
+      - name: Storage optimized
+        href: sizes-storage.md
+      - name: GPU
+        href: sizes-gpu.md
+      - name: High performance compute
+        href: sizes-hpc.md
+        items:
+        - name: Compute-intensive sizes
+          href: a8-a9-a10-a11-specs.md
+    - name: Azure compute units (ACU)
+      href: acu.md
+    - name: Compute benchmark scores
+      href: compute-benchmark-scores.md
+  - name: Deployment considerations
+    items:
+    - name: Infrastructure guidelines
+      href: infrastructure-virtual-machine-guidelines.md
+    - name: Subscriptions and accounts
+      href: infrastructure-subscription-accounts-guidelines.md
+    - name: Naming
+      href: infrastructure-naming-guidelines.md
+    - name: Resource groups
+      href: infrastructure-resource-groups-guidelines.md
+    - name: Storage
+      href: infrastructure-storage-solutions-guidelines.md
+    - name: Networking
+      href: infrastructure-networking-guidelines.md
+    - name: Availability sets
+      href: infrastructure-availability-sets-guidelines.md
+    - name: Infrastructure example
+      href: infrastructure-example.md
+- name: How-to guides
+  items:
+  - name: Create VMs
+    items:
+    - name: VM creation overview
+      href: creation-choices.md
+    - name: Create a VM with CLI
+      href: quick-create-cli-nodejs.md
+    - name: Create a VM with template
+      href: create-ssh-secured-vm-from-template.md
+    - name: Copy a VM
+      href: copy-vm.md
+    - name: Move a VM between subscriptions
+      href: move-vm.md
+    - name: Create highly available VMs
+      href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md
+    - name: Ansible
+      items:
+      - name: Install and configure
+        href: ansible-install-configure.md
+      - name: Create basic VM
+        href: ansible-create-vm.md
+      - name: Create complete VM
+        href: ansible-create-complete-vm.md
+    - name: Deploy an app with VM template
+      items:
+      - name: Tutorial overview
+        href: dotnet-core-1-landing.md
+      - name: App architecture
+        href: dotnet-core-2-architecture.md
+      - name: Access and security
+        href: dotnet-core-3-access-security.md
+      - name: Availability and scale
+        href: dotnet-core-4-availability-scale.md
+      - name: App deployment
+        href: dotnet-core-5-app-deployment.md
+  - name: Configure VMs
+    items:
+    - name: Use cloud-init
+      href: using-cloud-init.md
+    - name: Add a user to a VM
+      href: add-user.md
+    - name: Resize a VM
+      href: change-vm-size.md
+    - name: Use tags
+      href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Tag a VM
+        href: tag.md
+    - name: Optimize your Linux VM
+      href: optimization.md
+    - name: Update Azure Linux agent
+      href: update-agent.md
+    - name: Backup using Recovery Services
+      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Join a RedHat VM to an Azure Active Directory Domain Service
+      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+  - name: Connect with SSH
+    items:
+    - name: Create SSH keys on Linux and Mac
+      href: mac-create-ssh-keys.md
+      items:
+      - name: Detailed steps
+        href: create-ssh-keys-detailed.md
+    - name: Use SSH keys with Windows for Linux VMs
+      href: ssh-from-windows.md
+    - name: Use Remote Desktop to connect to a Linux VM
+      href: use-remote-desktop.md
+  - name: Manage VM images
+    items:
+    - name: Find marketplace VM images
+      href: cli-ps-findimage.md
+    - name: Create custom VM images
+      href: create-upload-generic.md
+    - name: Upload custom VM images
+      href: upload-vhd.md
+    - name: Capture an existing VM into an image
+      href: capture-image.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
+    - name: Create Azure images
+      items:
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
+      - name: Debian
+        href: debian-create-upload-vhd.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: CentOS
+        href: create-upload-centos.md
+      - name: Oracle Linux
+        href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
+  - name: Manage VM storage
+    items:
+    - name: Azure Managed Disks
+      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: FAQs
+        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Copy files to a Linux VM
+      href: copy-files-to-linux-vm-using-scp.md
+    - name: Convert a VM to Managed Disks
+      href: convert-unmanaged-to-managed-disks.md
+    - name: Take a snapshot of a Managed Disk
+      href: snapshot-copy-managed-disk.md
+    - name: Add a disk
+      items:
+      - name: Azure CLI
+        href: add-disk.md
+      - name: Azure portal
+        href: attach-disk-portal.md
+    - name: Detach a disk
+      href: detach-disk.md
+    - name: Expand the OS disk
+      href: expand-disks.md
+    - name: Configure software RAID
+      href: configure-raid.md
+    - name: Configure LVM
+      href: configure-lvm.md
+    - name: Mount Azure File Storage using SMB
+      href: mount-azure-file-storage-on-linux-using-smb.md
+  - name: VM networking
+    items:
+    - name: Create virtual networks
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Deploy a VM into existing virtual network
+      items:
+      - name: Azure CLI
+        href: deploy-linux-vm-into-existing-vnet-using-cli.md
+      - name: Azure portal
+        href: deploy-linux-vm-into-existing-vnet-using-portal.md
+    - name: Create a VM with multiple NICs
+      href: multiple-nics.md
+    - name: Create a static public IP
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Configure ports, endpoints, and security
+      href: endpoints-in-resource-manager.md
+    - name: Allow access to a VM
+      href: nsg-quickstart.md
+    - name: Use FreeBSD's Packet Filter
+      href: freebsd-pf-nat.md
+    - name: DNS name resolution options
+      href: azure-dns.md
+    - name: Use internal DNS for VM name resolution
+      href: static-dns-name-resolution-for-linux-on-azure.md
+    - name: Create an FQDN
+      href: portal-create-fqdn.md
+    - name: Create user-defined routes
+      href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Scale and availability
+    items:
+    - name: VM availability
+      href: manage-availability.md
+    - name: Create a load balancer
+      href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Create multiple VMs with Scale Sets
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Vertically scale VMs with Azure Automation
+      href: vertical-scaling-automation.md
+    - name: VM Monitoring
+      href: vm-monitoring.md
+  - name: Manage VM security
+    items:
+    - name: Disable SSH passwords by configuring SSHD
+      href: mac-disable-ssh-password-usage.md
+    - name: Reset SSH access, manage users, and check disks
+      href: using-vmaccess-extension.md
+    - name: Use root privileges
+      href: use-root-privileges.md
+    - name: Encrypt a VM disk
+      href: encrypt-disks.md
+    - name: Apply policies to VMs
+      href: policy.md
+    - name: Set up Key Vault
+      href: key-vault-setup.md
+  - name: Use VM extensions
+    items:
+    - name: VM Extension overview
+      href: extensions-features.md
+    - name: Custom Script Extension
+      href: extensions-customscript.md
+    - name: OMS Agent Extension
+      href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
+  - name: Run applications
+    items:
+    - name: Cloud Foundry
+      items:
+      - name: Overview
+        href: cloudfoundry-get-started.md
+      - name: Deploy your first app
+        href: cloudfoundry-deploy-your-first-app.md
+    - name: Data Science VM overview
+      href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: MongoDB
+      href: install-mongodb.md
+    - name: MySQL
+      href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
+    - name: PostgreSQL
+      href: postgresql-install.md
+    - name: Deploy LAMP stack
+      href: create-lamp-stack.md
+    - name: Deploy a 3-node Deis cluster
+      href: deis-cluster.md
+    - name: Deploy Node.js application
+      href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Django web app
+      href: python-django-web-app.md
+    - name: Jupyter Notebook
+      href: jupyter-notebook.md
+    - name: Deploy application frameworks from a template
+      href: app-frameworks.md
+    - name: High Performance Computing (HPC)
+      href: hpcpack-cluster-options.md
+      items:
+      - name: Run NAMD with Microsoft HPC Pack
+        href: classic/hpcpack-cluster-namd.md
+    - name: SAP on Azure
+      href: ../workloads/sap/get-started.md
+  - name: Docker on VMs
+    items:
+    - name: Create Docker hosts with the Azure Docker VM extension
+      href: dockerextension.md
+    - name: Use Docker Machine with Azure
+      href: docker-machine.md
+    - name: Use Docker Compose with Azure
+      href: docker-compose-quickstart.md
+  - name: Migrate VMs
+    items:
+    - name: Overview of migration
+      href: migration-classic-resource-manager-overview.md
+    - name: Deep dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      href: migration-classic-resource-manager-plan.md
+    - name: Migrate using the CLI
+      href: migration-classic-resource-manager-cli.md
+    - name: Common migration errors
+      href: migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
+  - name: Troubleshoot
+    items:
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
+    - name: SSH connections
+      href: troubleshoot-ssh-connection.md
+      items:
+      - name: Detailed troubleshooting steps
+        href: detailed-troubleshoot-ssh-connection.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
+    - name: Access to applications
+      href: troubleshoot-app-connection.md
+    - name: Allocation failures
+      href: allocation-failure.md
+    - name: Deployment issues
+      href: troubleshoot-deployment-new-vm.md
+    - name: Redeploy VM to a new Azure node
+      href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
+    - name: Attach virtual hard disk for troubleshooting
+      items:
+      - name: Azure CLI
+        href: troubleshoot-recovery-disks.md
+      - name: Azure portal
+        href: troubleshoot-recovery-disks-portal.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/vm
+  - name: PowerShell
+    href: /powershell/azureps-cmdlets-docs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.compute
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/compute
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+  - name: FAQ
+    href: faq.md

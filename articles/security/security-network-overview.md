@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 04/27/2017
 ms.author: terrylan
 
 ---
 # Azure Network Security Overview
 Microsoft Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the Internet and Azure.
 
-The goal of this article is to make it easier for you to understand what Microsoft Azure has to offer in the area of network security. Here we provide basic explanations for core network security concepts and requirements. We also provide you information on what Azure has to offer in each of these areas. There are numerous links to other content that will enable you to get a deeper understanding for the areas in which you’re interested.
+The goal of this article is to make it easier for you to understand what Microsoft Azure has to offer in the area of network security. Here we provide basic explanations for core network security concepts and requirements. We also provide you information on what Azure has to offer in each of these areas as well as links to help you gain a deeper understanding of interesting areas.
 
-This Azure Network Security Overview article will focus on the following:
+This Azure Network Security Overview article focuses on the following areas:
 
 * Azure networking
 * Network access control
 * Secure remote access and cross-premises connectivity
 * Availability
-* Logging
 * Name resolution
 * DMZ architecture
-* Azure Security Center
+* Monitoring and threat detection
+
 
 ## Azure Networking
 Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
@@ -40,17 +40,18 @@ Learn more:
 
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-## Network Access Control
-Network access control is the act of limiting connectivity to and from specific devices or subnets within an Azure Virtual Network. The goal of network access control is to make sure that your virtual machines and services are accessible to only users and devices to which you want them accessible. Access controls are based on allow or deny decisions for connections to and from your virtual machine or service.
 
-Azure supports several types of network access control. These include:
+## Network Access Control
+Network access control is the act of limiting connectivity to and from specific devices or subnets within an Azure Virtual Network. The goal of network access control is to limit access to your virtual machines and services to approved users and devices. Access controls are based on allow or deny decisions for connections to and from your virtual machine or service.
+
+Azure supports several types of network access control such as:
 
 * Network layer control
 * Route control and forced tunneling
 * Virtual network security appliances
 
 ### Network Layer Control
-Any secure deployment requires some measure of network access control. The goal of network access control is to make sure that your virtual machines and the network services that run on those virtual machines can communicate only with other networked devices that they need to communicate with and all other connection attempts are blocked.
+Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems and that other communication attempts are blocked.
 
 If you need basic network level access control (based on IP address and the TCP or UDP protocols), then you can use Network Security Groups. A Network Security Group (NSG) is a basic stateful packet filtering firewall and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs do not provide application layer inspection or authenticated access controls.
 
@@ -59,13 +60,13 @@ Learn more:
 * [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
 
 ### Route Control and Forced Tunneling
-The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. If routing is configured incorrectly, applications and services hosted on your virtual machine may connect to devices you don’t want them to connect to, including devices owned and operated by potential attackers.
+The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. If routing is configured incorrectly, applications and services hosted on your virtual machine may connect to unauthorized devices including systems owned and operated by potential attackers.
 
-Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. This enables you to alter the default routing table entries in your Azure Virtual Network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your Azure Virtual Network through a specific location.
+Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. This enables you to alter the default routing table entries in your Azure Virtual Network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your virtual Network through a specific location.
 
 For example, you might have a virtual network security appliance on your Azure Virtual Network. You want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md) in Azure.
 
-[Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to request from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
+[Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the Internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to requests from Internet hosts, and so Internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
 
 What you don’t want to allow is a front-end web server to initiate an outbound request. Such requests may represent a security risk because these connections could be used to download malware. Even if you do wish these front-end servers to initiate outbound requests to the Internet, you might want to force them to go through your on-premises web proxies so that you can take advantage of URL filtering and logging.
 
@@ -80,7 +81,7 @@ While Network Security Groups, User Defined Routes, and forced tunneling provide
 
 For example, your security requirements might include:
 
-* Authentication and authorization prior to allowing access to your application
+* Authentication and authorization before allowing access to your application
 * Intrusion detection and intrusion response
 * Application layer inspection for high-level protocols
 * URL filtering
@@ -89,10 +90,10 @@ For example, your security requirements might include:
 * Application access control
 * Additional DDoS protection (above the DDoS protection provided the Azure fabric itself)
 
-You can access these enhanced network security features by using an Azure partner solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for “security” and “network security”.
+You can access these enhanced network security features by using an Azure partner solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for “security” and “network security.”
 
 ## Secure Remote Access and Cross Premises Connectivity
-Setup, configuration and management of your Azure resources needs to be done remotely. In addition, you may want to deploy [hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) solutions that have components on-premises and in the Azure public cloud. These scenarios require secure remote access.
+Setup, configuration, and management of your Azure resources needs to be done remotely. In addition, you may want to deploy [hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) solutions that have components on-premises and in the Azure public cloud. These scenarios require secure remote access.
 
 Azure networking supports the following secure remote access scenarios:
 
@@ -111,7 +112,7 @@ Learn more:
 * [Configure a Point-to-Site Connection to a Virtual Network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### Connect Your On-Premises Network to an Azure Virtual Network with a VPN
-You may want to connect your entire corporate network, or portions of it, to an Azure Virtual Network. This is common in hybrid IT scenarios where companies [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases companies will host parts of a service in Azure and parts on-premises, such as when a solution includes front-end web servers in Azure and back-end databases on-premises. These kind of “cross-premises” connections also make management of Azure located resources more secure and enable scenarios such as extending Active Directory domain controllers into Azure.
+You may want to connect your entire corporate network, or portions of it, to an Azure Virtual Network. This is common in hybrid IT scenarios where companies [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases companies will host parts of a service in Azure and parts on-premises, such as when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of “cross-premises” connections also make management of Azure located resources more secure and enable scenarios such as extending Active Directory domain controllers into Azure.
 
 One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that a point-to-site VPN connects a single device to an Azure Virtual Network, while a site-to-site VPN connects an entire network (such as your on-premises network) to an Azure Virtual Network. Site-to-site VPNs to an Azure Virtual Network use the highly secure IPsec tunnel mode VPN protocol.
 
@@ -124,7 +125,7 @@ Learn more:
 Point-to-site and site-to-site VPN connections are effective for enabling cross-premises connectivity. However, some organizations consider them to have the following drawbacks:
 
 * VPN connections move data over the Internet – this exposes these connections to potential security issues involved with moving data over a public network. In addition, reliability and availability for Internet connections cannot be guaranteed.
-* VPN connections to Azure Virtual Networks may be considered bandwidth constrained for some applications and purposes, as they max out at around 200Mbps.
+* VPN connections to Azure Virtual Networks may be considered bandwidth constrained for some applications and purposes, as they max out at around 200 Mbps.
 
 Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to an Azure Virtual Network. This is enabled through Azure ExpressRoute.
 
@@ -139,7 +140,7 @@ One option would be for services on one Azure Virtual Network to connect to serv
 
 A better option might be to create an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN. This Azure Virtual Network-to-Azure Virtual Network site-to-site VPN uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
 
-The advantage of using an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN is that the VPN connection is established over the Azure network fabric; it does not connect over the Internet. This provides you an extra layer of security compared to site-to-site VPNs that connect over the Internet.
+The advantage of using an Azure Virtual Network-to-Azure Virtual Network site-to-site VPN is that the VPN connection is established over the Azure network fabric instead of connecting over the Internet. This provides you an extra layer of security compared to site-to-site VPNs that connect over the Internet.
 
 Learn more:
 
@@ -197,18 +198,6 @@ Learn more:
 
 * [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-## Logging
-Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
-
-* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
-* Event logs – these logs provide information about what NSG rules were applied.
-* Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
-
-You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
-
-Learn more:
-
-* [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
 
 ## Name Resolution
 Name resolution is a critical function for all services you host in Azure. From a security perspective, compromise of the name resolution function can lead to an attacker redirecting requests from your sites to an attacker’s site. Secure name resolution is a requirement for all your cloud hosted services.
@@ -252,8 +241,25 @@ Learn more:
 
 * [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
 
-## Azure Security Center
-Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+
+## Monitoring and threat detection
+
+Azure provides capabilities to help you in this key area with early detection, monitoring and the ability to collect and review network traffic.
+
+### Azure Network Watcher
+Azure Network Watcher includes a large number of capabilities that help with troubleshooting as well as provide a whole new set of tools to assist with the identification of security issues.
+
+[Security Group View ](/network-watcher/network-watcher-security-group-view-overview.md) helps with auditing and security compliance of Virtual Machines and can be used to perform programmatic audits comparing the baselines policies defined by your organization to effective rules for each of your VMs. This can help you identify any configuration drift.
+
+[Packet capture](/network-watcher/network-watcher-packet-capture-overview.md) allows you to capture network traffic to and from the virtual machine. Besides helping by allowing you to collect network statistics and with the troubleshooting of application issues packet capture can be invaluable in the investigation of network intrusions. You can also use this functionality together with Azure Functions to start network captures in response to specific Azure alerts.
+
+For more information on Azure Network Watcher and how to start testing some of the functionality in your labs take a look at the [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network watcher is still in public preview so it may not have the same level of availability and reliability as services that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher)
+
+### Azure Security Center
+Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
 
 Azure Security Center helps you optimize and monitor network security by:
 
@@ -264,3 +270,17 @@ Azure Security Center helps you optimize and monitor network security by:
 Learn more:
 
 * [Introduction to Azure Security Center](../security-center/security-center-intro.md)
+
+
+### Logging
+Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for Network Security Groups to get network level logging information. With NSG logging, you get information from:
+
+* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – these logs are used to view all operations submitted to your Azure subscriptions. These logs are enabled by default and can be used within the Azure portal. They were previously known as "Audit logs" or "Operational Logs".
+* Event logs – these logs provide information about what NSG rules were applied.
+* Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
+
+You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
+
+Learn more:
+
+* [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)

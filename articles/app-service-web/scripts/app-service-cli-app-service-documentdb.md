@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to documentdb | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to documentdb
+title: Azure CLI Script Sample - Connect a web app to Cosmos DB | Microsoft Docs
+description: Azure CLI Script Sample - Connect a web app to Cosmos DB
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -10,40 +10,45 @@ tags: azure-service-management
 
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.service: app-service
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
-# Connect a web app to a documentdb
+# Connect a web app to Cosmos DB
 
-In this scenario you will learn how to create an Azure documentdb and an Azure web app. Then you will link the documentdb to the web app using app settings.
+In this scenario you will learn how to create an Azure Cosmos DB account and an Azure web app. Then you will link the Cosmos DB to the web app using app settings.
 
-If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure DocumentDB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure Cosmos DB")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, documentdb and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, Cosmos DB and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
-| [az documentdb create](https://docs.microsoft.com/en-us/cli/azure/documentdb#create) | Creates a documentdb. This is where the data will be stored. |
-| [az documentdb list-keys](https://docs.microsoft.com/en-us/cli/azure/documentdb#list-keys) | Lists the access keys for the specified Azure DocumentDB database account. |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app. |
+| [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#create) | Creates a Cosmos DB account. This is where the data will be stored. |
+| [az cosmosdb list-keys](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#list-keys) | Lists the access keys for the specified Cosmos DB account. |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
 

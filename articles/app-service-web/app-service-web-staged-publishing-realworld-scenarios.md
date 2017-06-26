@@ -161,7 +161,7 @@ In this section, you will learn how to set up a deployment workflow by using slo
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### Use relative paths
 One last thing to configure in the WordPress app is relative paths. WordPress stores URL information in the database. This storage makes moving content from one environment to another more difficult. You need to update the database every time you move from local to stage or stage to production environments. To reduce the risk of issues that can be caused with deploying a database every time you deploy from one environment to another, use the [Relative Root links plugin](https://wordpress.org/plugins/root-relative-urls/), which you can install by using the WordPress administrator dashboard.

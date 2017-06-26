@@ -1,6 +1,7 @@
 ---
-title: Risky sign-ins report in the Azure Active Directory portal - preview | Microsoft Docs
-description: Learn about the risky sign-ins report in the Azure Active Directory portal - preview
+
+title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
+description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -11,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Risky sign-ins report in the Azure Active Directory portal - preview
+# Risky sign-ins report in the Azure Active Directory portal
 
-With the security reports in the Azure Active Directory [preview](active-directory-preview-explainer.md), you can gain insights into the probability of compromised user accounts in your environment. 
+With the security reports in Azure Active Directory (Azure AD) you can gain insights into the probability of compromised user accounts in your environment. 
 
-Azure Active Directory detects suspicious actions that are related to your user accounts. For each detected action, a record called *risk event* is created. For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
+Azure AD detects suspicious actions that are related to your user accounts. For each detected action, a record called *risk event* is created. For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
 
 The detected risk events are used to calculate:
 
@@ -27,7 +28,7 @@ The detected risk events are used to calculate:
 
 - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see [Users flagged for risk](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-In the Azure portal, you can find the security reports on the **Azure Active Directory** blade in the **Security** section. 
+In [the Azure portal](https://portal.azure.com), you can find the security reports on the **Azure Active Directory** blade in the **Security** section. 
 
 ![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 

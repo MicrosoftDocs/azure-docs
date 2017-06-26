@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, azure cli'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: a03512f2-fabe-40c5-8505-b93eef8e5bec
 ms.service: iot-hub
 ms.devlang: c

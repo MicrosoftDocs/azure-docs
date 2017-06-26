@@ -1,6 +1,6 @@
 ---
-title: Setting up the Azure Import/Export tool | Microsoft Docs
-description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service
+title: Setting up the Azure Import/Export Tool | Microsoft Docs
+description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -18,9 +18,9 @@ ms.author: muralikk
 
 ---
 
-# Setting up the Azure Import/Export tool
+# Setting up the Azure Import/Export Tool
 
-The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use the tool for the following functions:
+The Microsoft Azure Import/Export Tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use the tool for the following functions:
 
 * Before creating an import job, you can use this tool to copy data to the hard drives you are going to ship to an Azure data center.
 * After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs.
@@ -50,11 +50,11 @@ If you are attempting to **repair an export**  that has partially failed, you wi
 * The manifest files (optional)
 * The storage account key
 
-## Installing the Azure Import/Export tool
+## Installing the Azure Import/Export Tool
 
-First, [download the Azure Import/Export tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) and extract it to a directory on your computer, for example `c:\WAImportExport`.
+First, [download the Azure Import/Export Tool](https://www.microsoft.com/en-us/download/details.aspx?id=42659) and extract it to a directory on your computer, for example `c:\WAImportExport`.
 
-The Azure Import/Export tool consists of the following files:
+The Azure Import/Export Tool consists of the following files:
 
 * dataset.csv
 * driveset.csv
@@ -71,7 +71,7 @@ Next, open a Command Prompt window in **Administrator mode**, and change into th
 To output help for the command, run the tool without parameters:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
@@ -174,7 +174,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export Service
+          blob list blob format in the Put Job operation of the Import/Export service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
@@ -219,4 +219,4 @@ Examples:
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Troubleshooting the Azure Import/Export tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

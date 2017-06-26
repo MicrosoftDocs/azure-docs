@@ -4,6 +4,7 @@
 # Get Started
 ## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
 ## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
+## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # How To
 ## Plan and design
@@ -11,7 +12,8 @@
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
-### [Add a virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Deploy
 ### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
@@ -43,12 +45,13 @@
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## Pricing 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

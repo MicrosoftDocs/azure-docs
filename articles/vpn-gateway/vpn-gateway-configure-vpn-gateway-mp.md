@@ -4,7 +4,7 @@ description: This article walks you through configuring your virtual network VPN
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 
 ---
@@ -58,21 +58,25 @@ When the gateway changes to *Connecting*, you can gather the information you'll 
 If you are creating a Site-to-Site connection, after the gateway has been created, gather information for your VPN device configuration. This information is located on the **Dashboard** page for your virtual network:
 
 1. **Gateway IP address -** The IP address can be found on the **Dashboard** page. You won't be able to see it until after your gateway has finished creating.
-2. **Shared key -** Click **Manage Key** at the bottom of the screen. Click the icon next to the key to copy it to your clipboard, and then paste and save the key. This button only works when there is a single S2S VPN tunnel. If you have multiple S2S VPN tunnels,  use the *Get Virtual Network Gateway Shared Key* API or PowerShell cmdlet.
+2. **Shared key -** Click **Manage Key** at the bottom of the screen. Click the icon next to the key to copy it to your clipboard, and then paste and save the key. This button only works when there is a single S2S VPN tunnel. If you have multiple S2S VPN tunnels, use the *Get Virtual Network Gateway Shared Key* API or PowerShell cmdlet.
 
 ![Manage Key](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 ### Step 2.  Configure your VPN device
-For Site-to-Site connections, after completing the previous steps, you or your network administrator will need to configure the VPN device in order to create the connection. See [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) for more information about VPN devices.
+Site-to-Site connections to an on-premises network require a VPN device. While we don't provide configuration steps for all VPN devices, you may find the information in the following links helpful:
+
+- For information about compatible VPN devices, see [VPN Devices](vpn-gateway-about-vpn-devices.md). 
+- For links to device configuration settings, see [Validated VPN Devices](vpn-gateway-about-vpn-devices.md#devicetable). These links are provided on a best-effort basis. It's always best to check with your device manufacturer for the latest configuration information.
+- For information about editing device configuration samples, see [Editing samples](vpn-gateway-about-vpn-devices.md#editing).
+- For IPsec/IKE parameters, see [Parameters](vpn-gateway-about-vpn-devices.md#ipsec).
+- Before configuring your VPN device, check for any [Known device compatibility issues](vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use.
+
+When configuring your VPN device, you will need the following items:
+
+- The Public IP address of your virtual network gateway. You can locate this by going to the **Overview** blade for your virtual network.
+- A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a very basic shared key. You should generate a more complex key to use.
 
 After the VPN device has been configured, you can view your updated connection information on the Dashboard page for your VNet.
-
-You can also run one of the following commands to test your connection:
-
-|  | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
-| --- | --- | --- | --- | --- |
-| **Check main mode SAs** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
-| **Check quick mode SAs** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
 ### Step 3. Verify your local network ranges and VPN gateway IP address
 #### Verify your VPN gateway IP address
