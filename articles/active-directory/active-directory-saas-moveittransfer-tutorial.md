@@ -129,13 +129,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_configure.png) 
 
-7. Sign-on to your MOVEit Transfer tenant as an administrator.
+7. Sign on to your MOVEit Transfer tenant as an administrator.
 
 8. On the left navigation pane, click **Settings**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-9. Click **Single Signon** link which is under **Security Policies -> User Auth**.
+9. Click **Single Signon** link, which is under **Security Policies -> User Auth**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
@@ -152,7 +152,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-12. Click **Browse...** to select the metadata file which you downloaded in step 4,then click **Add Identity Provider** to upload the downloaded file.
+12. Click **Browse...** to select the metadata file which you downloaded in step 4, then click **Add Identity Provider** to upload the downloaded file.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
@@ -160,7 +160,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-14. In the **Edit Federated Identity Provider User Settings** page perform the following actions and click **Save**.
+14. In the Edit Federated Identity Provider User Settings page, perform the following actions and click **Save**.
 
 	a. Select **SAML NameID** as **Login name**.
 	
@@ -213,10 +213,10 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in MOVEit Transfer. MOVEit Transfer supports just-in-time provisioning, which you have enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access MOVEit Transfer if it doesn't exist yet.
+There is no action item for you in this section. A new user is created during an attempt to access MOVEit Transfer if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create an user manually, you need to contact the [MOVEit Transfer - Azure AD integration Client support team](https://community.ipswitch.com/s/support).
+>If you need to create a user manually, you need to contact the [MOVEit Transfer - Azure AD integration Client support team](https://community.ipswitch.com/s/support).
 
 ### Assigning the Azure AD test user
 
