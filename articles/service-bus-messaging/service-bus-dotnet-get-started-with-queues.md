@@ -21,7 +21,7 @@ ms.author: sethm
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 ## What will be accomplished
-In this tutorial, we will complete the following:
+This tutorial covers the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus Messaging queue, using the Azure portal.
@@ -45,7 +45,7 @@ If you have already created a Service Bus queue, jump to the [Send messages to t
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## 3. Send messages to the queue
-To send messages to the queue, we will write a C# console application using Visual Studio.
+To send messages to the queue, we write a C# console application using Visual Studio.
 
 ### Create a console application
 
