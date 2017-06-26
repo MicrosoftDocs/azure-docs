@@ -63,7 +63,7 @@ This example is equivalent to scenario 1, but for a delete operation.
 
 **Scenario 4: Delete a specific version of the index**
 
-This example deletes the index only if it matches the original version. If you are activately iterating over the same index structure, you can check the object version prior to writing changes.
+This example deletes the index only if it matches the original version. If you are actively iterating over the same index structure, you can check the object version prior to writing changes.
 
          // Create an index and a variant
          var index2 = new Index();
@@ -111,7 +111,7 @@ A common case where checking access conditions is appropriate might include upda
 
 ## HowTo Example (Verbose)
 
-First, the intitial code:
+First, the intial code:
 
 ```
 using System;
@@ -369,7 +369,7 @@ Include `accessCondition` to block updates on an object already marked as change
 
 Try modifying either of the following samples to include Etags or AccessCondition objects.
 
-+ [.NET SDK sample on Githb](https://github.com/Azure-Samples/search-dotnet-getting-started) 
++ [.NET SDK sample on Github](https://github.com/Azure-Samples/search-dotnet-getting-started) 
 + [REST API sample on Github](https://github.com/Azure-Samples/search-rest-api-getting-started) 
 
 ## See also
