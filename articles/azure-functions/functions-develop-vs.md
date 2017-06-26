@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: glenga, donnam
-
 ---
 # Azure Functions Tools for Visual Studio  
 
@@ -28,7 +27,7 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C# and publish functions to Azure as a .NET assembly.
+This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
 
 ## Prerequisites
 
@@ -52,7 +51,7 @@ You can [download and install the extension package](https://marketplace.visuals
 
 ## Create an Azure Functions project 
 
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create-app.md)]
+[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create.md)]
 
 
 ## Configure the project for local development
@@ -67,9 +66,9 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account, click **All settings** > **Access keys**, then copy the **Connection string** for one of your keys. 
 
-2. In your project in Visual Studio, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you just copied.
+2. In your project in Visual Studio, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections to the services accessed by your functions.  
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
 
 ## Create a function
 
@@ -81,7 +80,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Note that a connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. The class name 
+    A connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. The class name 
  
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
 
@@ -107,6 +106,19 @@ In pre-compiled functions, the bindings used by the function are defined by appl
  
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, The first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters.  
 
+## Testing functions
+
+[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+
+With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
+
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+
+To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+
+## Publish to Azure
+
+[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 ## Next steps
 

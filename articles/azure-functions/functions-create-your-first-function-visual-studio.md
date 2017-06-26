@@ -29,9 +29,9 @@ In this topic, you learn how to use the Azure Function Tools for Visual Studio 2
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this tutorial, install:
 
-* Install [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+* [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
     
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
@@ -45,7 +45,7 @@ Before you begin, you must download and install the Azure Functions Tools for Vi
 
 ## Create an Azure Functions project in Visual Studio
 
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create-app.md)]
+[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create.md)]
 
 Now that you have created the project, you can create your first function.
 
@@ -61,7 +61,9 @@ Now that you have created an HTTP-triggered function, you can test it on your lo
 
 ## Test the function locally
 
-To run your function app project locally, right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. These tools are required to run a function on your local computer. You may also need to enable a firewall exception to enable the tools to handle HTTP requests.  
+Azure Functions Core Tools enables you to run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
+
+To test your function, right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools.  You may also need to enable a firewall exception to enable the tools to handle HTTP requests.  
 
 Copy the URL of your function from the Azure Functions runtime output.  
 
@@ -79,31 +81,7 @@ After you have verified that the function runs correctly on your local computer,
 
 You must have a function app in your Azure subscription before you can publish your project. You can create a function app right from Visual Studio.
 
-In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then click **Publish**. 
-
-![Publish create new function app](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish-new-function-app.png)
-
-If you haven't already connected Visual Studio to your Azure account, click **Add an account...**.  
-
-In the **Create App Service** dialog, use the hosting settings as specified in the table. 
-
-![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish.png)
-
-| Setting      | Suggested value  | Description                                        |
-| ------------ |  ------- | -------------------------------------------------- |
-| **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
-| **Subscription** | Choose your subscription | The Azure subscription to use. |
-| **Resource Group** | myResourceGroup |  Click **New**, type `myResourceGroup` for **New resource group name**, and click **OK**. |
-| **App Service Plan** | Create a consumption plan |  Click **New**, choose a **Location** near you, select **Consumption** under **Size**, and click **OK**.  |
-| **Storage Account** | Create a new account | Click **New**, type a globally unique **Account Name**, select **Standard - Locally Redundant Storage**, and click **OK**.  |
-
-Click **Create** to create a function app in Azure with these settings. 
-
-After the provisioning is complete, click **Publish** to deploy your project code to the new function app. 
-
-![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-publish-profile.png)
-
-Make a note of the **Site URL** value, which is the address of your function app in Azure. 
+[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-publish.md)]
 
 ## Test your function in Azure
 
