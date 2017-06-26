@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Search index using the .NET SDK | Microsoft Docs
+title: "Create an index (.NET- Azure Search) | Microsoft Docs"
 description: Create an index in code using the Azure Search .NET SDK.
 services: search
 documentationcenter: ''

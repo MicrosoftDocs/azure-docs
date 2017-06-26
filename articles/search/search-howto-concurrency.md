@@ -20,16 +20,18 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend that you adopt coding practices to avoid overwriting changes to the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls that write to an index, indexer, datasource, suggester, or synonymMap. 
+In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites on the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls writing to index, indexer, datasource, suggester, and synonymMap resources 
 
 ## How it works
 
-Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent overwrites of the same resource by checking the version number prior to update. 
+Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent updates of the same resource by checking its version first. 
 
-+ The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) set on the request header.
-+ The .NET SDK sets the Etag through its accessCondition object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) or using [an ETag (REST)]https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) can implement concurrency control.
++ The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
++ The .NET SDK sets the Etag through its accessCondition object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) has an accessCondition object.
 
-The object version information is changed each time the resource is updated. Two developers who get and modify a resource start with local objects having the same ETag, but the person who saves first will force a new object version. Any subsequent write operation failing due to an ETag version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
+If you implement concurrency management, version information changes with each resource update. Given two concurrent development efforts on the same object, the first set of saved changes will force a new object version. As such the second set of changes will fail based on version discrepancy unless the updated resource is obtained first.
+
+A version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 

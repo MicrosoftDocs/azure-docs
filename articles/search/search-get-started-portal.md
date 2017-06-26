@@ -1,5 +1,5 @@
 ---
-title: Create your first Azure Search index in the portal | Microsoft Docs
+title: "Tutorial: Create your first Azure Search index in the portal | Microsoft Docs"
 description: In the Azure portal, use predefined sample data to generate an index. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
 services: search
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 06/26/2017
 ms.author: heidist
 
 ---
-# Create your first Azure Search index in the portal
+# Tutorial: Create your first Azure Search index in the portal
 
 In the Azure portal, start with a predefined sample dataset to quickly generate an index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 

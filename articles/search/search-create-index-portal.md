@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Search index using the Azure Portal | Microsoft Docs
+title: "Create an index (portal - Azure Search) | Microsoft Docs"
 description: Create an index using the Azure Portal.
 services: search
 manager: jhubbard
@@ -29,7 +29,7 @@ Use the built-in index designer in Azure portal to prototype or create a [search
 
 ## Prerequisites
 
-You will need an [Azure Search service](search-create-service-portal.md) before you can create an index. 
+This article assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md).  
 
 ## Find your search service
 1. Sign in to the Azure portal page and review the [search services for your subscription](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
