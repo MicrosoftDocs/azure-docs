@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.Jitbit.com`, `https://<hostname>/helpdesk/User/Login`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	| |     
+    | ----------------------------------------|
+	| `https://<hostname>/helpdesk/User/Login`|
+	| `https://<tenant-name>.Jitbit.com`|
+	| |
     
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Jitbit Helpdesk Client support team](https://www.jitbit.com/support/) to get this value. 
@@ -145,11 +150,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Authentication settings](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777683.png "Authentication settings")
 	
-	a. Select **Enable SAML 2.0 single sign on** sign-in using Single Sign-On (SSO) with **OneLogin**.
+	a. Select **Enable SAML 2.0 single sign on**, to sign in using Single Sign-On (SSO), with **OneLogin**.
 
-	b. In the **EndPoint URL** textbox, paste the value of **Service Provider (SP) initiated endpoint** which you have copied from Azure portal.
+	b. In the **EndPoint URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	c. Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
+	c. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
 
 	d. Click **Save changes**.
 
@@ -208,14 +213,22 @@ In order to enable Azure AD users to log into Jitbit Helpdesk, they must be prov
    
     ![Add user](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777685.png "Add user")
    
-5. In the Create section, type the data of the Azure AD account you want to provision into the following textboxes: **Username**, **Email**, **First Name**, **Last Name**
-   
+5. In the Create section, type the data of the Azure AD account you want to provision as follows:
+
     ![Create](./media/active-directory-saas-jitbit-helpdesk-tutorial/ic777686.png "Create")
    
-6. Click **Create**.
+   a. In the **Username** textbox, type **BrittaSimon**, the user name as in the Azure portal.
+
+   b. In the **Email** textbox, type email of the user like **BrittaSimon@contoso.com**.
+
+   c. In the **First Name** textbox, type first name of the user like **Britta**.
+
+   d. In the **Last Name** textbox, type last name of the user like **Simon**.
+   
+   e. Click **Create**.
 
 >[!NOTE]
->You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision AAD user accounts.
+>You can use any other Jitbit Helpdesk user account creation tools or APIs provided by Jitbit Helpdesk to provision Azure AD user accounts.
 > 
 		
 
