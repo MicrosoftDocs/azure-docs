@@ -88,12 +88,12 @@ Before running the application, you need to select a target Configuration, Platf
 
 4) The next screen displays the text extracted by the Azure Computer Vision API (defined in the codebase at *OcrResultsPage.xaml*, and referenced in this guide as the OCR Results Page).  ![OcrResultsPage Example](./media/OcrResultsPage.png)  Here you can select a line from the parsed text to find Bing search results for that content, or you can use the navigation bar to return to the OCR Select Page.
 
-5) Selecting an item from the OCR Results Page will take you to the following screen (defined in the codebase at *WebResultsPage.xaml*, and referenced in this guide as the Web Results Page) ![WebResultsPage ExampleS](./media/WebResultsPage.png)  
+5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at *WebResultsPage.xaml*, and referenced in this guide as the Web Results Page) ![WebResultsPage ExampleS](./media/WebResultsPage.png)  
 Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
 
-6) Finally, selecting an item from the Web Results Page will open a WebView showing the content at that Bing result.  
+6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
 ![WebViewPage Example](./media/WebViewPage.png)
-From here, you can interact with the website as if it were loaded within a standard browser, or use the naviagtion bar to return to the Web Results Page. 
+From here, you can interact with the website as if it were loaded within a standard browser, or use the navigation bar to return to the Web Results Page. 
 
 Note the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
 
@@ -150,19 +150,57 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
 
 
 ### OCR Select Page:
-The OCR Select Page is where the user selects the type of Optical Character Recognition they would like to use to process their image, and where the user can capture or import the photos that they would like to process.  
- 
-Description of the OcrSelectPage: it's a page where you're able to select OCR!
-* Is a Xamarin Forms TabbedPage where users can import or take photos for processing, and can decide what form of OCR to perform.
-* (Maybe or not?) discuss how objects set to the buttons so that you can track the calling button.
-* Explain the Xamarin Media Plugin, & link to docs.
-    * Found @ <https://components.xamarin.com/view/mediaplugin> 
+The OCR Select Page has two main roles.  First, it is where the user selects what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally very cumbersome in a cross-platform applications, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
-![OcrSelectPage Example](./media/OcrSelectPage.png)
+The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
+1) Ensure that a camera is available on the current device
+2) Initialize a new StoreCameraMediaOptions object and use it to set where we want to save our captured image
+3) Take an image, save it to the specified location, and attain a MediaFile object containing the image data.
+4) Unpack the MediaFile into a byte array (code for which will also be included below)
+5) Return the byte array for further processing 
+
+Here's the function that uses the Xamarin Media Plugin for photo capture:
+
+    // Uses the Xamarin Media Plugin to take photos using the native camera application
+    async Task<byte[]> TakePhoto()
+    {
+        MediaFile photoMediaFile = null;
+        byte[] photoByteArray = null;
+
+        if (CrossMedia.Current.IsCameraAvailable)
+        {
+            var mediaOptions = new StoreCameraMediaOptions
+            {
+                Directory = "ScannedPhotos",
+                Name = $"{DateTime.UtcNow}.jpg"
+            };
+            photoMediaFile = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+            photoByteArray = MediaFileToByteArray(photoMediaFile);
+        }
+        else
+        {
+            Device.BeginInvokeOnMainThread(() => {
+                DisplayAlert("Error", "No camera found", "OK");
+            });
+        }
+
+        return photoByteArray;
+    }
+
+And here's the utility function used to convert a MediaFile into a byte array: 
+
+    byte[] MediaFileToByteArray(MediaFile photoMediaFile)
+    {
+        using (var memStream = new MemoryStream())
+        {
+            photoMediaFile.GetStream().CopyTo(memStream);
+            return memStream.ToArray();
+        }
+    }
+
+The photo import utility works in a very similar way, and can be found in *OcrSelectPage.xaml.cs*
 
 ### OcrResultsPage
-
-![OcrResultsPage Example](./media/OcrResultsPage.png)
 
 **Description of OcrResultsPage**
 * Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
@@ -177,8 +215,6 @@ Description of the OcrSelectPage: it's a page where you're able to select OCR!
 
 ### WebResultsPage
 
-![WebResultsPage Example](./media/WebResultsPage.png)
-
 **Description of WebResultsPage**
 * Is a Xamarin.Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Uses the Web Search API:
@@ -189,8 +225,6 @@ Description of the OcrSelectPage: it's a page where you're able to select OCR!
 ### Opening a Webview
 
 **Example of opening a webview**
-
-![WebViewPage Example](./media/WebViewPage.png)
 
 **Commentary on other things that could be done with the same content**
 * Comment that you could swap out standard for Bing Custom Search
