@@ -61,7 +61,7 @@ If you're not using the Media Services .NET client SDK, you must manually create
 
 ## Service principal authentication
 
-To connect to the Media Services API by using the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token that has the following parameters:  
+To connect to the Media Services API by using the service principal option, your middle-tier app (web API or web application) needs to request an Azure AD token that has the following parameters:  
 
 * Azure AD tenant endpoint.
 * Media Services resource URI. 
@@ -79,7 +79,7 @@ When the **Service Principal** blade opens, the first Azure AD application that 
 
 After you create or select an Azure AD app, you can create and copy a client secret (key) and the client ID (Application ID). The client secret and client ID are required to get the access token in this scenario.
 
-If you don't have permissions to create Azure AD apps in your domain, the Azure AD app controls of the blade are not shown and a warning message is displayed.
+If you don't have permissions to create Azure AD apps in your domain, the Azure AD app controls of the blade are not shown, and a warning message is displayed.
 
 If you connect to the Media Services API by using the Media Services .NET SDK, see [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
 
