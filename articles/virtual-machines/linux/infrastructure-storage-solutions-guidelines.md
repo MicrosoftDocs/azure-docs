@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
@@ -68,7 +68,7 @@ For application storage, you can store unstructured object data such as document
 ## Striped disks
 Besides allowing you to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](sizes.md
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -77,7 +77,7 @@ If you are using disk striping for Azure data disks, consider the following guid
 * Use LVM.
 * Avoid using Azure data disk caching options (caching policy = None).
 
-For more information, see [Configuring LVM on a Linux VM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Configuring LVM on a Linux VM](configure-lvm.md).
 
 ## Multiple storage accounts
 This section does not apply to [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), as you do not create separate storage accounts. 
