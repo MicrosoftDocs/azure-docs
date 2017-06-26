@@ -77,7 +77,7 @@ Your runbook fails with the error "“The job was tried three times but it faile
 **Reason for the error:**
 This error can be caused by the following reasons:  
 
-1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure/azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
+1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
 
 2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a “Command not found” or "Cannot bind parameter" message. 
 
@@ -86,7 +86,7 @@ Any of the following solutions will fix the problem:
 
 * Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
 
-* You need to update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation/automation-update-azure-modules.md).  
+* You need to update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).  
 
 
 ### Scenario: Runbook fails because of deserialized object
