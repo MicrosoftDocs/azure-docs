@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
 ---
 # Data model for Azure Backup reports
-This article describes Power BI data model used for creating Azure Backup reports. Using this data model, you can filter existing reports based on relevant fields and more importantly, create your own reports by using tables and fields in the model. 
+This article describes the Power BI data model used for creating Azure Backup reports. Using this data model, you can filter existing reports based on relevant fields and more importantly, create your own reports by using tables and fields in the model. 
 
 ## Creating new reports in Power BI
-Power BI provides customization features using which you can [create reports using data model](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+Power BI provides customization features using which you can [create reports using the data model](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
 ## Using Azure Backup data model
-You can use the following fields provided as part of data model to create reports and customize existing reports.
+You can use the following fields provided as part of the data model to create reports and customize existing reports.
 
 ### Alert
 This table provides basic fields and aggregations over various alert related fields.
@@ -188,3 +188,9 @@ This table provides basic fields and aggregations over various vault-related fie
 | SubscriptionId |Text |Subscription Id of the customer selected for generating reports |
 | VaultName |Text |Name of the vault |
 | VaultTags |Text |Tags associated to the vault |
+
+## Next steps
+Once you review the data model for creating Azure Backup reports, refer the following articles for more details about creating and viewing reports in Power BI.
+
+* [Creating reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Filtering reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
