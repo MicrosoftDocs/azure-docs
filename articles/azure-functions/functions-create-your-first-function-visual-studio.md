@@ -61,9 +61,7 @@ Now that you have created an HTTP-triggered function, you can test it on your lo
 
 ## Test the function locally
 
-Azure Functions Core Tools enables you to run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
-
-To test your function, right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools.  You may also need to enable a firewall exception to enable the tools to handle HTTP requests.  
+[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
 
 Copy the URL of your function from the Azure Functions runtime output.  
 
@@ -81,7 +79,7 @@ After you have verified that the function runs correctly on your local computer,
 
 You must have a function app in your Azure subscription before you can publish your project. You can create a function app right from Visual Studio.
 
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-publish.md)]
+[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 ## Test your function in Azure
 
