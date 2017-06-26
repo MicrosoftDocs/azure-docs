@@ -125,7 +125,7 @@ The following example shows how to create the Azure AD token and the context.
 
 ## Use service principal authentication
 	
-To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web Application) needs to requests an Azure AD token with the following parameters:  
+To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token with the following parameters:  
 
 1. **Azure AD tenant endpoint**
 
