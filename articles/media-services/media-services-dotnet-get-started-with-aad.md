@@ -69,13 +69,13 @@ You also have the option of replacing the default implementation of the **AzureA
 
 To connect to the Azure Media Service API with the user authentication option, the client app needs to request an Azure AD token by using the following parameters:  
 
-- Azure AD tenant endpoint.
+- Azure AD tenant endpoint
 
 	The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper right corner.
 
-- Media Services resource URI. 
-- Media Services (native) application Client ID. 
-- Media Services (native) application redirect URI. 
+- Media Services resource URI
+- Media Services (native) application client ID 
+- Media Services (native) application redirect URI 
 
 The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
@@ -127,13 +127,13 @@ The following example shows how to create the Azure AD token and the context.
 	
 To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token with the following parameters:  
 
-1. **Azure AD tenant endpoint**
+1. Azure AD tenant endpoint
 
 	The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper right corner.
 
-2. **Media Services resource URI**. 
+2. Media Services resource URI 
 
-3. **Azure AD application** values: the **Client ID** and **Client secret**.
+3. Azure AD application values: the **Client ID** and **Client secret**
 
 The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Getting started with Azure AD authentication using the Azure portal](media-services-portal-get-started-with-aad.md).
 
