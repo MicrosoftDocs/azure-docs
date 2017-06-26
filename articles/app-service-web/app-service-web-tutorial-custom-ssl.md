@@ -104,7 +104,11 @@ You are ready to upload your SSL certificate to your web app.
 
 ### Merge intermediate certificates
 
-If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. For example, create a file for the merged certificate, called _mergedcertificate.crt_, and then order your certificates according to the following template:
+If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order. 
+
+To do this, open each certificate you received in a text editor. 
+
+Create a file for the merged certificate, called _mergedcertificate.crt_. In a text editor, copy the content of each certificate into this file. The order of your certificates should look like the following template:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -130,7 +134,7 @@ Export your merged SSL certificate with the private key that your certificate re
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_.
 
-```bash
+```
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
