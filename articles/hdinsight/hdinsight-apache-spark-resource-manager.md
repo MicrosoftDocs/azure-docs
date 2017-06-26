@@ -125,8 +125,7 @@ Spark provides a mechanism to dynamically adjust the resources your application 
 
 3. Verify that the [external YARN shuffle service](https://spark.apache.org/docs/latest/running-on-yarn.html#configuring-the-external-shuffle-service) is configured. By default this is enabled, because the Spark SQL Thrift service is configured using Dynamic Allocation. From the Ambari UI click **YARN**, click **Configs**, click **Advanced**, expand **Node Manager**. Verify that `yarn.nodemanager.aux-services` at least contains `spark_shuffle,spark2_shuffle`. 
 
-## I do not use BI with Spark cluster. How do I take the resources back?
-Since we use Spark dynamic allocation, the only resources that are consumed by thrift server are the resources for the two application masters. To reclaim these resources you must stop the Thrift Server services running on the cluster.
+## I do not use BI with Spark cluster. How do I take the resources back?Since we use Spark dynamic allocation, the only resources that are consumed by thrift server are the resources for the two application masters. To reclaim these resources you must stop the Thrift Server services running on the cluster.
 
 1. From the Ambari UI, from the left pane, click **Spark**.
 2. In the next page, click **Spark Thrift Servers**.
@@ -159,6 +158,7 @@ Since we use Spark dynamic allocation, the only resources that are consumed by t
 
     ![Kill App2](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "Kill App2")
     
+
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
