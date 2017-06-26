@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 
 ---
@@ -35,7 +35,7 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. The steps in this document were last tested with Azure CLI version 0.10.1.
+* **Azure CLI**. The steps in this document were last tested with Azure CLI version 0.10.14.
 
     > [!IMPORTANT]
     > The steps in this document do not work with Azure CLI 2.0. Azure CLI 2.0 does not support creating an HDInsight cluster.
@@ -92,7 +92,7 @@ The following steps should be performed from a command-prompt, shell, or termina
 
 6. Create an HDInsight cluster.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Replace **groupname** with the resource group name.
 
