@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 06/23/2017
+ms.date: 06/26/2017
 ---
 
 # Azure Database for MySQL: Use PHP to connect and query data
@@ -67,9 +67,7 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	$password = "<server_admin_password>";
 
 	// Initialize connection object.
-	$connection = pg_connect("host=$host dbname=$database user=$user password=$password")
-				or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
-
+	$connection = pg_connect("host=$host dbname=$database user=$user password=$password") or die("Failed to create connection to database: ". pg_last_error(). "<br/>");
 	print "Successfully created connection to database.<br/>";
 
 	// Drop previous table of same name if one exists.
@@ -86,8 +84,7 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 	$name = '\'banana\'';
 	$quantity = 150;
 	$query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
-	pg_query_params($connection, $query, array("banana", 150));
-	//pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
+	pg_query($connection, $query) or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 
 	$name = '\'orange\'';
 	$quantity = 154;
