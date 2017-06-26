@@ -4,7 +4,7 @@ description: Describes how to pay for Azure subscriptions by invoice
 services: ''
 documentationcenter: ''
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: ''
 tags: billing
 
