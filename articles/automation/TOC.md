@@ -35,6 +35,7 @@
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
+### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
