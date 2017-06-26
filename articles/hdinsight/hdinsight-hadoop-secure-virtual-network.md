@@ -19,45 +19,41 @@ ms.author: larryfr
 ---
 # Secure HDInsight using an Azure Virtual Network
 
-Meta: This document offers planning and reference material about using HDInsight in a secured virtual network.
-
-Learn how to use Azure Virtual Networks with HDInsight to enable the following scenarios:
-
-* Restrict access to HDInsight. For example, prevent inbound traffic from the internet.
-
-* Directly access services on HDInsight that aren't exposed over the Internet. For example, directly work with Kafka brokers or use the HBase Java API.
-
-* Directly connect services to HDInsight. For example, use Oozie to import or export data to a SQL Server within your data center.
-
-* Create solutions that involve multiple HDInsight clusters. For example, use Spark or Storm to analyze data stored in Kafka.
-
-For more information on Azure Virtual Networks, see the [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) documentation.
+Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ## Planning
 
-The following is a checklist of actions you must take before installing HDInsight into an Azure Virtual Network:
+* Do you need to install HDInsight into an existing virtual network? For more information, see the [Add HDInsight to an existing virtual network]() section.
 
-* New or existing virtual network
-* Type of virtual network
-* Available IP addresses
-* Name resolution
-* Security
+* Do you want to join the virtual network containing HDInsight to another virtual network or your on-premises network?
 
-## New or existing virtual network
+* Do you want to restrict inbound or outbound traffic to HDInsight?
 
-When adding HDInsight to an existing virtual network, you may need to make modifications to the network configuration. Use the following information to understand changes that you must make:
+## Add HDInsight to an existing virtual network
 
-* If you use Network Security Groups or user-defined routes to restrict access to the virtual network, you must add exceptions for the Azure health monitoring endpoints. These services are required by HDInsight. For more information, see the [Security]()TBD) section of this document.
+1. Are you using a classic or resource manager deployment model for the virtual network?
 
-    If you are not sure if your existing network uses Network Security Groups or user-defined routes, see the following sections of this document:
+    HDInsight 3.4 and greater requires a resource manager virtual network. Earlier versions of HDInsight required a classic virtual network, however these versions have been, or will soon be retired.
 
-    * [How to check for existing Network Security Groups]()
+    If your existing network is a classic virtual network, then you must create a resource manager virtual network and then join the two. [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-    * [How to check for existing user-defined routes]()
+    Once joined, install HDInsight into the resource manager virtual network.
 
-* If you use a Network Virtual Appliance firewall, you must configure the appliance to allow the ports used by HDInsight. For more information, see the [Security](tbd) section of this document.
+2. Do you use forced tunneling with the virtual network? HDInsight does not support forced tunneling.
 
-* If you are using forced tunneling, you must [TBD].
+    [TBD - what to do here?]
+
+3. Do you use Network Security Groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
+
+    As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. You must modify any existing Network Security Groups or user-defined routes to allow this traffic.
+
+    HDInsight also hosts multiple services, which use a variety of ports. You must allow traffic to these ports from clients that use these services.
+
+    If you are not certain whether you use Network Security Groups, user-defined routes, or Virtual Networks, see the following sections of this document:
+
+    * [Get existing Network Security Groups]()
+    * [Get existing user-defined routes]()
+    * [Get network virtual appliance information]()
 
 ## Type of virtual network
 
@@ -72,18 +68,6 @@ The type of virtual network used with HDInsight depends on the operating system 
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 To access resources in an incompatible virtual network, join the two networks. For more information on joining networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
-
-## Available IP addresses
-
-When you create a subnet within a virtual network, you set the number of internal IP addresses that are available in the subnet. You must create a subnet that has enough IP addresses for HDInsight.
-
-HDInsight clusters consist of multiple nodes, such as head nodes, worker nodes, and Zookeeper nodes. Each node is implemented as an Azure Virtual Machine. Each virtual machine is allocated a single internal IP address. The type and default number of nodes vary by cluster type. You can modify the number of worker nodes in a cluster during or after cluster creation. For more information, see the [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) document.
-
-Use the following to determine how many IP addresses you should allocate.
-
-* Determine how many nodes are used by your planned HDInsight configuration. HDInsight also creates two gateways, which use two more IP addresses. The subnet must contain at least this number of IP addresses.
-
-* Allocate additional worker nodes if you plan on scaling out the cluster. Scaling out the cluster adds additional worker nodes. There must be an available (unused) IP address for each worker node added.
 
 ## Name resolution and custom DNS
 
@@ -118,12 +102,35 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 ## Security
 
-Azure Virtual Networks can be secured use Network Security Groups, user-defined routes, or Network Virtual Appliances such as firewalls. You may use one or more of these when securing a network. If you plan on using HDInsight in a secured virtual network, you must perform the following actions:
+Azure Virtual Networks can be secured use Network Security Groups, user-defined routes, or network virtual appliances such as firewalls. You may use one or more of these when securing a network.
 
-* Allow unrestricted inbound and outbound access to the IP addresses of the Azure management services. For a list of IP addresses, see the [Required IP addresses](#hdinsight-ip) section.
+* If you plan on using **Network Security Groups** or **user-defined routes** to secure the network, perform the following actions before installing HDInsight:
 
+    1. Identify the Azure region that you plan to use for HDInsight.
 
-###<a id="hdinsight-ip"></a> Required IP addresses
+    2. Identify the IP addresses required by HDInsight. For a list of IP addresses by region, see the [Azure management IP addresses](#hdinsight-ip) section.
+
+    3. Create or modify the Network Security Groups for the virtual network to allow traffic on the IP addresses.
+
+    For more information on Network Security Groups or user-defined routes, see the following documentation:
+
+    * [Network security group](../virtual-network/virtual-networks-nsg.md) documentation.
+
+    * [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+
+* If you plan on using a network **virtual appliance firewall** to secure the virtual network, you must allow outbound traffic on the following ports:
+
+    * 53
+    * 443
+    * 1433
+    * 11000-11999
+    * 14000-14999
+
+For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+
+## <a id="hdinsight-ip"></a> Azure management IP addresses
+
+If you use Network Security Groups or user-defined routes to restrict access to the virtual network you must allow access to the Azure management IP addresses.
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
 
@@ -135,7 +142,7 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-If you restrict access to the virtual network you must allow access to the managment IP addresses. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
+The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
@@ -173,7 +180,7 @@ Network security groups (NSG) allow you to filter traffic by:
 * Port
 * Protocol
 
-To learn more, see the [Network security group](../virtual-network/virtual-networks-nsg.md) documentation.
+
 
 When using network security groups with HDInsight, you must allow inbound traffic 
 
