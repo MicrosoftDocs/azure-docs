@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learningpool | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Learningpool.
+title: 'Tutorial: Azure Active Directory integration with Learningpool Act | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Learningpool Act.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 06/26/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Learningpool
+# Tutorial: Azure Active Directory integration with Learningpool Act
 
-In this tutorial, you learn how to integrate Learningpool with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Learningpool Act with Azure Active Directory (Azure AD).
 
-Integrating Learningpool with Azure AD provides you with the following benefits:
+Integrating Learningpool Act with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Learningpool
-- You can enable your users to automatically get signed-on to Learningpool (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to Learningpool Act
+- You can enable your users to automatically get signed-on to Learningpool Act (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Learningpool, you need the following items:
+To configure Azure AD integration with Learningpool Act, you need the following items:
 
 - An Azure AD subscription
-- A Learningpool single sign-on enabled subscription
+- A Learningpool Act single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Learningpool from the gallery
+1. Adding Learningpool Act from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Learningpool from the gallery
-To configure the integration of Learningpool into Azure AD, you need to add Learningpool from the gallery to your list of managed SaaS apps.
+## Adding Learningpool Act from the gallery
+To configure the integration of Learningpool Act into Azure AD, you need to add Learningpool Act from the gallery to your list of managed SaaS apps.
 
-**To add Learningpool from the gallery, perform the following steps:**
+**To add Learningpool Act from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,67 +67,67 @@ To configure the integration of Learningpool into Azure AD, you need to add Lear
 
 	![Applications][3]
 
-4. In the search box, type **Learningpool**.
+4. In the search box, type **Learningpool Act**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_search.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_search.png)
 
-5. In the results panel, select **Learningpool**, and then click **Add** button to add the application.
+5. In the results panel, select **Learningpool Act**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_addfromgallery.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Learningpool based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Learningpool Act based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Learningpool is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learningpool needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Learningpool Act is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learningpool Act needs to be established.
 
-In Learningpool, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Learningpool Act, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Learningpool, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Learningpool Act, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Learningpool test user](#creating-a-learningpool-test-user)** - to have a counterpart of Britta Simon in Learningpool that is linked to the Azure AD representation of user.
+3. **[Creating a Learningpool Act test user](#creating-a-learningpool-act-test-user)** - to have a counterpart of Britta Simon in Learningpool Act that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learningpool application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learningpool Act application.
 
-**To configure Azure AD single sign-on with Learningpool, perform the following steps:**
+**To configure Azure AD single sign-on with Learningpool Act, perform the following steps:**
 
-1. In the Azure portal, on the **Learningpool** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Learningpool Act** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_samlbase.png)
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_samlbase.png)
 
-3. On the **Learningpool Domain and URLs** section, perform the following steps:
+3. On the **Learningpool Act Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL: `https://parliament.preview.learningpool.com/auth/shibboleth/index.php`
+    a. In the **Sign-on URL** textbox, type the URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
 	|--|
-	| `https://<subdomain>.learningpool.com/shibboleth` |
-	| `https://<subdomain>.preview.learningpool.com/shibboleth` |
+	| `https://<subdomain>.Learningpool.com/shibboleth` |
+	| `https://<subdomain>.preview.Learningpool.com/shibboleth` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Learningpool Client support team](https://www.learningpool.com/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Learningpool Act Client support team](https://www.Learningpool.com/support) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Learningpool** side, you need to send the downloaded **Metadata XML** to [Learningpool support team](https://www.learningpool.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Learningpool Act** side, you need to send the downloaded **Metadata XML** to [Learningpool Act support team](https://www.Learningpool.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -142,19 +142,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/create_aaduser_02.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/create_aaduser_03.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-learningpool-tutorial/create_aaduser_04.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-Learningpool-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -164,31 +164,31 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a Learningpool test user
+### Creating a Learningpool Act test user
 
-To enable Azure AD users to log in to Learningpool, they must be provisioned into Learningpool.
+To enable Azure AD users to log in to Learningpool Act, they must be provisioned into Learningpool Act.
 
-There is no action item for you to configure user provisioning to Learningpool.  
-Users need to be created by your [Learningpool support team](https://www.learningpool.com/support).
+There is no action item for you to configure user provisioning to Learningpool Act.  
+Users need to be created by your [Learningpool Act support team](https://www.Learningpool.com/support).
 
 >[!NOTE]
->You can use any other Learningpool user account creation tools or APIs provided by Learningpool to provision AAD user accounts. 
+>You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision AAD user accounts. 
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learningpool.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learningpool Act.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Learningpool, perform the following steps:**
+**To assign Britta Simon to Learningpool Act, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Learningpool**.
+2. In the applications list, select **Learningpool Act**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/tutorial_learningpool_app.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -208,7 +208,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Learningpool tile in the Access Panel, you should get automatically signed-on to your Learningpool application.
+When you click the Learningpool Act tile in the Access Panel, you should get automatically signed-on to your Learningpool Act application.
 
 ## Additional resources
 
@@ -219,15 +219,15 @@ When you click the Learningpool tile in the Access Panel, you should get automat
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-learningpool-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_203.png
 
