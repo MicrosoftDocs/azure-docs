@@ -18,26 +18,26 @@ ms.author: juliako
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
 
-Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports authentication based on Azure Active Directory (Azure AD). This topic shows how to use Azure AD  authentication to access Azure Media Services API with Microsoft .NET.
+Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports authentication based on Azure Active Directory (Azure AD). This topic shows you how to use Azure AD  authentication to access Azure Media Services API with Microsoft .NET.
 
 ## Prerequisites
 
 - An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - The latest [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) package.
-- Familiarity with the topic [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) topic. 
+- Familiarity with the topic [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
-- **User authentication** is used to authenticate a person who is using the app to interact with Azure Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app that's used by authorized users to monitor encoding jobs or live streaming. 
-- **Service principal authentication** is used to authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, including Web Apps, Function Apps, Logic Apps, APIs, or Microservices.
+- **User authentication** authenticates a person who is using the app to interact with Azure Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app that's used by authorized users to monitor encoding jobs or live streaming. 
+- **Service principal authentication** authenticates a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs, such as Web Apps, Function Apps, Logic Apps, APIs, or Microservices.
 
 >[!IMPORTANT]
 >Azure Media Service currently supports an Azure Access Control Service  authentication model. However, Access Control authorization is going to be deprecated on June 1, 2018. We recommend that you migrate to an Azure Active Directory authentication model as soon as possible.
 
 ## Get an Azure AD access token
 
-To connect to the Azure Media Services API with Azure AD authentication, the client app needs to request an Azure AD access token. When you use the Media Services .NET client SDK, many of the details regarding how to acquire an Azure AD access token are wrapped and simplified for you in the [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) and [AzureAdTokenCredentials](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs) classes. 
+To connect to the Azure Media Services API with Azure AD authentication, the client app needs to request an Azure AD access token. When you use the Media Services .NET client SDK, many of the details about how to acquire an Azure AD access token are wrapped and simplified for you in the [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) and [AzureAdTokenCredentials](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs) classes. 
 
 For example, you don't need to provide the Azure AD authority, Media Services resource URI, or native Azure AD application details. These are well-known values that are already configured by the Azure AD access token provider class. 
 
@@ -121,11 +121,11 @@ The following example shows how to create the Azure AD token and the context.
 	}
 
 >[!NOTE]
->If you get an exception that says "The remote server returned an error: (401) Unauthorized," see the [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control) section.
+>If you get an exception that says "The remote server returned an error: (401) Unauthorized," see the [Access control](media-services-use-aad-auth-to-access-ams-api.md#access-control) section of Accessing Azure Media Services API with Azure AD authentication overview.
 
 ## Use service principal authentication
 	
-To connect to the Azure Media Services API with the service principal option, your middle-tier app (Web API or Web Application) needs to requests an Azure AD token with the following parameters:  
+To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web Application) needs to requests an Azure AD token with the following parameters:  
 
 1. **Azure AD tenant endpoint**
 
@@ -135,7 +135,7 @@ To connect to the Azure Media Services API with the service principal option, yo
 
 3. **Azure AD application** values: the **Client ID** and **Client secret**.
 
-The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Use the Azure portal to access Azure AD authentication settings using the "service principal" authentication option](media-services-portal-get-started-with-aad.md).
+The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Getting started with Azure AD authentication using the Azure portal](media-services-portal-get-started-with-aad.md).
 
 The following code example creates a token by using the **AzureAdTokenCredentials** constructor that takes **AzureAdClientSymmetricKey** as a parameter. 
 	
@@ -145,7 +145,9 @@ The following code example creates a token by using the **AzureAdTokenCredential
 
 	var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-You can also specify the **AzureAdTokenCredentials** constructor that takes **AzureAdClientCertificate** as a parameter. For instructions about how to create and configure a certificate in a form that can be used by Azure AD, see [Authenticating to Azure AD in daemon apps with certificates - manual configuration steps](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md).
+You can also specify the **AzureAdTokenCredentials** constructor that takes **AzureAdClientCertificate** as a parameter. 
+
+For instructions about how to create and configure a certificate in a form that can be used by Azure AD, see [Authenticating to Azure AD in daemon apps with certificates - manual configuration steps](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md).
 
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
 								new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
@@ -153,11 +155,11 @@ You can also specify the **AzureAdTokenCredentials** constructor that takes **Az
 
 To start programming against Media Services you need to create a **CloudMediaContext** instance that represents the server context. You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. You can get the **resource URI for Media REST Services** value from the Azure portal as well.
 
-The following code example creates a **CloudMediaContext** instance.
+The following code example creates a **CloudMediaContext** instance:
 
 	CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
 	
-The following example shows how to create the Azure AD token and the context.
+The following example shows how to create the Azure AD token and the context:
 
 	namespace AADAuthSample
 	{
