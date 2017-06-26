@@ -114,7 +114,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
         }
     }
     ```
-3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** blade. The queue **Essentials** blade is displayed. Notice that the **Current** value, indicating the size of the queue, should now be 0.2 KB. Each time you run the sender application without retrieving the messages, this value increases.
+3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** blade. The queue **Essentials** blade is displayed. Notice that the **Active Message Count** value should now be 1. Each time you run the sender application without retrieving the messages, this value increases.
    
       ![Message size][queue-message]
 
@@ -173,7 +173,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
       }
     }
     ```
-4. Run the program, and check the portal again. Notice that the **Current** value should now be 0.0 KB.
+4. Run the program, and check the portal again. Notice that the **Active Message Count** value should now be 0.
    
     ![Queue length][queue-message-receive]
 
