@@ -51,12 +51,7 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip application scripts
 
-<<<<<<< HEAD
 The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
-=======
-The Wingtip SaaS scripts and application source code are available in the WingtipSaaS github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
->>>>>>> 4369c0cd9b6629caa8d3a80287e34e4696dfebeb
-
 
 ## Explore the global views
 
