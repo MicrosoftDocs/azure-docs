@@ -21,7 +21,7 @@ ms.author: janeng
 
 # Use PowerShell to copy a SQL database to a new server
 
-This sample PowerShell script example creates a copy of an existing database in a new server. 
+This PowerShell script example creates a copy of an existing database in a new server. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
