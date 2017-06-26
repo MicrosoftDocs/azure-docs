@@ -114,7 +114,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
         }
     }
     ```
-3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** blade. The queue **Essentials** blade is displayed. Notice that the **Active Message Count** value should now be 1. Each time you run the sender application without retrieving the messages, this value increases.
+3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** blade. The queue **Essentials** blade is displayed. Notice that the **Active Message Count** value should now be 1. Each time you run the sender application without retrieving the messages, this value increases by 1. Also note that the current size of the queue increments each time the app adds a message to the queue.
    
       ![Message size][queue-message]
 
@@ -173,7 +173,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
       }
     }
     ```
-4. Run the program, and check the portal again. Notice that the **Active Message Count** value should now be 0.
+4. Run the program, and check the portal again. Notice that the **Active Message Count** and **Current** values should now be 0.
    
     ![Queue length][queue-message-receive]
 
