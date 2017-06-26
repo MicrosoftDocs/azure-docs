@@ -20,7 +20,7 @@ ms.author: juliako
  
 The Azure Media Services API is a RESTful API. You can use it to perform operations on media resources by using a REST API or by using available client SDKs. Azure Media Services offers a Media Services client SDK for Microsoft .NET. To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. 
 
-Media Services supports [Azure Active Directory (Azure AD)-based authentication](../active-directory/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with role-based access control in the Azure portal](../active-directory/role-based-access-control-what-is.md).  
+Media Services supports [Azure Active Directory (Azure AD)-based authentication](../active-directory/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with Role-Based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).  
 
 > [!IMPORTANT]
 > Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
@@ -142,12 +142,12 @@ Solution: For the Media Services REST request to succeed, the calling user must 
 
 The following articles are overviews of Azure AD authentication concepts: 
 
-- [Authentication scenarios addressed by Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad).
-- [Add, update, or remove an application in Azure AD](../active-directory/develop/active-directory-integrating-applications.md).
-- [Configure and manage role-based access control with PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+- [Authentication scenarios addressed by Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Add, update, or remove an application in Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
+- [Configure and manage Role-Based Access Control by using PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
 
 ## Next steps
 
-* [Use the Azure portal to access Azure AD authentication to consume Azure Media Services API](media-services-portal-get-started-with-aad.md).
-* [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
+* Use the Azure portal to [access Azure AD authentication to consume Azure Media Services API](media-services-portal-get-started-with-aad.md).
+* Use Azure AD authentication to [access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md).
 
