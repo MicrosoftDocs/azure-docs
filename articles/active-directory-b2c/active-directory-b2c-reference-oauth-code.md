@@ -18,7 +18,7 @@ ms.author: dastrock
 
 ---
 # Azure Active Directory B2C: OAuth 2.0 authorization code flow
-You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory (Azure AD) B2C implementation of OAuth 2.0, you can add sign-up, sign-in,
+You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries.
 
 <!-- TODO: Need link to libraries -->
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. |
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
-| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources. You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure Active Directory (Azure AD) both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources. You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that is returned in the token response. It can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the policy that was being executed. |
 | p |Required |The policy that is executed. It's the name of a policy that is created in your Azure AD B2C directory. The policy name value should begin with **b2c\_1\_**. To learn more about policies, see [Azure AD B2C built-in policies](active-directory-b2c-reference-policies.md). |
