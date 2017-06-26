@@ -21,7 +21,7 @@ The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any r
 This script uses a service principal in Azure Active Directory to authenticate to the OMS workspace.  You must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
 
 > [!NOTE]
-> When you [create an Azure Automation account](../automation/automation-create-standalone-account.md) a service principal is created that is suitable to use with this script.  If you already have an Azure Automation, you may be able to use this account, although you may need to [create an authentication key](../azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key.md) if it doesn't already have one.
+> When you [create an Azure Automation account](../automation/automation-create-standalone-account.md) a service principal is created that is suitable to use with this script.  If you already have an Azure Automation, you may be able to use this account, although you may need to [create an authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key.md) if it doesn't already have one.
 
 ``` python
 import adal
