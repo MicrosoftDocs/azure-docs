@@ -17,8 +17,8 @@ ms.author: bwren
 
 ---
 
-# Retrieve data from Log Analytics using Python
-The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from the repository.  This article presents a sample Python script that uses the Log Analytics log search API to read data from the OMS repository.  
+# Retrieve data from Log Analytics with a Python script
+The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from the repository.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
 
 This script uses a service principal in Azure Active Directory to authenticate to the OMS workspace.  You must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
 
@@ -42,7 +42,7 @@ end_time = datetime.datetime.utcnow()
 start_time = end_time - datetime.timedelta(hours=24)
 num_results = 100
 
-# IDs for authentication
+# IDs for authentication.  Fill in values for your service principal.
 subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 tenant_id = 'xxxxxxxx-xxxx-xxxx-xxx-xxxxxxxxxxxx'
 application_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx'
