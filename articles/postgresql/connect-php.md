@@ -31,14 +31,14 @@ Install PHP on your own server, or create an Azure [web app](https://docs.micros
 ### Linux (Ubuntu)
 - Download [PHP 7.1.4 non-thread safe (x64) version](http://php.net/downloads.php) 
 - Install PHP and refer to the [PHP manual](http://php.net/manual/install.unix.php) for further configuration
-- The code uses the **pgsql** class (php_pgsql.so)  that is typically included in the PHP installation. If it is not included, you may run `sudo apt-get install php-pgsql` to install it.
-- Enabled the **pgsql** extension by editing the php.ini configuration file. Write a new line with the text `extension=php_pgsql.so`, or uncomment an existing line with the same text by removing the semicolon prefix.
+- The code uses the **pgsql** class (php_pgsql.so). Install it by running `sudo apt-get install php-pgsql`.
+- Enabled the **pgsql** extension by editing the `/etc/php/7.0/mods-available/pgsql.ini` configuration file. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
 ### Windows
 - Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)
 - Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration
 - The code uses the **pgsql** class (ext/php_pgsql.dll)  that is included in the PHP installation. 
-- Enabled the **pgsql** extension by editing the php.ini configuration file. Write a new line with the text `extension=php_pgsql.dll`, or uncomment an existing line with the same text by removing the semicolon prefix.
+- Enabled the **pgsql** extension by editing the php.ini configuration file, typically located at `C:\Program Files\PHP\v7.1\php.ini`. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
