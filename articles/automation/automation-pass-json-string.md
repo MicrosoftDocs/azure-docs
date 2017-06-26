@@ -59,11 +59,10 @@ The runbook can then use the properties defined in the JSON.
 
 ```powershell
 Param(
-    [parameter(Mandatory=$true)]
-    [object]$json
+     [parameter(Mandatory=$true)]
+     [object]$json
 )
 
-   
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -77,7 +76,7 @@ Param(
 Now you can call the runbook from your local machine by using Azure PowerShell.
 Run the following PowerShell commands:
 
-1. Logon to Azure:
+1. Log in to Azure:
     ```powershell
     Login-AzureRmAccount
     ```
