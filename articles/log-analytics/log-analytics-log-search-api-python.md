@@ -15,13 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2017
 ms.author: bwren
 
+---
+
 # Retrieve data from Log Analytics using Python
 The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from the repository.  This article presents a sample Python script that uses the Log Analytics log search API to read data from the OMS repository.  
 
 This script uses a service principal in Azure Active Directory to authenticate to the OMS workspace.  You must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
 
 > [!NOTE]
-> When you [create an Azure Automation account](../automation/automation-create-standalone-account.md) a service principal is created that is suitable to use with this script.  If you already have an Azure Automation, you may be able to use this account, although you may need to [create an authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) if it doesn't already have one.
+> When you [create an Azure Automation account](../automation/automation-create-standalone-account.md), a service principal is created that is suitable to use with this script.  If you already have a service principal created by Azure Automation then you should be able to use it instead of creating a new one, although you may need to [create an authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) if it doesn't already have one.
 
 ``` python
 import adal
@@ -51,8 +53,6 @@ authentication_endpoint = 'https://login.microsoftonline.com/'
 resource  = 'https://management.core.windows.net/'
 
 # Get access token
-#context = adal.AuthenticationContext(authentication_endpoint + tenant_id)
-#token_response = context.acquire_token_with_client_credentials(resource, application_id, application_key)
 context = adal.AuthenticationContext('https://login.microsoftonline.com/' + tenant_id)
 token_response = context.acquire_token_with_client_credentials('https://management.core.windows.net/', application_id, application_key)
 access_token = token_response.get('accessToken')
