@@ -27,7 +27,7 @@ The map below shows the primary and secondary region pairings used for Geo-redun
 ![alt text](./media/documentation-government-services-storage.PNG)
 
 > [!NOTE]
-> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region.
+> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a secondary region.
 >
 >
 
