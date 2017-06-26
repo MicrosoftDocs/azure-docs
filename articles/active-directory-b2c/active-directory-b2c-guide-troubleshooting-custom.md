@@ -19,14 +19,14 @@ ms.author: joroja
 ---
 # Troubleshoot Azure AD B2C custom policies and Identity Experience Framework
 
-If you use Azure Active Directory (Azure AD) B2C custom policies, you might experience challenges setting up the Identity Experience Framework in its policy language XML format.  Learning to write custom policies can be like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
+If you use Azure Active Directory B2C (Azure AD B2C) custom policies, you might experience challenges setting up the Identity Experience Framework in its policy language XML format.  Learning to write custom policies can be like learning a new language. In this article, we describe tools and tips that can help you quickly discover and resolve issues. 
 
 > [!NOTE]
 > This article focuses on troubleshooting your Azure AD B2C custom policy configuration. It doesn't address the relying party application or its identity library.
 
 ## XML editing
 
-The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. A good XML editor displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and it can validate with schema. Here are two of our favorite XML editors:
+The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. A good XML editor displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and can validate with schema. Here are two of our favorite XML editors:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Notepad++](https://notepad-plus-plus.org/)
@@ -37,9 +37,9 @@ You might find a review of XML rules helpful. Azure AD B2C rejects any XML forma
 
 ## Upload policies and policy validation
 
- XML file upload validation is automatic. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to. (The relying party policy file, the extensions file, and the base file.) 
+ XML file upload validation is automatic. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file). 
  
- Common validation errors include:
+ Common validation errors include the following.
 
 Error snippet: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * The ClaimType value might be misspelled, or does not exist in the schema.
@@ -51,7 +51,7 @@ Error snippet: `...makes a reference to a ClaimsTransformation with id...`
 * The causes for the error might be the same as for the ClaimType error.
 
 Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Check that the TenantId value in the **\<TrustFrameworkPolicy\>** and the **\<BasePolicy\>** elements match your target Azure AD B2C tenant.  
+* Check that the TenantId value in the **\<TrustFrameworkPolicy\>** and **\<BasePolicy\>** elements match your target Azure AD B2C tenant.  
 
 ## Troubleshoot the runtime
 
@@ -66,9 +66,9 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 ## Recommended practices
 
-**Keep multiple versions of your scenarios. Group them in a project with your application.** The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
+**Keep multiple versions of your scenarios. Group them in a project with your application**. The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
 
-**Develop and test technical profiles with known user journeys.** Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
+**Develop and test technical profiles with known user journeys**. Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
 
 **Develop and test user journeys with tested technical profiles**. Change the orchestration steps of a user journey incrementally. Progressively build your intended scenarios.
 
