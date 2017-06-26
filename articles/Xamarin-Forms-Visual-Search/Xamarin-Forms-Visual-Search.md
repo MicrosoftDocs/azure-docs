@@ -81,14 +81,21 @@ Before running the application, you need to select a target Configuration, Platf
 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
-2) The application should open to the following page (defined in *AddKeysPage.xaml*).  ![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)  From here, you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
 
-3) Adding a set of working Azure keys takes you to the following page (defined in *OcrSelectPage.xaml*). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)  From here, you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
+2) The application should launch and open to the following page (defined in the codebase at *AddKeysPage.xaml*, and referenced in this guide as the Add Keys Page).  ![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)  Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
 
-4) The next screen displays the lines of text extracted by the Azure Computer Vision API (defined in *OcrResultsPage.xaml*).  ![OcrResultsPage Example](./media/OcrResultsPage.png).  
+3) Adding a set of working Azure keys takes you to the following page (defined in the codebase at *OcrSelectPage.xaml*, and referenced in this guide as the OCR Select Page). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)  Here you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
 
+4) The next screen displays the text extracted by the Azure Computer Vision API (defined in the codebase at *OcrResultsPage.xaml*, and referenced in this guide as the OCR Results Page).  ![OcrResultsPage Example](./media/OcrResultsPage.png)  Here you can select a line from the parsed text to find Bing search results for that content, or you can use the navigation bar to return to the OCR Select Page.
 
-Note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
+5) Selecting an item from the OCR Results Page will take you to the following screen (defined in the codebase at *WebResultsPage.xaml*, and referenced in this guide as the Web Results Page) ![WebResultsPage ExampleS](./media/WebResultsPage.png)  
+Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
+
+6) Finally, selecting an item from the Web Results Page will open a WebView showing the content at that Bing result.  
+![WebViewPage Example](./media/WebViewPage.png)
+From here, you can interact with the website as if it were loaded within a standard browser, or use the naviagtion bar to return to the Web Results Page. 
+
+Note the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
 
 ## Review and Learn:
 Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
@@ -143,8 +150,8 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
 
 
 ### OCR Select Page:
-The OCR Select Page is where you select the type of Optical Character Recognition you would like to use to process your image, and where  you capture or import the photos that you would like to process.  
-
+The OCR Select Page is where the user selects the type of Optical Character Recognition they would like to use to process their image, and where the user can capture or import the photos that they would like to process.  
+ 
 Description of the OcrSelectPage: it's a page where you're able to select OCR!
 * Is a Xamarin Forms TabbedPage where users can import or take photos for processing, and can decide what form of OCR to perform.
 * (Maybe or not?) discuss how objects set to the buttons so that you can track the calling button.
@@ -175,7 +182,7 @@ Description of the OcrSelectPage: it's a page where you're able to select OCR!
 **Description of WebResultsPage**
 * Is a Xamarin.Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Uses the Web Search API:
-    * General descripton: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
+    * General description: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
     * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
     * Page ranking tutorial: <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
 
