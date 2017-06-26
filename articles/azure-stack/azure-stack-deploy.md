@@ -1,6 +1,6 @@
 ---
-title: Before you deploy Azure Stack POC | Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack POC (service administrator).
+title: Before you deploy Azure Stack development kit | Microsoft Docs
+description: View the environment and hardware requirements for Azure Stack development kit (service administrator).
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,14 +18,14 @@ ms.author: erikje
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
+Before you deploy Azure Stack [development kit](azure-stack-poc.md)), make sure your computer meets the following requirements.
 You can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
 | Component | Minimum | Recommended |
 | --- | --- | --- |
 | Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack POC Data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
+| Disk drives: General Azure Stack development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
 | Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
 | Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
@@ -51,7 +51,7 @@ You can use the same hardware that you used for the previous single-box preview.
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the Microsoft Azure Stack POC on those SSDs.
+\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
 
 **Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
 
@@ -60,15 +60,15 @@ Sample OEM configurations are available.
 ## Operating system
 |  | **Requirements** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC. |
+| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
 
 ## Deployment requirements check tool
 After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
 
 ## Account requirements
-Typically, you deploy the Azure Stack POC with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the POC.
+Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The Azure Stack POC includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
 
 >[!NOTE]
 If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
@@ -79,7 +79,7 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
 1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
    
     Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the Azure Stack POC as a tenant.
+2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
    
    | **Azure Active Directory account** | **Supported?** |
    | --- | --- |
@@ -90,12 +90,12 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
 
 ## Network
 ### Switch
-One available port on a switch for the POC machine.  
+One available port on a switch for the development kit machine.  
 
-The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
 ### Subnet
-Do not connect the POC machine to the following subnets:
+Do not connect the development kit machine to the following subnets:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -104,7 +104,7 @@ Do not connect the POC machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the Microsoft Azure Stack POC environment.
+These subnets are reserved for the internal networks within the development kit environment.
 
 ### IPv4/IPv6
 Only IPv4 is supported. You cannot create IPv6 networks.
@@ -119,7 +119,7 @@ Azure Stack requires access to the Internet, either directly or through a transp
 To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 ## Next steps
-[Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack POC](azure-stack-run-powershell-script.md)
+[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
 
