@@ -37,13 +37,13 @@ This document provides a rough overview of various optimization features and whe
 
 You can begin creating a new CDN endpoint, by selecting from the drop-down menu that best matches the scenario and the type of content that you use the endpoint to deliver. "General web delivery" is the default selection. You can update the optimization option for any existing Akamai endpoint at any time. This change will not interrupt CDN delivery.  
 
-1.	Select an endpoint within a Standard Akamai Profile.
+1. Select an endpoint within a Standard Akamai Profile.
 
-![Select an endpoint.](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Select an endpoint.](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Select Optimization from the sidebar, then select a type from the dropdown.
 
-![Select Optimization and Type.](./media/cdn-optimization-overview/02_Select.png)
+    ![Select Optimization and Type.](./media/cdn-optimization-overview/02_Select.png)
 
 ## Optimization for Specific Scenarios
 
