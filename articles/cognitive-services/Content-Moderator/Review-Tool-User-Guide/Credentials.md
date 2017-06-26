@@ -24,7 +24,7 @@ If you are accessing the API from the Microsoft Azure portal, click on the desir
 
 From the Review Tool Dashboard, click on Credentials from the Settings tab.
 
-![Content Moderator credentials in the review tool](images/7-Settings-Credentials.png)
+![Content Moderator credentials in the review tool](images/credentials-2-reviewtool.png)
 
 ## Connector Keys ##
 
