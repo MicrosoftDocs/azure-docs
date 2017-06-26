@@ -19,7 +19,7 @@ ms.author:
 ---
 # Azure Active Directory B2C: Threat management
 
-Threat management includes planning for protection from attacks against your system and networks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. Azure Active Directory (Azure AD) B2C has built-in features that can help you protect your data against these threats in multiple ways.
+Threat management includes planning for protection from attacks against your system and networks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources. Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect your data against these threats in multiple ways.
 
 ## Denial-of-service attacks
 
