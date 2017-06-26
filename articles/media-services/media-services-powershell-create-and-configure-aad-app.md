@@ -1,6 +1,6 @@
 ---
-title: Use PowerShell to create an Azure AD app to use with the Azure Media Services API | Microsoft Docs
-description:Learn how to use PowerShell to create an Azure Active Directory (Azure AD) app and set it up to access the Azure Media Services API.
+title: Use PowerShell to create an Azure AD app to access the Azure Media Services API | Microsoft Docs
+description: Learn how to use PowerShell to create an Azure Active Directory (Azure AD) app and set it up to access the Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -23,12 +23,12 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 
 ## Prerequisites
 
-- An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
+- An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account in the Azure portal](media-services-portal-create-account.md)
 - Azure PowerShell version 0.8.8 or a later version. For more information, see [How to use Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 - Azure Resource Manager cmdlets.  
 
-## Create an Azure AD app with PowerShell  
+## Create an Azure AD app by using PowerShell  
 
 ```powershell
 Login-AzureRmAccount
@@ -54,7 +54,7 @@ For more information, see the following articles:
 
 - [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 - [Manage role-based access control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
-- [How to manually configure daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
+- [How to manually configure daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad).
 
 ## Next steps
 
