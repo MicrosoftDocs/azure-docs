@@ -81,7 +81,7 @@ The values for these parameters can be found in **AzureEnvironments.AzureCloudEn
 
 It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use the **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
 
-The following code example creates a token.
+The following code example creates a token:
 	
 	var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
 	var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
@@ -90,11 +90,11 @@ To start programming against Media Services, you need to create a **CloudMediaCo
 
 You also need to pass the **resource URI for Media REST Services** to the **CloudMediaContext** constructor. To get the resource URI for Media REST Services, sign in to the Azure portal, select your Azure Media Services account, select **API access**, and then select **Connect to Azure Media Services with user authentication**. 
 
-The following code example creates a **CloudMediaContext** instance.
+The following code example creates a **CloudMediaContext** instance:
 
 	CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
 
-The following example shows how to create the Azure AD token and the context.
+The following example shows how to create the Azure AD token and the context:
 
 	namespace AADAuthSample
 	{
@@ -127,17 +127,17 @@ The following example shows how to create the Azure AD token and the context.
 	
 To connect to the Azure Media Services API with the service principal option, your middle-tier app (web API or web application) needs to requests an Azure AD token with the following parameters:  
 
-1. Azure AD tenant endpoint
+- Azure AD tenant endpoint
 
 	The tenant information can be retrieved from the Azure portal. Hover over the signed-in user in the upper right corner.
 
-2. Media Services resource URI 
+- Media Services resource URI 
 
-3. Azure AD application values: the **Client ID** and **Client secret**
+- Azure AD application values: the **Client ID** and **Client secret**
 
 The values for the **Client ID** and **Client secret** parameters can be found in the Azure portal. For more information, see [Getting started with Azure AD authentication using the Azure portal](media-services-portal-get-started-with-aad.md).
 
-The following code example creates a token by using the **AzureAdTokenCredentials** constructor that takes **AzureAdClientSymmetricKey** as a parameter. 
+The following code example creates a token by using the **AzureAdTokenCredentials** constructor that takes **AzureAdClientSymmetricKey** as a parameter: 
 	
 	var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
 								new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
