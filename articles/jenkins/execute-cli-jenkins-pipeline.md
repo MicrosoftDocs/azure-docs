@@ -52,7 +52,7 @@ sudo apt-get install -y maven
 
 An Azure credential is needed to execute Azure CLI.
 
-* Within the Jenkins dashboard, click **Credentials -> System ->**. Click **Global credentials(unstricted)**.
+* Within the Jenkins dashboard, click **Credentials -> System ->**. Click **Global credentials(unrestricted)**.
 * Click **Add Credentials** to add a [Microsoft Azure service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint. Provide an ID for use in subsequent step.
 
 ![Add Credentials](./media/execute-cli-jenkins-pipeline/add-credentials.png)
@@ -132,7 +132,7 @@ az webapp config set \
 ```
 
 ## Prepare a GitHub Repository
-Open the [Simple Java Web App for Azure](https://github.com/chenkennt/javawebappsample) from the Azure samples repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
+Open the [Simple Java Web App for Azure](https://github.com/puicchan/jenkinssamples) from the Azure samples repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
 
 * In GitHub web UI, open **Jenkinsfile** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 20 and 21 respectively.
 
@@ -166,8 +166,14 @@ Open Jenkins in a web browser, click **New Item**.
 ## Verify your web app
 To verify the WAR file is deployed successfully to your web app. Open a web browser:
 
-* go to http://<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
-* go to http://<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
+* Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
+You see “**pong!**” as a response.
+
+![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+
+* Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
+
+![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ## Next steps
 In this tutorial, you configured a Jenkins pipeline that checks out the source code in GitHub repo. Runs Maven to build a war file and then uses Azure CLI to deploy to Azure App Service. You learned how to:

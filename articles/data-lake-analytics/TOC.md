@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Get started
@@ -23,8 +23,6 @@
 ### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL language reference](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL catalog](data-lake-analytics-u-sql-catalog.md)
-### [U-SQL joins](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
@@ -48,9 +46,10 @@
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
