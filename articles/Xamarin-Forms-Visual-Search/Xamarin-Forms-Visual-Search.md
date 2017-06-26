@@ -65,29 +65,111 @@ Before running the application, you will need to select a target Configuration, 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5** to deploy the sample to your target platform.  
 2) Once the application boots, you will be taken to the page below (defined in code as *AddKeysPage.xaml*).  From here, you can input the API keys needed to access the Microsoft Cognitive Services endpoints used by the application.  If you would like to skip this page, you can manually add your keys in the App.xaml.cs page of the codebase. 
-<div align="center">
-    <img src=./media/AddKeysPage.png
-         alt="A picture of the page where a user can add their Cognitive Services keys">
-    </img>
-</div>
-3) Once you've added your keys, you will be taken to the main landing page of the application (defined in code as the OcrSelectPage).  From here, you can either import or capture a new photo, and pass that photo to either the Print or Handwritten OCR service.  
-<div align="center">
-    <img src=./media/OcrSelectPage.png
-         alt="A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo">
-    </img>
-</div> 
+![A picture of the page where a user can add their Cognitive Services keys](.//media/AddKeysPage.png)
+
+3) Once you've added your keys, you will be taken to the main landing page of the application (defined in code as the OcrSelectPage).  From here, you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
+![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)
+
 Please note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and funtionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
- 
+
+## Review and Learn:
+Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Microsoft Cognitive Services toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it will be valuable to walk through the application screen by screen and examine exactly how it works.
 
 ### Required Libraries:  
-* Xamarin Media Plugin
-* Newtonsoft JSON
-* Additionally, the app makes use of the ImageResizer class.
-    * Found @ <https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize>
+This app makes use of the libraries below.  The first two can be installed using the NuGet Package manager, while the third can be found in the reference guide linked below.
+* [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
+* [Newtonsoft JSON parser](http://www.newtonsoft.com/json)
+* [Xamarin Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
+### Key Entry Page
+#### UI
+The first page that a user will see when they enter the app will be the key entry page shown here.  Its UI is defined in **AddKeysPage.xaml**, and most of the logic controlling that UI is defined in **AddKeysPage.xaml.cs**.  
+The UI for this page is relatively simple; it is a Xamarin.Forms StackedLayout containing elements for the two text input boxes and the Add Keys button, which calls the **TryToAddKeys** method in **AddKeysPage.xaml.cs**  
+#### Backing Logic:
+**AddKeysPage.xaml.cs** sends test calls to each of the Azure Cognitive Services endpoints used in the application to check the user-defined keys and to ensure their functionality.  For this, they send simple requests to the endpoints and then check their responses.  Although we will go over  the specific parameters of the calls later, this is a great place to start examining exactly how to hit the cognitive services endpoints and unpack their responses.
+
+    namespace VisualSearchApp
+    {
+        [XamlCompilation(XamlCompilationOptions.Compile)]
+        public partial class AddKeysPage : ContentPage
+        {
+            private bool computerVisionKeyWorks = false;
+            private bool bingSearchKeyWorks = false;
+
+            public string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
+            const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=test";
+
+            public AddKeysPage ()
+            {
+                InitializeComponent();
+            }
+
+            async Task CheckComputerVisionKey(object sender = null, EventArgs e = null)
+            {
+                HttpResponseMessage response;
+                byte[] emptyImage = new byte[10];
+                HttpClient VisionApiClient = new HttpClient();
+
+                VisionApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", ComputerVisionKeyEntry.Text);
+                using (var content = new ByteArrayContent(emptyImage))
+                {
+                    // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                    response = await VisionApiClient.PostAsync(ocrUri, content);
+                }
+                if ((int)response.StatusCode != 401)
+                {
+                    ComputerVisionKeyEntry.BackgroundColor = Color.Green;
+                    ApiKeys.computerVisionKey = ComputerVisionKeyEntry.Text;
+                    computerVisionKeyWorks = true;
+                }
+                else
+                {
+                    ComputerVisionKeyEntry.BackgroundColor = Color.Red;
+                    computerVisionKeyWorks = false;
+                }
+            }
+
+            async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
+            {
+                HttpClient SearchApiClient = new HttpClient();
+                SearchApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingSearchKeyEntry.Text);
+                HttpResponseMessage response = await SearchApiClient.GetAsync(searchUri);
+                if ((int)response.StatusCode != 401)
+                {
+                    BingSearchKeyEntry.BackgroundColor = Color.Green;
+                    ApiKeys.bingSearchKey = BingSearchKeyEntry.Text;
+                    bingSearchKeyWorks = true;
+                }
+                else
+                {
+                    BingSearchKeyEntry.BackgroundColor = Color.Red;
+                    bingSearchKeyWorks = false;
+                }
+            }
+
+            async void TryToAddKeys(object sender, EventArgs e)
+            {
+                if (!computerVisionKeyWorks)
+                    await CheckComputerVisionKey();
+                if (!bingSearchKeyWorks)
+                    await CheckBingSearchKey();
+
+                if (bingSearchKeyWorks && computerVisionKeyWorks)
+                {
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Error","One or more of your keys are invalid.  Please update them and try again", "OK");
+                }
+            }
+        }
+    }
+
+![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)
 
 ### OcrSelectPage:
-
 ![OcrSelectPage Example](./media/OcrSelectPage.png)
 
 **Description of the OcrSelectPage**
