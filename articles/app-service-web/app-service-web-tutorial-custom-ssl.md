@@ -210,8 +210,6 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 ## Enforce HTTPS
 
-If you want to allow HTTP access to your web app, skip this step.
-
 App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
@@ -252,9 +250,7 @@ This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol wheneve
 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
 
-## Enforce HTTP on Web Apps on Linux
-
-If you want to allow HTTP access to your web app, skip this step.
+## Enforce HTTPS for Web Apps on Linux
 
 App Service on Linux does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _.htaccess_ file for your web app. 
 
