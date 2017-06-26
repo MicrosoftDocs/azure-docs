@@ -28,14 +28,31 @@ This tutorial explores the Azure Computer Vision and Bing Web Search API endpoin
 ### Platform Requirements
 This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise Edition](https://www.visualstudio.com/downloads/).  This guide covers the basics of setting up and developing with Xamarin in Visual Studio.  For more information, you can consult the [Xamarin documentation](https://developer.xamarin.com/guides/cross-platform/getting_started/)  on the subject.
 
-### Azure Services
-This application utilizes resources from the [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) and the Cognitive Services [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  For a 30-day trial key, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/), and for more information about attaining keys for yourself, see [Pricing](http://www.google.com).
+### Imported Libraries:  
+This app makes use of the following libraries:
+* [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
+* [NewtonSoft JSON parser](http://www.newtonsoft.com/json)
+* [Xamarin Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
-### Legal:
-#### Web Search API:
-Use of the Bing Web Search API requires adherence to the Bing Web Search [Use and Display Requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Web-Search/UseAndDisplayRequirements).  
-**Computer Vision API**: Microsoft receives the images that you upload to the Computer Vision APIs and may use them to improve their systems.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).  
-**Licensing**: XamFormsVisualSearch is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/).  You can use as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs. 
+The Xamarin Media Plugin and the NewtonSoft JSON parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide.
+
+### Azure Services
+This application utilizes resources from the following libraries:
+* [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
+*  [Azure Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
+
+For a 30-day trial key, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](http://www.google.com).
+
+### Legal: 
+This application uses resources that require users to follow a few specific legal guidelines.  Before deploying an application based on this codebasse, familiarize yourself with the following fuidelines.  
+* Web Search API:
+    * Use of the Bing Web Search API requires adherence to the Bing Web Search [Use and Display Requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Web-Search/UseAndDisplayRequirements).  
+* Computer Vision API: 
+    * Microsoft receives the images that you upload to the Computer Vision APIs and may use them to improve their systems.  By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).  
+* ImageResizer.cs file:
+    * The ImageResizer.cs file falls within an Apache 2.0 license.  You can attain a copy of this license at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* General License: 
+    * XamFormsVisualSearch is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/).  You can use it as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs. 
 
 ## Environment Setup  
 ### Installing Xamarin  
@@ -74,20 +91,10 @@ Note that the Handwritten OCR endpoint is in preview, and although functional at
 ## Review and Learn:
 Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
 
-### Required Libraries:  
-This app makes use of the following libraries.  The first two can be installed using the NuGet Package manager, while the third can be found in the linked Xamarin referene guide.
-* [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
-* [NewtonSoft JSON parser](http://www.newtonsoft.com/json)
-* [Xamarin Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
-
 ### Key Entry Page
-#### UI
-The first page that a user sees when they enter the app is the key entry page shown here.  Its UI is defined in *AddKeysPage.xaml*, and most of the logic controlling that UI is defined in *AddKeysPage.xaml.cs*.  
-The UI for this page is relatively simple; it is a Xamarin.Forms StackedLayout containing elements for the two text input boxes and the Add Keys button, which calls the *TryToAddKeys* method in *AddKeysPage.xaml.cs*. 
-#### Backing Logic:
-*AddKeysPage.xaml.cs* sends test calls to each of the utilized Azure endpoints to check the user-defined keys and to ensure their functionality.  This is done in the functions *CheckComputerVisionKey* and *CheckBingSearchKey*  Although we go over the specifics of how to optimally structure these calls later, this file is a great place to start examining how exactly to reach the cognitive services endpoints and and unpack their responses.  
+The primary logic for this page is covered in *AddKeysPage.xaml.cs*.  Here, calls are sent to each of the API endpoints to ensure that their Azure subscription keys are valid.  While the specific arguments and parameters sent with these requests are discussed in later files, this is a great place to start examining how to reach the cognitive services endpoints and unpack their responses. 
 
-First I establish the root
+At the class level we define the root URI locations of each of the Azure endpoints.  While this file interacts with the endpoints in relatively simple ways, in larger applications this abstraction can be very useful. 
 
     public partial class AddKeysPage : ContentPage
 	{
@@ -98,11 +105,12 @@ First I establish the root
         // URIs of the endpoints used in the test requests
         private string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
         private string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?";
+        //CLASS CONTINUES BELOW
 
-        public AddKeysPage ()
-		{
-			InitializeComponent();
-		}
+
+With those set, we can look into how each of the endpoints are pinged and checked.  
+
+The Computer Vision 
 
         // send a test POST request to see if the Vision API Key is functional
         async Task CheckComputerVisionKey(object sender = null, EventArgs e = null)
@@ -131,6 +139,8 @@ First I establish the root
             }
         }
 
+And here we check the other thing
+
         // send a test GET request to see if the Bing Search API key is functional
         async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
         {
@@ -152,6 +162,8 @@ First I establish the root
         }
 
 
+Finally, this class is called when a user hits the "Add Keys" button
+
         async void TryToAddKeys(object sender, EventArgs e)
         {
             if (!computerVisionKeyWorks)
@@ -169,8 +181,6 @@ First I establish the root
             }
         }
     }
-
-![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)
 
 ### OcrSelectPage:
 ![OcrSelectPage Example](./media/OcrSelectPage.png)
