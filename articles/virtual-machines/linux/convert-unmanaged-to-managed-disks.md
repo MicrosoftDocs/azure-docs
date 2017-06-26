@@ -41,7 +41,7 @@ This article shows you how to convert VMs with the Azure CLI. If you need to ins
 
 
 ## Convert VM to managed disks
-This section covers how to convert single instance Azure VMs from unmanaged disks to managed disks. (See the next section if your VMs are in an availablity set.) You can use this process to convert from Premium (SSD) unmanaged disks to Premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.
+This section covers how to convert single-instance Azure VMs from unmanaged disks to managed disks. (See the next section if your VMs are in an availablity set.) You can use this process to convert from Premium (SSD) unmanaged disks to Premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.
 
 1. Deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
@@ -70,8 +70,11 @@ All VMs in the availability set must be deallocated before you convert the avail
 1. List all VMs in an availability set with [az vm availability-set list](/cli/azure/vm/availability-set#list). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
-    az vm availability-set show --resource-group myResourceGroup \
-        --name myAvailabilitySet --query [virtualMachines[*].id] --output table
+    az vm availability-set show \
+        --resource-group myResourceGroup \
+        --name myAvailabilitySet \
+        --query [virtualMachines[*].id] \
+        --output table
     ```
 
 2. Deallocate all the VMs with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
@@ -83,7 +86,8 @@ All VMs in the availability set must be deallocated before you convert the avail
 3. Convert the availability set with [az vm availability-set convert](/cli/azure/vm/availability-set#convert). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
-    az vm availability-set convert --resource-group myResourceGroup \
+    az vm availability-set convert \
+        --resource-group myResourceGroup \
         --name myAvailabilitySet
     ```
 
@@ -106,7 +110,7 @@ You can't use the preceding steps to convert an unmanaged disk into a managed di
 
 2. Use the copied VM in one of the following ways:
 
-* Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](/cli/azure/vm#create)
+* Create a VM that uses managed disks, and specify that VHD file during creation with [az vm create](/cli/azure/vm#create)
 
 * Attach the copied VHD with [az vm disk attach](/cli/azure/vm/disk#attach) to a running VM with managed disks.
 
