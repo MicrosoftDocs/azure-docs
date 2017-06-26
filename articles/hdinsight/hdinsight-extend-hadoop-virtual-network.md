@@ -54,19 +54,23 @@ The following are a list of considerations when using HDInsight in a virtual net
 
     To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-* __Custom DNS__: Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+* __Custom DNS__: If you need to enable name resolution between HDInsight and resources in your local network, you must use a custom DNS server. You do not need a custom DNS server to access resources that are publicly available on the internet.
 
-* __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
+    For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-* __Restricting network traffic__: 
+* __Forced tunneling__: HDInsight does not support forced tunneling.
 
-    * __Network Security Groups__: You must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+* __Restricted virtual network__: You can install HDInsight into a virtual network that restricts inbound and outbound traffic. You must allow access to specific IP addresses for the Azure region that you are using.
+
+    * __Network Security Groups__: If you use Network Security Groups, you must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [Network Security Groups](#using-network-security-groups) section.
 
-    * __User-defined routes__: You must define routes to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+    * __User-defined routes__: If you use user-defined routes, you must define routes to several Azure IP addresses. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
 
         For more information, see the [User-defined routes](#user-defined-routes) section.
+
+    * __Network Virtual Appliance__: If you use a virtual appliance firewall, see the [Virtual appliance firewall](#virtual-appliance-firewall) section for a list of ports that must be allowed through the firewall.
 
 ### Connect cloud resources together in a private network (cloud-only)
 
@@ -99,9 +103,9 @@ Using Virtual Network to link the cloud and your datacenter enables similar scen
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
+> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. If you plan on using a custom DNS server, it must be added to the virtual network before HDInsight. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-##<a id="hdinsight-ip"></a> Required IP Addresses
+##<a id="hdinsight-ip"></a> Required IP addresses
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
 
@@ -113,7 +117,7 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
+If you restrict access to the virtual network you must allow access to the managment IP addresses. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
@@ -304,7 +308,7 @@ For more information on Network Security Groups, see [Network Security Groups ov
 
 ## User-defined routes
 
-If you use user-defined routes (UDR) to secure the virtual network, you must add routes for the IP addresses in the [Required IP Addresses](#hdinsight-ip) section.
+If you use user-defined routes (UDR) to secure the virtual network, you must add routes for the HDInsight management IP addresses for your region. For a list of IP addresses by region, see the [Required IP addresses](#hdinsight-ip) section.
 
 The routes to the required IP addresses must set the __Next Hop__ type to __Internet__. The following image is an example of how the routes appear in the Azure portal:
 
@@ -316,6 +320,7 @@ For more information on user-defined routes, see the [user-defined routes and IP
 
 If you are using a virtual appliance firewall to secure the virtual network, you must allow outbound traffic on the following ports:
 
+* 53
 * 443
 * 1433
 * 11000-11999

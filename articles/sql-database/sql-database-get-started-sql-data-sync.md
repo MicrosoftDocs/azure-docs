@@ -117,6 +117,10 @@ On the **Configure On-Premises** blade, do the following things:
     If you chose **Create a new agent**, do the following things:
 
     1.  Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
+ 
+    > [!IMPORTANT]
+    > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
+
 
     2.  Enter a name for the agent.
 
