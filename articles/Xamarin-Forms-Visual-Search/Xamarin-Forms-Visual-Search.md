@@ -44,7 +44,7 @@ This application utilizes resources from the following libraries:
 For a 30-day trial key, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](http://www.google.com).
 
 ### Legal: 
-This application uses resources that require users to follow a few specific legal guidelines.  Before deploying an application based on this codebasse, familiarize yourself with the following fuidelines.  
+This application uses resources that require users to follow a few specific legal guidelines.  Before deploying an application based on this codebase, familiarize yourself with the following guidelines:  
 * Web Search API:
     * Use of the Bing Web Search API requires adherence to the Bing Web Search [Use and Display Requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Web-Search/UseAndDisplayRequirements).  
 * Computer Vision API: 
@@ -81,9 +81,11 @@ Before running the application, you need to select a target Configuration, Platf
 
 ### Step 4: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
-2) The application should open to the following page (defined in code as *AddKeysPage.xaml*).  ![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)  From here, you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
+2) The application should open to the following page (defined in *AddKeysPage.xaml*).  ![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)  From here, you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
 
-3) Adding a set of working Azure keys takes you to the following page (defined in code as the OcrSelectPage).  ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)  From here, you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
+3) Adding a set of working Azure keys takes you to the following page (defined in *OcrSelectPage.xaml*). ![A picture of the page where users can select their preferred OCR type, and decide whether they would like to import or capture a new photo](./media/OcrSelectPage.png)  From here, you can either import or capture a new photo and then pass that photo to the Print or Handwritten OCR service for processing. 
+
+4) The next screen displays the lines of text extracted by the Azure Computer Vision API (defined in *OcrResultsPage.xaml*).  ![OcrResultsPage Example](./media/OcrResultsPage.png).  
 
 
 Note that the Handwritten OCR endpoint is in preview, and although functional at the time of this guide's writing, its outputs and functionality are subject to change.  Additionally, Microsoft receives the images that you upload and may use them to improve the Computer Vision API and related services.  By submitting an image, you confirm that you have followed our Developer Code of Conduct.  
@@ -91,9 +93,9 @@ Note that the Handwritten OCR endpoint is in preview, and although functional at
 ## Review and Learn:
 Now that we have a functioning application, let's jump in and explore exactly how it utilizes resources from the Azure toolkit.  Whether you're using this sample as a starting point for your own application or simply as a reference for the Cognitive Services APIs, it is valuable to walk through the application screen by screen and examine exactly how it works.
 
-### Key Entry Page
-The primary logic for this page is covered in *AddKeysPage.xaml.cs*.  Here, calls are sent to each of the API endpoints to ensure that their Azure subscription keys are valid.  While the specific parameters sent with these requests are discussed in later files, this is a great place to establich the basic structure of how the Azure endpoints are accessed from a C# codebase.  This basic interaction can be summarized as follows: 
-1) Establish the root URI for each endpoint as a class constant
+### Add Keys Page
+The Add Keys Page is where the user inputs their Azure API keys to be tested and set for later use. The UI for this page is defined in *AddKeysPage.xaml*, and its primary logic is defined in *AddKeysPage.xaml.cs*.  While the specific parameters of each request are discussed in later files, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
+1) Establish the root URI for each endpoint in a reusable location
 2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
 3) Attach any desired headers (defined in each endpoint's API reference) to your HttpClient object
 4) Attach any desired parameters to your endpoint URI
@@ -140,7 +142,9 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
         }
 
 
-### OcrSelectPage:
+### OCR Select Page:
+The OCR Select Page is where you select the type of Optical Character Recognition you would like to use to process your image, and where  you capture or import the photos that you would like to process.  
+
 Description of the OcrSelectPage: it's a page where you're able to select OCR!
 * Is a Xamarin Forms TabbedPage where users can import or take photos for processing, and can decide what form of OCR to perform.
 * (Maybe or not?) discuss how objects set to the buttons so that you can track the calling button.
@@ -157,11 +161,11 @@ Description of the OcrSelectPage: it's a page where you're able to select OCR!
 * Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
     * General Description: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
-    * Api Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
+    * API Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
     * QuickStarts for API use: <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp>
 * Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
     * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
-    * Note that later, an alternative object deserializing method will be used to obtain a richer set of data per object
+    * Note that later, an alternative object deserializing method is used to obtain a richer set of data per object
 
 
 ### WebResultsPage
