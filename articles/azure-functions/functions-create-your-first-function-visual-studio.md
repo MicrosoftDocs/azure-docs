@@ -45,7 +45,7 @@ Before you begin, you must download and install the Azure Functions Tools for Vi
 
 ## Create an Azure Functions project in Visual Studio
 
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 Now that you have created the project, you can create your first function.
 

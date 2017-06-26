@@ -95,13 +95,6 @@ Asynchronous programming is a recommended best practice. However, always avoid r
 ## Next steps
 For more information, see the following resources:
 
-<<<<<<< HEAD
 Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
 * [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
-=======
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
->>>>>>> 48b5c15f5300711a46bf44658b164a8680510605
 

@@ -51,7 +51,7 @@ You can [download and install the extension package](https://marketplace.visuals
 
 ## Create an Azure Functions project 
 
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions ](../../includes/functions-vstools-create.md)]
 
 
 ## Configure the project for local development
@@ -60,7 +60,7 @@ When you create a new project using the Azure Functions template, you get an emp
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) reference article.
     
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the Azure Functions Core Tools. Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. 
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the Azure Functions Core Tools. Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. To set the storage account connection string:
 
