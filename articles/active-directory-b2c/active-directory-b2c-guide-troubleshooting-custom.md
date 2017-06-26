@@ -66,11 +66,11 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 ## Recommended practices
 
-**Keep multiple versions of your scenarios. Group them in a project with your application**. The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
+**Keep multiple versions of your scenarios. Group them in a project with your application.** The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
 
-**Develop and test technical profiles with known user journeys**. Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
+**Develop and test technical profiles with known user journeys.** Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
 
-**Develop and test user journeys with tested technical profiles**. Change the orchestration steps of a user journey incrementally. Progressively build your intended scenarios.
+**Develop and test user journeys with tested technical profiles.** Change the orchestration steps of a user journey incrementally. Progressively build your intended scenarios.
 
 ## Next steps
 
