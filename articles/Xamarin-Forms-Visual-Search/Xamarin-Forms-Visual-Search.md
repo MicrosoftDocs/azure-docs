@@ -114,7 +114,7 @@ Step 1 is carried out in the first few lines of our class.  Here, we initialize 
         private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?";
         //CLASS CONTINUES BELOW
 
-Steps 2 through 6 are then executed within their respective functions.  
+Steps 2 through 6 are then executed within their respective functions.  In the context of the key entry page, we're only checking to see if the Http request returned a 401 error, which would indicate that the API key was invalid.  In later functions, further checking and unpacking of the http response is done.  The function that checks the validity of the Bing Search API key follows:
 
         // send a test GET request to see if the Bing Search API key is functional
         async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
@@ -141,14 +141,13 @@ Steps 2 through 6 are then executed within their respective functions.
 
 
 ### OcrSelectPage:
-![OcrSelectPage Example](./media/OcrSelectPage.png)
-
-**Description of the OcrSelectPage**
+Description of the OcrSelectPage: it's a page where you're able to select OCR!
 * Is a Xamarin Forms TabbedPage where users can import or take photos for processing, and can decide what form of OCR to perform.
 * (Maybe or not?) discuss how objects set to the buttons so that you can track the calling button.
 * Explain the Xamarin Media Plugin, & link to docs.
     * Found @ <https://components.xamarin.com/view/mediaplugin> 
 
+![OcrSelectPage Example](./media/OcrSelectPage.png)
 
 ### OcrResultsPage
 
