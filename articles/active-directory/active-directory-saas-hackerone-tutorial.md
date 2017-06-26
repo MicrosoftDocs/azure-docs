@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -77,7 +77,7 @@ To configure the integration of HackerOne into Azure AD, you need to add HackerO
 
 ##  Configuring and testing Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with HackerOne based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with HackerOne based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in HackerOne is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in HackerOne needs to be established.
 
@@ -109,10 +109,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://hackerone.com/<company name>/authentication`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://hackerone.com/<company name>/authentication`
+
+	b. In the **Identifier** textbox, type a URL as:  `https://hackerone.com/users/saml/metadata`
 	
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual SAML Single Sign-On Service URL. Contact [HackerOne support team](mailto:support@hackerone.com) to get these values. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [HackerOne support team](mailto:support@hackerone.com) to get these value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -128,11 +130,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. Sign On to your HackerOne tenant as an administrator.
 
-8. In the menu on the top, click the **Settings.
+8. In the menu on the top, click the "**Settings**."
    
     ![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) 
 
-9. Navigate to "**Authentication**" and click "**Add SAML settings**" .
+9. Navigate to "**Authentication**" and click "**Add SAML settings**."
    
     ![Configure Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) 
 
@@ -142,10 +144,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Email Domain** textbox, type a registered domain.
 
-    b. In the Sign On URL textbox, type the **SAML Single Sign-On Service URL** to your HackerOne application.
+    b. In  **Single Sign On URL** textboxes, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-    c. Open your certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate** textbox.
-
+	c. Open your **Certificate file** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
+    
     d. Click **Save**.
 
 11. On the Authentication Settings dialog, perform the following steps:
