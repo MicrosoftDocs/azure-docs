@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with KnowBe4 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and KnowBe4.
+title: 'Tutorial: Azure Active Directory integration with KnowBe4 Security Awareness Training | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and KnowBe4 Security Awareness Training.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 06/26/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with KnowBe4
+# Tutorial: Azure Active Directory integration with KnowBe4 Security Awareness Training
 
-In this tutorial, you learn how to integrate KnowBe4 with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate KnowBe4 Security Awareness Training with Azure Active Directory (Azure AD).
 
-Integrating KnowBe4 with Azure AD provides you with the following benefits:
+Integrating KnowBe4 Security Awareness Training with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to KnowBe4
-- You can enable your users to automatically get signed-on to KnowBe4 (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to KnowBe4 Security Awareness Training
+- You can enable your users to automatically get signed-on to KnowBe4 Security Awareness Training (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with KnowBe4, you need the following items:
+To configure Azure AD integration with KnowBe4 Security Awareness Training, you need the following items:
 
 - An Azure AD subscription
-- A KnowBe4 single sign-on enabled subscription
+- A KnowBe4 Security Awareness Training single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding KnowBe4 from the gallery
+1. Adding KnowBe4 Security Awareness Training from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding KnowBe4 from the gallery
-To configure the integration of KnowBe4 into Azure AD, you need to add KnowBe4 from the gallery to your list of managed SaaS apps.
+## Adding KnowBe4 Security Awareness Training from the gallery
+To configure the integration of KnowBe4 Security Awareness Training into Azure AD, you need to add KnowBe4 Security Awareness Training from the gallery to your list of managed SaaS apps.
 
-**To add KnowBe4 from the gallery, perform the following steps:**
+**To add KnowBe4 Security Awareness Training from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,66 +67,66 @@ To configure the integration of KnowBe4 into Azure AD, you need to add KnowBe4 f
 
 	![Applications][3]
 
-4. In the search box, type **KnowBe4**.
+4. In the search box, type **KnowBe4 Security Awareness Training**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_search.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_search.png)
 
-5. In the results panel, select **KnowBe4**, and then click **Add** button to add the application.
+5. In the results panel, select **KnowBe4 Security Awareness Training**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_addfromgallery.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with KnowBe4 based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with KnowBe4 Security Awareness Training based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in KnowBe4 is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in KnowBe4 needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in KnowBe4 Security Awareness Training is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in KnowBe4 Security Awareness Training needs to be established.
 
-In KnowBe4, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In KnowBe4 Security Awareness Training, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with KnowBe4, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with KnowBe4 Security Awareness Training, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a KnowBe4 test user](#creating-a-knowbe4-test-user)** - to have a counterpart of Britta Simon in KnowBe4 that is linked to the Azure AD representation of user.
+3. **[Creating a KnowBe4 Security Awareness Training test user](#creating-a-knowbe4-security-awareness-training-test-user)** - to have a counterpart of Britta Simon in KnowBe4 Security Awareness Training that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your KnowBe4 application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your KnowBe4 Security Awareness Training application.
 
-**To configure Azure AD single sign-on with KnowBe4, perform the following steps:**
+**To configure Azure AD single sign-on with KnowBe4 Security Awareness Training, perform the following steps:**
 
-1. In the Azure portal, on the **KnowBe4** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **KnowBe4 Security Awareness Training** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_samlbase.png)
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_samlbase.png)
 
-3. On the **KnowBe4 Domain and URLs** section, perform the following steps:
+3. On the **KnowBe4 Security Awareness Training Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.knowbe4.com/auth/saml/<instancename>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [KnowBe4 Client support team](mailto:support@knowbe4.com) to get the value. 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [KnowBe4 Security Awareness Training Client support team](mailto:support@KnowBe4.com) to get the value. 
  
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_certificate.png) 
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_400.png)
 
-6. On the **KnowBe4 Configuration** section, click **Configure KnowBe4** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **KnowBe4 Security Awareness Training Configuration** section, click **Configure KnowBe4 Security Awareness Training** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_configure.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_configure.png) 
 
-7. To configure single sign-on on **KnowBe4** side, you need to send the downloaded **Certificate (Raw)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [KnowBe4 Client support team](mailto:support@knowbe4.com).
+7. To configure single sign-on on **KnowBe4 Security Awareness Training** side, you need to send the downloaded **Certificate (Raw)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [KnowBe4 Security Awareness Training Client support team](mailto:support@KnowBe4.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -141,19 +141,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_02.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_03.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_04.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-KnowBe4-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -163,31 +163,31 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a KnowBe4 test user
+### Creating a KnowBe4 Security Awareness Training test user
 
-The objective of this section is to create a user called Britta Simon in KnowBe4. KnowBe4 supports just-in-time provisioning, which is by default enabled.
+The objective of this section is to create a user called Britta Simon in KnowBe4 Security Awareness Training. KnowBe4 Security Awareness Training supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access KnowBe4 if it doesn't exist yet. 
+There is no action item for you in this section. A new user is created during an attempt to access KnowBe4 Security Awareness Training if it doesn't exist yet. 
 
 >[!NOTE]
->If you need to create a user manually, you need to contact the [KnowBe4 support team](mailto:support@knowbe4.com).
+>If you need to create a user manually, you need to contact the [KnowBe4 Security Awareness Training support team](mailto:support@KnowBe4.com).
 > 
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to KnowBe4.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to KnowBe4 Security Awareness Training.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to KnowBe4, perform the following steps:**
+**To assign Britta Simon to KnowBe4 Security Awareness Training, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **KnowBe4**.
+2. In the applications list, select **KnowBe4 Security Awareness Training**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_app.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-KnowBe4-tutorial/tutorial_knowbe4sat_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -207,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
   
-When you click the KnowBe4 tile in the Access Panel, you should get automatically signed-on to your KnowBe4 application.
+When you click the KnowBe4 Security Awareness Training tile in the Access Panel, you should get automatically signed-on to your KnowBe4 Security Awareness Training application.
 
 ## Additional resources
 
@@ -218,15 +218,15 @@ When you click the KnowBe4 tile in the Access Panel, you should get automaticall
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-KnowBe4-tutorial/tutorial_general_203.png
 
