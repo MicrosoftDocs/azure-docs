@@ -53,6 +53,8 @@
 
 ## [Use Role-Based Access Control for backup management](backup-rbac-rs-vault.md)
 ## [Enable security features for hybrid backups](backup-azure-security-feature.md)
+## [Configure Azure Backup reports](backup-azure-configure-reports.md)
+## [Use Azure Backup data model for reports](backup-azure-reports-data-model.md)
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md)
