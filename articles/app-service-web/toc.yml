@@ -37,7 +37,7 @@
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: 4 - Add Content Delivery Network
+  - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
 #  - name: 5 - Monitor your app
 #    href: app-service-web-tutorial-monitoring.md
@@ -53,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: App Service plans
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: App Service Environments
-    href: app-service-app-service-environment-intro.md
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/intro.md
   - name: Authentication and authorization
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentication with on-premises AD
@@ -248,6 +248,24 @@
       href: app-service-web-app-azure-resource-manager-powershell.md
     - name: Manage apps using Azure Automation
       href: automation-manage-web-app.md
+  - name: App Service Environment
+    items:
+    - name: Use an App Service Environment
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Create an external App Service Environment
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Create using Azure Resource Manager
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Create with an Internal Load Balancer
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Networking considerations
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Configure custom settings
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Integrate with a Web Application Firewall
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Geographically distributed scale
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Reference
   items:
   - name: CLI 2.0
@@ -256,8 +274,12 @@
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/readme.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
@@ -278,6 +300,32 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Configuration and management FAQ
         href: app-service-web-configuration-and-management-faq.md
+  - name: App Service Environment v1
+    items:
+    - name: Overview
+      href: app-service-app-service-environment-intro.md
+    - name: How to Create an App Service Environment
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Create a web app in an App Service Environment
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Using an Internal Load Balancer
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Configure an App Service Environment
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Scaling apps in an App Service Environment
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Network Architecture Overview
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Implementing a Layered Security Architecture
+      href: app-service-app-service-environment-layered-security.md
+    - name: How To Control Inbound Traffic
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Securely Connecting to Backend Resources
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Network configuration details with Express​Route
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Autoscale in App Service Environment
+      href: ../app-service/app-service-environment-auto-scale.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

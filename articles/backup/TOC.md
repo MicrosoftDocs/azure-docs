@@ -48,7 +48,7 @@
 #### [Prepare Resource Manager-deployed virtual machines](backup-azure-arm-vms-prepare.md)
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
-### Back up servers and workloads
+### Back up VMs
 #### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
@@ -91,6 +91,8 @@
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
+## [Configure Azure Backup reports](backup-azure-configure-reports.md)
+## [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 ## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

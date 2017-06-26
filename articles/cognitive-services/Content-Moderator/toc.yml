@@ -47,6 +47,8 @@
     href: video-moderation-api.md
 - name: Resources
   items:  
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
   - name: Samples

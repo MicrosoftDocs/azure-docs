@@ -5,8 +5,6 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
@@ -31,17 +29,12 @@ You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /c
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
-If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
-```azurecli
-az login
-```
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the **command prompt**.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.

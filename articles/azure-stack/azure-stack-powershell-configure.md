@@ -22,6 +22,8 @@ ms.author: sngun
 
 This article describes the steps required to connect to an Azure Stack proof-of-concept (POC) instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. You can use the steps described in this article either from the Azure Stack POC computer, or from a Windows-based external client if you are connected through VPN.
 
+This article has detailed instructions to configure PowerShell for Azure Stack. However, if you want to quickly install and configure PowerShell, you can use the script provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
+
 ## Prerequisites
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 * Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
@@ -31,7 +33,7 @@ This article describes the steps required to connect to an Azure Stack proof-of-
 After you download the required tools, navigate to the downloaded folder and import the **Connect** PowerShell module. To import the Connect module, run the following command in an elevated PowerShell session:
 
 ```PowerShell
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy RemoteSigned
 Import-Module .\Connect\AzureStack.Connect.psm1
 ```
 
