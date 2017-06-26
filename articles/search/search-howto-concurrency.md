@@ -1,6 +1,6 @@
 ---
-title: How to manage concurrent writes to an index in Azure Search
-description: Optimistic write locks on indexes to avoid collisions on indexing updates
+title: How to manage concurrent writes to resources in Azure Search
+description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to indexes, indexers, data sources.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -18,24 +18,24 @@ ms.date: 06/26/2017
 ms.author: heidist
 
 ---
-# How to manage concurrent writes to an index in Azure Search
+# How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend that you adopt coding practices to avoid overwriting changes to the same object. 
+In a multi-user development environment, we recommend coding practices to avoid overwriting changes to the same object. Azure Search supports *optimistic concurrency* through access condition checks in API calls that write to an index, indexer, datasource, suggester, or synonymMap. 
 
-Given a standard workflow (get, modify locally, update), you can avoid concurrent overwrites of the same resource by checking for a version number prior to update. The version number is provided by an [entity tag (Etag)](https://en.wikipedia.org/wiki/HTTP_ETag). The .NET SDK sets the Etag through its **AccessCondition** object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource.
+## How it works
+
+Resources in Azure Search have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent overwrites of the same resource by checking for a version number prior to update. 
+
+The REST API uses an ETag set on the request header. The .NET SDK sets the Etag through its **AccessCondition** object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) or using [an ETag (REST)]https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) can implement concurrency control.
+
+After the first update, the ETag is different for subsequent updates. Write operations failing due to an ETag version discrepancy return HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
 
-## Optimistic concurrency model
-
-Azure Search supports optimistic concurrency in API calls that write to an index, indexer, datasource, suggester, and synoymMap. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) or using [an ETag (REST)]https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) can implement concurrency awareness.
-
-After the first update, the eTag is different for subsequent updates. Write operations failing due to an eTag version discrepancy return HTTP 412 for REST calls, or for the .NET SDK, the accessCondition check fails. 
-
 ## Conceptual examples
 
-The following code snippets demonstrate the concept of an **accessCondition** by including a check on update and delete index operations. If the check fails, the operation fails.
+The following code snippets demonstrate the concept of **accessCondition** checks on update and delete index operations. If the check fails, the operation fails.
 
 **Scenario 1: Fail an update if the index no longer exists**
 
@@ -374,6 +374,5 @@ Try modifying either of the following samples to include Etags or AccessConditio
 
 ## See also
 
-[Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-
-[HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+ [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
+ [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
