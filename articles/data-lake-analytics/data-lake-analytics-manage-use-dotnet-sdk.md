@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
-ms.author: jgao
+ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics using Azure .NET SDK
@@ -29,11 +29,14 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 * **Required NuGet Packages**
 
 ### Install NuGet packages
-   
-* [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) - 2.3.1
-* [Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics) - 3.0.0
-* [Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store) - 2.2.0
-* [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) - 1.6.0-preview
+
+|Package|Version|
+|-------|-------|
+|[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
+|[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
+|[Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store)|2.2.0|
+|[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0-preview|
+|[Microsoft.Azure.Graph.RBAC](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|3.4.0-preview|
 
 You can install these packages via the NuGet command line with the following commands:
 
@@ -42,6 +45,7 @@ Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 
 Install-Package -Id Microsoft.Azure.Management.DataLake.Analytics  -Version 3.0.0
 Install-Package -Id Microsoft.Azure.Management.DataLake.Store  -Version 2.2.0
 Install-Package -Id Microsoft.Azure.Management.ResourceManager  -Version 1.6.0-preview
+Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 ```
 
 ## Common variables
@@ -70,6 +74,7 @@ using Microsoft.Azure.Management.DataLake.Analytics.Models;
 using Microsoft.Azure.Management.DataLake.Store;
 using Microsoft.Azure.Management.DataLake.Store.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Graph.RBAC;
 
 public static Program
 {
@@ -77,6 +82,7 @@ public static Program
    public static string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
    public static System.Uri ARM_TOKEN_AUDIENCE = new System.Uri( @"https://management.core.windows.net/");
    public static System.Uri ADL_TOKEN_AUDIENCE = new System.Uri( @"https://datalake.azure.net/" );
+   public static System.Uri GRAPH_TOKEN_AUDIENCE = new System.Uri( @"https://graph.windows.net/" );
 
    static void Main(string[] args)
    {
@@ -86,6 +92,7 @@ public static Program
       var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
       var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
       var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+      var graphCreds = GetCreds_User_Popup(TENANT, GRAPH_TOKEN_AUDIENCE, CLIENTID, tokenCache);
    }
 }
 ```
@@ -108,6 +115,10 @@ var adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(adlCreds);
 var adlaJobClient = new DataLakeAnalyticsJobManagementClient(adlCreds);
 
 var adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
+
+var  graphClient = new GraphRbacManagementClient(graphCreds);
+graphClient.TenantID = domain;
+
 ```
 
 
@@ -349,6 +360,21 @@ foreach (var j in jobs)
 {
    Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
 }
+```
+
+## Common graph scenarios
+
+### Look up user in the AAD directory
+
+```
+var userinfo = graphClient.Users.Get( "bill@contoso.com" );
+```
+
+### Get the ObjectId of a user in the AAD directory
+
+```
+var userinfo = graphClient.Users.Get( "bill@contoso.com" );
+Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## Manage compute policies

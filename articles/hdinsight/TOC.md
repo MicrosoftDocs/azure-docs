@@ -75,7 +75,7 @@
 ### [Use external packages with Jupyter using script action](hdinsight-apache-spark-python-package-installation.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Debug jobs remotely with IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Debug jobs remotely with IntelliJ through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Manage resources](hdinsight-apache-spark-resource-manager.md)
 ### [Track and debug jobs](hdinsight-apache-spark-job-debugging.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
@@ -116,7 +116,7 @@
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
-### [Use HDInsight Tools to debug Spark apps remotely](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
+### [Use HDInsight Tools to debug Spark apps remotely through SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [Use empty edge nodes](hdinsight-apps-use-edge-node.md)
 ### [Develop Python streaming programs](hdinsight-hadoop-streaming-python.md)
 ### [Process and analyze JSON documents](hdinsight-using-json-in-hive.md)
@@ -226,7 +226,8 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
-## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

@@ -1,6 +1,6 @@
 ---
-title: Create a Windows VM in Azure using Python | Microsoft Docs
-description: Learn to use Python to create a Windows VM in Azure.
+title: Create and manage a Windows VM in Azure using Python | Microsoft Docs
+description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
@@ -14,20 +14,21 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/22/2017
 ms.author: davidmu
 ---
 
-# Create a Windows VM in Azure using Python
+# Create and manage Windows VMs in Azure using Python
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating and deleting VM resources using Python. You learn how to:
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Python. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Visual Studio project
 > * Install packages
-> * Add code to create credentials
-> * Add code to create resources
-> * Add code to delete resources
+> * Create credentials
+> * Create resources
+> * Perform management tasks
+> * Delete resources
 > * Run the application
 
 It takes about 20 minutes to do these steps.
@@ -46,7 +47,7 @@ It takes about 20 minutes to do these steps.
 
 You should see in the output windows that the azure packages were successfully installed. 
 
-## Add code to create credentials
+## Create credentials
 
 Before you start this step, make sure that you have an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
@@ -63,6 +64,7 @@ Before you start this step, make sure that you have an [Active Directory service
     from azure.mgmt.resource import ResourceManagementClient
     from azure.mgmt.compute import ComputeManagementClient
     from azure.mgmt.network import NetworkManagementClient
+    from azure.mgmt.compute.models import DiskCreateOption
     ```
 
 3. Next in the .py file, add variables after the import statements to specify common values used in the code:
@@ -71,6 +73,7 @@ Before you start this step, make sure that you have an [Active Directory service
     SUBSCRIPTION_ID = 'subscription-id'
     GROUP_NAME = 'myResourceGroup'
     LOCATION = 'westus'
+    VM_NAME = 'myVM'
     ```
 
     Replace **subscription-id** with your subscription identifier.
@@ -96,7 +99,7 @@ Before you start this step, make sure that you have an [Active Directory service
     credentials = get_credentials()
     ```
 
-## Add code to create resources
+## Create resources
  
 ### Initialize management clients
 
@@ -308,7 +311,7 @@ Now that you created all the supporting resources, you can create a virtual mach
         vm_parameters = {
             'location': LOCATION,
             'os_profile': {
-                'computer_name': 'myVM',
+                'computer_name': VM_NAME,
                 'admin_username': 'azureuser',
                 'admin_password': 'Azure12345678'
             },
@@ -334,7 +337,7 @@ Now that you created all the supporting resources, you can create a virtual mach
         }
         creation_result = compute_client.virtual_machines.create_or_update(
             GROUP_NAME, 
-            'myVM', 
+            VM_NAME, 
             vm_parameters
         )
     
@@ -355,7 +358,188 @@ Now that you created all the supporting resources, you can create a virtual mach
     input('Press enter to continue...')
     ```
 
-## Add code to delete resources
+## Perform management tasks
+
+During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create code to automate repetitive or complex tasks.
+
+### Get information about the VM
+
+1. To get information about the virtual machine, add this function after the variables in the .py file:
+
+    ```python
+    def get_vm(compute_client):
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME, expand='instanceView')
+        print("hardwareProfile")
+        print("   vmSize: ", vm.hardware_profile.vm_size)
+        print("\nstorageProfile")
+        print("  imageReference")
+        print("    publisher: ", vm.storage_profile.image_reference.publisher)
+        print("    offer: ", vm.storage_profile.image_reference.offer)
+        print("    sku: ", vm.storage_profile.image_reference.sku)
+        print("    version: ", vm.storage_profile.image_reference.version)
+        print("  osDisk")
+        print("    osType: ", vm.storage_profile.os_disk.os_type.value)
+        print("    name: ", vm.storage_profile.os_disk.name)
+        print("    createOption: ", vm.storage_profile.os_disk.create_option.value)
+        print("    caching: ", vm.storage_profile.os_disk.caching.value)
+        print("\nosProfile")
+        print("  computerName: ", vm.os_profile.computer_name)
+        print("  adminUsername: ", vm.os_profile.admin_username)
+        print("  provisionVMAgent: {0}".format(vm.os_profile.windows_configuration.provision_vm_agent))
+        print("  enableAutomaticUpdates: {0}".format(vm.os_profile.windows_configuration.enable_automatic_updates))
+        print("\nnetworkProfile")
+        for nic in vm.network_profile.network_interfaces:
+            print("  networkInterface id: ", nic.id)
+        print("\nvmAgent")
+        print("  vmAgentVersion", vm.instance_view.vm_agent.vm_agent_version)
+        print("    statuses")
+        for stat in vm_result.instance_view.vm_agent.statuses:
+            print("    code: ", stat.code)
+            print("    displayStatus: ", stat.display_status)
+            print("    message: ", stat.message)
+            print("    time: ", stat.time)
+        print("\ndisks");
+        for disk in vm.instance_view.disks:
+            print("  name: ", disk.name)
+            print("  statuses")
+            for stat in disk.statuses:
+                print("    code: ", stat.code)
+                print("    displayStatus: ", stat.display_status)
+                print("    time: ", stat.time)
+        print("\nVM general status")
+        print("  provisioningStatus: ", vm.provisioning_state)
+        print("  id: ", vm.id)
+        print("  name: ", vm.name)
+        print("  type: ", vm.type)
+        print("  location: ", vm.location)
+        print("\nVM instance status")
+        for stat in vm.instance_view.statuses:
+            print("  code: ", stat.code)
+            print("  displayStatus: ", stat.display_status)
+    ```
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    get_vm(compute_client)
+    print("------------------------------------------------------")
+    input('Press enter to continue...')
+    ```
+
+### Stop the VM
+
+You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.
+
+1. To stop the virtual machine without deallocating it, add this function after the variables in the .py file:
+
+    ```python
+    def stop_vm(compute_client):
+        compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
+    ```
+
+    If you want to deallocate the virtual machine, change the power_off call to this code:
+
+    ```python
+    compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
+    ```
+
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    stop_vm(compute_client)
+    input('Press enter to continue...')
+    ```
+
+### Start the VM
+
+1. To start the virtual machine, add this function after the variables in the .py file:
+
+    ```python
+    def start_vm(compute_client):
+        compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
+    ```
+
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    start_vm(compute_client)
+    input('Press enter to continue...')
+    ```
+
+### Resize the VM
+
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).
+
+1. To change the size of the virtual machine, add this function after the variables in the .py file:
+
+    ```python
+    def update_vm(compute_client):
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME)
+        vm.hardware_profile.vm_size = 'Standard_DS3'
+        update_result = compute_client.virtual_machines.create_or_update(
+            GROUP_NAME, 
+            VM_NAME, 
+            vm
+        )
+
+    return update_result.result()
+    ```
+
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    update_result = update_vm(compute_client)
+    print("------------------------------------------------------")
+    print(update_result)
+    input('Press enter to continue...')
+    ```
+
+### Add a data disk to the VM
+
+Virtual machines can have one or more [data disks](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+
+1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
+
+    ```python
+    def add_datadisk(compute_client):
+        disk_creation = compute_client.disks.create_or_update(
+            GROUP_NAME,
+            'myDataDisk1',
+            {
+                'location': LOCATION,
+                'disk_size_gb': 1,
+                'creation_data': {
+                    'create_option': DiskCreateOption.empty
+                }
+            }
+        )
+        data_disk = disk_creation.result()
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME)
+        add_result = vm.storage_profile.data_disks.append({
+            'lun': 1,
+            'name': 'myDataDisk1',
+            'create_option': DiskCreateOption.attach,
+            'managed_disk': {
+                'id': data_disk.id
+            }
+        })
+        add_result = compute_client.virtual_machines.create_or_update(
+            GROUP_NAME,
+            VM_NAME,
+            vm)
+
+        return add_result.result()
+        ```
+
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    add_result = add_datadisk(compute_client)
+    print("------------------------------------------------------")
+    print(add_result)
+    input('Press enter to continue...')
+    ```
+
+## Delete resources
 
 Because you are charged for resources used in Azure, it's always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
@@ -383,9 +567,8 @@ Because you are charged for resources used in Azure, it's always a good practice
     It should take about five minutes for this console application to run completely from start to finish. It may take several minutes after the application has finished before all the resources and the resource group are deleted.
 
 
-## Next Steps
+## Next steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
-- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md).
-- Take advantage of using a template to create a virtual machine by using the information in [Create a Windows virtual machine with a Resource Manager template](ps-template.md)
+- Learn more about the [Azure Python Library](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 
