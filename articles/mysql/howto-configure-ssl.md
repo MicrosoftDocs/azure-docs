@@ -38,7 +38,7 @@ az mysql server update --resource-group myresource --name mysqlserver4demo --ssl
 Many common applications that use MySQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation. Enable SSL connectivity in those applications after installation or through CLI commands specific to the application. If your MySQL server enforces SSL connections, when the associated application is not configured properly it may fail to connect to your database server. Consult your application's documentation to learn how to enable SSL connections.
 
 ## Applications that require a local certificate for SSL connectivity
-In some cases, applications require a local certificate file (.pem) generated from a Certificate Authority (CA) certificate file (.cer) to connect securely.  See the following steps to obtain the .cer file, generate the local .pem file, and bind it to your application.
+In some cases, applications require a local certificate file (.pem) generated from a Certificate Authority (CA) certificate file (.cer) to connect securely.  See the following steps to obtain the .crt file, generate the local .pem file, and bind it to your application.
 
 ### Download the certificate file from the Certificate Authority (CA)
 The certificate needed to communicate over SSL with your Azure Database for MySQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).  Download the certificate file to your local drive (with this tutorial, we use **c:\ssl**).
@@ -100,10 +100,10 @@ Installing OpenSSL on a Windows PC can be done in the following ways:
 2. Through downloading a Win32/64 application provided by the community. While the OpenSSL Software Foundation does not provide or endorse any specific Windows installers, they provide a list of available installers [here](https://wiki.openssl.org/index.php/Binaries)
 
 ### Convert your .cer certificate to a local .pem
-The downloaded Root CA file has the **.cer** format. Use OpenSSL to convert the cert file to a **.pem**.  To do so, execute the openssl.exe command-line tool and execute the following command:
+The downloaded Root CA file has the **.crt** format. Use OpenSSL to convert the cert file to a **.pem**.  To do so, execute the openssl.exe command-line tool and execute the following command:
 
 ```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -out MyServerCACert.pem
+OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.crt -out MyServerCACert.pem
 ```
 Now that you have successfully created your certificate file (MyServerCACert.pem), you can now connect to your database server securely over SSL.
 
