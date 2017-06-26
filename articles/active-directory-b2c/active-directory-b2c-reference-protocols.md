@@ -18,7 +18,7 @@ ms.author: dastrock
 
 ---
 # Azure AD B2C: Authentication protocols
-Azure Active Directory (Azure AD) B2C provides identity as a service for your apps by supporting two industry standard protocols: OpenID Connect and OAuth 2.0. The service is standards-compliant, but any two implementations of these protocols can have subtle differences. 
+Azure Active Directory B2C (Azure AD B2C) provides identity as a service for your apps by supporting two industry standard protocols: OpenID Connect and OAuth 2.0. The service is standards-compliant, but any two implementations of these protocols can have subtle differences. 
 
 The information in this guide is useful if you write your code by directly sending and handling HTTP requests, rather than by using an open source library. We recommend that you read this page before you dive into the details of each specific protocol. But if you're already familiar with Azure AD B2C, you can go straight to [the protocol reference guides](#protocols).
 
@@ -31,7 +31,7 @@ Every app that uses Azure AD B2C needs to be registered in your B2C directory in
 * A **Redirect URI** or **package identifier** that can be used to direct responses back to your app.
 * A few other scenario-specific values. For more information, learn [how to register your application](active-directory-b2c-app-registration.md).
 
-After you register your app, it communicates with Azure AD by sending requests to the endpoint:
+After you register your app, it communicates with Azure Active Directory (Azure AD) by sending requests to the endpoint:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
