@@ -118,72 +118,59 @@ Azure Virtual Networks can be secured use network security groups, user-defined 
 
 * User-defined routes define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
 
-* Network virtual appliances
+### HDInsight with network security groups and user-defined routes
 
-* If you plan on using **network security groups** or **user-defined routes** to secure the network, perform the following actions before installing HDInsight:
+If you plan on using **network security groups** or **user-defined routes** to secure the network, perform the following actions before installing HDInsight:
 
-    1. Identify the Azure region that you plan to use for HDInsight.
+1. Identify the Azure region that you plan to use for HDInsight.
 
-    2. Identify the IP addresses required by HDInsight. For a list of IP addresses by region, see the [Azure management IP addresses](#hdinsight-ip) section.
+2. Identify the IP addresses required by HDInsight. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using:
 
-    3. Create or modify the network security groups for the virtual network to allow traffic on the IP addresses.
+    | Country | Region | Allowed IP addresses | Allowed port |
+    | ---- | ---- | ---- | ---- |
+    | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
+    | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
+    | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
+    | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
+    | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
+    | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
+    | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | 443 |
+    | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 |
+    | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
+    | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
+    | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
+    | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 
-    For more information on network security groups or user-defined routes, see the following documentation:
+    __If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
 
-    * [Network security group](../virtual-network/virtual-networks-nsg.md) documentation.
+    * 168.61.49.99
+    * 23.99.5.239
+    * 168.61.48.131
+    * 138.91.141.162
 
-    * [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+    > [!IMPORTANT]
+    > HDInsight doesn't support restricting outbound traffic, only inbound traffic.
 
-* If you plan on using a network **virtual appliance firewall** to secure the virtual network, you must allow outbound traffic on the following ports:
+    > [!NOTE]
+    > If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-    * 53
-    * 443
-    * 1433
-    * 11000-11999
-    * 14000-14999
+3. Create or modify the network security groups for the virtual network to allow traffic on the IP addresses.
+
+For more information on network security groups or user-defined routes, see the following documentation:
+
+* [Network security group](../virtual-network/virtual-networks-nsg.md) documentation.
+
+* [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+
+### HDInsight with network virtual appliance firewalls
+
+If you plan on using a network **virtual appliance firewall** to secure the virtual network, you must allow outbound traffic on the following ports:
+
+* 53
+* 443
+* 1433
+* 11000-11999
+* 14000-14999
 
 For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
 
-### <a id="hdinsight-ip"></a> Azure management IP addresses
-
-If you use network security groups or user-defined routes to restrict access to the virtual network, then you must allow access to the Azure management IP addresses.
-
-The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
-
-* Monitor the health of the cluster
-* Initiate failover of cluster resources
-* Change the number of nodes in the cluster through scaling operations
-* Other management tasks
-
-> [!NOTE]
-> These operations do not require full access to the internet.
-
-The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
-
-| Country | Region | Allowed IP addresses | Allowed port |
-| ---- | ---- | ---- | ---- |
-| Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
-| Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
-| &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
-| Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
-| &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
-| India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
-| Japan | Japan East | 13.78.125.90</br>13.78.89.60 | 443 |
-| &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 |
-| United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
-| &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
-| United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
-| &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
-
-__If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
-
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
-
-> [!IMPORTANT]
-> HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining network security group rules for the subnet that contains HDInsight, __only use inbound rules__.
-
-> [!NOTE]
-> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
