@@ -46,13 +46,14 @@ Before you can complete the steps in this article you will need the following:
  >[!NOTE]
  For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about it.
 4. Check your PowerShell version.
-   - If you have Windows Server 2016 installed then you should have at least PowerShell 5.0 if you have any other version of Windows installed you could have different versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
+   - If you have Windows Server 2016 installed then you have at least PowerShell 5.0 if you are using any other version of Windows server you may have lower versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
    - if you don't have PowerShell 5.0 installed you can download it [here](https://www.microsoft.com/download/details.aspx?id=50395)
-   - Once that you have at least PowerShell 5.0 install the latest version of Azure PowerShell.
-   - Open a PowerShell window and type:
-   </br>```Install-Module Azure``` and press the Enter key. Run through the installation and when it completes move on to the next step. </br>
-   Then type ```Install-Module AzureRM``` and press the enter key. Run through the installation steps.
-At this point you have the latest version of Azure PowerShell and Azure Log Integration installed on a system and you are ready to proceed with the steps in the tutorial.
+   - Once that you have at least PowerShell 5.0 you can proceed to install the latest version of Azure PowerShell.
+    - Open a PowerShell window and type:
+   </br>```Install-Module Azure``` and press the **Enter** key. Run through the installation and when it completes move on to the next step. </br>
+   Then type ```Install-Module AzureRM``` and press the **Enter** key. Run through the installation steps.
+
+At this point you have the latest version of Azure PowerShell and Azure Log Integration installed on a system and you are ready to proceed with the later steps in the tutorial.
 
 >[!NOTE]
 For detailed steps and information on installing Azure PowerShell please review the article titled [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
