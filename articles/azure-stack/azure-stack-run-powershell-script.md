@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Stack development kit | Microsoft Docs
-description: Learn how to prepare the Azure Stack development kit and run the PowerShell script to deploy it.
+title: Deploy the Azure Stack Development Kit | Microsoft Docs
+description: Learn how to prepare the Azure Stack Development Kit and run the PowerShell script to deploy it.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -17,7 +17,7 @@ ms.date: 4/6/2017
 ms.author: erikje
 
 ---
-# Deploy Azure Stack development kit
+# Deploy the Azure Stack Development Kit
 To deploy the development kit, you must complete the following steps:
 
 1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
@@ -30,7 +30,7 @@ To deploy the development kit, you must complete the following steps:
 > 
 > 
 
-## Download and extract Microsoft Azure Stack development kit
+## Download and extract the development kit
 1. Before you start the download, make sure that your computer meets the following prerequisites:
 
    * The computer must have at least 60 GB of free disk space.
@@ -57,7 +57,7 @@ To deploy the development kit, you must complete the following steps:
 2. Make sure the development kit host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
 3. Sign in as the Local Administrator to your development kit host.
 4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
-5. Copy the Azure Stack Development Kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/vnext/Deployment) to a folder on the development kit host.
+5. Copy the development kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/vnext/Deployment) to a folder on the development kit host.
 6. Run the asdk-installer.ps1 script > click **Prepare vhdx**.
 7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
 8. Optional: Check the **Add drivers** box to specifiy a folder containing additional drivers that you want on the host.
@@ -82,7 +82,7 @@ To deploy the development kit, you must complete the following steps:
     
 2. Run the asdk-installer.ps1 script > click **Install**.
 3. In the **Type** box, and then select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is identity provider. You must specify the credentials of an account with the Global Admin role in an Azure Active Directory tenant. This account is used to administer your Azure Stack Development Kit. If this account is part of multiple active directory tenants, you can override the default TenantID value with the name of the desired directory tenant for the installation.
+    - **Azure Cloud**: Azure Active Directory is identity provider. You must specify the credentials of an account with the Global Admin role in an Azure Active Directory tenant. This account is used to administer your development kit. If this account is part of multiple active directory tenants, you can override the default TenantID value with the name of the desired directory tenant for the installation.
     - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
