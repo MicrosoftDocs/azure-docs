@@ -57,10 +57,8 @@
   items:
   - name: Databases & servers
     items:
-    - name: Databases
-      href: sql-database-overview.md
-    - name: Servers
-      href: sql-database-server-overview.md
+    - name: Overview
+      href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
     - name: Elastic pools
@@ -77,8 +75,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Features
       href: sql-database-features.md
-    - name: Tools
-      href: sql-database-manage-overview.md
   - name: Security
     items:
     - name: Overview
