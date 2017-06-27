@@ -21,7 +21,7 @@ ms.author: erikje
 To deploy the development kit, you must complete the following steps:
 
 1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
-2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
+2. [Prepare the cloudbuilder.vhdx](#prepare-the-development-kit-host) by running the asdk-installer.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
 3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the development kit host to install the development kit.
 4. **NEW step for Technical Preview 3**: If your deployment uses Azure Active Directory, [activate the portals](#activate-the-administrator-and-tenant-portals) to give the Azure Stack portal and Azure Resource Manager the correct permissions for all users of the directory .
 
@@ -62,39 +62,18 @@ To deploy the development kit, you must complete the following steps:
    > If you choose not to use the recommended script to prepare your development kit host (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
    > 
    > 
-5. On the development kit host, run the following PowerShell script to download the Azure Stack support files:
-   
-        # Variables
-        $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
-        $LocalPath = 'c:\AzureStack_SupportFiles'
-   
-        # Create folder
-        New-Item $LocalPath -type directory
-   
-        # Download files
-        ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | `
-        foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
-   
-    This script downloads the Azure Stack support files to the folder specified by the $LocalPath parameter.
-6. Open an elevated PowerShell console and change the directory to where you copied the support files.
-7. Run the PrepareBootFromVHD.ps1 script. This script and the unattend files are available with the other support scripts provided along with this build.
-    There are five parameters for this PowerShell script:
-    
-    | Parameter | Required/Optional | Description |
-    | --- | --- | --- |
-    |CloudBuilderDiskPath|Required|The path to the CloudBuilder.vhdx on the development kit host.|
-    |DriverPath|Optional|Lets you add additional drivers for the development kit host in the VHD.|
-    |ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
-    |AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
-    |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US.”|
-
-    The script is documented and contains example usage, though the most common usage is:
-     
-    `.\PrepareBootFromVHD.ps1 -CloudBuilderDiskPath C:\CloudBuilder.vhdx -ApplyUnattend`
-     
-    If you run this exact command, you must enter the AdminPassword at the prompt.
-8. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
-9. The development kit host reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
+5. Copy the Azure Stack Development Kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/vnext/Deployment) to a folder on the development kit host.
+6. Run the asdk-installer.ps1 script > click **Prepare vhdx**.
+7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
+8. Optional: Check the **Add drivers** box to specifiy a folder containing additional drivers that you wan to host in the VHD.
+9. On the **Optional settings** page, provide the local administrator account for the development kit host. If you don't provide these credentials, you'll need KVM access to the host during the deploy process below.
+10. Also on the **Optional settings** page, you have the option to set the following:
+  - **Computername**: This sets the name for the development kit host. The name must comply with FQDN requirements and must be 15 characters or less in length. The default is a random computer name generated by Windows.
+  - **Time zone**: Sets the time zone for the development kit host. The default is (UTC-8:00) Pacific Time (US & Canada)
+  - **Static IP configuration**: Sets your deployment to use a static IP address. Otherwise, when the installer reboots into the cloudbuilder.vhx, the network interfaces willb e configured with DHCP. 
+11. Click **Next** to start the preparation process.
+12. When the preparation indicates **Completed**, click **Next**.
+13. Click **Reboot now** to boot into the cloudbuilder.vhdx and continue the deployment process.
 
 ## Run the PowerShell deployment script
 1. Sign in as the Local Administrator to the development kit host. Use the credentials specified in the previous steps.
