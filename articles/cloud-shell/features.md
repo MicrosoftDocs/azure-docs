@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 06/27/2017
 ms.author: juluk
 ---
 
@@ -25,7 +25,8 @@ Cloud Shell offers a browser-accessible, pre-configured shell experience for man
 Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
 Since Cloud Shell is built for interactive sessions, shells automatically terminate after 10 minutes of shell inactivity.
 
-## Tools
+## Bash in Cloud Shell
+### Tools
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
@@ -33,11 +34,11 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
-|Containers             |Docker<br> Kubectl<br> DC/OS CLI         |
+|Containers             |Docker CLI/Docker Machine<br> Kubectl<br> DC/OS CLI         |
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
 |Other                  |iPython Client<br> Cloud Foundry CLI<br> |
 
-## Language support
+### Language support
 |Language   |Version   |
 |---|---|
 |.NET       |1.01       |

@@ -15,28 +15,34 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 06/26/2017
 ms.author: nepeters
 ---
 
 # Deploy a Kubernetes cluster in Azure Container Service
 
-Kubernetes provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. This quick start details basic steps needed to deploy a Kubernetes cluster. This tutorial covers the following tasks:
+Kubernetes provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. This quick start details basic steps needed to deploy a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
-> * Deploy a Kubernetes ACS cluster
+> * Deploying a Kubernetes ACS cluster
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+## Before you begin
 
-## Prerequisites
+In previous tutorials, container images were created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-**Resource group** - in the previous tutorial, a resource group named *myResourceGroup* was created. This tutorial assumes that the resource group exists. If needed, create a resource group named *myResourceGroup*.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create Kubernetes cluster
+
+In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
@@ -48,11 +54,11 @@ az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --
 
 After several minutes, the command completes, and returns information about the ACS deployment.
 
-## Install kubectl
+## Install the kubectl CLI
 
-To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
+To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
 If running in Linux or macOS, you may need to run with sudo. On Windows, ensure your shell has been run as administrator.
 
@@ -70,7 +76,7 @@ To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs ku
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
 ```
 
-To verify the connection to your cluster from your machine, try running:
+To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
 ```bash
 kubectl get nodes
@@ -90,11 +96,11 @@ At tutorial competition, you have an ACS Kubernetes cluster ready for workload. 
 
 ## Next steps
 
-In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Tasks covered included:
+In this tutorial, an Azure Container Service Kubernetes cluster was deployed. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deploy a Kubernetes ACS cluster
-> * Installation of the Kubernees CLI (kubectl)
+> * Deploying a Kubernetes ACS cluster
+> * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
 Advance to the next tutorial to learn about running application on the cluster.

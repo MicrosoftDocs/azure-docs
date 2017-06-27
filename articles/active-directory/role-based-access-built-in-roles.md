@@ -1,9 +1,9 @@
 ---
-title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
-description: This topic describes the built in roles for role-based access control (RBAC).
+title: Actions and NotActions - Azure role-based access control (RBAC) | Microsoft Docs
+description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness. 
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/21/2017
-ms.author: kgremban
+ms.date: 06/21/2017
+ms.author: curtand
+ms.reviewer: 
 
 ms.custom: H1Hack27Feb2017
 ---
-# Built-in roles for Azure Role-Based Access Control
+# Built-in roles for Azure role-based access control
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
 ## Roles in Azure
@@ -53,6 +54,8 @@ This article only addresses the different roles that exist today. When you assig
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
 | [Azure Cosmos DB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
+| Logic App Contributor | Can manage all aspects of a Logic App, but not create a new one. |
+| Logic App Operator |Can start and stop workflows defined within a Logic App. |
 | [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
 | [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
 | [Network Contributor](#network-contributor) |Can manage all network resources |
@@ -68,6 +71,7 @@ This article only addresses the different roles that exist today. When you assig
 | [SQL Server Contributor](#sql-server-contributor) |Can manage SQL servers and databases, but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) |Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) |Can manage storage accounts |
+| [Support Request Contributor](#support-request-contributor) | Can create and manage support requests |
 | [User Access Administrator](#user-access-administrator) |Can manage user access to Azure resources |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) |Can manage classic virtual machines, but not the virtual network or storage account to which they are connected |
 | [Virtual Machine Contributor](#virtual-machine-contributor) |Can manage virtual machines, but not the virtual network or storage account to which they are connected |
@@ -615,6 +619,15 @@ Can manage storage accounts, but not access to them.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Storage/storageAccounts/* |Create and manage storage accounts |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Support Request Contributor
+Can create and manage support tickets at the subscription scope 
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read | Read authorization |
+| Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 
 ### User Access Administrator
 Can manage user access to Azure resources

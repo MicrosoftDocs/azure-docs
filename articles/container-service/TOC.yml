@@ -57,6 +57,8 @@
     href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
+  - name: Use Draft with ACR and ACS
+    href: container-service-draft-up.md
   - name: Manage with DC/OS
     items:
     - name: Container management - DC/OS UI
@@ -99,6 +101,12 @@
     items:
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
+  - name: Deploy Spring Boot apps
+    items:
+    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-linux.md
+    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
