@@ -118,13 +118,13 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 For more info about SQL Database and SQL Data Sync, see:+
 
--   [Getting Started with SQL Data Sync](sql-database/sql-database-get-started-sql-data-sync)
+-   [Getting Started with SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 
 -   [Download the complete SQL Data Sync technical documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
--   [SQL Database Overview](sql-database-technical-overview)
+-   [SQL Database Overview](sql-database-technical-overview.md)
 
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
 
