@@ -18,8 +18,8 @@ ms.author: raynew
 ---
 
 # Step 1: Review the architecture for physical server replication to Azure
-
-This article describes the components and processes used when replicating on-premises Windows/Linux physical servers to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
+you 
+This article describes the components and processes used when you replicate on-premises Windows/Linux physical servers to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

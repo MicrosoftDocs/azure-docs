@@ -21,33 +21,38 @@ ms.author: raynew
 
 Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
-Site Recovery is an Azure service that can orchestrate replication for:
+Business continuity and disaster recovery (BDCR) with Azure Recovery Services
 
-- On-premises virtual machines and physical servers to Azure or a secondary site.
-- Azure VMs between Azure regions.
-
-Outages are causes by natural events and operational failures. Your organization needs a business continuity and disaster recovery (BCDR) strategy so that data stays safe, apps remain available during such outages. In addition, your BCDR strategy ensures that your business recovers to normal working conditions as soon as possible.
+As an organization you need to figure out how you're going to keep your data safe, and apps/workloads running when planned and unplanned outages occur.
 
 Azure Recovery Services contribute to your BCDR strategy:
 
-- **Site Recovery service**: Site Recovery replicates, fails over workloads running on VMs and physical servers so that they remain available if a primary site goes down. It recovers workloads to the primary site when it's up and running again.
-- **Backup service**: In addition, the [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) service keeps your data safe and recoverable. 
-- 
+- **Site Recovery service**: Site Recovery helps ensure business continuity by keeping your apps running on VMs and physical servers available if a site goes down. Site Recovery replicates workloads running on VMs and physical servers so that they remain available in a secondary location if the primary site isn't available. It recovers workloads to the primary site when it's up and running again.
+- **Backup service**: In addition, the [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) service keeps your data safe and recoverable by backing it up to Azure.
+
+Site Recovery can manage replication for:
+
+- Azure VMs replicating between Azure regions.
+- On-premises virtual machines and physical servers replicating to Azure, or to a secondary site.
+
 
 ## What does Site Recovery provide?
 
-- **Deploy simple BCDR**—You can set up and manage replication from a single location in the Azure portal.  You can run failovers and failback for single machine, or for multiple machines in a recovery plan.
-- **Replicate to the cloud**- You can replicate VMs running in Azure, with replication between Azure regions. You can replicate on-premises VMs and physical servers to Azure. Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
-- **Replicate any workload**—You can replicate any workload supported on Azure VMs, on-premises Hyper-V VMs, VMware VMs, and Windows/Linux physical servers.
-- **Keep data resilient**—Site recovery orchestrates replication without intercepting application data. Replicated data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data.
-- **Meet RTOs and RPOs**—Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce recovery time objectives (RTO) with [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) integration.
-- **Keep apps consistent**— You can configure recovery points with application-consistent snapshots. Application-consistent snapshots capture disk data, all data in memory, and all transactions in process.
-- **Test without disruption**—You can easily run test failovers to support disaster recovery drills, without affecting ongoing replication.
-- **Run flexible failovers**—You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fail back to your primary site when it's available again.
-- **Create recovery plans**—You can customize and sequence failover and recovery of multi-tier applications on multiple VMs with recovery plans. You group machines within plans, and add scripts and manual actions. Recovery plans can be integrated with Azure automation runbooks.
-* **Integrate with existing BCDR technologies**—Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
-* **Integrate with the automation library**—A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
-* **Manage network settings**—Site Recovery integrates with Azure for simple application network management, including reserving IP addresses, configuring load-balancers, and integrating Azure Traffic Manager for efficient network switchovers.
+**Feature** | **Details**
+--- | ---
+**Deploy a simple BCDR solution** | Using Site Recovery, you can set up and manage replication, failover, and failback from a single location in the Azure portal.
+**Replicate Azure VMs** | You can set up your BCDR strategy so that Azure VMs are replicated between Azure regions.
+**Replicate on-premises VMs offsite** | You can replicate on-premises VMs and physical servers to Azure, or to a secondary on-premises location. Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
+**Replicate any workload** | Replicate any workload running on supported Azure VMs, on-premises Hyper-V VMs, VMware VMs, and Windows/Linux physical servers.
+**Keep data resilient and secure** | Site recovery orchestrates replication without intercepting application data. Replicated data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data.
+**Meet RTOs and RPOs** | Keep recovery time objectives (RTO) and recovery point objectives (RPO) within organization limits. Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce recovery time objectives (RTO) further by integrating with [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) integration.
+**Keep apps consistent over failover** | You can configure recovery points with application-consistent snapshots. Application-consistent snapshots capture disk data, all data in memory, and all transactions in process.
+**Test without disruption** | You can easily run test failovers to support disaster recovery drills, without affecting ongoing replication.
+**Run flexible failovers** | You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fail back to your primary site when it's available again.
+**Create recovery plans** | You can customize and sequence failover and recovery of multi-tier applications on multiple VMs with recovery plans. You group machines within plans, and add scripts and manual actions. Recovery plans can be integrated with Azure automation runbooks.
+**Integrate with existing BCDR technologies** | Site Recovery integrates with other BCDR technologies. For example, you can use Site Recovery to protect the SQL Server backend of corporate workloads, including native support for SQL Server AlwaysOn, to manage the failover of availability groups.
+**Integrate with the automation library** | A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
+**Manage network settings** | Site Recovery integrates with Azure for simple application network management, including reserving IP addresses, configuring load-balancers, and integrating Azure Traffic Manager for efficient network switchovers.
 
 
 ## What can I replicate?
@@ -68,6 +73,5 @@ Azure Recovery Services contribute to your BCDR strategy:
 - The classic portal should only be used to maintain existing Site Recovery deployments. You can't create new vaults in the classic portal.
 
 ## Next steps
-* Learn more about [replicating Azure virtual machines] (site-recovery-azure-to-azure.md)
 * Read more about [workload support](site-recovery-workload.md)
-* Learn more about [Site Recovery architecture and components](site-recovery-components.md)
+* Get started with [Azure VM replication between regions](site-recovery-azure-to-azure.md), [VMware replication to Azure](vmware-walkthrough-overview.md), or [Hyper-V replication to Azure](hyper-v-site-walkthrough-overview.md).
