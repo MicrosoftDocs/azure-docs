@@ -57,7 +57,7 @@
   items:
   - name: Databases & servers
     items:
-    - name: Databases & servers
+    - name: Overview
       href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
