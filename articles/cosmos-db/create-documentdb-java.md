@@ -54,7 +54,7 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and find these lines of code that create the Azure Cosmos DB resources. 
 
 * The `DocumentClient` is initialized.
 
@@ -135,13 +135,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `"https://FILLME.documents.azure.com"`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the master key to the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-    `config.primaryKey "FILLME"`
+4. Then copy your PRIMARY KEY value from the portal and replace the second parameter “FILL ME” with the key in the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
 ## Run the app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install the required Java packages.
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
