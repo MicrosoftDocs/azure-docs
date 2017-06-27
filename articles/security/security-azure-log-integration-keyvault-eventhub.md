@@ -36,7 +36,7 @@ Please take note that most of these steps involve the configuration of the Event
 
 Before you can complete the steps in this article you will need the following:
 
-1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription you can get a [free subscription](https://azure.microsoft.com/free/)0
+1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription you can get a [free subscription](https://azure.microsoft.com/free/)
 2. A system with access to the Internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
 3. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed.
   - Use remote desktop to connect to the system mentioned in step 2.
