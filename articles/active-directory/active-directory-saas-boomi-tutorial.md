@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -129,15 +129,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| -------------- | --------------- |
 	| FEDERATION_ID | user.mail |
 	
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_04.png)
-
+	
 	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_05.png)
-
+	
 	b. In the **Name** textbox, type the attribute name shown for that row.
-
+	
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**.
