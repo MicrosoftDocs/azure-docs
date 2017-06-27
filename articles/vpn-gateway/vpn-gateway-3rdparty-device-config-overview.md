@@ -24,7 +24,7 @@ This article provides an overview of on-premises VPN device configurations for c
 ## Device requirements
 Azure VPN gateways use standard IPsec/IKE protocol suites for S2S VPN tunnels. Refer to [About VPN devices](vpn-gateway-about-vpn-devices.md) for the detailed IPsec/IKE protocol parameters and default cryptographic algorithms for Azure VPN gateways. You can optionally specify the exact combination of cryptographic algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md).
 
-## Single VPN tunnel
+## <a name ="singletunnel"></a>Single VPN tunnel
 The first topology consists of a single S2S VPN tunnel between an Azure VPN gateway and your on-premises VPN device. You can optionally configure BGP across the VPN tunnel.
 
 ![single tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
@@ -111,10 +111,31 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $
 $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
-
 ```
 
-### [Optional] Use BGP on S2S VPN connection
+### <a name ="policybased"></a> [Optional] Use custom IPsec/IKE policy with "UsePolicyBasedTrafficSelectors"
+If your VPN devices do not support "any-to-any" traffic selectors (route-based/VTI-based configuration), you will need to create a custom IPsec/IKE policy and configure "UsePolicyBasedTrafficSelectors" option as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+> [!IMPORTANT]
+> You need to create an IPsec/IKE policy in order to enable "UsePolicyBasedTrafficSelectors" option
+> on the connection.
+
+The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048000KB (2GB)
+
+It then applies the policy and enables "UesPolicyBasedTrafficSelectors" on the connection.
+
+```powershell
+$ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048000
+
+$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
+$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
+
+New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
+```
+
+### <a name ="bgp"></a>[Optional] Use BGP on S2S VPN connection
 You can optionally use BGP on the connection. See [BGP for VPN gateway](vpn-gateway-bgp-resource-manager-ps.md). There are two differences:
 
 The on-premises address prefixes can be a single host address, the on-premises BGP peer IP address:
