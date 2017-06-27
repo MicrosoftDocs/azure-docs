@@ -20,18 +20,18 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites on the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers modify the same object, only the first save prevails. 
+In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites of the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers modify the same object, only the first save prevails. 
 
 ## How it works
 
-Optimistic concurrency is implemented through access condition checks in API calls writing to index, indexer, datasource, suggester, and synonymMap resources. 
+Optimistic concurrency is implemented through access condition checks in API calls writing to indexes, indexers, datasources, suggesters, and synonymMap resources. 
 
-Resources have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. Assuming a standard workflow (get, modify locally, update), you can avoid concurrent updates of the same resource by checking its version first. 
+All resources have an [entity tag (ETag)](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update). 
 
 + The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
-+ The .NET SDK sets the Etag through its accessCondition object, used for setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) has an accessCondition object.
++ The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match of If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag?view=azuresearch-3.0.2) has an accessCondition object.
 
-If you implement concurrency management, version information changes with each resource update. Given two concurrent updates, the first update forces a new object version. The second update fails based on version discrepancy, unless the updated resource is obtained first.
+If you implement concurrency management, version information changes with each resource update. Given two concurrent updates, the first update forces a new version, while the second update fails due to a version discrepancy, unless the updated resource is obtained first.
 
 A version discrepancy returns either HTTP 412 for REST calls, or an accessCondition failure if using the .NET SDK. 
 
@@ -44,7 +44,7 @@ The following code snippets demonstrate the concept of accessCondition checks on
 
 **Scenario 1: Fail an update if the index no longer exists**
 
-The accessCondition checks for an existing Etag on the index. If the ETag does not exist, the index object does not exist, and the update fails as a result. 
+The accessCondition checks for an existing ETag on the index. If the ETag does not exist, the index object does not exist, and the update fails as a result. 
 
         var newIndex = new Index();
         newIndex.Name = "aNewIndex";
@@ -53,7 +53,7 @@ The accessCondition checks for an existing Etag on the index. If the ETag does n
 
 **Scenario 2: Update a specific version of the index**
 
-The accessCondition checks for a corresponding ETag on the object definition and the local object. If the ETags do not match, the accessCondition fails and the index is not updated. The update succeeds only if the ETag on the index is unchanged. 
+The accessCondition checks for a corresponding ETag on the object definition and the local object. If the ETags do not match, the accessCondition fails and the index is not updated. The following update succeeds only if the ETag on the index is unchanged. 
 
         var index = serviceClient.Indexes.Get("IndexName");
         index.Fields.Add(new Field());
@@ -118,12 +118,13 @@ This code snippet illustrates an update to a synonymMap, created in the [Synonym
 
 ## Next steps
 
-Try modifying either of the following samples to include Etags or AccessCondition objects.
+Try modifying either of the following samples to include ETags or AccessCondition objects.
 
 + [.NET SDK sample on Github](https://github.com/Azure-Samples/search-dotnet-getting-started) 
 + [REST API sample on Github](https://github.com/Azure-Samples/search-rest-api-getting-started) 
 
 ## See also
 
- [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
- [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+  [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
+  [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+  [Index operations (REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
