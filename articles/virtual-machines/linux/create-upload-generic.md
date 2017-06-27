@@ -1,6 +1,6 @@
 ---
-title: Create and upload a Linux VHD in Azure
-description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
+title: Preparing VHDs from non-endorsed Linux distributions - Azure | Microsoft Docs
+description: Preparing non-endorsed Linux distributions to use as Azure VMs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/26/2017
 ms.author: szark
 
 ---
-# Information for Non-Endorsed Distributions
+# Preparing non-endorsed distributions for Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
@@ -49,7 +49,7 @@ The rest of this article will focus on general guidance for running your Linux d
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 * All of the VHDs must have sizes that are multiples of 1 MB.
 
-### Installing Linux Without Hyper-V
+### Installing Linux without Hyper-V
 In some cases, Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running an a Hyper-V environment.  When using a different virtualization system (i.e. Virtualbox, KVM, etc.) to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the `hv_vmbus` and `hv_storvsc` kernel modules are available on the initial ramdisk.  This is a known issue at least on systems based on the upstream Red Hat distribution.
 
 The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Please consult your distribution's documentation or support for the proper procedure.  Here is one example for how to rebuild the initrd using the `mkinitrd` utility:
