@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
@@ -22,7 +22,8 @@ ms.custom: it-pro
 
 There are two approaches for requiring two-step verification. The first option is to enable each individual user for Azure Multi-Factor Authentication. When users are enabled individually, they always perform two-step verification (with some exceptions, like when they sign in from trusted IP addresses or if the remembered devices feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
-These two methods should be treated as mutually exclusive. Enabling a user for Azure MFA overrides any conditional access policies.
+>[!TIP] 
+>Choose one of these methods to require two-step verification, not both. Enabling a user for Azure MFA overrides any conditional access policies.
 
 ## Enable Azure MFA by changing user status
 
@@ -81,3 +82,7 @@ Conditional access is a paid feature of Azure Active Directory, with many possib
 The other options in the conditional access policy allow you to specify exactly when two-step verification should be required. For example, you could make a policy that states: when contractors try to access our procurement app from untrusted networks on devices that are not domain-joined, require two-step verification. 
 
 ## Next steps
+
+- Get tips on the [Best practices for conditional access](../active-directory/active-directory-conditional-access-best-practices.md)
+
+- Manage Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md)
