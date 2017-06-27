@@ -1,5 +1,5 @@
 ---
-title: Create & manage Azure SQL servers & databases | Microsoft Docs
+title: What are Azure SQL servers & databases | Microsoft Docs
 description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
 services: sql-database
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: carlrab
 
 ---
 
-# Learn about Azure SQL Database servers and databases
+# What are Azure SQL Database servers and databases
 
 [Azure SQL Database](sql-database-technical-overview.md) is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure"). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). You can create Azure SQL Database servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
 
