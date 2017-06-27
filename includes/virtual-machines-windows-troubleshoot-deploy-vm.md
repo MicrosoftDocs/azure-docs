@@ -3,10 +3,7 @@ To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 ## Top issues
-The following top issues may help resolve your issues. To start troubleshooting, review these steps:
-
-- [The cluster cannot support the requested VM size](#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](#the-cluster-does-not-have-free-resources)
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## The cluster cannot support the requested VM size
 <properties
@@ -16,7 +13,7 @@ productPesIds="1234, 5678"
 />
 - Retry the request using a smaller VM size.
 - If the size of the requested VM cannot be changed:
-    - Stop all the VMs in the availability set. Click Resource groups > your resource group > Resources > your availability set > Virtual Machines > your virtual machine > Stop.
+    - Stop all the VMs in the availability set. Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
     - After all the VMs stop, create the VM in the desired size.
     - Start the new VM first, and then select each of the stopped VMs and click Start.
 

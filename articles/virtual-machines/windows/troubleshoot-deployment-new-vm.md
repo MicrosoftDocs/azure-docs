@@ -25,10 +25,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
 ## Top issues
-The following top problems may help resolve your issue. To start troubleshooting, review these steps:
-
-- [The cluster cannot support the requested VM size](troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
