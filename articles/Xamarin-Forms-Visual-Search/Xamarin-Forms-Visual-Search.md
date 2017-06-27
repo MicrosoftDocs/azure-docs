@@ -223,7 +223,7 @@ Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritt
     public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
 
 
-The first API function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  It is defined as follows:
+The first API function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here is similar to what was done 
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -239,7 +239,7 @@ The first API function is *FetchPrintedWordList*, which uses the Azure Computer 
                 response = await VisionApiClient.PostAsync(ocrUri, content);
             }
 
-            if (response != null)
+            if ((response != null)
             {
                 string ResponseString = await response.Content.ReadAsStringAsync();
                 JObject json = JObject.Parse(ResponseString);
