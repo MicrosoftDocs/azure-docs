@@ -8,13 +8,13 @@ In the **Create App Service** dialog, use the hosting settings as specified in t
 
 ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
 
-| Setting      | Suggested value  | Description                                        |
+| Setting      | Suggested value  | Description                                |
 | ------------ |  ------- | -------------------------------------------------- |
 | **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
 | **Subscription** | Choose your subscription | The Azure subscription to use. |
-| **Resource Group** | myResourceGroup |  Click **New**, type `myResourceGroup` for **New resource group name**, and click **OK**. |
-| **App Service Plan** | Create a consumption plan |  Click **New**, choose a **Location** near you, select **Consumption** under **Size**, and click **OK**.  |
-| **Storage Account** | Create a new account | Click **New**, type a globally unique **Account Name**, select **Standard - Locally Redundant Storage**, and click **OK**.  |
+| **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. |
+| **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** when you create a new plan.  |
+| **[Storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Globally unique name | Use an existing storage account or create a new one.   |
 
 Click **Create** to create a function app in Azure with these settings. 
 
