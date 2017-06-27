@@ -32,7 +32,7 @@ Before you go through the U-SQL samples in this document, read and complete [Tut
 
 ## Your first U-SQL script
 
-The following U-SQL script is very simple and lets us explore many aspects the U-SQL language.
+The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
 ```
 @searchlog =
@@ -68,7 +68,7 @@ This following absolute file path refers to a file in a Data Lake Store named `m
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This following relative file path starts with `"/"` and refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
+This following file path starts with `"/"`. It refers to a file in the default Data Lake Store account:
 
     /output/SearchLog-first-u-sql.csv
 
