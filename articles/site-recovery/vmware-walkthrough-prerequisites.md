@@ -19,6 +19,7 @@ ms.author: raynew
 
 # Step 2: Review the prerequisites for VMware to Azure replication
 
+Read the prerequisites summarized in the following table.
 
 **Prerequisite** | **Details**
 --- | ---
@@ -33,6 +34,8 @@ ms.author: raynew
 
 
 ## Limitations
+
+Make sure you understand the limitations summarized in the table before you deploy.
 
 **Limitation** | **Details**
 --- | ---
