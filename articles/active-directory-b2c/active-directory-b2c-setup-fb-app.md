@@ -59,3 +59,21 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
 6. Click **Set up this identity provider** and enter the app ID and app secret (of the Facebook application that you created earlier) in the **Client ID** and **Client secret** fields respectively.
 7. Click **OK**, and then click **Create** to save your Facebook configuration.
 
+## Create a Policy for the Facebook identity provider
+Finally, you need to create a policy for the Facebook identity provider.  Follow these steps to create a policy that automatically handles both Facebook sign-up and sign-in experiences.
+
+1. On the B2C features blade, click **Sign-up or sign-in policies**.
+2. At the top of the blade, select **+Add**.
+3. The **Name** determines the sign-up policy name that's used by your application. For example, enter **SiUpIn**.
+4. Select **Identity providers**, and then select the name of your Facebook identity provider. Click **OK**.
+5. Select **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, **Display Name**. Click **OK**.
+6. Select **Application claims**. Here you choose claims that you want returned in the tokens that are sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, and **User's Object ID**.
+7. Select **Create**. Note that the policy that you created appears as **B2C_1_SiUpIn** (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
+8. Open the policy by selecting **B2C_1_SiUpIn**.
+9. In the **Applications** drop-down menu, select the name of your registered app. If you haven't already done this, first follow these steps to [register your app](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-app-registration).
+In the **Reply URL / Redirect URI** drop-down menu, select the url of your app, such as `https://localhost:44321/`.
+    > [!NOTE]
+    > It takes up to a minute for policy creation and updates to take effect.
+    > 
+    > 
+Refer to [https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies] for more information on policies.
