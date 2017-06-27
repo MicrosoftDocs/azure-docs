@@ -22,7 +22,7 @@ ms.author: xshi
 # Connect Adafruit Feather M0 WiFi to Azure IoT Hub in the cloud
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-![Connection between BME280, Feather M0 WiFi, and IoT Hub](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
+![Connection between a BME280, Feather M0 WiFi, and IoT Hub](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
 In this tutorial, you begin by learning the basics of working with your Arduino board. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
 
@@ -58,7 +58,7 @@ You also need the following things for your development environment:
 
 If you don’t have a sensor, the following items are optional. You also have the option of using simulated sensor data:
 
-* An BME280 temperature and humidity sensor
+* A BME280 temperature and humidity sensor
 * A breadboard
 * M/M jumper wires
 
@@ -162,7 +162,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
 4. Click **Tools** > **Board** > **Adafruit M0 WiFi**.
 
-5. Install drivers (for Windows only). When you plug in Feather M0 WiFi, you might need to install a driver. Click [the download link on the webpage](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) to download the Driver Installer. Follow the steps to install the drivers you want.
+5. Install drivers (for Windows only). When you plug in Feather M0 WiFi, you might need to install a driver. Click [the download link on the webpage](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) to download the driver installer. Follow the steps to install the drivers you want.
 
 ### Install necessary libraries
 
@@ -179,7 +179,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. Manually install `Adafruit_WINC1500`. Go to [this website](https://github.com/adafruit/Adafruit_WINC1500) and click **Clone or download** > **Download ZIP**. Then in your Arduino IDE, go to **Sketch** > **Include Library** > **Add .zip Library** and add the zip file you just downloaded.
+3. Manually install `Adafruit_WINC1500`. Go to [this website](https://github.com/adafruit/Adafruit_WINC1500) and click **Clone or download** > **Download ZIP**. Then in your Arduino IDE, go to **Sketch** > **Include Library** > **Add .zip Library** and add the zip file.
 
 ### Use the sample application if you don’t have a real BME280 sensor
 
@@ -210,7 +210,7 @@ After the upload completes successfully, follow these steps to enter your creden
 
 2. In the lower-right corner of the serial monitor window, select **No line ending** in the drop-down list on the left.
 3. Select **115200 baud** in the drop-down list on the right.
-4. In the input box located at the top of the serial monitor window, enter the following information if you're asked to provide it, and then click **Send**:
+4. In the input box at the top, enter the following information if you're asked to provide it, and click **Send**:
 
    * Wi-Fi SSID
    * Wi-Fi password
