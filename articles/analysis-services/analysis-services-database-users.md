@@ -14,13 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/14/2016
+ms.date: 06/26/2016
 ms.author: owend
 
 ---
 # Manage database roles and users
 
-At the model database level, all users must belong to a role. Roles define a group of users with particular permissions for the model database. Any user or group added to a role must have an account in an Azure AD tenant in the same subscription as the server. How you define roles is different depending on the tool you use, but the effect is the same.
+At the model database level, all users must belong to a role. Roles define users with particular permissions for the model database. Any user or security group added to a role must have an account in an Azure AD tenant in the same subscription as the server.
+
+How you define roles is different depending on the tool you use, but the effect is the same.
 
 Role permissions include:
 *  **Administrator** - Users have full permissions for the database. Database roles with Administrator permissions are different from server administrators.

@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integrate with API Management
+#### [Overview](service-fabric-api-management-overview.md)
+#### [Quick start](service-fabric-api-management-quick-start.md)
+
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
