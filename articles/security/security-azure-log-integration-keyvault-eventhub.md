@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 06/27/2017
 ms.author: Barclayn
 ms.custom: AzLog
 
@@ -21,7 +21,7 @@ ms.custom: AzLog
 Azure Log Integration (AzLog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking Key Vault activity logged to an Event Hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
 
 >[!NOTE]
-Most of the steps involved in this tutorial involve configuring KeyVault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
+Most of the steps involved in this tutorial involve configuring Key Vault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
 
 There is information provided along the way to help you understand the reasons behind each step and when appropriate links will be included to other articles to give you more detail on certain topics.
 
@@ -29,20 +29,33 @@ Please take note that most of these steps involve the configuration of the Event
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Azure Log Integration](security-azure-log-integration-overview.md).
+- [Azure Log Integration](security-azure-log-integration-overview.md)
 
 
 ## Preliminary setup
 
 Before you can complete the steps in this article you will need the following:
 
-- A system with access to the internet that meets the requirements for installing Azure Log Integration
-- [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed
-  - Use remote desktop to connect to the system that you will be using to go through this tutorial and install Azure Log Integration. For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event forwarding](security-azure-log-integration-get-started.md) Steps 1 to 3 of that article are applicable to this scenario and the article also provides additional general information about Azure Log integration.
-- You will also need the latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0)
-  - You could [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) by either using the web installer or using the ```Install-Module``` CmdLet available in PowerShell 5.0
-  - Access to an [Azure subscription](https://azure.microsoft.com/free)
-- An account with subscription administrator rights
+1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription you can get a [free subscription](https://azure.microsoft.com/free/)0
+2. A system with access to the Internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
+3. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed.
+  - Use remote desktop to connect to the system mentioned in step 2.
+  - Copy the Azure Log Integration installer to it. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324)
+  - Launch the installer and accept the terms in the License Agreement.
+  - Decide if you will be providing telemetry information and leave the box checked or uncheck it if you rather not send usage information to Microsoft.
+ >[!NOTE]
+ For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about Azure Log integration.
+4. Check your PowerShell version.
+   - If you have Windows Server 2016 installed then you should have at least PowerShell 5.0 if you have any other version of Windows installed you could have different versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
+   - if you don't have PowerShell 5.0 installed you can download it [here](https://www.microsoft.com/download/details.aspx?id=50395)
+   - Once that you have at least PowerShell 5.0 install the latest version of Azure PowerShell.
+   - Open a PowerShell window and type:
+   </br>```Install-Module Azure``` and press the Enter key. Run through the installation and when it completes move on to the next step. </br>
+   Then type ```Install-Module AzureRM``` and press the enter key. Run through the installation steps.
+At this point you have the latest version of Azure PowerShell and Azure Log Integration installed on a system and you are ready to proceed with the steps in the tutorial.
+
+>[!NOTE]
+For detailed steps and information on installing Azure PowerShell please review the article titled [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
 
 
 ## Creating supporting infrastructure elements
@@ -88,13 +101,13 @@ You should see something like what appears in the figure below. </br>
 12. Now you can create an Azure Resource Manager log profile. You can get more information on the Azure Log profile in the article [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     - ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
 
-## Creating a KeyVault
+## Creating a Key Vault
 
 First you will create the Azure Key Vault by typing:
 
 ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
-Next you will configure logging for KeyVault
+Next you will configure logging for Key Vault
 
 ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
