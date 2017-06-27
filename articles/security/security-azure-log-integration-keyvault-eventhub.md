@@ -54,8 +54,8 @@ Before you can complete the steps in this article you will need the following:
 At this point you have the latest version of Azure PowerShell and Azure Log Integration installed on a system and you are ready to proceed with the later steps in the tutorial.
 
 >[!NOTE]
-For detailed steps and information on installing Azure PowerShell please review the article titled [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
-For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about it.
+- For detailed steps and information on installing Azure PowerShell please review the article titled [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
+- For Azure Log Integration detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about it.
 
 ## Creating supporting infrastructure elements
 
