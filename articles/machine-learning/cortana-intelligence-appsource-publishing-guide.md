@@ -3,7 +3,7 @@ title: Cortana Intelligece AppSource publishing guide | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
-author: TBD (Anupam's git account name)
+author: 
 manager: jhubbard
 editor: cgronlun
 

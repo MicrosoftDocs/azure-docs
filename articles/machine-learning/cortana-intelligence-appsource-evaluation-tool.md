@@ -3,7 +3,7 @@ title: Cortana Inteligece AppSource evaluation tool | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
-author: TBD (Anupam's git account name)
+author: 
 manager: jhubbard
 editor: cgronlun
 
@@ -50,7 +50,9 @@ Publishing in this case means any datasets that are used to push data to end use
 - Datasets used in direct query from PowerBI
 - Datasets queried in a WebApp
 
->[!NOTE]If a specific resource is used for both ingestion and consumption, please choose “Consumption.”
+>[!NOTE]
+If a specific resource is used for both ingestion and consumption, please choose “Consumption.”
+
 #### Internal
 Use internal for any data resources that are used only in internal application processing.
 Next, you will be prompted to provide valid credentials for any databases specified in the prior step:
