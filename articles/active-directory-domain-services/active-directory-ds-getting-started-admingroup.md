@@ -44,4 +44,15 @@ The wizard automatically creates the administrative group in your Azure AD direc
 
     ![Notification - deployment in progress](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
+6. After a while, you can search for 'domain services' in the **All Resource** search box. This lists the managed domain that is being provisioned.
+
+    ![Domain Services - provisioning state](./media/getting-started/domain-services-provisioning-state.png)
+
+7. Click the name of the managed domain (eg. 'contoso100.com' in this example) to see more details about the domain. The **Overview** tab shows that the domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned.
+
+    ![Domain Services - Overview tab during the provisioning state ](./media/getting-started/domain-services-provisioning-state-details.png)
+
+8. When the managed domain is fully provisioned, you will see two IP addresses on the **Properties** tab.
+
 ## Next step
+[Task 4: Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
