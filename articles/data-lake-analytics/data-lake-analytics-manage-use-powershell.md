@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
-description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, catalog items, and users. '
+description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
@@ -20,7 +20,7 @@ ms.author: mahi
 # Manage Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, jobs, catalog items, and users using Azure PowerShell. 
+Learn how to manage Azure Data Lake Analytics accounts, data sources, jobs, and catalog items using Azure PowerShell. 
 
 ## Prerequisites
 
