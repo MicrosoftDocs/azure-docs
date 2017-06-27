@@ -21,7 +21,7 @@ This tutorial explores the Azure Computer Vision and Bing Web Search API endpoin
 * Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
 * Formatting images and parsing text from them using the Azure Computer Vision APIs
 * Structuring and sending text-based requests to the Bing Web Search API
-* Parsing responses from the Bing Web Search and Computer Vision APIs with the NewtonSoft JSON parser (with LINQ and model object deserialization)
+* Parsing responses from the Bing Web Search and Computer Vision APIs with the Json.NET parser (with LINQ and model object deserialization)
 * Integrating these APIs into a C# based Xamarin.Forms application 
 
 ## Prerequisites
@@ -31,10 +31,10 @@ This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise
 ### Imported Libraries:  
 This app makes use of the following libraries:
 * [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
-* [NewtonSoft JSON parser](http://www.newtonsoft.com/json)
+* [Json.NET parser](http://www.newtonsoft.com/json)
 * [Xamarin.Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
-The Xamarin Media Plugin and the NewtonSoft JSON parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide.
+The Xamarin Media Plugin and the Json.NET parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide.
 
 ### Azure Services
 This application utilizes resources from the following libraries:
@@ -72,14 +72,19 @@ The sample can be found at [XamFormsVisualSearch](https://github.com/Azure-Sampl
 ### Step 1: Install the sample
 In Visual Studio, open *XamFormsVisualSearch\VisualSearchApp.sln*.  It may take a few moments to initialize all of the required components. 
 
-### Step 2: Build the sample
-Press **Ctrl+Shift+B**, or click **Build** on the ribbon menu, then select **Build Solution**.  This builds the solution for all available platforms.  If you wish to compile and test code for iOS while using a windows machine, you can reference [this guide](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/") for help.
+### Step 2: Install required NuGet Packages
+This application requires two NuGet packages to be installed: the Json.NET Parser, and the Xamarin Media Plugin.  You can open the NuGet Package Manager in *Tools > NuGet Package Manager > Manage NuGet Packages For Solution*, or by right clicking on your solution and selecting *Manage NuGet Packages*.  
 
-### Step 3: Configure your deployment
+From here, search and install the Xamarin Media plugin (*Xam.Plugin.Media*) and Json.NET (*Newtonsoft.Json*) packages.
+
+### Step 3: Build the sample
+Press *Ctrl+Shift+B*, or click *Build* on the ribbon menu, then select *Build Solution*.  This builds the solution for all available platforms.  If you wish to compile and test code for iOS while using a windows machine, you can reference [this guide](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/") for help.
+
+### Step 4: Configure your deployment
 Before running the application, you need to select a target Configuration, Platform, and Project.  Xamarin.Forms applications compile to native code for Windows, Android, and iOS.  This guide includes screenshots from the Windows compilation of the codebase.  However, all compilations are functionally equivalent.  
 ![An image showing Visual Studio configured to compile for an Android phone](./media/ConfigurationSelection.PNG)
 
-### Step 4: Run the app
+### Step 5: Run the app
 1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
 
 2) The application should launch and open to the following page (defined in the codebase at *AddKeysPage.xaml*, and referenced in this guide as the Add Keys Page).  ![A picture of the page where a user can add their Cognitive Services keys](./media/AddKeysPage.png)  Here you can input your Azure Computer Vision and Bing Web Search API keys.  If you would like to skip this page in later compilations, you can manually add your keys in the *App.xaml.cs* page of the codebase. 
@@ -199,7 +204,7 @@ And here's the utility function used to convert a MediaFile into a byte array:
 The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*
 
 ### OCR Results Page
-The OCR Results Page is where we extract text from each of the OCR endpoints and then pull text from the endpoint response using the NewtonSoft JSON  [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them before going into parsing.
+The OCR Results Page is where we extract text from each of the OCR endpoints and then pull text from the endpoint response using the Json.NET  [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them before going into parsing.
 
 Following the same paradigm as the Add Keys Page, we first establish our URI endpoints and set their parameters. Let's first look at the print OCR endpoint.  In this application, we're telling the endpoint to look only for English text. The Azure Computer Vision OCR API is capable of parsing and determining text without this flag set, but specifying language will lead to further optimization.  We're also letting the endpoint determine text orientation.  Setting this to false would further optimize the call, but in a mobile application  orientation detection is very useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
@@ -227,7 +232,7 @@ With that out of the way, we can now jump into our API functions.
 
 *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
 
-Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned. 
+Note the use of the Json.NET [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned. 
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -339,7 +344,7 @@ This function handles the 202 response by pinging the URI extracted from the res
     } 
 
 ### Web Results Page
-The final page that we'll discuss is the Web Results Page, which constructs Bing Web Search URI requests, sends them to the endpoint, and then deserializes the JSON response using the NewtonSoft JSON [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.
+The final page that we'll discuss is the Web Results Page, which constructs Bing Web Search URI requests, sends them to the endpoint, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.
 
     async Task<WebResultsList> GetQueryResults()
     {
