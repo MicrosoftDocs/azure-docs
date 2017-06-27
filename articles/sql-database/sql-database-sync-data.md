@@ -26,13 +26,13 @@ Data Sync is based around the concept of a Sync Group. A Sync Group is a group o
 
 The Sync Group has several properties including:
 
--   The **Sync** **Schema** describes which data is being synchronized.
+-   The **Sync Schema** describes which data is being synchronized.
 
--   The **Sync** **Direction** can be bi-directional or can flow in one direction. This can be Hub to Member or Member to Hub.
+-   The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member* or *Member to Hub*, or both.
 
 -   The **Sync Interval** is how often synchronization occurs.
 
--   The **Conflict Resolution** **Policy** is a group level policy which can be hub wins or member wins.
+-   The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
 
 Data Sync uses a hub and spoke topology to synchronize data. The user must define one of the databases in the group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and a member.
 -   The **Hub Database** must be an Azure SQL Database.
@@ -48,7 +48,7 @@ Data Sync uses a hub and spoke topology to synchronize data. The user must defin
 
 Data Sync is useful in cases where data needs to be kept up to date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
 
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications with their data tier in SQL. This may also appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications with their data tier in SQL. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
 -   **Distributed Applications:** In some cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but need to run a reporting or analytics workload on this data, it's helpful to have a second database to use for this workload. This approach minimizes the performance impact on your production workload. Data Sync can be used to keep these two databases synchronized.
 
@@ -68,19 +68,19 @@ We don't recommend Data Sync for the following scenarios:
 
 -   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database.
 
--   **Synchronizing data:** Since Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
+-   **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
 
 -   **Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
-    -   If you select *Member wins*, the changes in the member overwrite those in the hub. If there's more than one member, the final value depends on which member is synced first.
+    -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member is synced first.
 
 ## Limitations and Considerations
 
 ### Performance Impact
-Data Sync uses insert, update and delete triggers to track changes. It creates side tables in the user database. These activities have an impact on your database workload, so assess your service tier and upgrade if needed.
+Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database. These activities have an impact on your database workload, so assess your service tier and upgrade if needed.
 
 ### Eventual Consistency
-Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes will be made eventually and that Data Sync will not cause data loss.
+Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
 
 ### Unsupported data types
 
