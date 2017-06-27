@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -110,24 +110,70 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type the URL:`iqn.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.iqnavigator.com:443/<instance name>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+
+4. Check **Show advanced URL settings**, perform the following step:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
+
+    In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.iqnavigator.com`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Reply URL. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get the value. 
- 
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
-
-	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_certificate.png) 
+	> These values are not real. Update these values with the actual Reply URL and Relay state. Contact [IQNavigator VMS Client support team](https://www.beeline.com/iqn-product-support/) to get these values. 
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
 
-6. On the **IQNavigator VMS Configuration** section, click **Configure IQNavigator VMS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. To generate the **Metadata** url, perform the following steps:
+
+    a. Click **App registrations**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
+   
+    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
+
+    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
+     
+    d. Now go to the property page of **IQNavigator VMS** and copy the **Application Id** using **Copy** button and paste it into notepad.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
+
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+7. IQNavigator VMS application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
+
+8. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |
+	| name | user.extensionattribute2 |
+	
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
+	
+	e. Click **Ok**.
+
+9. On the **IQNavigator VMS Configuration** section, click **Configure IQNavigator VMS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
 
-7. To configure single sign-on on **IQNavigator VMS** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+10. To configure single sign-on on **IQNavigator VMS** side, you need to send the **Metadata URL**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -202,7 +248,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the IQNavigator VMS tile in the Access Panel, you should get login page of IQNavigator VMS application.
+When you click the IQNavigator VMS tile in the Access Panel, you should get automatically signed-on to your IQNavigator VMS application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
