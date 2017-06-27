@@ -392,7 +392,7 @@ You can continue this tutorial with the following articles:
 
 For more information about Stream Analytics in general, try these articles:
 
-* [Introduction to Azure Stream Analytics](stream-analytics/stream-analytics-introduction.md)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
