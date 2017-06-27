@@ -27,7 +27,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, jobs, and 
 When creating a Data Lake Analytics account, you need to know:
 
 * **Subscription ID**: The Azure subscription ID under which your Data Lake Analytics account resides.
-* **Resource group**: The name of the Azure resource group which  contains your Data Lake Analytics account.
+* **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
 * **Data Lake Analytics account name**: The account name must only contain lowercase letters and numbers.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
 * **Location**: The location of your Data Lake Analytics account, such as "East US 2". Supported locations can be seen on our [pricing page](https://azure.microsoft.com/en-us/pricing/details/data-lake-analytics/).
@@ -239,7 +239,7 @@ List all the jobs in the account. The output includes the currently running jobs
 Get-AdlJob -Account $adla
 ```
 
-List all failed jobs submitted by "joe@contoso.com" within the past 7 days.
+List all failed jobs submitted by "joe@contoso.com" within the past seven days.
 
 ```powershell
 Get-AdlJob -Account $adla `
@@ -364,7 +364,7 @@ Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 
 ### Create catalog items
 
-Within a U-SQL database, create a credential object for a database hosted in Azure. Currently, this is the only type of catalog item that you can create through PowerShell.
+Within a U-SQL database, create a credential object for a database hosted in Azure. Currently, U-SQL credentials are the only type of catalog item that you can create through PowerShell.
 
 ```powershell
 $dbName = "master"
