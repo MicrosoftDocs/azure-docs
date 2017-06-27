@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 06/27/2017
 ms.author: sethm
 
 ---
@@ -612,7 +612,8 @@ The response message must include the following application properties.
 |statusDescription|string|No|Description of the status.|
 
 ## Next steps
-to learn more about AMQP and Service bus, visit the following links:
+
+to learn more about AMQP and Service Bus, visit the following links:
 
 * [Service Bus AMQP overview]
 * [AMQP 1.0 support for Service Bus partitioned queues and topics]

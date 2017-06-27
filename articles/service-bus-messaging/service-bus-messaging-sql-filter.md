@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/27/2017
 ms.author: sethm
 
 ---
 
 # SQLFilter syntax
 
-A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SqlFilter* is an instance of the [SqlFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
   
  This topic lists details about SqlFilter grammar.  
   
@@ -57,7 +57,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
 ## Remarks
 

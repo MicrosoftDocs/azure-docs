@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure Service Bus authentication and authorization | Microsoft Docs
-description: Overview of Shared Access Signature (SAS) authentication.
+description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/27/2017
 ms.author: sethm
 
 ---
 # Service Bus authentication and authorization
+
 Applications can authenticate to Azure Service Bus using either Shared Access Signature (SAS) authentication, or through Azure Active Directory Access Control (also known as Access Control Service or ACS). Shared Access Signature authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the entity with which specific rights are associated. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to Service Bus.
 
 > [!IMPORTANT]
@@ -63,6 +64,7 @@ To access an entity, the client requests an SWT token from ACS with the appropri
 ACS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. This authentication includes support for a [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). All APIs that accept a connection string as a parameter include support for ACS connection strings.
 
 ## Next steps
+
 Continue reading [Service Bus authentication with Shared Access Signatures](service-bus-sas.md) for more details about SAS.
 
 For corresponding information about Azure Relay authentication and authorization, see [Azure Relay authentication and authorization](../service-bus-relay/relay-authentication-and-authorization.md). 
