@@ -75,7 +75,7 @@ An Azure SQL database can be:
 
 ## Azure SQL databases protected by SQL Database firewall
 
-To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must create one or more firewall rules through the Azure firewall. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
+To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must [create one or more firewall rules](sql-database-firewall-configure.md#creating-and-managing-firewall-rules) . For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
 
 ## Create and manage Azure SQL servers, databases, and firewalls using the Azure portal
 
