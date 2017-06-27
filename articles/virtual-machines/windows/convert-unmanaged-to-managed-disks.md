@@ -132,7 +132,17 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 If there is an error during conversion, or if a VM is in a Failed state because of issues in a previous conversion, run the `ConvertTo-AzureRmVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
 
 
-[!INCLUDE [virtual-machines-common-convert-disks-sse](../../../includes/virtual-machines-common-convert-disks-sse.md)]
+## Managed disks and Azure Storage Service Encryption
+
+You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted using [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
+
+1. Copy the virtual hard disk (VHD) using [AzCopy](../../storage/storage-use-azcopy.md) to a storage account that has never been enabled for Azure Storage Service Encryption.
+
+2. Use the copied VM in one of the following ways:
+
+  * Create a VM that uses managed disks and specify that VHD file during creation with `New-AzureRmVm`
+
+  * Attach the copied VHD with `Add-AzureRmVmDataDisk` to a running VM with managed disks
 
 
 ## Next steps
