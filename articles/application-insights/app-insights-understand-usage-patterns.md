@@ -1,6 +1,6 @@
 ---
 title: Understand how customers use your app with the Azure Application Insights Funnel 
-description: Learn how you can use the funnel tool to discover how customers are interacting with your application.
+description: Learn how you can use the funnels blade to discover how customers are interacting with your application.
 services: application-insights
 documentationcenter: ''
 author: CFreemanwa
@@ -16,17 +16,17 @@ ms.author: cfreeman
 
 # Discover how customers are using your application with the Application Insights Funnel
 
-Understanding customer experience is of the utmost importance to your business. If your application involves multiple stages you will need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a "funnel". You can use the Application Insights funnel blade to gain insights into how effective your funnel is.
+Understanding customer experience is of the utmost importance to your business. If your application involves multiple stages you will need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a "funnel". You can use the Application Insights funnels blade to gain insights into how effective your funnel is.
 
 ## Get started with the Funnels blade
-The easiest way to learn about the funnel blade is to walk though an example. The following illustrations demonstrate the steps owners of an e-commerce business would take to learn how their customers interact with their web application.  
+The easiest way to learn about the funnels blade is to walk though an example. The following illustrations demonstrate the steps owners of an e-commerce business would take to learn how their customers interact with their web application.  
 
 ### Create your funnel
 Before you create your funnel, you need to decide on the business question you want to answer. For example, you might want to know how many customers viewing your home page click on an advertisement. In this example, the owners of the Fabrikam Fiber company want to know the percentage of customers who make a purchase after adding items to their shopping cart during the last month.
 
 Here are the steps they take to create their funnel.
 
-1. Click the New button on the Funnel blade.
+1. Click the New button on the Funnels blade.
 1. Select the time range of "Last month" from the **Time Range** drop-down. 
 1. Select the **Add to shopping cart** event from the **Step 1** drop-down list.
 1. Select the **Click purchase** event from from the **Step 2** drop-down list.
@@ -35,7 +35,7 @@ Here are the steps they take to create their funnel.
 The following illustration demonstrates the data the funnel blade generates. From here the Fabrikam owners can see that during the last week, 22.7% of their customers it who added an item to their shopping cart actually completed the purchase. They can also see that 1% of the customers clicked an advertisement before visiting the product page, and 20% of their customers signed out after completing their purchase.
 
 
-![Funnel blade with data](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Funnels blade with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## Next steps
 - Learn more about [usage analysis](app-insights-usage-overview.md). 
