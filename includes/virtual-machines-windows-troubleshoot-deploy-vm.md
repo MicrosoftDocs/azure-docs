@@ -80,7 +80,7 @@ Drivers for Linux-based VMs are located [here](../articles/virtual-machines/linu
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../articles/virtual-machines/windows/windows/n-series-driver-setup.md) and [Linux VMs](../articles/virtual-machines/linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../articles/virtual-machines/windows/n-series-driver-setup.md) and [Linux VMs](../articles/virtual-machines/linux/n-series-driver-setup.md).
 
 ## Are client images supported for N-Series?
 
@@ -102,13 +102,13 @@ This [article](../articles/virtual-machines/windows/client-images.md) outlines t
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
 1. If you have an [Enterprise Agreement subscription](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), you can [deploy VMs from specific Marketplace image](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
-2. Without an Enterprise Agreement, you can [upload a custom VM](../articles/virtual-machines/windows/hybrid-use-benefit-licensing#upload-a-windows-vhd.md) and [deploy using a Resource Manager template](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
+2. Without an Enterprise Agreement, you can [upload a custom VM](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#upload-a-windows-vhd) and [deploy using a Resource Manager template](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
 
 For more information, see the following articles:
 
 - [Azure Hybrid Use Benefit offer information](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - [Azure Hybrid Use Benefit downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
-- [Ways to use Azure Hybrid Use Benefit](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md)
+- [Ways to use Azure Hybrid Use Benefit](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md)
 - [Blog: How can I use the Hybrid Use Benefit in Azure?](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## I have an Enterprise Agreement (EA), how do I add an Enterprise Dev/Test account to get access to Window client images?
@@ -137,7 +137,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../articles/virtual-machines/windows/classic/configure-availability#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../articles/virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
 
 
 ## Next steps
