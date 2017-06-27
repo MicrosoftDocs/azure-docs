@@ -64,14 +64,14 @@ This impacts existing Azure Data Factories that have Activities running against 
   
   Azure Data Factory will support creation of on-demand HDInsight clusters of version 3.3 or more from **05/15/2017** onwards. And, the end of support to existing on-demand HDInsight 3.2 linked services is extended to **07/15/2017**. 
 
-  Before **05/15/2017**, if left blank, the default values for version and osType properties are: 
+  Before **07/15/2017**, if left blank, the default values for version and osType properties are: 
 
   | Property | Default Value | Required |
   | --- | --- | --- |
   Version	| HDI 3.1 for Windows cluster and HDI 3.2 for Linux cluster.| No
   osType | The default is Windows | No
 
-  After **05/15/2017**, if left blank, the default values for version and osType properties are:
+  After **07/15/2017**, if left blank, the default values for version and osType properties are:
 
   | Property | Default Value | Required |
   | --- | --- | --- |
@@ -79,9 +79,8 @@ This impacts existing Azure Data Factories that have Activities running against 
   osType | The default is Linux	| No
 
   **Recommendations:** 
-  * Before **05/15/2017**, update the Linked Service to explicitly define the expected Version and osType combination in On-Demand HDInsight Linked Services JSON definition. You can set Version to 3.2 to ensure backward compatibility. 
-  * Between **05/15/2017** and **07/15/2017**, perform tests to ensure the compatibility of the Activities that reference this Linked Services to [the latest supported HDInsight version](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) with information documented in [Hadoop components available with different HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) and [Hortonworks release notes associated with HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Before **07/15/2017**, set the Version property in On-Demand HDInsight Linked Services JSON definition to [the latest supported HDInsight version](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), or use the default value, which is HDInsight 3.5 to get the latest Hadoop ecosystem components and fixes. For detailed JSON definition, refer to the [Azure HDInsight On-Demand Linked Service sample](#azure-hdinsight-on-demand-linked-service).
+  * Before **07/15/2017**, perform tests to ensure the compatibility of the Activities that reference this Linked Services to [the latest supported HDInsight version](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) with information documented in [Hadoop components available with different HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) and [Hortonworks release notes associated with HDInsight versions](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
+  * After **07/15/2017**, make sure you explicitly specify osType an Version values if you would like to overide the default settings. 
 
 >[!Note]
 >Currently Azure Data Factory does not support HDInsight clusters using Azure Data Lake Store as primary store. Use Azure Storage as primary store for HDInsight clusters. 

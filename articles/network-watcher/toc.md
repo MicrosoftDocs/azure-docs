@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topology](network-watcher-topology-overview.md)
 ## [Variable Packet capture](network-watcher-packet-capture-overview.md)
@@ -34,6 +34,7 @@
 ### [CLI 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Troubleshoot VPN Gateway and connections
+### [Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -69,8 +70,9 @@
 ## [Virtual machines](/azure/virtual-machines/)
 ## [VPN gateway](/azure/vpn-gateway/)
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/network-watcher/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Pricing](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=network-watcher)
+## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

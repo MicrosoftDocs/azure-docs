@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - How it works? | Microsoft Docs'
+title: 'Azure AD Connect: Seamless Single Sign-On - How it works | Microsoft Docs'
 description: This article describes how the Azure Active Directory Seamless Single Sign-On feature works.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
@@ -12,13 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/15/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
 
-## How does Azure Active Directory Seamless Single Sign-On work?
+This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) feature works.
+
+## How does Azure AD Seamless SSO work?
+
+This section has two parts to it:
+1. The setup of the Seamless SSO feature.
+2. How a single user sign-in transaction works with Seamless SSO.
 
 ### How does set up work?
 
