@@ -16,7 +16,7 @@ ms.author: t-jolanz@microsoft.com
 ---
 
 # Bing Web Search And Computer Vision API Tutorial: 
-This tutorial explores the Azure Computer Vision and Bing Web Search API endpoints, and how can be used to build a basic visual search application in Xamarin.Forms.  Overall, this tutorial covers the following topics: 
+This tutorial explores the Azure Computer Vision and Bing Web Search API endpoints, and how they can be used to build a basic visual search application in Xamarin.Forms.  Overall, this tutorial covers the following topics: 
 * Setting up your system for Xamarin.Forms development
 * Using the Xamarin Media Plugin to capture and import image data in a Xamarin.Forms application
 * Formatting images and parsing text from them using the Azure Computer Vision APIs
