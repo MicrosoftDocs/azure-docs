@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 7/10/2016
 ms.author: anajod
 
 ---
 # Deploy Linux virtual machines on Azure Stack
-You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-based image into the Azure Stack Marketplace. Several Linux vendors have provided images that can be added into an Azure Stack POC or you can build your own.
+You can deploy Linux virtual machines on the Azure Stack Development Kit by adding a Linux-based image into the Azure Stack Marketplace. Several Linux vendors have provided images that can be added into an Azure Stack Development Kit or you can build your own.
 
 ## Download an image
 1. Download and extract an Azure Stack-compatible image from the following links, or prepare your own:
@@ -73,7 +73,7 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
      
      Systems with Python 2.x and Python 3.x installed side-by-side may need to run the following command:
      
-     # sudo python3 setup.py install --register-service
+         sudo python3 setup.py install --register-service
      For more information, see the Azure Linux Agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 3. [Add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
 4. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
