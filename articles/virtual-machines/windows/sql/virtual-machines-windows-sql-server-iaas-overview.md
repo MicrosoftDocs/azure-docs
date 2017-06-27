@@ -48,7 +48,7 @@ The video covers the following areas:
 | 08:32 |Demo: Create a SQL Server 2016 VM |
 
 > [!NOTE]
-> The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2008, 2012, 2014, and 2016. 
+> The video focuses on SQL Server 2016, but Azure provides VM images for many versions of SQL Server, including 2012, 2014, and 2016. 
 > 
 > 
 
