@@ -203,7 +203,7 @@ The photo import utility works in a similar way, and can be found in *OcrSelectP
 ### OCR Results Page
 The OCR Results Page is where the actual text extraction is carried out through calling the standard and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.   
 
-The first calling function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  It is defined as follows:
+The first API function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  It is defined as follows:
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -244,6 +244,73 @@ The first calling function is *FetchPrintedWordList*, which uses the Azure Compu
 
         return wordList;
     }
+
+The second API function is *FetchHandwrittenWordList*, which uses the Azure Computer Vision Handwritten OCR endpoint to parse handwritten text from images.  It is defines as follows:
+
+    // Uses the Microsoft Computer Vision Handwritten OCR API to parse handwritten text from the photo set in the constructor
+    async Task<ObservableCollection<string>> FetchHandwrittenWordList()
+    {
+        ObservableCollection<string> wordList = new ObservableCollection<string>();
+        if (photo != null)
+        {
+            HttpResponseMessage response = null;
+            // The handwritten text API requires an image under 4MB, so this function is called to downscale the image
+            photo = await ImageResizer.ResizeImage(photo, 2048, 2048);
+            using (var content = new ByteArrayContent(photo))
+            {
+                // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                response = await VisionApiClient.PostAsync(handwritingUri, content);
+            }
+
+            IEnumerable<string> values;
+            string statusUri = string.Empty;
+            if (response.Headers.TryGetValues("Operation-Location", out values))
+            {
+                statusUri = values.FirstOrDefault();
+                
+                // Open a new thread to intermittently ping the statusUri endpoint and wait for processing to finish
+                JObject obj = await FetchResultFromStatusUri(statusUri);
+
+                IEnumerable<JToken> strings = obj.SelectTokens("$.recognitionResult.lines[*].text");
+                foreach (string s in strings)
+                {
+                    wordList.Add((string)s);
+                }
+            }
+        }
+        if (!wordList.Any())
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await DisplayAlert("Error", "No words found.", "OK");
+                await Task.Delay(TimeSpan.FromSeconds(0.1d));
+                await Navigation.PopAsync(true);
+            });
+        }
+
+        return wordList;
+    }
+
+Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 202 response, which signals that processing has begun server-side, but requires that the user to check in later for a final respone.  This is handled by the following function, which spins up a new thread to wait and occasionally check for a finished parse.
+
+    async Task<JObject> FetchResultFromStatusUri(string statusUri)
+    {
+        JObject obj = null;
+        int timeoutcounter = 0;
+        HttpResponseMessage response = await VisionApiClient.GetAsync(statusUri);
+        string responseString = await response.Content.ReadAsStringAsync();
+        obj = JObject.Parse(responseString);
+
+        while ((!((string)obj.SelectToken("status")).Equals("Succeeded")) && (timeoutcounter++ < 60))
+        {
+            await Task.Delay(1000);
+            response = await VisionApiClient.GetAsync(statusUri);
+            responseString = await response.Content.ReadAsStringAsync();
+            obj = JObject.Parse(responseString);
+        }
+        return obj;
+    } 
 
 * Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
     * General Description: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
