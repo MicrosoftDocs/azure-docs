@@ -73,10 +73,14 @@
       href: container-service-application-specific-marathon.md
     - name: Canary release with Vamp
       href: container-service-dcos-vamp-canary-release.md
+    - name: CI/CD with DC/OS and VSTS
+      href: container-service-setup-ci-cd.md    
     - name: Monitor DC/OS
       items:
       - name: Monitor with ELK
         href: container-service-monitoring-elk.md
+      - name: Monitor with OMS
+        href: container-service-monitoring-oms.md
       - name: Monitor with Datadog
         href: container-service-monitoring.md
       - name: Monitor with Sysdig
@@ -89,6 +93,8 @@
       href: container-service-kubernetes-ui.md
     - name: Deploy Helm charts
       href: container-service-kubernetes-helm.md
+    - name: CI/CD with Kubernetes and Jenkins
+      href: container-service-kubernetes-jenkins.md
     - name: Monitor Kubernetes
       items:
       - name: Monitor with Datadog
@@ -101,6 +107,8 @@
     items:
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
+    - name: CI/CD with Docker Swarm and VSTS
+      href: container-service-docker-swarm-setup-ci-cd.md
   - name: Deploy Spring Boot apps
     items:
     - name: Deploy a Spring Boot Application on Linux in the Azure Container Service
