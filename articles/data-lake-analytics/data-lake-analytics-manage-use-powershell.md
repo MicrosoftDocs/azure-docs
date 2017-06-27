@@ -55,7 +55,7 @@ Login-AzureRmAccount -SubscriptionId $subId
 
 ### Create a Data Lake Analytics account
 
-If you don't already have a [resource group](../azure-resource-manager/resource-group-overview#resource-groups) to use, create one. 
+If you don't already have a [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) to use, create one. 
 
 ```powershell
 New-AzureRmResourceGroup -Name  $rg -Location $location
