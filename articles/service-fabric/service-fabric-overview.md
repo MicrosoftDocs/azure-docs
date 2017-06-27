@@ -115,7 +115,7 @@ By using Service Fabric, you can:
   * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
   * [Terminology overview](service-fabric-technical-overview.md)
 * Setting up your Service Fabric [development environment](service-fabric-get-started.md)  
-* [Choosing a programming model framework](service-fabric-choose-framework.md) for your service
 * Learn about [Service Fabric support options](service-fabric-support.md)
+* Take a look at the [Service Fabric poster](http://aka.ms/servicefabricposter)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
