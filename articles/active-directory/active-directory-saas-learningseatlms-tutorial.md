@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learnconnect | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Learnconnect.
+title: 'Tutorial: Azure Active Directory integration with Learning Seat LMS  | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Learning Seat LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,24 +16,24 @@ ms.date: 04/26/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Learnconnect
+# Tutorial: Azure Active Directory integration with Learning Seat LMS
 
-In this tutorial, you learn how to integrate Learnconnect with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Learning Seat LMS with Azure Active Directory (Azure AD).
 
-Integrating Learnconnect with Azure AD provides you with the following benefits:
+Integrating Learning Seat LMS with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Learnconnect
-- You can enable your users to automatically get signed-on to Learnconnect (Single Sign-On) with their Azure AD accounts
+- You can control in Azure AD who has access to Learning Seat LMS
+- You can enable your users to automatically get signed-on to Learning Seat LMS (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see. [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Learnconnect, you need the following items:
+To configure Azure AD integration with Learning Seat LMS, you need the following items:
 
 - An Azure AD subscription
-- A Learnconnect single-sign on enabled subscription
+- A Learning Seat LMS single-sign on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Learnconnect from the gallery
+1. Adding Learning Seat LMS from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Learnconnect from the gallery
-To configure the integration of Learnconnect into Azure AD, you need to add Learnconnect from the gallery to your list of managed SaaS apps.
+## Adding Learning Seat LMS from the gallery
+To configure the integration of Learning Seat LMS into Azure AD, you need to add Learning Seat LMS from the gallery to your list of managed SaaS apps.
 
-**To add Learnconnect from the gallery, perform the following steps:**
+**To add Learning Seat LMS from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -67,36 +67,35 @@ To configure the integration of Learnconnect into Azure AD, you need to add Lear
 
 	![Applications][3]
 
-4. In the search box, type **Learnconnect**.
+4. In the search box, type **Learning Seat LMS**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_search.png)
 
-5. In the results panel, select **Learnconnect**, and then click **Add** button to add the application.
+5. In the results panel, select **Learning Seat LMS**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Learnconnect based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD single sign-on with Learning Seat LMS based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Learnconnect is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learnconnect needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Learning Seat LMS is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learning Seat LMS needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Learnconnect.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Learning Seat LMS.
 
-To configure and test Azure AD single sign-on with Learnconnect, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Learning Seat LMS, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Learnconnect test user](#creating-a-learnconnect-test-user)** - to have a counterpart of Britta Simon in Learnconnect that is linked to the Azure AD representation of user.
+3. **[Creating a Learning Seat LMS test user](#creating-a-learnconnect-test-user)** - to have a counterpart of Britta Simon in Learning Seat LMS that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learnconnect application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learning Seat LMS application.
 
-**To configure Azure AD single sign-on with Learnconnect, perform the following steps:**
+**To configure Azure AD single sign-on with Learning Seat LMS, perform the following steps:**
 
-1. In the Azure portal, on the **Learnconnect** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Learning Seat LMS** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -104,7 +103,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
 
-3. On the **Learnconnect Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Learning Seat LMS Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
@@ -119,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`
 	 
 	> [!NOTE] 
-	> These values are not the real values. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Learnconnect support team](http://help.learningseatlms.com/help) to get these values. 
+	> These values are not the real values. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Learning Seat support team](http://help.learningseatlms.com/help) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -129,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Learnconnect** side, you need to send the downloaded **Metadata XML** to [Learnconnect support team](http://help.learningseatlms.com/help).
+7. To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Metadata XML** to [Learning Seat support team](http://help.learningseatlms.com/help).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure  portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,23 +165,23 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a Learnconnect test user
+### Creating a Learning Seat LMS test user
 
-In this section, you create a user called Britta Simon in Learnconnect. Contact [Learnconnect support team](http://help.learningseatlms.com/help) with all the user information to add the users in the Learnconnect application.
+In this section, you create a user called Britta Simon in Learning Seat LMS. Contact [Learning Seat support team](http://help.learningseatlms.com/help) with all the user information to add the users in the Learning Seat LMS application.
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learnconnect.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learning Seat LMS.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Learnconnect, perform the following steps:**
+**To assign Britta Simon to Learning Seat LMS, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Learnconnect**.
+2. In the applications list, select **Learning Seat LMS**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
 
@@ -204,7 +203,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel. 
 
-Click the Learnconnect tile in the Access Panel, you will be automatically signed-on to your Learnconnect application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
 ## Additional resources
 
