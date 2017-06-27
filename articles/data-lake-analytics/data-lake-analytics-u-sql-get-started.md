@@ -223,6 +223,8 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
+For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
