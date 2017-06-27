@@ -19,6 +19,8 @@ ms.author: raynew
 
 # Step 2: Review the prerequisites for physical server to Azure replication
 
+Review the prerequisites summarized in the table.
+
 
 **Prerequisite** | **Details**
 --- | ---
@@ -32,6 +34,8 @@ ms.author: raynew
 
 
 ## Limitations
+
+Note the limitations summarized in the table before you deploy.
 
 **Limitation** | **Details**
 --- | ---
