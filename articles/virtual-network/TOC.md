@@ -22,7 +22,7 @@
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Template](virtual-networks-create-vnet-arm-template-click.md)
 #### Classic
-##### [Portal)](virtual-networks-create-vnet-classic-pportal.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
