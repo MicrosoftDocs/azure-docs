@@ -32,7 +32,7 @@ This example was developed in Xamarin.Forms using [Visual Studio 2017 Enterprise
 This app makes use of the following libraries:
 * [Xamarin Media Plugin](https://blog.xamarin.com/getting-started-with-the-media-plugin-for-xamarin/)
 * [NewtonSoft JSON parser](http://www.newtonsoft.com/json)
-* [Xamarin Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
+* [Xamarin.Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
 The Xamarin Media Plugin and the NewtonSoft JSON parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide.
 
@@ -153,11 +153,11 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
 The OCR Select Page has two main roles.  First, it is where the user selects what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
-1) Ensure that a camera is available on the current device
-2) Initialize a new StoreCameraMediaOptions object and use it to set where we want to save our captured image
+1) Ensure that a camera is available on the current device.
+2) Initialize a new StoreCameraMediaOptions object and use it to set where we want to save our captured image.
 3) Take an image, save it to the specified location, and attain a MediaFile object containing the image data.
-4) Unpack the MediaFile into a byte array
-5) Return the byte array for further processing 
+4) Unpack the MediaFile into a byte array.
+5) Return the byte array for further processing.
 
 Here's the function that uses the Xamarin Media Plugin for photo capture:
 
@@ -203,7 +203,7 @@ The photo import utility works in a similar way, and can be found in *OcrSelectP
 ### OCR Results Page
 The OCR Results Page is where the actual text extraction is carried out through calling the standard and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.   
 
-First, we establish the URIs that we'll be using to access the endpoints.  This is defined in the following code.  If you would like to learn more about the parameters attached to these URIs, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc), and the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  These pages explicitly define what can be added both to the headers and to the URIs of these requests.  
+First, we establish the URIs that weare using to access the endpoints.  This is defined in the following code.  If you would like to learn more about the parameters attached to these URIs, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc), and the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  These pages explicitly define what can be added both to the headers and to the URIs of these requests.  
 
     /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
         * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
@@ -265,7 +265,7 @@ The first API function is *FetchPrintedWordList*, which uses the Azure Computer 
         return wordList;
     }
 
-The second API function is *FetchHandwrittenWordList*, which uses the Azure Computer Vision Handwritten OCR endpoint to parse handwritten text from images.  It is defines as follows:
+The second API function is *FetchHandwrittenWordList*, which uses the Azure Computer Vision Handwritten OCR endpoint to parse handwritten text from images.  It is defined as follows:
 
     // Uses the Microsoft Computer Vision Handwritten OCR API to parse handwritten text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchHandwrittenWordList()
@@ -335,7 +335,7 @@ Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 2
 # TODO:
 * Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
     * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
-    * Note that later, an alternative object deserializing method is used to obtain a richer set of data per object
+    * Later, an alternative object deserializing method is used to obtain a richer set of data per object
 
 
 ### WebResultsPage
