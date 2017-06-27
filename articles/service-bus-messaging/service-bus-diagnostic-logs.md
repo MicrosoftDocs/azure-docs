@@ -26,7 +26,7 @@ You can view two types of logs for Azure Service Bus:
 
 ## Turn on diagnostic logs
 
-Diagnostics logs are disabled by default. To enable diagnostic logs, do the following:
+Diagnostics logs are disabled by default. To enable diagnostic logs, perform the following steps:
 
 1.	In the [Azure portal](https://portal.azure.com), go to the streaming job blade.
 
@@ -54,7 +54,7 @@ For more information about configuring diagnostics, see the [overview of Azure d
 
 ## Diagnostic logs schema
 
-All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following example.
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following section.
 
 ## Operation logs example
 

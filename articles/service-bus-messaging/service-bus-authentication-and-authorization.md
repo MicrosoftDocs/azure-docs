@@ -29,7 +29,7 @@ Applications can authenticate to Azure Service Bus using either Shared Access Si
 
 You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities in that namespace. You can also configure keys on Service Bus queues and topics. SAS is also supported on [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
 
-To use SAS, you can configure a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a namespace, queue, or topic that consists of the following:
+To use SAS, you can configure a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a namespace, queue, or topic. This rule consists of the following elements:
 
 * *KeyName* that identifies the rule.
 * *PrimaryKey* is a cryptographic key used to sign/validate SAS tokens.

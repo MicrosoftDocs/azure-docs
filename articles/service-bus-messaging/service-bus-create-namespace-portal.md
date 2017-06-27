@@ -31,7 +31,8 @@ A namespace is a scoping container for all messaging components. Multiple queues
 Congratulations! You have now created a Service Bus Messaging namespace.
 
 ## Next steps
-Check out our [GitHub samples][github-samples] which show some of the more advanced features of Azure Service Bus Messaging.
+
+Check out our [GitHub samples][github-samples], which show some of the more advanced features of Azure Service Bus Messaging.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
