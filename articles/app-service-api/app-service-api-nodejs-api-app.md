@@ -220,7 +220,7 @@ In this section, you use the Azure CLI 2.0 to create the resources to host the A
 
 Deploy your code to the API app by pushing commits from your local Git repository to Azure App Service.
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
+1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
 2. Initialize a new repo in the *ContactList* directory. 
 
