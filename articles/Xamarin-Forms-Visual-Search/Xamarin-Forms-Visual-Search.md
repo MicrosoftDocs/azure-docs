@@ -34,7 +34,7 @@ This app makes use of the following libraries:
 * [Json.NET parser](http://www.newtonsoft.com/json)
 * [Xamarin.Forms Samples Image Resizer](https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize)
 
-The Xamarin Media Plugin and the Json.NET parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide.
+The Xamarin Media Plugin and the Json.NET parser can be installed with the NuGet package manager. The Xamarin.Forms image resizer class can be found within the linked Xamarin.Forms reference guide at *XamFormsImageResize/ImageResizer.cs*.
 
 ### Azure Services
 This application utilizes resources from the following libraries:
