@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a>
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database using SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">Create and design the schema for a new SQL Database using C#</a>
     - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
