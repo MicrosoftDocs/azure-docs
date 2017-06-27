@@ -85,7 +85,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](boot-diagnostics.md).
 
-4. **Reset the NIC for the VM**. For more information, see [ow to reset network interface for Azure Windows VM](reset-netowork-interface.md)
+4. **Reset the NIC for the VM**. For more information, see [how to reset NIC for Azure Windows VM](reset-netowork-interface.md).
 5. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource health** button. A healthy VM reports as being **Available**:
