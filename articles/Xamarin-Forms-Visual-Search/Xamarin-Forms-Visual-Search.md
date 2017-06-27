@@ -105,7 +105,7 @@ The Add Keys Page is where the user inputs their Azure API keys to be tested and
 1) Establish the root URI for each endpoint in a reusable location
 2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
 3) Attach any desired headers (defined in each endpoint's API reference) to your HttpClient object
-4) Attach any desired parameters to your endpoint URI
+4) Attach any additional desired parameters to your endpoint URI
 5) Send a POST or GET request with your data
 6) Check that the response was successful
 7) Pass on the response for further parsing
@@ -202,6 +202,26 @@ The photo import utility works in a similar way, and can be found in *OcrSelectP
 
 ### OCR Results Page
 The OCR Results Page is where the actual text extraction is carried out through calling the standard and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.   
+
+First, we establish the URIs that we'll be using to access the endpoints.  This is defined in the following code.  If you would like to learn more about the parameters attached to these URIs, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc), and the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  These pages explicitly define what can be added both to the headers and to the URIs of these requests.  
+
+    /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
+        * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
+        * [detectOrientation = True] This allows the system to attempt to rotate the photo to improve parse results.
+        * 
+        * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
+        * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc
+        */
+    public const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
+
+    /* This is the url that will be passed into the POST request for parsing handwritten text.  Its parameters are as follows:
+        * [handwriting = True] This tells the system to try to parse handwritten text from the image.  If set to False, this API will perform processing similar to the print OCR endpoint. 
+        * 
+        * [Note] This API is only available on Azure servers in the following domains: westus, eastus2, westcentralus, westeurope, souteheastasia. 
+        * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200
+        */
+    public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
+
 
 The first API function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  It is defined as follows:
 
@@ -312,10 +332,7 @@ Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 2
         return obj;
     } 
 
-* Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
-    * General Description: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
-    * API Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
-    * QuickStarts for API use: <https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts/csharp>
+# TODO:
 * Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
     * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
     * Note that later, an alternative object deserializing method is used to obtain a richer set of data per object
@@ -337,3 +354,4 @@ Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 2
 **Commentary on other things that could be done with the same content**
 * Comment that you could swap out standard for Bing Custom Search
 * Highlight that the same structure could be applied to the Bing Image Search "Image Insights" section for reverse image lookup and simple object recognition
+* Spellchecking can be easily applied with the extra function that was written (removed from current Git commit)
