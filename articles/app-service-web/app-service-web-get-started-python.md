@@ -91,6 +91,7 @@ Use the [az webapp config set](/cli/azure/webapp/config#set) command to configur
 az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
+
 Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
