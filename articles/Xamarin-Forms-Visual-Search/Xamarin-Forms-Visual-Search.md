@@ -199,9 +199,9 @@ And here's the utility function used to convert a MediaFile into a byte array:
 The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*
 
 ### OCR Results Page
-The OCR Results Page is where the actual text extraction is carried out with the OCR and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.
+The OCR Results Page is where we extract text from each of the OCR endpoints and then pull text from the endpoint response using the NewtonSoft JSON  [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm).  The two OCR endpoints work differently, so it's valuable to step through each of them before going into parsing.
 
-Following the format defined above, we first establish our URI endpoints and set their parameters. Let's first look at the print OCR endpoint.  In this application, we're telling the endpoint to look only for English text. The Azure Computer Vision OCR API is capable of parsing and determining text without this flag set, but specifying language will lead to further optimization.  We're also letting the endpoint determine text orientation.  Setting this to false would further optimize the call, but in a mobile application  orientation detection is very useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
+Following the same paradigm as the Add Keys Page, we first establish our URI endpoints and set their parameters. Let's first look at the print OCR endpoint.  In this application, we're telling the endpoint to look only for English text. The Azure Computer Vision OCR API is capable of parsing and determining text without this flag set, but specifying language will lead to further optimization.  We're also letting the endpoint determine text orientation.  Setting this to false would further optimize the call, but in a mobile application  orientation detection is very useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
     /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
         * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
@@ -227,9 +227,7 @@ With that out of the way, we can now jump into our API functions.
 
 *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
 
-Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  
-
-Also note the block in which the strings for individual words are joined to return line-by-line results.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned. 
+Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  Also note that the returned strings are are joined from a list of individual parsed words.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned. 
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -341,12 +339,43 @@ This function handles the 202 response by pinging the URI extracted from the res
     } 
 
 ### Web Results Page
-The final page that we'll discuss is the Web
-* Is a Xamarin.Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
-* Uses the Web Search API:
-    * General description: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
-    * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
-    * Page ranking tutorial: <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
+The final page that we'll discuss is the Web Results Page, which constructs Bing Web Search URI requests, sends them to the endpoint, and then deserializes the JSON response using the NewtonSoft JSON [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.
+
+    async Task<WebResultsList> GetQueryResults()
+    {
+        WebResultsList webResults = new WebResultsList { name = queryTerm };
+        try
+        {
+            var queryString = System.Net.WebUtility.UrlEncode(queryTerm);
+
+            /* Here we encode the URL that will be used for the GET request to find query results.  Its arguments are as follows:
+                * [count=20] This sets the number of webpage objects returned at "$.webpages" in the JSON response.  Currently, the API aks for 20 webpages in the response
+                * [mkt=en-US] This sets the market where the results come from.  Currently, the API looks for english results based in the United States.
+                * [q=queryString] This sets the string queried using the Search API.   
+                * [responseFilter=Webpages] This filters the response to only include Webpage results.  This tag can take a comma seperated list of response types that you are looking for.  If left blank, all responses (webPages, News, Videos, etc) are returned.
+                * [setLang=en] This sets the languge for user interface strings.  To learn more about UI strings, check the Web Search API reference.
+                * 
+                * [API Reference] https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference
+                */
+            string uri = SearchUri + $"count=20&mkt=en-US&q={queryString}&responseFilter=Webpages&setLang=en";
+
+            HttpResponseMessage httpResponseMessage = await SearchApiClient.GetAsync(uri);
+            var responseContentString = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            JObject json = JObject.Parse(responseContentString);
+            JToken resultBlock = json.SelectToken("$.webPages");
+            webResults = JsonConvert.DeserializeObject<WebResultsList>(resultBlock.ToString());
+        }
+        catch
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await DisplayAlert("Error", "Error fetching results.", "OK");
+                await Task.Delay(TimeSpan.FromSeconds(0.1d));
+            });
+        }
+        return webResults;
+    }
 
 ## Looking Forward
 This applicatoin provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Azure provides many utilities that could easily be integrated into this application.  For example, you could:
