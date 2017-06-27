@@ -1,75 +1,76 @@
 {
-	"build_entry_point": "docs",
-	"need_generate_pdf_url_template": true,
-	"need_generate_intellisense": false,
-	"enable_push_aggregation": true,
-	"enable_pull_request_aggregation": true,	
-	"branch_target_mapping": {
-		"live": ["Publish", "PDF"],
-		"master": ["Publish", "PDF"]
-		},
-	"docsets_to_publish": [{
-		"docset_name": "azure-documents",
-		"build_source_folder": ".",
-		"build_output_subfolder": "azure",
-		"locale": "en-us",
-		"version": 0,
-		"open_to_public_contributors": true,
-		"type_mapping": {
-			"Conceptual": "Content",
-			"ManagedReference": "Content",
-      "LandingData": "Content",
-			"RestApi": "Content"
-		},
-		"build_entry_point": "docs",
-		"template_folder": "_themes"
-	}],
-	"Targets": {
-		"Pdf": {
-			"template_folder": "_themes.pdf"
-		}
-	},
-	"notification_subscribers": [],
-	"branches_to_filter": [],	
-	"skip_source_output_uploading": false,
-	"need_preview_pull_request": true,
-	"git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
-	"git_repository_branch_open_to_public_contributors": "master",
-	"enable_incremental_build": true,
-	"dependent_repositories": [{
-		"path_to_root": "_themes",
-		"url": "https://github.com/Microsoft/templates.docs.msft",
-		"branch": "master",
-		"branch_mapping": {
-			
-		}
-	},
-	{
-		"path_to_root": "_themes.pdf",
-		"url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-		"branch": "master"
-	},
-	{
-		"path_to_root": "cli_scripts",
-		"url": "https://github.com/Azure/azure-docs-cli-python-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	},
-	{
-		"path_to_root": "powershell_scripts",
-		"url": "https://github.com/Azure/azure-docs-powershell-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	}
-	]
+  "build_entry_point": "docs",
+  "need_generate_pdf": false,
+  "need_generate_intellisense": false,
+  "docsets_to_publish": [
+    {
+      "docset_name": "azure-documents",
+      "build_source_folder": ".",
+      "build_output_subfolder": "azure",
+      "locale": "en-us",
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "LandingData": "Content",
+        "RestApi": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    }
+  ],
+  "notification_subscribers": [],
+  "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+  "git_repository_branch_open_to_public_contributors": "master",
+  "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
+  "dependent_repositories": [
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cli_scripts",
+      "url": "https://github.com/Azure/azure-docs-cli-python-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "powershell_scripts",
+      "url": "https://github.com/Azure/azure-docs-powershell-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "_repo.en-us",
+      "url": "https://github.com/Microsoft/azure-docs-pr",
+      "branch": "live",
+      "branch_mapping": {
+        "live": "live",
+        "master": "master"
+      }
+    }
+  ],
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "PDF"
+    ],
+    "master": [
+      "Publish",
+      "PDF"
+    ]
+  },
+  "need_generate_pdf_url_template": false,
+  "Targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  }
 }
