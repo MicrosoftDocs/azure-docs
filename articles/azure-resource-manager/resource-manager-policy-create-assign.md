@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 
 ---
@@ -214,11 +214,11 @@ To remove a policy assignment, use:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## Azure CLI 2.0
+## Azure CLI
 
 ### Create policy definition
 
-You can create a policy definition using Azure CLI 2.0 with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
+You can create a policy definition using Azure CLI with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
@@ -257,60 +257,6 @@ To remove a policy assignment, use:
 az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## Azure CLI 1.0
-
-### Create policy definition
-
-You can create a policy definition using the Azure CLI with the policy definition command. The following example creates a policy for allowing resources only in North Europe and West Europe.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### Assign policy
-
-You can apply the policy to the desired scope by using the policy assignment command:
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI. 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### View policy
-To get a policy, use the following command:
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### Remove policy assignment 
-
-To remove a policy assignment, use:
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
 
 ## Next steps
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

@@ -70,7 +70,8 @@
 ### [Use portal to assign policy](resource-manager-policy-portal.md)
 ### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
 ### Examples
-#### [Resource tags](resource-manager-policy-tags.md)
+#### [Tags](resource-manager-policy-tags.md)
+#### [Naming conventions](resource-manager-policy-naming-conventions.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
