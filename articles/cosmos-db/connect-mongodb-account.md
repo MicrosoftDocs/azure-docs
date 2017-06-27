@@ -51,7 +51,7 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## Connection string requirements
 > [!Important]
-> Azure Cosmos DB has strict security requirements and standards.
+> Azure Cosmos DB has strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via *SSL*. 
 >
 >
 
