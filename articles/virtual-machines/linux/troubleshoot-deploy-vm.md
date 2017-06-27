@@ -25,7 +25,7 @@ To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 ## Top issues
-[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## The cluster cannot support the requested VM size
 <properties
