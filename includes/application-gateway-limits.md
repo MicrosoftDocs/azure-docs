@@ -1,6 +1,6 @@
 | Resource | Default limit | Note |
 | --- | --- | --- |
-| Application Gateway |50 per subscription | |
+| Application Gateway |50 per subscription | Maximum 100 |
 | Frontend IP Configurations |2 |1 public and 1 private |
 | Frontend Ports |20 | |
 | Backend Address Pools |20 | |
