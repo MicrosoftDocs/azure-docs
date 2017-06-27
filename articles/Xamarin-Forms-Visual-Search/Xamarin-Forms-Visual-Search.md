@@ -348,11 +348,11 @@ The final page that we'll discuss is the Web
     * API Reference: <https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference>
     * Page ranking tutorial: <https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/csharp-ranking-tutorial> 
 
-### Opening a Webview
+## Looking Forward
+This applicatoin provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Azure provides many utilities that could easily be integrated into this application.  For example, you could:
+* Swap in [Bing Custom Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/) in place of Bing Web Search
+* Use the [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
+* Leverage [Bing Spell Check](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
+* Integrate the [Microsoft Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
 
-**Example of opening a webview**
-
-**Commentary on other things that could be done with the same content**
-* Comment that you could swap out standard for Bing Custom Search
-* Highlight that the same structure could be applied to the Bing Image Search "Image Insights" section for reverse image lookup and simple object recognition
-* Spellchecking can be easily applied with the extra function that was written (removed from current Git commit)
+Along with countless other services that can be found at the [Azure Cognitive Services Portal](https://azure.microsoft.com/en-us/services/cognitive-services/). 
