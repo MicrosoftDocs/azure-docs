@@ -223,7 +223,8 @@ Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritt
     public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
 
 
-The first API function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here is similar to what was done 
+With that out of the way, we can now jump into our API functions. *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
+Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) to extract text from the response object in the following code.  Elsewhere
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -239,7 +240,7 @@ The first API function is *FetchPrintedWordList*, which uses the Azure Computer 
                 response = await VisionApiClient.PostAsync(ocrUri, content);
             }
 
-            if ((response != null)
+            if ((response != null) && ((int)response.StatusCode == 200))
             {
                 string ResponseString = await response.Content.ReadAsStringAsync();
                 JObject json = JObject.Parse(ResponseString);
@@ -282,20 +283,22 @@ The second API function is *FetchHandwrittenWordList*, which uses the Azure Comp
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
                 response = await VisionApiClient.PostAsync(handwritingUri, content);
             }
-
-            IEnumerable<string> values;
-            string statusUri = string.Empty;
-            if (response.Headers.TryGetValues("Operation-Location", out values))
+            if ((response != null) && ((int)response.StatusCode == 202))
             {
-                statusUri = values.FirstOrDefault();
-                
-                // Open a new thread to intermittently ping the statusUri endpoint and wait for processing to finish
-                JObject obj = await FetchResultFromStatusUri(statusUri);
-
-                IEnumerable<JToken> strings = obj.SelectTokens("$.recognitionResult.lines[*].text");
-                foreach (string s in strings)
+                IEnumerable<string> values;
+                string statusUri = string.Empty;
+                if (response.Headers.TryGetValues("Operation-Location", out values))
                 {
-                    wordList.Add((string)s);
+                    statusUri = values.FirstOrDefault();
+
+                    // Open a new thread to intermittently ping the statusUri endpoint and wait for processing to finish
+                    JObject obj = await FetchResultFromStatusUri(statusUri);
+
+                    IEnumerable<JToken> strings = obj.SelectTokens("$.recognitionResult.lines[*].text");
+                    foreach (string s in strings)
+                    {
+                        wordList.Add((string)s);
+                    }
                 }
             }
         }
