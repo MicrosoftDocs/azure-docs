@@ -41,9 +41,9 @@ Set up the configuration server, register it in the vault, and discover machines
 
 Do the following before you start, then run Unified Setup to install the configuration server, the process server, and the master target server. The video describes setting up the components for VMware VM to Azure replication. However, the same process is valid for physical server to Azure replication.
 
-    - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-    - Run setup as a Local Administrator on the configuration server VM.
-    - Make sure TLS 1.0 is enabled on the VM.
+- On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
+- Run setup as a Local Administrator on the configuration server machine.
+- Make sure TLS 1.0 is enabled on the VM.
 
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
