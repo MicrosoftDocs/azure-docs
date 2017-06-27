@@ -19,7 +19,7 @@ ms.author: genli
 ---
 # How to reset network interface for Azure Windows VM 
 
-[!INCLUDE learn-about-deployment-models](../../../learn-about-deployment-models-both-include.md)]]
+[!INCLUDE [learn-about-deployment-models](../../../learn-about-deployment-models-both-include.md)]]
 
 You cannot connect to Microsoft Azure Windows Virtual Machine (VM) after you disable the default Network Interface (NIC) or manually sets a static IP for the NIC. This article shows how to reset the network interface for Azure Windows VM, which will resolve the remote connection issue.
 
@@ -61,9 +61,10 @@ After you can remote desktop to the machine, you must delete the old NICs to avo
 3.	Select **Network Adapters**. 
 4.	Check for the adapters named as "Microsoft Hyper-V Network Adapter".
 5.	You might see an unavailable adapter that are grayed out. Right-click the adapter and then select Uninstall.
+
     ![the image of the NIC](media/reset-network-interface/nicpage.png)
 
-    > [NOTE!]
+    > [!NOTE]
     > Only uninstall the unavailable adapters that have the name "Microsoft Hyper-V Network Adapter". If you uninstall any of the other hidden adapters, it could cause additional issues.
     >
     >
