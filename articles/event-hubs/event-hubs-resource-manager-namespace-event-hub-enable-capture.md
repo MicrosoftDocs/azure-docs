@@ -130,7 +130,7 @@ The encoding format you specify to serialize the event data.
 ```
 
 ### captureTime
-The time interval in which Event Hubs Capture starts archiving the data to Azure Blob storage.
+The time interval in which Event Hubs Capture starts capturing the data to Azure Blob storage.
 
 ```json
 "captureTime":{
@@ -139,13 +139,13 @@ The time interval in which Event Hubs Capture starts archiving the data to Azure
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the archival"
+         "description":"the time window in seconds for the capture"
     }
 }
 ```
 
 ### captureSize
-The size interval at which Capture starts archiving the data to Azure Blob storage.
+The size interval at which Capture starts capturing the data to Azure Blob storage.
 
 ```json
 "captureSize":{
@@ -154,7 +154,7 @@ The size interval at which Capture starts archiving the data to Azure Blob stora
     "minValue":10485760,
     "maxValue":524288000,
     "metadata":{
-        "description":"The size window in bytes for archival"
+        "description":"The size window in bytes for capture"
     }
 }
 ```
