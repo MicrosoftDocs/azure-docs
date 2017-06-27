@@ -22,11 +22,11 @@ This article shows how to enable Azure Active Directory Domain Services (Azure A
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. In the left pane, click on **New**.
-3. In the **New** blade, type **Domain Services** in the Search bar.
+3. In the **New** blade, type **Domain Services** into the search bar.
 
     ![Search for domain services](./media/getting-started/search-domain-services.png)
 
-4. Click to select **Azure AD Domain Services**. On the **Azure AD Domain Services** blade, click the **Create** button.
+4. Click to select **Azure AD Domain Services** from the list of search suggestions. On the **Azure AD Domain Services** blade, click the **Create** button.
 
     ![Domain services blade](./media/getting-started/domain-services-blade.png)
 
@@ -34,7 +34,9 @@ This article shows how to enable Azure Active Directory Domain Services (Azure A
 
 
 ## Task 1: Configure basic settings
-In the **Basics** page of the wizard, you can specify the DNS domain name for the managed domain. You can also chose the resource group and Azure location to which the managed domain should be deployed.
+In the **Basics** page of the wizard, you can specify the DNS domain name for the managed domain. You can also choose the resource group and Azure location to which the managed domain should be deployed.
+
+![Configure basics](./media/getting-started/domain-services-blade-basics.png)
 
 1. Choose the **DNS domain name** for your managed domain.
 
@@ -53,7 +55,7 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
    * You already have a domain with the same DNS domain name on the virtual network.
 
-   * The virtual network where the managed domain will be enabled has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
+   * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
 
    * You have an existing cloud service with that name on the virtual network.
 
@@ -61,12 +63,10 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 4. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
 
-5. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you will only see virtual networks that belong to the location you have selected.
-
-    ![Configure basics](./media/getting-started/domain-services-blade-basics.png)
+5. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
 
 6. When you are done, click **OK** to move on to the **Network** page of the wizard.
 
 
 ## Next step
-Task 2: [Configure network settings](active-directory-ds-getting-started-network.md)
+[Task 2: Configure network settings](active-directory-ds-getting-started-network.md)
