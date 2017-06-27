@@ -1,13 +1,13 @@
 ---
-title: Plan capacity and scaling for VMware replication to Azure with Azure Site Recovery | Microsoft Docs
-description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
+title: Plan capacity and scaling for physical server replication to Azure with Azure Site Recovery | Microsoft Docs
+description: Use this article to plan capacity and scale when replicating Windows/Linux physical servers to Azure with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
 editor: ''
 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+ms.assetid: 554f59ee-0b49-4779-9737-90cb601ef6fe
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -17,26 +17,21 @@ ms.date: 06/27/2017
 ms.author: rayne
 
 ---
-# Step 3: Plan capacity and scaling for VMware to Azure replication
+# Step 3: Plan capacity and scaling for physical server to Azure replication
 
-Use this article to figure out planning for capacity and scaling, when replicating on-premises VMware VMs and physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
+Use this article to figure out capacity and scaling, when you're replicating on-premises Windows/Linux physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
 Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## How do I start capacity planning?
 
-You gather information about your replication environment, and then plan capacity using this information, together with the considerations highlighted in this article.
+## Plan deployment capacity
 
-
-## Gather information
-
-1. Download the [Deployment Planner tool](https://aka.ms/asr-deployment-planner) for VMware replication.
-2. [Read this article](site-recovery-deployment-planner.md) to understand how to run the tool.
-3. Using the tool you gather information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also covers network bandwidth requirements, and the Azure infrastructure needed for successful replication and test failover.
+1. Read this [article](site-recovery-plan-capacity-vmware.md) to learn about estimating replication requirements, and guidance for sizing Site Recovery components.
+2. Read the considerations below to learn about scaling component servers, and controlling replicated machine bandwidth.
 
 ## Replication considerations
 
-Note these considerations before you start deployment:
+Use these considerations to figure out replicated server requirements.
 
 **Component** | **Details** |
 --- | --- | ---
@@ -99,29 +94,14 @@ The way in which you scale your servers depends on your preference for a scale-u
 
 ## Deploy additional process servers
 
-Follow these instructions to set up an additional process server. After setting up the server, you migrate source machines to use it.
-
-1. In **Site Recovery servers**, click the configuration server > **+Process Server**.
-2. In **Server type**, click **Process server (on-premises)**.
-
-    ![Process server](./media/vmware-walkthrough-capacity/migrate-ps2.png)
-3. Download the Site Recovery Unified Setup file.
-4. Run setup to install the process server, and register it in the vault.
-5. In **Before you begin**, select **Add additional process servers to scale out deployment**.
-6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. If you don't have the passphrase, get it by running **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
-
-    ![Configuration server](./media/vmware-walkthrough-capacity/add-ps2.png)
-7. Complete the rest of setup in the same way you did when you set up the configuration server.
-
-### Migrate machines to use the process server
-
-1. In **Settings** > **Site Recovery servers**, click the configuration server > **Process servers**.
-2. Right-click the process server currently in use > **Switch**.
-
-    ![Switch process server](./media/vmware-walkthrough-capacity/migrate-ps3.png)
-3. In **Select target process server**, select the process server you want to use, and select the VMs that the server will handle.
-4. Click the information icon. To help you make load decisions, the average space that's needed to replicate each selected VM to the new process server is displayed.
-5. Click the check mark to start replication to the new process server.
+1. Follow [these instructions](site-recovery-vmware-setup-azure-ps-resource-manager.md) to set up an additional process server.
+2. If you don't have the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server to get it.
+3. After setting up the process server, you migrate source machines to use it.
+    a. In **Settings** > **Site Recovery servers**, click the configuration server > **Process servers**.
+    b. Right-click the process server currently in use > **Switch**.
+    c. In **Select target process server**, select the process server you want to use, and select the VMs that the server will handle.
+    d. Click the information icon. To help you make load decisions, the average space that's needed to replicate each selected VM to the new process server is displayed.
+    e. Click the check mark to start replication to the new process server.
 
 ## Control network bandwidth
 
@@ -139,7 +119,7 @@ After you run [the Deployment Planner tool](site-recovery-deployment-planner.md)
 3. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**.
 4. Set the limits for work and non-work hours. Valid ranges are from 512 Kbps to 102 Mbps per second.
 
-    ![Throttle](./media/vmware-walkthrough-capacity/throttle2.png)
+    ![Throttle](./media/physical-walkthrough-capacity/throttle2.png)
 
 You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet to set throttling. Here's a sample:
 
@@ -161,4 +141,4 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 
 ## Next steps
 
-Go to [Step 4: Plan networking](vmware-walkthrough-network.md).
+Go to [Step 4: Plan networking](physical-walkthrough-network.md).

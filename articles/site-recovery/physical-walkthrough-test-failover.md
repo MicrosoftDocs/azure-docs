@@ -1,6 +1,6 @@
 ---
-title: Run a test failover for VMware replication to Azure | Microsoft Docs
-description: Summarizes the steps you need for running a test failover for VMware VMs replicating to Azure using the Azure Site Recovery service.
+title: Run a test failover for physical server replication to Azure with Azure Site Recovery | Microsoft Docs
+description: Summarizes the steps you need for running a test failover for [physical servers replicating to Azure using the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -17,23 +17,23 @@ ms.date: 06/27/2017
 ms.author: raynew
 
 ---
-# Step 12: Run a test failover to Azure for VMware VMs
+# Step 11: Run a test failover of physical servers to Azure
 
-This article describes how to run a test failover from  on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
+This article describes how to run a test failover from on-premises physical servers to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
 Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Before you start
 
-Before you run a test failover we recommend that you verify the VM properties, and make any changes you need to. you can access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
+Before you run a test failover we recommend that you verify the server properties, and make any changes you need to. you can access the VM properties in **Replicated items**. The **Essentials** blade shows information about machine settings and status.
 
 ## Managed disk considerations
 
 [Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
-- When you enable protection for a VM, VM data replicates to a storage account. Managed disks are created and attached to the VM only when failover occurs.
-- Managed disks can be created only for VMs deployed using the Resource Manager model.  
+- When you enable protection for a server, VM data replicates to a storage account. Managed disks are created and attached to the VM only when failover occurs.
+- Managed disks can be created only for Azure VMs deployed using the Resource Manager model.  
 - With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected.
 - [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) about managed disks and availability sets.
 - If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
@@ -59,10 +59,10 @@ You can set the target IP address for an Azure VM created after failover.
 
 ## View and modify VM settings
 
-We recommend that you verify the properties of the source machine before you run a failover.
+We recommend that you verify the properties of the source server before you run a failover.
 
-1. In **Protected Items**, click **Replicated Items**, and click the VM.
-2. In the **Replicated item** pane, you can see a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
+1. In **Protected Items**, click **Replicated Items**, and click the machine.
+2. In the **Replicated item** pane, you can see a summary of machine information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
     - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
@@ -84,26 +84,33 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 Now, run a failover:
 
-1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
+1. To fail over a single machine, in **Settings** > **Replicated Items**, click the machine > **+Test Failover** icon.
 
-    ![Test failover](./media/vmware-walkthrough-test-failover/test-failover.png)
+    ![Test failover](./media/physical-walkthrough-test-failover/test-failover.png)
 
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
 
 3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
 
-4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+4. Click **OK** to begin the failover. You can track progress by clicking on the machine to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 
-5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+5. After the failover completes, you should also be able to see the replica Azure VM appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 
 6. If you prepared for connections after failover, you should be able to connect to the Azure VM.
 
-7. After you finish, click on **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This will delete the VMs that were created during test failover.
+### Delete test failover VMs
 
+1. After you finish, click on **Cleanup test failover** on the recovery plan or machine.
+2. In **Notes**, record and save any observations associated with the test failover.
+3. The cleanup action deletes Azure VMs that were created during test failover.
+
+## Summary
+
+If you completed the test failover successfully, your physical servers are replicating and you've checked that they can fail over to Azure. Now, you can run failovers in accordance with your organizational requirements. 
+
+Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back. [Learn more](site-recovery-failback-azure-to-vmware.md] about failing back Azure VMs to VMware.
 
 
 ## Next steps
 
-- [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
-- If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-- [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
+- [Run failovers](site-recovery-failover.md) as needed.

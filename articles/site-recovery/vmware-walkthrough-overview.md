@@ -13,15 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
 # Replicate VMware VMs to Azure with Site Recovery
-
-> [!div class="op_single_selector"]
-> * [Azure portal](vmware-walkthrough-overview.md)
-> * [Azure classic](site-recovery-vmware-to-azure-classic.md)
 
 This article provides an overview of the steps required to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
