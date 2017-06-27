@@ -27,21 +27,23 @@ ms.author: ashmaka
 
 This article shows you how to query an index using **Search Explorer** in the Azure portal.
 
-Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
+Before your start, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-## Go to your Azure Search blade
-1. Click on "All resources" in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+## Open the service dashboard
+1. Click **All resources** in the menu on the left side of the [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Select your Azure Search service
 
-## Select the index you would like to search
-1. Select the index you would like to search from the "Indexes" tile.
+## Select an index
+1. Select the index you would like to search from the **Indexes** tile.
 
 ![](./media/search-explorer/pick-index.png)
 
-## Click on the "Search Explorer" tile
+## Open Search Explorer
+
+Click on the Search Explorer tile to slide open the search bar and results pane.
 ![](./media/search-explorer/search-explorer-tile.png)
 
-## tart searching
+## Start searching
 1. To search your Azure Search index, start typing into the "*Query string*" field and then press "**Search**".
    
    * When using the Search Explorer, you can specify any of the [query parameters](https://msdn.microsoft.com/library/dn798927.aspx)
@@ -49,4 +51,5 @@ Before beginning this walkthrough, you should already have [created an Azure Sea
 3. The query string is automatically parsed into the proper request URL to submit a HTTP request against the Azure Search REST API
 
 ![](./media/search-explorer/search-bar.png)
+
 

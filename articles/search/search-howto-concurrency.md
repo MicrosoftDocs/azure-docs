@@ -20,7 +20,7 @@ ms.author: heidist
 ---
 # How to manage concurrency in Azure Search
 
-In a multi-user development environment, we recommend that you adopt coding practices to avoid unintentional overwrites of the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers modify the same object, only the first save prevails. 
+In a multi-user development environment, we recommend adding concurrency controls to avoid unintentional overwrites of the same object. Azure Search supports an *optimistic concurrency model*. There are no locks on an object, but when two developers modify the same object, only the first save prevails. 
 
 ## How it works
 
