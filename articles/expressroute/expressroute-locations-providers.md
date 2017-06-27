@@ -86,8 +86,8 @@ The following table shows connectivity locations and the service providers for e
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect+, Softbank |
 | **Paris** |Colt, Interxion, Equinix, Orange+ |
 | **Quebec City** | Megaport |
-| **Sao Paulo** |Ascenty Data Centers+, Equinix, Telefonica |
 | **San Antonio** |Megaport |
+| **Sao Paulo** |Ascenty Data Centers+, Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Seoul** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
