@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 06/26/2017
 ms.author: danlep
 ---
 
@@ -32,13 +32,11 @@ This tutorial covers the following tasks:
 > * Set up OMS agents on the Kubernetes nodes
 > * Access monitoring information in the OMS portal or Azure portal
 
-## Prerequisites
+## Before you begin
 
-This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-**Azure Container Service Kubernetes cluster** – see, [Create a Kubernetes cluster]( container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster. This tutorial assumes your cluster has Linux agent nodes.
-
-**OMS account** - If you don't already have an account, you can sign up for a [free trial](https://www.microsoft.com/cloud-platform/operations-management-suite-trial) of Operations Management Suite. 
+At minimum, this tutorial requires a Kubernetes cluster with Linux agent nodes, and an Operations Management Suite (OMS) account. If needed, sign up for a [free OMS trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
 
 ## Get Workspace settings
 
@@ -137,8 +135,6 @@ In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. 
 Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
 See the [Azure Log Analytics documentation](../log-analytics/index.md) for detailed guidance on querying and analyzing monitoring data.
-
-
 
 ## Next steps
 

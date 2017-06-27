@@ -141,6 +141,8 @@
       href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
+    - name: Sync data
+      href: sql-database-sync-data.md
   - name: Monitor & tune
     items:
     - name: Overview

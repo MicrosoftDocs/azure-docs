@@ -8,8 +8,8 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
-ms.topic: article
-ms.date: 06/08/2017
+ms.topic: hero-article
+ms.date: 06/26/2017
 ---
 
 # Azure Database for MySQL: Use PHP to connect and query data
