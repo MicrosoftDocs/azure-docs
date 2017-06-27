@@ -55,7 +55,8 @@ This application uses resources that require users to follow a few specific lega
     * XamFormsVisualSearch is an open source application registered under the [MIT Open Source License](https://microsoft.mit-license.org/).  You can use it as a reference or template when building own applications utilizing the Microsoft Computer Vision and Web Search APIs. 
 
 ## Environment Setup  
-### Installing Xamarin  
+### Installing Xamarin 
+#### Windows   
 With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select "Modify."
 ![A picture of the visual studio installer](./media/VisualStudioInstallerPhoto.PNG) 
 
@@ -64,6 +65,8 @@ Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile D
 
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
+#### MacOS
+Xamarin should come pre-packaged with Visual Studio for Mac
 
 ## Building and running the sample app
 ### Step 0: Download the sample
