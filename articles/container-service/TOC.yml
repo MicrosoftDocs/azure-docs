@@ -57,6 +57,8 @@
     href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
+  - name: Use Draft with ACR and ACS
+    href: container-service-draft-up.md
   - name: Manage with DC/OS
     items:
     - name: Container management - DC/OS UI

@@ -1,6 +1,6 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
-## [Performance monitoring in a devOps cycle](app-insights-detect-triage-diagnose.md)
+## [Performance monitoring overview for DevOps](app-insights-detect-triage-diagnose.md)
 
 # Get started
 ## Monitor Azure
@@ -80,7 +80,7 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
 #### [Live stream](app-insights-live-stream.md)
-
+#### [Funnels](app-insights-understand-usage-patterns.md)
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
 
@@ -88,10 +88,6 @@
 
 #### [F5 insights](app-insights-visual-studio.md)
 #### [Trends](app-insights-visual-studio-trends.md)
-#### [CodeLens](app-insights-visual-studio-codelens.md)
-
-### Usage
-#### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)

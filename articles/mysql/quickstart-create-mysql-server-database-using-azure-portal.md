@@ -27,6 +27,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 ![Azure portal - new - database - MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
 3. Fill out the new server details form with the following information, as shown on the preceding image:
+
 | **Setting** | **Suggested value** | **Field Description** |
 |---|---|---|
 | *Server name* | myserver4demo  | Server name has to be globally unique. |
