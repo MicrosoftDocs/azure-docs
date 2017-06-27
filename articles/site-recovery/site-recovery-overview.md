@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/14/2017
+ms.date: 06/23/2017
 ms.author: raynew
 
 ---
