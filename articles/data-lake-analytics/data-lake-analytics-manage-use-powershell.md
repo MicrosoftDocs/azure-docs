@@ -30,7 +30,7 @@ When creating a Data Lake Analytics account, you need to know:
 * **Resource group**: The name of the Azure resource group that contains your Data Lake Analytics account.
 * **Data Lake Analytics account name**: The account name must only contain lowercase letters and numbers.
 * **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
-* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on our [pricing page](https://azure.microsoft.com/en-us/pricing/details/data-lake-analytics/).
+* **Location**: The location of your Data Lake Analytics account, such as "East US 2" or other supported locations. Supported locations can be seen on our [pricing page](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
 
 The PowerShell snippets in this tutorial use these variables to store this information
 
@@ -166,7 +166,7 @@ created a Data Lake Analytics account, you can add additional Data Lake Store ac
 ### Find the default Data Lake Store account
 
 ```powershell
-$dataLakeStoreName = (Get-AdlAnalyticsAccount -Name $adla).Properties.DefaultDataLakeAccount
+$dataLakeStoreName = (Get-AdlAnalyticsAccount -Name $adla).DefaultDataLakeAccount
 ```
 
 ### Add data sources
