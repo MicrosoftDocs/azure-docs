@@ -35,10 +35,9 @@ You also need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed a
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to capture an image of a Linux VM in Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#detailed-steps). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVM* and *myImage*.
 
-1. Deprovision your source VM. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
+1. SSH to your VM and deprovision it with `waagent -deprovision`. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this *+user* parameter. The following example removes the last provisioned user account:
 
     ```bash
-    ssh ops@myvm.westus.cloudapp.azure.com
     sudo waagent -deprovision+user -force
     exit
     ```
@@ -72,7 +71,7 @@ If you need to quickly accomplish the task, the following section details the ba
 In the following steps you deprovision an existing VM, deallocate and generalize the VM resource, then create an image. You can use this image to create VMs across any resource group within your subscription. This process gives [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) an advantage over unmanaged disks. With unmanaged disks, you create a blob copy of the underlying virtual hard disk (VHD) and are then limited to creating VMs in the same storage account as the copied VHD blob. With managed disks, you create an image resource that can be deployed across your whole subscription.
 
 ## Step 1: Remove the Azure Linux agent
-To make the VM ready for generalizing, you deprovision the VM using the Azure VM agent to delete files and data. Use the `waagent` command with the *+deprovision* parameter on your target Linux VM. For more information, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md).
+To make the VM ready for generalizing, you deprovision the VM using the Azure VM agent to delete files and data. Use the `waagent` command with the *-deprovision* parameter on your target Linux VM. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this *+user* parameter. The following example removes the last provisioned user account. For more information, see the [Azure Linux Agent user guide](../windows/agent-user-guide.md).
 
 1. Connect to your Linux VM using an SSH client.
 2. In the SSH window, type the following command:
@@ -81,7 +80,7 @@ To make the VM ready for generalizing, you deprovision the VM using the Azure VM
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
+   > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution.
  
 3. Type *y* to continue. You can add the *-force* parameter to avoid this confirmation step.
 4. After the command completes, type `exit`. This step closes the SSH client.
