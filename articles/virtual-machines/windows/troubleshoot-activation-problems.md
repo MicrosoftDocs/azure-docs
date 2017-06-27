@@ -20,7 +20,7 @@ ms.author: genli
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-If you have trouble when activating Azure Windows virtual machine (VM)  that is created from a custom image, you can use the information provided in this document to troubleshoot the issue. 
+If you have trouble when activating Azure Windows virtual machine (VM) that is created from a custom image, you can use the information provided in this document to troubleshoot the issue. 
 
 ## Symptom
 
@@ -113,9 +113,9 @@ No. The image in Azure Marketplace has the appropriate KMS client setup key alre
  
 Yes. 
  
-### What will happen if Windows activation period expires? 
+### What happens if Windows activation period expires? 
  
-When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating, the desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See also the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) page.   
+When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) page.   
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
