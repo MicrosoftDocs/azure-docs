@@ -66,7 +66,7 @@ Now, scroll down to Mobile & Gaming, and make sure that you've enabled "Mobile D
 Now, click "Modify" in the bottom right corner of the window, and wait for Xamarin to install.
 
 #### MacOS
-Xamarin should come pre-packaged with Visual Studio for Mac
+Xamarin should come pre-packaged with Visual Studio for MacOS.
 
 ## Building and running the sample app
 ### Step 0: Download the sample
