@@ -75,7 +75,7 @@ An Azure SQL database can be:
 
 ## Azure SQL databases protected by SQL Database firewall
 
-To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must create one or more firewall rules through the Azure firewall.
+To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must create one or more firewall rules through the Azure firewall. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
 
 ## Create and manage an Azure SQL servers, databases, and firewalls using the Azure portal
 
@@ -101,7 +101,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 
 ## Create and manage Azure SQL servers, databases, and firewalls using PowerShell
 
-To create and manage an Azure SQL Database using PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+To create and manage an Azure SQL Database using PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -125,7 +125,7 @@ To create and manage an Azure SQL Database using PowerShell, use the following P
 
 ## Create and manage Azure SQL servers, databases, and firewalls using the Azure CLI
 
-To create and manage an Azure SQL Database using the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
+To create and manage an Azure SQL Database using the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -155,7 +155,7 @@ To create and manage an Azure SQL Database using the [Azure CLI](/cli/azure/over
 
 ## Create and manage Azure SQL servers, databases, and firewalls using Transact-SQL
 
-To create and manage an Azure SQL database using Transact-SQL, use the following commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands.
+To create and manage an Azure SQL database using Transact-SQL, use the following commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. For managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pools.md).
 
 > [!IMPORTANT]
 > You cannot create, update, or delete a server using Transact-SQL.
