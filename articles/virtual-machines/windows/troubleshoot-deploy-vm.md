@@ -20,6 +20,4 @@ ms.author: genli
 ---
 # Troubleshoot deploying virtual machine issues in Azure
 
-[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm](../../includes/virtual-machines-windows-troubleshoot-deploy-vm.md)]
-
-[!INCLUDE [ virtual-machines-shared-troubleshoot-deploy-vm-top](../../includes/virtual-machines-windows-troubleshoot-deploy-vm.md)] (Will be created later)
+[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm.md)]
