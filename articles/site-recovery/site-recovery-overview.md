@@ -74,4 +74,4 @@ Site Recovery can manage replication for:
 
 ## Next steps
 * Read more about [workload support](site-recovery-workload.md)
-* Get started with [Azure VM replication between regions](site-recovery-azure-to-azure.md), [VMware replication to Azure](vmware-walkthrough-overview.md), or [Hyper-V replication to Azure](hyper-v-site-walkthrough-overview).
+* Get started with [Azure VM replication between regions](site-recovery-azure-to-azure.md), [VMware replication to Azure](vmware-walkthrough-overview.md), or [Hyper-V replication to Azure](hyper-v-site-walkthrough-overview.md).
