@@ -223,8 +223,13 @@ Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritt
     public const string handwritingUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
 
 
-With that out of the way, we can now jump into our API functions. *FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
-Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) to extract text from the response object in the following code.  Elsewhere
+With that out of the way, we can now jump into our API functions. 
+
+*FetchPrintedWordList* uses the Azure Computer Vision OCR endpoint to parse printed text from images.  The Http call here follows a similar structure to the call carried out in the Add Keys Page, but here we send a HTTP POST request instead of a GET request.  Because of this, we need to encode our photo (currently in memory as a byte array) into a ByteArrayContent object, and add a header to this ByteArrayContent object indicating this.  Other content types can be read about in the API reference linked above.  
+
+Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.com/json/help/html/SelectToken.htm) here to extract text from the response object.  Elsewhere in the codebase, model object deserialization is employed.  However in this case it was easier to simply pull down each line of parsed text, extract each recognized string, and send that to the next system.  
+
+Also note the block in which the strings for individual words are joined to return line-by-line results.  In the Handwritten OCR endpoint, you can either attain a string representing a "line" of text extracted from an image, or you can dig deeper and get a list of words per line.  In the standard OCR endpoint, only the list of words per line is returned. 
 
     // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchPrintedWordList()
@@ -266,7 +271,7 @@ Note the use of the NewtonSoft JSON [SelectToken Method](http://www.newtonsoft.c
         return wordList;
     }
 
-The second API function is *FetchHandwrittenWordList*, which uses the Azure Computer Vision Handwritten OCR endpoint to parse handwritten text from images.  It is defined as follows:
+The Handwritten OCR endpoint is slightly stricter about the content that it's willing to process.  The maximum photo size that the endpoint will accept is 4MB, so I make use of Xamarin.Forms Samples [image resizer](https://github.com/xamarin/xamarin-forms-samples/blob/master/XamFormsImageResize/XamFormsImageResize/ImageResizer.cs) to scale it down.  Outside of that, the most important thing to note about this API is the fact that it returns an HTTP 202 respones, which signals that processing has begun and which gives the user a URI endpoint to check for a completed result.
 
     // Uses the Microsoft Computer Vision Handwritten OCR API to parse handwritten text from the photo set in the constructor
     async Task<ObservableCollection<string>> FetchHandwrittenWordList()
@@ -315,7 +320,7 @@ The second API function is *FetchHandwrittenWordList*, which uses the Azure Comp
         return wordList;
     }
 
-Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 202 response, which signals that processing has begun server-side, but requires that the user to check in later for a final response.  This is handled by the following function, which spins up a new thread to wait and occasionally check for a finished parse.
+This function handles the 202 response by pinging the URI extracted from the response's metadata either until a result is attained or the function times out.  It's important to note that this function is called asynchronously on its own thread as otherwise this method would lock down the applicatoin until processing was complete.
 
     async Task<JObject> FetchResultFromStatusUri(string statusUri)
     {
@@ -335,15 +340,8 @@ Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 2
         return obj;
     } 
 
-# TODO:
-* Comment on the use of SelectTokens to find content, and link to the NewtonSoft Docs.  
-    * Found @ <http://www.newtonsoft.com/json/help/html/SelectToken.htm>
-    * Later, an alternative object deserializing method is used to obtain a richer set of data per object
-
-
-### WebResultsPage
-
-**Description of WebResultsPage**
+### Web Results Page
+The final page that we'll discuss is the Web
 * Is a Xamarin.Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
 * Uses the Web Search API:
     * General description: <https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/>
