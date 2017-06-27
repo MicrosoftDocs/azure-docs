@@ -2,8 +2,11 @@ To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
-## Top issues
-[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+## Top problems
+The following top issues may help resolve your issue. To start troubleshooting, review these steps:
+
+- [The cluster cannot support the requested VM size](the-cluster-cannot-support-the-requested-vm-size)
+- [The cluster does not have free resources](#the-cluster-does-not-have-free-resources)
 
 ## The cluster cannot support the requested VM size
 <properties
@@ -29,11 +32,9 @@ productPesIds="1234, 5678"
     - Create a VM in a different availability set (in the same region).
     - Add the new VM to the same virtual network.
 
-## FAQ
-
 ## How can I use and deploy a windows client image into Azure?
 
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](virtual-machines-windows-client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](../article/virtual-machines/windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
@@ -53,7 +54,7 @@ For more information, see the following resources:
 
  - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Azure Hybrid Use Benefit for Windows Server and Windows Client](virtual-machines-windows-hybrid-use-benefit-licensing.md).
+ - [Azure Hybrid Use Benefit for Windows Server and Windows Client](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
  - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
@@ -67,19 +68,19 @@ The ability to create subscriptions based on the Enterprise Dev/Test offer is re
 
 ## Why can I not install the GPU driver for an Ubuntu NV VM?
 
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](linux/n-series-driver-setup.md).
+Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](../article/virtual-machines/linux/n-series-driver-setup.md).
 
 ## My drivers are missing for my Windows N-Series VM
 
-Drivers for Windows-based VMs are located [here](windows/n-series-driver-setup.md).
+Drivers for Windows-based VMs are located [here](../article/virtual-machines/windows/n-series-driver-setup.md).
 
 ## My drivers are missing for my Linux N-Series VM
 
-Drivers for Linux-based VMs are located [here](linux/n-series-driver-setup.md). 
+Drivers for Linux-based VMs are located [here](../article/virtual-machines/linux/n-series-driver-setup.md). 
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](windows/n-series-driver-setup.md) and [Linux VMs](linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../article/virtual-machines/windows/windows/n-series-driver-setup.md) and [Linux VMs](../article/virtual-machines/linux/n-series-driver-setup.md).
 
 ## Are client images supported for N-Series?
 
@@ -93,21 +94,21 @@ You can check the availability from the [Products available by region table](htt
 
 You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
-- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](/windows/client-images.md#eligible-offers). 
-- Visual Studio subscribers within any type of offer can also [adequately prepare and create](windows/prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](windows/upload-image.md). The use remains limited to dev/test by active Visual Studio subscribers.
+- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](../article/virtual-machines/windows/client-images.md#eligible-offers). 
+- Visual Studio subscribers within any type of offer can also [adequately prepare and create](../article/virtual-machines/windows/prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](windows/upload-image.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
-This [article](/windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+This [article](../article/virtual-machines/windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
-1. If you have an [Enterprise Agreement subscription](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), you can [deploy VMs from specific Marketplace image](/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
-2. Without an Enterprise Agreement, you can [upload a custom VM](/windows/hybrid-use-benefit-licensing#upload-a-windows-vhd.md) and [deploy using a Resource Manager template](windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
+1. If you have an [Enterprise Agreement subscription](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), you can [deploy VMs from specific Marketplace image](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
+2. Without an Enterprise Agreement, you can [upload a custom VM](../article/virtual-machines/windows/hybrid-use-benefit-licensing#upload-a-windows-vhd.md) and [deploy using a Resource Manager template](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
 
 For more information, see the following articles:
 
 - [Azure Hybrid Use Benefit offer information](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - [Azure Hybrid Use Benefit downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
-- [Ways to use Azure Hybrid Use Benefit](windows/hybrid-use-benefit-licensing.md)
+- [Ways to use Azure Hybrid Use Benefit](../article/virtual-machines/windows/hybrid-use-benefit-licensing.md)
 - [Blog: How can I use the Hybrid Use Benefit in Azure?](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## I have an Enterprise Agreement (EA), how do I add an Enterprise Dev/Test account to get access to Window client images?
@@ -136,7 +137,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](/windows/classic/configure-availability#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../article/virtual-machines/windows/classic/configure-availability#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
 
 
 ## Next steps
