@@ -1,5 +1,5 @@
 ---
-title: Azure Stack development kit deployment quickstart | Microsoft Docs
+title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
 description: Learn how to deploy the Azure Stack Proof of Concept
 services: azure-stack
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.author: erikje
 ms.custom: mvc
 
 ---
-# Azure Stack development kit deployment quickstart
+# Azure Stack Development Kit deployment quickstart
 
-The [Azure Stack development kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
 
 1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
 
