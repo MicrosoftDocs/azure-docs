@@ -59,21 +59,13 @@ For more information, see the following resources:
 
 To activate your monthly  credit, see this [article](https://azure.microsoft.com/offers/ms-azr-0064p/).
 
-## I have an Enterprise Agreement (EA). How do I add Enterprise Dev/Test to get access to Window client images?
+## How to add Enterprise Dev/Test to my Enterprise Agreement (EA)to get access to Window client images?
 
 The ability to create subscriptions based on the Enterprise Dev/Test offer is restricted to Account Owners who have been given permission to do so by an Enterprise Administrator. The Account Owner creates subscriptions via the Azure Account Portal, and then should add active Visual Studio subscribers as co-administrators. So that they can manage and use the resources needed for development and testing. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
-
-## Why can I not install the GPU driver for an Ubuntu NV VM?
-
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](../articles/virtual-machines/linux/n-series-driver-setup.md).
 
 ## My drivers are missing for my Windows N-Series VM
 
 Drivers for Windows-based VMs are located [here](../articles/virtual-machines/windows/n-series-driver-setup.md).
-
-## My drivers are missing for my Linux N-Series VM
-
-Drivers for Linux-based VMs are located [here](../articles/virtual-machines/linux/n-series-driver-setup.md). 
 
 ## I can’t find a GPU instance within my N-Series VM
 
@@ -96,26 +88,6 @@ You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios 
 
 This [article](../articles/virtual-machines/windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
-## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
-
-1. If you have an [Enterprise Agreement subscription](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), you can [deploy VMs from specific Marketplace image](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
-2. Without an Enterprise Agreement, you can [upload a custom VM](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#upload-a-windows-server-vhd) and [deploy using a Resource Manager template](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
-
-For more information, see the following articles:
-
-- [Azure Hybrid Use Benefit offer information](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
-- [Azure Hybrid Use Benefit downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
-- [Ways to use Azure Hybrid Use Benefit](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md)
-- [Blog: How can I use the Hybrid Use Benefit in Azure?](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
-
-## I have an Enterprise Agreement (EA), how do I add an Enterprise Dev/Test account to get access to Window client images?
-
-The ability to create subscriptions based on the [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/) is restricted to Account Owners who have been given permission to do so by an Enterprise Administrator. The Account Owner creates subscriptions via the Azure Account Portal, and then should add active Visual Studio subscribers as co-administrators so that they can manage and use the resources needed for development and testing.
-
-## How do I do I activate my monthly credit for Visual studio Enterprise (BizSpark)
-
-To activate your monthly  credit, see [Monthly Azure credit for Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p).
-
 ## I tried to resize a Classic VM or a VM deployed in Resource Manager deployment model, but I am not able see VM size family.
 
 When a VM is running, it is deployed to a physical server. The physical servers in Azure regions are grouped in clusters of common physical hardware. Resizing a VM that requires the VM to be moved to different hardware clusters is different depending on which deployment model was used to deploy the VM.
@@ -127,10 +99,6 @@ When a VM is running, it is deployed to a physical server. The physical servers 
 ## The listed VM size is not supported while deploying in Availability Set.
 
 Choose a size that is supported on the availability set's cluster. It is recommended when creating an availability set to choose the largest VM size you think you need, and have that be your first deployment to the Availability set.
-
-## What Linux distributions/versions are supported on Azure?
-
-You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed-distros).
 
 ## Can I add an existing Classic VM to an availability set?
 
