@@ -1,6 +1,6 @@
 ---
-title: Before you deploy Azure Stack development kit | Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack development kit (service administrator).
+title: Before you deploy Azure Stack Development Kit | Microsoft Docs
+description: View the environment and hardware requirements for Azure Stack Development Kit (service administrator).
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,14 +18,14 @@ ms.author: erikje
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack [development kit](azure-stack-poc.md), make sure your computer meets the following requirements.
+Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements.
 You can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
 | Component | Minimum | Recommended |
 | --- | --- | --- |
 | Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
+| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
 | Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
 | Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
