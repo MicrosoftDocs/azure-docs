@@ -260,7 +260,7 @@ Each diagnostic event contains details about your logic app and that event,
 like status, start time, end time, and so on. You can use these details 
 to set up tracking, monitoring, and logging with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-[REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics#microsoftlogicworkflows).
+[REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 For example, the `ActionCompleted` event has the 
 `clientTrackingId` and `trackedProperties` properties 
