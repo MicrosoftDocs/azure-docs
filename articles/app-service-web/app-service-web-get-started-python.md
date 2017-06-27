@@ -73,22 +73,165 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
+<<<<<<< HEAD
+```azurecli
+az login
+```
+
+## Configure a Deployment User
+
+For FTP and local Git it is necessary to have a deployment user configured on the server to authenticate your deployment. Creating a deployment user is a one time configuration, take a note of the `username` and `password` as they will be used in a step below.
+
+> [!NOTE]
+> A deployment user is required for FTP and Local Git deployment to a web app.
+> The `username` and `password` are account-level, and as such are different from your Azure Subscription credentials. **These credentials are only required to be created once**.
+>
+=======
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+>>>>>>> refs/remotes/Microsoft/master
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
+<<<<<<< HEAD
+Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+
+```azurecli
+az group create --name myResourceGroup --location westeurope
+```
+
+## Create an Azure App Service
+
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
+
+> [!NOTE]
+> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
+>
+> App Service plans define:
+> * Region (North Europe, East US, Southeast Asia)
+> * Instance Size (Small, Medium, Large)
+> * Scale Count (one, two or three instances, etc.)
+> * SKU (Free, Shared, Basic, Standard, Premium)
+>
+
+The following example creates an App Service Plan named `quickStartPlan` using the **FREE** pricing tier.
+
+```azurecli
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
+```
+
+When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
+
+```json
+{
+"appServicePlanName": "quickStartPlan",
+"geoRegion": "North Europe",
+"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+"kind": "app",
+"location": "North Europe",
+"maximumNumberOfWorkers": 1,
+"name": "quickStartPlan",
+"provisioningState": "Succeeded",
+"resourceGroup": "myResourceGroup",
+"sku": {
+  "capacity": 0,
+  "family": "F",
+  "name": "F1",
+  "size": "F1",
+  "tier": "Free"
+},
+"status": "Ready",
+"type": "Microsoft.Web/serverfarms",
+}
+```
+
+## Create a web app
+
+Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
+
+In the command below please substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
+
+```azurecli
+az appservice web create --name **<app_name>** --resource-group myResourceGroup --plan quickStartPlan
+```
+
+When the web app has been created, the Azure CLI shows information similar to the following example.
+
+```json
+{
+  "clientAffinityEnabled": true,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
+  ],
+  "hostNames": [
+    "<app_name>.azurewebsites.net"
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+  "kind": "app",
+  "location": "North Europe",
+  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
+  "resourceGroup": "myResourceGroup",
+  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "state": "Running",
+  "type": "Microsoft.Web/sites",
+}
+```
+
+
+Browse to *http://<app_name>.azurewebsites.net* to see your newly created Web App.
+
+
+
+![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
+
+
+We’ve now created an empty new Web App in Azure. Let’s configure our Web App to use Python and deploy our app to it.
+
+=======
 ![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 You’ve created an empty new web app in Azure.
+>>>>>>> refs/remotes/Microsoft/master
 
 ## Configure to use Python
 
 Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
 
+<<<<<<< HEAD
+> [!TIP]
+> Setting the Python version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
+
+```azurecli
+az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
+```
+
+## Configure local git deployment
+
+You can deploy to your web app in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
+
+Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
+
+```azurecli
+az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
+```
+
+Copy the output from the terminal as it will be used in the next step. Now browse to *https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git*
+
+
+## Push to Azure from Git
+
+Add an Azure remote to your local Git repository.
+
+```bash
+git remote add azure <paste-previous-command-output-here>
+=======
 ```azurecli-interactive
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+>>>>>>> refs/remotes/Microsoft/master
 ```
 
 Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
@@ -141,19 +284,23 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## Browse to the app
 
-Browse to the deployed application using your web browser.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
+Browse to the deployed application at *http://<app_name>.azurewebsites.net* using your web browser.
 
 The Python sample code is running in an Azure App Service web app.
 
+<<<<<<< HEAD
+
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+
+
+## Updating and Deploying the Code
+=======
 ![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first Python app to App Service.
 
 ## Update and redeploy the code
+>>>>>>> refs/remotes/Microsoft/master
 
 Using a local text editor, open the `main.py` file in the Python app, and make a small change to the text next to the `return` statement:
 

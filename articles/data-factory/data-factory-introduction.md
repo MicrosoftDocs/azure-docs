@@ -20,7 +20,9 @@ ms.author: shlo
 ---
 # Introduction to Azure Data Factory 
 ## What is Azure Data Factory?
-In the world of big data, how is existing data leveraged in business? Is it possible to enrich data generated in the cloud by using reference data from on-premises data sources or other disparate data sources? For example, a gaming company collects many logs produced by games in the cloud. It wants to analyze these logs to gain insights in to customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth, and provide a better experience to customers. 
+
+In the world of big data, how is existing data leveraged in business? Is it possible to enrich data generated in the cloud by using reference data from on-premises data sources or other disparate data sources? Thus, what is needed is a platform for aggregating and processing data from a wide variety of sources. Azure Data Factory is a cloud-based data integration service that orchestrates and automates the **movement** and **transformation** of data. You can create data integration solutions that can ingest input data from disparate data stores, transform/process the data, and publish output data to other data stores. 
+
 
 To analyze these logs, the company needs to use the reference data such as customer information, game information, marketing campaign information that is in an on-premises data store. Therefore, the company wants to ingest log data from the cloud data store and reference data from the on-premises data store. Then, process the data by using Hadoop in the cloud (Azure HDInsight) and publish the result data into a cloud data warehouse such as Azure SQL Data Warehouse or an on-premises data store such as SQL Server. It wants this workflow to run weekly once. 
 
@@ -35,8 +37,18 @@ It's more of an Extract-and-Load (EL) and then Transform-and-Load (TL) platform 
 Currently, in Azure Data Factory, the data that is consumed and produced by workflows is **time-sliced data** (hourly, daily, weekly, etc.). For example, a pipeline may read input data, process data, and produce output data once a day. You can also run a workflow just one time.  
   
 
-## How does it work? 
-The pipelines (data-driven workflows) in Azure Data Factory typically perform the following three steps:
+![New big data landscape](media/data-factory-introduction/new-big-data-landscape.png)
+**New big data landscape**
+
+The Azure Data Factory service empowers enterprises to harness this diversity by providing a platform to **compose data processing, storage and movement services into information production pipelines**, and manage trusted data assets.
+
+The Azure Data Factory service lets you:
+- **Easily work with diverse data storage and processing systems**. 
+
+	Enterprises have data of disparate types located in disparate sources. The first step in building an information production system is to connect to all the required sources of data and processing, such as SaaS services, file shares, FTP, web services, and move the data as-needed to a centralized location for subsequent processing.
+
+	Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing. This is expensive, hard to integrate and maintain such systems. It also often lacks the enterprise grade monitoring, alerting, and the controls that a fully managed service can offer.
+
 
 ![Three stages of Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
 
@@ -49,6 +61,11 @@ With Data Factory, you can use the Copy Activity in a data pipeline to move data
 
 ### Transform and enrich
 Once data is present in a centralized data store in the cloud, you want the collected data to be processed or transformed by using compute services such as HDInsight Hadoop, Spark, Data Lake Analytics, and Machine Learning. You want to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data. 
+
+
+- **Connect & Collect**: In this stage, data from various data sources is collected in one place.
+- **Transform & Enrich**: Next, the collected data is processed or transformed.
+- **Publish**. Finally, the data is published so that it can be consumed by BI tools, analytics tools, and other applications.
 
 ### Publish 
 Deliver transformed data from the cloud to on-premises sources like SQL Server, or keep it in your cloud storage sources for consumption by business intelligence (BI) and analytics tools and other applications
