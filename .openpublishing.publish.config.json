@@ -8,6 +8,7 @@
       "build_source_folder": ".",
       "build_output_subfolder": "azure",
       "locale": "en-us",
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -35,17 +36,20 @@
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "cli_scripts",
       "url": "https://github.com/Azure/azure-docs-cli-python-samples",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "_repo.en-us",
