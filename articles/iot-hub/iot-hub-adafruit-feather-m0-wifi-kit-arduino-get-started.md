@@ -56,7 +56,7 @@ You also need the following things for your development environment:
 * [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 or later. Earlier versions don't work with the Azure IoT library.
 
 
-The following items are optional in case you don’t have a sensor. You also have the option of using simulated sensor data:
+If you don’t have a sensor, the following items are optional. You also have the option of using simulated sensor data:
 
 * An BME280 temperature and humidity sensor
 * A breadboard
@@ -69,7 +69,7 @@ In this section, you connect the sensors to your board. Then you plug in your de
 
 ### Connect a DHT22 temperature and humidity sensor to Feather M0 WiFi
 
-Use the breadboard and jumper wires to make the connection as follows. If you don’t have a sensor, skip this section because you can use simulated sensor data instead.
+Use the breadboard and jumper wires to make the connection. If you don’t have a sensor, skip this section because you can use simulated sensor data instead.
 
 ![Connections reference](media/iot-hub-adafruit-feather-m0-wifi-get-started/3_connections_on_breadboard.png)
 
@@ -96,7 +96,7 @@ Now your Feather M0 WiFi should be connected with a working sensor.
 
 ### Connect Feather M0 WiFi to your computer
 
-As shown next, use the Micro USB to Type A USB cable to connect Feather M0 WiFi to your computer.
+Use the Micro USB to Type A USB cable to connect Feather M0 WiFi to your computer, as shown:
 
 ![Connect Feather Huzzah to your computer](media/iot-hub-adafruit-feather-m0-wifi-get-started/5_connect-feather-m0-wifi-computer.png)
 
@@ -105,7 +105,7 @@ As shown next, use the Micro USB to Type A USB cable to connect Feather M0 WiFi 
 If you use Ubuntu, make sure you have the permissions to operate on the USB port of Feather M0 WiFi. To add serial port permissions, follow these steps:
 
 
-1. Run the following commands at a terminal:
+1. At a terminal, run the following commands:
 
    ```bash
    ls -l /dev/ttyUSB*
@@ -119,7 +119,7 @@ If you use Ubuntu, make sure you have the permissions to operate on the USB port
 
    In the output, notice that `uucp` or `dialout` is the group owner name of the USB port.
 
-2. Add the user to the group by running the following command:
+2. To add the user to the group, run the following command:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
@@ -127,11 +127,11 @@ If you use Ubuntu, make sure you have the permissions to operate on the USB port
 
    In the previous step, you obtained the group owner name `<group-owner-name>`. Your Ubuntu user name is `<username>`.
 
-3. Sign out of Ubuntu, and then sign in again for the change to appear.
+3. For the change to appear, sign out of Ubuntu and then sign in again.
 
 ## Collect sensor data and send it to your IoT hub
 
-In this section, you deploy and run a sample application on Feather M0 WiFi. The sample application blinks the LED on Feather M0 WiFi, and it sends the temperature and humidity data collected from the BME280 sensor to your IoT hub.
+In this section, you deploy and run a sample application on Feather M0 WiFi. The sample application makes the LED blink on Feather M0 WiFi. It then sends the temperature and humidity data collected from the BME280 sensor to your IoT hub.
 
 ### Get the sample application from GitHub and prepare the Arduino IDE
 
@@ -154,7 +154,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
    ![Open the sample application in Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-3. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. Then install the `Adafruit SAMD` package to add the board file definitions.
+3. Click **Tools** > **Board** > **Boards Manager**, and then install the `Arduino SAMD Boards` version `1.6.2` or later. To add the board file definitions, install the `Adafruit SAMD` package.
 
    Boards Manager indicates that `Arduino SAMD Boards` with a version of `1.6.2` or later is installed. 
 
@@ -167,14 +167,9 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 ### Install necessary libraries
 
 1. In the Arduino IDE, click **Sketch** > **Include Library** > **Manage Libraries**.
-<<<<<<< HEAD
 
 2. Search for the following library names one by one. For each library that you find, click **Install**:
 
-   * `Adafruit_WINC1500`
-=======
-1. Search for the following library names one by one. For each  library that you find, click **Install**.
->>>>>>> 0d3070abfd48bc18b6f507c8b6c9e19bf81c3aff
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -183,7 +178,8 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
-1. Manually install `Adafruit_WINC1500`. Visit [this link](https://github.com/adafruit/Adafruit_WINC1500) and click the **Clone or download** button, then **Download ZIP**. Then in your Arduino IDE, go to **Sketch** -> **Include Library** -> **Add .zip Library** and add the zip file you just downloaded.
+
+3. Manually install `Adafruit_WINC1500`. Go to [this website](https://github.com/adafruit/Adafruit_WINC1500) and click **Clone or download** > **Download ZIP**. Then in your Arduino IDE, go to **Sketch** > **Include Library** > **Add .zip Library** and add the zip file you just downloaded.
 
 ### Use the sample application if you don’t have a real BME280 sensor
 
