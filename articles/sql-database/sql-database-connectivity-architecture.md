@@ -89,9 +89,6 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | West US 2 | 13.66.226.202	 | |
 ||||
 
-## Allow outbound traffic to the Azure SQL Database gateway
-
-
 ## Change Azure SQL Database connection policy
 
 To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
