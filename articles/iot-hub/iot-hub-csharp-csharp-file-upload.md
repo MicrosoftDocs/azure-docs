@@ -50,13 +50,7 @@ To complete this tutorial, you need the following:
 * Visual Studio 2015 or Visual Studio 2017
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-## Associate an Azure Storage account to IoT Hub
-Because the simulated device app uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the IoT hub generates a SAS URI. A device can use this SAS URI to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
-
-Follow the instructions in [Configure file uploads using the Azure portal][lnk-configure-upload] to associate an Azure Storage account to your IoT hub. Make sure that a blob container is associated with your IoT hub and the file notifications are enabled. 
-   
-![Enable File Notifications in portal][3]
-
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## Upload a file from a simulated device app
 In this section, you modify the simulated device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) to receive cloud-to-device messages from the IoT hub.
@@ -166,7 +160,6 @@ To further explore the capabilities of IoT Hub, see:
 [50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
 [1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
 [2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
-[3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
 
 <!-- Links -->
 
@@ -175,8 +168,6 @@ To further explore the capabilities of IoT Hub, see:
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[lnk-configure-upload]: iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
@@ -185,5 +176,3 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-
-
