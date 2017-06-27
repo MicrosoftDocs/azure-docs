@@ -45,7 +45,7 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 3. Do you use Network Security Groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
 
-    As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. Update any existing Network Security Groups or user-defined routes to allow this traffic.
+    As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing Network Security Groups or user-defined routes.
 
     HDInsight also hosts multiple services, which use a variety of ports. Do not block traffic to these ports. For a list of ports to allow through virtual appliance firewalls, see the [Security](#security) section.
 
@@ -87,7 +87,7 @@ To access resources in an incompatible virtual network, join the two networks. F
 
 ## Name resolution and custom DNS
 
-Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN):
+Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This built-in name resolution allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN):
 
 * Any resource that is publicly available on the internet. For example, microsoft.com, google.com.
 
@@ -98,7 +98,7 @@ Azure provides name resolution for Azure services that are installed in an Azure
 
     Both these nodes can communicate directly with each other, and other nodes in HDInsight, by using internal DNS names.
 
-The default name resolution does __not__ allow HDInsight to resolve the names of resources in networks that are joined to the virtual network. For example, it is common to join the your on-premises network to the virtual network. With only the default name resolution, HDInsight cannot access resources in the on-premises network by name. The opposite is also true, resources in your on-premises network cannot access resources in the virtual network by name.
+The default name resolution does __not__ allow HDInsight to resolve the names of resources in networks that are joined to the virtual network. For example, it is common to join your on-premises network to the virtual network. With only the default name resolution, HDInsight cannot access resources in the on-premises network by name. The opposite is also true, resources in your on-premises network cannot access resources in the virtual network by name.
 
 To enable name resolution between the virtual network and resources in joined networks, you must perform the following actions:
 
@@ -106,7 +106,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
 2. Configure the virtual network to use the custom DNS server.
 
-3. Configure forwarding between the DNS server in the virtual network and the DNS server in the joined network. For example, the DNS server in your on-premises network.
+3. Configure forwarding between the DNS servers in the joined networks. For example, the DNS server in your on-premises network.
 
     > [!NOTE]
     > The process of configuring forwarding depends on the DNS server software that you use. For more information, see the documentation for your DNS server software.
@@ -118,7 +118,7 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 ## Security
 
-Azure Virtual Networks can be secured use Network Security Groups, user-defined routes, or network virtual appliances such as firewalls. You may use one or more of these when securing a network.
+Azure Virtual Networks can be secured use Network Security Groups, user-defined routes, or network virtual appliances. You may use one or more of these methods when securing a network.
 
 * If you plan on using **Network Security Groups** or **user-defined routes** to secure the network, perform the following actions before installing HDInsight:
 
@@ -146,7 +146,7 @@ For more information on firewall rules for virtual appliances, see the [virtual 
 
 ### <a id="hdinsight-ip"></a> Azure management IP addresses
 
-If you use Network Security Groups or user-defined routes to restrict access to the virtual network you must allow access to the Azure management IP addresses.
+If you use Network Security Groups or user-defined routes to restrict access to the virtual network, then you must allow access to the Azure management IP addresses.
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
 
@@ -156,7 +156,7 @@ The HDInsight service is a managed service, and requires access to Azure managem
 * Other management tasks
 
 > [!NOTE]
-> These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
+> These operations do not require full access to the internet.
 
 The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
 
@@ -186,4 +186,4 @@ __If your region is not listed in the table__, allow traffic to port __443__ on 
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, __only use inbound rules__.
 
 > [!NOTE]
-> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
