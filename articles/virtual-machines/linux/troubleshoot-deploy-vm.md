@@ -57,7 +57,7 @@ To activate your monthly  credit, see this [article](https://azure.microsoft.com
 
 ## Why can I not install the GPU driver for an Ubuntu NV VM?
 
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](../articles/virtual-machines/linux/n-series-driver-setup.md).
+Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](n-series-driver-setup.md).
 
 ## My drivers are missing for my Linux N-Series VM
 
