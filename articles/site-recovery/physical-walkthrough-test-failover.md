@@ -80,7 +80,8 @@ After you've set everything up, run a test failover to make sure everything's wo
  - To fully test you need to copy of Active Directory and DNS in your test environment. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
  - For full information about test failover, read [this article](site-recovery-test-failover-to-azure.md) article.
 - Get a quick video overview before you start
->[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+     
+     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 Now, run a failover:
 
