@@ -20,8 +20,6 @@ ms.author: genli
 ---
 # Troubleshoot deploying Linux virtual machine issues in Azure
 
-[!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm.md)]
-
 To troubleshoot virtual machine (VM) deployment issues in Azure, review the [top issues](#top-issues) for common failures and resolutions.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
@@ -63,11 +61,11 @@ Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Se
 
 ## My drivers are missing for my Linux N-Series VM
 
-Drivers for Linux-based VMs are located [here](../articles/virtual-machines/linux/n-series-driver-setup.md). 
+Drivers for Linux-based VMs are located [here](n-series-driver-setup.md). 
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../articles/virtual-machines/windows/n-series-driver-setup.md) and [Linux VMs](../articles/virtual-machines/linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](n-series-driver-setup.md).
 
 ## Is N-Series VMs available in my region?
 
@@ -91,7 +89,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../articles/virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
 
 
 ## Next steps
