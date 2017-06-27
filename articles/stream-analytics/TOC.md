@@ -39,6 +39,7 @@
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 
 ## Troubleshoot
+### [Add alerts](stream-analytics-set-up-alerts.md)
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
 ### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Resource health blade](stream-analytics-resource-health.md)
