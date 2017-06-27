@@ -18,7 +18,7 @@ ms.author: erikje
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack [development kit](azure-stack-poc.md)), make sure your computer meets the following requirements.
+Before you deploy Azure Stack [development kit](azure-stack-poc.md), make sure your computer meets the following requirements.
 You can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
