@@ -150,13 +150,13 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
 
 
 ### OCR Select Page:
-The OCR Select Page has two main roles.  First, it is where the user selects what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally very cumbersome in a cross-platform applications, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
+The OCR Select Page has two main roles.  First, it is where the user selects what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application, as different logic has to be written for photo capture and import photos per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
 1) Ensure that a camera is available on the current device
 2) Initialize a new StoreCameraMediaOptions object and use it to set where we want to save our captured image
 3) Take an image, save it to the specified location, and attain a MediaFile object containing the image data.
-4) Unpack the MediaFile into a byte array (code for which will also be included below)
+4) Unpack the MediaFile into a byte array
 5) Return the byte array for further processing 
 
 Here's the function that uses the Xamarin Media Plugin for photo capture:
@@ -198,12 +198,53 @@ And here's the utility function used to convert a MediaFile into a byte array:
         }
     }
 
-The photo import utility works in a very similar way, and can be found in *OcrSelectPage.xaml.cs*
+The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*
 
-### OcrResultsPage
+### OCR Results Page
+The OCR Results Page is where the actual text extraction is carried out through calling the standard and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.   
 
-**Description of OcrResultsPage**
-* Is a Xamarin Forms ContentPage, which contains a listview presenting all of the words extracted from a given image
+The first calling function is *FetchPrintedWordList*, which uses the Azure Computer Vision OCR endpoint to parse printed text from images.  It is defined as follows:
+
+    // Uses the Microsoft Computer Vision OCR API to parse printed text from the photo set in the constructor
+    async Task<ObservableCollection<string>> FetchPrintedWordList()
+    {
+        ObservableCollection<string> wordList = new ObservableCollection<string>();
+        if (photo != null)
+        {
+            HttpResponseMessage response = null;
+            using (var content = new ByteArrayContent(photo))
+            {
+                // The media type of the body sent to the API. "application/octet-stream" defines an image represented as a byte array
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                response = await VisionApiClient.PostAsync(ocrUri, content);
+            }
+
+            if (response != null)
+            {
+                string ResponseString = await response.Content.ReadAsStringAsync();
+                JObject json = JObject.Parse(ResponseString);
+                IEnumerable<JToken> lines = json.SelectTokens("$.regions[*].lines[*]");
+                foreach (JToken line in lines)
+                {
+                    IEnumerable<JToken> words = line.SelectTokens("$.words[*].text");
+                    wordList.Add(string.Join(" ", words.Select(x=> x.ToString())));
+                }
+            }
+        }
+
+        if (!wordList.Any())
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await DisplayAlert("Error", "No words found.", "OK");
+                await Task.Delay(TimeSpan.FromSeconds(0.1d));
+                await Navigation.PopAsync(true);
+            });
+        }
+
+        return wordList;
+    }
+
 * Walk through the use of each of the two different APIs, highlighting how one gives a direct response where the other returns an endpoint that must be queried later.  
     * General Description: <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>
     * API Reference <https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa>
