@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 06/27/2017
 ms.author: jeedes
 
 ---
@@ -126,6 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. Click the **View and edit all the other attributes** check box.
      
     ![Configure Single Sign-On](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes2.png)
+   
     b. Click the **Add Attribute** to open **Add attribute** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
@@ -139,8 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!NOTE] 
     > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts. 
 
-
-5. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png) 
 
@@ -153,25 +153,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 8. Click **Admin**.
 
 9. In the left navigation pane, click **Settings**, and then click **Security**.
+
+10. On the **Security** page, perform the following steps: 
    
-    ![Security](./media/active-directory-saas-zendesk-tutorial/ic773089.png "Security")
+     ![Security](./media/active-directory-saas-zendesk-tutorial/ic773089.png "Security")
 
-10. On the **Security** page, click the **Admin & Agents** tab.
-
-11. Select **Single sign-on (SSO) and SAML**, and then select **SAML**.
-
-12. Paste **SAML Single Sign-On Service URL** value into the **SAML SSO URL** textbox.
-
-13. Paste **Sign-Out URL** value into the **Remote Logout URL** textbox.
-    
     ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/ic773090.png "Single sign-on")
 
-14. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
-    
-    > [!TIP]
-    > For more information, see [how to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-   
-15. Click **Save**.
+     a. Click the **Admin & Agents** tab.
+
+     b. Select **Single sign-on (SSO) and SAML**, and then select **SAML**.
+
+     c. In **SAML SSO URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal. 
+
+     d. In **Remote Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
+        
+     e. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
+     
+     f. Click **Save**.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -263,7 +262,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zendesk tile in the Access Panel, you should get login page to get signed-on to your Zendesk application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+When you click the Zendesk tile in the Access Panel, you should get automatically signed-on to your Zendesk application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
