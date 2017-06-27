@@ -28,7 +28,7 @@ The [Azure Stack development kit](azure-stack-poc.md) is a testing and developme
 
 3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by running the PrepareBootFromVHD.ps1 script. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
 
-4. [**To start the deployment, run the PowerShell deployment script**](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) on the development kit host.
+4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
 
 5. If your Azure Stack deployment uses Azure Active Directory, you must:
 
