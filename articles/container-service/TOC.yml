@@ -73,8 +73,6 @@
       href: container-service-application-specific-marathon.md
     - name: Canary release with Vamp
       href: container-service-dcos-vamp-canary-release.md
-    - name: CI/CD with DC/OS and VSTS
-      href: container-service-setup-ci-cd.md    
     - name: Monitor DC/OS
       items:
       - name: Monitor with ELK
