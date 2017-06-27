@@ -28,34 +28,34 @@ The following diagram provides a high-level overview of the Azure SQL Database c
 ![architecture overview](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
 
-The following steps describe how an connection is established to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) and the Azure SQL Database gateway.
+The following steps describe how a connection is established to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) and the Azure SQL Database gateway.
 
-- Clients within Azure or outside of Azure connect to the SLB, which has a a public IP address and listens on port 1433.
+- Clients within Azure or outside of Azure connect to the SLB, which has a public IP address and listens on port 1433.
 - The SLB directs traffic to the Azure SQL Database gateway.
 - The gateway redirects the traffic to the correct proxy middleware.
 - The proxy middleware redirects the traffic to the appropriate Azure SQL database.
 
 > [!IMPORTANT]
-> Each of these components have distributed denial of service (DDoS) protection built-in at the network and the app layer.
+> Each of these components has distributed denial of service (DDoS) protection built-in at the network and the app layer.
 >
 
-### Connectivity from within Azure
+## Connectivity from within Azure
 
 If you are connecting from within Azure, your connections have a connection policy of **Redirect** by default. A policy of **Redirect** means that connections after the TCP session is established to the Azure SQL database, the client session is then redirected to the proxy middleware with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the proxy middleware. Thereafter, all subsequent packets flow directly via the proxy middleware, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
-### Connectivity from outside of Azure
+## Connectivity from outside of Azure
 
 If you are connecting from outside Azure, your connections have a connection policy of **Proxy** by default. A policy of **Proxy** means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-## Azure SQL Databse gateway IP addresses
+## Azure SQL Database gateway IP addresses
 
 To connect to an Azure SQL database from on-premises resources, you need to allow outbound network traffic to the Azure SQL Database gateway for your Azure region. Your connections only go via the gateway when connecting in Proxy mode, which is the default when connecting from on-premises resources.
 
-The following table lists the primary and secondary IPs of the Azure SQL Database gateway for all data regions. For some regions, you will see two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover addess is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure SQL Database to accept connections.
+The following table lists the primary and secondary IPs of the Azure SQL Database gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure SQL Database to accept connections.
 
 | Region Name | Primary IP address | Secondary IP address |
 | --- | --- |--- |
@@ -97,7 +97,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
 
 - If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**. 
-- If you connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
+- If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
 
 ## Script to change connection settings
 
