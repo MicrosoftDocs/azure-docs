@@ -13,7 +13,7 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2017
+ms.date: 06/23/2017
 ms.author: ruturajd@microsoft.com
 
 ---

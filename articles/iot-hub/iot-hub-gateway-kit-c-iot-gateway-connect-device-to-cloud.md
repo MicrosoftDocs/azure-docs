@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 06/25/2017
 ms.author: xshi
 
 ---
@@ -128,7 +128,7 @@ The Bluetooth Low Energy (BLE) sample application is provided by Azure IoT Edge.
 1. Go to the folder of the sample application by running the following command:
 
    ```bash
-   cd /user/share/azureiotgatewaysdk/samples
+   cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
 1. Open the configuration file by running the following command:
