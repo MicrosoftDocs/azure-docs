@@ -102,10 +102,9 @@ Now that we have a functioning application, let's jump in and explore exactly ho
 
 ### Add Keys Page
 The Add Keys Page is where the user inputs their Azure API keys to be tested and set for later use. The UI for this page is defined in *AddKeysPage.xaml*, and its primary logic is defined in *AddKeysPage.xaml.cs*.  While the specific parameters of each request are discussed in later files, this is a great place to establish the basic structure for how the Azure endpoints can be reached from a C# codebase.  Throughout this sample, the basic structure of this interaction is as follows: 
-1) Establish the root URI for each endpoint in a reusable location
+1) Establish the URI for each endpoint in a reusable location, and attach to it the specific parameters you want to send with it
 2) Initialize *HttpResponseMessage* and *HttpClient* objects from *System.Net.Http*
 3) Attach any desired headers (defined in each endpoint's API reference) to your HttpClient object
-4) Attach any additional desired parameters to your endpoint URI
 5) Send a POST or GET request with your data
 6) Check that the response was successful
 7) Pass on the response for further parsing
@@ -120,7 +119,7 @@ Step 1 is carried out in the first few lines of our class.  Here, we initialize 
 
         // URIs of the endpoints used in the test requests
         private const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?";
-        private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?";
+        private const string searchUri = "https://api.cognitive.microsoft.com/bing/v5.0/search?q=test";";
         //CLASS CONTINUES BELOW
 
 Steps 2 through 6 are then executed within their respective functions.  In the context of the key entry page, we're only checking to see if the Http request returned a 401 error, which would indicate that the API key was invalid.  In later functions, further checking and unpacking of the http response is done.  The function that checks the validity of the Bing Search API key follows:
@@ -132,9 +131,8 @@ Steps 2 through 6 are then executed within their respective functions.  In the c
             HttpClient SearchApiClient = new HttpClient();
 
             SearchApiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", BingSearchKeyEntry.Text);
-            var searchQuery = searchUri + "q=test";
 
-            response = await SearchApiClient.GetAsync(searchQuery);
+            response = await SearchApiClient.GetAsync(searchUri);
             if ((int)response.StatusCode != 401)
             {
                 BingSearchKeyEntry.BackgroundColor = Color.Green;
@@ -201,9 +199,9 @@ And here's the utility function used to convert a MediaFile into a byte array:
 The photo import utility works in a similar way, and can be found in *OcrSelectPage.xaml.cs*
 
 ### OCR Results Page
-The OCR Results Page is where the actual text extraction is carried out through calling the standard and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.   
+The OCR Results Page is where the actual text extraction is carried out with the OCR and handwritten OCR endpoints.  These two APIs work differently, so it's valuable to step through each of the functions that call them.
 
-First, we establish the URIs that weare using to access the endpoints.  This is defined in the following code.  If you would like to learn more about the parameters attached to these URIs, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc), and the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).  These pages explicitly define what can be added both to the headers and to the URIs of these requests.  
+Following the format defined above, we first establish our URI endpoints and set their parameters. Let's first look at the print OCR endpoint.  In this application, we're telling the endpoint to look only for English text. The Azure Computer Vision OCR API is capable of parsing and determining text without this flag set, but specifying language will lead to further optimization.  We're also letting the endpoint determine text orientation.  Setting this to false would further optimize the call, but in a mobile application  orientation detection is very useful.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Print Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)  
 
     /* This is the url that will be passed into the POST request for parsing printed text.  It's parameters are as follows:
         * [language = en] Tells the system to look for english printed text.  Other options are unk (unknown), and a series of other languages listed on the API reference site.
@@ -213,6 +211,8 @@ First, we establish the URIs that weare using to access the endpoints.  This is 
         * [API Reference] https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc
         */
     public const string ocrUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=en&detectOrientation=true";
+
+Next, we set the parameters for the the Handwritten OCR endpoint.  The Handwritten OCR endpoint is still in Preview, and contemporarily only works with English text.  Its only parameter right now is a flag recognizing whether the endpoint is parsing printed or handwritten text.  Although the handwritten API is able to parse printed text without this flag, setting *handwriting=false* will yeild better results on non-handwritten text.  Given that my application is optimized for English, I could have used only the Handwritten OCR endpoint and gotten comparable results.  However, for the sake of illustration both endpoints were used.  If you would like to learn more about the parameters affiliated with this endpoint, you can learn more from the [Handwritten Optical Character Recognition API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200).
 
     /* This is the url that will be passed into the POST request for parsing handwritten text.  Its parameters are as follows:
         * [handwriting = True] This tells the system to try to parse handwritten text from the image.  If set to False, this API will perform processing similar to the print OCR endpoint. 
@@ -312,7 +312,7 @@ The second API function is *FetchHandwrittenWordList*, which uses the Azure Comp
         return wordList;
     }
 
-Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 202 response, which signals that processing has begun server-side, but requires that the user to check in later for a final respone.  This is handled by the following function, which spins up a new thread to wait and occasionally check for a finished parse.
+Unlike the standard OCR endpoint, the Handwritten OCR endpoint returns an HTTP 202 response, which signals that processing has begun server-side, but requires that the user to check in later for a final response.  This is handled by the following function, which spins up a new thread to wait and occasionally check for a finished parse.
 
     async Task<JObject> FetchResultFromStatusUri(string statusUri)
     {
