@@ -10,13 +10,14 @@ ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing - page
-ms.date: 6/17/2017
+ms.date: 6/27/2017
 ms.author: arijitt
 ---
 
 
 # Azure HDInsight troubleshooting
 
+## Troubleshooting with Apache Ambari
 The following top issues and their resolutions may help troubleshoot any HDInsight cluster problems by using Apache Ambari. 
 
 | Apache Workload | Top questions |
@@ -28,3 +29,15 @@ The following top issues and their resolutions may help troubleshoot any HDInsig
 |![STORM](./media/hdinsight-troubleshoot-guide/STORM.png)<br>[STORM troubleshooting](hdinsight-troubleshoot-STORM.md)|<br>[How do I access Storm UI on a cluster](hdinsight-troubleshoot-storm.md#how-do-i-access-storm-ui-on-a-cluster)<br><br>[How do I transfer Storm eventhub spout checkpoint information from one topology to another](hdinsight-troubleshoot-storm.md#how-do-i-transfer-storm-eventhub-spout-checkpoint-information-from-one-topology-to-another)<br><br>[How do I locate Storm binaries on a cluster](hdinsight-troubleshoot-storm.md#how-do-i-locate-storm-binaries-on-a-cluster)<br><br>[How do I determine the deployment topology of a Storm cluster](hdinsight-troubleshoot-storm.md#how-do-i-determine-the-deployment-topology-of-a-storm-cluster)<br><br>[How do I locate Storm-EventHub-Spout binaries for development](hdinsight-troubleshoot-storm.md#how-do-i-locate-storm-eventhub-spout-binaries-for-development)<br><br>[How do I locate Storm Log4J configuration files on clusters](hdinsight-troubleshoot-storm.md#how-do-i-locate-storm-log4j-configuration-files-on-clusters)|
 |![YARN](./media/hdinsight-troubleshoot-guide/YARN.png)<br>[YARN troubleshooting](hdinsight-troubleshoot-YARN.md)|<br>[How do I create a new Yarn queue on a cluster](hdinsight-troubleshoot-yarn.md#how-do-i-create-a-new-yarn-queue-on-a-cluster)<br><br>[How do I download Yarn logs from a cluster](hdinsight-troubleshoot-yarn.md#how-do-i-download-yarn-logs-from-a-cluster)|
 
+## Other troubleshooting scenarios
+
+- [Other troubleshooting scenarios](hdinsight-hadoop-stack-trace-error-messages.md)
+- [Tips for Linux](hdinsight-hadoop-linux-information.md)
+- [Analyze HDInsight logs](hdinsight-debug-jobs.md)
+- [Debug apps with YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+- [Enable heap dumps](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Fix errors from WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
+- [Use Ambari Views to debug Tez Jobs](hdinsight-debug-ambari-tez-view.md)
+- [Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+- [Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md)
+- [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)

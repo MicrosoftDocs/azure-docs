@@ -191,7 +191,7 @@
 ### [Spark troubleshooting](hdinsight-troubleshoot-spark.md)
 ### [STORM troubleshooting](hdinsight-troubleshoot-storm.md)
 ### [YARN troubleshooting](hdinsight-troubleshoot-storm.md)
-### [More troubleshooting](hdinsight-hadoop-stack-trace-error-messages.md)
+### [Other troubleshooting scenarios](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Tips for Linux](hdinsight-hadoop-linux-information.md)
 #### [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 #### [Debug apps with YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
