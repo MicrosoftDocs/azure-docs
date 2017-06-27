@@ -29,7 +29,7 @@ The following are the questions that you must answer when planning to install HD
 
     If you are using an existing virtual network, you may need to modify the network configuration before you can install HDInsight.
 
-* Do you want to join the virtual network containing HDInsight to another virtual network or your on-premises network?
+* Do you want to connect the virtual network containing HDInsight to another virtual network or your on-premises network?
 
     To easily work with resources accross networks, you may need to create a custom DNS and configure DNS forwarding.
 
@@ -79,9 +79,11 @@ The following are the questions that you must answer when planning to install HD
         az network route-table list --resource-group <groupname>
         ```
 
-## Name resolution and custom DNS
+## Connecting multiple networks
 
-Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This built-in name resolution allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN):
+The biggest challenge with a multi-network configuration is name resolution between the networks.
+
+Azure provides name resolution for Azure services that are installed in a virtual network. This built-in name resolution allows HDInsight to connect to the following resources by using a fully qualified domain name (FQDN):
 
 * Any resource that is publicly available on the internet. For example, microsoft.com, google.com.
 
