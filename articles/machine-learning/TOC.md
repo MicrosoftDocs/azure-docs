@@ -194,8 +194,8 @@
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 
 ## Cortana Intelligence Partner Solutions
-### [Cortana Intelligence AppSource evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
-### [Cortana Intelligence AppSource publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [AppSource publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [AppSource evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
 
 ## Cortana Analytics
 ### APIs
