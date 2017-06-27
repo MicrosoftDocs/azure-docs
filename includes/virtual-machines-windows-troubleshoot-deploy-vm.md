@@ -102,7 +102,7 @@ This [article](../articles/virtual-machines/windows/client-images.md) outlines t
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
 1. If you have an [Enterprise Agreement subscription](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), you can [deploy VMs from specific Marketplace image](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
-2. Without an Enterprise Agreement, you can [upload a custom VM](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#upload-a-windows-vhd) and [deploy using a Resource Manager template](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
+2. Without an Enterprise Agreement, you can [upload a custom VM](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#upload-a-windows-server-vhd) and [deploy using a Resource Manager template](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#deploy-a-vm-via-resource-manager-template) or [Azure PowerShell](../articles/virtual-machines/windows/hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough).
 
 For more information, see the following articles:
 
