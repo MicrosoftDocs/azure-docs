@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
-ms.author: sasubram
+ms.date: 06/27/2017
+ms.author: curtand
+ms.reviewer: sasubram
 
 ---
 
