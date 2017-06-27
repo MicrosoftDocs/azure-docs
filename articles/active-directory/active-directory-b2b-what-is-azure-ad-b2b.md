@@ -64,7 +64,7 @@ As of early April 2017, we had about 3 million users already using Azure AD B2B 
 
 Admins can add B2B collaboration (guest) users in the [Azure portal](https://portal.azure.com).
 
-![pie chart](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
+![add guest users](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
 ### Enable your collaborators to bring their own identity
 

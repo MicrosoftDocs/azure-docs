@@ -49,7 +49,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B collaboration user properties](active-directory-b2b-user-properties.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-* [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
 * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
 * [B2B collaboration user tokens](active-directory-b2b-user-token.md)
