@@ -20,24 +20,24 @@ ms.author: davidmu
 
 # Download a Windows VHD from Azure
 
-In this this article, you will learn how to download a [Windows virtual hard disk (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) file from Azure using the Azure portal. 
+In this article, you learn how to download a [Windows virtual hard disk (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) file from Azure using the Azure portal. 
 
 Virtual machines (VMs) in Azure use [disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
 
 ## Stop the VM
 
-A VHD can’t be be downloaded from Azure if its attached to a running VM. You need to stop the VM to download a VHD. If you want to use a VHD as an image to create other VMs with new disks, you use [Sysprep]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system contained in the file and then stop the VM. If you want to use the VHD as a disk for a new instance of an existing VM or a data disk, you only need to stop and deallocate the VM.
+A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download a VHD. If you want to use a VHD as an image to create other VMs with new disks, you use [Sysprep]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system contained in the file and then stop the VM. To use the VHD as a disk for a new instance of an existing VM or data disk, you only need to stop and deallocate the VM.
 
-If you plan to use the VHD as an image to create other VMs, complete these steps to generalize and stop the VM:
+To use the VHD as an image to create other VMs, complete these steps:
 
 1.	If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 2.	[Connect to the VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.	On the VM, open the Command Prompt window as an administrator.
 4.	Change the directory to *%windir%\system32\sysprep* and run sysprep.exe.
-5.	In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+5.	In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
 6.	In Shutdown Options, select **Shutdown**, and then click **OK**. 
 
-If you plan to use the VHD as a disk for a new instance of an existing VM or data disk, complete these steps to stop the VM:
+To use the VHD as a disk for a new instance of an existing VM or data disk, complete these steps:
 
 1.	On the Hub menu in the Azure portal, click **Virtual Machines**.
 2.	Select the VM from the list.
@@ -47,9 +47,9 @@ If you plan to use the VHD as a disk for a new instance of an existing VM or dat
 
 ## Generate SAS URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
-1.	On the menu of the blade for the for the VM, click **Disks**.
+1.	On the menu of the blade for the VM, click **Disks**.
 2.	Select the operating system disk for the VM, and then click **Export**.
 3.	Set the expiration time of the URL to *36000*.
 4.	Click **Generate URL**.
