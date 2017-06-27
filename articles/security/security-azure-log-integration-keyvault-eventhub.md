@@ -43,8 +43,6 @@ Before you can complete the steps in this article you will need the following:
   - Copy the Azure Log Integration installer to it. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324)
   - Launch the installer and accept the terms in the License Agreement.
   - Decide if you will be providing telemetry information and leave the box checked or uncheck it if you rather not send usage information to Microsoft.
-        >[!NOTE]
-        For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about it.
 4. Check your PowerShell version.
    - If you have Windows Server 2016 installed then you have at least PowerShell 5.0 if you are using any other version of Windows server you may have lower versions of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window.
    - if you don't have PowerShell 5.0 installed you can download it [here](https://www.microsoft.com/download/details.aspx?id=50395)
@@ -57,7 +55,7 @@ At this point you have the latest version of Azure PowerShell and Azure Log Inte
 
 >[!NOTE]
 For detailed steps and information on installing Azure PowerShell please review the article titled [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
-
+For detailed installation steps take a look at the article [Azure Log Integration Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md) The article does not only cover the installation of Azure Log Integration but it also includes general information about it.
 
 ## Creating supporting infrastructure elements
 
