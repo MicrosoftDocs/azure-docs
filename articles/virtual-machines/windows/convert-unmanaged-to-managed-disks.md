@@ -27,7 +27,7 @@ This article shows you how to convert VMs with Azure PowerShell. If you need to 
 ## Planning considerations
 
 
-* Before starting, review the [Plan for the migration to managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+* Before starting, review [Plan for the migration to managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -68,7 +68,7 @@ If the VMs that you want to convert to managed disks are in an availability set,
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
-  $avSet =  Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
   ```
 
