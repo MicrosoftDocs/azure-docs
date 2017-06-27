@@ -294,7 +294,7 @@ When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3,
 
 ```sh
 cd ~/iot-edge
-./tools/build.sh
+./tools/build.sh  --disable-native-remote-modules
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
@@ -491,7 +491,11 @@ To run the sample, pass the path to the JSON configuration file as a parameter t
 
 You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
 
-When you run the sample, you can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to monitor the messages the IoT Edge gateway forwards from the SensorTag device.
+When you run the sample, you can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to monitor the messages the IoT Edge gateway forwards from the SensorTag device. For example, using iothub-explorer you can monitor device-to-cloud messages using the following command:
+
+```sh
+iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+```
 
 ## Send cloud-to-device messages
 

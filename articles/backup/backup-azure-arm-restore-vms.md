@@ -113,7 +113,9 @@ If you are not already there, [select a restore point](#restoring-vms-with-speci
 ![restore configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 > [!NOTE]
-> If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+> 1. If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+> 2. If you are restoring VMs with managed disks, make sure that storage account selected is not enabled for Storage Service Encryption(SSE) in its lifetime.
+> 3. Based on the storage type of storage account selected(premium or standard), all disks restored will be either premium or standard disks. We currently don't support mixed mode of disks when restoring.  
 >
 >
 

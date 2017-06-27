@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 
 ---
@@ -23,8 +23,8 @@ ms.author: magoedte
 
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers.
 
-## Solution components
 
+## Solution overview
 Computers managed by OMS use the following for performing assessment and update deployments:
 
 * OMS agent for Windows or Linux
@@ -115,7 +115,13 @@ On a Windows computer, you can review the following to verify agent connectivity
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
 
-If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Configure proxy and firewall settings in Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
+If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agents.md#network) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md#network).
+
+> [!NOTE]
+> If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed.  This process can take up to 6 hours.
 
@@ -274,27 +280,27 @@ The following table provides sample log searches for update records collected by
 
 | Query | Description |
 | --- | --- |
-|Windows-based server computers that need updates |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
-|Linux servers that need updates | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
-| All computers with missing updates |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Missing updates for a specific computer (replace value with your own computer name) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| All computers with missing critical or security updates |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Critical or security updates needed by machines where updates are manually applied |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| Error events for machines that have missing critical or security required updates |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| All computers with missing update rollups |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Distinct missing updates across all computers |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| Windows-based server computer with updates that failed in an update run | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
-| Linux server with updates that failed an update run |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
-| WSUS computer membership |`Type=UpdateSummary | measure count() by WSUSServer` |
-| Automatic update configuration |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
-| Computers with automatic update disabled |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| List of all the Linux machines which have a package update available |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| List what update deployments have modified computers |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
-|Computers that were updated in this update run (replace value with your Update Deployment name |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
-| List of all the “Ubuntu” machines with any update available |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
+| Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Windows-based server computers that need updates |
+| Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Linux servers that need updates | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |All computers with missing updates |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |Missing updates for a specific computer (replace value with your own computer name)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |All computers with missing critical or security updates | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |Critical or security updates needed by machines where updates are manually applied |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |Error events for machines that have missing critical or security required updates |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |All computers with missing update rollups | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |Distinct missing updates across all computers | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |Windows-based server computer with updates that failed in an update run | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |Linux server with updates that failed an update run | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |WSUS computer membership | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |Automatic update configuration | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |Computers with automatic update disabled | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |List of all the Linux machines which have a package update available | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |List of all packages that have an update available | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |List of all packages that have an update available which addresses Critical or Security vulnerability | 
+| Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |List what update deployments have modified computers | 
+| Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Computers that were updated in this update run (replace value with your Update Deployment name | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |List of all the “Ubuntu” machines with any update available | 
 
 ## Troubleshooting
 

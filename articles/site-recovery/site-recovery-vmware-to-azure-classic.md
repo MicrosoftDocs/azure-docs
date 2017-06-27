@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: a9022c1f-43c1-4d38-841f-52540025fb46
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 06/23/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-vmware-to-azure

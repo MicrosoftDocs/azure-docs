@@ -11,7 +11,7 @@ editor: ''
 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -42,7 +42,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
 
-   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![connection information](./media/sql-database-get-started-portal/server-name.png) 
 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
@@ -159,6 +159,7 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
+- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
