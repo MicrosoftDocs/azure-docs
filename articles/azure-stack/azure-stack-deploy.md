@@ -1,6 +1,6 @@
 ---
-title: Before you deploy Azure Stack development kit | Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack development kit (service administrator).
+title: Before you deploy Azure Stack Development Kit | Microsoft Docs
+description: View the environment and hardware requirements for Azure Stack Development Kit (service administrator).
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,14 +18,14 @@ ms.author: erikje
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack [development kit](azure-stack-poc.md)), make sure your computer meets the following requirements.
+Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements.
 You can use the same hardware that you used for the previous single-box preview.
 
 ## Hardware
 | Component | Minimum | Recommended |
 | --- | --- | --- |
 | Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
+| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
 | Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
 | Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
@@ -78,7 +78,7 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
 
 1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
    
-    Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
+    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
    
    | **Azure Active Directory account** | **Supported?** |
