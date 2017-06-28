@@ -81,6 +81,7 @@ The Office 365 solution creates records in the OMS repository with the propertie
 | Property | Description |
 |:--- |:--- |
 | Type |*OfficeActivity* |
+| OfficeWorkload | |
 | AADTarget | |
 | Actor | |
 | ActorContextId | |
@@ -140,7 +141,7 @@ The Office 365 solution creates records in the OMS repository with the propertie
 | OfficeId | Guid for the record in Office 365 |
 | OfficeObjectId | |
 | OfficeTenantId | |
-| OfficeWorkload | |
+
 | Operation | Description of the operation that was performed. |
 | OrganizationId | ID of the Office 365 organization. |
 | OrganizationName | |
