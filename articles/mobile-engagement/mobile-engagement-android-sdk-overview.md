@@ -53,6 +53,8 @@ You can add these features:
 * Android 8 support (previous versions of the SDK will not work on Android 8).
 * No more dependency on support library.
 * Remove `EngagementFragmentActivity` class.
+* Due to [Background Execution Limits](https://developer.android.com/preview/features/background.html), logs in background might be delayed until the user interacts with the device, this will have an impact on Push Campaign **Delivered** and **System notification displayed** statistics being delayed if the device was sleeping (the notification will still be displayed, will ring and vibrate in real time without issues).
+* Due to [Background Location Limits](https://developer.android.com/preview/features/background-location-limits.html), the real time location in background will not be updated frequently.
 
 For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
 
