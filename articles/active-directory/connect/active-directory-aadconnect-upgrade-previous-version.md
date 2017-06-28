@@ -111,9 +111,9 @@ There may be situations where you do not want these overrides to take place imme
    To remove the overrides on all connectors, execute the following PowerShell script:
 
    ```
-   foreach ($temp in Get-ADSyncSchedulerConnectorOverride)
+   foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
    {
-       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $temp.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
+       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $connectorOverride.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
    }
    ```
 
