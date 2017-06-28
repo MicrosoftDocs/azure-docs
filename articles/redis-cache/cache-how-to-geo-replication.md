@@ -39,7 +39,7 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
 2. Click the name of the desired secondary cache from the **Compatible caches** list. If your desired cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the desired secondary cache are met.
 
-    ![Ge-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
+    ![Geo-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
     You can also initiate the linking process or view details about the secondary cache by using the content menu.
 
@@ -63,7 +63,7 @@ To configure Geo-replication between two caches, the following prerequisites mus
     
     ![Unlink caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
-    When the unlinking process completes, the secondary cache is availablel for both reads and writes.
+    When the unlinking process completes, the secondary cache is available for both reads and writes.
 
 >[!NOTE]
 >When two caches are unlinked, a snapshot of the replicated data from the primary linked cache remains in the secondary cache.
