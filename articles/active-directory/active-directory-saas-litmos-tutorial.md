@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -146,8 +146,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-litmos-tutorial/tutorial_general_400.png)
 
 7. In a different browser window, sign-on to your Litmos company site as administrator.
-   
-    ![Azure AD Single Sign-On][21] 
 
 8. In the navigation bar on the left side, click **Accounts**.
    
@@ -218,8 +216,6 @@ The Litmos application supports Just-in-Time provisioning. This means, a user ac
 **To create a user called Britta Simon in Litmos, perform the following steps:**
 
 1. Sign-on to your Litmos company site [https://azureapptest.litmos.com/account/Login](`https://azureapptest.litmos.com/account/Login`) as an administrator.
-   
-    ![Azure AD Single Sign-On][21] 
 
 2. In the navigation bar on the left side, click **Accounts**.
    
