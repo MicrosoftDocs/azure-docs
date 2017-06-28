@@ -215,7 +215,7 @@ The Litmos application supports Just-in-Time provisioning. This means, a user ac
 
 **To create a user called Britta Simon in Litmos, perform the following steps:**
 
-1. Sign-on to your Litmos company site [https://azureapptest.litmos.com/account/Login](`https://azureapptest.litmos.com/account/Login`) as an administrator.
+1. In a different browser window, sign-on to your Litmos company site as administrator.
 
 2. In the navigation bar on the left side, click **Accounts**.
    
