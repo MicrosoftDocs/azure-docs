@@ -111,3 +111,9 @@ If you have bought the custom domain from within the **Custom domains and SSL** 
     [manually configure your custom domain like any external custom domain](app-service-web-tutorial-custom-domain.md) 
     for apps created in a different Azure subscription. 
 
+## Next steps
+
+Learn how to buy and configure an SSL certificate for your new custom domain.
+
+> [!div class="nextstepaction"]
+> [Buy and Configure an SSL Certificate for your Azure App Service](web-sites-purchase-ssl-web-site.md)
