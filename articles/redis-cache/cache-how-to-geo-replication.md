@@ -19,7 +19,7 @@ ms.author: sdanie
 ---
 # How to configure Geo-replication for Azure Redis Cache
 
-Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances from different Azure regions. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and as data is written to the primary cache, it is replicated to the secondary linked cache. This article provides a guide to configuring Geo-replication for your Premium tier Azure Redis Cache instances.
+Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances from different Azure regions. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This article provides a guide to configuring Geo-replication for your Premium tier Azure Redis Cache instances.
 
 ## Geo-replication prerequisites
 
@@ -33,7 +33,7 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
 ## To add a cache replication link
 
-1. To link two premium caches together for geo-replication, click **Geo-replication** from the Resource menu and then click **Add cache replication link** from the **Geo-replication** blade of the cache intended as the primary linked cache.
+1. To link two premium caches together for geo-replication, click **Geo-replication** from the Resource menu of the cache intended as the primary linked cache, and then click **Add cache replication link** from the **Geo-replication** blade.
 
     ![Add link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
@@ -41,7 +41,7 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
     ![Geo-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    You can also initiate the linking process or view details about the secondary cache by using the content menu.
+    You can also initiate the linking process or view details about the secondary cache by using the context menu.
 
     ![Geo-replication context menu](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
@@ -56,6 +56,12 @@ To configure Geo-replication between two caches, the following prerequisites mus
     You can also view the linking status on the **Overview** blade for both the primary and secondary caches.
 
     ![Cache status](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+
+    Once the replication process is complete, the **Link status** changes to **Succeeded**.
+
+    ![Cache status](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
+
+    During the linking process, the primary linked cache remains available for use but the secondary linked cache is not available until the linking process completes.
 
 ## To unlink two linked caches and stop Geo-replication
 
@@ -74,6 +80,8 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
 ### Can I use Geo-replication with a Standard or Basic tier cache?
 
+### Is my cache available for use during the linking or unlinking process?
+
 ### Can I link more than two caches together?
 
 ### Can I link two caches from different Azure subscriptions?
@@ -90,5 +98,5 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
 ## Next steps
 
-Learn more about the [Azure Redis Cache Premium tier features](cache-premium-tier-intro.md).
+Learn more about the [Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
