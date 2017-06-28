@@ -93,7 +93,7 @@ Anybody with a GitHub account can contribute to Azure technical content through 
 
 If you are a Microsoft PM or writer who is working on Azure content as a designated author or reviewer, you must work in our private content repository, azure-docs-pr.
 
-1. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the Microsoft GitHub organization. Once you are a member of the Microsoft organization, you can access the private azure-docs-pr repository.
+1. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com) to join the MicrosoftDocs GitHub organization. Once you are a member of the MicrosoftDocs organization, you can access the private azure-docs-pr repository.
 
 2. Register your GitHub account with the publishing system before you submit your first pull request. To do this, visit https://op-portal-prod.azurewebsites.net/, and click "Sign in with GitHub". The one-time sign-in is all that is needed. 
 
