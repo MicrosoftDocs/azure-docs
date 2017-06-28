@@ -363,6 +363,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset NIC
+      href: reset-network-interface.md
     - name: Boot diagnostics 
       href: boot-diagnostics.md
     - name: Creating a VM

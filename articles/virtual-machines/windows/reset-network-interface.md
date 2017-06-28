@@ -69,4 +69,4 @@ After you can remote desktop to the machine, you must delete the old NICs to avo
     >
     >
 
-6.	Now all unavailable adapter should be cleared out from your system.git a
+6.	Now all unavailable adapter should be cleared out from your system.
