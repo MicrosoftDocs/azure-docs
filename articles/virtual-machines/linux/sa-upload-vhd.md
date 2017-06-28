@@ -160,11 +160,12 @@ Make a note of `key1` as you will use it to interact with your storage account i
 ## Create a storage container
 In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](/cli/azure/storage/container#create).
 
-The following example creates a container named `mydisks`, specifying the access key obtained in the previous step (`key1`):
+The following example creates a container named `mydisks`:
 
 ```azurecli
-az storage container create --account-name mystorageaccount \
-    --account-key key1 --name mydisks
+az storage container create \
+    --account-name mystorageaccount \
+    --name mydisks
 ```
 
 ## Upload VHD
@@ -178,7 +179,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## Create VM from custom disk
+## Create the VM
 To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 You specify the `--image` parameter with [az vm create](/cli/azure/vm#create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
