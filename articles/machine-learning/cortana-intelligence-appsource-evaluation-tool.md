@@ -17,14 +17,16 @@ ms.author: anupams;v-bruham;garye
 --- 
 # AppSource evaluation tool
 ## Overview
-The Cortana Intelligence AppSource evaluation tool can be used to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the Cortana Intelligence solution evaluation tool with your application and describe the specific best practices in checks for.
+The AppSource evaluation tool can be used to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the AppSource evaluation tool with your application and describe the specific best practices in checks for.
+
 ## Getting started
 Please [download](https://aka.ms/cis-certification-tool-download) and install the Cortana Intelligence Certification Tool:
 
 Pre-requisites:
 - Windows 10
 - Azure Powershell:
- [download](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) and install
+ [download](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) and install.
+
 ## Identifying your app
 After installation completes, open the tool and begin your first certification.
 
@@ -81,7 +83,7 @@ After completing the test cases, your certification package will be exported to 
 
 ![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
 
-## Cortana Intelligence Evaluation Requirements
+## AppSource evaluation tool requirements
 ### Overview
 There are four groups of evaluation requirements:
 - Security
