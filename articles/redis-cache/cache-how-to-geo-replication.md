@@ -19,7 +19,7 @@ ms.author: sdanie
 ---
 # How to configure Geo-replication for Azure Redis Cache
 
-Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances from different Azure regions. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and as data is written to the primary cache, it is replicated across regions to the secondary linked cache. This article provides a guide to configuring Geo-replication for your Premium tier Azure Redis Cache instances.
+Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances from different Azure regions. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and as data is written to the primary cache, it is replicated to the secondary linked cache. This article provides a guide to configuring Geo-replication for your Premium tier Azure Redis Cache instances.
 
 ## Geo-replication prerequisites
 
