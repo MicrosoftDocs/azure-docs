@@ -67,8 +67,10 @@ To grant permission, assign the `Application Insights Snapshot Debugger` role to
 
 1. On the Azure navigation menu, select **More services** > **Subscriptions** > **Access Control**.
 
-2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user.
+2. Click **Add**, and then select a user.
+3. Click **Roles** > **Application Insights Snapshot Debugger**.
+4. Click **Select** > **Select user**.
+
 
     >[!IMPORTANT] 
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
