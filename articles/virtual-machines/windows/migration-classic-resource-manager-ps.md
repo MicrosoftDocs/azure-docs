@@ -223,6 +223,10 @@ If the prepared configuration looks good, you can move forward and commit the re
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
 > [!NOTE]
 > [Migrate single classic virtual machine](migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine.
+<br>
+
+> [!NOTE]
+> The virtual network name might be different from what is shown in the new Portal. The new Azure Portal displays the name as <vnet-name> but the actual virtual network name is of type "Group <resource-group-name> <vnet-name>". Before migrating, lookup the actual virtual network name using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure Portal. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
 
@@ -279,7 +283,7 @@ Before you migrate the storage account, please perform preceding prerequisite ch
 
     ```powershell
         $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
 
     ```
     If above command returns disks then delete these disks using following command:
