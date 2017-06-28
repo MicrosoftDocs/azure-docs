@@ -4,7 +4,7 @@ description: Learn how to avoid unexpected charges on your Azure bill. Use cost-
 services: ''
 documentationcenter: ''
 author: jlian
-manager: mattstee
+manager: tonguyen
 editor: ''
 tags: billing
 

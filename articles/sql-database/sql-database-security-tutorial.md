@@ -33,6 +33,11 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+
+## Prerequisites
+
 To complete this tutorial, make sure you have installed Excel, and the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 
 
@@ -161,7 +166,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Navigation pane](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#a-idsubheading-7aautomation-powershell--rest-api) section for more details.
+6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
 
 7. Click **Save**.
 

@@ -133,13 +133,13 @@
       href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create / Manage VM with C#
       href: csharp.md
     - name: Create VM with C# and template
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
-    - name: Create VM with Python
+    - name: Create / Manage VM with Python
       href: python.md
     - name: Create VM with Terraform
       items:
@@ -172,8 +172,6 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
-      href: csharp-manage.md
   - name: Connect with RDP
     items:
     - name: Log on to a VM
@@ -365,6 +363,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset NIC
+      href: reset-network-interface.md
     - name: Boot diagnostics 
       href: boot-diagnostics.md
     - name: Creating a VM
@@ -373,6 +373,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: Application access
       href: troubleshoot-app-connection.md
+    - name: Activation problems
+      href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
     - name: Redeploy a VM
@@ -407,6 +409,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

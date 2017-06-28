@@ -14,20 +14,21 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/20/2017
 ms.author: davidmu
 
 ---
-# Create a Windows VM in Azure using C# #
+# Create and manage Windows VMs in Azure using C# #
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating and deleting VM resources using C#. You learn how to:
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using C#. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Visual Studio project
 > * Install libraries
-> * Add code to create credentials
-> * Add code to create resources
-> * Add code to delete resources
+> * Create credentials
+> * Create resources
+> * Perform management tasks
+> * Delete resources
 > * Run the application
 
 It takes about 20 minutes to do these steps.
@@ -50,7 +51,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 Now you're ready to start using the libraries to create your application.
 
-## Add code to create credentials
+## Create credentials
 
 Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
@@ -74,6 +75,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciption-id";
     var location = "westus";
+    var vmName = "myVM";
     ```
 
     Replace **subscription-id** with your subscription identifier.
@@ -103,7 +105,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     var credential = new TokenCredentials(token.Result.AccessToken);
     ```
 
-## Add code to create resources
+## Create resources
 
 ### Initialize management clients
 
@@ -164,12 +166,11 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
         groupName,
         "myAVSet",
         new AvailabilitySet()
-          { 
-            Sku = new Microsoft.Azure.Management.Compute.Models.Sku("Aligned"),
-            PlatformFaultDomainCount = 3,
-            Location = location 
-          }
-      );
+        { 
+          Sku = new Microsoft.Azure.Management.Compute.Models.Sku("Aligned"),
+          PlatformFaultDomainCount = 3,
+          Location = location 
+        });
     }
     ```
 
@@ -198,11 +199,10 @@ A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overvie
         groupName,
         "myIpAddress",
         new PublicIPAddress
-          {
-            Location = location,
-            PublicIPAllocationMethod = "Dynamic"
-          }
-      );
+        {
+          Location = location,
+          PublicIPAllocationMethod = "Dynamic"
+        });
     }
     ```
 
@@ -230,24 +230,23 @@ A virtual machine must be in a subnet of a [Virtual network](../../virtual-netwo
       string location)
     {
       var subnet = new Subnet
-        {
-          Name = "mySubnet",
-          AddressPrefix = "10.0.0.0/24"
-        };
+      {
+        Name = "mySubnet",
+        AddressPrefix = "10.0.0.0/24"
+      };
       var address = new AddressSpace 
-        {
-          AddressPrefixes = new List<string> { "10.0.0.0/16" }
-        };
+      {
+        AddressPrefixes = new List<string> { "10.0.0.0/16" }
+      };
       return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
         groupName,
         "myVNet",
         new VirtualNetwork
-          {
-            Location = location,
-            AddressSpace = address,
-            Subnets = new List<Subnet> { subnet }
-          }
-      );
+        {
+          Location = location,
+          AddressSpace = address,
+          Subnets = new List<Subnet> { subnet }
+        });
     }
     ```
 
@@ -277,29 +276,26 @@ A virtual machine needs a network interface to communicate on the virtual networ
       var subnet = await networkManagementClient.Subnets.GetAsync(
         groupName,
         "myVNet",
-        "mySubnet"
-      );
+        "mySubnet");
       var publicIP = await networkManagementClient.PublicIPAddresses.GetAsync(
         groupName, 
-        "myIPaddress"
-      );
+        "myIPaddress");
       return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
         groupName,
         "myNic",
         new NetworkInterface
+        {
+          Location = location,
+          IpConfigurations = new List<NetworkInterfaceIPConfiguration>
           {
-            Location = location,
-            IpConfigurations = new List<NetworkInterfaceIPConfiguration>
-              {
-                new NetworkInterfaceIPConfiguration
-                  {
-                    Name = "myNic",
-                    PublicIPAddress = publicIP,
-                    Subnet = subnet
-                  }
-              }
+            new NetworkInterfaceIPConfiguration
+            {
+              Name = "myNic",
+              PublicIPAddress = publicIP,
+              Subnet = subnet
+            }
           }
-      );
+        });
     }
     ```
 
@@ -338,45 +334,44 @@ Now that you created all the supporting resources, you can create a virtual mach
         groupName,
         "myVM",
         new VirtualMachine
+        {
+          Location = location,
+          AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
           {
-            Location = location,
-            AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
-              {
-                Id = avSet.Id
-              },
-            HardwareProfile = new HardwareProfile
-              {
-                VmSize = "Standard_DS1"
-              },
-            OsProfile = new OSProfile
-              {
-                AdminUsername = "azureuser",
-                AdminPassword = "Azure12345678",
-                ComputerName = "myVM",
-                WindowsConfiguration = new WindowsConfiguration
-                  {
-                    ProvisionVMAgent = true
-                  }
-              },
-            NetworkProfile = new NetworkProfile
-              {
-                NetworkInterfaces = new List<NetworkInterfaceReference>
-                  {
-                    new NetworkInterfaceReference { Id = nic.Id }
-                  }
-              },
-            StorageProfile = new StorageProfile
-              {
-                ImageReference = new ImageReference
-                  {
-                    Publisher = "MicrosoftWindowsServer",
-                    Offer = "WindowsServer",
-                    Sku = "2012-R2-Datacenter",
-                    Version = "latest"
-                  }
-              }
+            Id = avSet.Id
+          },
+          HardwareProfile = new HardwareProfile
+          {
+            VmSize = "Standard_DS1"
+          },
+          OsProfile = new OSProfile
+          {
+            AdminUsername = "azureuser",
+            AdminPassword = "Azure12345678",
+            ComputerName = "myVM",
+            WindowsConfiguration = new WindowsConfiguration
+            {
+              ProvisionVMAgent = true
+            }
+          },
+          NetworkProfile = new NetworkProfile
+          {
+            NetworkInterfaces = new List<NetworkInterfaceReference>
+            {
+              new NetworkInterfaceReference { Id = nic.Id }
+            }
+          },
+          StorageProfile = new StorageProfile
+          {
+            ImageReference = new ImageReference
+            {
+              Publisher = "MicrosoftWindowsServer",
+              Offer = "WindowsServer",
+              Sku = "2012-R2-Datacenter",
+              Version = "latest"
+            }
           }
-      );
+        });
     }
     ```
 
@@ -399,7 +394,233 @@ Now that you created all the supporting resources, you can create a virtual mach
     Console.ReadLine();
     ```
 
-## Add code to delete resources
+## Perform management tasks
+
+During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create code to automate repetitive or complex tasks.
+
+### Get information about the VM
+
+1. To get information about the virtual machine, add this method to the Program class:
+
+    ```
+    public static async void GetVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Getting information about the virtual machine...");
+
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(
+        groupName,
+        vmName,
+        InstanceViewTypes.InstanceView);
+
+      Console.WriteLine("hardwareProfile");
+      Console.WriteLine("   vmSize: " + vmResult.HardwareProfile.VmSize);
+
+      Console.WriteLine("\nstorageProfile");
+      Console.WriteLine("  imageReference");
+      Console.WriteLine("    publisher: " + vmResult.StorageProfile.ImageReference.Publisher);
+      Console.WriteLine("    offer: " + vmResult.StorageProfile.ImageReference.Offer);
+      Console.WriteLine("    sku: " + vmResult.StorageProfile.ImageReference.Sku);
+      Console.WriteLine("    version: " + vmResult.StorageProfile.ImageReference.Version);
+      Console.WriteLine("  osDisk");
+      Console.WriteLine("    osType: " + vmResult.StorageProfile.OsDisk.OsType);
+      Console.WriteLine("    name: " + vmResult.StorageProfile.OsDisk.Name);
+      Console.WriteLine("    createOption: " + vmResult.StorageProfile.OsDisk.CreateOption);
+      Console.WriteLine("    caching: " + vmResult.StorageProfile.OsDisk.Caching);
+      Console.WriteLine("\nosProfile");
+      Console.WriteLine("  computerName: " + vmResult.OsProfile.ComputerName);
+      Console.WriteLine("  adminUsername: " + vmResult.OsProfile.AdminUsername);
+      Console.WriteLine("  provisionVMAgent: " + vmResult.OsProfile.WindowsConfiguration.ProvisionVMAgent.Value);
+      Console.WriteLine("  enableAutomaticUpdates: " + vmResult.OsProfile.WindowsConfiguration.EnableAutomaticUpdates.Value);
+
+      Console.WriteLine("\nnetworkProfile");
+      foreach (NetworkInterfaceReference nic in vmResult.NetworkProfile.NetworkInterfaces)
+      {
+        Console.WriteLine("  networkInterface id: " + nic.Id);
+      }
+
+      Console.WriteLine("\nvmAgent");
+      Console.WriteLine("  vmAgentVersion" + vmResult.InstanceView.VmAgent.VmAgentVersion);
+      Console.WriteLine("    statuses");
+      foreach (InstanceViewStatus stat in vmResult.InstanceView.VmAgent.Statuses)
+      {
+        Console.WriteLine("    code: " + stat.Code);
+        Console.WriteLine("    level: " + stat.Level);
+        Console.WriteLine("    displayStatus: " + stat.DisplayStatus);
+        Console.WriteLine("    message: " + stat.Message);
+        Console.WriteLine("    time: " + stat.Time);
+      }
+
+      Console.WriteLine("\ndisks");
+      foreach (DiskInstanceView idisk in vmResult.InstanceView.Disks)
+      {
+        Console.WriteLine("  name: " + idisk.Name);
+        Console.WriteLine("  statuses");
+        foreach (InstanceViewStatus istat in idisk.Statuses)
+        {
+          Console.WriteLine("    code: " + istat.Code);
+          Console.WriteLine("    level: " + istat.Level);
+          Console.WriteLine("    displayStatus: " + istat.DisplayStatus);
+          Console.WriteLine("    time: " + istat.Time);
+        }
+      }
+
+      Console.WriteLine("\nVM general status");
+      Console.WriteLine("  provisioningStatus: " + vmResult.ProvisioningState);
+      Console.WriteLine("  id: " + vmResult.Id);
+      Console.WriteLine("  name: " + vmResult.Name);
+      Console.WriteLine("  type: " + vmResult.Type);
+      Console.WriteLine("  location: " + vmResult.Location);
+      Console.WriteLine("\nVM instance status");
+      foreach (InstanceViewStatus istat in vmResult.InstanceView.Statuses)
+      {
+        Console.WriteLine("\n  code: " + istat.Code);
+        Console.WriteLine("  level: " + istat.Level);
+        Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
+      }
+    }
+    ```
+
+2. To call the method that you previously added, add this code to the Main method:
+
+    ```
+    GetVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### Stop the VM
+
+You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.
+
+1. To stop the virtual machine without deallocating it, add this method to the Program class:
+
+    ```
+    public static async void StopVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Stopping the virtual machine...");
+      await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
+    }
+    ```
+
+    If you want to deallocate the virtual machine, change the PowerOff call to this code:
+
+    ```
+    await computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
+    ```
+
+2. To call the method that you just added, add this code to the Main method:
+
+    ```
+    StopVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### Start the VM
+
+1. To start the virtual machine, add this method to the Program class:
+
+    ```
+    public static async void StartVirtualMachineAsync(
+      string groupName, 
+      string vmName, 
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Starting the virtual machine...");
+      await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
+    }
+    ```
+
+2. To call the method that you just added, add this code to the Main method:
+
+    ```
+    StartVirtualMachineAsync(
+      groupName,
+      vmName,
+      ComputeManagementClient computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### Resize the VM
+
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).  
+
+1. To change size of the virtual machine, add this method to the Program class:
+
+    ```
+    public static async void UpdateVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Updating the virtual machine...");
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+      vmResult.HardwareProfile.VmSize = "Standard_DS3";
+      await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+    }
+    ```
+
+2. To call the method that you just added, add this code to the Main method:
+
+    ```
+    UpdateVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### Add a data disk to the VM
+
+1. To add a data disk to the virtual machine, add this method to the Program class:
+
+    ```
+    public static async void AddDataDiskAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Adding the disk to the virtual machine...");
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+      vmResult.StorageProfile.DataDisks.Add(
+        new DataDisk
+        {
+          Lun = 0,
+          Name = "myDataDisk1",
+          CreateOption = DiskCreateOptionTypes.Empty,
+          DiskSizeGB = 2,
+          Caching = CachingTypes.ReadWrite
+        });
+      await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+    }
+    ```
+
+2. To call the method that you just added, add this code to the Main method:
+
+    ```
+    AddDataDiskAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+## Delete resources
 
 Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
@@ -436,5 +657,5 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 ## Next Steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/index?view=azure-dotnet).
 

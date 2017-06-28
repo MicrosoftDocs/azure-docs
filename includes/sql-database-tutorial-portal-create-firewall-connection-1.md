@@ -1,26 +1,8 @@
-
-## Create an Azure SQL Database
-
-Azure SQL Database is a relational database-as-a-service that runs in the cloud. SQL Database uses the Microsoft SQL Server engine. The next several sections explain the following tasks:
-
-> [!div class="checklist"]
-> * Create and design a database
-> * Set up a server-level firewall rule
-> * Connect to the database with [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx)
-
-To complete the next several sections, you must first have the following items:
-
-- An Azure account. If you do not yet have an Azure account, you can obtain a [temporary free account](https://azure.microsoft.com/free/).
-- An install of a recent monthly release of [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx).
-
-
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-If you do not yet have an Azure account, you can obtain a [temporary free account](https://azure.microsoft.com/free/).
-
-## Create a blank SQL database
+## Create a blank SQL database using the Azure portal
 
 An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
 
@@ -70,7 +52,7 @@ Follow these steps to create a blank SQL database.
 
    ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
-## Create a server-level firewall rule
+## Create a server-level firewall rule using the Azure portal
 
 The SQL Database service creates a firewall at the server-level. Initially the firewall prevents external tools and applications from connecting to the server, or to any databases on the server. Connections are allowed after a firewall rule is created to open specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address, and to enable external connectivity through the SQL Database firewall for your IP address only. 
 
@@ -107,7 +89,7 @@ You can now connect to the Azure SQL Database server and its databases by using 
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
 
-## Get connection string values
+## Get connection string values using the Azure portal
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 

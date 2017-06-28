@@ -20,7 +20,17 @@ ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-This article first explains the steps necessary to create an Azure SQL Database. Then it describes the C# source code necessary to connect and query by use of ADO.NET (of the .NET Framework). 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to to use the Azure portal and ADO.NET to: 
+
+> [!div class="checklist"]
+> * Create a database in the Azure portal
+> * Set up a server-level firewall rule in the Azure portal
+> * Connect to the database with ADO.NET
+> * Create tables with ADO.NET
+> * Insert data with ADO.NET 
+> * Query that data ADO.NET
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.

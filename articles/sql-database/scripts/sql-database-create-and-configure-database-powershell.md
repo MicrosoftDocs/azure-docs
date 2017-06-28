@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Create a SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Create a SQL database using PowerShell
+title: PowerShell example-create an Azure SQL database | Microsoft Docs
+description: Azure PowerShell example script to create a Azure SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -15,13 +15,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Create a single SQL database and configure a firewall rule using PowerShell
+# Use PowerShell to create a single Azure SQL database and configure a firewall rule
 
-This sample PowerShell script creates an Azure SQL database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
+This PowerShell script example creates an Azure SQL database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

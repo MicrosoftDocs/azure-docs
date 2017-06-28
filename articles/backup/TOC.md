@@ -91,6 +91,8 @@
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
+## [Configure Azure Backup reports](backup-azure-configure-reports.md)
+## [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 ## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
