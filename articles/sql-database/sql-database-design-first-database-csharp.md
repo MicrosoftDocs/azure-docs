@@ -30,6 +30,7 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 > * Insert data with ADO.NET 
 > * Query that data ADO.NET
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.

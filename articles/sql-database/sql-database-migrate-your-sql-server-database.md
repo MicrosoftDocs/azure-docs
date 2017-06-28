@@ -29,7 +29,11 @@ Moving your SQL Server database to Azure SQL Database is a three part process - 
 > * Export the database to a BACPAC file
 > * Import the BACPAC file into an Azure SQL Database
 
-Before you get started, be sure you have the following:
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+## Prerequisites
+
+To complete this tutorial, make sure the following prerequisites are completed:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).

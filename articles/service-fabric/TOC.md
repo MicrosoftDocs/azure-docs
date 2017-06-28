@@ -2,11 +2,11 @@
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
+## [Big picture](service-fabric-content-roadmap.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
-## [Primer](service-fabric-content-roadmap.md)
 
 # Get started
 ## Set up your development environment
@@ -130,6 +130,10 @@
 ### Monitor and diagnose locally
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
+### Integrate with API Management
+#### [Overview](service-fabric-api-management-overview.md)
+#### [Quick start](service-fabric-api-management-quick-start.md)
 
 ### Migrate from Cloud Services
 #### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
