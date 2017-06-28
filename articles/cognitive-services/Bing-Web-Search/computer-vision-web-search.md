@@ -373,6 +373,12 @@ The final page that we'll discuss is the Web Results Page, which constructs Bing
         }
         return webResults;
     }
+**Final commentary queued for post external review.**
+
+Est per cursus. Nec justo eu vehicula lobortis amet vel suscipit orci aliquet nibh turpis. Ornare in donec. Eros libero massa. Ac ultricies purus placerat dignissim suspendisse consectetuer consequat sed.  Nunc pellentesque dolor fermentum viverra maecenas consectetuer laborum sit. Vel suspendisse et dolor tellus eget. Tortor cras dolor. Integer mattis wisi curabitur vestibulum id. Arcu aenean ac. Tincidunt varius a ultricies odio ante. Vitae leo sodales sit egestas condimentum. Auctor mauris ligula. Ullamcorper fermentum lorem integer neque pellentesque quam eget in mi tristique nec. Scelerisque elit posuere nunc ante posuere.
+
+Cursus ut mi et amet erat diam nunc et neque dictum varius. Amet ex mollis. Accumsan ipsum amet. Faucibus sodales eget duis irure amet. Et augue vehicula. Pharetra ut maecenas. Penatibus nulla viverra. Neque integer vel. Quia amet wisi velit maecenas ligula eget etiam risus magna neque taciti vehicula molestie et. Magna sem nunc. Vestibulum nisl consectetuer. Rerum neque rhoncus lorem rhoncus ante. Ad ullamcorper et integer nec ut. Diam molestie sapien. Ante mollis elit. Praesent augue ut. Orci gravida auctor id velit quis rhoncus proin accumsan inceptos tellus et mauris pede sollicitudin. Urna sapien condimentum. Sapien dolor amet at aliquam sed eget eget sociis ornare integer quam. Lectus pede in enim ante eu nonummy vitae rutrum. Quam aenean duis. Ut in quis. Sapien ipsum suscipit tempus felis fusce. Urna eu sollicitudin non aenean aliquam. Per vitae sociis. Metus laoreet varius. Odio laoreet aenean. A mollis aliquam. In gravida cubilia nec sed felis. Nascetur urna lectus. Dis euismod scelerisque sed amet varius. Venenatis diam vestibulum sem vel eros magna maecenas in. Velit odio dolor duis semper dapibus. Aliquam quis consectetuer non donec tristique mi aliquet accumsan vitae aenean lorem nibh magna velit purus nulla donec augue pellentesque amet. Rutrum nec pulvinar est eu vestibulum nam a tempus mauris sagittis phasellus.
+
 
 ## Looking Forward
 This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Azure provides many utilities that could easily be integrated into this application.  For example, you could:
