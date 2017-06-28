@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/28/2017
 ms.author: Barclayn
 ms.custom: AzLog
 
@@ -78,7 +78,7 @@ You should see something like what appears in the figure below. </br>
         - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name may be different and you could see it as part of the output of the previous command)
         - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this to be any other location of your choosing)
         - ```$random = Get-Random```
-        - ``` $name = 'AzLogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
+        - ``` $name = 'azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
         - ``` $storageName = $name``` (This will be used for the storage account name)
         - ```$rgname = $name ``` (This will be used for the resource group name)
         - ``` $eventHubNameSpaceName = $name``` (This is the event hub name space name)
@@ -99,6 +99,11 @@ You should see something like what appears in the figure below. </br>
     - ```$locations = @('global') + $locationobjects.location```If you type $locations and hit **Enter** at this point you will see the location names without the additional information returned by get-AzureRmLocation.
 12. Now you can create an Azure Resource Manager log profile. You can get more information on the Azure Log profile in the article [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     - ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
+
+>[!NOTE]
+You may get an error message when attempting to create a log profile. You can review the documentation for Get-AzureRmLogProfile, Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile you will see information about the log profile. You can delete the existing log profile by typing Remove-AzureRmLogProfile -name 'Log Profile Name'
+
+    ![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## Creating a Key Vault
 
@@ -132,7 +137,7 @@ Next you will configure logging for Key Vault
 Now that you have configured all of the required elements to have Key Vault logging to an event hub you need to take steps to configure Azure Log Integration.
 
 1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace -AuthorizationRuleName RootManageSharedAccessKey```
+2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 3. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 4. ``` $storagekey = $storagekeys[0].Value```
 
