@@ -75,7 +75,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
         npm start
 6. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
-    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
+    ![Learn Node.js - Screenshot of the Hello World application in a browser window](https://i.imgur.com/ZG08zCz.png)
 
     Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
 
