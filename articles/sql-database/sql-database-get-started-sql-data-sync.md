@@ -54,6 +54,9 @@ For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
 
     2.  In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
 
+        > [!NOTE]
+        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database, its name, or its service level without dropping it.
+
         If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 
         If you chose **Use existing database**, select the database from the list.
@@ -166,6 +169,8 @@ On the **Configure On-Premises** blade, do the following things:
     14. Select **OK** to close the **Select Database** blade. Then select **OK** to close the **Configure On-Premises** blade and wait for the new sync member to be created and deployed. Finally, click **OK** to close the **Select sync members** blade.
 
         ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
+
+3.  To connect to SQL Data Sync and the local agent, add your user name to the worker role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
 
 ## Step 3 - Configure sync group
 
