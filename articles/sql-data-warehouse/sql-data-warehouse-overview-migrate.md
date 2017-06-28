@@ -19,7 +19,7 @@ ms.author: joeyong;barbkess
 
 ---
 # Migrate your solution to Azure SQL Data Warehouse
-This tutorial explains what is involved in migrating an existing database solution to Azure SQL Data Warehouse. 
+See what's involved in migrating an existing database solution to Azure SQL Data Warehouse. 
 
 ## Profile your workload
 Before migrating, you want to be certain SQL Data Warehouse is the right solution for your workload. SQL Data Warehouse is a distributed system designed to perform analytics on large data.  Migrating to SQL Data Warehouse requires some design changes that are not too hard to understand but might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of SQL Data Warehouse, it is more cost-effective to use SQL Server or Azure SQL Database.
