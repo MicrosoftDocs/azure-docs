@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge BLE Data Converter Module with Java | Microsoft Docs
+title: Creating Azure IoT Edge Module with Java | Microsoft Docs
 description: This tutorial showcases how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge Maven packages.
 services: Microsoft Azure IoT Edge
 author: junyi
