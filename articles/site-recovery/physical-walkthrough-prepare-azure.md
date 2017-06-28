@@ -26,7 +26,7 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 
 ## Before you start
 
-Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md)
+Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md).
 
 ## Set up an Azure account
 
@@ -41,7 +41,7 @@ Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md)
 
 - Set up an Azure network. Azure VMs are placed in this network when they're created after failover.
 - Site Recovery in the Azure portal can use networks set up in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.
-- The network should be in the same region as the Recovery Services vault
+- The network should be in the same region as the Recovery Services vault.
 - Learn about [virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - Learn more about [Azure VM connectivity](physical-walkthrough-network.md) after failover.
 
