@@ -1,6 +1,6 @@
 ---
 title: Python script to retrieve data from OMS Log Analytics | Microsoft Docs
-description: The Log Analytics Log Search API allows any rest API client to retrieve data from the repository.  This article provides a sample Pythin script using the Log Search API.
+description: The Log Analytics Log Search API allows any rest API client to retrieve data from a Log Analytics workspace.  This article provides a sample Python script using the Log Search API.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 06/28/2017
 ms.author: bwren
 
 ---
 
 # Retrieve data from Log Analytics with a Python script
-The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from the repository.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
+The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from a Log Analytics workspace.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
 
-This script uses a service principal in Azure Active Directory to authenticate to the OMS workspace.  You must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
+This script uses a service principal in Azure Active Directory to authenticate to the workspace.  Service principals allow a client application to request that the service authenticate an account even if the client does not have the account name. Before running this script, you must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
+
+
 
 > [!NOTE]
 > When you [create an Azure Automation account](../automation/automation-create-standalone-account.md), a service principal is created that is suitable to use with this script.  If you already have a service principal created by Azure Automation then you should be able to use it instead of creating a new one, although you may need to [create an authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) if it doesn't already have one.
@@ -32,15 +34,15 @@ import json
 import datetime
 from pprint import pprint
 
-# Details of workspace
-resource_group = 'oi-default-east-us'
-workspace = 'bwren'
+# Details of workspace.  Fill in details for your workspace.
+resource_group = 'xxxxxxxx'
+workspace = 'xxxxxxxx'
 
-# Details of query
+# Details of query.  Modify these to your requirements.
 query = "Type=Event"
 end_time = datetime.datetime.utcnow()
 start_time = end_time - datetime.timedelta(hours=24)
-num_results = 100
+num_results = 100  # If not provided, a default of 10 results will be used.
 
 # IDs for authentication.  Fill in values for your service principal.
 subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
@@ -83,7 +85,7 @@ search_params = {
 uri = uri_search + '?' + uri_api
 response = requests.post(uri,json=search_params,headers=headers)
 
-# Response of 200 is successful
+# Response of 200 if successful
 if response.status_code == 200:
 
     # Parse the response to get the ID and status
