@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 06/27/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
-Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get insight from a real-time Power BI analytics dashboard.
+Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create your  business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
 
-Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly. [Watch a video that illustrates this scenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
+This article continues from the [real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial. It builds on the workflow created in that tutorial and adds a Power BI output so that you can visualize fraudulent phone calls that are detected by a Streaming Analytics job. 
 
-In this article, you learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to utilize a real-time dashboard.
+You can watch [a video](https://www.youtube.com/watch?v=SGUpT-a99MA)  that illustrates this scenario.
+
 
 ## Prerequisites
 * Microsoft Azure Account.
