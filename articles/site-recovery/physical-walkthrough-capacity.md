@@ -33,8 +33,8 @@ Post comments and questions at the bottom of this article, or on the [Azure Reco
 
 Use these considerations to figure out replicated server requirements.
 
-**Component** | **Details** |
---- | --- | ---
+**Component** | **Details** 
+--- | --- 
 **Replication** | **Maximum daily change rate:** A protected machine can only use one process server, and a single process server can handle a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.<br/><br/> **Maximum throughput:** A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of input/output operations per second (IOPS) across a source machine to 20,000. For example, if you have a source machine with 5 disks, and each disk generates 120 IOPS (8K size) on the source machine, then it will be within the Azure per disk IOPS limit of 500. (The number of storage accounts required is equal to the total source machine IOPS, divided by 20,000.)
 
 ## Configuration server capacity
@@ -97,11 +97,12 @@ The way in which you scale your servers depends on your preference for a scale-u
 1. Follow [these instructions](site-recovery-vmware-setup-azure-ps-resource-manager.md) to set up an additional process server.
 2. If you don't have the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server to get it.
 3. After setting up the process server, you migrate source machines to use it.
-    a. In **Settings** > **Site Recovery servers**, click the configuration server > **Process servers**.
-    b. Right-click the process server currently in use > **Switch**.
-    c. In **Select target process server**, select the process server you want to use, and select the VMs that the server will handle.
-    d. Click the information icon. To help you make load decisions, the average space that's needed to replicate each selected VM to the new process server is displayed.
-    e. Click the check mark to start replication to the new process server.
+
+    1. In **Settings** > **Site Recovery servers**, click the configuration server > **Process servers**.
+    2. Right-click the process server currently in use > **Switch**.
+    3. In **Select target process server**, select the process server you want to use, and select the VMs that the server will handle.
+    4. Click the information icon. To help you make load decisions, the average space that's needed to replicate each selected VM to the new process server is displayed.
+    5. Click the check mark to start replication to the new process server.
 
 ## Control network bandwidth
 
