@@ -309,7 +309,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 
    Under the download titled **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, download the two .zip files.
 
-2. After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
+2. After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM:
 
    ```bash
    scp *.zip <publicIpAddress>:<folder>
@@ -323,17 +323,23 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    # chown grid:oinstall linuxamd64_12102_grid_1of2.zip
    # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
+
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
+   
    ```bash
    # yum install unzip
    # unzip linuxamd64_12102_grid_1of2.zip
    # unzip linuxamd64_12102_grid_2of2.zip
    ```
+
 5. Change permission:
+   
    ```bash
    # chown -R grid:oinstall /opt/grid
    ```
+
 6. Turn off the firewall:
+   
    ```bash
    # service iptables status
    # service iptables stop
@@ -383,7 +389,7 @@ This is an optional step. You can skip this step if you are using a Linux client
 
 8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
 
-   ![Screenshot of the PuTTY sesson options](./media/oracle-asm/puttysession.png)
+   ![Screenshot of the PuTTY session options](./media/oracle-asm/puttysession.png)
 
 ## Install Oracle Grid Infrastructure
 
@@ -445,7 +451,7 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
     ![Screenshot of the installer's Perform Prerequisite Checks page](./media/oracle-asm/install10.png)
 
-12. In the **Fixup Script** dilag box, select **OK**.
+12. In the **Fixup Script** dialog box, select **OK**.
 
     ![Screenshot of the Fixup Script dialog box](./media/oracle-asm/install11.png)
 
