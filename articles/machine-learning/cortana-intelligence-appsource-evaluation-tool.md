@@ -3,7 +3,7 @@ title: AppSource evaluation tool | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
-author: 
+author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
 
@@ -20,6 +20,7 @@ ms.author: anupams;v-bruham;garye
 The Cortana Intelligence AppSource evaluation tool can be used to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the Cortana Intelligence solution evaluation tool with your application and describe the specific best practices in checks for.
 ## Getting started
 Please [download](https://aka.ms/cis-certification-tool-download) and install the Cortana Intelligence Certification Tool:
+
 Pre-requisites:
 - Windows 10
 - Azure Powershell:
@@ -44,8 +45,10 @@ Once the resource group has been loaded, please select the resources that are in
 - Internal
 
 We use this information to better understand how your app is utilizing various components and to ensure user-facing components are consistent with best practices.
-### Ingestion
+
+#### Ingestion
 Ingestion in this case means any data sources that are used to either pull in data from outside the app or that any services outside the app use to push data into the app.
+
 #### Consumption
 Publishing in this case means any datasets that are used to push data to end users, either directly or indirectly. For example:
 - Datasets used in direct query from PowerBI
@@ -70,7 +73,9 @@ After the tests complete, you will be asked to provide an explanation or justifi
 
 ![Provide business justification](./media/cortana-intelligence-appsource-evaluation-tool/6-provide-business-justification.png)
 
-For example, if your app publishes to Azure SQL DW, the certification tests require you to also publish to Azure Analysis Services. Your app may use IaaS virtual machines running Sql Server Analysis Services instead of Azure Analysis Services. This would be an acceptable reason for failure of the test.
+For example, if your app publishes to Azure SQL DW, the certification tests require you to also publish to Azure Analysis Services. 
+
+Your app may use IaaS virtual machines running Sql Server Analysis Services instead of Azure Analysis Services. This would be an acceptable reason for failure of the test.
 ## Packaging your certification results
 After completing the test cases, your certification package will be exported to a zip file and you will be asked to provide feedback on the certification tool.
 
@@ -109,12 +114,12 @@ Specifically, any of the following Azure resources can be configured with RBAC a
  https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction
 - Azure SQL
 - Azure Analysis Services
-- Azure SQL DW (NOTE: While Azure SQL DW does support RBAC, it is not recommended for direct end-user access)
+- Azure SQL DW (NOTE: While Azure SQL DW does support RBAC, it is not recom  mended for direct end-user access)
 
-If you are using a different resource type that supports RBAC, please
+  If you are using a different resource type that supports RBAC, please
 specify that in the test case justification.
 ### Azure Data Lake Store should use at-rest encryption
-Azure Data Lake Store(ADLS) supports at-rest encryption by default using ADLS-managed encryption keys. You may also configure encryption using Azure Key Vault.
+Azure Data Lake Store (ADLS) supports at-rest encryption by default using ADLS-managed encryption keys. You may also configure encryption using Azure Key Vault.
 
 For information about specifying ADLS encryption settings, see here:
 <https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account>
@@ -154,7 +159,7 @@ Cortana Intelligence apps should generally avoid directly inserting data into re
 
 For more information on copying data with Azure Data Factory, see here:
 <https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio>
-### Azure SQL DW should use Polybase for data ingestion
+### Azure SQL DW should use PolyBase for data ingestion
 Azure SQL DW supports Polybase for highly scalable, parallel data ingestion. Polybase allows you to use Azure SQL DW to issue queries against external datasets stored in either Azure Blob Storage or Azure Data Lake Store. This provides superior performance to alternative methods of bulk insters/updates.
 
 For instructions on getting started with Polybase and Azure SQL DW, see here:
@@ -201,6 +206,7 @@ Azure Machine Learning(AzureML) provides easy to use tools for the creation and 
 
 For more information on creating retraining web services in AzureML, see here:
 <https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically>
+
 For more information about automating the model training process using Azure Data Factory, see here:
 <https://docs.microsoft.com/en-us/azure/data-factory/data-factory-azure-ml-update-resource-activity>
 

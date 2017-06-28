@@ -3,7 +3,7 @@ title: AppSource publishing guide | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
-author: 
+author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
 
@@ -18,15 +18,19 @@ ms.author: anupams;v-bruham;garye
 # AppSource publishing guide
 
 ## Overview
-AppSource is the single destination for Business Decision Makers (BDMs) to discover and seamlessly try business solutions/apps built by partners and evaluated by Microsoft.  [Learn](https://youtu.be/hpq_Y9LuIB8) how AppSource works. As a Microsoft Partner, you can really benefit from publishing on AppSource if you have:
-- Built an intelligent solution/app using Microsoft’s [Cortana Intelligence services](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable), and
-- Your solution/app addresses a specific business problem, and you > have built modules/Intellectual Property that can be reused across customers relatively quickly in a repeatable manner
+AppSource is the single destination for Business Decision Makers (BDMs) to discover and seamlessly try business solutions/apps built by partners and evaluated by Microsoft. Watch [this video](https://youtu.be/hpq_Y9LuIB8) to learn how AppSource works. As a Microsoft Partner, you can really benefit from publishing on AppSource if you have:
+- Built an intelligent solution/app using Microsoft’s [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Your solution or app addresses a specific business problem.
+- You built modules or intellectual property that your customers can reuse relatively quickly in a predictaibe manner.
+
 This document will walk through the steps to get **Partner’s** Cortana Intelligence solution published to AppSource
 
 ## Getting Started
-1. At [Starter Guide for getting showcased with Microsoft](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) to get listed as an Advanced Analytics partner.
-1. On AppSource fill up [List an app](https://appsource.microsoft.com/en-us/partners/list-an-app) form. For the question *“Choose the products that your app is built for*”, pick **Other** checkbox and list “Cortana Intelligence” in edit control.
-1. Before a Cortana Intelligence app can get onboarded to AppSource, it needs to get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [https://ak-ms/cisappsrceval](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fak-ms%2Fcisappsrceval&data=02%7C01%7CAvi.Bathula%40microsoft.com%7C855e96a2c42245b8b9f208d492f1a9a3%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636295014021859405&sdata=lbPBP%2F8E3lbGYp54eaOdx%2B7%2Fpt2B0StKaLsBmCb7s8U%3D&reserved=0). This site is password protected and the site has instructions on how to get the password.
+1. Use the [Partner Community Benfits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF) to get listed as an Advanced Analytics partner. See page nine.
+1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/) form.
+
+    For the question *“Choose the products that your app is built for*”, check the **Other** checkbox and list “Cortana Intelligence” in the edit control.
+1. Before a Cortana Intelligence app can get onboarded to AppSource, it must get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [https://ak-ms/cisappsrceval](https://ak-ms/cisappsrceval). This site is password protected and the site has instructions on how to get the password.
 
 ## Solution Evaluation Criteria
 Here is the list of criteria the app needs to meet
@@ -41,15 +45,15 @@ Here is the list of criteria the app needs to meet
     - Bot Framework
     - Microsoft R Server stand alone
     - R services on SQL 2016 or HDInsight Premium
-1. Solution should be generating at least $1K / month / customer using DPOR/CSP.
-1. **Solution should use Azure Active Directory federated single sign-on (AAD federated SSO) with consent enabled for user authentication and resource access controls.** To see what it means to be AAD federated SSO enabled, seek to 2min 35 sec in [AppSource trial experience walkthrough](https://na01.safelinks.protection.outlook.com/?url=http%3A%2F%2Fak-ms%2Ftrialexperienceforwebapps&data=02%7C01%7Crwiedower%40newsignature.com%7C5824d64e748d4c3c87a008d47a8b815a%7Ca1a2578a8fd34595bb187d17df8944b0%7C1%7C0%7C636268187003887379&sdata=euPBOag7YGw6bnaSYQJQHAabyPCMeLXp9NfAvx%2BYKZg%3D&reserved=0) video. If your app is not enabled with AAD federated SSO yet, here is some documentation about it.
-    - [Step 1](https://identity.microsoft.com/Landing?ru=https://identity.microsoft.com/)
-    - [Step 2](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)
+1. Solution should be generating at least $1000 a month with customer using DPOR/CSP.
+1. Solution should use the Azure Active Directory federated single signon (AAD federated SSO) with consent enabled for user authentication and resource access controls. 
 
+    To see what it means to be AAD federated SSO enabled, seek to position 02:35 in [????](https://youtube.com) video. If your app is not enabled with AAD federated SSO yet, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
+     
      You will need to show to the evaluation team that your solution is AAD federated SSO enabled before your app can be onboarded to AppSource.
-1. Use Power BI in your solution and share is Power BI desktop file (PBIX): Optional but highly recommended as it is proven to generate higher number of leads
-    - Ensure all data is imported into the PBIX file
-    - No Externally Referenced Data – we will create the Embedded Report for you.
+1. Use Power BI in your solution and share is Power BI desktop file (PBIX): Optional but highly recommended as it is proven to generate higher number of leads. Ensure the following:
+    - All data is imported into the PBIX file.
+    - No externally referenced data. We will create the Embedded Report for you.
 
 ## DevCenter Account Setup
 This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, you can skip this step.
@@ -57,9 +61,9 @@ This is the process of registering your company to become a publisher with Micro
 Below are the key steps to setup a DevCenter account.
 1. Create a Microsoft account [here](https://signup.live.com/signup.aspx).
 1. Go to the Microsoft DevCenter [registration page](http://go.microsoft.com/fwlink/?LinkId=615100) and click "sign up".
-1. When prompted for payment, use the code that we provided to you. If you don’t have one reach out to [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup)
+1. When prompted for payment, use the code that we provided to you. If you don't have a code, contact  [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
 1. Select the [country/region](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) in which you live, or where your business is located. **You won't be able to change this later.**
-1. Select your [developer account type](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) (**For AppSource, you need to select "Company"**). For a company account, be sure to review these [guidelines](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
+1. Select your [developer account type](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees) For AppSource, select **Company**. For a company account, be sure to review these [guidelines](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 1. Enter the contact info you want to use for your developer account.
 For detailed step by step instruction on how to setup DevCenter account, see the instructions [here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
 
@@ -69,9 +73,13 @@ One of the key value propositions of AppSource for partners is to be able to col
 Fill up [Partner Solution Info for Microsoft Sellers](https://ak-ms/aapartnerappinfo) and send it to [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). This is required step for a Cortana Intelligence app to get approved for publishing.
 
 ## Building a compelling customer walkthrough on AppSource
-First, take a look at Neal Analytics [Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) on AppSource. Every app entry in AppSource has title, summary (100 chars max), description (1300 chars max), images, videos (optional), pdf documents apart from entry point for a trial experience. Partners should leverage all these to build a compelling customer experience.
+First, take a look at [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) on AppSource. Every app entry in AppSource has title, summary (100 chars max), description (1300 chars max), images, videos (optional), pdf documents apart from entry point for a trial experience. Partners should leverage all these to build a compelling customer experience.
 
-Partners should think of the content they put on AppSource as an end to end sales orchestration. Customers read the title and description to understand the value proposition and then go through images & videos to understand what the solution is about. Case studies help potential customers see how existing customers are getting value. All these should make the customer feel interested and wanting to know more. Think of these as pitch decks based presentation a good technical sales person would walk the new customers through. The suggested format of description is to break up the text into sub-sections based on value propositions, each with highlighted with a sub-heading. Visitors usually glance over the “offer summary” field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user’s attention give them a reason to read on to get the specifics.
+Partners should think of the content they put on AppSource as an end to end sales orchestration. Customers read the title and description to understand the value proposition and then go through images & videos to understand what the solution is about. Case studies help potential customers see how existing customers are getting value. 
+
+All this should make the customer feel interested and wanting to know more. Think of these as pitch decks based presentation a good technical sales person would walk the new customers through. The suggested format of description is to break up the text into sub-sections based on value propositions, each with highlighted with a sub-heading. 
+
+Visitors usually glance over the “offer summary” field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user’s attention give them a reason to read on to get the specifics.
 
 See what these partners have done.
 - [Neal Analytics Inventory
@@ -96,7 +104,7 @@ That’s why partners should think of the content they put on AppSource as an en
 ## Publish your app on the Publishing Portal
 See <span id="_Hlk477428070" class="anchor"></span>How to publish a Cortana Intelligence offer via Cloud Partner Portal­ for detailed instructions on how to actually publish your Cortana Intelligence app on AppSource. All the folks who are approved to access (step \# 6) can access the documentation.
 
-If you need information about any of the fields, email <appsourcecissupport@microsoft.com>
+If you need information about any of the fields, email <appsourcecissupport@microsoft.com>.
 ## My app is published on AppSource – now what?
 Firstly, Congratulations on getting your app published.
 The level of returns you get from publishing your app on AppSource heavily depends on how you influence the target audience. See [Growth-Hacking your Cortana Intelligence app on AppSource](http://ak-ms/aagrowthhackguide) for more details of how you can maximize the returns.
