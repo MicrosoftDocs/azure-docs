@@ -17,10 +17,10 @@ ms.author: anupams;v-bruham;garye
 --- 
 # Solution evaluation tool
 ## Overview
-The Solution evaluation tool can be used to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the Solution evaluation tool with your application and describe the specific best practices in checks for.
+You can use the Cortana Intelligence solution evaluation tool to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the Solution evaluation tool with your application and describe the specific best practices in checks for.
 
 ## Getting started
-Please [download](https://aka.ms/cis-certification-tool-download) and install the Cortana Intelligence Certification Tool:
+Please [download](https://aka.ms/cis-certification-tool-download) and install the Cortana Intelligence solution evalution tool:
 
 Pre-requisites:
 - Windows 10
@@ -28,7 +28,7 @@ Pre-requisites:
  [download](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0) and install.
 
 ## Identifying your app
-After installation completes, open the tool and begin your first certification.
+After installation completes, open the tool and begin your first evaluation.
 
 ![Open evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/1-open-evaluation-tool.png)
 
@@ -53,8 +53,8 @@ Ingestion in this case means any data sources that are used to either pull in da
 
 #### Consumption
 Publishing in this case means any datasets that are used to push data to end users, either directly or indirectly. For example:
-- Datasets used in direct query from PowerBI
-- Datasets queried in a WebApp
+- Datasets used in direct query from PowerBI.
+- Datasets queried in a WebApp.
 
 >[!NOTE]
 If a specific resource is used for both ingestion and consumption, please choose “Consumption.”
@@ -66,8 +66,8 @@ Next, you will be prompted to provide valid credentials for any databases specif
 
 ![Set test prerequisites](./media/cortana-intelligence-appsource-evaluation-tool/4-set-test-prerequisites.png)
 
-# Certification test cases
-The certification tool will perform a collection of automated tests on your application. For more information see Cortana Intelligence Certification Requirements.
+# Solution test cases
+The solution tool will perform a collection of automated tests on your application.
 
 ![Set test execution](./media/cortana-intelligence-appsource-evaluation-tool/5-set-test-execution.png)
 
@@ -75,11 +75,11 @@ After the tests complete, you will be asked to provide an explanation or justifi
 
 ![Provide business justification](./media/cortana-intelligence-appsource-evaluation-tool/6-provide-business-justification.png)
 
-For example, if your app publishes to Azure SQL DW, the certification tests require you to also publish to Azure Analysis Services. 
+For example, if your app publishes to Azure SQL DW, the evaluation tests require you to also publish to Azure Analysis Services. 
 
 Your app may use IaaS virtual machines running Sql Server Analysis Services instead of Azure Analysis Services. This would be an acceptable reason for failure of the test.
-## Packaging your certification results
-After completing the test cases, your certification package will be exported to a zip file and you will be asked to provide feedback on the certification tool.
+## Packaging your evalution results
+After completing the test cases, your evaluation package will be exported to a zip file and you will be asked to provide feedback on the evaluation tool.
 
 ![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
 
