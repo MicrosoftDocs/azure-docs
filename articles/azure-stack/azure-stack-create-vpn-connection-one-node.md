@@ -173,7 +173,7 @@ need the virtual machines to send and receive data in each Azure Stack Developme
 POC1 now, and then in your virtual network, put it on your VM subnet.
 
 1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Virtual Machines**.
+2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, in **Name**, enter **VM01**.
 5. Enter a valid username and password. You use this account to sign
@@ -267,7 +267,7 @@ Create a virtual machine in POC2 now, and put it on your VM subnet in your virtu
 network.
 
 1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Virtual Machines**.
+2. Go to **Marketplace**, and then select **Compute**.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, for **Name**, enter **VM02**.
 5. Enter a valid username and password. You use this account to sign
@@ -362,7 +362,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 
 ### Sign in to the tenant VM in POC1
 1. Sign in to the Azure Stack physical machine for POC1, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, select **Virtual Machines**.
+2. In the left navigation bar, select **Compute**.
 3. In the list of VMs, find **VM01** that you created previously, and then select it.
 4. On the blade for the virtual machine, click **Connect**, and then open the VM01.rdp file.
    
@@ -385,7 +385,7 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, fi
 
 ### Sign in to the tenant VM in POC2
 1. Sign in to the Azure Stack physical machine for POC2, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, click **Virtual Machines**.
+2. In the left navigation bar, click **Compute**.
 3. From the list of virtual machines, find **VM02** that you created previously, and then select it.
 4. On the blade for the virtual machine, click **Connect**.
 5. Sign in with the account that you configured when you created the virtual machine.
