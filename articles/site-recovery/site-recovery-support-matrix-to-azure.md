@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
 
 ---
@@ -48,7 +48,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
+**VMware VM/physical server** | vCenter 5.5, 6.0 or 6.5
 **Hyper-V (with/without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br></br>If SCVMM is used, Windows Server 2016 hosts should be managed by SCVMM 2016.
 
 
@@ -150,7 +150,7 @@ VMDK | Yes | N/A
 VHD/VHDX | N/A | Yes
 Gen 2 VM | N/A | Yes
 EFI/UEFI| No | Yes
-Shared cluster disk | Yes for VMware<br/><br/> N/A for physical servers | No
+Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | No | N/A
 SMB 3.0 | No | No
