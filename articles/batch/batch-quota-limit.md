@@ -69,7 +69,7 @@ The cores quota at a regional level or per VM family should be set according to 
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
 
-<sup>1</sup> Azure Storage limit for maximum block blob size
+<sup>1</sup> Azure Storage limit for maximum block blob size<br />
 <sup>2</sup> Includes resource files and environment variables
 
 ## View Batch quotas
