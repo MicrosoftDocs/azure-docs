@@ -501,19 +501,6 @@ Now let’s turn our attention to building the user interface so a user can actu
           padding: 50px;
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
         }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
    
     Save and close this **style.css** file.
 
