@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 06/28/2017
 ms.author: ganesr
 
 ---
@@ -155,6 +155,10 @@ The circuit user can run the following cmdlet to redeem a link authorization:
     State VnetName
     ----- --------
     Provisioned SalesVNET1
+
+Run this command in the newly linked subscription for the virtual network:
+
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
