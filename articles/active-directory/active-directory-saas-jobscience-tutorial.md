@@ -76,7 +76,7 @@ To configure the integration of Jobscience into Azure AD, you need to add Jobsci
 	![Creating an Azure AD test user](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Jobscience based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Jobscience based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Jobscience is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Jobscience needs to be established.
 
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`http://<company name>.my.salesforce.com`
 	
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Jobscience Client support team](www.jobscience.com/support) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Jobscience Client support team](https://www.jobscience.com/support) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -210,7 +210,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Jobscience test user
 
-In order to enable Azure AD users to log into Jobscience, they must be provisioned into Jobscience.  
+In order to enable Azure AD users to log in to Jobscience, they must be provisioned into Jobscience.  
 In the case of Jobscience, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:**
@@ -230,13 +230,13 @@ In the case of Jobscience, provisioning is a manual task.
    
    ![User Edit](./media/active-directory-saas-jobscience-tutorial/ic784371.png "User Edit")
    
-   1. Type the first name, last name, alias, email, user name and nickname properties of the Azure AD user you want to provision into the related textboxes.
+   a. Type the first name, last name, alias, email, user name, and nickname properties of the Azure AD user you want to provision into the related textboxes.
 
-   2. Click **Save**.
+   b. Click **Save**.
       
-   >[!NOTE]
-   >The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
-   > 
+>[!NOTE]
+> The Azure AD account holder gets an email that includes a link to confirm the account before it is activated.
+> 
 
 >[!NOTE]
 >You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
