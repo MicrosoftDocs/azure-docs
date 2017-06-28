@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 services: ''
 documentationcenter: ''
 author: genlin
-manager: narmstr
+manager: jlian
 editor: ''
 tags: billing
 

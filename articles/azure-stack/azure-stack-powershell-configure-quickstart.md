@@ -13,16 +13,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/15/2017
 ms.author: sngun
 
 ---
 
-# Install and configure PowerShell for Azure Stack quickstart
+# Get up and running with PowerShell in Azure Stack
 
-This topic is a quick start to install and configure PowerShell for Azure Stack. It combines the steps described in [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. We have scoped the steps in this topic for Azure Stack **administrator’s environment only**. You can also use this article for user environments, but make sure to replace the Azure Resource manager endpoint value. To learn about configuring PowerShell for user environment, see steps for user environment in [Configure PowerShell]( azure-stack-powershell-configure.md#configure-the-powershell-environment) topic.
+This article is a quick start to install and configure PowerShell for Azure Stack. This script provided in this article is scoped to use with **Azure Active Directory(AAD)** based deployments and within the **administrative** environment only. You can also use this script for user environments, but make sure to replace the Azure Resource Manager endpoint value in the `Add-AzureStackAzureRmEnvironment` cmdlet. 
 
-To install and configure PowerShell for administrator’s environment, open a PowerShell ISE session as an administrator and run the following script:
+This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. To install and configure PowerShell, sign in to your Azure Stack POC computer, or a Windows-based external client if you are connected through VPN. Next, open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
 
@@ -31,7 +31,7 @@ Set-PSRepository `
   -Name "PSGallery" `
   -InstallationPolicy Trusted
 
-Set-ExecutionPolicy Unrestricted `
+Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
@@ -98,4 +98,26 @@ Login-AzureRmAccount `
 Register-AllAzureRmProvidersOnAllSubscriptions
  
 ```
+
+## Test the connectivity
+
+Now that you’ve configured PowerShell, you can test the configuration by creating a resource group:
+
+```powershell
+New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
+```
+
+When the resource group is created, the cmdlet output has the Provisioning state property set to "Succeeded."
+
+## Next steps
+
+* [Install and configure CLI](azure-stack-connect-cli.md)
+
+* [Develop templates](azure-stack-develop-templates.md)
+
+
+
+
+
+
 

@@ -37,7 +37,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 
 ## What you learn
 
-* How to create an Azure IoT hub and get your new device connection string.
+* How to create an Azure IoT hub and get your new device connection string. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * How to work with Raspberry Pi online simulator.
 * How to send sensor data to your IoT hub.
 
@@ -46,7 +46,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 Click the button to launch Raspberry Pi online simulator.
 
 > [!div class="button"]
-[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/build/index.html)
+[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/)
 
 There are three areas in the web simulator.
 * Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.

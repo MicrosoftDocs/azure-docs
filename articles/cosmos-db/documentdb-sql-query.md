@@ -1,5 +1,5 @@
 ---
-title: SQL syntax and SQL query for Azure Cosmos DB | Microsoft Docs
+title: SQL queries for Azure Cosmos DB DocumentDB API | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
@@ -18,7 +18,7 @@ ms.date: 04/08/2017
 ms.author: arramac
 
 ---
-# SQL query and SQL syntax in Azure Cosmos DB
+# SQL queries for Azure Cosmos DB DocumentDB API
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language. Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
 While designing the query language for Cosmos DB we had two goals in mind:

@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
@@ -22,6 +22,8 @@
 ### [Low-priority VMs](batch-low-pri-vms.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
 ### [Persist job and task output](batch-task-output.md)
+#### [Persist output with Batch API](batch-task-output-files.md)
+#### [Persist output with File Conventions library](batch-task-output-file-conventions.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
 ### [Task dependencies](batch-task-dependencies.md)
 ### [User accounts for running tasks](batch-user-accounts.md)
@@ -60,14 +62,15 @@
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

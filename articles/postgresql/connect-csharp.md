@@ -6,12 +6,11 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid: 
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: article
-ms.date: 05/31/2017
+ms.topic: hero-article
+ms.date: 06/23/2017
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data

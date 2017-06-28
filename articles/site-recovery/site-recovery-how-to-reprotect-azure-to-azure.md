@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:
+ms.workload: storage-backup-recovery
 ms.date: 05/13/2017
 ms.author: ruturajd
 

@@ -6,9 +6,7 @@ author: mswutao
 ms.author: wutao
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ---

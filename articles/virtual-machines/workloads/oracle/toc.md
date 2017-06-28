@@ -6,3 +6,5 @@
 ## [Configuring Oracle ASM](configure-oracle-asm.md)
 ## [Configuring Oracle DataGuard](configuring-oracle-dataguard.md)
 ## [Configuring Oracle GoldenGate](configure-oracle-golden-gate.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

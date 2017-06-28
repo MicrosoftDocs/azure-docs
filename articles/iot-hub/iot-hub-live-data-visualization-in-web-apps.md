@@ -68,7 +68,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
-1. In **Application settings**, toggle the Web sockets option under General settings.
+1. In **Application settings**, toggle the Web sockets option under General settings. Save all your changes before you move to next step.
 
    ![Toggle Web sockets option](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 

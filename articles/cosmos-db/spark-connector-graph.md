@@ -14,7 +14,7 @@ ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
-ms.topic: hero-article
+ms.topic: article
 ms.date: 06/05/2017
 ms.author: khdang
 

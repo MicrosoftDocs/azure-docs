@@ -241,20 +241,26 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ```
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
-## Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user.
+## "Direct Reports" Rule
+You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
 
-**To configure a group as a “Manager” group**
+> [!NOTE]
+> 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
+> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy, e.g. a group that includes direct reports and their reports.
 
-1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
+**To configure the group**
+
+1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
+    *Direct Reports for "{obectID_of_manager}"*
+
+    An example of a valid rule:
 ```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
-3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:

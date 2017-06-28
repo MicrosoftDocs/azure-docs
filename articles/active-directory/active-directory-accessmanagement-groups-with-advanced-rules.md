@@ -8,14 +8,17 @@ manager: femila
 editor: ''
 
 ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
-ms.service: active-directoryms.workload: identity
+ms.service: active-directory
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 
 ---
+
 # Populate groups dynamically based on object attributes 
 The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 

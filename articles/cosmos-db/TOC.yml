@@ -29,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: Graph
     items:
     - name: .NET
@@ -133,7 +135,7 @@
       items:
       - name: Resources
         href: documentdb-resources.md
-      - name: SQL query
+      - name: SQL queries
         href: documentdb-sql-query.md
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
@@ -185,12 +187,10 @@
           href: documentdb-nodejs-samples.md
         - name: Python samples
           href: documentdb-python-samples.md
-        - name: SQL syntax
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: SQL grammar cheat sheet
-          href: documentdb-sql-query-cheat-sheet.md
       - name: Resources
         items:
+        - name: SQL grammar cheat sheet
+          href: documentdb-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
@@ -299,6 +299,8 @@
       href: /rest/api/documentdb/
     - name: REST Resource Provider
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: Table APIs
     items:
     - name: .NET
@@ -309,6 +311,8 @@
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ

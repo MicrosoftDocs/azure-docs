@@ -1,6 +1,6 @@
 ---
-title: Learn about Azure Service Fabric | Microsoft Docs
-description: An overview and getting started guide for Azure Service Fabric. Learn about Service Fabric and get started developing scalable, reliable, and easily managed applications composed of microservices. 
+title: Learn more about Azure Service Fabric | Microsoft Docs
+description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,60 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: ryanwi
 
 ---
 # So you want to learn about Service Fabric?
-This primer provides a brief overview to Service Fabric, an introduction to the core concepts and terminology, a getting started guide, and an overview of each area of Service Fabric. This primer does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
-
-## The five-minute overview
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems. Instead, you can focus on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications. 
-
-This short Channel9 video introduces Service Fabric and microservices:
-<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-content-roadmap/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## The detailed overview
-Service Fabric enables you to build and manage scalable and reliable applications composed of microservices. These microservices run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated runtime to build distributed, scalable, stateless and stateful microservices. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications. Read [Overview of Service Fabric](service-fabric-overview.md) to learn more.
-
-Why a microservices design approach? All applications evolve over time. Successful applications evolve by being useful to people. How much do you know about your requirements today, and what will they be in the future? Sometimes, getting a simple app out the door as proof of concept is the driving factor (knowing that the application can be redesigned later). On the other hand, when companies talk about building for the cloud there is the expectation of growth and usage. The issue is that growth and scale are unpredictable. Developers want to prototype quickly while knowing that the app can scale to react to unpredictable growth and usage. [What are microservices?](service-fabric-overview-microservices.md) describes how the microservice design approach meets these challenges and how you can create microservices, which you can scale up or down, test, deploy, and manage independently.
-
-Service Fabric offers a reliable and flexible platform that enables you to write and run many types of business applications and services. You can also run any of your existing applications (written in any language). These applications and microservices can be stateless or stateful, and they are resource-balanced across virtual machines to maximize efficiency. The unique architecture of Service Fabric enables you to perform near real-time data analysis, in-memory computation, parallel transactions, and event processing in your applications. You can easily [scale your applications](service-fabric-concepts-scalability.md) up or down (really in or out), depending on your changing resource requirements. Read [Application scenarios](service-fabric-application-scenarios.md) and [Patterns and scenarios](service-fabric-patterns-and-scenarios.md) to learn about the categories of applications and services you can create as well as customer case studies.
-
-This longer Microsoft Virtual Academy video describes the Service Fabric core concepts:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## Get started and create your first app 
-Using the Service Fabric SDKs and tools, you can develop apps in Windows, Linux, or MacOS environments and deploy those apps to clusters running on Windows or Linux. The following guides will have you deploying an app within minutes. After you've run your first application, download and run some of our [sample apps](http://aka.ms/servicefabricsamples). In particular start with the [Getting Started Samples](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-
-### On Windows
-The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. These topics walk you through the process of creating your first application in Visual Studio and running it on your development computer.
-
-[Set up your dev environment](service-fabric-get-started.md)
-[Create your first app (C#)](service-fabric-create-your-first-application-in-visual-studio.md)
-
-#### Practical hands on labs
-Try this extensive [hands-on-lab Part 1](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric. Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. After Part 1, go through [hands-on-lab Part 2](http://aka.ms/sflab2), which takes you through stateful services.
-
-The following Channel9 video walks you through the process of creating a C# app in Visual Studio:  
-<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
-<img src="./media/service-fabric-content-roadmap/first-app-vid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-### On Linux
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. These topics walk you through the process of creating your first Java or C# application on Linux and running it on your development computer: [Set up your dev environment](service-fabric-get-started-linux.md), [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md), and [Create your first app (C#)](service-fabric-create-your-first-linux-application-with-csharp.md).
-
-The following Microsoft Virtual Academy video walks you through the process of creating a Java app on Linux:  
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-content-roadmap/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-### On MacOS
-You can build Service Fabric applications on MacOS X to run on Linux clusters. These articles describe how to set up your Mac for development and walk you through creating a Java application on MacOS and running it on an Ubuntu virtual machine: [Set up your dev environment](service-fabric-get-started-mac.md) and [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md).
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric has a large surface area, however, and there's a lot to learn.  This article provides a synopsis of Service Fabric and describes the core concepts, programming models, application lifecycle, testing, clusters, and health monitoring. Read the [Overview](service-fabric-overview.md) and [What are microservices?](service-fabric-overview-microservices.md) for an introduction and how Service Fabric can be used to create microservices. This article does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
 
 ## Core concepts
 [Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
@@ -79,7 +31,7 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 <img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
 </table>
 
-### Design time: app type, service type, app package and manifest, service package and manifest
+### Design time: application type, service type, application package and manifest, service package and manifest
 An application type is the name/version assigned to a collection of service types. This is defined in an *ApplicationManifest.xml* file, which is embedded in an application package directory. The application package is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type, which then runs within the cluster. 
 
 A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. This is defined in a ServiceManifest.xml file, which is embedded in a service package directory. The service package directory is then referenced by an application package's *ApplicationManifest.xml* file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. A service type is described by its *ServiceManifest.xml* file. The service type is composed of executable code service configuration settings, which are loaded at run time, and static data that is consumed by the service.
@@ -90,7 +42,7 @@ The application package is a disk directory containing the application type's *A
 
 A service package is a disk directory containing the service type's *ServiceManifest.xml* file, which references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's *ApplicationManifest.xml* file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
-### Run time: clusters and nodes, named apps, named services, partitions, and replicas
+### Run time: clusters and nodes, named applications, named services, partitions, and replicas
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines.
 
 A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, which starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For development or testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
@@ -129,7 +81,7 @@ By default, Service Fabric deploys and activates services as processes. Service 
 ### Reliable Actors
 Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built in communication for actors and pre-set state persistence and scale-out configurations.
 
-## App lifecycle
+## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
 The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
@@ -139,8 +91,8 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
-## Test apps and services
-To create truly cloud-scale services, it is critical to verify that your apps and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the Fault Analysis Service,](service-fabric-testability-overview.md) you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
+## Test applications and services
+To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the Fault Analysis Service,](service-fabric-testability-overview.md) you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
 [Actions](service-fabric-testability-actions.md) target a service for testing using individual faults. A service developer can use these as building blocks to write complicated scenarios. Examples of simulated faults are:
 
@@ -165,7 +117,7 @@ The following Microsoft Virtual Academy video describes Service Fabric clusters:
 </a></center>
 
 ### Clusters on Azure
-Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Log Analytics. Cluster nodetypes are [virtual machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built in.
+Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Log Analytics. Cluster node types are [virtual machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built in.
 
 You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -174,7 +126,7 @@ The preview of Service Fabric on Linux enables you to build, deploy, and manage 
 Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
 
 ### Standalone clusters
-Service Fabric provides an installation package for you to create standalone Service Fabric clusters on-premises or on any cloud provider. Standalone clusters give you the freedom to host a cluster wherever you want. If your data is subject to compliance or regulatory constraints, or you want to keep your data local, you can host your own cluster and apps. Service Fabric apps can run in multiple hosting environments with no changes, so your knowledge of building apps carries over from one hosting environment to another. 
+Service Fabric provides an installation package for you to create standalone Service Fabric clusters on-premises or on any cloud provider. Standalone clusters give you the freedom to host a cluster wherever you want. If your data is subject to compliance or regulatory constraints, or you want to keep your data local, you can host your own cluster and applications. Service Fabric applications can run in multiple hosting environments with no changes, so your knowledge of building applications carries over from one hosting environment to another. 
 
 [Create your first Service Fabric standalone cluster](service-fabric-get-started-standalone-cluster.md)
 

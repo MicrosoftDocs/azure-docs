@@ -36,7 +36,18 @@ $rgName = 'myResourceGroup'
 $avSetName = 'myAvailabilitySet'
 
 $avSet =  Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Managed
+Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+```
+
+### Troubleshooting
+
+Error: The specified fault domain count 3 must fall in the range 1 to 2.
+
+Above error is thrown if the region where your availability set is located has only 2 managed fault domain but number of unmanaged fault domain is 3. To resolve the error, update the fault domain to 2 along with updating sku to aligned as shown below:
+
+```powershell
+$avSet.PlatformFaultDomainCount = 2
+Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
 ```
 
 ## Prepare VMs for conversion
@@ -114,6 +125,8 @@ Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
 ### Troubleshooting
 In case of an error during conversion - or if you have a Virtual Machine in a Failed state due to a previous conversion that faced issues, please retry it by running the ConvertTo-AzureRmVMManagedDisk cmdlet again.
 A simple retry usually unblocks the situation.
+
+
 
 ## Managed Disks and Azure Storage Service Encryption (SSE)
 

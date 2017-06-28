@@ -100,15 +100,17 @@ Once your sources are updated, you can install the SDK.
 
 Once you have run the steps to install the Common SDK package, creation of apps with guest executable or container services should be possible by running `yo azuresfguest` or `yo azuresfcontainer`. You may need to set your **$NODE_PATH** environment variable to where the node modules are located. 
 
-    ```bash
-    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
-    ```
+
+```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+```
 
 If you are using the environment as root, you may need to set the variable with the following command:
 
-    ```bash
-    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules
-    ```
+```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+```
+
 
 > [!TIP]
 > You may want to add these commands into your ~/.bashrc file so that you don't have to set the environment variable at every login.
@@ -225,10 +227,11 @@ The .NET Core SDK provides the libraries and templates required to build Service
 
 To update to the latest version of the SDK and runtime, run the following commands (deselect the SDKs that you don't want):
 
-   ```bash
-   sudo apt-get update
-   sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
-   ```
+```bash
+sudo apt-get update
+sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+```
+
 
 > [!NOTE]
 > Updating the packages may result in your local development cluster being stopped. Restart your local cluster after an upgrade by following instructions on this page.

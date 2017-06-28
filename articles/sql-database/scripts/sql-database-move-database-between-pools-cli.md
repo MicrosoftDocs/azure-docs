@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Move a SQL database and elastic pools | Microsoft Docs
-description: Azure CLI Script Sample - Move a SQL database between elastic pools using Azure CLI
+title: CLI example-move Azure SQL database-SQL elastic pool | Microsoft Docs
+description: Azure CLI example script to move a SQL database in a SQL elastic pool 
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -15,19 +15,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Create elastic pools and move databases between pools and out of a pool using the Azure CLI
+# Use CLI to move an Azure SQL database in a SQL elastic pool
 
-This sample CLI script creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database performance level. 
+This Azure CLI script example creates two elastic pools and moves an Azure SQL database from one SQL elastic pool into another SQL elastic pool, and then moves the database out of elastic pool to a single Azure database performance level. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 

@@ -83,7 +83,7 @@ The properties that can be defined on a packet capture are:
 - **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
 - **Maximum bytes per session** - Total number of bytes that are captured, once the value is reached the packet capture stops.
-- **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 1800 seconds.
+- **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 18000 seconds.
 
 > [!NOTE]
 > Premium storage accounts are currently not supported for storing packet captures.

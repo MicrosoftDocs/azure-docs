@@ -26,6 +26,15 @@
 
 Use the following information and examples to gain a more advanced understanding of Azure Active Directory (Azure AD) group-based licensing.
 
+## Usage location
+
+Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
+
+For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+
+> [!NOTE]
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+
 ## Use group-based licensing with dynamic groups
 
 You can use group-based licensing with any security group, which means it can be combined with Azure AD dynamic groups. Dynamic groups run rules against user object attributes to automatically add and remove users from groups.
@@ -97,17 +106,37 @@ Directly assigned licenses can be removed, and don’t affect inherited licenses
 
 4. When you use direct assignment, the following operations are allowed:
 
-  - Yammer Enterprise can be turned off on the user object directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. TBecause the service is enabled directly on the user, it can be modified.
+  - Yammer Enterprise can be turned off on the user object directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
   - Additional services can be enabled as well, as part of the directly assigned license.
   - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
 
     ![Screenshot showing how to remove direct assignment](media/active-directory-licensing-group-advanced/remove-direct-license.png)
 
-## Usage location
+## Managing new services added to products
+When Microsoft adds a new service to a product, it will be enabled by default in all groups to which you have assigned the product license. Users in your tenant who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
 
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
+As an administrator, you can review all groups affected by the change and take action, such as disabling the new service in each group. For example, if you created groups targeting only specific services for deployment, you can revisit those groups and make sure that any newly added services are disabled.
 
-For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in different locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+Here is an example of what this process may look like:
+
+1. Originally, you assigned the *Office 365 Enterprise E5* product to several groups. One of those groups, called *O365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
+
+2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. On the day the change became effective, you can do the following:
+
+3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
+
+4. Click on the group you want to review (in this case, *O365 E5 - Exchange only*). This will open the **Licenses** tab. Clicking on the E5 license will open a blade listing all enabled services.
+> [!NOTE]
+> The *Microsoft Stream* service has been automatically added and enabled in this group, in addition to the *Exchange Online* service:
+
+  ![Screenshot of new service added to a group license](media/active-directory-licensing-group-advanced/manage-new-services.png)
+
+5. If you want to disable the new service in this group, click the **On/Off** toggle next to the service and click the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group will not have the *Microsoft Stream* service enabled.
+
+  > [!NOTE]
+  > Users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
+
+6. If needed, perform the same steps for other groups with this product assigned.
 
 ## Use PowerShell to see who has inherited and direct licenses
 While group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, you can use it to discover basic information about user state, and see whether licenses are inherited from a group or assigned directly. The following code example shows how an administrator can produce a basic report about license assignments.
@@ -119,7 +148,7 @@ While group-based licensing is in public preview, PowerShell cannot be used to f
   ![Screenshot of the Get-Msolaccountsku cmdlet](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. In this example, you want to find out which users have the Enterprise Mobility + Security license assigned directly, from a group, or both. You can use the following script:
-  
+
   ```
   #Returns TRUE if the user has the license assigned directly
   function UserHasLicenseAssignedDirectly
@@ -180,7 +209,7 @@ While group-based licensing is in public preview, PowerShell cannot be used to f
   ```
 
 4. The rest of the script gets all users, and runs these functions on each user. Then it formats the output into a table.
-    
+
   ```
   #the license SKU we are interested in
   $skuId = "reseller-account:EMS"

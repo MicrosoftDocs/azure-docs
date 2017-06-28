@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
+ms.custom: aaddev
 
 ---
 # Configurable token lifetimes in Azure Active Directory (Public Preview)

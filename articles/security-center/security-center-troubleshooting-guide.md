@@ -4,7 +4,7 @@ description: This document helps to troubleshoot issues in Azure Security Center
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -13,15 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 06/16/2017
 ms.author: yurid
 
 ---
 # Azure Security Center Troubleshooting Guide
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
+>[!NOTE] 
+>Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>
+
 ## Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
 
 * Which operations were taken place
 * Who initiated the operation
@@ -31,47 +35,48 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
-## Troubleshooting monitoring agent installation in Windows
-The Security Center monitoring agent is used to perform data collection. After data collection is enabled and the agent is correctly installed in the target machine, these processes should be in execution:
+## Microsoft Monitoring Agent
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
-* ASMAgentLauncher.exe - Azure Monitoring Agent 
-* ASMMonitoringAgent.exe - Azure Security Monitoring extension
-* ASMSoftwareScanner.exe – Azure Scan Manager
+* HealthService.exe
 
-The Azure Security Monitoring extension scans for various security relevant configurations and collects security logs from the virtual machine. The scan manager will be used as a patch scanner.
+If you open the services management console (services.msc), you will also see the Microsoft Monitoring Agent service running as shown below:
 
-If the installation is successfully performed you should see an entry similar to the one below in the Audit Logs for the target VM:
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-![Audit Logs](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Microsoft Monitoring Agent Service**, right-click on it and click **Properties**. In the **Details** tab, look the file version as shown below:
 
-You can also obtain more information about the installation process by reading the agent logs, located at *%systemdrive%\windowsazure\logs* (example: C:\WindowsAzure\Logs).
+![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
 
-> [!NOTE]
-> If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
+## Microsoft Monitoring Agent installation scenarios
+There are two installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
 
+* **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
+.
+* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using agents downloaded and installed manually prior to February 2017, you will be able to view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. In case you filter on the subscription the resource belongs to, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
 
-If you are still having problems with data collection, you can uninstall the agent by following the steps below:
+>[!NOTE]
+> To avoid the behavior explained in the second, make sure you download the latest version of the agent.
+> 
 
-1. From the **Azure Portal**, select the virtual machine that is experience data collection issues and click **Extensions**.
-2. Right click in **Microsoft.Azure.Security.Monitoring** and select click **Uninstall**.
+## Troubleshooting monitoring agent network requirements
+For agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
 
-![Removing agent](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- For firewalls that restrict access to the Internet, you need to configure your firewall to permit access to OMS. No action is needed in agent settings.
 
-The Azure Security Monitoring extension should automatically reinstall itself within several minutes.
+The following table shows resources needed for communication.
 
-## Troubleshooting monitoring agent installation in Linux
-When troubleshooting VM Agent installation in a Linux system you should ensure that the extension was downloaded to /var/lib/waagent/. You can run the command below to verify if it was installed:
+| Agent Resource | Ports | Bypass HTTPS inspection |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
-`cat /var/log/waagent.log` 
+If you encounter onboarding issues with the agent, make sure to read the article [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-The other log files that you can review for troubleshooting purpose are: 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-In a working system you should see a connection to the mdsd process on TCP 29130. This is the syslog communicating with the mdsd process. You can validate this behavior by running the command below:
-
-`netstat -plantu | grep 29130`
 
 ## Troubleshooting endpoint protection not working properly
 
@@ -92,7 +97,7 @@ By default the Microsoft Antimalware User Interface is disabled, read [Enabling 
 If you experience issues loading the Security Center dashboard, ensure that the user that registers the subscription to Security Center (i.e. the first user one who opened Security Center with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
 
 ## Contacting Microsoft Support
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure Portal** as shown below: 
+Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below: 
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

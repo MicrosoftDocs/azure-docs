@@ -36,7 +36,7 @@ To prepare your access to the reporting API, you must:
 2. Grant permissions 
 3. Gather configuration settings 
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+For questions, issues or feedback, please [file a support ticket](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## Register an Azure Active Directory application
 

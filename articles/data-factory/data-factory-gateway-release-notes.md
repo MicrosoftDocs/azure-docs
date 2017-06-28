@@ -2,7 +2,7 @@
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: abnarain
 published: true
 ---
 # Release notes for Data Management Gateway
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
+One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
 See the following articles for detailed information about Data Management Gateway and how to use it:
 
@@ -38,16 +38,16 @@ See the following articles for detailed information about Data Management Gatewa
 ## 2.9.6313.2
 ### Enhancements-
 -	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
--	You can now copy data to/from a single block blob up to 4.75TB, which is the max supported size of block blob. (earlier limit was 195GB).
+-	You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
 -	Fixed: Out of memory issue while unzipping several small files during copy activity.
--	Fixed: Index out of range issue while copying from Document DB to on premise SQL with idempotency feature.
--	Fixed: SQL cleanup script doesn't work with on premise SQL from Copy Wizard.
+-	Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
+-	Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
 -	Fixed: Column name with space at the end does not work in copy activity.
 
 ## 2.8.66283.3
 ### Enhancements-
 - Fixed: Issue with missing credentials on gateway machine reboot.
-- Fixed: Issue with registration during gateway restore using backup file.
+- Fixed: Issue with registration during gateway restore using a backup file.
 
 
 ## 2.7.6240.1
