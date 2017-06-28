@@ -24,6 +24,8 @@ ms.author: cynthn
 
 Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
+When you use a specialized VM disk to create a new VM, the new VM will retain the computer name of the original VM. Other computer specific information will also be kept and in some cases, could cause issues. Be aware of what types of computer specific information your applications rely on when copying a VM.
+
 You have two options:
 * [Upload a VHD](#option-1-upload-a-specialized-vhd)
 * [Copy an existing Azure VM](#option-2-copy-an-existing-azure-vm)
@@ -226,24 +228,6 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinatio
     -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 ```    
 
-### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
-
-Create the public IP. In this example, the public IP address name is set to **myIP**.
-   
-```powershell
-$ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
-   -AllocationMethod Dynamic
-```       
-
-Create the NIC. In this example, the NIC name is set to **myNicName**.
-   
-```powershell
-$nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-```
 
 ### Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
@@ -262,6 +246,27 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGr
 ```
 
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+### Create a public IP address and NIC
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+
+Create the public IP. In this example, the public IP address name is set to **myIP**.
+   
+```powershell
+$ipName = "myIP"
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+   -AllocationMethod Dynamic
+```       
+
+Create the NIC. In this example, the NIC name is set to **myNicName**.
+   
+```powershell
+$nicName = "myNicName"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id --network-security-group $nsg
+```
+
+
 
 ### Set the VM name and size
 
