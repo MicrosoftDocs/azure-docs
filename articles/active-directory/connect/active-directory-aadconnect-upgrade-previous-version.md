@@ -97,7 +97,7 @@ There may be situations where you do not want these overrides to take place imme
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. After upgrade completes, run following cmdlet to find out what overrides have been added: `Get-ADSyncSchedulerConnectorOverride | fl`
+2. After upgrade completes, run the following cmdlet to find out what overrides have been added: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > The overrides are connector-specific. In the following example, Full Import step and Full Synchronization step have been added to both the on-premises AD Connector and Azure AD Connector.
@@ -106,7 +106,7 @@ There may be situations where you do not want these overrides to take place imme
 
 3. Note down the existing overrides that have been added.
    
-4. To remove the overrides for both full import and full synchronization on an arbitrary connector, run following cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. To remove the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    To remove the overrides on all connectors, execute the following PowerShell script:
 
@@ -117,7 +117,7 @@ There may be situations where you do not want these overrides to take place imme
    }
    ```
 
-5. To resume the scheduler, run following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. To resume the scheduler, run the following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
