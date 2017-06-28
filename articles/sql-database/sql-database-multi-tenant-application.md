@@ -40,13 +40,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Prerequisites
 
 To complete this tutorial, make sure you have:
-* PowerShell installed on your machine, and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* The latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
+* Installed the newest version of PowerShell and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html), and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+* Installed the latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) installed on your machine. Maven will be used to help manage dependencies, build, test and run the sample Java project
+* Installed the [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+
+* Installed [Apache Maven](https://maven.apache.org/download.cgi). Maven will be used to help manage dependencies, build, test and run the sample Java project
 
 ## Set up Data Environment
 
