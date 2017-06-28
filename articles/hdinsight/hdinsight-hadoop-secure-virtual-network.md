@@ -114,13 +114,13 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 ## <a id="securednetwork"></a> Restricting network traffic
 
-Azure Virtual Networks can be secured use network security groups, user-defined routes, or network virtual appliances. You may use one or more of these methods when securing a network.
+Azure Virtual Networks can be secured using the following methods:
 
-* Network security groups allow you to filter inbound and outbound traffic by creating a set of rules that allow or deny traffic. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+* **Network security groups** allow you to filter inbound and outbound traffic by creating a set of rules that allow or deny traffic. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
 
-* User-defined routes define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
+* **User-defined routes** define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
 
-* Network virtual appliances replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
 ### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
 
