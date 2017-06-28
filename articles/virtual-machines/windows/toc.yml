@@ -367,6 +367,8 @@
       href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Deployment issues 
+      href: troubleshoot-deploy-vm.md
     - name: Restarting or resizing a VM
       href: restart-resize-error-troubleshooting.md
     - name: Application access
