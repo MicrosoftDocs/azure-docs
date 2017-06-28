@@ -181,7 +181,7 @@ For more information, see [Working with Channels that are Enabled to Perform Liv
 |Azure Media Video Thumbnails|Preview|All|
 |Media Encoder Standard|GA|All|
 |Media Indexer v2|Preview|All execpt China and Federal Goverment region|
-|Media Encoder Premium Workflow|GA|All, except China|
+|Media Encoder Premium Workflow|GA|All except China|
 
 ## Consuming content
 Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services.
