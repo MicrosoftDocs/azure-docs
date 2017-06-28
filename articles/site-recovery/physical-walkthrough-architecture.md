@@ -32,7 +32,7 @@ The table summarizes the components you need.
 --- | --- | ---
 **Azure** | You need an Azure account, an Azure storage account, and an Azure network. | Replicated data is stored in the storage account, and Azure VMs are created with the replicated data when failover occurs. Azure VMs connect to the Azure virtual network when they're created.
 **Configuration server** | A single on-premises management server (physical server or VMware VM) that runs all the on-premises Site Recovery components. These include a configuration server, process server, master target server. | The configuration server component coordinates communications between on-premises and Azure, and manages data replication.
- **Process server**:  | Installed by default on the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also handles push installation of the Mobility service to protected machines.<br/><br/> You can add additional separate dedicated process servers, to handle increasing volumes of replication traffic.
+ **Process server**  | Installed by default on the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also handles push installation of the Mobility service to protected machines.<br/><br/> You can add additional separate dedicated process servers, to handle increasing volumes of replication traffic.
  **Master target server** | Installed by default on the on-premises configuration server. | Handles replication data during failback from Azure.<br/><br/> If volumes of failback traffic are high, you can deploy a separate master target server for failback.
 **Replicated servers** | The Mobility service component is installed on each Windows/Linux server you want to replicate. It can be installed manually on each machine, or with a push installation from the process server.
 **Failback** | For failback a VMware infrastructure is required. You can't fail back to a physical server.
@@ -60,14 +60,12 @@ The table summarizes the components you need.
 
 ## Failover and failback process
 
-1. After you verify that test failover is working as expected, you can run unplanned failovers to Azure as required. Planned failover isn't supported.
-2. You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md), to fail over multiple machines together.
-3. When you run a failover, Azure VMs are created from replicated data.
-4. You commit a failover to start accessing the workload from the replica Azure VM.
-5. When your primary on-premises site is available again, you can fail back.
-6. You set up a failback infrastructure with the components listed below.
-7. You replicate the machine from the secondary to the primary site, and run an unplanned failover from the secondary site.
-8. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again.
+After you verify that test failover is working as expected, you can run unplanned failovers to Azure as required. When you run a failover, Azure VMs are created from replicated data. Then, when your primary on-premises site is available again, you can fail back. Note that:
+
+- Planned failover isn't supported.
+- You can fail over a single machine, or create [recovery plans](site-recovery-create-recovery-plans.md), to fail over multiple machines together.
+- You commit a failover to start accessing the workload from the replica Azure VM.
+- When the primary site is available again, you replicate the machine from the secondary to the primary site. Then, run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again.
 
 Failback components include:
 
