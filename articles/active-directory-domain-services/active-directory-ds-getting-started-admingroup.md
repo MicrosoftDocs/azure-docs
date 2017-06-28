@@ -24,7 +24,7 @@ ms.author: maheshu
 > * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
 
 
-## Task 3: configure administrative group for Azure Active Directory Domain Services
+## Task 3: configure administrative group
 In this configuration task, you create an administrative group in your Azure AD directory. This special administrative group is called *AAD DC Administrators*. Members of this group are granted administrative permissions on machines that are domain-joined to the managed domain. On domain-joined machines, this group is added to the administrators group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.
 
 > [!NOTE]
@@ -50,7 +50,7 @@ The wizard automatically creates the administrative group in your Azure AD direc
     ![Notification - deployment in progress](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## Provisioning your managed domain
+## Provision your managed domain
 The process of provisioning your managed domain can take up to an hour.
 
 1. While your deployment is in progress, you can search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists the managed domain that is being provisioned.

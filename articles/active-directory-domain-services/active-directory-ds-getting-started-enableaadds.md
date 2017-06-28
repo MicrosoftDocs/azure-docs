@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Enable Azure Active Directory Domain Services | Microsoft Docs'
-description: Getting started with Azure Active Directory Domain Services
+description: Enable Azure Active Directory Domain Services using the Azure classic portal
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services
-## Task 3: Enable Azure Active Directory Domain Services
+# Enable Azure Active Directory Domain Services using the Azure classic portal
+
+## Task 3: enable Azure Active Directory Domain Services
 In this task, you enable Azure Active Directory Domain Services (Azure AD DS) for your directory by doing the following steps:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
@@ -89,5 +90,5 @@ In this task, you enable Azure Active Directory Domain Services (Azure AD DS) fo
 >
 >
 
-## Next steps
-Task 4: [Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-update-dns.md)
+## Next step
+[Task 4: update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-update-dns.md)
