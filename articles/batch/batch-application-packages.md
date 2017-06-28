@@ -73,7 +73,8 @@ Application packages can simplify the code in your Batch solution and lower the 
 
 With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
 
->[!NOTE] The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. If your start task exceeds this limit, then using application packages is another option. You can also create a zipped archive containing your resource files, upload it as a blob to Azure Storage, and then unzip it from the command line of your start task. 
+> [!NOTE] 
+> The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. If your start task exceeds this limit, then using application packages is another option. You can also create a zipped archive containing your resource files, upload it as a blob to Azure Storage, and then unzip it from the command line of your start task. 
 >
 >
 
