@@ -1,7 +1,7 @@
 ---
-title: Ask a question you can answer with data - formulate questions | Microsoft Docs
-description: Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
-keywords: data science questions,formulate questions,regression questions,classification questions,sharp question
+title: Ask a question data can answer - data science problems - Azure | Microsoft Docs
+description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
+keywords: data science problems,data science questions,formulate questions,regression questions,classification questions,sharp question
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 
 ---
 # Ask a question you can answer with data
 ## Video 3: Data Science for Beginners series
-Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
+Learn how to formulate a data science problem into a question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
@@ -94,4 +94,3 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

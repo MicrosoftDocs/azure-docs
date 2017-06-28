@@ -14,12 +14,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 05/26/2017
 ms.author: owend
 
 ---
 # On-premises data gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services server in the cloud.
+
+The latest version of the gateway supports tabular 1400 models connected to on-premises data sources by using Get Data and M queries in SSDT. 
+
+To learn more about supported data sources, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 A gateway is installed on a computer in your network. One gateway must be installed for each Azure Analysis Services server you have in your Azure subscription. For example, if you have two servers in your Azure subscription that connect to on-premises data sources, a gateway must be installed on two separate computers in your network.
 
@@ -44,14 +48,6 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * To change the server name for a gateway that has already been configured, you need to reinstall and configure a new gateway.
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
-## Supported on-premises data sources
-For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
-
-* SQL Server
-* SQL Data Warehouse
-* APS
-* Oracle
-* Teradata
 
 ## Download
  [Download the gateway](https://aka.ms/azureasgateway)
@@ -124,7 +120,26 @@ Under the hood, the on-premises data gateway used for connecting Azure Analysis 
 
 If you’re having trouble when installing and configuring a gateway, be sure to see [Troubleshooting the Power BI Gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). If you think you are having an issue with your firewall, see the firewall or proxy sections.
 
-If you think you're encountering proxy issues, with the gateway, see [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+If you think you're encountering proxy issues, with the gateway, see [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy).
+
+### Telemetry
+Telemetry can be used for monitoring and troubleshooting. 
+
+**To turn on telemetry**
+
+1.	Check the On-premises data gateway client directory on the computer. Typically, it's %systemdrive%\Program Files\On-premises data gateway. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.	Save your changes and restart the Windows service: On-premises data gateway service.
+
+
+
 
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)

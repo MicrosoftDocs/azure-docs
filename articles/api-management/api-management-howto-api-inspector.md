@@ -1,5 +1,5 @@
 ---
-title: How to use the API Inspector to trace calls in Azure API Management
+title: Trace calls with API Inspector - Azure API Management | Microsoft Docs
 description: Learn how to trace calls using the API Inspector in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to use the API Inspector to trace calls in Azure API Management
 API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programmatically and can also be used directly from the developer portal. 
@@ -66,7 +65,7 @@ In the response headers will be an **ocp-apim-trace-location** with a value simi
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-The trace can be downloaded from the specified location and reviewed as demonstrated in the next step.
+The trace can be downloaded from the specified location and reviewed as demonstrated in the next step. Note that only the last 100 log entries are stored and log locations are reused in rotation. So if you make more than 100 calls with tracing enabled you will eventually start overwriting the first traces in place.
 
 ## <a name="inspect-trace"> </a>Inspect the trace
 To review the values in the trace, download the trace file from the **ocp-apim-trace-location** URL. It is a text file in JSON format, and contains entries similar to the following example.

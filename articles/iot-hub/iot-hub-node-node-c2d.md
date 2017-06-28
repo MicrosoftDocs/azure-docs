@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 06/16/2017
 ms.author: dobett
 
 ---
@@ -52,7 +52,7 @@ In this section, you modify the simulated device app you created in [Get started
 1. Using a text editor, open the SimulatedDevice.js file.
 2. Modify the **connectCallback** function to handle messages sent from IoT Hub. In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. Your new version of the **connectCallback** function looks like the following snippet:
    
-    ```
+    ```javascript
     var connectCallback = function (err) {
       if (err) {
         console.log('Could not connect: ' + err);
@@ -64,9 +64,11 @@ In this section, you modify the simulated device app you created in [Get started
         });
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
+            var temperature = 20 + (Math.random() * 15);
+            var humidity = 60 + (Math.random() * 20);            
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
+            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
         }, 1000);
@@ -84,26 +86,26 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 
 1. Create an empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
-    ```
+    ```shell
     npm init
     ```
 2. At your command prompt in the **sendcloudtodevicemessage** folder, run the following command to install the **azure-iothub** package:
    
-    ```
+    ```shell
     npm install azure-iothub --save
     ```
 3. Using a text editor, create a **SendCloudToDeviceMessage.js** file in the **sendcloudtodevicemessage** folder.
 4. Add the following `require` statements at the start of the **SendCloudToDeviceMessage.js** file:
    
-    ```
+    ```javascript
     'use strict';
    
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the iot hub connection string placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the target device placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
+5. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the "{device id}" placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
    
-    ```
+    ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
    
@@ -111,7 +113,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 6. Add the following function to print operation results to the console:
    
-    ```
+    ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
@@ -121,7 +123,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 7. Add the following function to print delivery feedback messages to the console:
    
-    ```
+    ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
         console.log('Feedback message:')
@@ -131,7 +133,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     ```
 8. Add the following code to send a message to your device and handle the feedback message when the device acknowledges the cloud-to-device message:
    
-    ```
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
@@ -153,14 +155,14 @@ You are now ready to run the applications.
 
 1. At the command prompt in the **simulateddevice** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
    
-    ```
+    ```shell
     node SimulatedDevice.js 
     ```
    
     ![Run the simulated device app][img-simulated-device]
 2. At a command prompt in the **sendcloudtodevicemessage** folder, run the following command to send a cloud-to-device message and wait for the acknowledgment feedback:
    
-    ```
+    ```shell
     node SendCloudToDeviceMessage.js 
     ```
    
@@ -189,7 +191,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

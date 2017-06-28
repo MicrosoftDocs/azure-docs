@@ -1,10 +1,10 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array - Provision in VMware| Microsoft Docs
+title: Provision StorSimple Virtual Array in VMware | Microsoft Docs
 description: This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 03/15/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
+# Deploy StorSimple Virtual Array - Provision in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## Overview
@@ -40,7 +41,7 @@ Before you deploy a virtual device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports less than 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
@@ -63,7 +64,7 @@ To create a virtual device, you will need:
 * VMware vSphere client on your system to manage the ESXi host.
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports less than 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface connected to the network capable of routing traffic to Internet. The minimum Internet bandwidth should be 5 Mbps to allow for optimal working of the device.
   * A 500 GB virtual disk for data.
 
@@ -74,6 +75,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
    1. Ensure that you have downloaded the latest image file. If you downloaded the image earlier, download it again to ensure you have the latest image. The latest image has two files (instead of one).
    2. Make a note of the location where you copied the image as you are using this image later in the procedure.
+
 2. Log in to the ESXi server using the vSphere client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -160,7 +162,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 30. On the **Select a Disk** page, choose **Create a new virtual disk**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
+31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). While 500 GB is the minimum requirement, you can always provision a larger disk. Note that you cannot expand or shrink the disk once provisioned. For more information on the size of disk to provision, review the sizing section in the [best practices document](storsimple-ova-best-practices.md). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. On the **Advanced Options** page, accept the default.
@@ -217,7 +219,7 @@ Perform the following steps to start your virtual device and connect to it.
 
     1. To enable the FIPS mode, run the following cmdlet:
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
 
        > [!NOTE]

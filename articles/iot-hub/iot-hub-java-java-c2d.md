@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
@@ -54,22 +54,21 @@ In this section, you modify the simulated device app you created in [Get started
 2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:
    
     ```
-    private static class MessageCallback implements
-    com.microsoft.azure.iothub.MessageCallback {
+    private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-   
+    
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
-3. Modify the **main** method to create a **MessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
+3. Modify the **main** method to create an **AppMessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
    
     ```
     client = new DeviceClient(connString, protocol);
    
-    MessageCallback callback = new MessageCallback();
+    MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
@@ -82,7 +81,7 @@ In this section, you modify the simulated device app you created in [Get started
 ## Send a cloud-to-device message
 In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Get started with IoT Hub] tutorial. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal].
 
-1. Create a Maven project called **send-c2d-messages** using the following command at your command prompt. Note this is a single, long command:
+1. Create a Maven project called **send-c2d-messages** using the following command at your command prompt. Note this command is a single, long command:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -92,17 +91,21 @@ In this section, you create a Java console app that sends cloud-to-device messag
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.3.19</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the send-c2d-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
    
     ```
-    import com.microsoft.azure.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -111,9 +114,9 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQP;
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
-8. Replace the **main** method with the following code that connects to your IoT hub, sends a message to your device, and then waits for an acknowledgment that the device received and processed the message:
+8. Replace the **main** method with the following code. This code connects to your IoT hub, sends a message to your device, and then waits for an acknowledgment that the device received and processed the message:
    
     ```
     public static void main(String[] args) throws IOException,
@@ -185,7 +188,8 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

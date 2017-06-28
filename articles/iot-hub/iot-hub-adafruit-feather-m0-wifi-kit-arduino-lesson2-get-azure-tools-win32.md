@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Microsoft Docs
+title: 'Connect Arduino to Azure IoT - Lesson 2: Azure tools (Windows) | Microsoft Docs'
 description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'azure cli, iot cloud service, arduino cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: 70dfff14-4be1-468d-9919-e40f4bead308
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

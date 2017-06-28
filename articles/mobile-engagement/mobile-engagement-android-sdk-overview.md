@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 06/27/2017
 ms.author: piyushjo;ricksal
 
 ---
@@ -49,9 +49,12 @@ You can add these features:
 [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
 ## Release notes
-### 4.2.3 (08/10/2016)
-* No more WIFI lock.
-* Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
+### 4.3.0 (06/27/2017)
+* Android 8 support (previous versions of the SDK will not work on Android 8).
+* No more dependency on support library.
+* Remove `EngagementFragmentActivity` class.
+* Due to [Background Execution Limits](https://developer.android.com/preview/features/background.html) on Android 8, logs in background might be delayed until the user interacts with the device, this will have an impact on Push Campaign **Delivered** and **System notification displayed** statistics being delayed if the device was sleeping (the notification will still be displayed, will ring and vibrate in real time without issues).
+* Due to [Background Location Limits](https://developer.android.com/preview/features/background-location-limits.html), the real time location in background will not be updated frequently on Android 8.
 
 For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
 

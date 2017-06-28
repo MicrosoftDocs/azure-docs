@@ -10,9 +10,9 @@ editor: cgronlun
 
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: develop apps
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
@@ -21,12 +21,12 @@ ms.author: sstein
 ---
 # Use C# to create a SQL database with the SQL Database Library for .NET
 
-Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-create-csharp.md).
+Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-manage-csharp.md).
 
-The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://docs.microsoft.com/rest/api/sql/).
 
 > [!NOTE]
-> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
+> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://docs.microsoft.com/dotnet/api/overview/azure/sql?view=azure-dotnet) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
 > 
 > 
 
@@ -36,8 +36,7 @@ To complete the steps in this article, you need the following:
 * Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 > [!NOTE]
-> This article creates a new, blank SQL database. Modify the *CreateOrUpdateDatabase(...)* method in the following sample to copy databases, scale databases, create a database in a pool, etc. For more information, see [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) and [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx) classes.
-> 
+> This article creates a new, blank SQL database. Modify the *CreateOrUpdateDatabase(...)* method in the following sample to copy databases, scale databases, create a database in a pool, etc.  
 > 
 
 ## Create a console app and install the required libraries
@@ -48,9 +47,9 @@ To complete the steps in this article, you need the following:
 To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the latest [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Type `Install-Package Microsoft.Azure.Management.Sql -Pre` to install the latest [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Type `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Type `Install-Package Microsoft.Azure.Common.Authentication -Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.
@@ -115,8 +114,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
             // Instantiate management clients:
             _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
-            _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_subscriptionId, _token.AccessToken));
-
+            _sqlMgmtClient = new SqlManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken)) { SubscriptionId = _subscriptionId };
 
             Console.WriteLine("Resource group...");
             ResourceGroup rg = CreateOrUpdateResourceGroup(_resourceMgmtClient, _subscriptionId, _resourceGroupName, _resourceGrouplocation);
@@ -124,16 +122,16 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
 
             Console.WriteLine("Server...");
-            ServerGetResponse sgr = CreateOrUpdateServer(_sqlMgmtClient, _resourceGroupName, _serverlocation, _serverName, _serverAdmin, _serverAdminPassword);
-            Console.WriteLine("Server: " + sgr.Server.Id);
+            Server sgr = CreateOrUpdateServer(_sqlMgmtClient, _resourceGroupName, _serverlocation, _serverName, _serverAdmin, _serverAdminPassword);
+            Console.WriteLine("Server: " + sgr.Id);
 
             Console.WriteLine("Server firewall...");
-            FirewallRuleGetResponse fwr = CreateOrUpdateFirewallRule(_sqlMgmtClient, _resourceGroupName, _serverName, _firewallRuleName, _startIpAddress, _endIpAddress);
-            Console.WriteLine("Server firewall: " + fwr.FirewallRule.Id);
+            FirewallRule fwr = CreateOrUpdateFirewallRule(_sqlMgmtClient, _resourceGroupName, _serverName, _firewallRuleName, _startIpAddress, _endIpAddress);
+            Console.WriteLine("Server firewall: " + fwr.Id);
 
             Console.WriteLine("Database...");
-            DatabaseCreateOrUpdateResponse dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _databaseEdition, _databasePerfLevel);
-            Console.WriteLine("Database: " + dbr.Database.Id);
+            Database dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _databaseEdition, _databasePerfLevel);
+            Console.WriteLine("Database: " + dbr.Id);
 
 
             Console.WriteLine("Press any key to continue...");
@@ -151,56 +149,45 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
             return resourceGroupResult;
         }
 
-        static ServerGetResponse CreateOrUpdateServer(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverLocation, string serverName, string serverAdmin, string serverAdminPassword)
+        static Server CreateOrUpdateServer(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverLocation, string serverName, string serverAdmin, string serverAdminPassword)
         {
-            ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
+            Server serverParameters = new Server()
             {
                 Location = serverLocation,
-                Properties = new ServerCreateOrUpdateProperties()
-                {
-                    AdministratorLogin = serverAdmin,
-                    AdministratorLoginPassword = serverAdminPassword,
-                    Version = "12.0"
-                }
+                AdministratorLogin = serverAdmin,
+                AdministratorLoginPassword = serverAdminPassword,
+                Version = "12.0"
             };
-            ServerGetResponse serverResult = sqlMgmtClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
+            Server serverResult = sqlMgmtClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
             return serverResult;
         }
 
-
-        static FirewallRuleGetResponse CreateOrUpdateFirewallRule(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string firewallRuleName, string startIpAddress, string endIpAddress)
+        static FirewallRule CreateOrUpdateFirewallRule(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string firewallRuleName, string startIpAddress, string endIpAddress)
         {
-            FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
+            FirewallRule firewallParameters = new FirewallRule()
             {
-                Properties = new FirewallRuleCreateOrUpdateProperties()
-                {
-                    StartIpAddress = startIpAddress,
-                    EndIpAddress = endIpAddress
-                }
+                StartIpAddress = startIpAddress,
+                EndIpAddress = endIpAddress
             };
-            FirewallRuleGetResponse firewallResult = sqlMgmtClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
+            FirewallRule firewallResult = sqlMgmtClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
             return firewallResult;
         }
 
-
-
-        static DatabaseCreateOrUpdateResponse CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string databaseEdition, string databasePerfLevel)
+        static Database CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string databaseEdition, string databasePerfLevel)
         {
             // Retrieve the server that will host this database
-            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
+            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName);
 
             // Create a database: configure create or update parameters and properties explicitly
-            DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
+            Database newDatabaseParameters = new Database()
             {
                 Location = currentServer.Location,
-                Properties = new DatabaseCreateOrUpdateProperties()
-                {
-                    CreateMode = DatabaseCreateMode.Default,
-                    Edition = databaseEdition,
-                    RequestedServiceObjectiveName = databasePerfLevel
-                }
+                CreateMode = CreateMode.Default,
+                Edition = databaseEdition,
+                RequestedServiceObjectiveName = databasePerfLevel
+
             };
-            DatabaseCreateOrUpdateResponse dbResponse = sqlMgmtClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
+            Database dbResponse = sqlMgmtClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
             return dbResponse;
         }
 

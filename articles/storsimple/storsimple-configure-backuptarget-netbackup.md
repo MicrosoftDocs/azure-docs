@@ -1,5 +1,5 @@
----
-title: StorSimple as a backup target with NetBackup | Microsoft Docs
+﻿---
+title: StorSimple 8000 series as backup target with NetBackup | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas NetBackup.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
 ---
 
@@ -224,7 +224,7 @@ Set up your solution according to the guidelines in the following few sections.
 
 -   The NetBackup database should be local to the server and not reside on a StorSimple volume.
 -   For disaster recovery, back up the NetBackup database on a StorSimple volume.
--   We support NetBackup full and incremental backups for this solution. We recommend that you do not use synthetic and differential backups.
+-   We support NetBackup full and incremental backups (also referred to as differential incremental backups in NetBackup) for this solution. We recommend that you do not use synthetic and cumulative incremental backups.
 -   Backup data files should contain only the data for a specific job. For example, no media appends across different jobs are allowed.
 
 For the latest NetBackup settings and best practices for implementing these requirements, see the NetBackup documentation at [www.veritas.com](https://www.veritas.com).
@@ -499,7 +499,7 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
+1.  [Install Azure PowerShell](/powershell/azure/overview).
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  On the server that runs the script, run PowerShell as an administrator. Type this command:

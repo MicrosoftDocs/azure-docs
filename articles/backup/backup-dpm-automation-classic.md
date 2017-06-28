@@ -1,5 +1,5 @@
 ---
-title: Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Docs
+title: 'Azure Backup: Use PowerShell to back up DPM workloads | Microsoft Docs'
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
 services: backup
 documentationcenter: ''
@@ -13,18 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: jimpark; trinadhk; anuragm; markgal
+ms.date: 06/14/2017
+ms.author: nkolli;trinadhk;anuragm;markgal
 
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Classic](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
-This article shows you how to use PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
+This article explains how to use PowerShell to back up and recover DPM data from a backup vault. Microsoft recommends using Recovery Services vaults for all new deployments. If you are a new Azure Backup user, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-dpm-automation.md), so you store your data in a Recovery Services vault.
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults. **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## Setting up the PowerShell environment
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -65,8 +71,8 @@ The following setup and registration tasks can be automated with PowerShell:
 ### Create a backup vault
 > [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
@@ -140,8 +146,8 @@ This will register the DPM Server named “TestingServer” with Microsoft Azure
 
 > [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
-> 
-> 
+>
+>
 
 ### Initial configuration settings
 Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings. These subscription settings include Networking, Encryption and the Staging area. To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet:
@@ -191,8 +197,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 At this point, you should have made all the required changes to the ```$setting``` object. Remember to commit the changes.
 
@@ -347,4 +353,3 @@ The commands can easily be extended for any datasource type.
 
 ## Next steps
 * For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
-

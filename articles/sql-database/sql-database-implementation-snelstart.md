@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
-ms.custom: app development case study
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -23,7 +23,7 @@ ms.author: carlrab
 
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
 > 
 > 
 

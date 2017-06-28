@@ -1,23 +1,33 @@
 ---
-title: Survival Analysis with Azure Machine Learning | Microsoft Docs
-description: Survival Analysis event occurrence probability
-services: machine-learning
-documentationcenter: ''
-author: zhangya
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: (deprecated) Survival Analysis with Azure Machine Learning | Microsoft Docs 
+description: (deprecated) Survival Analysis event occurrence probability 
+services: machine-learning 
+documentationcenter: '' 
+author: zhangya 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 01/06/2017 
 ms.author: zhangya
 
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
+
 ---
-# Survival Analysis
+# (deprecated) Survival Analysis
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Under many scenarios, the main outcome under assessment is the time to an event of interest. In other words, the question “when this event will occur?” is asked. As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.) until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs. Each instance in the data represents a specific object (a patient, a student, a car, etc.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

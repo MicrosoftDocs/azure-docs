@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -39,10 +39,6 @@ To take advantage of dynamic encryption, you need to have an asset that contains
 
 This topic would be useful to developers that work on applications that deliver protected media. The topic shows you how to configure the key delivery service with authorization policies so that only authorized clients could receive the encryption keys. It also shows how to use dynamic encryption.
 
-> [!NOTE]
-> To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## AES-128 Dynamic Encryption and Key Delivery Service Workflow
 
@@ -78,6 +74,11 @@ For detailed information, see [Upload Files into a Media Services account](media
 
 ## <a id="encode_asset"></a>Encode the asset containing the file to the adaptive bitrate MP4 set
 With dynamic encryption all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) topic.
+
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>
+>Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
 For instructions on how to encode, see [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -236,7 +237,10 @@ The following code shows how to send a request to the Media Services key deliver
         </configuration>
 
 1. Overwrite the code in your Program.cs file with the code shown in this section.
-   
+ 
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
     Make sure to update variables to point to folders where your input files are located.
 
         using System;
@@ -367,20 +371,11 @@ The following code shows how to send a request to the Media Services key deliver
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -394,10 +389,10 @@ The following code shows how to send a request to the Media Services key deliver
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                     // Create a task with the encoding details, using a string preset.
-                    // In this case "H264 Multiple Bitrate 720p" preset is used.
+                    // In this case "Adaptive Streaming" preset is used.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         TaskOptions.None);
 
                     // Specify the input asset to be encoded.

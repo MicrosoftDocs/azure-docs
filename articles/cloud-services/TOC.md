@@ -36,8 +36,8 @@
 #### [Use a task to Install .NET on a Cloud Service role](cloud-services-dotnet-install-dotnet.md)
 
 ### Configure Remote Desktop
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Classic portal](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Deploy
@@ -102,7 +102,11 @@
 ### [Common deployment problems](cloud-services-troubleshoot-deployment-problems.md)
 ### [Role failed to start](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Recovery guidance](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services FAQ](cloud-services-faq.md)
+### Cloud Services FAQ
+#### [Application and service availability FAQ](cloud-services-application-and-service-availability-faq.md)
+#### [Configuration and management FAQ](cloud-services-configuration-and-management-faq.md)
+#### [Connectivity and networking FAQ](cloud-services-connectivity-and-networking-faq.md)
+#### [Deployment FAQ](cloud-services-deployment-faq.md)
 
 # Reference
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
@@ -110,8 +114,9 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

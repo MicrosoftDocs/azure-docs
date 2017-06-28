@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: tomfitz
 
 ---
@@ -102,3 +102,7 @@ silly: returnObject
 ## Waiting before sending next request
 When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request is not processed and a new retry value is returned.
 
+## Next steps
+
+* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](resource-manager-async-operations.md).

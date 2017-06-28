@@ -20,7 +20,7 @@ ms.author: robinsh
 # How to use File Storage from Java
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## Overview
 In this guide you'll learn how to perform basic operations on the  Microsoft Azure File storage service. Through samples written in Java you'll learn how to  create shares and directories, upload, list, and delete files. If you are new to Microsoft Azure's File Storage service, going through the concepts in the sections that follow will be very helpful in understanding the samples.

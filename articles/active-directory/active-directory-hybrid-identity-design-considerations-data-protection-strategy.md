@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 05/04/2017
 ms.author: billmath
 
 ---
@@ -47,8 +47,8 @@ Depending on how you answered the questions in [Determine data protection requir
 > [!NOTE]
 > Read [Compliance by Feature](https://azure.microsoft.com/support/trust-center/services/) at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) to know more about the certifications that each Azure service is compliant with.
 > Since the options for data protection use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each state that the data will be.
-> 
-> 
+>
+>
 
 ## Define content management options
 One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user will try to access a shared resource, the resource requires authentication, the user will have to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in background, without user interaction. It is also possible to grant permission to a [group](active-directory-manage-groups.md#getting-started-with-access-management) of users in order to allow them to perform certain common actions.
@@ -69,8 +69,8 @@ A vital part of content management is to understand who is accessing which resou
 > [!NOTE]
 > Read [Microsoft Azure Security and Audit Log Management](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
 > Depending on how you answered the questions in [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), you should be able to determine how you want the content to be managed in your hybrid identity solution. While all options exposed in Table 6 are capable of integrating with Azure AD, it is important to define which is more appropriate for your business needs.
-> 
-> 
+>
+>
 
 | Content management options | Advantages | Disadvantages |
 | --- | --- | --- |
@@ -95,15 +95,15 @@ Azure Active Directory provides single sign-on to thousands of SaaS applications
 
 > [!NOTE]
 > read [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) to know more details about each protocol and its capabilities in Azure.
-> 
-> 
+>
+>
 
 Using the Azure AD support, mobile business applications can use the same easy Mobile Services authentication experience to allow employees to sign into their mobile applications with their corporate Active Directory credentials. With this feature, Azure AD is supported as an identity provider in Mobile Services alongside with the other identity providers we already support (which include Microsoft Accounts, Facebook ID, Google ID, and Twitter ID). If the on-premises apps uses the user’s credential located at the company’s AD DS, the access from partners and users coming from the cloud should be transparent. You can manage user’s conditional access control to (cloud-based) web applications, web API, Microsoft cloud services, 3rd party SaaS applications, and native (mobile) client applications, and have the benefits of security, auditing, reporting all in one place. However, it is recommended to validate this in a non-production environment or with a limited amount of users.
 
 > [!TIP]
 > it is important to mention that Azure AD does not have Group Policy as AD DS has. In order to enforce policy for devices you will need a mobile device management solution such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
-> 
-> 
+>
+>
 
 Once the user is authenticated using Azure AD, it is important to evaluate the level of access that the user will have it. The level of access that the user will have over a resource can vary, while Azure AD can add an additional security layer by controlling access to some resources, you must also keep in mind that the resource itself can also have its own access control list separately, such as the access control for files located in a File Server. The figure below summarizes the levels of access control that you can have in a hybrid scenario:
 
@@ -111,21 +111,22 @@ Once the user is authenticated using Azure AD, it is important to evaluate the l
 
 Each interaction in the diagram showed in Figure X represents one access control scenario that can be covered by Azure AD. Below you have a description of each scenario:
 
-1.Conditional Access to applications that are hosted on-premises: You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md).
-2.Access Control to Azure Management Portal:  Azure also has the capability to control access to the Management Portal by using RBAC (Role Based Access Control). This method enables the company to restrict the amount of operations that an individual can do once he has access to Azure Management Portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
+1. Conditional Access to applications that are hosted on-premises: You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access.md).
+
+2. Access Control to the Azure portal:  Azure also lets you control access to the portal by using role-based access control (RBAC)). This method enables the company to restrict the amount of operations that an individual can do in the Azure portal. By using RBAC to control access to the portal, IT Admins can delegate access by using the following access management approaches:
 
 * Group-based role assignment: You can assign access to Azure AD groups that can be synced from your local Active Directory. This enables you to leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
 * Leverage built in roles in Azure: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.
 * Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
 > [!NOTE]
-> read [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
-> 
-> 
+> If you are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
+>
+>
 
-3.Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
+3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
 
-4.Conditional Access for Saas apps: [This feature](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+4. Conditional Access for Saas apps: [This feature](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 
 Since the options for access control use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each scenario that requires you to control access to your resources.
 
@@ -140,8 +141,8 @@ Azure AD can assist IT to identity potential security risks in the environment b
 
 > [!TIP]
 > Another report that can also help the Incident Response team working on a case is the [user with leaked credentials](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) report.  This report surfaces any matches between these leaked credentials list and your tenant.
-> 
-> 
+>
+>
 
 Other important built in reports in Azure AD that can be used during an incident response investigation and are:
 
@@ -165,4 +166,3 @@ Since the options for incident response use a multilayer approach, comparison be
 
 ## See Also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
-

@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure ExpressRoute Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to configure and manage a private ExpressRoute connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #ExpressRoute Documentation
 
 Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility. Tutorials, REST APIs, and other documentation help you configure and manage an ExpressRoute circuit.
@@ -73,10 +85,11 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </li>
     <li>
@@ -94,11 +107,4 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download ExpressRoute Documentation
-        </div>
-    </a>
-</div>
+

@@ -1,5 +1,5 @@
 ---
-title: Dependencies in Resource Manager templates | Microsoft Docs
+title: Set deployment order for Azure resources | Microsoft Docs
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
 services: azure-resource-manager
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
-# Defining dependencies in Azure Resource Manager templates
+# Define the order for deploying resources in Azure Resource Manager templates
 For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function. 
 
 Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template. 
@@ -56,7 +56,7 @@ When defining dependencies, you can include the resource provider namespace and 
 ]
 ``` 
 
-While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, dependsOn is not the right approach. You cannot query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager does not deploy in parallel two resources that have a dependency. To document relationships between resources, instead use [resource linking](resource-group-link-resources.md).
+While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, dependsOn is not the right approach. You cannot query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager does not deploy in parallel two resources that have a dependency. To document relationships between resources, instead use [resource linking](/rest/api/resources/resourcelinks).
 
 ## Child resources
 The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It is important to note that an implicit dependency is not created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
@@ -104,7 +104,7 @@ The following example shows a SQL server and SQL database. Notice that an explic
 ```
 
 ## reference function
-The [reference function](resource-group-template-functions.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
+The [reference function](resource-group-template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
 
 ```json
 reference('resourceName').propertyPath
@@ -129,7 +129,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
-To learn more, see [reference function](resource-group-template-functions.md#reference).
+To learn more, see [reference function](resource-group-template-functions-resource.md#reference).
 
 ## Recommendations for setting dependencies
 

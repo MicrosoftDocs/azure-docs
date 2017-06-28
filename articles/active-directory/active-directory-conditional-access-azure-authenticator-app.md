@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/16/2017
 ms.author: femila
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Azure Authenticator for Android

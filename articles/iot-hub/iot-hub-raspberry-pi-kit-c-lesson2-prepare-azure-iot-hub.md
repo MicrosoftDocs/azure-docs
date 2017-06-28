@@ -1,5 +1,5 @@
 ---
-title: Create your IoT hub and register Raspberry Pi 3 | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Pi in the Azure IoT hub by using the Azure CLI.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'raspberry pi cloud, pi cloud connect'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: 4bcfb071-b3ae-48cc-8ea5-7e7434732287
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

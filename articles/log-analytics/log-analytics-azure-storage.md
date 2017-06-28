@@ -1,9 +1,9 @@
----
-title: Collecting logs and metrics for Azure services in Log Analytics | Microsoft Docs
+﻿---
+title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
+ms.custom: H1Hack27Feb2017
 
 ---
-# Collecting logs and metrics for Azure services in Log Analytics
+# Collect Azure service logs and metrics for use in Log Analytics
 
 There are four different ways of collecting logs and metrics for Azure services:
 
@@ -28,29 +29,30 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | Azure Networking Analytics (Preview) |
-| API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
-| Application insights    |                                         | Connector   | Connector   | Application Insights Connector (Preview) |
-| Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
+| Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
-| Classic cloud services  |                                         | Storage     |             | |
+| Classic cloud services  |                                         | Storage     |             | [More information](log-analytics-azure-storage-iis-table.md) |
 | Cognitive services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Event Hub namespace     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | KeyVault Analytics (Preview) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | Azure Networking Analytics (Preview) |
+| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Recovery vaults         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
-| Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
-| Service Fabric          |                                         | Storage     |             | ServiceFabric Analytics (Preview) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
+| Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](log-analytics-azure-sql.md) |
+| Storage                 |                                         |             | Script      | [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Azure Web Apps Analytics (Preview)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
 
 
 > [!NOTE]
@@ -67,10 +69,11 @@ Azure resources that support [Azure monitor](../monitoring-and-diagnostics/monit
 * For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### Enable diagnostics with PowerShell
+You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
-The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - just set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
+The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
 
-```
+```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
@@ -82,7 +85,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 To enable diagnostics on a resource when it is created, and have the diagnostics sent to your Log Analytics workspace you can use a template similar to the one below. This example is for an Automation account but works for all supported resource types.
 
-```
+```json
         {
             "type": "Microsoft.Automation/automationAccounts/providers/diagnosticSettings",
             "name": "[concat(parameters('omsAutomationAccountName'), '/', 'Microsoft.Insights/service')]",
@@ -107,6 +110,7 @@ To enable diagnostics on a resource when it is created, and have the diagnostics
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Azure diagnostics to storage then to Log Analytics
 

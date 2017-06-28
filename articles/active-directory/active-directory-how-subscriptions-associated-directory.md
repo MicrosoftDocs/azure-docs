@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 05/08/2017
 ms.author: curtand
 
 ---
@@ -36,8 +36,8 @@ For example, here a user with a Microsoft account signs in to the Azure classic 
 
 > [!NOTE]
 > To sign in to the Azure classic portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -101,8 +101,8 @@ To manage both of the directories in the Azure classic portal, complete these st
 
 > [!NOTE]
 > These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
-> 
-> 
+>
+>
 
 1. Sign in to the Azure classic portal using your Microsoft account.
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -113,7 +113,7 @@ To manage both of the directories in the Azure classic portal, complete these st
 7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 ## Next Steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 * For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 * [Sign up for Azure as an organization](sign-up-organization.md)

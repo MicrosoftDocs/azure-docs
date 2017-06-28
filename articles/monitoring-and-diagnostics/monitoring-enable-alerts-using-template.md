@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/21/2017
 ms.author: johnkem
 
 ---
@@ -105,9 +105,9 @@ To create an alert using a Resource Manager template, you create a resource of t
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "00:05:00",
+            "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between 00:05:00 and 24:00:00. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
@@ -150,9 +150,9 @@ To create an alert using a Resource Manager template, you create a resource of t
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -237,7 +237,7 @@ An alert on a Resource Manager template is most often useful when creating an al
         "metricName": "Percentage CPU",
         "operator": "GreaterThan",
         "threshold": "80",
-        "windowSize": "00:10:00",
+        "windowSize": "PT5M",
         "aggregation": "Average",
         "customEmails": "",
         "sendToServiceOwners": true,
@@ -372,9 +372,9 @@ An alert on a Resource Manager template is most often useful when creating an al
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"

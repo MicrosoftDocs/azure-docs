@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Notification Hubs Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Notification Hubs Documentation
 
 Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
@@ -54,7 +66,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +102,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +120,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to iOS with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to iOS with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +138,7 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Notification Hubs for Kindle apps</h3>
+                        <h3>Get started with Notification Hubs for Kindle apps</h3>
                     </div>
                 </div>
             </div>
@@ -195,13 +207,3 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Notification Hubs Documentation
-        </div>
-    </a>
-</div>

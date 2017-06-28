@@ -1,23 +1,33 @@
 ---
-title: Difference in Proportions Test | Microsoft Docs
-description: Difference in Proportions Test
-services: machine-learning
-documentationcenter: ''
-author: aniedea
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: (deprecated) Difference in Proportions Test - Azure | Microsoft Docs 
+description: (deprecated) Difference in Proportions Test 
+services: machine-learning 
+documentationcenter: '' 
+author: aniedea 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/06/2017 
 ms.author: aniedea
 
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
+
 ---
-# Difference in Proportions Test
+# (deprecated) Difference in Proportions Test
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Are two proportions statistically different? Suppose a user wants to compare two movies to determine if one movie has a significantly higher proportion of ‘likes’ when compared to the other. With a large sample, there could be a statistically significant difference between the proportions 0.50 and 0.51. With a small sample, there may not be enough data to determine if these proportions are actually different. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

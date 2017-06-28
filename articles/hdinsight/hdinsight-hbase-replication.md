@@ -1,5 +1,5 @@
 ﻿---
-title: Configure HBase replication | Microsoft Docs
+title: Configure HBase cluster replication within virtual networks - Azure  | Microsoft Docs
 description: Learn how to configure HBase replication for load balancing, high availability, zero-downtime migration/update from one HDInsight version to another, and disaster recovery.
 services: hdinsight,virtual-network
 documentationcenter: ''
@@ -8,15 +8,16 @@ manager: jhubbard
 editor: cgronlun
 
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/21/2016
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
-# Configure HBase replication
+# Configure HBase cluster replication within virtual networks
 
 Learn how to configure HBase replication within one virtual network (VNet) or between two virtual networks.
 
@@ -57,15 +58,17 @@ To make it easier to configure the environments, we have created some [Azure Res
 
 ### Configure one virtual network
 
-Click the following image to create two HBase clusters in the same virtual network. The template is stored in a public Azure Blob container.
+Click the following image to create two HBase clusters in the same virtual network. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### Configure two virtual networks in the same region
 
-Click the following image to create two virtual networks with VNet peering and two HBase clusters in the same region. The template is stored in a public Azure Blob container.
+Click the following image to create two virtual networks with VNet peering and two HBase clusters in the same region. The template is stored in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+
 
 This scenario requires [VNet peering](../virtual-network/virtual-network-peering-overview.md). The template enables VNet peering.   
 
@@ -242,7 +245,7 @@ In this tutorial, you learned how to configure HBase replication across two data
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

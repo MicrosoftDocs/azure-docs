@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 
 ---
@@ -102,7 +102,9 @@ This topic compares the encoding capabilities of **Media Encoder Standard** and 
 | MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |No |Yes |
 | MPEG-1 |No |Yes |
 | Windows Media Video/VC-1 |No |Yes |
-| JPEG thumbnail creation |No |Yes |
+| JPEG thumbnail creation |Yes |Yes |
+| PNG thumbnail creation |Yes |Yes |
+| BMP thumbnail creation |Yes |No |
 
 ### Output Audio Codecs
 | Output Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
@@ -115,6 +117,8 @@ This topic compares the encoding capabilities of **Media Encoder Standard** and 
 | MP3 (MPEG-1 Audio Layer 3) |No |Yes |
 | Windows Media Audio |No |Yes |
 
+>[!NOTE]
+>If you encode to Dolby® Digital (AC3), the output can only be written into an ISO MP4 file.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

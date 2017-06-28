@@ -1,10 +1,10 @@
----
-title: Creating management solutions in Operations Management Suite (OMS) | Microsoft Docs
+﻿---
+title: Build a management solution in OMS | Microsoft Docs
 description: Management solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
@@ -13,252 +13,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 03/20/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Creating management solutions in Operations Management Suite (OMS) (Preview)
+# Design and build a management solution in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.  
->
->
+> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.
 
-Management solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on creating your own management solutions that you can use in your own environment or make available to customers through the community.
+[Management solutions](operations-management-suite-solutions.md) extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article presents a basic process to design and build a management solution that is suitable for most common requirements.  If you are new to building management solutions then you can use this process as a starting point and then leverage the concepts for more complex solutions as your requirements evolve.
 
-## Planning your management solution
-Management solutions in OMS include multiple resources supporting a particular management scenario.  When planning your solution, you should focus on the scenario that you're trying to achieve and all required resources to support it.  Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a management solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
+## What is a management solution?
 
-For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
+Management solutions contain OMS and Azure resources that work together to achieve a particular monitoring scenario.  They are implemented as [Resource Management templates](../azure-resource-manager/resource-manager-template-walkthrough.md) that contain details of how to install and configure their contained resources when the solution is installed.
 
-## Management solution files
-Management solutions are implemented as [Resource Management templates](../azure-resource-manager/resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
-
-The basic structure of a management solution file is the same as a [Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
-
-## Parameters
-[Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
-
-When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-management-solutions) they are prompted to select an [OMS workspace and Automation account](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
-
-When the user installs your solution [another method](operations-management-suite-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
-
-A sample parameter is shown below.
-
-    "Daily Start Time": {
-        "type": "string",
-        "metadata": {
-            "description": "Enter time for starting VMs by resource group.",
-            "control": "datetime",
-            "category": "Schedule"
-        }
-
-The following table describes the attributes of a parameter.
-
-| Attribute | Description |
-|:--- |:--- |
-| type |Data type for the parameter. The input control displayed for the user depends on the data type.<br><br>bool - Drop down box<br>string - Text box<br>int - Text box<br>securestring - Password field<br> |
-| category |Optional category for the parameter.  Parameters in the same category are grouped together. |
-| control |Additional functionality for string parameters.<br><br>datetime - Datetime control is displayed.<br>guid - Guid value is automatically generated, and the parameter is not displayed. |
-| description |Optional description for the parameter.  Displayed in an information balloon next to the parameter. |
-
-### Standard parameters
-The following table lists the standard parameters for all management solutions.  These values are populated for the user instead of prompting for them when your solution is installed from the Azure Marketplace or Quickstart templates.  The user must provide values for them if the solution is installed with another method.
-
-> [!NOTE]
-> The user interface in the Azure Marketplace and Quickstart templates is expecting the parameter names in the table.  If you use different parameter names then the user will be prompted for them, and they will not be automatically populated.
->
->
-
-| Parameter | Type | Description |
-|:--- |:--- |:--- |
-| accountName |string |Azure Automation account name. |
-| pricingTier |string |Pricing tier of both Log Analytics workspace and Azure Automation account. |
-| regionId |string |Region of the Azure Automation account. |
-| solutionName |string |Name of the solution. |
-| workspaceName |string |Log Analytics workspace name. |
-| workspaceRegionId |string |Region of the Log Analytics workspace. |
-
-### Sample
-Following is a sample parameter entity for a solution.  This includes all of the standard  parameters and two additional parameters in the same category.
-
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "A valid Log Analytics workspace name"
-            }
-        },
-        "accountName": {
-               "type": "string",
-               "metadata": {
-                   "description": "A valid Azure Automation account name"
-               }
-        },
-        "workspaceRegionId": {
-               "type": "string",
-               "metadata": {
-                   "description": "Region of the Log Analytics workspace"
-            }
-        },
-        "regionId": {
-            "type": "string",
-            "metadata": {
-                "description": "Region of the Azure Automation account"
-            }
-        },
-        "pricingTier": {
-            "type": "string",
-            "metadata": {
-                "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
-        }
+The basic strategy is to start your management solution by building the individual components in your Azure environment.  Once you have the functionality working properly, then you can start packaging them into a [management solution file](operations-management-suite-solutions-solution-file.md). 
 
 
-You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')**
+## Design your solution
+The most common pattern for a management solution is shown in the following diagram.  The different components in this pattern are discussed in the below.
 
-## Variables
-The **Variables** element includes values that you will use in the rest of the management solution.  These values are not exposed to the user installing the solution.  They are intended to provide the author with a single location where they can manage values that may be used multiple times throughout the solution. You should put any values specific to your solution in variables as opposed to hardcoding them in the **resources** element.  This makes the code more readable and allows you to easily change these values in later versions.
-
-Following is an example of a **variables** element with typical parameters used in solutions.
-
-    "variables": {
-        "SolutionVersion": "1.1",
-        "SolutionPublisher": "Contoso",
-        "SolutionName": "My Solution",
-        "LogAnalyticsApiVersion": "2015-11-01-preview",
-        "AutomationApiVersion": "2015-10-31"
-    },
-
-You refer to variable values through the solution with the syntax **variables('variable name')**.  For example, to access the SolutionName variable, you would use **variables('solutionName')**
-
-## Resources
-The **resources** element defines the different resources included in your management solution.  This will be the largest and most complex portion of the template.  Resources are defined with the following structure.  
-
-    "resources": [
-        {
-            "name": "<name-of-the-resource>",            
-            "apiVersion": "<api-version-of-resource>",
-            "type": "<resource-provider-namespace/resource-type-name>",        
-            "location": "<location-of-resource>",
-            "tags": "<name-value-pairs-for-resource-tagging>",
-            "comments": "<your-reference-notes>",
-            "dependsOn": [
-                "<array-of-related-resource-names>"
-            ],
-            "properties": "<unique-settings-for-the-resource>",
-            "resources": [
-                "<array-of-child-resources>"
-            ]
-        }
-    ]
-
-### Dependencies
-The **dependsOn** elements specifies a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](operations-management-suite-solutions-resources-automation.md#runbooks) when it's installed using a [job resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
-
-### OMS workspace and Automation account
-Management solutions require an [OMS workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
-
-## Solution resource
-Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions**.  Following is an example of a solution resource.  Its different elements are described in the sections below.
-
-    "name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
-    "location": "[parameters('workspaceRegionId')]",
-    "tags": { },
-    "type": "Microsoft.OperationsManagement/solutions",
-    "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]",
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-    ]
-    "properties": {
-        "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-        "referencedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]"
-        ],
-        "containedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-        ]
-    },
-    "plan": {
-        "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
-        "Version": "[variables('SolutionVersion')]",
-        "product": "AzureSQLAnalyticSolution",
-        "publisher": "[variables('SolutionPublisher')]",
-        "promotionCode": ""
-    }
-
-### Solution name
-The solution name must be unique in your Azure subscription. The recommended value to use is the following.  This uses a variable called **SolutionName** for the base name and the **workspaceName** parameter to ensure that the name is unique.
-
-    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
-
-This would resolve to a name like the following.
-
-    My Solution Name [MyWorkspace]
+![OMS solution overview](media/operations-management-suite-solutions/solution-overview.png)
 
 
-### Dependencies
-The solution resource must have a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  You do this by adding an entry for each resource in the **dependsOn** element.
+### Data sources
+The first step in designing a solution is determining the data that you require from the Log Analytics repository.  This data may be collected by a [data source](../log-analytics/log-analytics-data-sources.md) or [another solution](operations-management-suite-solutions.md), or your solution may need to provide the process to collect it.
 
-### Properties
-The solution resource has the properties in the following table.  This includes the resources referenced and contained by the solution which defines how the resource is managed after the solution is installed.  Each resource in the solution should be listed in either the **referencedResources** or the **containedResources** property.
+There are a number of ways data sources that can be collected in the Log Analytics repository as described in [Data sources in Log Analytics](../log-analytics/log-analytics-data-sources.md).  This includes events in the Windows Event Log or generated by Syslog in addition to performance counters for both Windows and Linux clients.  You can also gather data from Azure resources collected by Azure Monitor.  
 
-| Property | Description |
-|:--- |:--- |
-| workspaceResourceId |ID of the OMS workspace in the form *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
-| referencedResources |List of resources in the solution that should not be removed when the solution is removed. |
-| containedResources |List of resources in the solution that should be removed when the solution is removed. |
+If you require data that's not accessible through any of the available data sources, then you can use the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) which allows you to write data to the Log Analytics repository from any client that can call a REST API.  The most common means of custom data collection in a management solution is to create a [runbook in Azure Automation](../automation/automation-runbook-types.md) that collects the required data from Azure or external resources and uses the Data Collector API to write to the repository.  
 
-The example  above is for a solution with a runbook, a schedule, and view.  The schedule and runbook are *referenced* in the  **properties**  element so they are not removed when the solution is removed.  The view is *contained* so it is removed when the solution is removed.
+### Log searches
+[Log searches](../log-analytics/log-analytics-log-searches.md) are used to extract and analyze data in the Log Analytics repository.  They are used by views and alerts in addition to allowing the user to perform ad hoc analysis of data in the repository.  
 
-### Plan
-The **plan** entity of the solution resource has the properties in the following table.
+You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include them in a [List of Queries visualization part](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in your custom view.
 
-| Property | Description |
-|:--- |:--- |
-| name |Name of the solution. |
-| version |Version of the solution as determined by the author. |
-| product |Unique string to identify the solution. |
-| publisher |Publisher of the solution. |
+### Alerts
+[Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
 
-## Other resources
-You can get the details and samples of resources that are common to management solutions in the following articles.
+If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](/powershell/azure/overview) which the runbook would leverage to perform such functionality.
 
-* [Views and dashboards](operations-management-suite-solutions-resources-views.md)
-* [Automation resources](operations-management-suite-solutions-resources-automation.md)
+If your solution requires external functionality in response to an alert, then you can use a [webhook response](../log-analytics/log-analytics-alerts-actions.md).  This allows you to call an external web service sending information from the alert.
 
-## Testing a management solution
-Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
+### Views
+Views in Log Analytics are used to visualize data from the Log Analytics repository.  Each solution will typically contain a single view with a [tile](../log-analytics/log-analytics-view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../log-analytics/log-analytics-view-designer-parts.md) to provide different visualizations of the collected data to the user.
+
+You [create custom views using the View Designer](../log-analytics/log-analytics-view-designer.md) which you can later export for inclusion in your solution file.  
+
+
+## Create solution file
+Once you've configured and tested the components that will be part of your solution, you can [create your solution file](operations-management-suite-solutions-solution-file.md).  You will implement the solution components in a [Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) that includes a [solution resource](operations-management-suite-solutions-solution-file.md#solution-resource) with relationships to the other resources in the file.  
+
+
+## Test your solution
+While you are developing your solution, you will need to install and test it in your workspace.  You can do this using any of the available methods to [test and install Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
+
+## Publish your solution
+Once you have completed and tested your solution, you can make it available to customers through either the following sources.
+
+- **Azure Quickstart templates**.  [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a set of Resource Manager templates contributed by the community through GitHub.  You can make your solution available by following information in the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Marketplace**.  The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) allows you to distribute and sell your solution to other developers, ISVs, and IT professionals.  You can learn how to publish your solution to Azure Marketplace at [How to publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+
+
 
 ## Next steps
+* Learn how to [create a solution file](operations-management-suite-solutions-solution-file.md) for your management solution.
 * Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
-* View the details for [adding views to a management solution](operations-management-suite-solutions-resources-views.md).
-* View the details for [adding Automation resources to a management solution](operations-management-suite-solutions-resources-automation.md).

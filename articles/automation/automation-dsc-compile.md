@@ -1,6 +1,6 @@
----
+﻿---
 title: Compiling configurations in Azure Automation DSC | Microsoft Docs
-description: 'Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. '
+description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 documentationcenter: na
 author: eslesar
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 ---
+
 # Compiling configurations in Azure Automation DSC
 
-You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each:
+You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: in the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each:
 
-### Azure preview portal
+### Azure portal
 
 * Simplest method with interactive user interface
 * Form to provide simple parameter values
@@ -40,7 +41,7 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 ## Compiling a DSC Configuration with the Azure portal
 
-1. From your automation account, click **Configurations**.
+1. From your Automation account, click **DSC Configurations**.
 2. Click a configuration to open its blade.
 3. Click **Compile**.
 4. If the configuration has no parameters, you will be prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade will open so you can provide parameter values. See the [**Basic Parameters**](#basic-parameters) section below for further details on parameters.
@@ -48,13 +49,13 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 ## Compiling a DSC Configuration with Windows PowerShell
 
-You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244118.aspx) to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
+You can use [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob) to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
 
 ```powershell
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` returns a compilation job object that you can use to track its status. You can then use this compilation job object with [`Get-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244120.aspx) to determine the status of the compilation job, and [`Get-AzureRmAutomationDscCompilationJobOutput`](https://msdn.microsoft.com/library/mt244103.aspx) to view its streams (output). The following sample code starts compilation of the **SampleConfig** configuration, waits until it has completed, and then displays its streams.
+`Start-AzureRmAutomationDscCompilationJob` returns a compilation job object that you can use to track its status. You can then use this compilation job object with [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) to determine the status of the compilation job, and [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) to view its streams (output). The following sample code starts compilation of the **SampleConfig** configuration, waits until it has completed, and then displays its streams.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
@@ -201,7 +202,7 @@ The following example shows a DSC configuration that uses an Automation credenti
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {
@@ -235,3 +236,41 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+## Importing node configurations
+
+You can also import node configuratons (MOFs) that you have compiled outside of Azure. One advantage of this is that node confiturations can be signed.
+A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comes from an
+authorized source.
+
+> [!NOTE]
+> You can use import signed configurations into your Azure Automation account, but Azure Automation does not currently support compiling signed configurations.
+
+> [!NOTE]
+> A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
+
+You can learn how to sign node configurations at https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+
+### Importing a node configuration in the Azure portal
+
+1. From your Automation account, click **DSC node configurations**.
+
+    ![DSC node configurations](./media/automation-dsc-compile/node-config.png)
+2. In the **DSC node configurations** blade, click **Add a NodeConfiguration**.
+3. In the **Import** blade, click the folder icon next to the **Node Configuration File** textbox to browse for a node configuration file (MOF) on your local computer.
+
+    ![Browse for local file](./media/automation-dsc-compile/import-browse.png)
+4. Enter a name in the **Configuration Name** textbox. This name must match the name of the configuration from which the node configuration was compiled.
+5. Click **OK**.
+
+### Importing a node configuration with PowerShell
+
+You can use the [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration)
+cmdlet to import a node configuration into your automation account.
+
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: Hive Activity
+title: Transform data using Hive Activity - Azure | Microsoft Docs
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -13,24 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 05/16/2017
 ms.author: shlo
 
 ---
-# Hive Activity
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> * [.NET custom](data-factory-use-custom-activities.md)
-> 
-> 
+# Transform data using Hive Activity in Azure Data Factory 
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive Activity](data-factory-hive-activity.md) 
+> * [Pig Activity](data-factory-pig-activity.md)
+> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+> * [Spark Activity](data-factory-spark.md)
+> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
+
+> [!NOTE] 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](data-factory-introduction.md) and do the tutorial: [Build your first data pipeline](data-factory-build-your-first-pipeline.md) before reading this article. 
 
 ## Syntax
 
@@ -194,8 +197,8 @@ To use parameterized Hive script, do the following
                       "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
                       "scriptLinkedService": "StorageLinkedService",
                       "defines": {
-                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
                       },
                        "scheduler": {
                           "frequency": "Hour",

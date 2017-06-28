@@ -1,4 +1,4 @@
----
+﻿---
 title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/17/2016
+ms.date: 06/16/2017
 ms.author: billmath
 
 ---
@@ -22,8 +22,6 @@ The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manag
 
 > [!NOTE]
 > This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
-> 
-> 
 
 This topic list all versions of the Connectors that have been released.
 
@@ -35,6 +33,106 @@ Related links:
 * [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) reference documentation
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
+
+## 1.1.552.0 (AADConnect 1.1.553.0)
+
+### Fixed issues:
+
+* Generic Web Services:
+  * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. Because of this, there were problems with serialization this Json array for the REST request.
+  * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
+
+### Enhancements:
+
+* Generic SQL:
+  * **Scenario: Reimplemeted:** "*" feature
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### Fixed issues:
+
+* Generic Web Services:
+  * Can’t import Server configuration if WebService Connector is present
+  * WebService Connector is not working with multiple  Web Services
+
+* Generic SQL:
+  * No object types are listed for single value referenced attribute
+  * Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
+  * OverflowException in GSQL connector with DB2 on AS/400
+
+Lotus:
+  * Added option to enable\disable searching OUs before opening GlobalParameters page
+
+## 1.1.443.0
+
+Released: 2017 March
+
+### Enhancements
+
+* Generic SQL:</br>
+  **Scenario Symptoms:**  It is a well-known limitation with the SQL Connector where we only allow a reference to one object type and require cross reference with members. </br>
+  **Solution description:** In the processing step for references where "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.
+
+>[!Important]
+- This will create many placeholders
+- It is required to make sure the naming is unique cross object types.
+
+
+* Generic LDAP:</br>
+ **Scenario:**
+When only few containers are selected in specific partition, then the search still will be done in whole partition. Specific will be filtered by Synchronization
+Service, but not by MA which might cause performance degradation. </br>
+
+ **Solution description:** Changed GLDAP connector's code to make it possible go through all containers and search objects in each of them, instead of searching in the whole partition.
+
+
+* Lotus Domino:
+
+  **Scenario:** Domino mail deletion support for a person removal during an export. </br>
+  **Solution:** Configurable mail deletion support for a person removal during an export.
+
+### Fixed issues:
+* Generic Web Services:
+ * When changing the service URL in Default SAP wsconfig projects through WebService Configuration Tool then the following error happens:
+Could not find a part of the path
+
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
+
+* Generic LDAP:
+ * GLDAP Connector does not see all attributes in AD LDS
+ * Wizard breaks when no UPN attributes are detected from the LDAP directory schema
+ * Delta Imports Failing with discovery errors not present during full import, when "objectclass" attribute is not selected
+ * A "Configure Partitions and Hierarchies” configuration page, doesn’t show any objects which type is equal to the partition for Novel servers in the Generic  
+LDAP MA. They showed only objects from RootDSE partition.
+
+
+* Generic SQL:
+ * Fix for Generic SQL watermark Delta Import multivalued attribute not imported bug
+ * When exporting deleted\added values of multivalued attribute, they are not deleted\added in data source.  
+
+
+* Lotus Notes:
+ * A specific field "Full Name" is shown in the metaverse correctly however when exporting to Notes the value for the attribute is Null or Empty.
+ * Fix for duplicate Certifier error
+ * When the Object without any data is selected on the Lotus Domino Connector with other objects then we receive the Discovery error while performing Full-Import.
+ * When Delta Import is being running on the Lotus Domino Connector, at the end of that run, the Microsoft.IdentityManagement.MA.LotusDomino.Service.exe service sometimes returns an Application Error.
+ * Group membership overall works fine and is maintained, except when running the export to try to remove a user from membership it shows as successful with an update, but the user doesn’t actually get removed from membership in Lotus Notes.
+ * An opportunity to choose mode of export as “Append Item at bottom” was added in configuration GUI of Lotus MA to append new items at bottom during the export for multi-valued attributes.
+ * Connector will add the needed logic to delete the file from the Mail Folder and ID Vault.
+ * Delete membership not working for cross NAB member.
+ * Values should be successfully deleted from multi-valued attribute
 
 ## 1.1.117.0
 Released: 2016 March
@@ -97,4 +195,3 @@ Before March 2016, the Connectors were released as support topics.
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

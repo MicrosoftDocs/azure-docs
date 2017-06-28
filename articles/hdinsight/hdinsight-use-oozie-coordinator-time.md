@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 05/25/2017
 ms.author: jgao
 
 ---
@@ -727,7 +728,7 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md

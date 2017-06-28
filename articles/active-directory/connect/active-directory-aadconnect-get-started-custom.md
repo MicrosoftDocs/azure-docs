@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 03/30/2017
 ms.author: billmath
 
 ---
@@ -35,7 +35,7 @@ When you install the synchronization services, you can leave the optional config
 | Optional Configuration | Description |
 | --- | --- |
 | Use an existing SQL Server |Allows you to specify the SQL Server name and the instance name. Choose this option if you already have a database server that you would like to use. Enter the instance name followed by a comma and port number in **Instance Name** if your SQL Server does not have browsing enabled. |
-| Use an existing service account |By default Azure AD Connect creates a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server or use a proxy that requires authentication, you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Use an existing service account |By default Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you need to use a **managed service account** or use a service account in the domain and know the password. In those cases, enter the account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
 | Specify custom sync groups |By default Azure AD Connect creates four groups local to the server when the synchronization services are installed. These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group. You can specify your own groups here. The groups must be local on the server and cannot be located in the domain. |
 
 ### User sign-in
@@ -46,11 +46,11 @@ After installing the required components, you are asked to select your users sin
 | Single Sign On option | Description |
 | --- | --- |
 | Password Sync |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network. The users passwords are synchronized to Azure AD as a password hash and authentication occurs in the cloud. See [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information. |
-|Pass-through Authentication (Preview)|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory controller to be validated. 
+|Pass-through Authentication (Preview)|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory controller to be validated.
 | Federation with AD FS |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises AD FS instance to sign in and authentication occurs on-premises. |
 | Do not configure |Neither feature is installed and configured. Choose this option if you already have a 3rd party federation server or another existing solution in place. |
 |Enable Single Sign on|This options is available with both password sync and Pass-through authentication and provides a single sign on experience for desktop users on the corporate network.  See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>(if PTA is not released at the same time)
-|Sign On Option|This options is available for password sync customers and provides a single sign on experience for desktop users on the corporate network.  </br>See See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.
+|Sign On Option|This options is available for password sync customers and provides a single sign on experience for desktop users on the corporate network.  </br>See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.
 
 
 ### Connect to Azure AD
@@ -69,9 +69,19 @@ If you receive an error and have problems with connectivity, then see [Troublesh
 ## Pages under the section Sync
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
 
-![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+After entering the forest name and clicking  **Add Directory**, a pop-up dialog appears and prompts you with the following options:
+
+| Option | Description |
+| --- | --- |
+| Use existing account | Select this option if you want to provide an existing AD DS account to be used Azure AD Connect for connecting to the AD forest during directory synchronization. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Create new account | Select this option if you want Azure AD Connect wizard to create the AD DS account required by Azure AD Connect for connecting to the AD forest during directory synchronization. When this option is selected, enter the username and password for an enterprise admin account. The enterprise admin account provided will be used by Azure AD Connect wizard to create the required AD DS account. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\administrator or fabrikam.com\administrator. |
+
+![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### Azure AD sign-in configuration
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
@@ -91,14 +101,20 @@ Review every domain marked **Not Added** and **Not Verified**. Make sure those d
 
 ### Domain and OU filtering
 By default all domains and OUs are synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
-![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)
-This page in the wizard is configuring domain-based filtering. For more information, see [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+This page in the wizard is configuring domain-based and OU-based filtering. If you plan to make changes, then see [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) and [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) before you make these changes. Some OUs are essential for the functionality and should not be unselected.
+
+If you use OU-based filtering with Azure AD Connect version before 1.1.524.0, new OUs added later are synchronized by default. If you want the behavior that new OUs should not be synchronized, then you can configure it after the wizard has completed with [ou-based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). For Azure AD Connect version 1.1.524.0 or after, you can indicate whether you want new OUs to be synchronized or not.
+
+If you plan to use [group-based filtering](#sync-filtering-based-on-groups), then make sure the OU with the group is included and not filtered with OU-filtering. OU filtering is evaluated before group-based filtering.
 
 It is also possible that some domains are not reachable due to firewall restrictions. These domains are unselected by default and have a warning.  
 ![Unreachable domains](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
 If you see this warning, make sure that these domains are indeed unreachable and the warning is expected.
 
 ### Uniquely identifying your users
+
+#### Select how users should be identified in your on-premises directories
 The Matching across forests feature allows you to define how users from your AD DS forests are represented in Azure AD. A user might either be represented only once across all forests or have a combination of enabled and disabled accounts. The user might also be represented as a contact in some forests.
 
 ![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -111,7 +127,15 @@ The Matching across forests feature allows you to define how users from your AD 
 | sAMAccountName and MailNickName |This option joins on attributes where it is expected the sign-in ID for the user can be found. |
 | A specific attribute |This option allows you to select your own attribute. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
 
-**Source Anchor** - The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD. Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](active-directory-aadconnect-design-concepts.md#sourceanchor).
+#### Select how users should be identified with Azure AD - Source Anchor
+The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD.
+
+| Setting | Description |
+| --- | --- |
+| Let Azure manage the source anchor for me | Select this option if you want Azure AD to pick the attribute for you. If you select this option, Azure AD Connect wizard applies the sourceAnchor attribute selection logic described in article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). The wizard informs you which attribute has been picked as the Source Anchor attribute after Custom installation completes. |
+| A specific attribute | Select this option if you wish to specify an existing AD attribute as the sourceAnchor attribute. |
+
+Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### Sync filtering based on groups
 The filtering on groups feature allows you to sync only a small subset of objects for a pilot. To use this feature, create a group for this purpose in your on-premises Active Directory. Then add users and groups that should be synchronized to Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects that should be present in Azure AD. All objects you want to synchronize must be a direct member of the group. Users, groups, contacts, and computers/devices must all be direct members. Nested group membership is not resolved. When you add a group as a member, only the group itself is added and not its members.
@@ -138,46 +162,13 @@ This screen allows you to select the optional features for your specific scenari
 | Optional Features | Description |
 | --- | --- |
 | Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
+| Exchange Mail Public Folders | The Exchange Mail Public Folders feature allows you to synchronize mail-enabled Public Folder objects from your on-premises Active Directory to Azure AD. |
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
 | Password synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password synchronization can then be used as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>If you selected Pass-through Authentication this option is enabled by default to ensure support for legacy clients and as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Password writeback |By enabling password writeback, password changes that originate in Azure AD is written back to your on-premises directory. For more information, see [Getting started with password management](../active-directory-passwords-getting-started.md). |
 | Group writeback |If you use the **Office 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. For more information, see [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Device writeback |Allows you to writeback device objects in Azure AD to your on-premises Active Directory for conditional access scenarios. For more information, see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
 | Directory extension attribute sync |By enabling directory extensions attribute sync, attributes specified are synced to Azure AD. For more information, see [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md). |
-
-### Enabling Single sign on (SSO)
-Configuring single sign-on for use with Password Synchronization or Pass-through authentication is a simple process that you only need to complete once for each forest that is being synchronized to the Azure AD.  Configuration involves two steps as follows:
-
-1.	Creating the necessary computer account in your on-premises Active Directory.
-2.	Configuring the intranet zone of the client machines to support single sign on.
-
-#### Creating the Computer account in Active Directory
-For each forest that has been added via the AAD Connect tool you will need to supply Domain Administrator credentials so that the computer account can be created in each forest.  The credential is only used to create the account and is not stored or used for any other operation.  Simply add the credential on the Enable Single sign on page of the AAD Connect wizard as shown below:
-
-![Enable Single sign on](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->You can choose to skip a particular forest if you do not wish to use Single sign on with that forest.
-
-#### Configure the Intranet Zone for Client machines
-To ensure that the client logs on automatically in the intranet zone you will need to ensure that to URLs are part of the intranet zone.  This ensure that the domain joined desktop computer will automatically send a Kerberos ticket to when they are connected to the corporate network.
-On a computer that has the Group Policy management tools.
-
-1.	Open the Group Policy Management tools
-2.	Edit the Group policy that will be applied to all users.  For example, the Default Domain Policy.
-3.	Navigate to Current User\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page and select Site to Zone Assignment List per the image below.
-4.	Enable the policy, and enter the following two items in the dialog box.
-   
-		Value: https://autologon.microsoftazuread-sso.com
-		Data: 1
-		Value: https://aadg.windows.net.nsatc.net 
-		Data: 1
-
-5.	It should look similar to the following:
-![Intranet Zones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.	Click Ok twice.
-
 
 ### Azure AD app and attribute filtering
 If you want to limit which attributes to synchronize to Azure AD, then start by selecting which services you are using. If you make configuration changes on this page, a new service has to be selected explicitly by rerunning the installation wizard.
@@ -199,6 +190,39 @@ You can extend the schema in Azure AD with custom attributes added by your organ
 ![Directory extensions](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
 For more information, see [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+### Enabling Single sign on (SSO)
+Configuring single sign-on for use with Password Synchronization or Pass-through authentication is a simple process that you only need to complete once for each forest that is being synchronized to Azure AD. Configuration involves two steps as follows:
+
+1.	Create the necessary computer account in your on-premises Active Directory.
+2.	Configure the intranet zone of the client machines to support single sign on.
+
+#### Create the computer account in Active Directory
+For each forest that has been added in Azure AD Connect, you will need to supply Domain Administrator credentials so that the computer account can be created in each forest. The credentials are only used to create the account and are not stored or used for any other operation. Simply add the credentials on the **Enable Single sign on** page of the Azure AD Connect wizard as shown:
+
+![Enable Single sign on](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>You can skip a particular forest if you do not wish to use Single sign on with that forest.
+
+#### Configure the Intranet Zone for client machines
+To ensure that the client sign-ins automatically in the intranet zone you need to ensure that two URLs are part of the intranet zone. This ensures that the domain joined computer automatically sends a Kerberos ticket to Azure AD when it is connected to the corporate network.
+On a computer that has the Group Policy management tools.
+
+1.	Open the Group Policy Management tools
+2.	Edit the Group policy that will be applied to all users. For example, the Default Domain Policy.
+3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List** per the image below.
+4.	Enable the policy, and enter the following two items in the dialog box.
+
+		Value: `https://autologon.microsoftazuread-sso.com`  
+		Data: 1  
+		Value: `https://aadg.windows.net.nsatc.net`  
+		Data: 1
+
+5.	It should look similar to the following:  
+![Intranet Zones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.	Click **Ok** twice.
 
 ## Configuring federation with AD FS
 Configuring AD FS with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
@@ -310,11 +334,3 @@ Learn more about these features, which were enabled with the installation: [Prev
 Learn more about these common topics: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
-## Related documentation
-| Topic |
-| --- | --- |
-| Azure AD Connect overview |
-| Install using Express settings |
-| Upgrade from DirSync |
-| Accounts used for installation |

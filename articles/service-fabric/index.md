@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Service Fabric Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
+services: service-fabric
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-fabric
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Service Fabric Documentation
 
@@ -111,7 +122,8 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicefabric">PowerShell (Azure)</a></p>
+                        <p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -123,8 +135,9 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/java/api/microsoft.servicefabric.services">Java API</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
+                        <p><a href="/cli/azure/sf">Azure CLI</a></p>
+                        <p><a href="/java/api/overview/azure/servicefabric">Java API</a></p>
+                        <p><a href="/dotnet/api/overview/azure/servicefabric?view=azure-dotnet">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -145,11 +158,4 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
 </ul>	
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Fabric Documentation
-        </div>
-    </a>
-</div>
+

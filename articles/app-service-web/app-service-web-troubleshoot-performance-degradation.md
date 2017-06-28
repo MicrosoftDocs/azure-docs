@@ -4,7 +4,7 @@ description: This article helps you troubleshoot slow web app performance issues
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
@@ -111,6 +111,12 @@ For detailed instructions on how to configure your application for logging, see 
 In Azure App Service, Web Apps, API Apps, and WebJobs can be remotely profiled. If your process is running slower than expected, or the latency of HTTP requests are higher than normal and the CPU usage of the process is also high, you can remotely profile your process and get the CPU sampling call stacks to analyze the process activity and code hot paths.
 
 For more information on, see [Remote Profiling support in Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+
+#### Use Application Insights Profiler
+
+Sometimes the App Service app is slow because certain code is not written in a performant way. Examples include sequential code that can be run in parallel and undesired database lock contentions. Removing these bottlenecks in the code increases the app's performance, but they are hard to detect without setting up elaborate traces and logs. Application Insights Profiler helps overcome this challenge for App Service apps. 
+
+With minimal configuration, Application Insights Profiler provides statistics on response time for each web call and traces that indicates which line of code caused the slow responses. For more information, see [Profiling live Azure web apps with Application Insights](../application-insights/app-insights-profiler.md). 
 
 #### Use the Azure App Service Support Portal
 Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**

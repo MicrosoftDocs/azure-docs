@@ -2,8 +2,9 @@
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
+keywords: "open schema, data import"
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.service: application-insights
@@ -11,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: awills
+ms.date: 03/20/2017
+ms.author: cfreeman
 
 ---
 # Import data into Analytics
@@ -21,7 +22,7 @@ Import any tabular data into [Analytics](app-insights-analytics.md), either to j
 
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
-Currently, you can import CSV (comma-separated value) files, or similar formats using tab or semicolon separators.
+You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
 
 There are three situations where importing to Analytics is useful:
 
@@ -64,24 +65,68 @@ You need:
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
+You can have up to 50 data sources in a single Application Insights resource
 
-1. Start the data source wizard
+1. Start the data source wizard.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Follow the instructions to upload a sample data file.
+    Provide a name for your new data source.
 
- * The first row of the sample can be column headers. (You can change the field names in the next step.)
- * The sample should include at least 10 rows of data.
+2. Define format of the files that you will upload.
 
-3. Review the schema that the wizard has inferred from your sample. You can adjust the inferred types of the columns if necessary.
+    You can either define the format manually, or upload a sample file.
 
-4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
+    If the data is in CSV format, the first row of the sample can be column headers. You can change the field names in the next step.
 
-    ![Review the schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    The sample should include at least 10 rows or records of data.
+
+    Column or field names should have alphanumeric names (without spaces or punctuation).
+
+    ![Upload a sample file](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Review the schema that the wizard has got. If it inferred the types from a sample, you might need to adjust the inferred types of the columns.
+
+    ![Review the inferred schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * (Optional.) Upload a schema definition. See the format below.
+
+ * Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
 5. Create the data source.
 
+### Schema definition file format
+
+Instead of editing the schema in UI, you can load the schema definition from a file. The schema definition format is as follows: 
+
+Delimited format 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+JSON format 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Each column is identified by the location, name and type. 
+
+* Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
+* Name – the displayed name of the column.
+* Type – the data type of that column.
+ 
+In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
+
+JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -95,11 +140,14 @@ You can perform the following process manually, or set up an automated system to
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
+ * It's best to use a separate storage account for this purpose, to avoid calls from different services slowing performance.
+ * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
+
  
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
- * Endpoint: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Endpoint: `https://dc.services.visualstudio.com/v2/track`
  * HTTP method: POST
  * Payload:
 
@@ -111,7 +159,7 @@ You can perform the following process manually, or set up an automated system to
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -125,7 +173,7 @@ You can perform the following process manually, or set up an automated system to
 The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
-* `Data source name`: The name you gave to your data source. The data in this blob should conform to the schema you defined for this source.
+* `Schema ID`: The schema ID generated for your defined schema. The data in this blob should conform to the schema.
 * `DateTime`: The time at which the request is submitted, UTC. We accept these formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
@@ -136,13 +184,14 @@ The data is available in Analytics after a few minutes.
 * **400 bad request**: indicates that the request payload is invalid. Check:
  * Correct instrumentation key.
  * Valid time value. It should be the time now in UTC.
- * Data conforms to the schema.
+ * JSON of the event conforms to the schema.
 * **403 Forbidden**: The blob you've sent is not accessible. Make sure that the shared access key is valid and has not expired.
 * **404 Not Found**:
  * The blob doesn't exist.
- * The data source name is wrong.
+ * The sourceId is wrong.
 
 More detailed information is available in the response error message.
+
 
 ## Sample code
 
@@ -151,8 +200,6 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 ### Classes
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -246,7 +293,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -255,7 +302,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -268,10 +315,12 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -282,11 +331,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -304,7 +352,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### Ingest data
@@ -312,14 +359,11 @@ namespace IngestionClient
 Use this code for each blob. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## Next steps

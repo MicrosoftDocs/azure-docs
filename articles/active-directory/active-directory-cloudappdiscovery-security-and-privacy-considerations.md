@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
@@ -13,25 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/06/2017
 ms.author: markvi
 
 ---
 # Cloud App Discovery Security and Privacy Considerations
-Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization. <br>
+Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization.  
 We recognize that when you entrust your data to others, that trust requires rigorous security engineering investments and expertise to back it.
-Microsoft adheres to strict compliance and security guidelines from secure software development lifecycle practices to operating a service. <br>
+Microsoft adheres to strict compliance and security guidelines from secure software development lifecycle practices to operating a service.  
 Securing and protecting data is a top priority at Microsoft.
 
 This topic explains how data is collected, processed, and secured within Azure Active Directory Cloud App Discovery
 
 ## Overview
-Cloud App Discovery is a feature of Azure AD and is hosted in Microsoft Azure. <br>
-The Cloud App Discovery endpoint agent is used to collect application discovery data from IT managed machines. <br>
-The collected data is sent securely over an encrypted channel to the Azure AD Cloud App Discovery service. <br>
-The Cloud App Discovery data for an organization is then visible in the Azure portal. <br>
+Cloud App Discovery is a feature of Azure AD and is hosted in Microsoft Azure.  
+The Cloud App Discovery endpoint agent is used to collect application discovery data from IT managed machines.  
+The collected data is sent securely over an encrypted channel to the Azure AD Cloud App Discovery service.  
+The Cloud App Discovery data for an organization is then visible in the Azure portal. 
 
-<center>![How Cloud App Discovery Works](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) </center> <br>
+![How Cloud App Discovery Works](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) 
 
 The following sections follow the flow of information and describe how it is secured as it moves from your organization to the Cloud App Discovery service and ultimately to the Cloud App Discovery portal.
 
@@ -41,26 +40,27 @@ In order to use Azure Active Directory’s Cloud App discovery feature to get in
 Administrators of the Azure Active Directory tenant (or their delegate) can download the agent installation package from the Azure portal. The agent can either be manually installed or installed across multiple machines in the organization using SCCM or Group Policy.
 
 For further instructions on deployment options, see [Cloud App Discovery Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx).
-<br>
+
 
 ### Data collected by the agent
-The information outlined in the list below is collected by the agent when a connection is made to a Web application. The information is only collected for those applications that the administrator has configured for discovery. <br>
+The information outlined in the list below is collected by the agent when a connection is made to a Web application. The information is only collected for those applications that the administrator has configured for discovery.  
 You can edit the list of cloud apps that the agent monitors through the Cloud App Discovery blade in the Microsoft [Azure portal](https://portal.azure.com/), under **Settings**->**Data Collection**->**App Collection list**. For more details, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
-<br>
-**Information Category**: User information <br>
-**Description**: <br>
+
+
+**Information Category**: User information  
+**Description**:  
 The Windows user name of the process that made a request to the target Web application (e.g.: DOMAIN\username) as well as the Windows Security Identifier (SID) of the user.
 
-**Information Category**: Process information <br>
-**Description**: <br>
+**Information Category**: Process information  
+**Description**:  
 The name of the process that made the request to the target Web application (e.g.: “iexplore.exe”)
 
-**Information Category**: Machine information <br>
-**Description**: <br>
+**Information Category**: Machine information  
+**Description**:  
 The machine NetBIOS name on which the agent is installed.
 
-**Information Category**: App traffic information <br>
-**Description**: <br>
+**Information Category**: App traffic information  
+**Description**: 
 
 The following connection information:
 
@@ -90,7 +90,6 @@ The following HTTP information:
 
 In addition to the data that the agent collects about the network activity, it also collects anonymous information about the software and hardware configuration, error reports, and information about how the agent is being used.
 
-<br><br>
 
 ### How the agent works
 The agent installation includes two components:
@@ -98,11 +97,11 @@ The agent installation includes two components:
 * A user-mode component
 * A kernel-mode driver component (Windows Filtering Platform driver)
 
-When the agent is first installed it stores a machine-specific trusted certificate on the machine which it then uses to establish a secure connection with the Cloud App Discovery service. <br>
-The agent periodically retrieves policy configuration from the Cloud App Discovery service over this secure connection. <br>
+When the agent is first installed it stores a machine-specific trusted certificate on the machine which it then uses to establish a secure connection with the Cloud App Discovery service.  
+The agent periodically retrieves policy configuration from the Cloud App Discovery service over this secure connection.  
 The policy includes information about which cloud applications to monitor and whether auto-updating should be enabled, among other things.
 
-As Web traffic is sent and received on the machine from Internet Explorer and Chrome, the Cloud App Discovery agent analyzes the traffic and extracts the relevant metadata (see the **Data collected by the agent** section above). <br>
+As Web traffic is sent and received on the machine from Internet Explorer and Chrome, the Cloud App Discovery agent analyzes the traffic and extracts the relevant metadata (see the **Data collected by the agent** section above).  
 Every minute, the agent uploads the collected metadata to the Cloud App Discovery service over an encrypted channel.
 
 The driver component intercepts the encrypted traffic and inserts itself into the encrypted stream. More details in the **Intercepting data from encrypted connections (Deep inspection)** section below.
@@ -140,11 +139,11 @@ To reduce the occurrences of these issues, we keep track of cloud services and c
 ## Sending data to Cloud App Discovery
 Once metadata has been collected by the agent, it is cached on the machine for up to one minute or until the cached data reaches a size of 5MB. It is then compressed and sent over a secure connection to the Cloud App Discovery service.
 
-If the agent is unable to communicate with the Cloud App Discovery service for any reason, the collected metadata is stored in a local file cache that can only be accessed by privileged users on the machine (such as the Administrators group). <br>
+If the agent is unable to communicate with the Cloud App Discovery service for any reason, the collected metadata is stored in a local file cache that can only be accessed by privileged users on the machine (such as the Administrators group).  
 The agent automatically attempts to resend the cached metadata until it has successfully been received by the Cloud App Discovery service.
 
 ## Receiving the data at the service end
-The agents authenticate to the Cloud App Discovery service using the machine specific client authentication certificate referenced above and forwards data over an encrypted channel. <br>
+The agents authenticate to the Cloud App Discovery service using the machine specific client authentication certificate referenced above and forwards data over an encrypted channel.  
 The Cloud App Discovery service’s analytics pipeline processes metadata for each customer separately by logically partitioning it through all stages of the analytics pipeline.
 The analyzed metadata drives the various reports in the portal.
 
@@ -152,7 +151,7 @@ The unprocessed metadata and the analyzed metadata are stored for up to 180 days
 This is useful for offline analysis of metadata as well as longer retention of the data.
 
 ## Accessing the data using the Azure portal
-In an effort to keep the metadata collected secure, by default only global administrators of the tenant have access to the Cloud App Discovery feature in the Azure portal. <br>
+In an effort to keep the metadata collected secure, by default only global administrators of the tenant have access to the Cloud App Discovery feature in the Azure portal.  
 However, administrators can choose to delegate this access to other users or groups.
 
 > [!NOTE]
@@ -160,7 +159,7 @@ However, administrators can choose to delegate this access to other users or gro
 > 
 > 
 
-<br>
+
 Any user accessing the data in the portal, must be licensed with an Azure AD Premium license.
 
 ## Additional Resources

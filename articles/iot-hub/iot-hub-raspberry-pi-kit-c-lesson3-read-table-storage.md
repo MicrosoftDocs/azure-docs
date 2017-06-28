@@ -1,5 +1,5 @@
 ---
-title: Read messages persisted in Azure Storage | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 3: Table storage | Microsoft Docs'
 description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: 8c5558bb-3c31-4445-90e6-b1a978738545
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

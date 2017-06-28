@@ -1,5 +1,5 @@
 ---
-title: Common Access Panel tasks | Microsoft Docs
+title: Do you need help with the MyApps portal in Azure Active Directory | Microsoft Docs
 description: Get instructions to perform common tasks when working with the access panel.
 services: active-directory
 documentationcenter: ''
@@ -13,74 +13,97 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/22/2017
 ms.author: markvi
 
 ---
-# Common Access Panel tasks
+# Do you need help with the MyApps portal?
 
-The Access Panel is a web portal that allows you to:
+You have probably reached this page because you were unfortunately running into an issue when using the My Apps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, here are some troubleshooting topics that might be able to help, first.
 
-- Manage and launch cloud-based applications
-- Manage your group memberships
-- Manage your profile settings 
+## I cannot sign in to myapps.microsoft.com
 
-![Access Panel][1] 
+General issues to check:
 
-This topic provides you with instructions for performing common tasks and troubleshooting issues.
+- Check to see if you are signing into the correct URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
+- Try adding the URL to your browser’s trusted sites.
 
+- Make sure your password is not expired or forgotten. Check [here](active-directory-passwords-update-your-own-password.md) for more details on how to update your password.
 
-## How to troubleshoot accessing an app
+- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
 
-1.	Check if you have the Access Panel extension installed properly in your browser.  
-Follow [these steps](active-directory-saas-ie-troubleshooting.md) for troubleshooting your IE extension.
-2.	Ensure that your browser is not in private or incognito mode.
-3.	Contact your administrator or helpdesk for further assistance if you still can’t access your apps.
+- Try clearing your browser’s cookies, and then try to sign in again.
 
-## How to change your password
-
-1.	In the **Access Panel**, click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Change password**.
-3.	Type your old password, and then type a new password and confirm it.
-4.	Click **Submit**.
-
-For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
+If you are still encountering issues while trying to sign in, please contact your administrator for further help.
 
 
-## How to setup password reset
+## How do I update my password?
 
-1.	In the **Access Panel**,  click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Set up self service password reset**.
-3.	Follow the steps in the dialogue box and submit.
+If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md) for more details.
 
-For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+##How do I register for password reset?
 
-
-## How to add new apps or request permission to app access
-
-1.	In the **Access Panel**, click **Add App**.
-2.	Search or find an app you want to add, and then click **Add**.  
-If the app requires permission you may need to wait for admin approval.
-
-If you can't find an app you are looking for, contact your admin for further assistance.
+As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated. For more details, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
 
-## How to manage your group memberships
+## I am having trouble installing the My Apps portal browser extension
 
-1. In the **Access Panel**,  click the **Groups** app tile.
-2. To create a group, under **Groups I own**, click **Create group**, and then follow the instructions.
-3. To join a group, under **Groups I'm in**, click **Join group**, and then follow the instructions.
+Check to see if you are meeting browser requirements:
 
-**Remarks**:
-  
-- Clicking a group you are a member of allows you to view details and leave the group.
-- Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
+- The portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you launch an application that is configured for password-based single sign-on apps.
 
+- The browser requirements for the extension are:
+    - Internet Explorer 8, 9, 10, 11 on Windows 7 or later
+    - Edge on Windows 10 Anniversary Edition or later
+    - Chrome on Windows 7 or later, and on MacOS X or later
+    - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+
+You can also download the extension for Chrome, Edge, and Firefox from the direct links below:
+
+- [Chrome Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+
+- [Edge Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+
+- [Firefox Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+
+After installation try the following steps if you are encountering issues:
+
+- Check to see in your browser extension settings that the extension is enabled.
+
+- Try to restart your browser and sign in to the My Apps portal.
+
+- Try clearing your browser’s cookies and trying to sign in again.
+
+## How do I add a new app?
+
+1.	On the **Apps** page, click **Add App**.
+
+2.	Search the app you want to add, and then click **Add**.
+
+**Remarks:**
+
+- You only have access to this option if your admin has enabled this for your account.
+
+- If the app requires permission, you may need to wait for admin approval.
+
+
+## How do I manage my group memberships?
+
+1. Click the Groups app tile. 
+2. To create a group, under Groups I own, click Create group, and then follow the instructions.
+3. To join a group, under Groups I'm in, click Join group, and then follow the instructions.
+
+**Remarks:**
+
+- You only have access to this option if your admin has enabled this for your account.
+
+- Groups you are a member of allow you to view details and leave the group.
+
+- Groups you are an owner of allows you to view details, add or remove members, and leave the group.
 
 
 ## Next steps
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-access-panel-user-help/01.png
+For troubleshooting related information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md)
+

@@ -17,13 +17,13 @@ ms.date: 10/24/2016
 ms.author: kumud
 ---
 
-# Log analytics for Azure Load Balancer (Preview)
+# Log analytics for Azure Load Balancer
 
-You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
+You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 * **Audit logs:** You can use [Azure Audit Logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
-* **Alert event logs:** You can use this log to view what alerts for load balancer are raised. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
-* **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
+* **Alert event logs:** You can use this log to view alerts rasied by the load balancer. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
+* **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
 > Log analytics currently works only for Internet facing load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -46,7 +46,8 @@ Sign-in to the [Azure portal](http://portal.azure.com). If you don't already hav
 
 5. In the **Diagnostics** pane, under **Status**, select **On**.
 6. Click **Storage Account**.
-7. Under **LOGS**, select an existing storage account, or create a new one. Use the slider to determine how many days event dat will be kept in the event logs. 8. Click **Save**.
+7. Under **LOGS**, select an existing storage account, or create a new one. Use the slider to determine how many days worth of event data will be stored in the event logs. 
+8. Click **Save**.
 
     ![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
@@ -132,7 +133,7 @@ You can view and analyze audit log data using any of the following methods:
 You need to connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 ## Additional resources
 

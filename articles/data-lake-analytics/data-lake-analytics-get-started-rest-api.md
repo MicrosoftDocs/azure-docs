@@ -3,17 +3,17 @@ title: Get started with Data Lake Analytics using REST API| Microsoft Docs
 description: Use WebHDFS REST APIs to perform operations on Data Lake Analytics
 services: data-lake-analytics
 documentationcenter: ''
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 
 ---
@@ -342,5 +342,4 @@ The output is similar to:
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
-* To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 

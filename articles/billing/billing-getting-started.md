@@ -1,10 +1,10 @@
 ---
-title: Getting started with Azure billing and cost management | Microsoft Docs
-description: Learn about best practices and first things to do to optimize your bill
+title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
+description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
 author: jlian
-manager: mattstee
+manager: tonguyen
 editor: ''
 tags: billing
 
@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 03/20/2017
 ms.author: jlian
 
 ---
-# Getting started with Azure billing and cost management
+# Prevent unexpected costs with Azure billing and cost management
 
-When you sign up for Azure, there are several things you should do to get a better idea of your spend. In the Azure portal, you can see your current cost breakdown and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
+When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), when you select the subscription, you can see your current cost breakdown and burn rate. You can also [download past invoices and detail usage files](billing-download-azure-invoice-daily-usage-date.md). If you want to group costs for resources used for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md). 
 
-If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer, then many features in this article do not apply to you. Instead, we have a different set of tools you can use for cost management, see [Additional resources for EA, CSP, and Sponsorship](#other-offers).
+For more information about your daily usage, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-If you're a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark customer, then learn about [spending limit](#spending-limit) to avoid getting disabled. 
+If your subscription is through an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship, then many features in this article don't apply to you. Instead, we have a different set of tools that you can use for cost management. See [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
-## Before you add Azure services
+If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, then learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled. 
+
+## Day 0: Before you add Azure services
 
 ### Estimate cost online using the pricing calculator
 
@@ -38,13 +40,13 @@ For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/
 
 ### Check your subscription and access
 
-Viewing costs require [subscriptions-level access](../active-directory/role-based-access-control-configure.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. For more information, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md).
+Viewing costs require [subscriptions-level access to billing information](billing-manage-access.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. For more information, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
 
 To see if you're the Account admin, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
 
 ![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](../billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](../billing-subscription-transfer.md).
+If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
 
 If your Account admin is no longer with your organization and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
@@ -62,7 +64,7 @@ Click the banner and follow prompts to remove the spending limit. If you didn't 
 
 ### Set up billing alerts
 
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](../billing-set-up-alerts.md).
+Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
 
 ![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
 
@@ -73,9 +75,9 @@ You might want to use the cost estimate from the pricing calculator as a guideli
 
 ### Understand limits and quotas for your subscription
 
-There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+There are default limits to each subscription for things like the number of CPU cores and IP addresses. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## As you add services
+## Day 1: As you add services
 
 ### Review the estimated cost in the portal
 
@@ -101,9 +103,9 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
-For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+For more cost-cutting features for your development and test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
-## <a name="cost-reporting"></a> After using services, view usage
+## <a name="cost-reporting"></a> Day 2+: After using services, view usage
 
 ### <a name="costs"></a> Regularly check the portal for cost breakdown and burn rate
 
@@ -135,7 +137,7 @@ We recommend that you check the costs you see with the estimates you saw when yo
 
 #### View costs for all your subscriptions in the Billing blade
 
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all of your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -151,9 +153,9 @@ Then, you can get actionable recommendations in the **Cost** tab in the Advisor 
 
 For more information, see [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md).
 
-### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
+### <a name="invoice-and-usage"></a> Get your invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](/billing-understand-your-bill.md).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. You can also opt in to have your invoice emailed to you. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
@@ -163,7 +165,7 @@ The tags that you set earlier show up in the detail usage .csv files:
 
 ### Billing API
 
-Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../billing-usage-rate-card-overview.md).
+Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 
@@ -171,8 +173,12 @@ Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/) and [help docs](https://ea.azure.com/helpdocs) |
+| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), and [Power BI report](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
 If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
+
+## Need help? Contact support
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

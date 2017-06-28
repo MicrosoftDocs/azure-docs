@@ -3,7 +3,7 @@ title: How to complete an access review | Microsoft Docs
 description: After you started an access review in Azure AD Privileged Identity Management, learn how to complete it and view the results
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2016
+ms.date: 06/06/2017
 ms.author: kgremban
-
+ms.custom: pim
 ---
 # How to complete an access review in Azure AD Privileged Identity Management
 Privileged role administrators can review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -47,11 +47,8 @@ If you want to apply the results of the security review manually, you can export
 If you are not interested in the review any further, delete it. The **Delete** button removes the review from the PIM application.
 
 > [!IMPORTANT]
-> You will not get a warning before deletion occurs, so be sure that you want to delete that review.
-> 
-> 
+> You will not get a warning before deletion occurs, so be sure that you want to delete that review. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

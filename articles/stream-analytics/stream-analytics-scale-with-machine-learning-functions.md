@@ -1,5 +1,5 @@
 ---
-title: Scale your Stream Analytics job with Azure Machine Learning functions | Microsoft Docs
+title: Job scaling with Azure Stream Analytics & AzureML functions | Microsoft Docs
 description: Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions.
 keywords: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -22,7 +22,7 @@ ms.author: jeffstok
 It is often quite easy to set up an Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it will scale. In this document, we will focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
 ## What is an Azure Machine Learning function in Stream Analytics?
-A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. However, behind the scene, the function calls are actually Azure Machine Learning Web Service requests. Machine Learning web services support “batching” multiple rows, which is called mini-batch, in the same web service API call, to improve overall throughput. Please see the following articles for more details; [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) and [Azure Machine Learning Web Services](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
+A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. However, behind the scene, the function calls are actually Azure Machine Learning Web Service requests. Machine Learning web services support “batching” multiple rows, which is called mini-batch, in the same web service API call, to improve overall throughput. Please see the following articles for more details; [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) and [Azure Machine Learning Web Services](../machine-learning/machine-learning-consume-web-services.md).
 
 ## Configure a Stream Analytics job with Machine Learning functions
 When configuring a Machine Learning function for Stream Analytics job, there are two parameters to consider, the batch size of the Machine Learning function calls, and the Streaming Units (SUs) provisioned for the Stream Analytics job. To determine the appropriate values for these, first a decision must be made between latency and throughput, that is, latency of the Stream Analytics job, and throughput of each SU. SUs may always be added to a job to increase throughput of a well partitioned Stream Analytics query, although additional SUs increases the cost of running the job.
@@ -56,7 +56,7 @@ The query is a simple fully partitioned query followed by the **sentiment** func
     Into output
     From subquery
 
-Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job’s **overall** or end-to-end latency would typically be a few seconds. Take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events will take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accomodate this input traffic.
+Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job’s **overall** or end-to-end latency would typically be a few seconds. Take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events will take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accommodate this input traffic.
 
 But what if the input event rate increases by 100x and now the Stream Analytics job needs to process 1,000,000 tweets per second? There are two options:
 
@@ -109,7 +109,7 @@ To summarize the main points, in order to scale an Stream Analytics job with Mac
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Machine Learning web service requests)
 3. The provisioned Stream Analytics SUs and the number of Machine Learning web service requests (the additional function-related costs)
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:
@@ -118,4 +118,3 @@ To learn more about Stream Analytics, see:
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

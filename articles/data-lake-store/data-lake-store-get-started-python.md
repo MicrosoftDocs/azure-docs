@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Lake Store using Python | Microsoft Docs
+title: Use the Python SDK to get started with Azure Data Lake Store | Microsoft Docs
 description: Learn how to use Python SDK to work with Data Lake Store accounts and the file system.
 services: data-lake-store
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 
 ---
@@ -26,7 +26,7 @@ ms.author: nitinme
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -40,7 +40,7 @@ Learn how to use the Python SDK for Azure and Azure Data Lake Store to perform b
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+* **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
 
 ## Install the modules
 
@@ -71,12 +71,19 @@ pip install azure-datalake-store
 	## Use this only for Azure AD end-user authentication
 	from azure.common.credentials import UserPassCredentials
 
+	## Use this only for Azure AD multi-factor authentication
+	from msrestazure.azure_active_directory import AADTokenCredentials
+
 	## Required for Azure Data Lake Store account management
-	from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
 	## Required for Azure Data Lake Store filesystem management
 	from azure.datalake.store import core, lib, multithread
+
+	# Common Azure imports
+	from azure.mgmt.resource.resources import ResourceManagementClient
+	from azure.mgmt.resource.resources.models import ResourceGroup
 
 	## Use these as needed for your application
 	import logging, getpass, pprint, uuid, time
@@ -85,6 +92,14 @@ pip install azure-datalake-store
 3. Save changes to mysample.py.
 
 ## Authentication
+
+In this section, we talk about the different ways to authenticate with Azure AD. The options available are:
+
+* End-user authentication
+* Service-to-service authentication
+* Multi-factor authentication
+
+You must use these authentication options for both account management and filesystem management modules.
 
 ### End-user authentication for account management
 
@@ -118,6 +133,29 @@ Use this to authenticate with Azure AD for filesystem operations (create folder,
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### Multi-factor authentication for account management
+
+Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+
+	authority_host_url = "https://login.microsoftonline.com"
+	tenant = "FILL-IN-HERE"
+	authority_url = authority_host_url + '/' + tenant
+	client_id = 'FILL-IN-HERE'
+	redirect = 'urn:ietf:wg:oauth:2.0:oob'
+	RESOURCE = 'https://management.core.windows.net/'
+	
+	context = adal.AuthenticationContext(authority_url)
+	code = context.acquire_user_code(RESOURCE, client_id)
+	print(code['message'])
+	mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+	credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### Multi-factor authentication for filesystem management
+
+Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+
+	token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## Create an Azure Resource Group
 
 Use the following code snippet to create an Azure Resource Group:
@@ -134,7 +172,7 @@ Use the following code snippet to create an Azure Resource Group:
 	)
 	
 	## Create an Azure Resource Group
-	armGroupResult = resourceClient.resource_groups.create_or_update(
+	resourceClient.resource_groups.create_or_update(
 	    resourceGroup,
 	    ResourceGroup(
 	        location=location

@@ -29,7 +29,7 @@ ms.author: tomfitz
 The Azure Command-Line Interface (Azure CLI) is one of several tools you can use to deploy and manage resources with Resource Manager. This article introduces common ways to manage Azure resources and resource groups by using the Azure CLI in Resource Manager mode. For information about using the CLI to deploy resources, see [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). For background about Azure resources and Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
 > [!NOTE]
-> To manage Azure resources with the Azure CLI, you need to [install the Azure CLI](../xplat-cli-install.md), and [log in to Azure](../xplat-cli-connect.md) by using the `azure login` command. Make sure the CLI is in Resource Manager mode (run `azure config mode arm`). If you've done these things, you're ready to go.
+> To manage Azure resources with the Azure CLI, you need to [install the Azure CLI](../cli-install-nodejs.md), and [log in to Azure](../xplat-cli-connect.md) by using the `azure login` command. Make sure the CLI is in Resource Manager mode (run `azure config mode arm`). If you've done these things, you're ready to go.
 > 
 > 
 
@@ -41,18 +41,18 @@ To get a list of all resource groups in your subscription and their locations, r
 
 
 ### Resources
- To list all resources in a group, such as one with name *testRG*, use the following command.
+ To list all resources in a group, such as one with name *testRG*, use the following command:
 
     azure resource list testRG
 
-To view an individual resource within the group, such as a VM named *MyUbuntuVM*, use a command like the following.
+To view an individual resource within the group, such as a VM named *MyUbuntuVM*, use a command like the following:
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
 Notice the **Microsoft.Compute/virtualMachines** parameter. This parameter indicates the type of the resource you are requesting information on.
 
 > [!NOTE]
-> When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resource Manager, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
+> When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 > 
 > 
 
@@ -77,7 +77,7 @@ To add a resource such as a storage account to a resource group, run a command s
 
 In addition to specifying the API version of the resource with the **-o** parameter, use the **-p** parameter to pass a JSON-formatted string with any required or additional properties.
 
-To delete an existing resource such as a virtual machine resource, use a command like the following.
+To delete an existing resource such as a virtual machine resource, use a command like the following:
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -106,7 +106,7 @@ Then run the **policy definition create** command:
 
     azure policy definition create MyPolicy -p c:\temp\policy.json
 
-This command shows output similar to the following.
+This command shows output similar to the following:
 
     + Creating policy definition MyPolicy
     data:    PolicyName:             MyPolicy
@@ -150,7 +150,7 @@ Using the Azure CLI, you can either export a template that represents the curren
 > 
 
 ## Next steps
-* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md).
+* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations](resource-manager-deployment-operations.md).
 * If you want to use the CLI to set up an application or script to access resources, see [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

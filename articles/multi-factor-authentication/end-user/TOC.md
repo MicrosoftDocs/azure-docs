@@ -10,5 +10,9 @@
 ## [Troubleshoot](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Set up app passwords](multi-factor-authentication-end-user-app-passwords.md)
 ## Use the Microsoft Authenticator app
-### [Get started](microsoft-authenticator-app-how-to.md)
+### [Get started with the app](microsoft-authenticator-app-how-to.md)
+### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)
+
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

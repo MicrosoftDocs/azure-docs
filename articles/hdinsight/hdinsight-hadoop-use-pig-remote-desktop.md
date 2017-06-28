@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with Remote Desktop in HDInsight | Microsoft Docs
+title: Use Hadoop Pig with Remote Desktop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based Hadoop cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 
 ---
 # Run Pig jobs from a Remote Desktop connection
@@ -23,7 +24,10 @@ ms.author: larryfr
 
 This document provides a walkthrough for using the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
 
-In this document, learn how to
+> [!IMPORTANT]
+> Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+>
+> For HDInsight 3.4 or greater, see [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following.

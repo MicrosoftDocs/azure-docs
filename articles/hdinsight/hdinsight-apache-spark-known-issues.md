@@ -1,6 +1,6 @@
 ---
-title: Known issues of Apache Spark in HDInsight | Microsoft Docs
-description: Known issues of Apache Spark in HDInsight.
+title: Troubleshoot issues with Apache Spark cluster in Azure HDInsight | Microsoft Docs
+description: Learn about issues related to Apache Spark clusters in Azure HDInsight and how to work around those.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,25 +10,28 @@ tags: azure-portal
 
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Known issues for Apache Spark cluster on HDInsight Linux
+# Known issues for Apache Spark cluster on HDInsight
+
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ## Livy leaks interactive session
-When Livy is restarted with an interactive session (from Ambari or due to headnode 0 virtual machine reboot) still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
+When Livy is restarted (from Ambari or due to headnode 0 virtual machine reboot) with an interactive session still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
 
 **Mitigation:**
 
 Use the following procedure to workaround the issue:
 
-1. Ssh into headnode. 
+1. Ssh into headnode. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Run the following command to find the application IDs of the interactive jobs started through Livy. 
    
         yarn application –list
@@ -57,6 +60,14 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 3. Update the spark log location using Ambari to be a directory with 777 permissions.  
 4. Run spark-submit as sudo.  
 
+## Spark-Phoenix connector is not supported
+
+Currently, the Spark-Phoenix connector is not supported with an HDInsight Spark cluster.
+
+**Mitigation:**
+
+You must use the Spark-HBase connector instead. For instructions see [How to use Spark-HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+
 ## Issues related to Jupyter notebooks
 Following are some known issues related to Jupyter notebooks.
 
@@ -68,7 +79,9 @@ You might see an error **`Error loading notebook`** when you load notebooks that
 
 **Mitigation:**
 
-If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. You can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
+If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Once you have connected to the cluster using SSH, you can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
 
 To prevent this error from happening in the future, you must follow some best practices:
 
@@ -110,7 +123,7 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

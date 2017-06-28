@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
+title: 'Connect Arduino to Azure IoT - Lesson 2: Azure tools (Ubuntu) | Microsoft Docs'
 description: Install Python and Azure command-line interface (Azure CLI) on Ubuntu.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'azure cli, iot cloud service, arduino cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: bb5cb602-7292-4772-ac90-c0b52ebc8340
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

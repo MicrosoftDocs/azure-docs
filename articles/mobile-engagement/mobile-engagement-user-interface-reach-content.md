@@ -4,7 +4,7 @@ description: Learn how to manage the unique content of the different types of pu
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b

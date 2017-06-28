@@ -31,6 +31,8 @@ Azure Functions provides the following bindings:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
 <a name="httptrigger"></a>
 
 ## HTTP trigger
@@ -111,7 +113,7 @@ An HTTP trigger with the _webHookType_ property will be configured to respond to
 
 The trigger can additionally be tailored to a specific webhook provider (e.g., [GitHub](https://developer.github.com/webhooks/) and [Slack](https://api.slack.com/outgoing-webhooks)). If a provider is specified, the Functions runtime can take care of the provider's validation logic for you.  
 
-### Configuring Github as a webhook provider
+### Configuring GitHub as a webhook provider
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the _webHookType_ property to "github". Then copy its [URL](#url) and [API key](#keys)
 into your GitHub repository's **Add webhook** page. See GitHub's [Creating Webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) documentation for more.
 

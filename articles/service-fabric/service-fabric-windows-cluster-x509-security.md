@@ -1,9 +1,9 @@
----
-title: Secure a cluster on Windows using certificates | Microsoft Docs
+﻿---
+title: Secure an Azure Service Fabric cluster on Windows using certs | Microsoft Docs
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
-ms.author: dkshir
+ms.date: 06/16/2017
+ms.author: ryanwi
 
 ---
 # Secure a standalone cluster on Windows using X.509 certificates
@@ -25,45 +25,47 @@ For more information on cluster security such as node-to-node security, client-t
 ## Which certificates will you need?
 To start with, [download the standalone cluster package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) to one of the nodes in your cluster. In the downloaded package, you will find a **ClusterConfig.X509.MultiMachine.json** file. Open the file and review the section for **security** under the **properties** section:
 
-    "security": {
-        "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        "CertificateInformation": {
-            "ClusterCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
+```JSON
+"security": {
+    "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    "CertificateInformation": {
+        "ClusterCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ClientCertificateThumbprints": [
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": false
             },
-            "ServerCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ClientCertificateThumbprints": [
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": false
-                }, 
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ],
-            "ClientCertificateCommonNames": [
-                {
-                    "CertificateCommonName": "[CertificateCommonName]",
-                    "CertificateIssuerThumbprint" : "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ]
-            "ReverseProxyCertificate":{
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": true
             }
+        ],
+        "ClientCertificateCommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "IsAdmin": true
+            }
+        ],
+        "ReverseProxyCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
         }
     }
+},
+```
 
 This section describes the certificates that you need for securing your standalone Windows cluster. If you are specifying a cluster certificate, set the value of **ClusterCredentialType** to _**X509**_. If you are specifying server certificate for outside connections, set the **ServerCredentialType** to _**X509**_. Although not mandatory, we recommend to have both these certificates for a properly secured cluster. If you set these values to *X509* then you must also specify the corresponding certificates or Service Fabric will throw an exception. In some scenarios, you may only want to specify the _ClientCertificateThumbprints_ or _ReverseProxyCertificate_. In those scenarios, you need not set _ClusterCredentialType_ or _ServerCredentialType_ to _X509_.
 
@@ -85,7 +87,7 @@ The following table lists the certificates that you will need on your cluster se
 
 Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided.
 
- ```
+ ```JSON
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
@@ -187,14 +189,14 @@ One way to create a self-signed cert that can be secured correctly is to use the
 
 Now export the certificate to a PFX file with a protected password. First get the thumbprint of the certificate. From the *Start* menu, run the *Manage computer certificates*. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, after removing the spaces.  Change the `String` value to a suitable secure password to protect it and run the following in PowerShell:
 
-```   
+```powershell   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
 Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
 ```
 
 To see the details of a certificate installed on the machine you can run the following PowerShell command:
 
-```
+```powershell
 $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
@@ -207,14 +209,14 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
 1. Copy the .pfx file(s) to the node.
 2. Open a PowerShell window as an administrator and enter the following commands. Replace the *$pswd* with the password that you used to create this certificate. Replace the *$PfxFilePath* with the full path of the .pfx copied to this node.
    
-    ```
+    ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. Now set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct by opening the certificate in *Start* > *Manage computer certificates* and looking at *All Tasks* > *Manage Private Keys*.
    
-    ```
+    ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
@@ -254,23 +256,23 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
 ## Create the secure cluster
 After configuring the **security** section of the **ClusterConfig.X509.MultiMachine.json** file, you can proceed to [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) section to configure the nodes and create the standalone cluster. Remember to use the **ClusterConfig.X509.MultiMachine.json** file while creating the cluster. For example, your command might look like the following:
 
-```
+```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example:
 
-```
+```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, `Get-ServiceFabricNode` to show a list of nodes on this secure cluster.
+You can then run other PowerShell commands to work with this cluster. For example, [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder. Now run the following command:
 
-```
+```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 

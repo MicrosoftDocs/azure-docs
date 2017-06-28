@@ -1,14 +1,26 @@
 ---
-layout: LandingPage
+title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 # Logic Apps Documentation
 
 Learn how to develop Logic Apps that simplify and integrate scalable workflows in the cloud. Tutorials, templates, and API references help you design and deploy automated business workflows across on-premises and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -26,7 +38,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -36,7 +48,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Logic Apps Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -44,7 +56,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +74,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <a href="/azure/logic-apps/logic-apps-arm-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +92,7 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <a href="/azure/logic-apps/logic-apps-create-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,9 +132,22 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Schemas</h3>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-definition-language">Workflow definition language</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-actions-triggers">Workflow actions and triggers</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Schema History</h3>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">GA</a></p>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Preview</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Preview</a></p>
                    </div>
                 </div>
             </div>
@@ -142,11 +167,4 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Logic Apps Documentation
-        </div>
-    </a>
-</div>
+

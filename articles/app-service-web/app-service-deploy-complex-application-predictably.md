@@ -4,7 +4,7 @@ description: Learn how to deploy an application composed of microservices in Azu
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
@@ -126,7 +126,7 @@ Note the following about the highlighted JSON code:
 * The nested resources inside `“resources”: […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.
   
   > [!NOTE]
-  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md).
+  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
@@ -268,5 +268,5 @@ Find out how to [apply agile methodologies and continuously publish your microse
 * [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md)
 * [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/resource-manager-troubleshoot-deployments-portal.md)
+* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

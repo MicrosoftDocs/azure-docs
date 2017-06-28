@@ -1,10 +1,10 @@
 ---
 title: Smart Detection - performance anomalies | Microsoft Docs
-description: Application Insights performs proactive analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
+description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
-manager: douge
+manager: carmonm
 
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,79 +12,90 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: awills
+ms.date: 5/04/2017
+ms.author: cfreeman
 
 ---
 # Smart Detection - Performance Anomalies
 
+[Application Insights](app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
-[Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our smart alerts by email.
+This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](app-insights-asp-net.md), Java(app-insights-java-get-started.md), or [Node.js](app-insights-nodejs.md), and in [web page code](app-insights-javascript.md)). It is active when your app generates enough telemetry.
 
-This feature requires no setup, and is automatically active when your app generates enough telemetry.
+## When would I get a smart detection notification?
 
-## What is Smart Detection of performance anomalies?
-Smart Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights.
+Application Insights has detected that the performance of your application has degraded in one of these ways:
 
-In particular, it finds performance issues that only affect some of your users, or only affect users in some cases.
+* **Response time degradation** - Your app has started responding to requests more slowly than it used to. The change might have been rapid, for example because there was a regression in your latest deployment. Or it might have been gradual, maybe caused by a memory leak. 
+* **Dependency duration degradation** - Your app makes calls to a REST API, database, or other dependency. The dependency is responding more slowly than it used to.
+* **Slow performance pattern** - Your app appears to have a performance issue that is affecting only some requests. For example, pages are loading more slowly on one type of browser than others; or requests are being served more slowly from one particular server. Currently, our algorithms look at page load times, request response times, and dependency response times.  
 
-For example, it can notify you if your app pages load much more slowly on one type of browser than others, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area at particular times of day.
+Smart Detection requires at least 8 days of telemetry at a workable volume in order to establish a baseline of normal performance. So, after your application has been running for that period, any significant issue will result in a notification.
 
-Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
 
-Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
+## Does my app definitely have a problem?
 
-You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
+No, a notification doesn't mean that your app definitely has a problem. It's simply a suggestion about something you might want to look at more closely.
 
-## About the Smart Detection alert
-* *Why have I received this email?*
-  * Smart Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
-* *Does the notification mean I definitely have a problem?*
-  * No. It's simply a suggestion about something you might want to look at more closely.
-* *What should I do?*
-  * [Look at the data presented](#responding-to-an-alert). Use Metrics Explorer to review the performance over time and drill in to additional metrics. Use Search to filter out specific events that help you identify the root cause.
+## How do I fix it?
+
+The notifications include diagnostic information. Here's an example:
+
+
+![Here is an example of Server Response Time Degradation detection](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+
+1. **Triage**. The notification shows you how many users or how many operations are affected. This can help you assign a priority to the problem.
+2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
+3. **Diagnose**. Often, the diagnostic information in the notification will suggest the nature of the problem. For example, if response time slows down when request rate is high, that suggests your server or dependencies are overloaded. 
+
+    Otherwise, open the Performance blade in Application Insights. There, you will find [Profiler](app-insights-profiler.md) data. If exceptions are thrown, you can also try the [snapshot debugger](app-insights-snapshot-debugger.md).
+
+
+
+## Configure Email Notifications
+
+Smart Detection notifications are enabled by default and sent to those who have [owners, contributors and readers access to the Application Insights resource](app-insights-resources-roles-access-control.md). To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+  
+  ![Smart Detection Settings](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  
+  * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
+
+Emails about Smart Detections performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
+
+## FAQ
+
 * *So, you guys look at my data?*
   * No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
-
-## The detection process
-* *What kinds of performance anomalies are detected?*
-  * Patterns that you would find it time-consuming to check for yourself. For example, poor performance in a specific combination of location, time of day and platform.
 * *Do you analyze all the data collected by Application Insights?*
-  * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is coming soon.
-* *Can I create my own anomaly detection rules?*
+  * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
 
-  * Not yet. But you can:
-  * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.
-  * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md) or [other](app-insights-code-sample-export-telemetry-sql-database.md) tools, where you can analyze it yourself.
+* What types of application does this work for?
+  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) or [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
+
+* *Can I create my own anomaly detection rules or customize existing rules?*
+
+  * Not yet, but you can:
+    * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.
+    * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
-  * We run the analysis daily on the telemetry from the previous day.
+  * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
 * *So does this replace [metric alerts](app-insights-alerts.md)?*
-  * No.  We don't commit to detect every behaviour that you might consider abnormal.
+  * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
-## How to investigate the issues raised
-Open the diagnostic report either from the email or from the anomalies list.
 
-![From the email alert, click the link to open the diagnostic report in Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
-
-* **When** shows the time the issue was detected.
-* **What** describes:
-
-  * The problem that was detected;
-  * The characteristics of the set of events that we found displayed the problem behavior.
-* The table compares the poorly-performing set with the average behavior of all other events.
-
-Click the links to open Metric Explorer and Search on relevant reports, filtered on the time and properties of the slow performing set.
-
-Modify the time range and filters to explore the telemetry.
+* *If I don't do anything in reponse to a notification, will I get a reminder?*
+  * No, you get a message about each issue only once. If the issue persist it will be updated in the Smart Detection feed blade.
+* *I lost the email. Where can I find the notifications in the portal?*
+  * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 90 days back.
 
 ## How can I improve performance?
-Slow and failed responses are one of the biggest frustrations for web site users, as you know from your own experience. So it's important to address the issues.
+Slow and failed responses are one of the biggest frustrations for web site users, as you know from your own experience. So, it's important to address the issues.
 
 ### Triage
 First, does it matter? If a page is always slow to load, but only 1% of your site's users ever have to look at it, maybe you have more important things to think about. On the other hand, if only 1% of users open it, but it throws exceptions every time, that might be worth investigating.
 
-Use the impact statement in the email as a general guide, but be aware that it isn't the whole story. Gather other evidence to confirm.
+Use the impact statement (affected users or % of traffic) as a general guide, but be aware that it isn't the whole story. Gather other evidence to confirm.
 
 Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](app-insights-monitor-web-app-availability.md) including that region: there might simply be network issues in that area.
 
@@ -105,29 +116,72 @@ There's a web full of advice on improving your server responses and page load ti
 * Slow server dependencies: Consider the geographical locations of your components. For example, if you're using Azure, make sure the web server and the database are in the same region. Do queries retrieve more information than they need? Would caching or batching help?
 * Capacity issues: Look at the server metrics of response times and request counts. If response times peak disproportionately with peaks in request counts, it's likely that your servers are stretched.
 
-## Notification emails
-* *Do I have to subscribe to this service in order to receive notifications?*
-  * No. Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.
-* *Can I unsubscribe or get the notifications sent to my colleagues instead?*
 
-  * Click the unsubscribe link in the alert or email.
+## Server Response Time Degradation
 
-    Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
+The response time degradation notification tells you:
 
-    You can also edit the recipients list Settings in the Smart Detection blade.
-* *I don't want to be flooded with these messages.*
-  * They are limited to one per day with the most relevant issue that we haven't reported about yet. You won't get repeats of any message.
-* *If I don't do anything, will I get a reminder?*
-  * No, you get a message about each issue only once.
-* *I lost the email. Where can I find the notifications in the portal?*
-  * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 7 days back.
+* The response time compared to normal response time for this operation.
+* How many users are affected.
+* Average response time and 90th percentile response time for this operation on the day of the detection and 7 days before. 
+* Count of this operation requests on the day of the detection and 7 days before.
+* Correlation between degradation in this operation and degradations in related dependencies. 
+* Links to help you diagnose the problem.
+  * Profiler traces to help you view where operation time is spent (the link is available if Profiler trace examples were collected for this operation during the detection period). 
+  * Performance reports in Metric Explorer, where you can slice and dice time range/filters for this operation.
+  * Search for this calls to view specific calls properties.
+  * Failure reports - If count > 1 this mean that there were failures in this operation that might have contributed to performance degradation.
+
+## Dependency Duration Degradation
+
+Modern application more and more adopt micro services design approach, which in many cases leads to heavy reliability on external services. For example, if your application relies on some data platform or even if you build your own bot service you will probably relay on some cognitive services provider to enable your bots to interact in more human ways and some data store service for bot to pull the answers from.  
+
+Example dependency degradation notification:
+
+![Here is an example of Dependency Duration Degradation detection](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+
+Notice that it tells you:
+
+* The duration compared to normal response time for this operation
+* How many users are affected
+* Average duration and 90th percentile duration for this dependency on the day of the detection and 7 days before
+* Number of dependency calls on the day of the detection and 7 days before
+* Links to help you diagnose the problem
+  * Performance reports in Metric Explorer for this dependency
+  * Search for this dependency calls to view calls properties
+  * Failure reports - If count > 1 this mean that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
+  * Open Analytics with queries that calculate this dependency duration and count  
+
+## Smart Detection of slow performing patterns 
+
+Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slowler on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
+
+Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
+
+Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
+
+You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
+
+![From the email alert, click the link to open the diagnostic report in Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
+
+* **When** shows the time the issue was detected.
+* **What** describes:
+
+  * The problem that was detected;
+  * The characteristics of the set of events that we found displayed the problem behavior.
+* The table compares the poorly-performing set with the average behavior of all other events.
+
+Click the links to open Metric Explorer and Search on relevant reports, filtered on the time and properties of the slow performing set.
+
+Modify the time range and filters to explore the telemetry.
 
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+* [Profiler](app-insights-profiler.md) 
+* [Snapshot debugger](app-insights-snapshot-debugger.md)
+* [Analytics](app-insights-analytics-tour.md)
+* [Analytics smart diagnostics](app-insights-analytics-diagnostics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace using a Resource Manager template | Microsoft Docs
+title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
 description: Use Azure Resource Manager template to create a Service Bus namespace
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,11 +13,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 04/12/2017
 ms.author: sethm;shvija
 
 ---
+
 # Create a Service Bus namespace using an Azure Resource Manager template
+
 This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
@@ -51,7 +53,7 @@ This template defines the following parameters.
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -63,7 +65,7 @@ The name of the Service Bus namespace to create.
 ### serviceBusSKU
 The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) to create.
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -85,7 +87,7 @@ For more information about Service Bus pricing, see [Service Bus pricing and bil
 ### serviceBusApiVersion
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -98,7 +100,7 @@ The Service Bus API version of the template.
 ### Service Bus namespace
 Creates a standard Service Bus namespace of type **Messaging**.
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -120,12 +122,12 @@ Creates a standard Service Bus namespace of type **Messaging**.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### Azure CLI
-```
+```CLI
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -134,12 +136,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by reading these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

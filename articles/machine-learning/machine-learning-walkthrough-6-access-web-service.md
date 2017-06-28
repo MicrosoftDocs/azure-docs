@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 
 ---
-# Walkthrough Step 6: Access the Azure Machine Learning Web service
+# Walkthrough Step 6: Access the Azure Machine Learning web service
+
 This is the last step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -28,19 +29,21 @@ This is the last step of the walkthrough, [Develop a predictive analytics soluti
 6. **Access the Web service**
 
 - - -
-In the previous step in this walkthrough we deployed a Web service that uses our credit risk prediction model. 
+In the previous step in this walkthrough we deployed a web service that uses our credit risk prediction model. 
 Now users are able to send data to it and receive results. 
 
-The Web service is an Azure Web service that can receive and return data using REST APIs in one of two ways:  
+The Web service is an Azure web service that can receive and return data using REST APIs in one of two ways:  
 
 * **Request/Response** - The user sends one or more rows of credit data to the service by using an HTTP protocol, and the service responds with one or more sets of results.
 * **Batch Execution** - The user stores one or more rows of credit data in an Azure blob and then sends the blob location to the service. The service scores all the rows of data in the input blob, stores the results in another blob, and returns the URL of that container.  
 
-The quickest and easiest way to access the Web service is through the [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) or [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
-These web app templates can build a custom web app that knows your Web service's input data and what it will return. All you need to do is provide access to your Web service and data, and the template does the rest.
+The quickest and easiest way to access a Classic web service is through the [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) or [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+
+These web app templates can build a custom web app that knows your web service's input data and what it will return. All you need to do is provide access to your web service and data, and the template does the rest.
 
 For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](machine-learning-consume-web-service-with-web-app-template.md).
 
-You can also develop a custom application to access the Web service using starter code provided for you in R, C#, and Python programming languages.
-You can find complete details in [How to consume an Azure Machine Learning Web service that has been published from a Machine Learning experiment](machine-learning-consume-web-services.md).
+You can also develop a custom application to access the web service using starter code provided for you in R, C#, and Python programming languages.
+
+You can find complete details in [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 

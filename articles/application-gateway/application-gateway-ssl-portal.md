@@ -1,5 +1,5 @@
 ---
-title: Configure an application gateway for SSL offload by using the portal | Microsoft Docs
+title: Configure SSL offload - Azure Application Gateway - Azure Portal | Microsoft Docs
 description: This page provides instructions to create an application gateway with SSL offload by using the portal
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -66,7 +66,7 @@ Fill out the required information for the listener and upload the .pfx certifica
 
 ## Create a rule and associate it to the listener
 
-The listener has now been created. It is time to create a rule to handle the traffic from the listener.
+The listener has now been created. It is time to create a rule to handle the traffic from the listener. Rules define how traffic is routed to the backend pools based on multiple configuration settings, including whether cookie based session affinity is used, protocol, port and health probes.
 
 ### Step 1
 

@@ -1,6 +1,6 @@
 ---
-title: Using attributes to create advanced rules| Microsoft Docs
-description: How-to's to create advanced rules for a group including supported expression rule operators and parameters.
+title: Populate groups dynamically based on object attributes in Azure Active Directory | Microsoft Docs
+description: How-to's to create advanced rules for group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,14 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 
 ---
-# Using attributes to create advanced rules
-The Azure classic portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
 
-When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
+# Populate groups dynamically based on object attributes 
+The Azure classic portal provides you with the ability to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
+
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user or device would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
+
+> [!NOTE]
+> You can set up a rule for dynamic membership on security groups or Office 365 groups. 
+>
+> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
+>
+> * The administrator who manages the rule on a group
+> * All members of the group
+>
+> Please also not that although you can create a dynamic group for devices or users, you cannot create a rule that selects both user and device objects. 
 
 ## To create the advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
@@ -42,22 +54,23 @@ The following are examples of a properly constructed advanced rule:
 
 For the complete list of supported parameters and expression rule operators, see sections below.
 
+
 Note that the property must be prefixed with the correct object type: user or device.
 The below rule will fail the validation:
 mail –ne null
 
-The correct rule would be: 
+The correct rule would be:
 
 user.mail –ne null
 
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are case insensitive. 
+> String and regex operations are case insensitive.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 > Only use quotes for string type values, and only use English quotes.
-> 
-> 
+>
+>
 
 ## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
@@ -72,6 +85,8 @@ The following table lists all the supported expression rule operators and their 
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+| In | -in |
+| Not In | -notIn |
 
 ## Operator precedence
 
@@ -81,17 +96,25 @@ All Operators are listed below per precedence from lower to higher, operator in 
 -and
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 All operators can be used with or without hyphen prefix.
 
 Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
 For example:
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-is equivalent to: 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+is equivalent to:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## Using the -In and -notIn operators
+
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
+
+	user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
 
 ## Query error remediation
 The following table lists potential errors and how to correct them if they occur
@@ -143,6 +166,7 @@ Allowed operators
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or $null |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Any string value or $null |(user.postalCode -eq "value") |
@@ -169,9 +193,9 @@ Allowed operators
 
 ## Use of Null values
 
-To specify a null value in a rule, you can use "null" or $null. Example: 
+To specify a null value in a rule, you can use "null" or $null. Example:
 
-   user.mail –ne null 
+   user.mail –ne null
 is equivalent to
    user.mail –ne $null
 
@@ -195,7 +219,7 @@ The custom attribute name can be found in the directory by querying a user's att
 To include a multi-value property in a rule, use the "-any" operator, as in
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## Direct Reports Rule
 You can populate members in a group based on the manager attribute of a user.
 
@@ -205,19 +229,20 @@ You can populate members in a group based on the manager attribute of a user.
 2. Select the **Groups** tab, and then open the group you want to edit.
 3. Select the **Configure** tab, and then select **ADVANCED RULE**.
 4. Type the rule with the following syntax:
-   
+
     Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 5. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
 
-## Using attributes to create rules for device objects
+# Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
+| accountEnabled |true false |(device.accountEnabled -eq true) |
 | displayName |any string value |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |any string value |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |any string value |(device.OSVersion -eq "9.1") |
@@ -233,14 +258,15 @@ You can also create a rule that selects device objects for membership in a group
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |any string value |(device.managementType -eq "") |
 | organizationalUnit |any string value |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |a valid AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
-> 
-> 
+>
+>
 
-## Additional information
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
@@ -248,4 +274,3 @@ These articles provide additional information on Azure Active Directory.
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

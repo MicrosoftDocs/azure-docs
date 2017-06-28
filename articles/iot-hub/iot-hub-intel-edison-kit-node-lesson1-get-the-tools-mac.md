@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (macOS 10.10) | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Get tools (macOS) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on macOS.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on mac, install node js mac'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: fb6742be-2825-4524-89f7-8ccb7e7f1de1
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

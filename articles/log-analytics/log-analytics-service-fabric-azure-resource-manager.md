@@ -1,6 +1,6 @@
 ---
-title: Optimize your environment with the Service Fabric solution in Log Analytics | Microsoft Docs
-description: You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
+title: Assess Service Fabric applications with Log Analytics using the Azure portal | Microsoft Docs
+description: You can use the Service Fabric solution in Log Analytics using the Azure portal to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
 services: log-analytics
 documentationcenter: ''
 author: niniikhena
@@ -17,12 +17,15 @@ ms.date: 09/21/2016
 ms.author: nini
 
 ---
-# Service Fabric Solution in Log Analytics
+# Assess Service Fabric applications and micro-services with the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
+
+![Service Fabric symbol](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
 
@@ -44,6 +47,7 @@ This template does the following:
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
 Once you select the deploy button above, you will arrive on the Azure portal with parameters for you to edit. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
@@ -78,11 +82,11 @@ To view Perf Data from your nodes:
   ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 * In Log Search, use the following queries to delve into key metrics about your nodes:
   </br>
-  
+
     a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. View similar line charts for available memory on each node with this query:
@@ -114,8 +118,8 @@ This template simply adds your existing storage accounts to a new or existing Lo
 > [!NOTE]
 > In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the OMS workspace. Create a new one if otherwise.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 After this template has been deployed, you will be able to see the storage account connected to your Log Analytics workspace. In this instance, I added one more storage account to the Exchange workspace I created above.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -143,9 +147,8 @@ The following table shows data collection methods and other details about how da
 
 > [!NOTE]
 > You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or six hours. Or, you can select **Custom** to specify a custom date range.
-> 
-> 
+>
+>
 
 ## Next steps
 * Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.
-

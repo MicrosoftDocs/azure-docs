@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/23/2017
 ms.author: asmalser
 
 ---
@@ -55,7 +55,7 @@ The renewal steps shown below should ideally result in no significant downtime f
 4. On the next page, select **Generate a new certificate**, and select how long you'd like the new certificate to be valid for. Then click **Next**.
    
     ![Generate a new certificate](./media/active-directory-sso-certs/new-app-config-cert.PNG)
-5. Click on **Download certificate**. To successfully rewnew your certificate, you must perform the following two steps:
+5. Click on **Download certificate**. To successfully renew your certificate, you must perform the following two steps:
    
    * Upload the new certificate to the SaaS app's single sign-on configuration screen. To learn how to do this for your particular SaaS app, click **View configuration instructions**.
    * In Azure AD, Select the confirmation checkbox at the bottom of the dialog to enable the new certificate, and then click **Next** to submit.

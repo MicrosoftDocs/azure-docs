@@ -1,5 +1,5 @@
 ---
-title: How a Machine Learning model progresses from an experiment to an operationalized Web service | Microsoft Docs
+title: How an Azure Machine Learning model becomes a web service | Microsoft Docs
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
@@ -32,7 +32,7 @@ Once you’re satisfied with your experiment, you can deploy it as a ***Classic 
 In this article, we give an overview of the mechanics of how your Machine Learning model progresses from a development experiment to an operationalized Web service.
 
 > [!NOTE]
-> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For a discussion of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For example, to read a description of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 > 
 > 
 
@@ -62,12 +62,12 @@ There may be more changes you want to make to get your predictive experiment rea
 In this conversion process, the training experiment is not discarded. When the process is complete, you have two tabs in Studio: one for the training experiment and one for the predictive experiment. This way you can make changes to the training experiment before you deploy your Web service and rebuild the predictive experiment. Or you can save a copy of the training experiment to start another line of experimentation.
 
 > [!NOTE]
-> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [Convert a Machine Learning training experiment to a predictive experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> When you click **Predictive Web Service** you start an automatic process to convert your training experiment to a predictive experiment, and this works well in most cases. If your training experiment is complex (for example, you have multiple paths for training that you join together), you might prefer to do this conversion manually. For more information, see [How to prepare your model for deployment in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 > 
 > 
 
 ### The Web service
-Once you’re satisfied that your predictive experiment is ready, you can deploy your service as either a Classic Web service or a New Web service based on Azure Resource Manager. To operationalize your model by deploying it as a *Classic Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *New Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using the Web service REST API and receive back the results. For more information, see [How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
+Once you’re satisfied that your predictive experiment is ready, you can deploy your service as either a Classic Web service or a New Web service based on Azure Resource Manager. To operationalize your model by deploying it as a *Classic Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *New Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using the Web service REST API and receive back the results. For more information, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 ## The non-typical case: creating a non-predictive Web service
 If your experiment does not train a predictive analysis model, then you don’t need to create both a training experiment and a scoring experiment - there’s just one experiment, and you can deploy it as a Web service. Machine Learning Studio detects whether your experiment contains a predictive model by analyzing the modules you’ve used.
@@ -108,7 +108,7 @@ If you want to make changes to your original predictive experiment, such as sele
 ## Next Steps
 For more details on the process of developing and experiment, see the following articles:
 
-* converting the experiment - [Convert a Machine Learning training experiment to a predictive experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+* converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 * deploying the Web service - [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
 * retraining the model - [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md)
 

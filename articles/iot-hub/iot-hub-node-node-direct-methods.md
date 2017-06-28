@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 04/05/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 
 ---
-# Use direct methods (Node)
+# Use direct methods on your IoT device with Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 At the end of this tutorial, you have two Node.js console apps:
@@ -139,7 +140,7 @@ In this section, you create a Node.js console app that calls a method in the sim
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    
@@ -193,7 +194,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

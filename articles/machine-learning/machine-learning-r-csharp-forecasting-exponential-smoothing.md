@@ -1,23 +1,33 @@
 ---
-title: Forecasting-Exponential Smoothing | Microsoft Docs
-description: 'Web service: Forecasting-Exponential Smoothing'
-services: machine-learning
-documentationcenter: ''
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: (deprecated) Forecasting - Exponential Smoothing - Azure | Microsoft Docs 
+description: '(deprecated) Web service: Forecasting-Exponential Smoothing' 
+services: machine-learning 
+documentationcenter: '' 
+author: yijichen 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/06/2017 
 ms.author: yijichen
 
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
+
 ---
-# Forecasting - Exponential Smoothing
+# (deprecated) Forecasting - Exponential Smoothing
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 This [web service](https://datamarket.azure.com/dataset/aml_labs/ets) implements the Exponential Smoothing model (ETS) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

@@ -4,7 +4,7 @@ description: Autoscaling and App Service Environment
 services: app-service
 documentationcenter: ''
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb

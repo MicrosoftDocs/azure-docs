@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/29/2017
 ms.author: juliako
 
 ---
@@ -23,7 +23,8 @@ Azure Media Services now enables you to configure and request Widevine licenses.
 
 Widevine license request is formatted as a JSON message.  
 
-Note that you can choose to create an empty message with no values just "{}" and a license template will be created with all defaults.  
+>[!NOTE]
+> You can choose to create an empty message with no values just "{}" and a license template will be created with all defaults. The default works for most cases. For example, for MS based license delivery scenarios that should always be default. If you do need to set the "provider" and "content_id" values, a provider must match Google's Widevine credentials.
 
     {  
        “payload”:“<license challenge>”,
@@ -59,7 +60,7 @@ Note that you can choose to create an empty message with no values just "{}" and
 | --- | --- | --- |
 | payload |Base64 encoded string |The license request sent by a client. |
 | content_id |Base64 encoded string |Identifier used to derive KeyId(s) and Content Key(s) for each content_key_specs.track_type. |
-| provider |string |Used to look up content keys and policies. Required. |
+| provider |string |Used to look up content keys and policies. If MS key delivery is used for Widevine license delivery, this parameter is ignored. |
 | policy_name |string |Name of a previously registered policy. Optional |
 | allowed_track_types |enum |SD_ONLY or SD_HD. Controls which content keys should be included in a license |
 | content_key_specs |array of JSON structures, see **Content Key Specs** below |A finer grained control on what content keys to return. See Content Key Spec below for details.  Only one of allowed_track_types and content_key_specs can be specified. |

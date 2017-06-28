@@ -1,5 +1,5 @@
 ---
-title: Custom test scenarios | Microsoft Docs
+title: Simulate faults in Azure microservices | Microsoft Docs
 description: How to harden your services against graceful and ungraceful failures.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2016
+ms.date: 06/15/2017
 ms.author: anmola
 
 ---

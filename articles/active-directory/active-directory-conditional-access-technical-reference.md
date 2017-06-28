@@ -1,11 +1,10 @@
 ---
 title: Azure Active Directory Conditional Access technical reference | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
-services: active-directory
+services: active-directory.
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
@@ -13,24 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/20/2016
+ms.date: 05/25/2017
 ms.author: markvi
 
 ---
 # Azure Active Directory Conditional Access technical reference
+
 ## Services enabled with conditional access
+
 Conditional Access rules are supported across various Azure AD application types. This list includes:
 
-* Federated applications from the Azure AD application gallery
-* Password SSO applications from the Azure AD application gallery
+
 * Applications registered with the Azure Application Proxy
-* Developed line of business and multi-tenant applications registered with Azure AD
-* Visual Studio Online
 * Azure Remote App
+* Developed line of business and multi-tenant applications registered with Azure AD
 * Dynamics CRM
+* Federated applications from the Azure AD application gallery
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
+* Microsoft Power BI 
+* Password SSO applications from the Azure AD application gallery
+* Visual Studio Team Services
+* Microsoft Teams
+
+
+
+
+
+
+
+
 
 ## Enable access rules
 Each rule can be enabled or disabled on a per application bases. When rules are **ON** they will be enabled and enforced for users accessing the application. When they are **OFF** they will not be used and will not impact the users sign in experience.
@@ -51,8 +63,8 @@ Conditional access rules that use an “At work” network, rely on trusted IP a
 Options for specifiying “at work” networks
 
 1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
-2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configure public IP address ranges. On the configure tab, for your directory, you can set public IP addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP address limit that is enforced by the MFA setting page.
+2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. To learn more about the inside corpnet claims, see [Tusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+
 
 ## Rules based on application sensitivity
 Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 

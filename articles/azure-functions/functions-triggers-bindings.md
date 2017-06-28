@@ -1,9 +1,9 @@
 ---
-title: Azure Functions triggers and bindings | Microsoft Docs
-description: Understand how to use triggers and bindings in Azure Functions.
+title: Work with triggers and bindings in Azure Functions | Microsoft Docs
+description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: ''
 tags: ''
@@ -15,120 +15,300 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
-ms.author: chrande
+ms.date: 05/30/2017
+ms.author: donnam
 
 ---
 
-# Azure Functions triggers and bindings developer reference
-This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
-
-For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
-| [Event Hubs](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
+# Azure Functions triggers and bindings concepts
+Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings for all supported programming languages. Features that are common to all bindings are described here.
 
 ## Overview
-Triggers are event responses used to trigger your custom code. They allow you to respond to events across the Azure platform or on premise. Bindings represent the necessary meta data used to connect your code to the desired trigger or associated input or output data. The *function.json* file for each function contains all related bindings. There is no limit to the number of input and output bindings a function can have. However, only a single trigger binding is supported for each function.  
 
-To get a better idea of the different bindings you can integrate with your Azure Function app, refer to the following table.
+Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+Input and output *bindings* provide a declarative way to connect to data from within your code. Similar to triggers, you specify connection strings and other properties in your function configuration. Bindings are optional and a function can have multiple input and output bindings. 
 
-To better understand triggers and bindings in general, suppose you want to execute some code to process a new item dropped into an Azure Storage queue. Azure Functions provides an Azure Queue trigger to support this. You would need, the following information to monitor the queue:
+Using triggers and bindings, you can write code that is more generic and does not hardcode the details of the services with which it interacts. Data coming from services simply become input values for your function code. To output data to another service (such as creating a new row in Azure Table Storage), use the return value of the method. Or, if you need to output multiple values, use a helper object. Triggers and bindings have a **name** property, which is an identifier you use in your code to access the binding.
 
-* The storage account where the queue exists.
-* The queue name.
-* A variable name that your code would use to refer to the new item that was dropped into the queue.  
+You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
-A queue trigger binding contains this information for an Azure function. Here is an example *function.json* containing a queue trigger binding. 
+The following table shows the triggers and bindings that are supported with Azure Functions. 
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To do this, you create an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
+### Example: queue trigger and table output binding
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
+Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and a Table output binding. 
 
-The following C# function responds to a new item being dropped into the queue and writes a new user entry into an Azure Storage table.
+A queue trigger requires the following information in the **Integrate** tab:
+
+* The name of the app setting that contains the storage account connection string for the queue
+* The queue name
+* The identifier in your code to read the contents of the queue message, such as `order`.
+
+To write to Azure Table Storage, use an output binding with the following details:
+
+* The name of the app setting that contains the storage account connection string for the table
+* The table name
+* The identifier in your code to create output items, or the return value from the function.
+
+Bindings use app settings for connection strings to enforce the best practice that *function.json* does not contain service secrets.
+
+Then, use the identifiers you provided to integrate with Azure Storage in your code.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-For more code examples and more specific information regarding Azure storage types that are supported, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-To use the more advanced binding features in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
+    context.done(null, order);
+};
 
-## Random GUIDs
-Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax writes output to a new BLOB with a unique name in a Storage container: 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Here is the *function.json* that corresponds to the preceding code. Note that the same configuration can be used, regardless of the language of the function implementation.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
+
+For more code examples and details on integrating with Azure Storage, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
+
+### Binding direction
+
+All triggers and bindings have a `direction` property:
+
+- For triggers, the direction is always `in`
+- Input and output bindings use `in` and `out`
+- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available in the **Integrate** tab.
+
+## Using the function return type to return a single output
+
+The preceding example shows how to use the function return value to provide output to a binding, which is achieved by using the special name parameter `$return`. (This is only supported in languages that have a return value, such as C#, JavaScript, and F#.) If a function has multiple output bindings, use `$return` for only one of the output bindings. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+The examples below show how return types are used with output bindings in C#, JavaScript, and F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## Binding dataType property
+
+In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger and a byte array to read as binary.
+
+For languages that are dynamically typed such as JavaScript, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Other options for `dataType` are `stream` and `string`.
+
+## Resolving app settings
+As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store *function.json* in a public source control repository.
+
+App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
+
+App settings are resolved whenever a value is enclosed in percent signs, such as `%MyAppSetting%`. Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings. 
+
+The following example is a queue trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## Trigger metadata properties
+
+In addition to the data payload provided by a trigger (such as the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
+
+For example, a queue trigger supports the following properties:
+
+* QueueTrigger - triggering message content if a valid string
+* DequeueCount
+* ExpirationTime
+* Id
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+Details of metadata properties for each trigger are described in the corresponding reference topic. Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+
+For example, since blob triggers have some delays, you can use a queue trigger to run your function (see [Blob Storage Trigger](functions-bindings-storage-blob.md#storage-blob-trigger). The queue message would contain the blob filename to trigger on. Using the `queueTrigger` metadata property, you can specify this behavior all in your configuration, rather than your code.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Metadata properties from a trigger can also be used in a *binding expression* for another binding, as described in the following section.
+
+## Binding expressions and patterns
+
+One of the most powerful features of triggers and bindings is *binding expressions*. Within your binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as show in the sample in the preceding section.
+
+For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. Go to **New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**. 
+
+Here is the *function.json* definition:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Notice that the `filename` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### Random GUIDs
+Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
 
 ```json
 {
@@ -139,255 +319,107 @@ Azure Functions provides a syntax to generate random GUIDs with your bindings. T
 }
 ```
 
+### Current time
 
-## Returning a single output
-In cases where your function code returns a single output, you can use an output binding named `$return` to retain a more natural function signature in your code. This can only be used with languages that support a return value (C#, Node.js, F#). The binding would be similar to the following blob output binding that is used with a queue trigger.
+You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## Bind to custom input properties in a binding expression
+
+Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
+
+For example, the following *function.json* uses a property called `BlobName` from the trigger payload:
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson",
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-The following C# code returns the output more naturally without using an `out` parameter in the function signature.
+To accomplish this in C# and F#, you must define a POCO that defines the fields that will be deserialized in the trigger payload.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Async example:
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-This same approach is demonstrated with Node.js, as follows:
+In JavaScript, JSON deserialization is automatically performed and you can use the properties directly.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
+    }
+    else {
+        context.res = {
+            status: 404
+        };
+    }
+    context.done();
 }
 ```
 
-The following is an F# example:
+## Configuring binding data at runtime
 
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-This can also be used with multiple output parameters by designating a single output with `$return`.
-
-## Resolving app settings
-It is a best practice to store sensitive information as part of the run-time environment using app settings. By keeping sensitive information out of your app's configuration files, you limit exposure when a public repository is used to store app files.  
-
-The Azure Functions run-time resolves app settings to values when the app setting name is enclosed in percent signs, `%your app setting%`. The following [Twilio binding](functions-bindings-twilio.md) uses an app setting named `TWILIO_ACCT_PHONE` for the `from` field of the binding. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## Parameter binding
-Instead of a static configuration setting for your output binding properties, you can configure the settings to be dynamically bound to data that is part of your trigger's input binding. Consider a scenario where new orders are processed using an Azure Storage queue. Each new queue item is a JSON string containing at least the following properties:
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address".
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-You might want to send the customer an SMS text message using your Twilio account as an update that the order was received.  You can configure the `body` and `to` field of your Twilio output binding to be dynamically bound to the `name` and `mobileNumber` that were part of the input as follows.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Now your function code only has to initialize the output parameter as follows. During execution, the output properties are bound to the desired input data.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js:
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## Advanced binding at runtime (imperative binding)
-
-The standard input and output binding pattern using *function.json* is called [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) binding,
-where the binding is defined by the JSON declaration. However, you can use [imperative](https://en.wikipedia.org/wiki/Imperative_programming)
-binding. With this patttern, you can bind to any number of supported input and output binding on-the-fly in your function code.
-You might need imperative binding in cases where the computation of binding path or other inputs needs to happen at run time in your function
-instead of design time. 
-
-Define an imperative binding as follows:
-
-- **Do not** include an entry in *function.json* for your desired imperative bindings.
-- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 
-or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Use the following C# pattern to perform the data binding.
-
-		using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-		{
-				...
-		}
-
-	where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
-supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
-Mobile Apps table output binding supports 
-[six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
-but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 
-or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
-	
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
-with blob path that's defined at run time, then writes a string to the blob.
-
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-				{
-						writer.Write("Hello World!!");
-				}
-		}
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
-defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
-[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
-As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a 
-custom app setting to use by adding the 
-[StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
-and passing the attribute array into `BindAsync<T>()`. For example,
-
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				var attributes = new Attribute[]
-				{
-						new BlobAttribute("samples-output/path"),
-						new StorageAccountAttribute("MyStorageAccount")
-				};
-				using (var writer = await binder.BindAsync<TextWriter>(attributes))
-				{
-						writer.Write("Hello World!");
-				}
-		}
-
-The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
-
-> [!div class="mx-codeBreakAll"]
-| Binding | Attribute | Add reference |
-|------|------|------|
-| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| Storage queue | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Storage blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Storage table | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
 ## Next steps
-For more information, see the following resources:
+For more information on a specific binding, see the following articles:
 
-* [Testing a function](functions-test-a-function.md)
-* [Scale a function](functions-scale.md)
-
+- [HTTP and webhooks](functions-bindings-http-webhook.md)
+- [Timer](functions-bindings-timer.md)
+- [Queue storage](functions-bindings-storage-queue.md)
+- [Blob storage](functions-bindings-storage-blob.md)
+- [Table storage](functions-bindings-storage-table.md)
+- [Event Hub](functions-bindings-event-hubs.md)
+- [Service Bus](functions-bindings-service-bus.md)
+- [Cosmos DB](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Notification Hubs](functions-bindings-notification-hubs.md)
+- [Mobile Apps](functions-bindings-mobile-apps.md)
+- [External file](functions-bindings-external-file.md)

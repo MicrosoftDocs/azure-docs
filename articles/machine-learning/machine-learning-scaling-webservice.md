@@ -1,6 +1,6 @@
 ---
-title: Scaling web service | Microsoft Docs
-description: Learn how to scale a web service by increasing concurrency and adding new endpoints.
+title: How to increase concurrency of an Azure Machine Learning web service | Microsoft Docs
+description: Learn how to increase concurrency of an Azure Machine Learning web service by adding additional endpoints.
 services: machine-learning
 documentationcenter: ''
 author: neerajkh
@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/23/2017
 ms.author: neerajkh
 
 ---
-# Scaling a Web service
+# Scaling an Azure Machine Learning web service by adding additional endpoints
 > [!NOTE]
-> This topic describes techniques applicable to a Classic Machine Learning Web service. 
+> This topic describes techniques applicable to a **Classic** Machine Learning Web service. 
 > 
 > 
 
@@ -28,7 +28,6 @@ By default, each published Web service is configured to support 20 concurrent re
 
 If you plan to call the API with a higher load than a Max Concurrent Calls value of 200 will support, you should create multiple endpoints on the same Web service. You can then randomly distribute your load across all of them.
 
-## Add new endpoints for same web service
 The scaling of a Web service is a common task. Some reasons to scale are to support more than 200 concurrent requests, increase availability through multiple endpoints, or provide separate endpoints for the web service. You can increase the scale by adding additional endpoints for the same Web service through [Azure classic portal](https://manage.windowsazure.com/) or the [Azure Machine Learning Web Service](https://services.azureml.net/) portal.
 
 For more information on adding new endpoints, see [Creating Endpoints](machine-learning-create-endpoint.md).

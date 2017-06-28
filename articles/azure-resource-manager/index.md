@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Resource Manager Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Resource Manager to deploy and manage solution resources as a group and to create templates for consistent and repeatable resource deployment.
+services: azure-resource-manager
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: azure-resource-manager
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Resource Manager Documentation
 
@@ -8,7 +19,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
 
 <ul class="panelContent cardsFTitle">
 	<li>
-        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
+        <a href="/azure/azure-resource-manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -109,7 +120,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>
@@ -125,7 +136,10 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                         <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Template schemas</a></p>
+                        <p><a href="/azure/templates/">Template format</a></p>
+	                    <p><a href="/azure/resource-group-template-functions">Template functions</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI definition functions</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI definition elements</a></p>
                     </div>
                 </div>
             </div>
@@ -144,13 +158,3 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
         </div>
     </li>
 </ul>
-
----
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-resource-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Resource Manager Documentation
-        </div>
-    </a>
-</div>

@@ -1,6 +1,6 @@
 ---
 title: Create an IoT Hub using Azure CLI (az.py) | Microsoft Docs
-description: How to create an Azure IoT hub using the cross-platform Azure CLI 2.0 (Preview) (az.py).
+description: How to create an Azure IoT hub using the cross-platform Azure CLI 2.0 (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -9,35 +9,35 @@ editor: ''
 
 ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 06/16/2017
 ms.author: dobett
 
 ---
-# Create an IoT hub using the Azure CLI 2.0 (Preview)
+# Create an IoT hub using the Azure CLI 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
-You can use Azure CLI 2.0 (Preview) (az.py) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI 2.0 (Preview) (az.py) to create an IoT hub.
+You can use Azure CLI 2.0 (az.py) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI 2.0 (az.py) to create an IoT hub.
 
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – the CLI for the classic and resource management deployment models.
-* Azure CLI 2.0 (Preview) (az.py) - the next generation CLI for the resource management deployment model as described in this article.
+* Azure CLI 2.0 (az.py) - the next generation CLI for the resource management deployment model as described in this article.
 
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure CLI 2.0 (Preview)][lnk-CLI-install].
+* [Azure CLI 2.0][lnk-CLI-install].
 
 ## Sign in and set your Azure account
 
-Sign in to your Azure account and configure the Azure CLI to work with IoT Hub resources.
+Sign in to your Azure account and select your subscription.
 
 1. At the command prompt, run the [login command][lnk-login-command]:
     
@@ -57,18 +57,6 @@ Sign in to your Azure account and configure the Azure CLI to work with IoT Hub r
 
     ```azurecli
     az account set --subscription {your subscription name or id}
-    ```
-
-3. Install the Azure CLI _iot component_. Run the following [command to add the iot component][lnk-az-addcomponent-command]:
-    
-    ```azurecli
-    az component update --add iot
-    ```
-
-4. Register the IoT provider before you can deploy IoT resources. Run the following [command to register the IoT provider][lnk-az-register-command]:
-    
-    ```azurecli
-    az provider register -namespace Microsoft.Devices
     ```
 
 ## Create an IoT Hub
@@ -104,7 +92,7 @@ You can use the Azure CLI to [delete an individual resource][lnk-az-resource-com
 To delete an IoT hub, run the following command:
 
 ```azurecli
-az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
 To delete a resource group and all its resources, run the following command:

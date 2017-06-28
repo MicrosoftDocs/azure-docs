@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete an Azure cluster and its resources | Microsoft Docs
 description: Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 03/24/2017
 ms.author: chackdan
 
 ---
@@ -30,7 +30,7 @@ You have two options: Either delete the resource group that the cluster is in (w
 This is the easiest way to ensure that you delete all the resources associated with your cluster, including the resource group. You can delete the resource group using PowerShell or through the Azure portal. If your resource group has resources that are not related to Service fabric cluster, then you can delete specific resources.
 
 ### Delete the resource group using Azure PowerShell
-You can also delete the resource group by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+You can also delete the resource group by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](/powershell/azure/overview)
 
 Open a PowerShell window and run the following PS cmdlets:
 
@@ -74,7 +74,7 @@ If you deployed your cluster using the portal or using one of the Service Fabric
     ![Tagged Resources][TaggedResources]
 
 ### Delete the resources using Azure PowerShell
-You can delete the resources one-by-one by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+You can delete the resources one-by-one by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](/powershell/azure/overview)
 
 Open a PowerShell window and run the following PS cmdlets:
 

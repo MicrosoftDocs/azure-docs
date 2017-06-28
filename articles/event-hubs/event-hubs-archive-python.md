@@ -13,44 +13,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 05/03/2017
 ms.author: darosa;sethm
 
 ---
 # Event Hubs Archive walkthrough: Python
-Event Hubs Archive is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
+Event Hubs Archive is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
 
-This sample uses the Azure Python SDK to demonstrate the Archive feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The Event Hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
+This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Archive feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
 
 What will be accomplished
 
 1. Create an Azure Blob Storage account and a blob container within it, using the Azure portal.
 2. Create an Event Hub namespace, using the Azure portal.
-3. Create an Event Hub with the Archive feature enabled, using the Azure portal.
-4. Send data to the Event Hub with a Python script.
+3. Create an event hub with the Archive feature enabled, using the Azure portal.
+4. Send data to the event hub with a Python script.
 5. Read the files from the archive and process them with another Python script.
 
 Prerequisites
 
 - Python 2.7.x
 - An Azure subscription
+- An active [Event Hubs namespace and event hub.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## Create an Azure Storage account
 1. Log on to the [Azure portal][Azure portal].
-2. In the left navigation pane of the portal, click **New**, then click **Data + Storage**, and then click **Storage Account**.
+2. In the left navigation pane of the portal, click **New**, then click **Storage**, and then click **Storage Account**.
 3. Complete the fields in the storage account blade and then click **Create**.
    
    ![][1]
 4. After you see the **Deployments Succeeded** message, click the name of the new storage account and in the **Essentials** blade, click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
 5. Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these values to Notepad or some other temporary location.
 
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
-
-## Create a Python script to send events to your Event Hub
+## Create a Python script to send events to your event hub
 1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
-2. Create a script called **sender.py**. This script will send 200 events to your Event Hub. They are simple environmental readings sent in JSON.
+2. Create a script called **sender.py**. This script will send 200 events to your event hub. They are simple environmental readings sent in JSON.
 3. Paste the following code into sender.py:
    
    ```python
@@ -69,10 +68,10 @@ Prerequisites
        for dev in devices:
            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
            s = json.dumps(reading)
-           sbs.send\_event('myhub', s)
+           sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Update the preceding code to use your namespace name and key values that you obtained when you created the Event Hubs namespace.
+4. Update the preceding code to use your namespace name, key value, and event hub name that you obtained when you created the Event Hubs namespace.
 
 ## Create a Python script to read your archive files
 1. Fill out the blade and click **Create**.
@@ -92,33 +91,33 @@ Prerequisites
        reader = DataFileReader(open(filename, 'rb'), DatumReader())
        dict = {}
        for reading in reader:
-           parsed\_json = json.loads(reading["Body"])
-           if not 'id' in parsed\_json:
+           parsed_json = json.loads(reading["Body"])
+           if not 'id' in parsed_json:
                return
-           if not dict.has\_key(parsed\_json['id']):
+           if not dict.has_key(parsed_json['id']):
            list = []
-           dict[parsed\_json['id']] = list
+           dict[parsed_json['id']] = list
        else:
-           list = dict[parsed\_json['id']]
-           list.append(parsed\_json)
+           list = dict[parsed_json['id']]
+           list.append(parsed_json)
        reader.close()
        for device in dict.keys():
            deviceFile = open(device + '.csv', "a")
            for r in dict[device]:
-               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\\n')
+               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\n')
    
    def startProcessing(accountName, key, container):
        print 'Processor started using path: ' + os.getcwd()
-       block\_blob\_service = BlockBlobService(account\_name=accountName, account\_key=key)
-       generator = block\_blob\_service.list\_blobs(container)
+       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
+       generator = block_blob_service.list_blobs(container)
        for blob in generator:
-           if blob.properties.content\_length != 0:
+           if blob.properties.content_length != 0:
                print('Downloaded a non empty blob: ' + blob.name)
-               cleanName = string.replace(blob.name, '/', '\_')
-               block\_blob\_service.get\_blob\_to\_path(container, blob.name, cleanName)
+               cleanName = string.replace(blob.name, '/', '_')
+               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
                processBlob(cleanName)
                os.remove(cleanName)
-           block\_blob\_service.delete\_blob(container, blob.name)
+           block_blob_service.delete_blob(container, blob.name)
    startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
    ```
 4. Be sure to paste the appropriate values for your storage account name and key in the call to `startProcessing`.
@@ -165,7 +164,7 @@ You can learn more about Event Hubs by visiting the following links:
 [Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: ../storage/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

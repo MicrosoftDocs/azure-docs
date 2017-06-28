@@ -1,21 +1,20 @@
 ---
 title: Azure Government Marketplace | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: VybavaRamadoss
 manager: asimm
-editor: ''
 
 ms.assetid: b4ffa6c1-30c9-4aef-8938-10326e9f7d1e
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
-ms.author: zakramer;vybavar
+ms.date: 11/14/2016
+ms.author: vybavar
 
 ---
 # Azure Marketplace for Government

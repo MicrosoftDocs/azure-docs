@@ -1,4 +1,4 @@
----
+﻿---
 title: Service Fabric node types and VM Scale Sets | Microsoft Docs
 description: Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 06/05/2017
 ms.author: chackdan
 
 ---
@@ -80,7 +80,7 @@ Go to the resource definition for **Microsoft.Network/loadBalancers**. Under tha
 ![InboundNatPools][InboundNatPools]
 
 ### After cluster deployment
-This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](/powershell/azureps-cmdlets-docs)
+This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](/powershell/azure/overview)
 
 Sign in to your Azure account. If this PowerShell command fails for some reason, you should check whether you have Azure PowerShell installed correctly.
 

@@ -1,5 +1,5 @@
 ---
-title: Get the tools (macOS 10.10) | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 1: Get tools (macOS) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Pi on macOS.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, internet of things software, install git on mac, gulp run, install node js mac'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: fc6bd2c8-a847-4bf5-818f-6f7f9a6835ee
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
