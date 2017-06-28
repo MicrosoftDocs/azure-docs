@@ -35,7 +35,7 @@ The following table compares the functionality between Media Encoder Standard (M
 |Detect and remove black borders <br/>(pillarboxes, letterboxes)|No|Yes|
 |Thumbnail generation|[Yes](media-services-dotnet-generate-thumbnail-with-mes.md)|[Yes](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
 |Clipping/trimming and stitching of videos|[Yes](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Yes|
-|Overlays of audio or video|[Yes](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Yes](media-services-media-encoder-premium-workflow-multiplefilesinput#example-1--overlay-an-image-on-top-of-the-video)|
+|Overlays of audio or video|[Yes](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Yes](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Overlays of graphics|From image sources|From image and text sources|
 |Multiple audio language tracks|Limited|[Yes](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
