@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Troubleshooting Custom Policies | Microsoft Docs'
-description: A guide to several approaches to solve errors in custom policies
+title: 'Azure Active Directory B2C: Troubleshoot custom policies | Microsoft Docs'
+description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory.
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
@@ -17,73 +17,69 @@ ms.date: 05/07/2017
 ms.author: joroja
 
 ---
-# Azure Active Directory B2C Custom Policies and Identity Experience Framework Troubleshooting
-## The basics
+# Troubleshoot Azure AD B2C custom policies and Identity Experience Framework
 
 Identity developers using Azure AD B2C Custom Policies are challenged to configure the Identity Experience Framework in its policy language in the XML format. This guide is both list of recommended tools and tips to discover and resolve issues quickly.  Learning to write Custom Policies is similar to learning a new language.  
 *This article is focused on troubleshooting your Azure AD B2C Custom Policy configuration and not the relying party application or its identity library.*
 
+> [!NOTE]
+> This article focuses on troubleshooting your Azure AD B2C custom policy configuration. It doesn't address the relying party application or its identity library.
 
+## XML editing
 
-## XML Editing, inproperly formatted XML is the most common error.
+The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. A good XML editor displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and can validate with schema. Here are two of our favorite XML editors:
 
-A good XML editor which displays XML natively, color codes content, pre-fills common terms, keeps XML elements indexed, and can validate with schema is nearly essential.  Here are two of our favorites.
-
-* [VS Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Notepad++](https://notepad-plus-plus.org/)
 
-Get the XML schema definition `TrustFrameworkPolicy_0.3.0.0.xsd` from the root folder of the starter pack. XML schema validation identifies errors before uploading.  Look in the documentation of your XML editor for `XML tools` and `XML Validation`
+XML schema validation identifies errors before you upload your XML file. In the root folder of the starter pack, get the XML schema definition TrustFrameworkPolicy_0.3.0.0.xsd. For more information, in the documentation of your XML editor, look for *XML tools* and *XML validation*.
 
-A quick review of the rules of XML may be very valuable since Azure AD B2C will reject any formatting errors it detects.  Ocassionally, uncorrectly formatted XML may result in error messages that are misleading.
+You might find a review of XML rules helpful. Azure AD B2C rejects any XML formatting errors that it detects. Occasionally, incorrectly formatted XML might cause error messages that are misleading.
 
-## Uploading policies and policy validation
+## Upload policies and policy validation
 
- **Upload** validation is automatic and most errors will result in aborting an upload.  **Keep in mind that the validation includes the policy file you are trying to upload and includes the chain of files it refers to.  `RP policy file > Extensions file > Base File`  Common validation errors include:
+ XML file upload validation is automatic. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file). 
+ 
+ Common validation errors include the following.
 
 Error snippet: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* The claimType may be misspelled, or does not exist in the Schema.
-* ClaimTypes must be defined in at least one of the files in the policy.  For example ` <ClaimType Id="socialIdpUserId">`
-* If the ClaimType is defined in the extensions file, but used in a TechnichalProfile in the base file, uploading the base file will result in an error.
+* The ClaimType value might be misspelled, or does not exist in the schema.
+* ClaimType values must be defined in at least one of the files in the policy. 
+    For example: ` <ClaimType Id="socialIdpUserId">`
+* If ClaimType is defined in the extensions file, but it's also used in a TechnicalProfile value in the base file, uploading the base file results in an error.
 
-Error snippet: `...males a reference to a ClaimsTransformation with id...`
-* Same as above.
+Error snippet: `...makes a reference to a ClaimsTransformation with id...`
+* The causes for the error might be the same as for the ClaimType error.
 
 Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Check that the TenantId in the **<TrustFrameworkPolicy>** and the **<BasePolicy>** elements match your target B2C tenant.  
+* Check that the TenantId value in the **\<TrustFrameworkPolicy\>** and **\<BasePolicy\>** elements match your target Azure AD B2C tenant.  
 
+## Troubleshoot the runtime
 
-
-## Runtime troubleshooting
-
-* Use `Run Now` and `https://jwt.io` to test your policies indepently of your web or mobile application. This website acts like a relying party application and displayes the contents of the JWT token generated by your Azure AD B2C policy.  To create a test application in Identity Experience Framework.
+* Use `Run Now` and `https://jwt.io` to test your policies independently of your web or mobile application. This website acts like a relying party application. It displays the contents of the JSON Web Token (JWT) that is generated by your Azure AD B2C policy. To create a test application in Identity Experience Framework, use the following values:
     * Name: TestApp
-    * Web App / web API: No
+    * Web App/Web API: No
     * Native client: No
 
-* Use [fiddler](http://www.telerik.com/fiddler) to trace the exchange of messages between your client browser and Azure AD B2C.  You will gain an indication of where in your orchestration steps is your userjourney failing.
+* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](http://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
-* Use **Application Insights** under **Development mode** to trace the behavior of your Identity Experience Framework (IEF) user journey.  In **Development mode** it is possible to observe the exchange of claims between the IEF and the various Claims Providers defined by TechnicalProfiles, such as identity providers, API-bases services, the Azure AD B2C user directory (AAD Directory), and other services like Multi-Factor-Authentication.  
+* In **Development mode**, use **Application Insights** to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor-Authentication.  
 
-## Recommended practies
+## Recommended practices
 
-**Keep multiple versions of your scenarios and group them in a project with your application.** The base, extensions, and relying party (RP) files are directly dependent on each other, save them as a group and keep separate working versions as new features are realized in your policies.  Stage them in your own file system with the application code with which they interact.  Your applications may invoke may different RP policies in a tenant and become dependent on the claims they expect from your Azure AD B2C policies.
+**Keep multiple versions of your scenarios. Group them in a project with your application.** The base, extensions, and relying party files are directly dependent on each other. Save them as a group. As new features are added to your policies, keep separate working versions. Stage working versions in your own file system with the application code they interact with.  Your applications might invoke many different relying party policies in a tenant. They might become dependent on the claims that they expect from your Azure AD B2C policies.
 
-**Develop and test Technical Profiles with known user journeys.**  Use tested Starter Pack policies to configure your Technical Profiles and test them separately before incorporating into your own user journeys
+**Develop and test technical profiles with known user journeys.** Use tested starter pack policies to set up your technical profiles. Test them separately before you incorporate them into your own user journeys.
 
-**Develop and test user journeys with tested Technical Profiles** Change the orchestration steps of a user journey step by step, progressively building your desired scenarios
+**Develop and test user journeys with tested technical profiles.** Change the orchestration steps of a user journey incrementally. Progressively build your intended scenarios.
 
-
-
-
-
-
+## Next steps
 
 Let's get started:
 
 1. Download the "active-directory-b2c-custom-policy-starterpack" from GitHub.  [Download the zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or run
+
 ### Built-in
-
-
 
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 

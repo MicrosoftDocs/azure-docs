@@ -4,8 +4,8 @@ description: Describes how you can do a pay as you go upgrade from a free subscr
 keywords: pay as you go upgrade
 services: ''
 documentationcenter: ''
-author: adpick
-manager: adpick
+author: jlian
+manager: jlian
 editor: ''
 tags: billing
 

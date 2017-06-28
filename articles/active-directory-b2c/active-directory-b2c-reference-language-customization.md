@@ -46,7 +46,7 @@ By enabling 'Language customization' on a policy, you can now control the langua
 Create a list of allowed languages for your user journey to be translated in when the ui_locales parameter is not provided.
 1. Ensure your policy has 'Language customization' enabled from previous instructions.
 2. From your **Edit policy** blade, select **Language customization**.
-3. You are taken to your **Supported languages** blade.  From here, you can select **Add resource**.
+3. You are taken to your **Supported languages** blade.  From here, you can select **Add language**.
 4. Select all the languages that you would like to be supported.  
 
 >[!NOTE]
