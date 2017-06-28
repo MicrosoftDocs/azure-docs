@@ -63,9 +63,10 @@ This is an indication that there is some discrepancy between your labels and the
 4.	Import the app afterwards to have an LUIS app in the target language
 
 ## How can I delete data from LUIS? 
-If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
-If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
-You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
+
+* If you delete an utterance from your LUIS app, it is removed from the LUIS web service and not available for export.
+* If you delete an account, all apps and their utterances are deleted. Data is retained on the servers for 60 days before permanent deletion.
+* You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, note that this will disable your LUIS app's ability to suggest utterances or improve performance based on user queries. If you set `log=false` due to data privacy concerns be aware that you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
 
 <!-- What does it mean to delete an utterance? 
 Deleting an account -all apps, all utterances deleted, 60 days retention
