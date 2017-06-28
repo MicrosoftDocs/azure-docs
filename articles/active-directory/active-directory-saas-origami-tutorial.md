@@ -202,7 +202,7 @@ In this section, you create a user called Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_56.png)
 
-    a. In the **User Name** textbox, type User Name of Britta Simon in the Azure portal.
+    a. In the **User Name** textbox, type the **email address** of BrittaSimon.
 
     b. In the **Password** textbox, type a password.
 
