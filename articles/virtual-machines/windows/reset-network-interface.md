@@ -19,7 +19,7 @@ ms.author: genli
 ---
 # How to reset network interface for Azure Windows VM 
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]]
+[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 You cannot connect to Microsoft Azure Windows Virtual Machine (VM) after you disable the default Network Interface (NIC) or manually sets a static IP for the NIC. This article shows how to reset the network interface for Azure Windows VM, which will resolve the remote connection issue.
 
@@ -48,7 +48,7 @@ To reset network interface, follow these steps:
 4.	Select the Network Interface associated with your machine
 5.	Select **IP configurations**.
 6.	Select the IP. 
-7.	If the the **Private IP assignment**  is not  **Static**, change it to **Static**.
+7.	If the **Private IP assignment**  is not  **Static**, change it to **Static**.
 8.	Change the **IP address** to another IP address that is available in the Subnet.
 9. The virtual machine will restart to initialize the new NIC to the system.
 10.	Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
