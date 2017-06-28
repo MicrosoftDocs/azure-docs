@@ -19,7 +19,7 @@ ms.author: maheshu
 ---
 # Enable Azure Active Directory Domain Services (Preview)
 
-## Task 4: Update DNS settings for the Azure virtual network
+## Task 4: update DNS settings for the Azure virtual network
 In the preceding configuration tasks, you have successfully enabled Azure Active Directory Domain Services for your directory. The next task is to ensure that computers within the virtual network can connect and consume these services. In this article, you update the DNS server settings for your virtual network to point to the two IP addresses where Azure Active Directory Domain Services is available on the virtual network.
 
 To update the DNS server setting for the virtual network in which you have enabled Azure Active Directory Domain Services, complete the following steps:
@@ -43,5 +43,5 @@ To update the DNS server setting for the virtual network in which you have enabl
 >
 >
 
-## Next steps
-[Task 5: Enable password synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+## Next step
+[Task 5: enable password synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)

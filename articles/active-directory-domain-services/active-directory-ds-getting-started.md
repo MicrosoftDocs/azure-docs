@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs'
-description: Getting started with Azure Active Directory Domain Services
+description: Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,12 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/28/2017
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services (Preview)
+# Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) for your Azure Active Directory (Azure AD) directory using the Azure portal.
+
+> [!div class="op_single_selector"]
+> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started.md)
+> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+
+
+To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. In the left pane, click on **New**.
@@ -33,7 +40,7 @@ This article shows how to enable Azure Active Directory Domain Services (Azure A
 5. The **Enable Azure AD Domain Services** wizard is launched.
 
 
-## Task 1: Configure basic settings
+## Task 1: configure basic settings
 In the **Basics** page of the wizard, you can specify the DNS domain name for the managed domain. You can also choose the resource group and Azure location to which the managed domain should be deployed.
 
 ![Configure basics](./media/getting-started/domain-services-blade-basics.png)
@@ -69,4 +76,4 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 
 ## Next step
-[Task 2: Configure network settings](active-directory-ds-getting-started-network.md)
+[Task 2: configure network settings](active-directory-ds-getting-started-network.md)

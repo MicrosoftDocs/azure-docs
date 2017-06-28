@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs'
-description: Getting started with Azure Active Directory Domain Services
+description: Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,16 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/28/2017
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services (Preview)
+# Enable Azure Active Directory Domain Services using the Azure portal (Preview)
+
+> [!div class="op_single_selector"]
+> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started-network.md)
+> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+
 
 ## Before you begin
 Refer to [Networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
-## Task 2: Configure network settings
+
+## Task 2: configure network settings
 The next configuration task is to create an Azure virtual network and a dedicated subnet within it. You enable Azure Active Directory Domain Services in this subnet within your virtual network. You may also pick an existing virtual network and create the dedicated subnet within it.
 
 1. Click **Virtual network** to select a virtual network.
@@ -39,11 +45,11 @@ The next configuration task is to create an Azure virtual network and a dedicate
   > [!NOTE]
   > **Guidelines for selecting a subnet**
   > 1. Do not select the Gateway subnet for deploying Azure AD Domain Services, because it is not a supported configuration.
-  2. Ensure that the subnet you've selected has sufficient available address space - atleast 3-5 available IP addresses.
+  2. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses.
   >
 
 5. When you are done, click **OK** to move on to the **Administrator group** page of the wizard.
 
 
 ## Next step
-[Task 3: Configure administrative group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+[Task 3: configure administrative group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)

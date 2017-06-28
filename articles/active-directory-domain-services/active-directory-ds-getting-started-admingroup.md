@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs'
-description: Getting started with Azure Active Directory Domain Services
+description: Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,13 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/28/2017
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services (Preview)
+# Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 
-## Task 3: Configure administrative group for Azure Active Directory Domain Services
+> [!div class="op_single_selector"]
+> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started-admingroup.md)
+> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+
+
+## Task 3: configure administrative group for Azure Active Directory Domain Services
 In this configuration task, you create an administrative group in your Azure AD directory. This special administrative group is called *AAD DC Administrators*. Members of this group are granted administrative permissions on machines that are domain-joined to the managed domain. On domain-joined machines, this group is added to the administrators group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.
 
 > [!NOTE]
@@ -70,4 +75,4 @@ The process of provisioning your managed domain can take up to an hour.
 
 
 ## Next step
-[Task 4: Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
+[Task 4: update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
