@@ -135,7 +135,7 @@ After your logic app runs, you can find events and other data for those runs.
 
 <a name="find-events"></a>
 
-## Find events and data for your logic app runs
+## Find events and data from your logic app runs
 
 1. In the [Azure portal](https://portal.azure.com), choose **More Services**. 
 Search for "log analytics", and then choose **Log Analytics** as shown here:

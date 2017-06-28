@@ -163,7 +163,7 @@ Then select the options for where you want to send diagnostic data:
 > [!NOTE]
 > Retention periods apply only when you choose to use a storage account.
 
-## Supported tracking schema
+## Supported tracking schemas
 
 Azure supports these tracking schema types, 
 which all have fixed schemas except the Custom type.
