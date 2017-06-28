@@ -2,7 +2,6 @@
 title: Azure IoT Edge BLE Data Converter Module with C Sharp | Microsoft Docs
 description: Tutorial on how to build a BLE converter module for Azure IoT Edge with C Sharp and NuGet packages using Visual Studio Code.
 services: iot-hub
-documentationcenter: 
 author: jeffreyCline
 manager: sushi
 keywords: 'azure, iot, tutorial, module, nuget, vscode, csharp, edge'
