@@ -1,5 +1,5 @@
 ---
-title: What is Site Recovery? | Microsoft Docs
+title: What is Azure Site Recovery? | Microsoft Docs
 description: Provides an overview of the Azure Site Recovery service, and summarizes deployment scenarios.
 services: site-recovery
 documentationcenter: ''
@@ -21,14 +21,14 @@ ms.author: raynew
 
 Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
-Business continuity and disaster recovery (BDCR) with Azure Recovery Services
+## Business continuity and disaster recovery (BDCR) with Azure Recovery Services
 
 As an organization you need to figure out how you're going to keep your data safe, and apps/workloads running when planned and unplanned outages occur.
 
 Azure Recovery Services contribute to your BCDR strategy:
 
 - **Site Recovery service**: Site Recovery helps ensure business continuity by keeping your apps running on VMs and physical servers available if a site goes down. Site Recovery replicates workloads running on VMs and physical servers so that they remain available in a secondary location if the primary site isn't available. It recovers workloads to the primary site when it's up and running again.
-- **Backup service**: In addition, the [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) service keeps your data safe and recoverable by backing it up to Azure.
+- **Backup service**: In addition, the [Azure Backup](https://docs.microsoft.com/azure/backup/) service keeps your data safe and recoverable by backing it up to Azure.
 
 Site Recovery can manage replication for:
 
@@ -60,13 +60,13 @@ Site Recovery can manage replication for:
 **Supported** | **Details**
 --- | ---
 **What can I replicate?** | Azure VMs between Azure regions (in preview)<br/><br/>  On-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure<br/<br/> On-premises VMware VMs, Hyper-V VMs, physical servers to a secondary site. For Hyper-V VMs, replication to a secondary site is only supported if Hyper-V hosts are managed by System Center VMM.
-**Which regions are supported for Site Recovery?** | [Supported regions](https://azure.microsoft.com/en-us/regions/services/) |
-**What operating systems do replicated machines need?** | [Azure VM requirements](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)s<br></br>[VMware VM requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Physical server requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Which regions are supported for Site Recovery?** | [Supported regions](https://azure.microsoft.com/regions/services/) |
+**What operating systems do replicated machines need?** | [Azure VM requirements](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)s<br></br>[VMware VM requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Physical server requirements](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **What VMware servers/hosts do I need?** | VMware VMs can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
-**What workloads can I replicate** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
+**What workloads can I replicate?** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 
 
-## Which Azure portal?
+## Azure portal considerations
 
 * Site Recovery can be deployed in the [Azure portal](https://portal.azure.com).
 * In the Azure classic portal, you can manage Site Recovery with the classic services management model.
