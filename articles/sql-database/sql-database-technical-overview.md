@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
 
-Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure"). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). 
+Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud (Azure). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). 
 
 Microsoft is currently managing millions of production databases running a wide range of applications and workloads - from straightforward transactional data to the most data-intensive, mission-critical applications requiring advanced data processing at global scale. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly.  
 

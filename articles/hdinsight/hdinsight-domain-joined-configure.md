@@ -71,8 +71,8 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 
 There is a PowerShell script that automates step 3 through step 7.  For more information, see [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 
-## Create an Azure classic VNet
-In this section, you create a classic VNet using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the classic VNet. For more information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+## Create an Azure virtual network (classic)
+In this section, you create a virtual network (classic) using the Azure portal. In the next section, you enable the Azure AD DS for your Azure AD in the virtual network. For more information about the following procedure and using other virtual network creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **To create a classic VNet**
 

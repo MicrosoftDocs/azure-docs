@@ -10,7 +10,11 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
-
+## Optimize content
+### [Optimization overview](cdn-optimization-overview.md)
+####[Large file optimization](cdn-large-file-optimization.md)
+####[Media streaming optimization](cdn-media-streaming-optimization.md)
+ 
 ## Manage
 ### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ### [Manage with PowerShell](cdn-manage-powershell.md)
