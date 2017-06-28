@@ -1,6 +1,6 @@
 ---
-title: Python script to retrieve data from OMS Log Analytics | Microsoft Docs
-description: The Log Analytics Log Search API allows any rest API client to retrieve data from a Log Analytics workspace.  This article provides a sample Python script using the Log Search API.
+title: Python script to retrieve data from Azure Log Analytics | Microsoft Docs
+description: The Log Analytics Log Search API allows any REST API client to retrieve data from a Log Analytics workspace.  This article provides a sample Python script using the Log Search API.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -18,7 +18,7 @@ ms.author: bwren
 ---
 
 # Retrieve data from Log Analytics with a Python script
-The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any rest API client to retrieve data from a Log Analytics workspace.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
+The [Log Analytics Log Search API](log-analytics-log-search-api.md) allows any REST API client to retrieve data from a Log Analytics workspace.  This article presents a sample Python script that uses the Log Analytics Log Search API.  
 
 ## Authentication
 This script uses a service principal in Azure Active Directory to authenticate to the workspace.  Service principals allow a client application to request that the service authenticate an account even if the client does not have the account name. Before running this script, you must create a service principal using the process at [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).  You'll need to provide the Application ID, Tenant ID, and Authentication Key to the script. 
