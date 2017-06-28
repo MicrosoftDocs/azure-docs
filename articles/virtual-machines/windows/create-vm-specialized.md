@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 06/28/2017
 ms.author: cynthn
 
 ---
@@ -112,13 +112,22 @@ Depending on your network connection and the size of your VHD file, this command
 
 Create a managed disk from the specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
 
+Create a new resource group for the new VM.
+
+```powershell
+$destinationResourceGroup = 'myDestinationResourceGroup'
+New-AzureRmResourceGroup -Location $location -Name myDestinationResourceGroup
+```
+
+Create the new OS disk from the uploaded VHD. 
+
 ```powershell
 $sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
-    -ResourceGroupName $resourceGroupName
+    -ResourceGroupName $destinationResourceGroup
 ```
 
 ## Option 2: Copy an existing Azure VM
@@ -169,6 +178,13 @@ If you plan to use the snapshot to create a VM that needs to be high performing,
 
 Create a managed disk from the snapshot using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name.
 
+Create a new resource group for the new VM.
+
+```powershell
+$destinationResourceGroup = 'myDestinationResourceGroup'
+New-AzureRmResourceGroup -Location $location -Name myDestinationResourceGroup
+```
+
 Set the OS disk name. 
 
 ```powershell
@@ -181,7 +197,7 @@ Create the managed disk.
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
 	-SourceResourceId $snapshot.Id) `
-    -ResourceGroupName $resourceGroupName
+    -ResourceGroupName $destinationResourceGroup
 ```
 
 
@@ -193,20 +209,18 @@ You need to create networking and other VM resources to be used by the new VM.
 
 Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
-Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
+Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myDestinationResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
    
 ```powershell
-$resourceGroupName = "myResourceGroup"
-$subnetName = "mySubNet"
+$subnetName = 'mySubNet'
 $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 ```
 
 Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
    
 ```powershell
-$location = "West US"
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location `
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
     -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 ```    
 
@@ -217,7 +231,7 @@ Create the public IP. In this example, the public IP address name is set to **my
    
 ```powershell
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroupName -Location $location `
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
    -AllocationMethod Dynamic
 ```       
 
@@ -225,7 +239,7 @@ Create the NIC. In this example, the NIC name is set to **myNicName**.
    
 ```powershell
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName `
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 ```
 
@@ -240,7 +254,7 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroupName -Location $location `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
 	
 ```
@@ -279,7 +293,7 @@ Create the VM using [New-AzureRMVM](/powershell/module/azurerm.compute/new-azure
 
 ```powershell
 #Create the new VM
-New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm
+New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 If this command was successful, you'll see output like this:
@@ -295,7 +309,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $resourceGroupName
+$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
