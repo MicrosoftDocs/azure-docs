@@ -20,6 +20,8 @@ ms.author: cynthn
 ---
 # Create a Windows VM from a specialized disk
 
+<!-- Need to mention that the VM retains the Computer name of the original VM. Also need to figure out what to attach the NSG to and how. -->
+
 Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
 You have two options:
@@ -162,13 +164,13 @@ $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.Stor
 Create the snapshot configuration. 
 
  ```powershell
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
 ```
 
 Take the snapshot.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
 ```
 
 
@@ -292,7 +294,6 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType 
 Create the VM using [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm)the configurations that we just created.
 
 ```powershell
-#Create the new VM
 New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
