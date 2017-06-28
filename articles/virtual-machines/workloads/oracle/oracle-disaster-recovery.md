@@ -25,11 +25,20 @@ ms.author: rclaus
 
 
 ## Goals
-- Design the topology and configuration that meet your performance and availability/DR requirements.
+- Design the topology and configuration that meet your DR requirements.
 
-## DR Scenario
+## Scenario 1 (Primary site on-premises and DR site on Azure)
 
-A customer has an on-premises Oracle database setup on the primary site. A DR site is on a different region. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
+A customer has an on-premises Oracle database setup on the primary site. A DR site is on Azure. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
+
+
+
+
+
+
+## Scenario 2 (Primary and DR sites on Azure)
+
+A customer has an Oracle database setup on the primary site. A DR site is on a different region. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
 
 ### Topology
 
@@ -46,6 +55,7 @@ Similar to the customer's existing setup. Here is a summary of the Azure setup.
 - NSG is enforced on application and database subnets
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_01.png)
+
 
 
 ## Additional readings:
