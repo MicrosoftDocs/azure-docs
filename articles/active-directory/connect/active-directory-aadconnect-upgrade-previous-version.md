@@ -100,7 +100,7 @@ There may be situations where you do not want these overrides to take place imme
    >[!NOTE]
    > The overrides are connector-specific. In the following example, Full Import step and Full Synchronization step have been added to both the on-premises AD Connector and Azure AD Connector.
 
-![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
 
 3. Note down the existing overrides that have been added.
    
