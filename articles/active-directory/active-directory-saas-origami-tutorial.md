@@ -137,9 +137,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. Select **Enable Single Sign On**.
 
-    b. In the **Identity Provider's Sign-in Page URL** textbox, paste the value of **SAML Single Sign-On Service URL, which you have copied from Azure portal.
+    b. In the **Identity Provider's Sign-in Page URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    c. In the **Identity Provider's Sign-out Page URL** textbox, paste the value of **Sign-Out URL, which you have copied from Azure portal.
+    c. In the **Identity Provider's Sign-out Page URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
 
     d. Click **Browse** to upload the certificate you have downloaded from the Azure portal.
 
