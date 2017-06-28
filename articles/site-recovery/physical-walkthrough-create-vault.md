@@ -17,7 +17,7 @@ ms.date: 06/27/2017
 ms.author: raynew
 
 ---
-# Step 7: Set up a vault for physical server replication to Azure
+# Step 6: Set up a vault for physical server replication to Azure
 
 
 This article describes how to set up a vault. You create the vault, and specify what you want to replicate from your on-premises location to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
@@ -43,4 +43,4 @@ Select what you want to replicate, and where you want to replicate to.
 
 ## Next steps
 
-Go to [Step 8: Set up source and target](physical-walkthrough-source-target.md)
+Go to [Step 7: Set up source and target](physical-walkthrough-source-target.md)
