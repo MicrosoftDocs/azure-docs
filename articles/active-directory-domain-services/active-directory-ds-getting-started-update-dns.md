@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: maheshu
 
 ---
@@ -26,7 +26,7 @@ In the preceding configuration tasks, you have successfully enabled Azure Active
 >
 >
 
-To update the DNS server setting for the virtual network in which you have enabled Azure Active Directory Domain Services, do the following:
+To update the DNS server setting for the virtual network in which you have enabled Azure Active Directory Domain Services, complete the following steps:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select **Networks**.  
@@ -43,7 +43,7 @@ To update the DNS server setting for the virtual network in which you have enabl
    ![Update the DNS server settings for the virtual network](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> Virtual machines in the network will only get the new DNS settings on a restart. If you need them to get the updated DNS settings right away, trigger a restart either by the portal, PowerShell, or the CLI.
+>  Virtual machines in the network only get the new DNS settings after a restart. If you need them to get the updated DNS settings right away, trigger a restart either by the portal, PowerShell, or the CLI.
 >
 >
 

@@ -19,7 +19,7 @@ ms.author: maheshu
 ---
 # Enable Azure Active Directory Domain Services
 ## Task 3: Enable Azure Active Directory Domain Services
-In this task, you enable Azure Active Directory Domain Services (Azure AD DS) for your directory by doing the following:
+In this task, you enable Azure Active Directory Domain Services (Azure AD DS) for your directory by doing the following steps:
 
 1. Go to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the left pane, select the **Active Directory** button.
@@ -72,7 +72,7 @@ In this task, you enable Azure Active Directory Domain Services (Azure AD DS) fo
         ![Enable Domain Services window](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure Active Directory Domain Services provides high availability for your managed domain. After you enable Azure Active Directory Domain Services, note that the IP addresses at which domain services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
+        > Azure Active Directory Domain Services provides high availability for your managed domain. After you enable Azure Active Directory Domain Services, the IP addresses at which domain services are available on the virtual network are displayed one at a time. The second IP address is displayed shortly after the first, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
         >
         >
     * After about 20 to 30 minutes, the first IP address at which domain services are available on your virtual network in the **IP address** field on the **Configure** page.

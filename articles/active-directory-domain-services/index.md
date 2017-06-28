@@ -101,7 +101,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Join a RHEL 7.2 VM to a managed domain</h3>
+                        <h3>Join a Linux VM to a managed domain</h3>
                     </div>
                 </div>
             </div>
