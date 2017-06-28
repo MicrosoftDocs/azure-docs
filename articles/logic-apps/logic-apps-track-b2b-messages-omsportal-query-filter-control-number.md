@@ -60,7 +60,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Choose **OMS Portal**.
+3. Under **Management**, choose **OMS Portal**.
 
    ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
@@ -110,7 +110,7 @@ Your previous results are now filtered too.
 ## Save your query for future use
 
 1. From your query on the **Log Search** page, choose **Save**. 
-Give your query a name, and select a category. 
+Give your query a name, select a category, and choose **Save**.
 
    ![Give your query a name and category](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
 
@@ -149,5 +149,4 @@ To update the query so you can find different results, edit the query.
 
 * [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)   
-* [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

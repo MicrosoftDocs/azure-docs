@@ -209,12 +209,13 @@ in these services and other Azure services, like [Azure Stream Analytics](../str
 
 Based on the options that you want set up, make sure that you first 
 [create an Azure storage account](../storage/storage-create-storage-account.md) 
-or [create an Azure event hub](../event-hubs/event-hubs-create.md):
+or [create an Azure event hub](../event-hubs/event-hubs-create.md). 
+Then select the options for where you want to send diagnostic data:
+
+![Send data to Azure storage account or event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 > [!NOTE]
 > Retention periods apply only when you choose to use a storage account.
-
-![Send data to Azure storage account or event hub](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 <a name="add-azure-alerts"></a>
 

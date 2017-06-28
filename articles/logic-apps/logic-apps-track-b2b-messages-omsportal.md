@@ -64,7 +64,7 @@ Search for "log analytics", and then choose **Log Analytics** as shown here:
 
    ![Select your OMS workspace](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Choose **OMS Portal**.
+3. Under **Management**, choose **OMS Portal**.
 
    ![Choose OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
@@ -181,7 +181,7 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
-| Message | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
+| Message folder | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
 | Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
 |          |             |
 
@@ -214,7 +214,7 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
-| Message | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Message folder | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
@@ -247,14 +247,13 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 
 | Folder or file | Name format |
 | :------------- | :---------- |
-| Message | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Message folder | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Input, output, and if set up, acknowledgement files | **Input payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Output payload**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Inputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Outputs**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 ## Next steps
 
 * [Query for B2B messages in Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
-* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 * [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
