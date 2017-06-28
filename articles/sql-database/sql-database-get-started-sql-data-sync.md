@@ -170,7 +170,7 @@ On the **Configure On-Premises** blade, do the following things:
 
         ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
-3.  To connect to SQL Data Sync and the local agent, add your user name to the worker role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
+3.  To connect to SQL Data Sync and the local agent, add your user name to the role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
 
 ## Step 3 - Configure sync group
 
