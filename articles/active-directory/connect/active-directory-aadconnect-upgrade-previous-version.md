@@ -120,7 +120,7 @@ There may be situations where you do not want these overrides to take place imme
 5. To resume the scheduler, run the following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
+   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the Set-ADSyncSchedulerConnectorOverride cmdlet.
 
 To add the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
