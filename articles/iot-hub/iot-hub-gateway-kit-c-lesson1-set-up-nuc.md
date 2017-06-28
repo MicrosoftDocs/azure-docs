@@ -100,6 +100,12 @@ Follow these steps to install the package.
    ```
 
    > Enter 'y', when it prompts you to 'Include this channel?'
+   
+   If you receive an `import read failed(-1)` error, use the following commands to resolve the issue:
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    The `rpm` command imports the rpm key. The `smart channel` command adds the rpm channel to the Smart Package Manager. Before you run the `smart update` command, you will see an output like below.
 
