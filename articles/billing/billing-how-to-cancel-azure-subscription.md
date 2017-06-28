@@ -38,7 +38,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
     ![Screenshot that shows the Cancel button](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
 
-1. Follow prompts to finish cancellation.
+1. Follow prompts and finish cancellation.
 
 ## Cancel subscription by using the Azure Account Center
 
@@ -64,7 +64,7 @@ Once you cancel, billing is stopped immediately. However, it can take up to 10 m
 
 After that, your services get disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage becomes read-only.
 
-If you're currently paying for Azure (i.e. you're not on Free Trial), any outstanding charges for usage before the cancellation is billed to you at the end of the billing cycle. So, in this case, you should expect one more bill after cancelling.
+If you're currently paying for Azure (that is, you're not on Free Trial), any outstanding charges for usage before the cancellation is billed at the end of the billing cycle. So, in this case, you should expect one more bill after canceling.
 
 After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We do not charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
