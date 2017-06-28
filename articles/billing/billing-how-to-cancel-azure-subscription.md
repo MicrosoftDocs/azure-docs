@@ -30,7 +30,7 @@ Before you cancel your subscription:
 
 If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/plans/), you are still billed monthly for the rest of the 6-months term.
 
-## Cancel subscription via the Azure portal
+## Cancel subscription using the Azure portal
 
 1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -40,7 +40,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 1. Follow prompts and finish cancellation.
 
-## Cancel subscription by using the Azure Account Center
+## Cancel subscription using the Azure Account Center
 
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 
