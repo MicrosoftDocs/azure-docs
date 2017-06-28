@@ -127,12 +127,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-panopto-tutorial/tutorial_panopto_configure.png) 
 
 7. In a different web browser window, log in to your Panopto company site as an administrator.
+
 8. In the toolbar on the left, click **System**, and then click **Identity Providers**.
    
    ![System](./media/active-directory-saas-panopto-tutorial/ic777670.png "System")
 9. Click **Add Provider**.
    
    ![Identity Providers](./media/active-directory-saas-panopto-tutorial/ic777671.png "Identity Providers")
+   
 10. In the SAML provider section, perform the following steps:
    
     ![SaaS configuration](./media/active-directory-saas-panopto-tutorial/ic777672.png "SaaS configuration")
@@ -143,11 +145,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **Friendly Description** textbox, type a friendly description.
 	
-	d. In **Bounce Page Url** textbox, paste the value of SAML Single Sign-On Service URL, which you have copied from Azure portal.
+	d. In **Bounce Page Url** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
 	e. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
-	f. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public Key**  textbox.
+	f. Open your base-64 encoded certificate, which you have downloaded from Azure portal, copy the content of it in to your clipboard, and then paste it to the **Public Key**  textbox.
 
 11. Click **Save**.
 
@@ -156,6 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 > 
 
 ### Creating an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
