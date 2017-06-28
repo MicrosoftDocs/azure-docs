@@ -119,9 +119,19 @@ Azure emulator:
 1. Launch the emulator by issuing the following command:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > If you encounter issues with launching emulator, eg.:
+      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+   
+      reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
+   >
+   >
+
+
 2. Open a browser and navigate to **http://127.0.0.1**.
 3. When the browser window opens, enter a nickname and then hit enter.
-   This will all you to post messages as a specific nickname. To test
+   This will allow you to post messages as a specific nickname. To test
    multi-user functionality, open additional browser windows using the
    same URL and enter different nicknames.
    
