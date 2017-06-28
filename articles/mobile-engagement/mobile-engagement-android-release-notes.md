@@ -13,11 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/27/2017
 ms.author: piyushjo
 
 ---
 # Release notes
+
+### 4.3.0 (06/27/2017)
+* Android 8 support (previous versions of the SDK will not work on Android 8).
+* No more dependency on support library.
+* Remove `EngagementFragmentActivity` class.
 
 ## 4.2.4 (03/30/2017)
 * Fix in-app notification text colors on Android 7 to be the same as older Android versions.
