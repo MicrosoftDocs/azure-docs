@@ -21,7 +21,7 @@ ms.author: scottwhi
 
 The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me).
 
-Entity results include persons, places, or things. Place in this context are tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want. 
+Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want. 
 
 
 ## Search query term
@@ -122,7 +122,7 @@ Local aware entity queries such as *restaurant near me* require the user's locat
 }
 ```
 
-A place result includes the place's name, address, telephone number and URL to the entity's website. When you display the entity information, you must also use the URL in the `webSearchUrl` field to link to the Bing search results page that contains the entity.
+A place result includes the place's name, address, telephone number, and URL to the entity's website. When you display the entity information, you must also use the URL in the `webSearchUrl` field to link to the Bing search results page that contains the entity.
 
 ```
     "places" : {
@@ -164,7 +164,7 @@ A place result includes the place's name, address, telephone number and URL to t
 
 ## Data attribution  
 
-While Bing gathers certain pieces of information from the web, other information is obtained via licensors who place restrictions on the use of their data. In your usage of this API, it is important to realize that while Bing organizes and makes certain inferences or connections with the data, Bing is, in most cases, NOT the owner of this data. As such, partners must ensure that they adhere to fair use, copyright or other restrictions that may exist on the source data.  
+While Bing gathers certain pieces of information from the web, other information is obtained via licensors who place restrictions on the use of their data. In your usage of this API, it is important to realize that while Bing organizes and makes certain inferences or connections with the data, Bing is, in most cases, NOT the owner of this data. As such, partners must ensure that they adhere to fair use, copyright, or other restrictions that may exist on the source data.  
   
 If an answer or result includes the `contractualRules`, `attributions`, or `provider` fields, you must attribute the data. If the answer does not include any of these fields, no attribution is required. If the answer includes the `contractualRules` field and the `attributions` and/or `provider` fields, you must use the contractual rules to attribute the data.  
   
@@ -244,7 +244,7 @@ If the list of contractual rules includes a [LicenseAttribution](https://docs.mi
   
 The following shows an example that includes a `LicenseAttribution` rule.  
   
-![License attribution](./media/cognitive-services-bing-web-api/licenseattribution.png)  
+![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)  
   
 The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.  
   
@@ -256,7 +256,7 @@ To attribute the providers, include a line immediately following the content tha
   
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
   
-![Link text attribution](./media/cognitive-services-bing-web-api/linktextattribution.png)  
+![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)  
 
 ### Media Attribution  
 
@@ -264,7 +264,7 @@ If the entity includes an image and you display it, you must provide a click-thr
   
 The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.  
   
-![Media attribution](./media/cognitive-services-bing-web-api/mediaattribution.png)  
+![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
 
 
 ## United States-Based queries only  

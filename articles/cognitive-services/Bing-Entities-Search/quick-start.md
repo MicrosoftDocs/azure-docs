@@ -20,7 +20,7 @@ ms.author: scottwhi
 
 The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me).
 
-Entity results include persons, places, or things. Place in this context are tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want.
+Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want.
 
 ## First steps
 
@@ -36,7 +36,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 The request must use the HTTPS protocol.
 
-We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
+We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
 
 ## Specifying query parameters and headers
 
