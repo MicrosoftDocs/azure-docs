@@ -1,5 +1,5 @@
 ---
-title: Supported browsers and devices
+title: Supported browsers and devices for Azure portal | Microsoft Docs
 description: Describes the browsers and devices on which the Azure portal will work.
 services: ''
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2015
+ms.date: 06/28/2017
 ms.author: micflan
 
 ---
-# Supported browsers and devices
-The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
+# Supported browsers and devices for the Azure portal
+The [Azure portal](https://portal.azure.com) runs on all modern desktop, tablet devices, and browsers.
 
 ### Supported devices
-The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
+The Azure portal runs great on modern PCs, Macs, and tablets. If you need to manage your Azure resources from a mobile device, try the Azure app that's available for preview on iPhone and Android. For more information, see the blog post [Introducing the Azure app public preview](https://azure.microsoft.com/en-us/blog/azure-app-preview/).
 
 ### Supported browsers
-The latest versions of the following browsers are supported:
+We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 
-* Edge (latest)
+* Microsoft Edge (latest version)
 * Internet Explorer 11
-* Safari (latest, Mac only)
-* Chrome (latest)
-* Firefox (latest)
+* Safari (latest version, Mac only)
+* Chrome (latest version)
+* Firefox (latest version)
 
