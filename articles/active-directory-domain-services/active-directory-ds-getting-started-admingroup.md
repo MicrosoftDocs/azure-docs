@@ -44,15 +44,30 @@ The wizard automatically creates the administrative group in your Azure AD direc
 
     ![Notification - deployment in progress](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-6. After a while, you can search for 'domain services' in the **All Resource** search box. The **Azure AD Domain Services** blade lists the managed domain that is being provisioned.
+
+## Provisioning your managed domain
+The process of provisioning your managed domain can take up to an hour.
+
+1. While your deployment is in progress, you can search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists the managed domain that is being provisioned.
+
+    ![Find managed domain being provisioned](./media/getting-started/domain-services-provisioning-state-find-resource.png)
+
+2. Click the name of the managed domain (for example, 'contoso100.com') to see more details about the domain.
 
     ![Domain Services - provisioning state](./media/getting-started/domain-services-provisioning-state.png)
 
-7. Click the name of the managed domain (for example, 'contoso100.com') to see more details about the domain. The **Overview** tab shows that the domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned.
+3. The **Overview** tab shows that the domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned. It may take up to an hour for your managed domain to be fully provisioned.
 
     ![Domain Services - Overview tab during the provisioning state ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-8. When the managed domain is fully provisioned, you see two IP addresses on the **Properties** tab.
+4. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as **Running**.
+
+    ![Domain Services - Overview tab after fully provisioned](./media/getting-started/domain-services-provisioned.png)
+
+5. On the **Properties** tab, you see two IP addresses at which domain controllers are available for the virtual network.
+
+    ![Domain Services - Properties tab after fully provisioned](./media/getting-started/domain-services-provisioned-properties.png)
+
 
 ## Next step
 [Task 4: Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)

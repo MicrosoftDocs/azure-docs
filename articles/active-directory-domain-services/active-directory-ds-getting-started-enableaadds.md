@@ -66,7 +66,7 @@ In this task, you enable Azure Active Directory Domain Services (Azure AD DS) fo
    * Use a dedicated subnet within the virtual network for Azure Active Directory Domain Services. Do *not* select the gateway subnet. See [networking considerations](active-directory-ds-networking.md).
 
    * Similarly, virtual networks that were created by using Azure Resource Manager do not appear in the drop-down list. Resource Manager-based virtual networks are not currently supported by Azure Active Directory Domain Services.
-9. To enable Azure Active Directory Domain Services, in the task pane at the bottom of the page, click **Save**. 
+9. To enable Azure Active Directory Domain Services, in the task pane at the bottom of the page, click **Save**.
     * While Azure Active Directory Domain Services is being enabled for your directory, the page displays a status of *Pending*.
 
         ![Enable Domain Services window](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
@@ -78,8 +78,8 @@ In this task, you enable Azure Active Directory Domain Services (Azure AD DS) fo
     * After about 20 to 30 minutes, the first IP address at which domain services are available on your virtual network in the **IP address** field on the **Configure** page.
 
         ![Domain Services window displaying first provisioned IP](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * When high availability is operational for your domain, two IP addresses are displayed on the page. Your managed domain is available on your selected virtual network at these two IP addresses. 
-    
+    * When high availability is operational for your domain, two IP addresses are displayed on the page. Your managed domain is available on your selected virtual network at these two IP addresses.
+
 10. Note the two IP addresses so that you can update the DNS settings for your virtual network. Doing so enables virtual machines on the virtual network to connect to the domain for operations such as domain join.
 
     ![Domain Services window showing both provisioned IPs](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -90,4 +90,4 @@ In this task, you enable Azure Active Directory Domain Services (Azure AD DS) fo
 >
 
 ## Next steps
-Task 4: [Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
+Task 4: [Update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-update-dns.md)

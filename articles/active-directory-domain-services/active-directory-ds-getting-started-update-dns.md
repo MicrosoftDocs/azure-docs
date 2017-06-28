@@ -13,12 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services (Preview)
-
+# Update DNS settings for the Azure virtual network
 ## Task 4: Update DNS settings for the Azure virtual network
 In the preceding configuration tasks, you have successfully enabled Azure Active Directory Domain Services for your directory. The next task is to ensure that computers within the virtual network can connect and consume these services. In this article, you update the DNS server settings for your virtual network to point to the two IP addresses where Azure Active Directory Domain Services is available on the virtual network.
 
@@ -29,19 +28,19 @@ In the preceding configuration tasks, you have successfully enabled Azure Active
 
 To update the DNS server setting for the virtual network in which you have enabled Azure Active Directory Domain Services, do the following:
 
-1. The **Overview** tab for the managed domain lists a set of **Required configuration steps** to be performed after your managed domain is fully provisioned. The first configuration step is **Update DNS server settings for your virtual network**.
+1. Go to the [Azure classic portal](https://manage.windowsazure.com).
+2. In the left pane, select **Networks**.  
+    The **Networks** window opens.
 
-    ![Domain Services - Overview tab after fully provisioned](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Virtual networks window](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
+3. On the **Virtual Networks** tab, select the virtual network in which you enabled Azure Active Directory Domain Services to view its properties.
+4. Click the **Configure** tab.
 
-2. When your domain is fully provisioned, two IP addresses are displayed in this tile. Each of these IP addresses represents a domain controller for your managed domain.
+    ![Virtual networks window](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
+5. In the **DNS servers** section, enter both of the IP addresses that were displayed in the **Domain Services** section on the **Configure** tab of your directory.
+6. To save the DNS server settings for this virtual network, in the task pane at the bottom of the window, click **Save**.
 
-3. Click the copy button next to the first IP address to copy the IP address to clipboard. Then click **Configure DNS servers**.
-
-4. Paste the first IP address into the **Add DNS server** textbox in the **DNS servers** blade. Scroll horizontally to the left to copy the second IP address and paste it into the **Add DNS server** textbox.
-
-    ![Domain Services - update DNS](./media/getting-started/domain-services-update-dns.png)
-
-5. Click **Save** when you are done to update the DNS servers for the virtual network.
+   ![Update the DNS server settings for the virtual network](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
 > Virtual machines in the network will only get the new DNS settings on a restart. If you need them to get the updated DNS settings right away, trigger a restart either by the portal, PowerShell, or the CLI.
