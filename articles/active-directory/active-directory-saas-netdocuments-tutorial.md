@@ -202,7 +202,7 @@ In the case of NetDocuments, provisioning is a manual task.
    
    >[!NOTE]
    >The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
-   You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
+   You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
 
 ### Assigning the Azure AD test user
 
