@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 06/27/2017
 ms.author: cherylmc
 
 ---
@@ -26,12 +26,6 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
-
-
-> [!IMPORTANT]
->  6/22/2017: Currently, there is an issue with the VPN client download package that is generated. We are working on a fix for this issue right now. This message will be removed when the issue has been resolved.
 >
 >
 
