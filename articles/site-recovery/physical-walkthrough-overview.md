@@ -37,7 +37,7 @@ Make sure you have the prerequisites in place for each deployment component:
 - **On-premises Site Recovery components**: You need a machine running on-premises Site Recovery components.
 - **Replicated machines**: Servers you want to replicate need to comply with on-premises and Azure requirements.
 
-Go to [Step 2: Verify prerequisites and limitations](physical-walkthrough-prerequisites.md)
+Go to [Step 2: Review prerequisites and limitations](physical-walkthrough-prerequisites.md)
 
 ## Step 3: Plan capacity
 
@@ -62,7 +62,7 @@ Go to [Step 5: Prepare Azure](physical-walkthrough-prepare-azure.md)
 
 You set up a Recovery Services vault to orchestrate and manage replication. When you set up the vault, you specify what you want to replicate, and where you want to replicate it to.
 
-Go to [Step 6: Create a vault](physical-walkthrough-create-vault.md)
+Go to [Step 6: Set up a vault](physical-walkthrough-create-vault.md)
 
 ## Step 7: Configure source and target settings
 
