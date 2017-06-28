@@ -6,7 +6,7 @@ Often, you can find the DNS records page by viewing your account information, an
 
 The following screenshot is an example of a DNS records page:
 
-![Example DNS records page](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
+![Example DNS records page](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
 
 In the example screenshot, you select **Add** to create a record. Some providers have different links to add different record types. Again, consult the provider's documentation.
 
