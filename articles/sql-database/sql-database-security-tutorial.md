@@ -211,7 +211,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
     ![Navigation pane](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
 
-    You will receive an email notification upon detection of anomalous database activities. The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database. The next steps walk you through what to do should you receive such an email:
+    If anomalous database activities are detected, you will receive an email notification upon detection of anomalous database activities. The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database. The next steps walk you through what to do should you receive such an email:
 
     ![Threat detection email](./media/sql-database-threat-detection-get-started/4_td_email.png)
 
