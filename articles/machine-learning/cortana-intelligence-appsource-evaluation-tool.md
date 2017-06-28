@@ -118,7 +118,7 @@ Specifically, any of the following Azure resources can be configured with RBAC a
 - Azure Analysis Services
 - Azure SQL DW (NOTE: While Azure SQL DW does support RBAC, it is not recom  mended for direct end-user access)
 
-  If you are using a different resource type that supports RBAC, please
+If you are using a different resource type that supports RBAC, please
 specify that in the test case justification.
 ### Azure Data Lake Store should use at-rest encryption
 Azure Data Lake Store (ADLS) supports at-rest encryption by default using ADLS-managed encryption keys. You may also configure encryption using Azure Key Vault.
