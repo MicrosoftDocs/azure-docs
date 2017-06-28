@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: 
 author: jeffreyCline
 manager: sushi
-keywords: 'azure iot hub tutorial module nuget code csharp vs edge'
+keywords: 'azure, iot, tutorial, module, nuget, vscode, csharp, edge'
 
 ms.service: iot-hub
 ms.devlang: csharp
