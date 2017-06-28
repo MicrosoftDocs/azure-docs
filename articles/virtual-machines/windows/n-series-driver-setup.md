@@ -60,7 +60,11 @@ You can verify driver installation in Device Manager. The following example show
 
 ![GPU driver properties](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver.
+
+1. Open a command prompt and change into the **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
+
+2. Run **nvidia-smi**. If the driver is installed you will see output similar to below. Note that **GPU-Util** will show **0%** unless you are currently running a GPU workload on the VM.
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)  
 
