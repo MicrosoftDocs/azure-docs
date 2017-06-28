@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
-ms.author: jgao
+ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics using Azure .NET SDK
@@ -29,11 +29,14 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 * **Required NuGet Packages**
 
 ### Install NuGet packages
-   
-* [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) - 2.3.1
-* [Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics) - 3.0.0
-* [Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store) - 2.2.0
-* [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) - 1.6.0-preview
+
+|Package|Version|
+|-------|-------|
+|[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
+|[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
+|[Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store)|2.2.0|
+|[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0-preview|
+|[Microsoft.Azure.Graph.RBAC](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|3.4.0-preview|
 
 You can install these packages via the NuGet command line with the following commands:
 
@@ -42,14 +45,15 @@ Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 
 Install-Package -Id Microsoft.Azure.Management.DataLake.Analytics  -Version 3.0.0
 Install-Package -Id Microsoft.Azure.Management.DataLake.Store  -Version 2.2.0
 Install-Package -Id Microsoft.Azure.Management.ResourceManager  -Version 1.6.0-preview
+Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 ```
 
 ## Common variables
 
 ```
-string subid = "<Subscription ID>"; // a guid
-string tenantid = "<Tenant ID>"; // tenantid. For example "contoso.inmicrosoft.com"
-string rg == "<value>"; // resource  group name
+string subid = "<Subscription ID>"; // Subscription ID (a GUID)
+string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
+string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
@@ -70,6 +74,7 @@ using Microsoft.Azure.Management.DataLake.Analytics.Models;
 using Microsoft.Azure.Management.DataLake.Store;
 using Microsoft.Azure.Management.DataLake.Store.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Graph.RBAC;
 
 public static Program
 {
@@ -77,6 +82,7 @@ public static Program
    public static string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
    public static System.Uri ARM_TOKEN_AUDIENCE = new System.Uri( @"https://management.core.windows.net/");
    public static System.Uri ADL_TOKEN_AUDIENCE = new System.Uri( @"https://datalake.azure.net/" );
+   public static System.Uri GRAPH_TOKEN_AUDIENCE = new System.Uri( @"https://graph.windows.net/" );
 
    static void Main(string[] args)
    {
@@ -86,6 +92,7 @@ public static Program
       var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
       var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
       var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+      var graphCreds = GetCreds_User_Popup(TENANT, GRAPH_TOKEN_AUDIENCE, CLIENTID, tokenCache);
    }
 }
 ```
@@ -108,8 +115,11 @@ var adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(adlCreds);
 var adlaJobClient = new DataLakeAnalyticsJobManagementClient(adlCreds);
 
 var adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
-```
 
+var  graphClient = new GraphRbacManagementClient(graphCreds);
+graphClient.TenantID = domain;
+
+```
 
 ## Manage accounts
 
@@ -149,7 +159,7 @@ adlaClient.Account.Create(rg, adla, new_adla_params);
 ### List Data Lake Store accounts
 
 ```
-var adlsAccounts = adlsClient.Account.List().ToList();
+var adlsAccounts = adlsAccountClient.Account.List().ToList();
 foreach (var adls in adlsAccounts)
 {
    Console.WriteLine("ADLS: {0}", adls.Name);
@@ -160,6 +170,7 @@ foreach (var adls in adlsAccounts)
 
 ```
 var adlaAccounts = adlaClient.Account.List().ToList();
+
 for (var adla in AdlaAccounts)
 {
    Console.WriteLine("ADLA: {0}, adla.Name");
@@ -224,7 +235,7 @@ adlaClient.StorageAccounts.Add(rg, adla, storage_account, addParams);
 ### List Azure Storage data sources
 
 ```
-var stg_accounts = adlaClient.StorageAccounts.ListByAccount(rg, adla);
+var stg_accounts = adlaAccountClient.StorageAccounts.ListByAccount(rg, adla);
 
 if (stg_accounts != null)
 {
@@ -239,6 +250,7 @@ if (stg_accounts != null)
 
 ```
 var adls_accounts = adlsClient.Account.List();
+
 if (adls_accounts != null)
 {
   foreach (var adls_accnt in adls_accounts)
@@ -260,11 +272,9 @@ The first parameter for these methods is the name of the Data Lake Store Account
 
 The following example shows how to download a folder in the Data Lake Store.
 
-
 ```
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
-
 
 ### Create a file in a Data Lake Store account
 
@@ -273,7 +283,6 @@ using (var memstream = new MemoryStream())
 {
    using (var sw = new StreamWriter(memstream, UTF8Encoding.UTF8))
    {
-
       sw.WriteLine("Hello World");
       sw.Flush();
 
@@ -293,10 +302,10 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## Manage catalog and jobs
-The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Store. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scripts.
+The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Analytics account. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scripts.
 
 ### List databases and schemas
-Among the several things, you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
+Among the several things you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
 
 ```
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
@@ -333,7 +342,7 @@ foreach (USqlTableColumn utc in columns)
   var jobId = Guid.NewGuid();
   var properties = new USqlJobProperties(scriptTxt);
   var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-  var jobInfo = adlaJobClient.Job.Create(_adlaAnalyticsAccountTest, jobId, parameters);
+  var jobInfo = adlaJobClient.Job.Create(adla, jobId, parameters);
   Console.WriteLine($"Job {jobName} submitted.");
 
 }
@@ -344,11 +353,26 @@ The following code lists information about jobs that failed.
 
 ```
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
-var jobs = adlaJobClient.Job.List(adlaClient, odq );
+var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
 {
    Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
 }
+```
+
+## Common graph scenarios
+
+### Look up user in the AAD directory
+
+```
+var userinfo = graphClient.Users.Get( "bill@contoso.com" );
+```
+
+### Get the ObjectId of a user in the AAD directory
+
+```
+var userinfo = graphClient.Users.Get( "bill@contoso.com" );
+Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## Manage compute policies

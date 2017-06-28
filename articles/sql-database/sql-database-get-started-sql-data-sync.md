@@ -23,6 +23,8 @@ In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybr
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
+For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
+
 > [!NOTE]
 > The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
@@ -117,6 +119,10 @@ On the **Configure On-Premises** blade, do the following things:
     If you chose **Create a new agent**, do the following things:
 
     1.  Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
+ 
+    > [!IMPORTANT]
+    > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
+
 
     2.  Enter a name for the agent.
 

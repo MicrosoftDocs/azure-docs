@@ -156,7 +156,7 @@ Install the package for Sparkfun ESP8266 Thing Dev in Arduino IDE:
 
    ![the esp8266 package is installed](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. Click **Tools** > **Board** > **Adafruit HUZZAH ESP8266**.
+1. Click **Tools** > **Board** > **Sparkfun ESP8266 Thing Dev**.
 
 ### Install necessary libraries
 
