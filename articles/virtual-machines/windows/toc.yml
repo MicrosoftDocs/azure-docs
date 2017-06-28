@@ -371,6 +371,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: Application access
       href: troubleshoot-app-connection.md
+    - name: Activation problems
+      href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
     - name: Redeploy a VM
