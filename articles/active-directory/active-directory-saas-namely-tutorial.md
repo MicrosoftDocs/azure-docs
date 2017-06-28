@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     a. Click **Enable SAML**. 
 
-    b. In the **Identity provider SSO url** textbox,  paste the value of **SAML Single Sign-On Service URL, which you have copied from Azure portal.
+    b. In the **Identity provider SSO url** textbox,  paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
     
     c. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Identity provider certificate** textbox.
      
@@ -214,7 +214,7 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
     b. In the **Last name** textbox, type **Simon**.
 
-    c. In the **Email** textbox, type Britta's email address in the Azure classic portal.
+    c. In the **Email** textbox, type Britta's email address in the Azure portal.
 
     d. Click **Save**.
 
