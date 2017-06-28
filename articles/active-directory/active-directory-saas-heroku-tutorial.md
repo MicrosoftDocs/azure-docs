@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -76,6 +76,7 @@ To configure the integration of Heroku into Azure AD, you need to add Heroku fro
 	![Creating an Azure AD test user](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
+
 In this section, you configure and test Azure AD single sign-on with Heroku based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Heroku is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Heroku needs to be established.
@@ -108,11 +109,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL as:     
-	`https://sso.heroku.com/saml/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern:    
+	`https://sso.heroku.com/saml/<company-name>init`
 
-	b. In the **Identifier URL** textbox, type a URL as:            
-	`https://sso.heroku.com/saml/`
+	b. In the **Identifier URL** textbox, type a URL using the following pattern:            
+	`https://sso.heroku.com/saml/<company-name>`
 
 	> [!NOTE]
 	>These values are not real. Update these values with the actual Sign-On URL and Identifier. You get these values from [Heroku Client support team](https://www.heroku.com/support), which is described in later sections of this article. 
@@ -141,7 +142,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. When the setup is successful, administrators see a confirmation dialog and the URL of the SSO Login for end users is displayed. 
 
-    f. Go back to **Heroku Domain and URLs section** in Azure portal, Copy your **Sign-on url** and **identifier** then paste these values into the  **Heroku Login URL** and **Heroku Entity ID**textboxes respectively. 
+    f. Go back to **Heroku Domain and URLs section** in Azure portal, Copy your **Sign-on url** and **identifier** then paste these values into the  **Heroku Login URL** and **Heroku Entity ID** textboxes respectively. 
 
 8. Click Complete.
 
@@ -150,6 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 > 
 
 ### Creating an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
