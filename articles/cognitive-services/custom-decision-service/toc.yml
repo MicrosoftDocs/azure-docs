@@ -14,3 +14,7 @@
   href: custom-decision-service-tutorial.md
 - name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

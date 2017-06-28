@@ -37,6 +37,8 @@ In this tutorial, you will learn to:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+## Prerequisites
+
 To complete this tutorial, make sure you have:
 * PowerShell installed on your machine, and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
@@ -66,7 +68,7 @@ Follow these steps to create a SQL server and an elastic pool that will host all
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Login to Azure and create a SQL server and elastic pool 

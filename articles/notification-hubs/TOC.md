@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 # Get Started
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -65,8 +65,9 @@
 ## [REST](/rest/api/notificationhubs)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Service updates](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [Service updates](https://azure.microsoft.com/updates/?product=notification-hubs)

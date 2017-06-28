@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md)
 ## [Web application firewall](application-gateway-web-application-firewall-overview.md)
@@ -64,8 +64,9 @@
 ## [Load balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

@@ -29,17 +29,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="/azure/architecture/guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-architecture.png" src="media/index/getstarted-architecture.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Get Started Guide for Azure IT Operators</span>
+                                    <span class="likeAnH3">Azure Application Architecture Guide</span>
                                 </div>
                             </div>
                         </div>
@@ -102,13 +102,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+                                                    <a href="/dotnet/azure/?view=azure-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
                                                         <span>.NET</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
@@ -120,13 +120,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-java">
+                                                    <a href="/java/azure/">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-python">
+                                                    <a href="/python/azure/">
                                                         <img src="media/index/logo_python.svg" alt="">
                                                         <span>Python</span>
                                                     </a>
@@ -136,6 +136,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/">Kubernetes</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -192,7 +193,29 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                             </li>
-                            <li></li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>DevOps</h3>
+                                                <div class="ico48Link">
+                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
+                                                        <img src="/media/logos/logo_visual-studio.svg" alt="">
+                                                        <span>Visual Studio<br />Team Services</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                        <img src="/media/logos/logo_jenkins.svg" alt="">
+                                                        <span>Jenkins on<br />Azure VMs</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -257,8 +280,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
-                                        </li>
-                                        
+                                        </li>                                        
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -3119,10 +3141,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Get started</a>
+                                                    <a href="/dotnet/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">API reference</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3140,19 +3162,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
+                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Get started</a>
+                                                    <a href="/python/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Learn more</a>
+                                                    <a href="/python/api/overview/azure/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3170,19 +3186,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">Get the Node.js SDK</a>
+                                                    <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
+                                                    <a href="/nodejs/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3203,10 +3213,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Get started</a>
+                                                    <a href="/java/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">API reference</a>
+                                                    <a href="/java/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3504,7 +3514,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/">
+                                <a href="/azure/architecture/guide/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3514,7 +3524,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Fundamentals</h3>
+                                                    <h3>Azure Application Architecture Guide</h3>
                                                     <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>

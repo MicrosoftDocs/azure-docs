@@ -26,3 +26,5 @@
 # Related
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Role-Based Access Control](../role-based-access-control-what-is.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

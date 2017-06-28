@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory automatic device registration FAQ | Microsoft Docs
 description: Automatic device registration with Azure Active Directory FAQ.
 services: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
 
 ---

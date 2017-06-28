@@ -63,6 +63,8 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell
         href: azure-stack-powershell-configure.md
+      - name: Get up and running with PowerShell
+        href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
         href: azure-stack-connect-cli.md
     - name: Manage updates
@@ -163,6 +165,12 @@
         href: azure-stack-storage-overview.md
       - name: Storage considerations
         href: azure-stack-acs-differences.md
+      - name: Storage development tools
+        href: azure-stack-storage-dev.md
+      - name: Data transfer tools
+        href: azure-stack-storage-transfer.md
+      - name: Connect Storage Explorer
+        href: azure-stack-storage-connect-se.md
     - name: Network
       items:
       - name: iDNS for Azure Stack
@@ -195,6 +203,8 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell
         href: azure-stack-powershell-configure.md
+      - name: Get up and running with PowerShell
+        href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
         href: azure-stack-connect-cli.md
       - name: Install Visual Studio
@@ -231,6 +241,8 @@
     href: /powershell/azure/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
   - name: Stack Overflow
