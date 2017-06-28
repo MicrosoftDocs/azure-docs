@@ -53,7 +53,7 @@ productPesIds="1234, 5678"
 
 ## How can I use and deploy a windows client image into Azure?
 
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](../articles/virtual-machines/windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
@@ -124,7 +124,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](..move /classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to an new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
 
 
 ## Next steps

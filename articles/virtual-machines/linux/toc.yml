@@ -393,7 +393,7 @@
     - name: Allocation failures
       href: allocation-failure.md
     - name: Deployment issues
-      href: troubleshoot-deployment-vm.md
+      href: troubleshoot-deploy-vm.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
