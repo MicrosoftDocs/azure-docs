@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
+ms.date: 06/28/2017
 ms.author: daredis
 
 ---
