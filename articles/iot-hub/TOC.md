@@ -134,7 +134,8 @@
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
 ### Create a module
 #### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
+#### [.NET Standard](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-standard-v13-module-sample-windows-10)
 #### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
 ### Build
 #### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
