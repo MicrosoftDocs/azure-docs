@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 7/10/2017
 ms.author: xiaofmao
 
 ---
@@ -27,7 +27,7 @@ After you connect to your Azure Stack subscription, you can use the [Azure Stora
 
 You need a VPN connection for Storage Explorer to access the Azure Stack subscription remotely. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
-For Azure Stack Proof of Concept (POC), you need to export the Azure Stack authority root certificate. To do so:
+For Azure Stack Development Kit, you need to export the Azure Stack authority root certificate. To do so:
 
 1. Open `mmc.exe` on MAS-CON01, an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 

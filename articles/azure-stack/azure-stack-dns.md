@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/2/2017
+ms.date: 7/10/2017
 ms.author: victorh
 
 ---
 # DNS in Azure Stack
-Azure Stack TP3 introduces two new DNS features:
+Azure Stack includes the following DNS features:
 * Support for DNS hostname resolution
 * Create and manage DNS zones and records using API
 
 ## Support for DNS hostname resolution
-You can now specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel.location*.cloudapp.azurestack.external to the public IP address in the Azure Stack managed DNS servers.  
+You can specify a DNS domain name label for a public IP resource, which creates a mapping for *domainnamelabel.location*.cloudapp.azurestack.external to the public IP address in the Azure Stack managed DNS servers.  
 
 For example, if you create a public IP resource with **contoso** as a **domainnamelabel** in the Local Azure Stack location, the fully-qualified domain name (FQDN) **contoso.local.cloudapp.azurestack.external** resolves to the public IP address of the resource. You can use this FQDN to create a custom domain CNAME record that points to the public IP address in Azure Stack if you want.
 
@@ -48,7 +48,7 @@ DNS in Azure Stack is very similar to DNS in Azure, with two major exceptions:
     Azure Stack does NOT support AAAA records because Azure Stack does not support IPv6 addresses.  This is a key difference between DNS in Azure and Azure Stack.
 * **It is not multi-tenant**
 
-    Unlike Azure, the DNS Service in Azure Stack is not multi-tenant.  This means that each tenant cannot create the same DNS zone.  Only the first subscription that attempts to create the zone will succeed, and subsequent requests and will fail.  This is a known issue, and a key difference between Azure and Azure Stack DNS.  This issue will be resolved in a future release.
+    Unlike Azure, the DNS Service in Azure Stack is not multi-tenant.  This means that each tenant cannot create the same DNS zone.  Only the first subscription that attempts to create the zone will succeed, and subsequent requests will fail.  This is a known issue, and a key difference between Azure and Azure Stack DNS.  This issue will be resolved in a future release.
 
 In addition, there are some minor differences in how Azure Stack DNS implements Tags, Metadata, Etags, and Limits.
 

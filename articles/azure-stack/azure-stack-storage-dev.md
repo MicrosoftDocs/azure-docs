@@ -5,7 +5,7 @@ description: Guidance to get started with Azure Stack Storage using development 
 services: azure-stack 
 author: xiaofmao
 ms.author: xiaofmao
-ms.date: 06/22/2017
+ms.date: 7/10/2017
 ms.topic: get-started-article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: azure-stack
@@ -41,7 +41,7 @@ The Azure Stack Storage supported REST API version is 2015-04-05. It doesn’t h
 
 ## Endpoint declaration
 An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
-In the Azure Stack POC, the default endpoint is **local.azurestack.external**.
+In the Azure Stack Development Kit, the default endpoint is **local.azurestack.external**.
 Contact your service administrator if you’re not sure about your endpoint.
 
 ## Examples
