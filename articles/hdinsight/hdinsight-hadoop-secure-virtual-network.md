@@ -116,7 +116,7 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 Azure Virtual Networks can be secured using the following methods:
 
-* **Network security groups** allow you to filter inbound and outbound traffic by creating a set of rules that allow or deny traffic. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+* **Network security groups** allow you to filter inbound and outbound traffic. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
 
 * **User-defined routes** define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
 
@@ -191,7 +191,7 @@ The examples in this section demonstrate how to create network security group ru
 
 ### Azure Resource Management template
 
-Use the following Resource Management template from the [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) to create a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
+The following Resource Management template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
 
 [Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
@@ -310,7 +310,7 @@ Use the following steps to create a virtual network that restricts inbound traff
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     ```
 
-3. Once the rules have been created, use the following to retrieve the unique identifier for this network security group:
+3. To retrieve the unique identifier for this network security group, use the following command:
 
     ```azurecli
     az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
@@ -322,13 +322,13 @@ Use the following steps to create a virtual network that restricts inbound traff
 
     Use double-quotes around id in the command if you don't get the expected results.
 
-4. Using the following command to apply the network security group to a subnet. Replace the __GUID__ and __RESOURCEGROUPNAME__ values with the ones returned from the previous step. Replace __VNETNAME__ and __SUBNETNAME__ with the virtual network name and subnet name that you want to use when creating an HDInsight cluster.
+4. Using the following command to apply the network security group to a subnet. Replace the __GUID__ and __RESOURCEGROUPNAME__ values with the ones returned from the previous step. Replace __VNETNAME__ and __SUBNETNAME__ with the virtual network name and subnet name that you want to create.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUPNAME --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     ```
 
-    Once this command completes, you can successfully install HDInsight into the secured Virtual Network on the subnet used in these steps.
+    Once this command completes, you can install HDInsight into the Virtual Network.
 
 > [!IMPORTANT]
 > These steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. To enable access from outside the virtual network, you must add additional Network Security Group rules.
