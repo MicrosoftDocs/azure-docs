@@ -370,7 +370,9 @@ When you examine the contents of a file in blob storage, you see something like 
 
 ## Clean up resources
 
-If you don't need the resources you've created, you can delete them so that you don't incur unnecessary Azure charges. We suggest that you do the following:
+We have additional articles that continue with the fraud-detection scenario and that use the resources that you've created in this tutorial. If you want to continue, see the suggestions under **Next steps** later.
+
+However, if you're done and you don't need the resources you've created, you can delete them so that you don't incur unnecessary Azure charges. In that case, we suggest that you do the following:
 
 1. Stop the Streaming Analytics job. In the **Jobs** blade, click **Stop** at the top.
 2. Stop the Telco Generator app. In the command window where you started the app, press Ctrl+C.
@@ -387,7 +389,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 You can continue this tutorial with the following articles:
 
-* [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the Stream Analytics job TelCo output to Power BI for real-time visualization and analysis.
+* [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.
 * [How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions](stream-analytics-functions-redis.md). This article shows how to use Azure Functions to write fraudulent calls to an Azure Redis cache via a Service Bus queue.
 
 For more information about Stream Analytics in general, try these articles:
