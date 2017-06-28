@@ -19,7 +19,7 @@ ms.author: piyushjo
 ---
 # Release notes
 
-### 4.3.0 (06/27/2017)
+## 4.3.0 (06/27/2017)
 * Android 8 support (previous versions of the SDK will not work on Android 8).
 * No more dependency on support library.
 * Remove `EngagementFragmentActivity` class.
