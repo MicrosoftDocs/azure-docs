@@ -39,7 +39,11 @@
     href: tutorial-azure-security.md
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
+<<<<<<< HEAD
   - name: 13 - CI/CD with Team Services
+=======
+  - name: 13 - Set up CI/CD with Team Services
+>>>>>>> 7c0294cfdb8908382d7dfb04b73e4a5dd772dde1
     href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
