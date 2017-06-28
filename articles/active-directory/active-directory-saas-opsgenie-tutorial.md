@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -191,13 +191,13 @@ The objective of this section is to create a user called Britta Simon in OpsGeni
    
    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
-3. Click "**Add User**".
+3. Click **Add User**.
 
 4. On the **Add User** dialog, perform the following steps:
    
    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-   a. In the **Email** textbox, type Britta's email address in Azure Active Directory.
+   a. In the **Email** textbox, type the email address of BrittaSimon addressed in Azure Active Directory.
    
    b. In the **Full Name** textbox, type **Britta Simon**.
    
