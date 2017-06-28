@@ -121,7 +121,7 @@ A [SQL server logical server](sql-database-features.md) acts as a central admini
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** | Enter any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Server admin login** | Enter any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
+   | **Server admin login** | Enter any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Enter any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
    | **Subscription** | Select a subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | Choose an existing resource group or create a new group, such as **myResourceGroup** |  For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -196,7 +196,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 ## Change database properties
 
-You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level will be maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130).
+You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level will be maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
 1. In Object Explorer, right-click **myMigratedDatabase** and click **New Query**. A query window opens connected to your database.
 
