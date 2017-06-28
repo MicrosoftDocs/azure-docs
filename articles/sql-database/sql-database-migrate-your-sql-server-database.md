@@ -22,7 +22,7 @@ ms.author: janeng
 
 # Migrate your SQL Server database to Azure SQL Database
 
-Moving your SQL Server database to Azure SQL Database is a three part process - you prepare, export and import the database. In this tutorial, you learn to:
+Moving your SQL Server database to Azure SQL Database is a three part process - you first prepare, then export, and then import the database. In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Prepare a database in a SQL Server for migration to Azure SQL Database using the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)
@@ -67,7 +67,7 @@ You are ready to prepare for migration. Follow these steps to use the **[Data Mi
 
      ![new data migration assessment results compatible](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-compatible.png)
 
-8. Review the results. The **SQL Server feature parity** results are shown are the default results to review. Specifically review the information about unsupported and partially supported features, and the provided information about recommended actions. 
+8. Review the results. The **SQL Server feature parity** results shown are the default results to review. Specifically review the information about unsupported and partially supported features, and the provided information about recommended actions. 
 
      ![new data migration assessment parity](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-parity.png)
 
@@ -122,7 +122,7 @@ A [SQL server logical server](sql-database-features.md) acts as a central admini
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** | Enter any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Server admin login** | Enter any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
-   | **Password** | Enter any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | **Password** | Enter any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Subscription** | Select a subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | Choose an existing resource group or create a new group, such as **myResourceGroup** |  For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Enter any valid location for the new server | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
@@ -132,7 +132,7 @@ A [SQL server logical server](sql-database-features.md) acts as a central admini
 5. Click **Create** to provision the logical server. Provisioning takes a few minutes. 
 
 > [!IMPORTANT]
-> Remember you server name, server admin login name, and password. You will need these later in this tutorial.
+> Remember your server name, server admin login name, and password. You need these values later in this tutorial.
 >
 
 ## Create a server-level firewall rule
@@ -154,14 +154,14 @@ The SQL Database service creates a [firewall at the server-level](sql-database-f
 You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-## Import BACPAC file to Azure SQL Database 
+## Import a BACPAC file to Azure SQL Database 
 
 The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified [service tier and performance level](sql-database-service-tiers.md). For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately.
 
-Follow these steps use the SQLPackage command-line utility to import the AdventureWorks2008R2 database to Azure SQL Database. While you can use SQL Server Management Studio for this task, SQLPackage is the preferred method for most production environments for maximum flexibility and best performance. See [Migrating from SQL Server to Azure SQL Database using Bacpac Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Follow these steps use the SQLPackage command-line utility to import the AdventureWorks2008R2 database to Azure SQL Database. While you can use SQL Server Management Studio for this task, SQLPackage is the preferred method for most production environments for maximum flexibility and best performance. See [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
 - Execute the following SQLPackage command at the command prompt to import the **AdventureWorks2008R2** database from local storage to the SQL server logical server that you previously created to a new database, a service tier of **Premium**, and a Service Objective of **P6**. Replace the values in angle brackets with appropriate values for your SQL server logical server and specify a name for the new database (also replace the angle brackets). You can also choose to change the values for database edition and service objectgive as appropriate to your environment. For the purpose of this tutorial, the migrated database is called **myMigratedDatabase**.
 
@@ -196,7 +196,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 ## Change database properties
 
-You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level will be maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+You can change the service tier, performance level, and compatibility level using SQL Server Management Studio. During the import phase, we recommend that you import to a higher performance tier database for best performance, but that you scale down after the import completes to save money until you are ready to actively use the imported database. Changing the compatibility level may yield better performance and access to the newest capabilities of the Azure SQL Database service. When you migrate an older database, its database compatibility level is maintained at the lowest supported level that is compatible with the database being imported. For more information, see [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
 1. In Object Explorer, right-click **myMigratedDatabase** and click **New Query**. A query window opens connected to your database.
 
