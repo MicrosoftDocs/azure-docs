@@ -1,6 +1,6 @@
 ---
 title: Migrate an active DNS name to Azure App Service | Microsoft Docs
-description: Learn how to migrate a custom DNS domain name that is already assigned to a live site to your app in Azure App Service without any downtime.
+description: Learn how to migrate a custom DNS domain name that is already assigned to a live site to Azure App Service without any downtime.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -22,7 +22,7 @@ ms.author: cephalin
 
 This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/app-service-value-prop-what-is.md) without any downtime.
 
-When you migrate a live site and its DNS domain name to a web app, mobile app, or API app in App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by preemptively binding the active DNS name to your App Service app.
+When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app preemptively.
 
 If you're not worried about downtime in DNS resolution, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
@@ -58,7 +58,7 @@ The TXT record you need depends on the DNS record you want to migrate. For examp
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
 
-### Enable the domain for you app
+### Enable the domain for your app
 
 In the [Azure portal](https://portal.azure.com), in the left navigation of the app page, select **Custom domains**. 
 
@@ -74,7 +74,7 @@ Select **Validate**.
 
 The **Add hostname** button is activated. 
 
-Make sure that **Hostname record type** is set to the record type of the DNS record you want to migrate.
+Make sure that **Hostname record type** is set to the DNS record type you want to migrate.
 
 Select **Add hostname**.
 
