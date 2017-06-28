@@ -87,9 +87,9 @@ To move custom synchronization rules, do the following:
 5. Repeat this for all your custom rules.
 
 ### How to defer full synchronization after upgrade
-During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed. For example, connector schema changes require **full import** step and out-of-box synchronization rule changes require **full synchronization** step to be executed on affected connectors. During upgrade, Azure AD Connect determines what synchronization activities are required and records them as "overrides". In the following synchronization cycle, the synchronization scheduler picks up these overrides and executes them. Once an override is successfully executed, it is removed.
+During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed. For example, connector schema changes require **full import** step and out-of-box synchronization rule changes require **full synchronization** step to be executed on affected connectors. During upgrade, Azure AD Connect determines what synchronization activities are required and records them as *overrides*. In the following synchronization cycle, the synchronization scheduler picks up these overrides and executes them. Once an override is successfully executed, it is removed.
 
-There may be situations where you do not want these overrides to take place immediately after upgrade. For example, you have a lot of directory objects to synchronize and you would like these synchronization steps to occur after business hours. To remove these overrides:
+There may be situations where you do not want these overrides to take place immediately after upgrade. For example, you have numerous synchronized objects and you would like these synchronization steps to occur after business hours. To remove these overrides:
 
 1. During upgrade, **uncheck** the option **Start the synchronization process when configuration completes**. This disables the synchronization scheduler and prevents synchronization cycle from taking place automatically before the overrides are removed.
 
@@ -98,7 +98,7 @@ There may be situations where you do not want these overrides to take place imme
 2. After upgrade completes, run following cmdlet to find out what overrides have been added: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > The overrides are connector-specific. In the example below, Full Import step and Full Synchronization step have been added to both the on-premises AD Connector and Azure AD Connector.
+   > The overrides are connector-specific. In the following example, Full Import step and Full Synchronization step have been added to both the on-premises AD Connector and Azure AD Connector.
 
 ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
 
@@ -118,7 +118,7 @@ There may be situations where you do not want these overrides to take place imme
 5. To resume the scheduler, run following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add simply add the overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
+   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
 
 To add the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
