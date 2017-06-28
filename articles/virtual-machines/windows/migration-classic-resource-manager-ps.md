@@ -226,7 +226,7 @@ To migrate virtual machines in a virtual network, you migrate the virtual networ
 <br>
 
 > [!NOTE]
-> The virtual network name might be different from what is shown in the new Portal. The new Azure Portal displays the name as <vnet-name> but the actual virtual network name is of type "Group <resource-group-name> <vnet-name>". Before migrating, lookup the actual virtual network name using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure Portal. 
+> The virtual network name might be different from what is shown in the new Portal. The new Azure Portal displays the name as `[vnet-name]` but the actual virtual network name is of type `Group [resource-group-name] [vnet-name]`. Before migrating, lookup the actual virtual network name using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure Portal. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
 
