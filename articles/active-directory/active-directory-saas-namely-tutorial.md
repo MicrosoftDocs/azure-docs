@@ -214,7 +214,7 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
     b. In the **Last name** textbox, type **Simon**.
 
-    c. In the **Email** textbox, type Britta's email address in the Azure portal.
+    c. In the **Email** textbox, type the **email address** of BrittaSimon.
 
     d. Click **Save**.
 
