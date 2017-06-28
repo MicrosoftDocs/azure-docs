@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Jobscience, you need the following items:
 
 - An Azure AD subscription
-- A Jobscience single-sign on enabled subscription
+- A Jobscience single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -230,16 +230,22 @@ In the case of Jobscience, provisioning is a manual task.
    
    ![User Edit](./media/active-directory-saas-jobscience-tutorial/ic784371.png "User Edit")
    
-   a. Type the first name, last name, alias, email, user name, and nickname properties of the Azure AD user you want to provision into the related textboxes.
+   a. In the **First Name** textbox, type a first name of the Azure AD user.
+   
+   b. In the **Last Name** textbox, type a last name of the Azure AD user.
+   
+   c. In the **Alias** textbox, type an alias name of the Azure AD user.
 
-   b. Click **Save**.
-      
->[!NOTE]
-> The Azure AD account holder gets an email that includes a link to confirm the account before it is activated.
-> 
+   d. In the **Email** textbox, type an email id of the Azure AD user.
+
+   e. In the **User Name** textbox, type a user name of the Azure AD user.
+
+   f. In the **Nick Name** textbox, type a nick name of the Azure AD user.
+
+   g. Click **Save**.
 
 >[!NOTE]
->You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
+>You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision Azure Active Directory user accounts.
 >  
 		
 > [!NOTE]
