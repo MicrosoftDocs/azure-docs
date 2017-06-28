@@ -43,6 +43,8 @@ This method is preferred when you have a single server and less than about 100,0
 
 If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
+During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed after upgrade completes. To defer such activities, refer to section [How to defer full synchronization after upgrade](#how-to-defer-full-synchronization-after-upgrade).
+
 ## Swing migration
 If you have a complex deployment or many objects, it might be impractical to do an in-place upgrade on the live system. For some customers, this process might take multiple days--and during this time, no delta changes are processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.
 
@@ -86,7 +88,7 @@ To move custom synchronization rules, do the following:
 4. In a PowerShell prompt, run the PS1 file. This creates the custom synchronization rule on the staging server.
 5. Repeat this for all your custom rules.
 
-### How to defer full synchronization after upgrade
+## How to defer full synchronization after upgrade
 During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed. For example, connector schema changes require **full import** step and out-of-box synchronization rule changes require **full synchronization** step to be executed on affected connectors. During upgrade, Azure AD Connect determines what synchronization activities are required and records them as *overrides*. In the following synchronization cycle, the synchronization scheduler picks up these overrides and executes them. Once an override is successfully executed, it is removed.
 
 There may be situations where you do not want these overrides to take place immediately after upgrade. For example, you have numerous synchronized objects and you would like these synchronization steps to occur after business hours. To remove these overrides:
