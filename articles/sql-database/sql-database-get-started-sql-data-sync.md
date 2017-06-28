@@ -23,6 +23,8 @@ In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybr
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
+For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
+
 > [!NOTE]
 > The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
