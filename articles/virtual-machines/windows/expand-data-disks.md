@@ -40,7 +40,7 @@ The following script will walk you through getting the VM information, selecting
 ```powershell
 # Select resource group
 
-    $rg = Get-AzureRMReseourceGroup | Out-GridView `
+    $rg = Get-AzureRMResourceGroup | Out-GridView `
         -Title "Select the resource group" `
         -PassThru
 
