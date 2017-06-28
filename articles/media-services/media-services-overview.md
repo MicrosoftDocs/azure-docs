@@ -47,7 +47,6 @@ Click the image to view it full size.
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-
 ## Media Services learning paths
 You can view AMS learning paths here:
 
@@ -168,6 +167,21 @@ The following diagram shows the major parts of the AMS platform that are involve
 
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
+## Supported media processors
+
+|Name|Status|Data Centers
+|---|---|---|
+|Azure Media Face Detector|Preview|All|
+|Azure Media Hyperlapse|Preview|All|
+|Azure Media Indexer|GA|All|
+|Azure Media Motion Detector|Perview|All|
+|Azure Media OCR|Preview|All|
+|Azure Media Redactor|Preview|All|
+|Azure Media Stabilizer|Preview|All|
+|Azure Media Video Thumbnails|Preview|All|
+|Media Encoder Standard|GA|All|
+|Media Indexer v2|Preview|All, except China and Government|
+|Media Encoder Premium Workflow|GA|All, except China|
 ## Consuming content
 Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services.
 
