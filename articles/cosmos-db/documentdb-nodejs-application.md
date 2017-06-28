@@ -529,7 +529,7 @@ Now let’s turn our attention to building the user interface so a user can actu
 3. The page should update to display the newly created item in the ToDo
    list.
    
-    ![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
+    ![Screenshot of the application with a new item in the ToDo list](https://i.imgur.com/waVDMNr.png)
 4. To complete a task, simply check the checkbox in the Complete column,
    and then click **Update tasks**. This updates the document you already created.
 
