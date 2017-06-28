@@ -61,7 +61,7 @@ seamlessly.
 
 ![Before subnet failover](./media/physical-walkthrough-network/network-design7.png)
 
-### Before failover
+#### Before failover
 
 1. Create an additional network (for example Recovery Network). This is the network in which failed over VMs are created.
 2. To ensure that the IP address for a machine is retained after a failover, in the machine properties > **Configure**, specify the same IP address that the server has on-premises, and click **Save**.
@@ -71,7 +71,7 @@ seamlessly.
 
     ![After subnet failover](./media/physical-walkthrough-network/network-design9.png)
 
-### After failover
+#### After failover
 
 If you don't have an Azure network as illustrated above, you can create a site-to-site VPN connection between your primary site and Azure, after failover.
 
