@@ -91,15 +91,20 @@ During in-place upgrade, there may be changes introduced that require specific s
 
 There may be situations where you do not want these overrides to take place immediately after upgrade. For example, you have a lot of directory objects to synchronize and you would like these synchronization steps to occur after business hours. To remove these overrides:
 
-1. During upgrade, **uncheck** the option **Start the synchronization process when configuration completes**. This disables the sync scheduler and prevents synchronization cycle from taking place automatically, and executing the overrides before you have the chance to remove them.
+1. During upgrade, **uncheck** the option **Start the synchronization process when configuration completes**. This disables the synchronization scheduler and prevents synchronization cycle from taking place automatically before the overrides are removed.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
 2. After upgrade completes, run following cmdlet to find out what overrides have been added: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > Note down the overrides that have been added before removing them.
    > The overrides are connector-specific. In the example below, Full Import step and Full Synchronization step have been added to both the on-premises AD Connector and Azure AD Connector.
 
-3. To remove the overrides for both full import and full synchronization on an arbitrary connector, run following cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $false -FullSyncRequired $false`
+![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+
+3. Note down the existing overrides that have been added.
+   
+4. To remove the overrides for both full import and full synchronization on an arbitrary connector, run following cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    To remove the overrides on all connectors, execute the following PowerShell script:
 
@@ -110,10 +115,10 @@ There may be situations where you do not want these overrides to take place imme
    }
    ```
 
-4. To resume the scheduler, run following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. To resume the scheduler, run following cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add simply add these overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
+   > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add simply add the overrides back using the same cmdlet `Set-ADSyncSchedulerConnectorOverride`.
 
 To add the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
