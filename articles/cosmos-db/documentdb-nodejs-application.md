@@ -520,7 +520,7 @@ Now let’s turn our attention to building the user interface so a user can actu
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
    
-    ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+    ![Screenshot of the MyTodo List application in a browser window](https://i.imgur.com/dI9TGL6.png)
 
     > [!TIP]
     > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
