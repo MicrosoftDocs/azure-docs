@@ -33,6 +33,8 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 > * Query that data with SSMS
 > * Restore the database to a previous [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) in the Azure portal
 
+## Prerequisites
+
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
 ## Log in to the Azure portal

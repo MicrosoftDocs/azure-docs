@@ -33,6 +33,8 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
+## Prerequisites
+
 To complete this tutorial, make sure you have installed Excel, and the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 
 

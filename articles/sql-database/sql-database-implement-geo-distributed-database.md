@@ -33,7 +33,7 @@ In this tutorial, you configure an Azure SQL database and application for failov
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this tutorial, make sure the following prerequisites are completed:
 
 - The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs). 
 - An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
