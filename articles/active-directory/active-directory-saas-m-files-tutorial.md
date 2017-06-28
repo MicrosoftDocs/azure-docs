@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 06/28/2017
 ms.author: jeedes
 
 ---
@@ -189,7 +189,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a M-Files test user
 
-In this section, you create a user called Britta Simon in M-Files. If you don't know how to create a user in M-Files, Contact [M-Files support team](mailto:support@m-files.com).
+The objective of this section is to create a user called Britta Simon in M-Files. Work with  [M-Files support team](mailto:support@m-files.com) to add the users in the M-Files.
 
 ### Assigning the Azure AD test user
 
