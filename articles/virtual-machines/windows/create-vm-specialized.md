@@ -116,7 +116,7 @@ Create a new resource group for the new VM.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name myDestinationResourceGroup
+New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 ```
 
 Create the new OS disk from the uploaded VHD. 
@@ -182,7 +182,7 @@ Create a new resource group for the new VM.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name myDestinationResourceGroup
+New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 ```
 
 Set the OS disk name. 
