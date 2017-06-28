@@ -60,7 +60,7 @@ After you can remote desktop to the machine, you must delete the old NICs to avo
 2.	Select **View** > **Show hidden devices**.
 3.	Select **Network Adapters**. 
 4.	Check for the adapters named as "Microsoft Hyper-V Network Adapter".
-5.	You might see an unavailable adapter that are grayed out. Right-click the adapter and then select Uninstall.
+5.	You might see an unavailable adapter that is grayed out. Right-click the adapter and then select Uninstall.
 
     ![the image of the NIC](media/reset-network-interface/nicpage.png)
 
@@ -69,4 +69,4 @@ After you can remote desktop to the machine, you must delete the old NICs to avo
     >
     >
 
-6.	Now all unavailable adapter should be cleared out from your system.
+6.	Now all unavailable adapter should be cleared out from your system.git a
