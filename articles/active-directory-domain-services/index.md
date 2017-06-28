@@ -10,12 +10,12 @@ ms.service: active-directory-ds
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 06/27/2017
+ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Azure Active Directory Domain Services Documentation
+# Active Directory Domain Services Documentation
 
-Learn how to use Azure Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
+Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -73,7 +73,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +83,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Join a Windows Server VM to a managed domain</h3>
+                        <h3>Create or select a Virtual network</h3>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
         </a>
     </li>    
     <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,7 +101,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Join a Linux VM to a managed domain</h3>
+                        <h3>Enable Azure AD Domain Services</h3>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +119,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Administer a managed domain</h3>
+                        <h3>Update DNS settings</h3>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -137,7 +137,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Administer DNS on a managed domain</h3>
+                        <h3>Enable password sync for Cloud-only tenant</h3>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
         </a>
     </li>
     <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">
+        <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -155,25 +155,7 @@ Learn how to use Azure Active Directory Domain Services to join Azure virtual ma
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Configure secure LDAP on a managed domain</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Administer Group Policy on a managed domain</h3>
+                        <h3>Enable password sync for Synced tenant</h3>
                     </div>
                 </div>
             </div>
