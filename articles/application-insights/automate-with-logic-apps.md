@@ -21,8 +21,6 @@ your service is functioning properly? Looking to automate these queries for find
 anomalies and build your own workflows around them? Well, Application Insights Connector (preview) for Azure Logic Apps is just what you need!
 With this integration, numerous processes can now be automated without writing a single line of code. You can create your Logic App with the Application Insights connector to quickly automate any Application Insights process. You can add additional actions as well. Logic Apps makes hundreds of actions available. For example, you can automatically send an email notification, or create a bug in Visual Studio Team Services as part of your Logic App. You can also use one of the many [templates](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-use-logic-app-templates) available for Logic Apps. These templates speed up the process of creating your Logic App. 
 
-<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
-
 ## Tutorial for creating an Azure Logic App for Application Insights
 
 In this tutorial, you learn how to create an Azure Logic App that uses the Analytics auto-cluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email. This is just one example of how you can use Application Insights Analytics and Azure Logic Apps together. 
@@ -38,6 +36,8 @@ In this tutorial, you learn how to create an Azure Logic App that uses the Analy
 2.	Set the Frequency to Day with an Interval of 1.
 
 ![Logic App trigger dialog](./media/automate-with-logic-apps/logicapp2.png)
+
+![Logic App frequency dialog](./media/automate-with-logic-apps/step2b.png)
 
 ### Step 3: Add an Azure Application Insights action
 1. Click **New step** and then on **Add an action**.
