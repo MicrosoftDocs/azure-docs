@@ -195,7 +195,7 @@
 
 ## Cortana Intelligence Partner Solutions
 ### [AppSource publishing guide](cortana-intelligence-appsource-publishing-guide.md)
-### [AppSource evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+### [Solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
 
 ## Cortana Analytics
 ### APIs
