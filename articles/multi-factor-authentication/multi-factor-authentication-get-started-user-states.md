@@ -25,6 +25,8 @@ There are two approaches for requiring two-step verification. The first option i
 >[!TIP] 
 >Choose one of these methods to require two-step verification, not both. Enabling a user for Azure MFA overrides any conditional access policies.
 
+
+
 ## Enable Azure MFA by changing user status
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
@@ -66,6 +68,34 @@ Use the following steps to access the page where you can view and manage user st
 
 After you enable users, you should notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they'll need to create app passwords. You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
 
+### Use PowerShell
+To change the user status state using [Azure AD PowerShell](/powershell/azure/overview), change `$st.State`. There are three possible states:
+
+* Enabled
+* Enforced
+* Disabled  
+
+Don't move users directly to the *Enforced* state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
+
+Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
+
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = “Enabled”
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+
+Here is an example:
+
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = “Enabled”
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
 
 ## Enable Azure MFA with a conditional access policy
 
