@@ -13,7 +13,7 @@ ms.date: 07/06/2017
 ms.author: scottwhi
 ---
 
-# Making your first request
+# Making your first entities request
 
 > [!NOTE]
 > Preview release of the Entity Search API. All aspects of the API and documentation are subject to change. 
@@ -142,4 +142,4 @@ Try out the API. Go to [Entities Search API Testing Console](https://dev.cogniti
 
 For details about consuming the response objects, see [Searching the Web for entities and places](./search-the-web.md).
 
-Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
+Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) so you don't break any of the rules about using the search results.
