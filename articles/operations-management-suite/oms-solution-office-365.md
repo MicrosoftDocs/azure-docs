@@ -52,105 +52,31 @@ Once you [add the Office 365 solution to your subscription](/log-analytics/log-a
 
 ## Data collection
 ### Supported agents
-The Office 365 solution doesn't data from any of the [OMS agents](../log-analytics/log-analytics/data-sources.md).  It retrieves data directly from Office 365.
+The Office 365 solution doesn't retrieve data from any of the [OMS agents](../log-analytics/log-analytics/data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated.  For each managed Linux computer, a scan is performed every 3 hours.
-
-It can take anywhere from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.   
+To be completed.   
 
 ## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
-![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+When you add the Office 365 solution to your OMS workspace, the **Office 365** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
+![Office 365 Summary Tile](media/oms-solution-office-365/tile.png)  
 
+Click on the **Office 365** tile to open the **Office 365** dashboard which includes the columns in the following table.
+
+The dashboard includes the columns in the following table. Each column lists the top ten alerts by count matching that column's criteria for the specified scope and time range. You can run a log search that provides the entire list by clicking See all at the bottom of the column or by clicking the column header.
+
+| Column | Description |
+|:--|:--|
+| Operations | Provides information about the active users from your all monitored Office 365 subscriptions. You will also be able to see the number of activities that happen over time.
+| Exchange | Shows the breakdown of Exchange Server activities such as Add-Mailbox Permission, or Set-Mailbox. |
+| SharePoint | Shows the top activities that users perform on SharePoint documents. When you drill down from this tile, the search page shows the details of these activities, such as the target document and the location of this activity. For example, for a File Accessed event, you will be able to see the document that’s being accessed, its associated account name, and IP address. |
+| Azure Active Directory | Includes top user activities, such as Reset User Password and Login Attempts. When you drill down, you will be able to see the details of these activities like the Result Status. This is mostly helpful if you want to monitor suspicious activities on your Azure Active Directory. |
+
+![Office 365 Dashboard](media/oms-solution-office-365/dashboard.png)  
 
 
 ## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
-
-### Update records
-A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
-
-| Property | Description |
-| --- | --- |
-| Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
-| Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
-| Classification for Windows |Classification of the update.<br>Possible values are:<br>-    Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
-| Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
-| Computer |Name of the computer. |
-| InstallTimeAvailable |Specifies whether the installation time is available from other agents that installed the same update. |
-| InstallTimePredictionSeconds |Estimated installation time in seconds based on other agents that installed the same update. |
-| KBID |ID of the KB article that describes the update. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>. |
-| MSRCBulletinID |ID of the Microsoft security bulletin describing the update. |
-| MSRCSeverity |Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate |
-| Optional |Specifies whether the update is optional. |
-| Product |Name of the product the update is for.  Click **View** to open the article in a browser. |
-| PackageSeverity |The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. |
-| PublishDate |Date and time that the update was installed. |
-| RebootBehavior |Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots |
-| RevisionNumber |Revision number of the update. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| Title |Title of the update. |
-| UpdateID |GUID to uniquely identify the update. |
-| UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
-
-
-
-| Property | Description |
-| --- | --- |
-| Type |*OfficeActivity* |
-| 
-
-
-
-## Sample log searches
-The following table provides sample log searches for update records collected by this solution.
-
-| Query | Description |
-| --- | --- |
-|Windows-based server computers that need updates |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
-|Linux servers that need updates | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
-| All computers with missing updates |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Missing updates for a specific computer (replace value with your own computer name) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| All computers with missing critical or security updates |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Critical or security updates needed by machines where updates are manually applied |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| Error events for machines that have missing critical or security required updates |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| All computers with missing update rollups |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Distinct missing updates across all computers |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| Windows-based server computer with updates that failed in an update run | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
-| Linux server with updates that failed an update run |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
-| WSUS computer membership |`Type=UpdateSummary | measure count() by WSUSServer` |
-| Automatic update configuration |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
-| Computers with automatic update disabled |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| List of all the Linux machines which have a package update available |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| List what update deployments have modified computers |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
-|Computers that were updated in this update run (replace value with your Update Deployment name |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
-| List of all the “Ubuntu” machines with any update available |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
-
-## Troubleshooting
-
-This section provides information to help troubleshoot issues with the Update Management solution.  
-
-### How do I troubleshoot update deployments?
-You can view the results of the runbook responsible for deploying the updates included in the scheduled update deployment from the Jobs blade of your Automation account that is linked with the OMS workspace supporting this solution.  The runbook **Patch-MicrosoftOMSComputer** is a child runbook that targets a specific managed computer, and reviewing the verbose Stream will present detailed information for that deployment.  The output will display which required updates are applicable, download status, installation status, and additional details.<br><br> ![Update Deployment job status](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
-
-For further information, see [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md).   
-
-## Next steps
-* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
-
-
-
-https://blogs.technet.microsoft.com/msoms/2016/05/13/oms-office-365-management-solution-now-in-public-preview/
-
+The Office 365 solution creates records in the OMS repository with the properties in the following table. 
 
 | Property | Description |
 |:--- |:--- |
@@ -245,3 +171,29 @@ https://blogs.technet.microsoft.com/msoms/2016/05/13/oms-office-365-management-s
 | UserKey | |
 | UserSharedWith | |
 | UserType | Type of the user  |
+
+
+
+## Sample log searches
+The following table provides sample log searches for update records collected by this solution.
+
+| Query | Description |
+| --- | --- |
+|Count of all the operations on your Office 365 subscription |`Type = OfficeActivity | measure count() by Operation` |
+|Usage of SharePoint sites|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
+|File access operations by user type|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
+|Search with a specific keyword|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
+|Monitor external actions on Exchange|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+
+
+
+## Troubleshooting
+
+This section provides information to help troubleshoot issues with the Update Management solution.  
+
+To be completed.
+
+## Next steps
+* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
+* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) to display your favorite Office 365 search queries.
+* [Create alerts](../log-analytics/log-analytics-alerts.md) to be proactively notified of important Office 365 activities.  
