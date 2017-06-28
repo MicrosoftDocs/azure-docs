@@ -145,29 +145,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. IQNavigator VMS application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+7. In the User attribute section of **IQNavigator VMS** application, change the mapping in the **User Identifier** dropdown to **user.extensionattribute2**. Edit the **name** attribute value with **user.extensionattribute2**  as shown in the screenshot below.   
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
-8. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |
-	| name | user.extensionattribute2 |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+8. Click **name** attribute to open **Edit Attribute** dialog box and perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute1.png)
 
-	![Configure Single Sign-On](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_attribute_05.png)
+    a.In **Value** textbox, select **user.extensionattribute2**.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. From the **Value** list, type the attribute value shown for that row.
-
-	d. Leave the **Namespace** blank.
-	
-	e. Click **Ok**.
+    b. Click **Ok**.
 
 9. On the **IQNavigator VMS Configuration** section, click **Configure IQNavigator VMS** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
