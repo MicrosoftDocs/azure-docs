@@ -1,5 +1,5 @@
 ---
-title: CI/CD from Jenkins to Azure VMs | Microsoft Docs
+title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
 description: Set up continuous integration (CI) and continuous deployment (CD) of an app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
 author: ahomer
 manager: douge
@@ -17,17 +17,17 @@ ms.author: ahomer
 ms.custom: mvc
 ---
 
-# Implement continuous deployment of your app using Jenkins to Azure VMs
+# Implement continuous deployment of your app to Linux VMs using Jenkins and Team Services
 
 Continuous integration (CI) and continuous deployment (CD) is a pipeline by which you can build, release, and deploy your code. Team Services provides a complete, fully-featured set of CI/CD automation tools for deployment to Azure. Jenkins is a popular 3rd-party CI/CD server-based tool that also provides CI/CD automation. You can use both together to customize how you deliver your cloud app or service.
 
-In this tutorial, you set up CI/CD for a Node.js app by using Jenkins to build it, and Visual Studio Team Services to deploy it to an Azure deployment group. 
+In this tutorial, you use Jenkins to build a Node.js web app, and Visual Studio Team Services to deploy it to a group of Linux VMs.
 
 You will:
 
 > [!div class="checklist"]
 > * Build your app in Jenkins
-> * Configure Jenkins for CI with Team Services or TFS
+> * Configure Jenkins for Team Services integration
 > * Create a deployment group for the Azure virtual machines
 > * Create a release definition that configures the VMs and deploys the app
 
@@ -37,7 +37,7 @@ You'll need a [Team Services account](https://www.visualstudio.com/en-us/docs/se
 
 For a quick guide on connecting to Team Services, read [Connect to Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-You'll also need an app that you want to deploy stored in a Git repository. Using it, you'll configure the required plugins in Jenkins to interface with Team Services for automated deployment to Azure. This tutorial uses a sample app (provided below) that you can use as you follow along if you don't have one yet.
+You'll also need an app that you want to deploy stored in a Git repository. 
 
 You can skip the next two sections if you have your own app in a Git repo.
 
@@ -56,7 +56,7 @@ it uses **Express**, **bower**, and **grunt**; and it has some **npm** packages 
 
 The sample app contains a set of
 [Azure Resource Manager (ARM) templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
-that are used to create the deployment group and virtual machines for deployment on Azure. These templates are used by tasks in the [Team
+that are used to dynamically the virtual machines for deployment on Azure. These templates are used by tasks in the [Team
 Services release definition](https://www.visualstudio.com/en-us/docs/build/actions/work-with-release-definitions).
 
 The main template creates a network security group, a virtual machine, 
@@ -64,12 +64,8 @@ and a virtual network. It assigns a public IP address and opens inbound
 port 80. It also adds a tag that is used by the deployment group to 
 select the machines to receive the deployment.
 
-The [Team Service parameters template]() contains the values that override settings in
-the main template when the release definition processes that particular template
-for each of the virtual machines.
-
-The sample also contains a script that is executed on each of the virtual
-machines after the deployment has succeeded. This script:
+The sample also contains a script that sets up Nginx and deploys the app. Itis executed on each of the virtual
+machines. Specifically, this script:
 
 * Installs Node, Nginx, and PM2
 
@@ -173,8 +169,7 @@ open the **Deployment groups** tab, and choose **+ New**.
 Enter a name for the deployment group, and an optional description.
 Then choose **Create**.
 
-The virtual machines to populate the new deployment group will be created
-by the Azure Resource Group Deployment task. You don't need to register them manually.
+The virtual machines to populate the new deployment group will be created by the Azure Resource Group Deployment task. You don't need to register them manually.
 
 ## Create a release definition
 
@@ -208,8 +203,8 @@ Configure the tasks as follows (see the screen below):
    > * **Resource group**: Enter a name of the resource group you created earlier.
    > * **Location**: Select a region for the deployment.
    > * **Template location**: `URL of the file`
-   > * **Template link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.json`
-   > * **Template parameters link**: `{your-git-repo}/{branch}/ARM-Templates/UbuntuWeb1.parameters.json`
+   > * **Template link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.json`
+   > * **Template parameters link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.parameters.json`
    > * **Override template parameters**: A list of the override values, for example: `-location {location} -virtualMachineName {machine] -virtualMachineSize Standard_DS1_v2 -adminUsername {username} -virtualNetworkName fabrikam-node-rg-vnet -networkInterfaceName fabrikam-node-websvr1 -networkSecurityGroupName fabrikam-node-websvr1-nsg -adminPassword $(adminpassword) -diagnosticsStorageAccountName fabrikamnodewebsvr1 -diagnosticsStorageAccountId Microsoft.Storage/storageAccounts/fabrikamnodewebsvr1 -diagnosticsStorageAccountType Standard_LRS -addressPrefix 172.16.8.0/24 -subnetName default -subnetPrefix 172.16.8.0/24 -publicIpAddressName fabrikam-node-websvr1-ip -publicIpAddressType Dynamic`
    > * **Enable prerequisites**: `Configure with Deployment Group agent`
    > * **TFS/VSTS endpoint**: Select the Jenkins service endpoint connection you created earlier.
@@ -265,11 +260,11 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 
 > [!div class="checklist"]
 > * Build your app in Jenkins
-> * Configure Jenkins for CI with Team Services or TFS
+> * Configure Jenkins for Team Services integration
 > * Create a deployment group for the Azure virtual machines
 > * Create a release definition that configures the VMs and deploys the app
 
-Follow this link to see pre-built virtual machine script samples.
+Follow this link to see additional VSTS CI/CD examples.
 
 > [!div class="nextstepaction"]
 > [Team Services CI/CD documentation](https://www.visualstudio.com/en-us/docs/build/overview)
