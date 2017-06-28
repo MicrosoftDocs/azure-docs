@@ -1,3 +1,15 @@
+---
+title: Creating Azure IoT Edge Module with Java | Microsoft Docs
+description: This tutorial showcases how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge Maven packages.
+services: Microsoft Azure IoT Edge
+author: junyi
+manager: sushi
+ms.service: Microsoft Azure IoT Edge
+ms.devlang: Java
+ms.topic: article
+ms.date: 06/28/2017
+ms.author: junyi
+---
 # Azure IoT Edge BLE Data Converter Module with Java
 
 ## Overview
@@ -279,5 +291,6 @@ Use `mvn exec:exec` to run the Azure IoT Edge and you should observe that the te
 
 If you want to terminate the application, press `<Enter>` key.
 
-> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge gateway application. As this may cause the process to terminate abnormally.
+> [!IMPORTANT]
+> It is not recommended to use Ctrl + C to terminate the IoT Edge gateway application. As this may cause the process to terminate abnormally.
 
