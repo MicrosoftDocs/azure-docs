@@ -57,7 +57,7 @@ You can get the values for these parameters on the **Media Services API with use
 
 If you are connecting to the AMS API using Media Services .NET SDK, the following values will be available to you as part of the SDK. For more information, see [Use AAD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md)
 
-If you are not using Media Services .NET client SDK, you will be required to manually create an AAD token request using the parameters shown above. For more information, see [How to use ADAL libaraies to get the AAD token](../active-directory/develop/active-directory-authentication-libraries.md).
+If you are not using Media Services .NET client SDK, you will be required to manually create an AAD token request using the parameters shown above. For more information, see [How to use ADAL libraries to get the AAD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
 ## Service principal authentication
 
@@ -83,7 +83,7 @@ If you do not have permissions to create AAD apps in your Domain, the AAD app co
 
 If you are connecting to the AMS API using Media Services .NET SDK, see [Use AAD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md)
 
-If you are not using Media Services .NET client SDK, you will be required to manually create an AAD token request using the parameters shown above. For more information, see [How to use ADAL libaraies to get the AAD token](../active-directory/develop/active-directory-authentication-libraries.md).
+If you are not using Media Services .NET client SDK, you will be required to manually create an AAD token request using the parameters shown above. For more information, see [How to use ADAL libraries to get the AAD token](../active-directory/develop/active-directory-authentication-libraries.md).
 
 ### Get Client ID and Client secret
 
