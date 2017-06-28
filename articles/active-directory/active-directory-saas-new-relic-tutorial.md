@@ -204,7 +204,7 @@ In order to enable Azure Active Directory users to log in to New Relic, they mus
    
     a. In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
 
-    b. As **Roles** select **User**.
+    b. As **Role** select **User**.
 
     c. Click **Add this user**.
 
