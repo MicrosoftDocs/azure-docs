@@ -181,9 +181,9 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
 4. Select **Storage Details** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved, and the retention period, after which the old logs will be deleted, then click **OK** at the bottom. 
 
-> [!TIP]
-> Use the same storage account for all audited databases to get the most out of the auditing reports templates.
-> 
+   > [!TIP]
+   > Use the same storage account for all audited databases to get the most out of the auditing reports templates.
+   > 
 
 5. Click **Save**.
 
