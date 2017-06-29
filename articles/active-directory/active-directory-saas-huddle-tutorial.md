@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_configure.png) 
 	
-7. To configure single sign-on on Huddle side, you need to send the downloaded  Certificate, SAML Single Sign-On Service URL, and SAML Entity ID to [Huddle Client support team](https://huddle.zendesk.com). They set this setting to have the SAML SSO connection set properly on both sides.  
+7. To configure single sign-on on Huddle side, you need to send the downloaded  **Certificate**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Huddle Client support team](https://huddle.zendesk.com). They set this setting to have the SAML SSO connection set properly on both sides.  
    
 	>[!NOTE]
 	> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed. 
