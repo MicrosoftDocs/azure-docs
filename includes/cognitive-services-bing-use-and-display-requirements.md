@@ -80,7 +80,7 @@ The only exception to the internet search experience requirement is for URL disc
 
 **Branding.** You may attribute each response (or portion of a response) displayed to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise in writing for your particular use.
 
-## 5. Transferring Responses.
+## 5. Transferring responses.
 
 If you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
 
@@ -100,7 +100,7 @@ If you enable a user to transfer a response from a Search API to another user, s
   
 •	You may only enable a user to transfer responses obtained as a result of the transferring user's query.
 
-## 6. Continuity of Service.
+## 6. Continuity of service.
 
 You must not copy, store or cache any data from Search API responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
 
