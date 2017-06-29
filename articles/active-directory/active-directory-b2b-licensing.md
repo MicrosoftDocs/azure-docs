@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2B collaboration licensing guidance | Microsoft Docs
-description: Azure Active Directory B2B collaboration might not require paid Azure AD licenses, depending on the features you want for B2B guest users
+description: Azure Active Directory B2B collaboration does not require paid Azure AD licenses, but you can also get paid features for B2B guest users
 services: active-directory
 documentationcenter: ''
 author: sasubram
@@ -23,11 +23,11 @@ ms.custom: it-pro
 
 # Azure Active Directory B2B collaboration licensing guidance
 
-Azure Active Directory (Azure AD) B2B collaboration extends a select set of existing Azure AD features to guest users invited into the Azure AD tenant. Assigning licenses to guest users is not required to succefully invite them, and might not be required 
+Use B2B collaboration to invite guest users into your Azure AD tenant to give them access to Azure AD services and resources you make available.  
 
-There is no charge for inviting B2B users and assigning them to an application in Azure AD. Also, up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users, since they are part of Azure AD Free tier. Paid Azure AD features extended to B2B guest users via B2B collaboration must be licensed with appropriate Azure AD licenses. An inviting tenant an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant.
+There is no charge for inviting B2B users and assigning them to an application in Azure AD. Up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users. If your guest user has any relevant licenses assigned in the partner's Azure AD tenant, they'll be licensed in yours as well.
 
-Azure AD B2B collaboration guest users are licensed through Azure AD [Free, Basic, and Premium P1/P2 license tiers](https://azure.microsoft.com/pricing/details/active-directory/).
+If you want do to provide access to paid Azure AD features, those B2B guest users must be licensed with appropriate Azure AD licenses. An inviting tenant with an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant. 
 
 ## Licensing examples
 - A customer wants to invite 100 B2B collaboration users to its Azure AD tenant. The customer assigns access management and provisioning for all users, but 50 users also require MFA and conditional access. This customer must purchase 10 Azure AD Basic licenses and 10 Azure AD Premium P1 licenses to cover these B2B users correctly. If the customer plans to use Identity Protection features with B2B users, they must have Azure AD Premium P2 licenses to cover the invited users in the same 5:1 ratio.

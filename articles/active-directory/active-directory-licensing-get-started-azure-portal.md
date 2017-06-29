@@ -26,8 +26,8 @@
 # License yourself and your users in Azure Active Directory
 
 > [!div class="op_single_selector"]
-> * [The Azure portal](active-directory-licensing-get-started-azure-portal.md)
-> * [The Azure classic portal](active-directory-licensing-what-is.md)
+> * [Azure portal instructions](active-directory-licensing-get-started-azure-portal.md)
+> * [Get Azure classic portal info](active-directory-licensing-what-is.md)
 >
 >
 
@@ -79,15 +79,14 @@ Although obtaining a subscription is all you need to configure paid capabilities
 Managing which users in your directory should have a license can be accomplished by: 
 
 * Assigning licenses to groups in the [Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal).
-* Assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. 
-
+* Assigning licenses directly to users by way of the portal, PowerShell, or APIs. 
 
 When you're assigning licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is assigned or removed. Group assignment can utilize any group management available to you, and it is consistent with group-based assignment to applications.
 
 You can use [group-based license assignment](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-whatis-azure-portal) to set up rules such as the following:
-* All users in your directory automatically get a license.
-* Everyone with the appropriate job title gets a license.
-* You can delegate the decision to other managers in the organization (by using [self-service groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management)).
+* All users in your directory automatically get a license
+* Everyone with the appropriate job title gets a license
+* You can delegate the decision to other managers in the organization (by using [self-service groups](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-accessmanagement-self-service-group-management))
 
 For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
@@ -144,7 +143,9 @@ Assignment errors can occur during Azure AD license assignment but are relativel
 
 B2B collaboration allows you to invite guest users into your Azure AD tenant to provide access to Azure AD services and any Azure resources you make available.  
 
-There is no charge for inviting B2B users and assigning them to an application in Azure AD. Also, up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users, since they are part of Azure AD Free tier. It's not required, but if you want to provide access to paid Azure AD features, those B2B guest users must be licensed with appropriate Azure AD licenses. An inviting tenant with an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant. For scenarios and information, see [B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
+There is no charge for inviting B2B users and assigning them to an application in Azure AD. Up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users. If your guest user has any appropriate licenses assigned in the partner's Azure AD tenant, they'll be licensed in yours as well.
+
+It's not required, but if you want to provide access to paid Azure AD features, those B2B guest users must be licensed with appropriate Azure AD licenses. An inviting tenant with an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant. For scenarios and information, see [B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
 
 ### View assigned licenses
 
