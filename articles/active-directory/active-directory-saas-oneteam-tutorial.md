@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://api.one-team.io/teams/<team name>/auth/saml/issuer`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://api.one-team.io/teams/<team name>`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
