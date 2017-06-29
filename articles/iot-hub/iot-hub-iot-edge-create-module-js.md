@@ -19,11 +19,11 @@ ms.author: sushi
 
 This tutorial showcases how to create a module for Azure IoT Edge in JS.
 
-In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
+In this tutorial, we walk through environment set up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
 
 ## Prerequisites
 
-In this section, you will setup your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.
+In this section, you will set up your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.
 
 The following software is required:
 1. [Git Client](https://git-scm.com/downloads).
@@ -33,17 +33,17 @@ The following software is required:
 
 ## Architecture
 
-The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system which processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we will introduce the following two modules:
+The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system that processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we introduce the following two modules:
 
-1. A module which receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
-2. A module which prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
+1. A module that receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
+2. A module that prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
 
-The below image displays the typical end-to-end dataflow for this project:
+The following image displays the typical end-to-end dataflow for this project:
 
 ![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
 ## Step-by-step
-Below we will show you how to quickly setup environment to start to write your first BLE converter module with JS.
+Below we show you how to quickly set up environment to start to write your first BLE converter module with JS.
 
 ### Create module project
 1. Open a command-line window, run `yo az-iot-gw-module`.
@@ -52,7 +52,7 @@ Below we will show you how to quickly setup environment to start to write your f
 ### Project structure
 A JS module project consists of the following components:
 
-`modules` - The customized JS module source files. Please replace the default `sensor.js` and `printer.js` with your own module files.
+`modules` - The customized JS module source files. Replace the default `sensor.js` and `printer.js` with your own module files.
 
 `app.js` - The entry file to start the Edge instance.
 
@@ -65,9 +65,9 @@ A JS module project consists of the following components:
 
 ### Package File
 
-Ths `package.json` declares all the metadata information needed by a module project which includes the name, version, entry, scripts, runtime and development dependencies.
+This `package.json` declares all the metadata information needed by a module project that includes the name, version, entry, scripts, runtime, and development dependencies.
 
-Below code snippet shows how to configure for BLE converter sample project.
+Following code snippet shows how to configure for BLE converter sample project.
 ```json
 {
   "name": "converter",
@@ -119,9 +119,9 @@ The input might be data from hardware (like a motion detector), a message from o
 
 The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `message` object. The **content** of a `message` is a byte array which is capable of representing any kind of data you like. **properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in a HTTP request, or the metadata of a file.
+Modules communicate with each other using `message` object. The **content** of a `message` is a byte array that is capable of representing any kind of data you like. **properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in an HTTP request, or the metadata of a file.
 
-In order to develop an Azure IoT Edge module in JS, you need to create a new module object which implements the required methods `receive()`. At this point you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well. The following code snippet shows you the scaffolding of JS module object.
+In order to develop an Azure IoT Edge module in JS, you need to create a new module object that implements the required methods `receive()`. At this point, you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well. The following code snippet shows you the scaffolding of JS module object.
 
 ```javascript
 'use strict';
@@ -198,7 +198,7 @@ receive: function (message) {
 | ------------------------------ | --------- | -------------------------- | -------------------- |
 | Any message from other modules | N/A       | Log the message to console | `printer.js` |
 
-This is a very simple, self-explanatory, module which outputs the received messages(property, content) to the terminal window.
+This module is simple, self-explanatory, which outputs the received messages(property, content) to the terminal window.
 
 ```javascript
 receive: function (message) {
@@ -224,7 +224,7 @@ First we need to declare our `node` loader (since Azure IoT Edge supports loader
 ]
 ```
 
-Once we have declared our loaders we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module which is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
+Once we have declared our loaders, we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
 
 ```json
 "modules": [
