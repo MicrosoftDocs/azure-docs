@@ -14,78 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: joeyong;barbkess
 
 ---
 # Migrate Your Data
-
-## Migrate data
-
-There are several ways to migrate data to Azure. The basic steps are extract the data from your existing database, copy the data to Azure Storage Blob or Azure Data Lake Store, and then load the data into SQL Data Warehouse. For small data sets, you can use bcp to load data directly into SQL Data Warehouse. For large data sets, it is time-consuming to copy the data to Azure. Therefore, we recommend focusing first on getting the data safely to Azure before loading to SQL Data Warehouse.
-
-In most cases, you will use PolyBase external tables to load the data from Azure storage into a SQL Data Warehouse, and then select the data into the final table. To load the data with PolyBase, the data formats need to be compatible with the formats that PolyBase supports. 
-
-PolyBase and bcp both load text-delimited files. In this migration step you need to extract data from the source and copy it to text-delimited files. 
-
-You might need to change some of your data to be compatible with SQL Data Warehouse and the PolyBase loading process. You can make changes when you extract the data from the source, when the data is in Azure storage, or when the data is in a SQL Data Warehouse staging table. 
-  
-Considerations for when to fix data incompatibilities
-
-- Whenever possible, make the data compatible with SQL Data Warehouse and PolyBase as you extract the data from the source. This is usually the simplest to implement, and it avoids implementation work to make changes later in the process. 
-- Change the data in Azure storage when you don't have the ability to filter the source data. For example, data streams might go directly to Azure storage without the ability to filter the source.  
-- Change the data after loading into a SQL Data Warehouse staging table when you prefer to use SQL processes to implement the cleansing.  You will also have the performance power of SQL Data Warehouse to perform the cleansing. 
-
-
-### NULLs and empty strings
-
-For string data, there is a difference between the empty string "" and a NULL value. SQL Data Warehouse loads an empty value as NULL and it loads two quotes ("") as the empty string.  If the value NULL is in the input file, the row will fail to load.
-
-This table shows some source strings and the way they should look in the text-delimited file.  The delimiter can be any sequence of ASCII characters. 
-
-| Source string | Field delimiter | Extracted value with delimiters | Valid | Value loaded into a SQL DW string column |
-| :------------ | ------- ------- | :------------------------------ | :---- | ---------------------------------------- |
-| hello world   | ,               | ,hello world,                   | yes   | hello world                              |
-| hello world   | ,               | ,"hello world",                 | yes   | "hello world                             |
-| NULL          | ,               | ,                               | yes   | NULL                                     |
-| NULL          | ,               | ,NULL,                          | no    | <row will fail to load>                  |
-| ""            | ,               | ,"",                            | yes   | non-NULL value for empty string          |
-
-If you write NULL to the delimited text-file as, the row will fail to load.
-
-
-Another way to solve this is to:
-
-- Copy the data to Azure and then use a batch tool like ADLA/HDI to transform the data in Azure. ADLA does support NULL escape, so you could send the data to ADLA and then clean up the nULL escape. 
-
-### Choose the field terminator
-
-The field terminator in the output file must be a character or sequence of characters that is not found in your string values. If your string data contains any commas, then you can't use a comma as the field terminator. Use a unique set of ANSI characters for the field terminator. For example, if you don't allow characters such as ~,(, \*, or ! in your strings, you could use one of them as the field terminator. You could use a combination of characters such as ~$ for the field terminator.
-
-PolyBase does not consider everything inside of "" to be a literal string.  Instead, it reads the quotes as characters. For example, if the field delimiter is a comma, PolyBase reads the string "one, two, three" as three fields.  The first field is "one, the second field is "two", and the third field is three" .  
-
-| Source string            | Field delimiter | Extracted value with delimiters | Valid | Values loaded into SQL Data Warehouse |
-| :----------------------- | --------------- | :------------------------------ | :---- | ------------------------------------- |
-| Wow, oh wow              | ,               | ,Wow, oh wow  ,                 | no    | 1) Wow 2) oh wow                      |
-| Wow, oh wow              | ~$              | ~$Wow, oh wow~$                 | yes   | 1) Wow, oh wow                        |
-| "orange,apples,bananas"  | ,               | ,"orange,apples,bananas",       | no    | 1) "orange 2) apples 3) bananas"      |
-
-
-### Row delimiter
-
-For row delimiters, use '\r', '\n', or '\r\n' (these are not escaped). if you have ,"'\r'", PolyBase would read that as the end of a row. You need to use bcp or change the data. 
-
-
-
-
-
-
-
-
-
-
-
-
 Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
 This article first discusses the simple migration scenarios of ADF Copy, SSIS, and bcp. It then look a little deeper into how the migration can be optimized.
