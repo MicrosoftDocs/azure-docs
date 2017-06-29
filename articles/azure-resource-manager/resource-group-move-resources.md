@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
 
 ---
@@ -137,7 +137,6 @@ The services that currently do not enable moving a resource are:
 * Security
 * Snapshots created from Managed Disks
 * StorSimple Device Manager
-* Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
