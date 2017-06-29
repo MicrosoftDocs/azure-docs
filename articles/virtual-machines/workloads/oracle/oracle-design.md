@@ -111,7 +111,7 @@ Diagram above shows the total IO of read and write. There are 59 GB read and 247
 
 #### 2. Estimate the VM size
 
-Based on the information you collected from the AWR report, the next step is choose a VM with similar size that meets your requirements. A list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+Based on the information you collected from the AWR report, the next step is chosen a VM with similar size that meets your requirements. A list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
 
 #### 3. Fine-tune the VM sizing with similar VM series based on the ACU
 
@@ -151,7 +151,7 @@ Recommendations
 
 - Premium storage disks: Premium Storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, F series. The Premium disk comes with different sizes and You have choice of various disk sizes from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
-When you create a new managed disk from the portal, you can choose the 'Accout type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop-down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (for example, max number of drives, max IOPs). So once you picked a particular size of VM, it only show the available premium storage SKUs based of that VM size.
+When you create a new managed disk from the portal, you can choose the 'Account type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop-down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (for example, max number of drives, max IOPs). So once you picked a particular size of VM, it only shows the available premium storage SKUs based of that VM size.
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
 
@@ -199,7 +199,7 @@ There are three options for Host Caching.
 
 Recommendations
 
-To maximize the throughput, it is recommended to start with 'None' for Host Caching. It is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. You must update the /etc/fstab file with the UUID to the disks.
+To maximize the throughput, it is recommended to start with 'None' for Host Caching. It is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. Update the /etc/fstab file with the UUID to the disks.
 
 For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
