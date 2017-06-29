@@ -1,6 +1,6 @@
 ---
-title: Before you deploy Azure Stack Development Kit | Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (service administrator).
+title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
+description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/10/2017
+ms.date: 07/03/2017
 ms.author: erikje
 
 ---
