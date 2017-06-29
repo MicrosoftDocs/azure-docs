@@ -41,7 +41,7 @@ This solution does not install any management packs in connected management grou
 ## Configuration
 Once you [add the Office 365 solution to your subscription](../log-analytics/log-analytics-add-solutions.md), you have to connect it to your Office 365 subscription.
 
-1. Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](../log-analytics-add-solutions.md).
+1. Add the Alert Management solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md).
 2. Go to **Settings** in the OMS portal.
 3. Under **Connected Sources**, select **Office 365**.
 4. Click on **Connect Office 365**.<br>![Connnect Office 365](media/oms-solution-office-365/configure.png)
