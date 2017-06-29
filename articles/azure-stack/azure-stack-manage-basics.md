@@ -13,21 +13,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/30/2017
 ms.author: twooley
 
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly.
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as a cloud operator, and what you need to tell your users for them to become productive quickly.
 
-For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
+## Understand development kit builds
 
-## Understand POC builds
+Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the Azure Stack Development Kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
 
-Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the POC, and its limitations. You should use the POC as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack POC deployment](azure-stack-deploy-overview.md) quickstart.)
-
-Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The POC documentation on our website reflects the latest release build.
+Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The documentation on our website reflects the latest release build.
 
 ## Learn about available services
 
@@ -73,7 +71,7 @@ You'll also need to add items to the marketplace, such as virtual machine images
 > [!NOTE]
 > If you want to test your plans, offers, and services, you should use the [user portal](azure-stack-manage-portals.md); not the administrator portal.
 
-In addition to providing services, you must perform all the regular  duties of a cloud administrator to keep Azure Stack up and running. The following list is scoped to what you can do in the TP3 POC environment.
+In addition to providing services, you must perform all the regular  duties of a cloud operator to keep Azure Stack up and running. These duties include the following:
 
 - Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
 - [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md) (This is not restricted to administrators.)
@@ -83,7 +81,7 @@ In addition to providing services, you must perform all the regular  duties of a
 
 ## What to tell your users
 
-You'll need to let your users know how to work with services in Azure Stack, how to connect to the POC environment, and how to subscribe to offers.
+You'll need to let your users know how to work with services in Azure Stack, how to connect to the development kit environment, and how to subscribe to offers.
 
 **Understand how to work with services in Azure Stack**
 
@@ -97,17 +95,17 @@ The information in these articles summarizes the differences between a service i
 
 **Connect to Azure Stack as a user**
 
-In a POC environment, if a user doesn't have Remote Desktop access to the POC host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
+In a development kit environment, if a user doesn't have Remote Desktop access to the development kit host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
 
 Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell (which includes resource provider registration).
 
 **Subscribe to an offer**
 
-Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you've created as an administrator.
+Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you've created as a cloud operator.
 
 ## Where to get support
 
-For the Azure Stack POC, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). These forums are regularly monitored. Because the POC is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
 
