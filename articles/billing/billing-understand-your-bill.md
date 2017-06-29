@@ -73,13 +73,13 @@ on, there are a couple of options:
 
   ![Invoice usage charges](./media/billing-understand-your-bill/1.png)
 
-   The same charge is showed in the statement section of your detailed
+   The same charge is shown in the statement section of your detailed
    usage CSV.
 
    ![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
    Additionally, there is a daily usage section in the detailed usage CSV
-   file. The section will have line items for each day that the meter was
+   file. The section has line items for each day that the meter was
    consumed. These line items should add up to the consumed quantity for
    the meter during the billing period, shown in the invoice and the
    detailed usage CSV billing summary.
@@ -95,7 +95,7 @@ on, there are a couple of options:
 
       The Azure portal can also help you verify your charges. The Azure
       portal provides cost management charts for quick overviews of your
-      usage and drill down information for each charge on your invoice.
+      usage and drill-down information for each charge on your invoice.
 
       Some examples of cost management tools available in the Azure
       portal:
