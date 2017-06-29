@@ -21,7 +21,7 @@ ms.author: tonguyen
 # Breakdown of your Microsoft Azure invoice
 This reference article will breakdown the different components of your
 invoice for Microsoft Azure. The invoice provides a summary of your
-charges and provides instructions for payment. It’s available for
+ charges and provides instructions for payment. It’s available for
 download in the Portable Document Format (.pdf) from the [Azure
 portal](https://portal.azure.com/) or can be sent via email. For more
 information, see [How to get your Azure billing invoice and daily usage
@@ -61,7 +61,7 @@ height="2.057407042869641in"}
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
 | Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/en-us/support/legal/offer-details/). |
-| Account owner email | The account email address that the Microsoft Azure account is registered under. To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](billing-how-to-change-azure-account-profile.md). |
+| Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](billing-how-to-change-azure-account-profile.md). |
 
 ### Understand the invoice summary
 The **Invoice Summary** section of the invoice lists the total
@@ -91,24 +91,19 @@ monthly charges for the current billing period.
 | --- | --- |
 | Usage charges |Usage charges are the total monthly charges on a subscription for the current billing period|
 | Discounts |Service discounts applied to your current billing period|
-| Adjustments |Miscellaneous credits (Free Usage, Credits, etc.) or outstanding charges applied to your current billing period. For example, if you have the Visual Studio Enterprise with MSDN offer, you see a monthly credit. If you cancel your subscription, you see any monthly usage charges that exceed the monthly credit that you get with your subscription offer. The charges are from the start of your current billing period up to the subscription cancellation date. |
+| Adjustments |Miscellaneous credits (Free Usage, Credits, etc.) or outstanding charges applied to your current billing period.<br/><br/>For example, if you have the Visual Studio Enterprise with MSDN offer, you see a monthly credit. If you cancel your subscription, you see any monthly usage charges that exceed the monthly credit that you get with your subscription offer. The charges are from the start of your current billing period up to the subscription cancellation date. |
 
 #### Sold to and payment instructions
 
 The following table describes the sold to and payment instructions shown
 on the second page of your Invoice.
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Term**               **Description**
-  ---------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Sold to                Profile address that's on the account.
-                         
-                         If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](https://docs.microsoft.com/en-us/azure/billing/billing-how-to-change-azure-account-profile).
+| Term |Description |
+| --- | --- |
+| Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](https://docs.microsoft.com/en-us/azure/billing/billing-how-to-change-azure-account-profile).|
+| Payment instructions |Instructions on how to pay depending on payment method (such as by credit card or by invoice). More details are available below.|
 
-  Payment instructions   Instructions on how to pay depending on payment method (such as by credit card or by invoice). More details are available below.
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-[]{#csv .anchor}Usage Charges
+### Usage Charges
 
 The Usage charges section of the invoice displays meter level
 information on your charges.
