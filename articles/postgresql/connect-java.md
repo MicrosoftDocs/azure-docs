@@ -9,8 +9,8 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: java
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: hero-article
+ms.date: 06/23/2017
 ---
 
 # Azure Database for PostgreSQL: Use Java to connect and query data

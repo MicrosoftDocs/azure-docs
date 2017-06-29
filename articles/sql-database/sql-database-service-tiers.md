@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/31/2017
+ms.date: 06/27/2017
 ms.author: janeng
 
 ---
