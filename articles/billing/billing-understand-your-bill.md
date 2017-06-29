@@ -119,8 +119,8 @@ on, there are a couple of options:
       information over any past billing periods and the current billing
       periods.
 
-      To learn more, see Getting started with Azure billing and cost
-      management.
+      To learn more, see [Getting started with Azure billing and cost
+      management](billing-getting-started.md#costs).
 
 ## What about external service charges?
 External services (also known as Marketplace orders) are transactions that use the same payment method from your subscription but are billed separately since they are provided by independent service vendors. They will not show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
