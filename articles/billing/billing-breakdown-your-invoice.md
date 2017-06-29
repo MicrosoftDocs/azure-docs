@@ -25,7 +25,7 @@ invoice for Microsoft Azure. The invoice provides a summary of your
 download in the Portable Document Format (.pdf) from the [Azure
 portal](https://portal.azure.com/) or can be sent via email. For more
 information, see [How to get your Azure billing invoice and daily usage
-data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+data](billing-download-azure-invoice-daily-usage-date.md).
 
 A few things to note:
 
@@ -128,7 +128,7 @@ your Invoice.
 
 ## How do I ensure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
-on, see [Understand your bill for Microsoft Azure.](/)
+on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
