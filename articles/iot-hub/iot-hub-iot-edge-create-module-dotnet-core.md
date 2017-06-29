@@ -20,14 +20,14 @@ ms.author: jcline
 
 This tutorial showcases how to create a module for `Azure IoT Edge` using `Visual Studio Code` and `C#`.
 
-In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest `Azure IoT Edge NuGet` packages. 
+In this tutorial, we walk through environment set up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest `Azure IoT Edge NuGet` packages. 
 
 [!NOTE]
-This tutorial is using the `.NET Core SDK`, which supports cross-platform compatability, the following tutorial was written using the `Windows 10` operating system. Some of the commands in this tutorial may be different depending on your `development environment`. 
+This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility, the following tutorial was written using the `Windows 10` operating system. Some of the commands in this tutorial may be different depending on your `development environment`. 
 
 ## Prerequisites
 
-In this section, you will setup your environment for `Azure IoT Edge` module development. It applies to both **64-bit Windows** and **64-bit Linux (Ubuntu/Debian 8)** operating systems.
+In this section, we set up your environment for `Azure IoT Edge` module development. It applies to both **64-bit Windows** and **64-bit Linux (Ubuntu/Debian 8)** operating systems.
 
 The following software is required:
 
@@ -36,7 +36,7 @@ The following software is required:
 3. [Visual Studio Code](https://code.visualstudio.com/)
 
 [!NOTE]
-You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the `Azure-Samples` repository below.
+You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the `Azure-Samples` following repository.
 
 - `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 - `cd iot-edge-samples/dotnetcore/simulated_ble`
@@ -46,7 +46,7 @@ You do not need to clone the repo for this sample, however all of the sample cod
 1. Install `.NET Core SDK`.
 2. Install `Visual Studio Code` and the `C# extension` from the Visual Studio Code Marketplace.
 
-Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) about how to get started using `Visual Studio Code` and the `.NET Core SDK`.
+View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) about how to get started using `Visual Studio Code` and the `.NET Core SDK`.
 
 ## Creating the Azure IoT Edge Converter Module
 
@@ -57,13 +57,11 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
 	- This creates an empty class called `Class1.cs` in your projects directory.
 2. Navigate to the folder where we just created the class library project by typing "**cd IoTEdgeConverterModule**".
 3. Open the project in `Visual Studio Code` by typing "**code .**".
-4. Once the project is opened in `Visual Studio Code`, in the file view to the left, click on the "**IoTEdgeConverterModule.csproj**". This will open the `IoTEdgeConverterModule.csproj` file in the code editor window to the right of the file view as shown in the image below.
+4. Once the project is opened in `Visual Studio Code`, in the file view to the left, click on the "**IoTEdgeConverterModule.csproj**". This opens the `IoTEdgeConverterModule.csproj` file in the code editor window to the right of the file view as shown in the following image.
 
 	![Visual Sudio Code edit window](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
 
-5. Insert the `XML` blob shown in the code snippet below between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the above image and save the file (`Ctrl + S`).
-
-**XML:**
+5. Insert the `XML` blob shown in the following code snippet between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the above image and save the file (`Ctrl + S`).
 
 ```xml
   <ItemGroup>
@@ -72,26 +70,24 @@ Please view this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/G
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
   </ItemGroup> 
 ```
-6. Once you save the `.csproj` file `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the image below. 
+6. Once you save the `.csproj` file `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image. 
 
 	![Visual Studio Code restore dependencies dialog](media/iot-hub-iot-edge-create-module/vscode-restore.png)
 
-	- Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have just added. 
-	- You'll see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
+	- Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have added. 
+	- You see a new `project.assets.json` file in your projects `obj` folder. This file contains information about your project's dependencies to make subsequent restores quicker.
  
         [!NOTE]
-		`.NET Core Tools` are now MSBuild-based. This means a `.csproj` project file will be created instead of a `project.json`.
+		`.NET Core Tools` are now MSBuild-based. This means a `.csproj` project file is created instead of a `project.json`.
 
 	If `Visual Studio Code` does not prompt you that is ok, we can do it manually. Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.
 	- In the `Integrated Terminal` window type "**dotnet restore**".
 	
-7. Rename the `Class1.cs` file to `BleConverterModule.cs` by clicking on the file and pressing the `F2` key then typing **BleConverterModule** as seen in the image below.
+7. Rename the `Class1.cs` file to `BleConverterModule.cs` by clicking on the file and pressing the `F2` key then typing **BleConverterModule** as seen in the following image.
 
     ![Visual Studio Code rename class](media/iot-hub-iot-edge-create-module/vscode-rename.png)
 
-8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the below code snippit into your `BleConverterModule.cs` file.
-
-**C#:**
+8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the following code snippet into your `BleConverterModule.cs` file.
 
 ```csharp
 using System;
@@ -150,13 +146,11 @@ namespace IoTEdgeConverterModule
 
 11. Save the file by pressing `Ctrl` + `S`.
 
-12. Create a new file by pressing the `Ctrl` + `N` keys, this will create a new file called `Untitled-1` as seen in the image below.
+12. Create a new file by pressing the `Ctrl` + `N` keys, this creates a new file called `Untitled-1` as seen in the following image.
 
     ![Visual Studio Code new file](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
 
-13. Copy the below code into the `Untitled-1` file code editor window. This is the class that we will use to deserialize the `JSON` object that we receive from the simulated `BLE` device.
-
-**C#:**
+13. Copy the following code into the `Untitled-1` file code editor window. This is the class that we use to deserialize the `JSON` object that we receive from the simulated `BLE` device.
 
 ```csharp
 using System;
@@ -173,15 +167,13 @@ namespace IoTEdgeConverterModule
 ```
 
 14. Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.
-    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the below image.
+    - On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the following image.
 
     ![Visual Studio Code save as dialog](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
 
-15. Create a new file by pressing the `Ctrl` + `N` keys, this will create a new file called `Untitled-1`.
+15. Create a new file by pressing the `Ctrl` + `N` keys, this creates a new file called `Untitled-1`.
 
-16. Copy and paste the below code snippit into the `Untitled-1` file. This class is a `Azure IoT Edge` module which we will use to output the data received from our `BleConverterModule`.
-
-**C#:**
+16. Copy and paste the following code snippet into the `Untitled-1` file. This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.
 
 ```csharp
 using System;
@@ -239,9 +231,7 @@ namespace PrinterModule
 
 18. Create a new file by pressing the `Ctrl` + `N` keys.
 
-19. Copy and paste the below code snippit into the `Untitled-1` file. This is the class that we will use to deserialize the `JSON` object that we receive from the `BleConverterModule`.
-
-**C#:**
+19. Copy and paste the following code snippet into the `Untitled-1` file. This is the class that we use to deserialize the `JSON` object that we receive from the `BleConverterModule`.
 
 ```csharp
 using System;
@@ -268,9 +258,7 @@ namespace PrinterModule
 
 21. Create a new file by pressing the `Ctrl` + `N` keys.
 
-22. Copy and paste the below code snippit into the `Untitled-1` file.
-
-**JSON**
+22. Copy and paste the following code snippet into the `Untitled-1` file.
 
 ```json
 {
@@ -336,9 +324,7 @@ namespace PrinterModule
 23. Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.
 
-24. Update the `IoTEdgeConverterModule.csproj` with the below XML blob to enable copying of the configuration file to the output directory.
-
-**XML:**
+24. To enable copying of the configuration file to the output directory, update the `IoTEdgeConverterModule.csproj` with the following XML blob.
 
 ```xml
   <ItemGroup>
@@ -346,15 +332,13 @@ namespace PrinterModule
   </ItemGroup>
 ```
     
-- The updated `IoTEdgeConverterModule.csproj` should look like the image below.
+- The updated `IoTEdgeConverterModule.csproj` should look like the following image.
 
     ![Visual Studio Code updated .csproj file](media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
 25. Create a new file by pressing the `Ctrl` + `N` keys.
 
-26. Copy and paste the below code snippit into the `Untitled-1` file.
-
-**PowerShell:**
+26. Copy and paste the following code snippet into the `Untitled-1` file.
 
 ```powershell
 Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
@@ -369,25 +353,25 @@ Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\
 27. Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.
     - On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.
 
-28. Buld the project (`Ctrl` + `Shift` + `B`), since this is the first time you have built the project `Visual Studio Code` will prompt you with the `No build task defined.` dialog as seen below.
+28. Build the project (`Ctrl` + `Shift` + `B`), since this is the first time you have built the project `Visual Studio Code` prompts you with the `No build task defined.` dialog as seen in the following image.
 
 	![Visual Studio Code build task dialog](media/iot-hub-iot-edge-create-module/vscode-build-task.png)
 
 	- Click the `Configure Build Task` button.
-	- This will bring up the `Select a Task Runner` dialog dropdown menu. Since this is a `.NET Core` project, select `.Net Core` as seen in the image below. This will create the `tasks.json` file in your `.vscode` directory and open the file in the `code editor` window. There is no need to modify this file, simply close the tab by pressing (`Ctrl` + `F4`) or using the close button on the `tasks.json` tab itself.
+	- This brings up the `Select a Task Runner` dialog dropdown menu. Since this is a `.NET Core` project, select `.Net Core` as seen in the following image. This creates the `tasks.json` file in your `.vscode` directory and open the file in the `code editor` window. There is no need to modify this file, close the tab by pressing (`Ctrl` + `F4`) or using the close button on the `tasks.json` tab itself.
 
 	![Visual Studio Code select a task dialog](media/iot-hub-iot-edge-create-module/vscode-build-task-runner.png)
 
-29.  Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type "**.\binplace.ps1**" into the `PowerShell` command prompt. This will copy all our dependencies to the output directory.
+29.  Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type "**.\binplace.ps1**" into the `PowerShell` command prompt. This copies all our dependencies to the output directory.
 
 30. Navigate to the projects output directory in the `Integrated Terminal` window by typing "**cd .\bin\Debug\netstandard1.3**".
 
 
 31. Run the sample project by typing "**.\gw.exe gw-config.json**" into the `Integrated Terminal` window prompt. 
-    - If you have followed the steps in this tutorial closely you should now be running the `Azure IoT Edge BLE Data Converter Module` sample project as seen in the image below.
+    - If you have followed the steps in this tutorial closely, you should now be running the `Azure IoT Edge BLE Data Converter Module` sample project as seen in the following image.
     - If you want to terminate the application, press the `<Enter>` key.
     - [!IMPORTANT]
-      It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (i.e. **gw.exe**). As this may cause the process to terminate abnormally.
+      It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this may cause the process to terminate abnormally.
 
         ![Simulated device example running in Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-run.png)
 
