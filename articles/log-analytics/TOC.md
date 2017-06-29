@@ -56,6 +56,7 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Assessment](log-analytics-ad-assessment.md)
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
+#### [Agent Health](../../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Alert management](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
