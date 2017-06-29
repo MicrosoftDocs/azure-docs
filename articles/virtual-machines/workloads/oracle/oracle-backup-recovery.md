@@ -160,7 +160,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
     # cd /etc/azure
     ```
 
-3. Copy the JSON file to the /etc/azure folder.
+3. Copy the JSON file.
 
     Copy VMSnapshotScriptPluginConfig.json to the /etc/azure folder.
 
@@ -285,7 +285,8 @@ For more information, see [Application-consistent backup for Linux VMs](https://
     ![Recovery Services vaults detail page](./media/oracle-backup-recovery/recovery_service_05.png)
 
 6.  For **Backup policy**, use **DefaultPolicy**, or select **Create New policy**. Click **OK**.
-![Recovery Services vaults backup policy detail page](./media/oracle-backup-recovery/recovery_service_06.png)
+
+    ![Recovery Services vaults backup policy detail page](./media/oracle-backup-recovery/recovery_service_06.png)
 
 7.  On the **Select virtual machines** blade, select the **myVM1** check box, and then click **OK**. Click the **Enable backup** button.
 
@@ -305,9 +306,10 @@ For more information, see [Application-consistent backup for Linux VMs](https://
 10. Click the **Backup** button. Wait for the backup process to finish. Then, go to [Step 6: Remove the database files](#step-6-remove-the-database-files).
 
     To view the status of the backup job, click **Jobs**.
+
     ![Recovery Services vaults job page](./media/oracle-backup-recovery/recovery_service_10.png)
 
-    The status of the backup job appears in the following image.
+    The status of the backup job appears in the following image:
 
     ![Recovery Services vaults job page with status](./media/oracle-backup-recovery/recovery_service_11.png)
 
@@ -337,16 +339,20 @@ Later in this article, you'll learn how to test the recovery process. Before you
 ## Restore the deleted files from the Recovery Services vaults
 To restore the deleted files, complete the following steps:
 
-1. In the Azure portal, search for the *myVault* Recovery Services vaults item. On the myVault **Overview** blade, under **Backup items**, select the number of items.
+1. In the Azure portal, search for the *myVault* Recovery Services vaults item. On the **Overview** blade, under **Backup items**, select the number of items.
+
     ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery_service_12.png)
 
 2. Under **BACKUP ITEM COUNT**, select the number of items.
+
     ![Recovery Services vaults Azure Virtual Machine backup item count](./media/oracle-backup-recovery/recovery_service_13.png)
 
 3. On the **myvm1** blade, click **File Recovery (Preview)**.
+
     ![Screenshot of the Recovery Services vaults file recovery page](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. On the **File Recovery (Preview)** pane, click **Download Script**, and then save the download (.sh) file to a folder on the client computer.
+4. On the **File Recovery (Preview)** pane, click **Download Script**. Then, save the download (.sh) file to a folder on the client computer.
+
     ![Download script file saves options](./media/oracle-backup-recovery/recovery_service_15.png)
 
 5. Copy the .sh file to the VM.
@@ -454,7 +460,8 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
     ![myVault entry](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  On the myVault **Overview** blade, under **Backup items**, select the number of items.
+2.  On the **Overview** blade, under **Backup items**, select the number of items.
+
     ![myVault back up items](./media/oracle-backup-recovery/recover_vm_03.png)
 
 3.  On the **Backup Items (Azure Virtual Machine)** blade, select **myvm1**.
@@ -478,6 +485,7 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 7.  To restore the VM, click the **Restore** button.
 
 8.  To view the status of the restore process, click **Jobs**, and then click **Backup Jobs**.
+
     ![Backup jobs status command](./media/oracle-backup-recovery/recover_vm_08.png)
 
     The following figure shows the status of the restore process:
@@ -500,11 +508,11 @@ search for and select **myVMip**. Then, click **Associate**.
 
     ![Associate IP address](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  For the **Resource type**, select **Network interface**. Select the network interface that is used by the myVM instance, and then click **OK**.
+4.  For **Resource type**, select **Network interface**. Select the network interface that is used by the myVM instance, and then click **OK**.
 
     ![Select resource type and NIC values](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Search for and open the myVM instance that is ported from the portal. The IP address that is associated with the VM appears on the myVM **Overview** blade.
+5.  Search for and open the instance of myVM that is ported from the portal. The IP address that is associated with the VM appears on the myVM **Overview** blade.
 
     ![IP address value](./media/oracle-backup-recovery/create_ip_04.png)
 
