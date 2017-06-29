@@ -23,7 +23,7 @@ ms.author: venkatja
 
 This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.
 Before running the sample, ensure the following steps are completed.
-1. A reference data set has been created using this [article](time-series-insights-add-reference-data-set.md).
+1. A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).
 2. The access token used when running the application is acquired through the Azure Active Directory API. This token should be passed in the `Authorization` header of every Query API request. For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
 3. All the constants defined at the beginning of the sample are correctly set.
 
@@ -218,7 +218,3 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     }
 }
 ```
-
-## Next steps
-
-For the full Reference Data API reference, see the [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
