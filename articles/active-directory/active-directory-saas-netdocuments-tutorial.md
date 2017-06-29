@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/tutorial_netdocuments_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL as: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://vault.netvoyage.com/neWeb2/<instancename>`
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/ic795048.png "Configure advanced authentication options")
 
-10. On **the Federated Identity** dialog, perform the following steps:
+10. On the **Federated Identity** dialog, perform the following steps:
    
     ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/ic795049.png "Federated Identitty")
    
