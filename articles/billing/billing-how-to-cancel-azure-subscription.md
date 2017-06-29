@@ -32,7 +32,7 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 ## Cancel subscription using the Azure portal
 
-1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 1. Select the subscription that you want to cancel and click **Cancel subscription**.
 
@@ -60,17 +60,17 @@ If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/pl
 
 ## What happens after I cancel my subscription?
 
-Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to be reflected in the portal.
+Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation show in the portal.
 
-After that, your services get disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage becomes read-only.
+After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only.
 
 If you're currently paying for Azure (that is, you're not on Free Trial), any outstanding charges for usage before the cancellation is billed at the end of the billing cycle. So, in this case, you should expect one more bill after canceling.
 
-After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We do not charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+After you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Reactivate subscription
 
-If you canceled your Pay-As-You-Go subscription accidentally, you can [reactivate it in the Accounts Center](billing-subscription-become-disable.md).
+If you cancel your Pay-As-You-Go subscription accidentally, you can [reactivate it in the Accounts Center](billing-subscription-become-disable.md).
 
 If your subscription is not Pay-As-You-Go, contact support within 90 days of cancellation to reactivate your subscription.
 
