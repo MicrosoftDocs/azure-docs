@@ -20,7 +20,7 @@ ms.author: anupams;v-bruham;garye
 You can use the Cortana Intelligence solution evaluation tool to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation. This guide will walk through the process of using the Solution evaluation tool with your application and describe the specific best practices in checks for.
 
 ## Getting started
-Please [download](https://aka.ms/aa-evalution-tool-download) and install the Cortana Intelligence solution evaluation tool:
+Please [download](https://aka.ms/aa-evalution-tool-download) and install the Cortana Intelligence solution evaluation tool.
 
 Pre-requisites:
 - Windows 10: [Official site for Windows 10](https://www.microsoft.com/en-us/windows)
@@ -130,7 +130,7 @@ To search the current list of Azure Marketplace images, see [Microsoft Azure Mar
 
 For information on how to publish a virtual machine image for Azure Marketplace, see [Guide to create a virtual machine image for the Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
-## Scalability evalution considerations
+## Scalability evaluation considerations
 ### Cortana Intelligence apps should include a scalable big data platform
 Cortana Intelligence apps should scale to very large data sizes. In Azure, this means they should include one of the two Petabyte-scale data platforms:
 - Azure Data Lake Store
