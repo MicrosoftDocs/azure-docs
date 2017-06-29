@@ -80,7 +80,7 @@ on, there are a couple of options:
    The same charge is showed in the statement section of your detailed
    usage CSV.
 
-   ![CSV usage charges](media/billing-understand-your-bill/2.png)
+   ![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
    Additionally, there is a daily usage section in the detailed usage CSV
    file. The section will have line items for each day that the meter was
@@ -103,20 +103,17 @@ on, there are a couple of options:
 
       Some examples of cost management tools available in the Azure
       portal:
-
-      ![Cost by resource in the Azure
-      portal](media/billing-understand-your-bill/3.png)
-
+      
+      ![Cost by resource in the Azure portal](./media/billing-understand-your-bill/3.png)
+      
       This chart provides current costs by resource.
 
-      ![Spending rate and forecast in the Azure
-      portal](media/billing-understand-your-bill/3.png)
+      ![Spending rate and forecast in the Azure portal](./media/billing-understand-your-bill/4.png)
 
       This chart shows the month to date costs on this subscription and a
       forecast for the rest of the billing period.
 
-      ![Cost analysis view in Azure
-      portal](media/billing-understand-your-bill/4.png)
+      ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/5.png)
 
       The cost analysis provides resource and meter level usage and cost
       information over any past billing periods and the current billing
