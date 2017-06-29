@@ -1,5 +1,5 @@
 ---
-title: Search the web for entities and places | Microsoft Docs
+title: Bing Entities Search API overview | Microsoft Docs
 description: Shows how to use the Bing Entities Search API to search the web for entities and places.
 services: cognitive-services
 author: swhite-msft
