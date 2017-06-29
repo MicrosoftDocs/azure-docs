@@ -3,12 +3,12 @@ A new ASP.NET WebAPI backend will be created in the sections that follow and it 
 
 1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
 2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
+3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag.
 
 The following steps show how to create the new ASP.NET WebAPI backend: 
 
 > [!NOTE]
-> **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
+> **Important**: If you are using Visual Studio 2015 or earlier, before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager** for your version of Visual Studio, and make sure you have the latest version. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
 > ![][B4]
 > 
@@ -38,7 +38,9 @@ In this section, you will create a new message handler class named **Authenticat
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
+        using System.Text;
+        using System.Threading.Tasks;
+
 3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
    
     This handler will authorize the request when the following three conditions are all true:
@@ -53,7 +55,6 @@ In this section, you will create a new message handler class named **Authenticat
      
        public class AuthenticationTestHandler : DelegatingHandler
        {
-     
            protected override Task<HttpResponseMessage> SendAsync(
            HttpRequestMessage request, CancellationToken cancellationToken)
            {
@@ -312,17 +313,18 @@ In this section you add a new controller that exposes a way for client devices t
         }
 4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-## Publish the new WebAPI Backend
+## Publish the new WebAPI BackendPublish the new WebAPI Backend
 1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select **Microsoft Azure Web Apps** as your publish target.
-   
+2. Select **Microsoft Azure App Service** as your publish target and click **Publish**. This opens the Create App Service dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
+
     ![][B15]
-3. Log in with your Azure account and select an existing or new Web App.
-   
-    ![][B16]
-4. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
-   
-    ![][B18]
+3. In the **Create App Service** dialog, select your Azure account. Click **Change Type** and select **Web App**. Keep the **Web App Name** given and select the **Subscription**, **Resource Group**, and **App Service Plan**.  Click **Create**.
+
+4. Make a note of the **Site URL** property in the **Summary** section. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+
+5. Once the wizard completes, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser.  Your application will be viewable in Azure App Services.
+
+The URL uses the web app name that you specified earlier, with the format http://<app_name>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -333,6 +335,6 @@ In this section you add a new controller that exposes a way for client devices t
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
