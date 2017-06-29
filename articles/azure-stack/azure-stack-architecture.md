@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---
-# Microsoft Azure Stack POC architecture
-The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 3. All the components are installed in virtual machines running on a single host machine. 
+# Microsoft Azure Stack Development Kit architecture
+The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram
-The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
+The following diagram illustrates the logical architecture of the Azure Stack development kit and its components.
 
 ![](media/azure-stack-architecture/image1.png)
 
 ## Virtual machine roles
-The Azure Stack POC offers services using the following VMs on the POC host:
+The Azure Stack development kit offers services using the following VMs on the host:
 
 | Name | Description |
 | ----- | ----- |
