@@ -19,7 +19,7 @@ ms.author: sushi
 
 This tutorial showcases how to create a module for Azure IoT Edge in JS.
 
-In this tutorial, we walk through environment set up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
+In this tutorial, we walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https:
 1. A module that receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
 2. A module that prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
 
-The following image displays the typical end-to-end dataflow for this project:
+The following image displays the typical end to end dataflow for this project:
 
 ![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
@@ -224,7 +224,7 @@ First we need to declare our `node` loader (since Azure IoT Edge supports loader
 ]
 ```
 
-Once we have declared our loaders, we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
+Once we have declared our loaders, we also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package. Please include `args` in the JSON file even if it is `null`.
 
 ```json
 "modules": [
@@ -264,7 +264,7 @@ Once we have declared our loaders, we will also need to declare our modules as w
 ]
 ```
 
-At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference a pre-defined module. The output message of `source` module will be forwarded to the input of `sink` module.
+At the end of the configuration, we establish the connections. Each connection is expressed by `source` and `sink`. They should both reference a pre-defined module. The output message of `source` module is forwarded to the input of `sink` module.
 
 ```json
 "links": [
@@ -285,4 +285,4 @@ At the end of the configuration, we establish the connections. Each connection i
 
 If you want to terminate the application, press `<Enter>` key.
 
-> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge application. As this may cause the process to terminate abnormally.
+> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge application. As this way may cause the process to terminate abnormally.
