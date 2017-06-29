@@ -651,7 +651,7 @@ The recommendation to perform Database Compression before uploading to Azure is 
 
 Database compression works as well in an Azure Virtual Machines as it does on-premises. For more details on how to compress an existing SAP SQL Server database please check here: <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
-### SQL Server 2014 – Storing Database Files directly on Azure Blog Storage
+### SQL Server 2014 – Storing Database Files directly on Azure Blob Storage
 SQL Server 2014 opens the possibility to store database files directly on Azure Blob Store without the ‘wrapper’ of a VHD around them. Especially with using Standard Azure Storage or smaller VM types this enables scenarios where you can overcome the limits of IOPS that would be enforced by a limited number of disks that can be mounted to some smaller VM types. This works for user databases however not for system databases of SQL Server. It also works for data and log files of SQL Server. If you’d like to deploy an SAP SQL Server database this way instead of ‘wrapping’ it into VHDs, please keep the following in mind:
 
 * The Storage Account used needs to be in the same Azure Region as the one that is used to deploy the VM SQL Server is running in.
