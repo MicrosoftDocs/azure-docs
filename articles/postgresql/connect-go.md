@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install Go and pq
-- Download and install Go according to the [installation instructions](https://golang.org/doc/install) for matching your platform.
+- Download and install Go according to the [installation instructions](https://golang.org/doc/install)  matching your platform.
 - Make a folder for your project such as C:\Postgresql\. Using the command line, change directory into the project folder, such as `cd C:\Postgres\`.
 - Download the [Pure Go Postgres driver (pq)](https://github.com/lib/pq) into your project folder by typing the command `go get github.com/lib/pq` while in same directory.
 
@@ -57,7 +57,6 @@ package main
 import (
 	"database/sql"
 	"fmt"
-
 	_ "github.com/lib/pq"
 )
 
