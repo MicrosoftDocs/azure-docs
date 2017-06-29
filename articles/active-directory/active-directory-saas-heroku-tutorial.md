@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:    
-	`https://sso.heroku.com/saml/<company-name>init`
+	`https://sso.heroku.com/saml/<company-name>/init`
 
 	b. In the **Identifier URL** textbox, type a URL using the following pattern:            
 	`https://sso.heroku.com/saml/<company-name>`
