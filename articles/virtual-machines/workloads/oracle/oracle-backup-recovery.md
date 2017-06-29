@@ -18,7 +18,7 @@ ms.date: 5/17/2017
 ms.author: rclaus
 ---
 
-# Back up and recover an Oracle Database 12c database on an Azure Linux VM
+# Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine
 
 You can use Azure CLI to create and manage Azure resources at a command prompt, or use scripts. In this article, we use Azure CLI scripts to deploy an Oracle Database 12c database from an Azure Marketplace gallery image.
 
@@ -30,7 +30,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 
 *   To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12c. The Marketplace image you use to create the VM is named *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
-    To learn how to create an Oracle database, see the [Oracle database quickstart](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    To learn how to create an Oracle database, see the [Oracle create database quickstart](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
 ### Step 2: Connect to the VM
@@ -185,7 +185,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
 
 5. Create the pre-snapshot and post-snapshot script files.
 
-    Here is an example of pre-snapshot and post-snapshot scripts for a "cold backup" (an offline backup, with shutdown and restart):
+    Here's an example of pre-snapshot and post-snapshot scripts for a "cold backup" (an offline backup, with shutdown and restart):
 
     For /etc/azure/pre_script.sh:
 
@@ -205,7 +205,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
     su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" > /etc/azure/post_script_$v_date.log
     ```
 
-    Here is an example of pre-snapshot and post-snapshot script for a "hot backup" (an online backup):
+    Here's an example of pre-snapshot and post-snapshot scripts for a "hot backup" (an online backup):
 
     ```bash
     v_date=`date +%Y%m%d%H%M`
@@ -265,30 +265,36 @@ For more information, see [Application-consistent backup for Linux VMs](https://
 ### Step 5: Use Azure Recovery Services vaults to back up the VM
 
 1.  In the Azure portal, search for **Recovery Services vaults**.
-![Recovery Services vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
+
+    ![Recovery Services vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
 
 2.  On the **Recovery Services vaults** blade, to add a new vault, click **Add**.
-![Recovery Services vaults add page](./media/oracle-backup-recovery/recovery_service_02.png)
+
+    ![Recovery Services vaults add page](./media/oracle-backup-recovery/recovery_service_02.png)
 
 3.  To continue, click **myVault**.
-![Recovery Services vaults detail page](./media/oracle-backup-recovery/recovery_service_03.png)
+
+    ![Recovery Services vaults detail page](./media/oracle-backup-recovery/recovery_service_03.png)
 
 4.  On the **myVault** blade, click **Backup**.
-![Recovery Services vaults backup page](./media/oracle-backup-recovery/recovery_service_04.png)
+
+    ![Recovery Services vaults backup page](./media/oracle-backup-recovery/recovery_service_04.png)
 
 5.  On the **Backup Goal** blade, use the default values of **Azure** and **Virtual machine**. Click **OK**.
-![Recovery Services vaults detail page](./media/oracle-backup-recovery/recovery_service_05.png)
+
+    ![Recovery Services vaults detail page](./media/oracle-backup-recovery/recovery_service_05.png)
 
 6.  For **Backup policy**, use **DefaultPolicy**, or select **Create New policy**. Click **OK**.
 ![Recovery Services vaults backup policy detail page](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  On the **Select virtual machines** page, select the **myVM1** check box, and then click **OK**. Click the **Enable backup** button.
-![Recovery Services vaults items to the backup detail page](./media/oracle-backup-recovery/recovery_service_07.png)
+7.  On the **Select virtual machines** blade, select the **myVM1** check box, and then click **OK**. Click the **Enable backup** button.
+
+    ![Recovery Services vaults items to the backup detail page](./media/oracle-backup-recovery/recovery_service_07.png)
 
     > [!IMPORTANT]
     > After you click **Enable backup**, the backup process doesn't start until the scheduled time expires. To set up an immediate backup, complete the next step.
 
-8.  On the **myVault - Backup items** blade, click **Backup items**. Under **BACKUP ITEM COUNT**, select the backup item count.
+8.  On the **myVault - Backup items** blade, under **BACKUP ITEM COUNT**, select the backup item count.
 
     ![Recovery Services vaults myVault detail page](./media/oracle-backup-recovery/recovery_service_08.png)
 
@@ -296,18 +302,18 @@ For more information, see [Application-consistent backup for Linux VMs](https://
 
     ![Recovery Services vaults Backup now command](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Click the **Backup** button. Wait for the backup process to finish. Then, go to [Step 6: Remove the database files](#step6-remove-database-files).
+10. Click the **Backup** button. Wait for the backup process to finish. Then, go to [Step 6: Remove the database files](#step-6-remove-the-database-files).
 
     To view the status of the backup job, click **Jobs**.
     ![Recovery Services vaults job page](./media/oracle-backup-recovery/recovery_service_10.png)
 
-        The status of the backup job appears in the next image.
+    The status of the backup job appears in the following image.
 
-        ![Recovery Services vaults job page with status](./media/oracle-backup-recovery/recovery_service_11.png)
+    ![Recovery Services vaults job page with status](./media/oracle-backup-recovery/recovery_service_11.png)
 
 11. For an application-consistent backup, address any errors in the log file. The log file is located at /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
-### <name="step6-remove-database-files">Step 6: Remove the database files 
+### Step 6: Remove the database files 
 Later in this article, you'll learn how to test the recovery process. Before you can test the recovery process, you have to remove the database files.
 
 1.  Remove the tablespace and backup files:
@@ -329,9 +335,9 @@ Later in this article, you'll learn how to test the recovery process. Before you
     ```
 
 ## Restore the deleted files from the Recovery Services vaults
-To restore the deleted files, complete the following procedure:
+To restore the deleted files, complete the following steps:
 
-1. In the Azure portal, search for the *myVault* Recovery Services vaults item. On the **myVault** blade, under **Backup items**, select the number of items.
+1. In the Azure portal, search for the *myVault* Recovery Services vaults item. On the myVault **Overview** blade, under **Backup items**, select the number of items.
     ![Recovery Services vaults myVault backup items](./media/oracle-backup-recovery/recovery_service_12.png)
 
 2. Under **BACKUP ITEM COUNT**, select the number of items.
@@ -340,7 +346,7 @@ To restore the deleted files, complete the following procedure:
 3. On the **myvm1** blade, click **File Recovery (Preview)**.
     ![Screenshot of the Recovery Services vaults file recovery page](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. Click **Download Script**, and then save the download (.sh) file to a folder on the client computer.
+4. On the **File Recovery (Preview)** pane, click **Download Script**, and then save the download (.sh) file to a folder on the client computer.
     ![Download script file saves options](./media/oracle-backup-recovery/recovery_service_15.png)
 
 5. Copy the .sh file to the VM.
@@ -438,7 +444,7 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
 ### Step 1: Delete myVM
 
-*   In the Azure portal, go to the **myVM** vault, and then select **Delete**.
+*   In the Azure portal, go to the **myVM1** vault, and then select **Delete**.
 
     ![Vault delete command](./media/oracle-backup-recovery/recover_vm_01.png)
 
@@ -448,7 +454,7 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
     ![myVault entry](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  On the **myVault** blade, under **Backup items**, select the number of items.
+2.  On the myVault **Overview** blade, under **Backup items**, select the number of items.
     ![myVault back up items](./media/oracle-backup-recovery/recover_vm_03.png)
 
 3.  On the **Backup Items (Azure Virtual Machine)** blade, select **myvm1**.
@@ -459,7 +465,7 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
     ![Restore VM command](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  On the **Select a restore point** blade, select the item that you want to restore, and then click **OK**.
+5.  On the **Select restore point** blade, select the item that you want to restore, and then click **OK**.
 
     ![Select the restore point](./media/oracle-backup-recovery/recover_vm_06.png)
 
@@ -471,7 +477,7 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
 7.  To restore the VM, click the **Restore** button.
 
-8.  To view the status of the restore process, click **Jobs**.
+8.  To view the status of the restore process, click **Jobs**, and then click **Backup Jobs**.
     ![Backup jobs status command](./media/oracle-backup-recovery/recover_vm_08.png)
 
     The following figure shows the status of the restore process:
@@ -498,7 +504,7 @@ search for and select **myVMip**. Then, click **Associate**.
 
     ![Select resource type and NIC values](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Search for and open the myVM instance that is ported from the portal. The IP address that is associated with the VM appears on the myVM **Overview** pane.
+5.  Search for and open the myVM instance that is ported from the portal. The IP address that is associated with the VM appears on the myVM **Overview** blade.
 
     ![IP address value](./media/oracle-backup-recovery/create_ip_04.png)
 
@@ -520,9 +526,9 @@ search for and select **myVMip**. Then, click **Associate**.
     ```
 
     > [!IMPORTANT]
-    > If the database **startup** command generates an error, to recover the database, see [Step 6: Use RMAN to recover the database](#step6-use-RMAN).
+    > If the database **startup** command generates an error, to recover the database, see [Step 6: Use RMAN to recover the database](#step-6-optional-use-rman-to-recover-the-database).
 
-### <name="step6-use-RMAN"> Step 6: (Optional) Use RMAN to recover the database
+### Step 6: (Optional) Use RMAN to recover the database
 *   To recover the database, use the following script:
 
     ```bash
