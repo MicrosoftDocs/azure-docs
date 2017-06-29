@@ -16,6 +16,7 @@
 ## Develop
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
+### [Manipulate reference data using C#](time-series-insights-manipulate-reference-data-csharp.md)
 
 # Reference
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
