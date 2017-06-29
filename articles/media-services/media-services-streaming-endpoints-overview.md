@@ -54,7 +54,7 @@ For users who created AMS accounts prior to the January 10 2017 release, you hav
 If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU), it will be premium streaming endpoint and will provide all AMS features (just like the **Standard/Premium** type) without any additional configuration steps.
 
 >[!NOTE]
->**Classic** streaming endpoints (version "1.0" and 0 SU), provides limited features and doesn't include a SLA. It is recommended to migrate to **Standard** type to get a better experince and to use features like dynamic packaging or encryption and other features that come with the **Standard** type. To migrate to the **Standard** type, go to the [Azure portal](https://portal.azure.com/) and select **Opt-in to Standard**. For more information about migration, see the [migration](#migration-between-types) section.
+>**Classic** streaming endpoints (version "1.0" and 0 SU), provides limited features and doesn't include a SLA. It is recommended to migrate to **Standard** type to get a better experience and to use features like dynamic packaging or encryption and other features that come with the **Standard** type. To migrate to the **Standard** type, go to the [Azure portal](https://portal.azure.com/) and select **Opt-in to Standard**. For more information about migration, see the [migration](#migration-between-types) section.
 >
 >Beware that this operation cannot be rolled back and has a pricing impact.
 >
