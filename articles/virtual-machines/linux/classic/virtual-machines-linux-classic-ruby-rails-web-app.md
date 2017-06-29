@@ -33,14 +33,14 @@ Start by creating an Azure VM with a Linux image.
 
 To create the VM, you can use the Azure classic portal or the Azure Command-Line Interface (CLI).
 
-### Azure Management Portal
+### Azure Portal
 1. Sign into the [Azure portal](https://portal.azure.com)
 2. Click **New**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
 3. In the Basics blade, supply values for the required fields: Name (for the VM), User name, Authentication type and the corresponding credentials, Azure subscription, Resource group, and Location.
 
    ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
-4. After the VM is provisioned, click on the VM name, and click **Endpoints** in the **Settings** category. Find the SSH endpoint, listed under **Stand alone**.
+4. After the VM is provisioned, click on the VM name, and click **Endpoints** in the **Settings** category. Find the SSH endpoint, listed under **Standalone**.
 
    ![Default endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
@@ -100,7 +100,7 @@ You should see output similar to the following.
 
 2. Select **ENDPOINTS** in the **Settings** along the left edge the page.
 
-3. Click **ADD** at the top of the page .
+3. Click **ADD** at the top of the page.
 
 4. In the **Add endpoint** dialog page, enter the following information:
 
@@ -138,7 +138,6 @@ To use Azure services from your Ruby application, see:
 <!-- WA.com links -->
 [blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[management-portal]:https://manage.windowsazure.com/
 [tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]:createportal.md
 
