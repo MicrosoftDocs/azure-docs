@@ -24,7 +24,7 @@ If you have existing Linux virtual machines (VMs) that use unmanaged disks, you 
 
 This article shows you how to convert VMs with the Azure CLI. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
 
-## Things to know
+## Before you begin
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
