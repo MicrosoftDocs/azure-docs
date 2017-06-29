@@ -1,5 +1,5 @@
 ---
-title: Creating Azure IoT Edge Module with NODEJS | Microsoft Docs
+title: Create an Azure IoT Edge Module with Node.js | Microsoft Docs
 description: This tutorial showcases how to write a BLE data converter module using the latest Azure IoT Edge NPM packages and Yeoman generator.
 services: iot-hub
 author: sushi
@@ -13,9 +13,7 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
 ---
-# Creating Azure IoT Edge Module with NODEJS
-
-## Overview
+# Creating Azure IoT Edge Module with Node.js
 
 This tutorial showcases how to create a module for Azure IoT Edge in JS.
 
@@ -26,10 +24,10 @@ In this tutorial, we walk through environment setup and how to write a [BLE](htt
 In this section, you set up your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.
 
 The following software is required:
-1. [Git Client](https://git-scm.com/downloads).
-2. [Node LTS](https://nodejs.org).
-3. `npm install -g yo`.
-4. `npm install -g generator-az-iot-gw-module`
+* [Git Client](https://git-scm.com/downloads).
+* [Node LTS](https://nodejs.org).
+* `npm install -g yo`.
+* `npm install -g generator-az-iot-gw-module`
 
 ## Architecture
 
@@ -42,7 +40,7 @@ The following image displays the typical end to end dataflow for this project:
 
 ![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
-## Step-by-step
+## Set up the environment
 Below we show you how to quickly set up environment to start to write your first BLE converter module with JS.
 
 ### Create module project
@@ -63,7 +61,7 @@ A JS module project consists of the following components:
 `README.md` - The basic documentation for module project.
 
 
-### Package File
+### Package file
 
 This `package.json` declares all the metadata information needed by a module project that includes the name, version, entry, scripts, runtime, and development dependencies.
 
@@ -92,7 +90,7 @@ Following code snippet shows how to configure for BLE converter sample project.
 ```
 
 
-### Entry File
+### Entry file
 The `app.js` defines the way to initialize the edge instance. Here we don't need to make any change.
 
 ```javascript
@@ -112,14 +110,14 @@ The `app.js` defines the way to initialize the edge instance. Here we don't need
 })();
 ```
 
-### Interface of Module
+### Interface of module
 You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.
 
 The input might be data from hardware (like a motion detector), a message from other modules, or anything else (like a random number generated periodically by a timer).
 
 The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `message` object. The **content** of a `message` is a byte array that is capable of representing any kind of data you like. **properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in an HTTP request, or the metadata of a file.
+Modules communicate with each other using `message` object. The **content** of a `message` is a byte array that is capable of representing any kind of data you like. **Properties** are also available in the `message` and are simply a string-to-string mapping. You may think of **properties** as the headers in an HTTP request, or the metadata of a file.
 
 In order to develop an Azure IoT Edge module in JS, you need to create a new module object that implements the required methods `receive()`. At this point, you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well. The following code snippet shows you the scaffolding of JS module object.
 
@@ -151,7 +149,7 @@ module.exports = {
 };
 ```
 
-### Converter Module
+### Converter module
 | Input                    | Processor                              | Output                 | Source File            |
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Temperature data message | Parse and construct a new JSON message | Structure JSON message | `converter.js` |
@@ -193,7 +191,7 @@ receive: function (message) {
 },
 ```
 
-### Printer Module
+### Printer module
 | Input                          | Processor | Output                     | Source File          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
 | Any message from other modules | N/A       | Log the message to console | `printer.js` |
@@ -279,10 +277,11 @@ At the end of the configuration, we establish the connections. Each connection i
 ]
 ```
 
-## Running the Modules
+## Running the modules
 1. `npm install`
 2. `npm start`
 
 If you want to terminate the application, press `<Enter>` key.
 
-> ⚠ It is not recommended to use Ctrl + C to terminate the IoT Edge application. As this way may cause the process to terminate abnormally.
+> [!IMPORTANT]
+> It is not recommended to use Ctrl + C to terminate the IoT Edge application. As this way may cause the process to terminate abnormally.
