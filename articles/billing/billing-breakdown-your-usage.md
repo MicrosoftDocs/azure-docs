@@ -62,7 +62,7 @@ the terms and descriptions shown in this section.
 |Rate |The rate you're charged per billable unit |
 |Value |Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column. |
 
-Daily usage
+### Daily usage
 
 The Daily usage section of the CSV file shows usage details that affect
 the billing rates. The following table lists the terms and descriptions
@@ -70,59 +70,30 @@ shown in this section.
 
 | Term | Description |
 | --- | --- |
-  Usage Date           The date when the meter was used
+|Usage Date |The date when the meter was used |
+|Meter Category |Identifies the top-level service for which this usage belongs |
+|Meter ID |The billed meter identifier that's used to price billing usage |
+|Meter Sub-Category |Defines the Azure service type that can affect the rate |
+|Meter Name |Identifies the unit of measure for the meter being consumed |
+|Meter Region |Identifies the location of the datacenter for certain services that are priced based on datacenter location |
+|Unit |Identifies the unit that the meter is charged in. For example, GB, hours, 10,000 s. |
+|Consumed Quantity |The amount of the meter that has been consumed for that day |
+|Resource Location |Identifies the datacenter where the meter is running |
+|Consumed Service |The Azure platform service that you used |
+|Resource Group |The resource group in which the deployed meter is running in. <br/><br/>For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview). |
+|Instance ID | The identifier for the meter. <br/><br/> The identifier contains the name you specify for the meter when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/en-us/rest/api/resources/resources). |
+|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/en-us/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
+|Service Info 1 |The project name that the service belongs to on your subscription |
+|Service Info 2 |Legacy field that captures optional service-specific metadata |
 
-  Meter Category       Identifies the top-level service for which this usage belongs
-
-  Meter ID             The billed meter identifier that's used to price billing usage
-
-  Meter Sub-Category   Defines the Azure service type that can affect the rate
-
-  Meter Name           Identifies the unit of measure for the meter being consumed
-
-  Meter Region         Identifies the location of the datacenter for certain services that are priced based on datacenter location
-
-  Unit                 Identifies the unit that the meter is charged in. For example, GB, hours, 10,000 s.
-
-  Consumed Quantity    The amount of the meter that has been consumed for that day
-
-  Resource Location    Identifies the datacenter where the meter is running
-
-  Consumed Service     The Azure platform service that you used
-
-  Resource Group       The resource group in which the deployed meter is running in
-                       
-                       For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
-
-  Instance ID          The identifier for the meter.
-                       
-                       The identifier contains the name you specify for the meter when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/en-us/rest/api/resources/resources).
-
-  Tags                 Tag you assign to the meter. Use tags to group billing records.
-                       
-                       For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/en-us/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
-
-  Additional Info      Service-specific metadata. For example, an image type for a virtual machine.
-
-  Service Info 1       The project name that the service belongs to on your subscription
-
-  Service Info 2       Legacy field that captures optional service-specific metadata
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-How do I ensure that the charges in my detailed usage file are correct?
-
+## How do I ensure that the charges in my detailed usage file are correct?
 If there is a charge on your detailed usage file that you would like
-more details on, see [Understand your bill for Microsoft Azure.](/)
+more details on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
 
-What about Marketplace orders or external service charges?
+## What about external service charges?
+External services (also known as Marketplace orders) are transactions that use the same payment method from your subscription but are billed separately since they are provided by independent service vendors. They will not show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-Marketplace orders or External services are transactions that use the
-same payment method from your subscription but are billed separately.
-They will not show up on the Azure invoice. To learn more, see
-[Understand your Azure external service
-charges](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-azure-marketplace-charges).
-
-Need help? Contact support.
-
+## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?) to
 get your issue resolved quickly.
