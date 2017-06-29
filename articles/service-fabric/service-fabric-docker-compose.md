@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/24/2017
+ms.date: 06/28/2017
 ms.author: subramar
 ---
 # Compose Application support in Service Fabric (Preview)
