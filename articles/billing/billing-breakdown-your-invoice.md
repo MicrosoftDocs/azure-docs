@@ -49,8 +49,7 @@ invoice and descriptions for each term.
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
 
-![](media/image1.png){width="7.333333333333333in"
-height="2.057407042869641in"}
+<kbd>![Account information section of invoice](./media/billing-breakdown-your-invoice/1.png)</kbd>
 
 | Term | Description |
 | --- | --- |
@@ -68,7 +67,7 @@ The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
 
-![](media/image2.png){width="7.9375in" height="2.5915594925634298in"}
+<kbd>![Invoice summary section](./media/billing-breakdown-your-invoice/2.png)</kbd>
 
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
