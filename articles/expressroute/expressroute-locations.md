@@ -236,6 +236,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Bright Skies GmbH](http://bskies.io/expressroute)** | Europe
 | **[Ensyst](http://www.ensyst.com.au)** | Asia
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
+| **[FlexManage](http://www.flexmanage.com/cloud)** | North America |
 | **[Inframon](http://www.inframon.com/partner/microsoft/)** | Europe |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australia |
@@ -246,7 +247,6 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | North America |
-| **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 | **[sol-tec](http://www.sol-tec.com/Technologies)** | Europe |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 
