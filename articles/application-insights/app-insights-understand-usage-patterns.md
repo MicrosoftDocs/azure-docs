@@ -28,7 +28,7 @@ Here are the steps they take to create their funnel.
 
 1. Click the New button on the Funnels blade.
 1. Select the time range of "Last month" from the **Time Range** drop-down. 
-1. Select the **Product page** event from the **Step 1** drop down list. 
+1. Select the **Product page** event from the **Step 1** drop-down list. 
 1. Select the **Add to shopping cart** event from the **Step 2** drop-down list.
 1. Select the **Click purchase** event from the **Step 3** drop-down list.
 1. Add a name to the funnel and click **Save**.
