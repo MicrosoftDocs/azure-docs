@@ -77,18 +77,18 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     * **Environment name**: The field can be customized by user.
     * **Authority**: The value should be https://login.windows.net.
-    * **Sign in resource id**: Retrieve the value by executing one of the following PowerShell scripts:
+    * **Sign in resource id**: Retrieve the value by running one of the following PowerShell scripts:
 
-        If you are a cloud administrator:
+        If you are a cloud operator:
 
         ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
         ```
 
-        If you are a tenant:
+        If you are a user:
 
         ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
         ```
 
     * **Graph endpoint**: The value should be https://graph.windows.net.
