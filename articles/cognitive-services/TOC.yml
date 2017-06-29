@@ -14,6 +14,8 @@
     href: Academic-Knowledge/Home.md
   - name: Bing Autosuggest
     href: Bing-Autosuggest/get-suggested-search-terms.md
+  - name: Bing Entities Search
+    href: Bing-Entities-Search/search-the-web.md
   - name: Bing Image Search
     href: Bing-Image-Search/search-the-web.md
   - name: Bing News Search
