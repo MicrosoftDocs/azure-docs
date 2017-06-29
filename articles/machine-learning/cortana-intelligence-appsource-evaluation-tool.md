@@ -83,7 +83,7 @@ After completing the test cases, your evaluation package will be exported to a z
 
 ![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
 
-## Security evaluation consierations
+## Security evaluation considerations
 ### Databases should use Azure Active Directory authentication
 Any Azure SQL or Azure SQL DW resources in the app should be enabled with Azure Active Directory (AAD) authentication. AAD provides a single place to manage all of your identities and roles.
 
