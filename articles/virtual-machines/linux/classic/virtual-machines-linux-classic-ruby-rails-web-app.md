@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 06/27/2017
 ms.author: robmcm
 
 ---
@@ -25,8 +25,8 @@ This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a differen
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
-> 
-> 
+>
+>
 
 ## Create an Azure VM
 Start by creating an Azure VM with a Linux image.
@@ -34,11 +34,15 @@ Start by creating an Azure VM with a Linux image.
 To create the VM, you can use the Azure classic portal or the Azure Command-Line Interface (CLI).
 
 ### Azure Management Portal
-1. Sign into the [Azure classic portal](http://manage.windowsazure.com)
-2. Click **New** > **Compute** > **Virtual Machine** > **Quick Create**. Select a Linux image.
-3. Enter a password.
+1. Sign into the [Azure portal](https://portal.azure.com)
+2. Click **New**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
+3. In the Basics blade, supply values for the required fields: Name (for the VM), User name, Authentication type and the corresponding credentials, Azure subscription, Resource group, and Location.
 
-After the VM is provisioned, click on the VM name, and click **Dashboard**. Find the SSH endpoint, listed under **SSH Details**.
+   ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+
+4. After the VM is provisioned, click on the VM name, and click **Endpoints** in the **Settings** category. Find the SSH endpoint, listed under **Stand alone**.
+
+   ![Default endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### Azure CLI
 Follow the steps in [Create a Virtual Machine Running Linux][vm-instructions].
@@ -50,20 +54,25 @@ After the VM is provisioned, you can get the SSH endpoint by running the followi
 ## Install Ruby on Rails
 1. Use SSH to connect to the VM.
 2. From the SSH session, use the following commands to install Ruby on the VM:
-   
+
         sudo apt-get update -y
         sudo apt-get upgrade -y
-        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
-   
+
+        sudo apt-add-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install ruby2.4
+
+        > [!TIP]
+        > The brightbox repository contains the current Ruby distribution.
+
     The installation may take a few minutes. When it completes, use the following command to verify that Ruby is installed:
-   
+
         ruby -v
-   
-    This returns the version of Ruby that was installed.
+
 3. Use the following command to install Rails:
-   
+
         sudo gem install rails --no-rdoc --no-ri -V
-   
+
     Use the --no-rdoc and --no-ri flags to skip installing the documentation, which is faster.
     This command will likely take a long time to execute, so adding the -V will display information about the installation progress.
 
@@ -87,28 +96,32 @@ You should see output similar to the following.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## Add an endpoint
-1. Go to the [Azure classic portal][management-portal] and select your VM.
-   
-    ![virtual machine list][vmlist]
-2. Select **ENDPOINTS** at the top of the page, and then click **+ ADD ENDPOINT** at the bottom of the page.
-   
-    ![endpoints page][endpoints]
-3. In the **ADD ENDPOINT** dialog, select "Add a standalone endpoint" and click the **Next** arrow.
-   
-    ![new endpoint dialog][new-endpoint1]
-4. In the next dialog page, enter the following information:
-   
-   * **NAME**: HTTP
-   * **PROTOCOL**: TCP
-   * **PUBLIC PORT**: 80
-   * **PRIVATE PORT**: 3000
-     
-     This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
-     
-     ![new endpoint dialog][new-endpoint]
-5. Click the check mark to save the endpoint.
-6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
-   
+1. Go to the [Azure portal][https://portal.azure.com] and select your VM.
+
+2. Select **ENDPOINTS** in the **Settings** along the left edge the page.
+
+3. Click **ADD** at the top of the page .
+
+4. In the **Add endpoint** dialog page, enter the following information:
+
+   * **Name**: HTTP
+   * **Protocol**: TCP
+   * **Public port**: 80
+   * **Private port**: 3000
+   * **Floating PI address**: Disabled
+   * **Access control list - Order**: 1001, or another value that sets the priority of this access rule.
+   * **Access control list - Name**: allowHTTP
+   * **Access control list - Action**: permit
+   * **Access control list - Remote subnet**: 1.0.0.0/16
+
+     This endpoint  has a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening. The access control list rule allows public traffic on port 80.
+
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+
+5. Click OK to save the endpoint.
+
+6. A message should appear that states **Saving virtual machine endpoint**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
+
     ![default rails page][default-rails-cloud]
 
 ## Next steps
