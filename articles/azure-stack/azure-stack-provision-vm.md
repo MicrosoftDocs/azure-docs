@@ -1,6 +1,6 @@
 ---
 title: Create a test VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a test VM in Azure Stack as an administrator.
+description: Learn how to provision a test VM in Azure Stack as a cloud operator.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
