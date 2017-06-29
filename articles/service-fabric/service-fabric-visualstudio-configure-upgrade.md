@@ -18,7 +18,7 @@ ms.author: mikkelhegn
 
 ---
 # Configure the upgrade of a Service Fabric application in Visual Studio
-Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are two scenarios in which you want to upgrade your application to a newer version instead of replacing the application during testing and debugging:
+Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are three scenarios in which you want to upgrade your application to a newer version instead of replacing the application during testing and debugging:
 
 * Application data won't be lost during the upgrade.
 * Availability remains high so there won't be any service interruption during the upgrade, if there are enough service instances spread across upgrade domains.
