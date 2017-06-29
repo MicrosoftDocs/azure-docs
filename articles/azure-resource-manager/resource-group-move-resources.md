@@ -147,7 +147,7 @@ When working with App Service apps, you cannot move only an App Service plan. To
 * Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan.
 * Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
-App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+The App Service plan does not need to reside in the same resource group as the app for the app to function correctly.
 
 For example, if your resource group contains:
 
