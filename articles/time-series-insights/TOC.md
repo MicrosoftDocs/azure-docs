@@ -16,11 +16,12 @@
 ## Develop
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
-### [Manipulate reference data using C#](time-series-insights-manipulate-reference-data-csharp.md)
+### [Manipulate reference data using C#](time-series-insights-manage-reference-data-csharp.md)
 
 # Reference
 ## [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 ## [Query syntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)
+## [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
 
 # Related services
 ## [Azure IoT Suite](/azure/iot-suite/)
