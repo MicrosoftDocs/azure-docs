@@ -51,7 +51,7 @@ Here is the list of criteria the app needs to meet
 1. Solution should be generating at least $1000 a month per customer using DPOR/CSP.
 1. Solution should use the Azure Active Directory federated single signon (AAD federated SSO) with consent enabled for user authentication and resource access controls. You will need to show to the evaluation team that your solution is AAD federated SSO enabled before your app can be onboarded to AppSource.
 
-     To see what it means to be AAD federated SSO enabled, seek to position 02:35 in [AppSource trial experience walk through](https://aka.ms/trialexperienceforwebapps) video. If your app is not enabled with AAD federated SSO yet, here is some documenation about it
+     To see what it means to be AAD federated SSO enabled, seek to position 02:35 in [AppSource trial experience walk through](https://aka.ms/trialexperienceforwebapps) video. If your app is not enabled with AAD federated SSO yet, here is some documentation about it
    1. [One-click sign in](https://identity.microsoft.com/Landing?ru=https://identity.microsoft.com/).
    1. [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
      
@@ -74,7 +74,7 @@ One of the key value propositions of AppSource for partners is to be able to col
 
 Fill up [Partner Solution Info for Microsoft Sellers](https://aka.ms/aapartnerappinfo) and send it to [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). This is required step for a Cortana Intelligence app to get approved for publishing.
 
-## Buid a compelling customer walkthrough on AppSource
+## Build a compelling customer walkthrough on AppSource
 First, take a look at [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) on AppSource. Every app entry in AppSource has title, summary (100 chars max), description (1300 chars max), images, videos (optional), pdf documents apart from entry point for a trial experience. Partners should leverage all these to build a compelling customer experience.
 
 Partners should think of the content they put on AppSource as an end to end sales orchestration. Customers read the title and description to understand the value proposition and then go through images & videos to understand what the solution is about. Case studies help potential customers see how existing customers are getting value. 
