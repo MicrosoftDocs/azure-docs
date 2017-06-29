@@ -17,7 +17,7 @@ ms.date: 06/28/2017
 ms.author: elioda
 
 ---
-# Upload files from your simulated device to the cloud with IoT Hub using .NET
+# Upload files from your device to the cloud with IoT Hub using .NET
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -52,8 +52,8 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## Upload a file from a simulated device app
-In this section, you modify the simulated device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) to receive cloud-to-device messages from the IoT hub.
+## Upload a file from a device app
+In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
 2. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.

@@ -28,11 +28,11 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 At the end of this tutorial, you run three Java console apps:
 
 * **simulated-device**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **read-d2c-messages** displays the telemetry sent by your simulated device app.
+* **read-d2c-messages** displays the telemetry sent by your device app.
 * **read-critical-queue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
+> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 > 
 > 
 
@@ -45,8 +45,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
+## Send interactive messages from a device app
+In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Replace the **MessageSender** class with the following code:
@@ -97,7 +97,7 @@ In this section, you modify the simulated device app you created in the [Get sta
     }
     ```
    
-    This method randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
    
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.

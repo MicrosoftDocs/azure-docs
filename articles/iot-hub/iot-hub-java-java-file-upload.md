@@ -2,7 +2,7 @@
 title: Upload files from devices to Azure IoT Hub with Java | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
 services: iot-hub
-documentationcenter: .java
+documentationcenter: java
 author: dominicbetts
 manager: timlt
 editor: ''
@@ -17,11 +17,11 @@ ms.date: 06/28/2017
 ms.author: dobett
 
 ---
-# Upload files from your simulated device to the cloud with IoT Hub
+# Upload files from your device to the cloud with IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial to show you how to use the file upload capabilities of IoT Hub. It shows you how to:
+This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.md). The tutorial shows you how to:
 
 - Securely provide a device with an Azure blob URI for uploading a file.
 - Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
@@ -51,17 +51,13 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## Upload a file from a simulated device app
+## Upload a file from a device app
 
-In this section, you modify the simulated device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) to upload a file to IoT hub.
+In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) to upload a file to IoT hub.
 
 1. Copy an image file to the `simulated-device` folder and rename it `myimage.png`.
-1. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
-1. Add the following `import` statement to the file:
 
-    ```java
-    import java.io.*;
-    ```
+1. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 
 1. Add the variable declaration to the **App** class:
 
@@ -72,6 +68,7 @@ In this section, you modify the simulated device app you created in [Send Cloud-
 1. To process file upload status callback messages, add the following nested class to the **App** class:
 
     ```java
+    // Define a callback method to print status codes from IoT Hub.
     protected static class FileUploadStatusCallBack implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to file upload for " + fileName
@@ -83,6 +80,7 @@ In this section, you modify the simulated device app you created in [Send Cloud-
 1. To upload images to IoT Hub, add the following method to the **App** class to upload images to IoT Hub:
 
     ```java
+    // Use IoT Hub to upload a file asynchronously to Azure blob storage.
     private static void uploadFile(String fullFileName) throws FileNotFoundException, IOException
     {
       File file = new File(fullFileName);
@@ -100,10 +98,10 @@ In this section, you modify the simulated device app you created in [Send Cloud-
 
     try
     {
+      // Get the filename and start the upload.
       String fullFileName = System.getProperty("user.dir") + File.separator + fileName;
       uploadFile(fullFileName);
       System.out.println("File upload started with success");
-      System.out.println("Waiting for file upload callback with the status...");
     }
     catch (Exception e)
     {
@@ -171,6 +169,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
 1. To print information about the file upload to the console, add the following nested class to the **App** class:
 
     ```java
+    // Create a thread to receive file upload notifications.
     private static class ShowFileUploadNotifications implements Runnable {
       public void run() {
         try {
@@ -202,9 +201,12 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
 
       if (serviceClient != null) {
         serviceClient.open();
+
+        // Get a file upload notification receiver from the ServiceClient.
         fileUploadNotificationReceiver = serviceClient.getFileUploadNotificationReceiver();
         fileUploadNotificationReceiver.open();
 
+        // Start the thread to receive file upload notifications.
         ShowFileUploadNotifications showFileUploadNotifications = new ShowFileUploadNotifications();
         ExecutorService executor = Executors.newFixedThreadPool(1);
         executor.execute(showFileUploadNotifications);
@@ -249,7 +251,7 @@ The following screenshot shows the output from the **simulated-device** app:
 
 The following screenshot shows the output from the **read-file-upload-notification** app:
 
-![Output from simulated-device app](media/iot-hub-java-java-upload/read-file-upload-notification.png)
+![Output from read-file-upload-notification app](media/iot-hub-java-java-upload/read-file-upload-notification.png)
 
 You can use the portal to view the uploaded file in the storage container you configured:
 

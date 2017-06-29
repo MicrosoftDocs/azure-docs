@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (.NET) | Microsoft Docs
-description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for .NET. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
+description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for .NET. You create a device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -18,13 +18,13 @@ ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
-# Connect your simulated device to your IoT hub using .NET
+# Connect your device to your IoT hub using .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three .NET console apps:
 
-* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
-* **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
+* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your device app.
+* **ReadDeviceToCloudMessages**, which displays the telemetry sent by your device app.
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the MQTT protocol.
 
 You can download or clone the Visual Studio solution, which contains the three apps from Github.
@@ -121,7 +121,7 @@ In this section, you create a .NET console app that reads device-to-cloud messag
     Task.WaitAll(tasks.ToArray());
    ```
 
-## Create a simulated device app
+## Create a device app
 In this section, you create a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution, by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **SimulatedDevice**.
@@ -189,7 +189,7 @@ In this section, you create a .NET console app that simulates a device that send
    
    By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub (UWP and PCL clients use HTTP by default.) To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
 
-This tutorial takes you through the steps to create an IoT Hub simulated device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
+This tutorial takes you through the steps to create an IoT Hub device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -202,7 +202,7 @@ You are now ready to run the apps.
 1. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
    
     ![Startup project properties][41]
-2. Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device app sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
+2. Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your device app sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
    
     ![Console output from apps][42]
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:
@@ -210,7 +210,7 @@ You are now ready to run the apps.
     ![Azure portal Usage tile][43]
 
 ## Next steps
-In this tutorial, you configured an IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
+In this tutorial, you configured an IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
