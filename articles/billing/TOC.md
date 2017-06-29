@@ -9,8 +9,8 @@
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
 ### [Understand your bill](billing-understand-your-bill.md)
-### [Breakdown of your Azure invoice PDF](billing-breakdown-your-invoice.md)
-### [Breakdown of your Azure detailed usage CSV](billing-breakdown-your-invoice.md)
+### [Breakdown your invoice PDF](billing-breakdown-your-invoice.md)
+### [Breakdown your usage CSV](billing-breakdown-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
