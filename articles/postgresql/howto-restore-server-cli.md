@@ -32,7 +32,7 @@ When you use the Azure Database for PostgreSQL managed database service, the dat
 
 For Basic Tier, the backup files are available for seven days. For Standard Tier, the backup files are available for 35 days. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md).
 
-With this automatic back up feature, you can restore the entire server configuration to an earlier date, or point-in-time.
+With this automatic back-up feature, you can restore the entire server configuration to an earlier date, or point-in-time.
 
 ## Restore a database to an earlier date by using the Azure CLI tool
 Use Azure Database for PostgreSQL to restore the server to a previous point-in-time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
