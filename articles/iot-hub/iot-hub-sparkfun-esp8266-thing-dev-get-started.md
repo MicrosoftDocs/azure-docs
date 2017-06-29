@@ -1,7 +1,6 @@
 ---
 title: Setup board to cloud - Connect Sparkfun ESP8266 Thign Dev to Azure IoT Hub | Microsoft Docs
 description: Learn how to setup and connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
-
 services: iot-hub
 documentationcenter: ''
 author: shizn
