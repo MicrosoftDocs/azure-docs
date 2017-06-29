@@ -351,8 +351,8 @@ The datetimeV2 entity can recognize date and time ranges. The `start` and `end` 
     {
       "entity": "may 2nd to may 5th",
       "type": "builtin.datetimeV2.daterange",
-      "startIndex": 17,
-      "endIndex": 34,
+      "startIndex": 0,
+      "endIndex": 17,
       "resolution": {
         "values": [
           {
@@ -380,8 +380,8 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
     {
       "entity": "tuesday to thursday",
       "type": "builtin.datetimeV2.daterange",
-      "startIndex": 17,
-      "endIndex": 35,
+      "startIndex": 0,
+      "endIndex": 19,
       "resolution": {
         "values": [
           {
