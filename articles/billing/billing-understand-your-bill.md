@@ -25,18 +25,14 @@ verify your charges and usage:
 1.  **An invoice with the summary of usage and charges in PDF format**
 
      > For invoice download, see [How to get your Azure billing invoice and
-     > daily usage
-     > data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
-     > For detailed terms and descriptions, see invoice for Microsoft Azure
-     > here.
+     > daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+     > For detailed terms and descriptions, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here.
 
 2.  **A separate detailed daily usage file in CSV format**
 
     > For CSV download, see [How to get your Azure billing invoice and daily
-    > usage
-    > data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
-    > For detailed terms and descriptions, see n of your detailed usage for
-    > Microsoft Azure here.
+    > usage data](billing-download-azure-invoice-daily-usage-date.md).
+    > For detailed terms and descriptions, see [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
 
 3.  **Online through the Azure portal**
 
