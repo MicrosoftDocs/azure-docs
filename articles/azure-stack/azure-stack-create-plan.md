@@ -59,5 +59,5 @@ ms.author: erikje
 
     ![](media/azure-stack-create-plan/image12.png)
 
-## Next steps
+### Next steps
 [Create an offer](azure-stack-create-offer.md)
