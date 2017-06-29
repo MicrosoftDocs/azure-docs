@@ -29,3 +29,5 @@
 ### [Multi-SID configurations](high-availability-multi-sid.md)
 ### [Deployment guide](deployment-guide.md)
 ### [DBMS deployment guide](dbms-guide.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

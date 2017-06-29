@@ -356,7 +356,7 @@ You can use a relative path with the `#load` directive:
 
 The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files.
 
-<a name="imperative-bindings></a> 
+<a name="imperative-bindings"></a> 
 
 ## Binding at runtime via imperative bindings
 

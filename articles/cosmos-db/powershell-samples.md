@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 05/10/2017

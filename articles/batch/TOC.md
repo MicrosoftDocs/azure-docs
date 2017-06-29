@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Batch](batch-technical-overview.md)
 ## [Feature overview](batch-api-basics.md)
 ## [APIs and tools](batch-apis-tools.md)
@@ -62,14 +62,15 @@
 ## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

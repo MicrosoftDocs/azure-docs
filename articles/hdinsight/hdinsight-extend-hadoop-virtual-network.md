@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 06/21/2017
 ms.author: larryfr
 
 ---
@@ -54,11 +54,23 @@ The following are a list of considerations when using HDInsight in a virtual net
 
     To access resources in an incompatible virtual network, join the two networks. For more information on connecting classic and Resource Manager Virtual Networks, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-* __Custom DNS__: Azure provides name resolution for Azure services that are installed in an Azure Virtual Network. This name resolution does not extend outside the virtual network. To enable name resolution for resources outside the virtual network, you must use a custom DNS server. For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+* __Custom DNS__: If you need to enable name resolution between HDInsight and resources in your local network, you must use a custom DNS server. You do not need a custom DNS server to access resources that are publicly available on the internet.
 
-* __Forced tunneling__: HDInsight does not support the forced tunneling configuration of Azure Virtual Network.
+    For more information on using a custom DNS server, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-* __Restricting network traffic__: HDInsight does support using Network Security Groups to restrict network traffic, but requires unrestricted access to several Azure IPs. For more information, see the [Secured virtual networks](#secured-virtual-networks) section.
+* __Forced tunneling__: HDInsight does not support forced tunneling.
+
+* __Restricted virtual network__: You can install HDInsight into a virtual network that restricts inbound and outbound traffic. You must allow access to specific IP addresses for the Azure region that you are using.
+
+    * __Network Security Groups__: If you use Network Security Groups, you must allow unrestricted access to several Azure IPs. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+
+        For more information, see the [Network Security Groups](#using-network-security-groups) section.
+
+    * __User-defined routes__: If you use user-defined routes, you must define routes to several Azure IP addresses. For the list of IPs, see the [required IP addresses](#hdinsight-ip) section.
+
+        For more information, see the [User-defined routes](#user-defined-routes) section.
+
+    * __Network Virtual Appliance__: If you use a virtual appliance firewall, see the [Virtual appliance firewall](#virtual-appliance-firewall) section for a list of ports that must be allowed through the firewall.
 
 ### Connect cloud resources together in a private network (cloud-only)
 
@@ -91,9 +103,9 @@ Using Virtual Network to link the cloud and your datacenter enables similar scen
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
+> Create the Azure Virtual Network before provisioning an HDInsight cluster, then specify the network when creating the cluster. If you plan on using a custom DNS server, it must be added to the virtual network before HDInsight. For more information, see [Virtual Network configuration tasks](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Secured virtual networks
+##<a id="hdinsight-ip"></a> Required IP addresses
 
 The HDInsight service is a managed service, and requires access to Azure management services during provisioning and while running. Azure management performs the following services:
 
@@ -105,7 +117,7 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
+If you restrict access to the virtual network you must allow access to the managment IP addresses. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
@@ -122,6 +134,8 @@ The IP addresses that should be allowed are specific to the region that the HDIn
 | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 
+For information on the IP addresses to use for Azure Government, see the [Azure Governemnt Intelligence + Analytics](../azure-government/documentation-government-services-intelligenceandanalytics.md) document.
+
 __If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
 
 * 168.61.49.99
@@ -135,9 +149,9 @@ __If your region is not listed in the table__, allow traffic to port __443__ on 
 > [!NOTE]
 > If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-### Working with HDInsight in secured virtual networks
+## Network Security Groups
 
-If you block internet access, you cannot use HDInsight services that are normally exposed through the public gateway for a cluster. These include Ambari and SSH. Instead, you must access services using the internal IP address of the cluster head nodes.
+If you block internet access using Network Security Groups (NSG), you cannot use HDInsight services that are normally exposed through the public gateway for a cluster. These include Ambari and SSH. Instead, you must access services using the internal IP address of the cluster head nodes.
 
 To find the internal IP address of the head nodes, use the scripts in the [Internal IPs and FQDNs](#internal-ips-and-fqdns) section.
 
@@ -253,10 +267,10 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 2. Use the following to add rules to the new network security group that allow inbound communication on port 443 from the Azure HDInsight health and management service. Replace **RESOURCEGROUPNAME** with the name of the resource group that contains the Azure Virtual Network.
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     ```
 
 3. Once the rules have been created, use the following to retrieve the unique identifier for this network security group:
@@ -293,6 +307,32 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > ```
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User-defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+
+## User-defined routes
+
+If you use user-defined routes (UDR) to secure the virtual network, you must add routes for the HDInsight management IP addresses for your region. For a list of IP addresses by region, see the [Required IP addresses](#hdinsight-ip) section.
+
+The routes to the required IP addresses must set the __Next Hop__ type to __Internet__. The following image is an example of how the routes appear in the Azure portal:
+
+![user-defined routes for IP addresses required by HDInsight](./media/hdinsight-extend-hadoop-virtual-network/user-defined-routes-portal.png)
+
+For more information on user-defined routes, see the [user-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
+
+## Virtual appliance firewall
+
+If you are using a virtual appliance firewall to secure the virtual network, you must allow outbound traffic on the following ports:
+
+* 53
+* 443
+* 1433
+* 11000-11999
+* 14000-14999
+
+For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+
+## Forced tunneling
+
+Forced tunneling is not supported with HDInsight.
 
 ## Retrieve internal IPs and FQDNs
 

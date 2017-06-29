@@ -9,8 +9,8 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 06/19/2017
+ms.topic: hero-article
+ms.date: 06/23/2017
 ---
 
 # Azure Database for PostgreSQL: Use Node.js to connect and query data

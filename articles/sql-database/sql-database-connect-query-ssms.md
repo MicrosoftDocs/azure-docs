@@ -159,6 +159,7 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
+- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).

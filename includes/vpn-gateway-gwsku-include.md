@@ -22,18 +22,16 @@ The new gateway SKUs streamline the feature sets offered on the gateways:
 
 | **SKU**| **Features**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|Route-based VPN up to 30 tunnels* <br>P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN co-existence |
+| VpnGw1<br>VpnGw2<br>VpnGw3|Route-based VPN up to 30 tunnels* <br>P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN co-existence <br><br>* You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details. |
 |Basic   | Route-based: 10 tunnels with P2S<br>Policy-based (IKEv1): 1 tunnel; no P2S|
 |        |             |
-
-(*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
 ###  <a name="resize"></a>Resizing gateway SKUs
 
 1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs.
-2. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs. You must, instead, migrate.
-3. When working with the old gateway SKUs, you can still resize between Basic, Standard, and HighPerformance SKUs.
+2. When working with the old gateway SKUs, you can resize between Basic, Standard, and HighPerformance SKUs.
+2. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs. You must, instead, [migrate](#migrate) to the new SKUs.
 
-###  <a name="migrate"></a>Migrating from the old SKUs to VpnGw1/VpnGw2/VpnGw3 
+###  <a name="migrate"></a>Migrating from old SKUs to the new SKUs
 
 [!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

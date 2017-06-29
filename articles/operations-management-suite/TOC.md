@@ -36,6 +36,7 @@
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Agent Health](oms-solution-agenthealth.md)
 #### [Alert Management](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # Reference
 ## [SDK](operations-management-suite-sdk.md)
 
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
