@@ -14,82 +14,128 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 06/28/2017
 ms.author: singhkay
 
 ---
 # Apply security and policies to Linux VMs with Azure Resource Manager
-By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
+By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.
 
-The outline for the steps to accomplish this is as below
+For an introduction to policies, see [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md).
 
-1. Azure Resource Manager Policy 101
-2. Define a policy for your Virtual Machine
-3. Create the policy
-4. Apply the policy
+## Define a policy for permitted Virtual Machines
+To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems. In the following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines to be created.
 
-## Azure Resource Manager Policy 101
-For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
-
-* [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md)
-
-## Define a policy for your Virtual Machine
-One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps.
-In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
-
-```
-"if": {
-  "allOf": [
-    {
-      "field": "type",
-      "equals": "Microsoft.Compute/virtualMachines"
-    },
-    {
-      "not": {
+```json
+{
+    "if": {
         "allOf": [
-          {
-            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "Canonical"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "UbuntuServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "14.04.2-LTS"
-          }
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/disks",
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Compute/imagePublisher",
+                            "in": [
+                                "Canonical"
+                            ]
+                        },
+                        {
+                            "field": "Microsoft.Compute/imageOffer",
+                            "in": [
+                                "UbuntuServer"
+                            ]
+                        },
+                        {
+                            "field": "Microsoft.Compute/imageSku",
+                            "in": [
+                                "14.04.2-LTS"
+                            ]
+                        },
+                        {
+                            "field": "Microsoft.Compute/imageVersion",
+                            "in": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
         ]
-      }
+    },
+    "then": {
+        "effect": "deny"
     }
-  ]
-},
-"then": {
-  "effect": "deny"
 }
 ```
 
-The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
+Use a wild card to modify the preceding policy to allow any Ubuntu LTS image: 
 
-```
+```json
 {
   "field": "Microsoft.Compute/virtualMachines/imageSku",
   "like": "*LTS"
 }
 ```
 
-#### Virtual Machine Property Fields
-The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../../resource-manager-policy.md).
+For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-| Field Name | Description |
-| --- | --- |
-| imagePublisher |Specifies the publisher of the image |
-| imageOffer |Specifies the offer for the chosen image publisher |
-| imageSku |Specifies the SKU for the chosen offer |
-| imageVersion |Specifies the image version for the chosen SKU |
+## Use managed disk policy
 
-## Create the Policy
-A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../../resource-manager-policy.md).
+To require the use of managed disks, use the following policy:
 
-## Apply the Policy
-After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../../resource-manager-policy.md).
+```json
+{
+    "if": {
+        "anyOf": [
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+                        "exists": true
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+                    },
+                    {
+                        "anyOf": [
+                            {
+                                "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                                "exists": true
+                            },
+                            {
+                                "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                                "exists": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+## Next steps
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
