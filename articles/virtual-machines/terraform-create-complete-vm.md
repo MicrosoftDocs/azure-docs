@@ -39,16 +39,16 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-In the "provider" section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for subscription_id, client_id, client_secret, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
+In the `provider` section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for subscription_id, client_id, client_secret, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
 
-The "azurerm_resource_group" resource instructs Terraform to create a new resource group. You can see more resource types that are available in Terraform later in this article.
+The `azurerm_resource_group` resource instructs Terraform to create a new resource group. You can see more resource types that are available in Terraform later in this article.
 
 ## Execute the script
 After you save the script, exit to the console/command line, and type the following:
 ```
 terraform plan terraformscripts
 ```
-We assume that "terraformscripts" is the folder where the script was saved. We used the "plan" Terraform command, which looks at the resources defined in the scripts. It compares them to the state information saved by Terraform and then outputs the planned execution _without_ actually creating resources in Azure. 
+We assume that `terraformscripts` is the folder where the script was saved. We used the `plan` Terraform command, which looks at the resources defined in the scripts. It compares them to the state information saved by Terraform and then outputs the planned execution _without_ actually creating resources in Azure. 
 
 After you execute the previous command, you should see something like the following screen:
 
@@ -58,7 +58,7 @@ If everything looks correct, provision this new resource group in Azure by execu
 ```
 terraform apply terraformscripts
 ```
-In the Azure portal, you should see the new empty resource group called "terraformtest". In the following section, you add a virtual machine and all the supporting infrastructure for that virtual machine to the resource group.
+In the Azure portal, you should see the new empty resource group called `terraformtest`. In the following section, you add a virtual machine and all the supporting infrastructure for that virtual machine to the resource group.
 
 ## Provision an Ubuntu VM with Terraform
 Let's extend the Terraform script we've created with the details that are necessary to provision a virtual machine running Ubuntu. The resources that you provision in the following sections are:
@@ -92,7 +92,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-The previous script creates a virtual network and a subnet within that virtual network. Note the reference to the resource group you have created already via the "${azurerm_resource_group.helloterraform.name}" both in the virtual network and the subnet definition.
+The previous script creates a virtual network and a subnet within that virtual network. Note the reference to the resource group you have created already via "${azurerm_resource_group.helloterraform.name}" both in the virtual network and the subnet definition.
 
 ~~~~
 # create public IP
@@ -146,7 +146,7 @@ resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
     depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 ~~~~
-Here, you created a storage account and defined a storage container within that storage account. This is where you store virtual hard disks (VHDs) for the virtual machine about to be created.
+Here, you created a storage account and defined a storage container within that storage account. This storage account is where you store virtual hard disks (VHDs) for the virtual machine about to be created.
 
 ~~~~
 # create virtual machine
@@ -193,7 +193,7 @@ With the full script saved, exit to the console/command line and type the follow
 ```
 terraform apply terraformscripts
 ```
-After some time, the resources, including a virtual machine, appear in the "terraformtest" resource group in the Azure portal.
+After some time, the resources, including a virtual machine, appear in the `terraformtest` resource group in the Azure portal.
 
 ## Complete the Terraform script
 

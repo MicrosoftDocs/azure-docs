@@ -21,10 +21,10 @@ ms.author: echuvyrov
 # Install and configure Terraform to provision VMs and other infrastructure into Azure 
 This article describes the necessary steps to install and configure Terraform to provision resources such as virtual machines into Azure. You will learn how to create and use Azure credentials to enable Terraform to provision cloud resources in a secure manner.
 
-HashiCorp Terraform provides an easy way to define and deploy cloud infrastructure by using a custom templating language called HCL. This custom language is [easy to write and easy to understand](terraform-create-complete-vm.md). Additionally, by using the "terraform plan" command, you can visualize the changes to your infrastructure before you commit them. Follow these steps  to get started using Terraform with Azure.
+HashiCorp Terraform provides an easy way to define and deploy cloud infrastructure by using a custom templating language called HashiCorp configuration language (HCL). This custom language is [easy to write and easy to understand](terraform-create-complete-vm.md). Additionally, by using the `terraform plan` command, you can visualize the changes to your infrastructure before you commit them. Follow these steps  to start using Terraform with Azure.
 
 ## Install Terraform
-To install Terraform, [download](https://www.terraform.io/downloads.html) the package appropriate for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global PATH. For instructions on how to set the PATH on Linux and Mac, see [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the PATH on Windows, see [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). To verify your installation, run the "terraform" command. You should see a list of available Terraform options as output.
+To install Terraform, [download](https://www.terraform.io/downloads.html) the package appropriate for your operating system into a separate install directory. The download contains a single executable file, for which you should also define a global path. For instructions on how to set the path on Linux and Mac, go to [this webpage](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). For instructions on how to set the path on Windows, go to [this webpage](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). To verify your installation, run the `terraform` command. You should see a list of available Terraform options as output.
 
 Next, you need to allow Terraform access to your Azure subscription to perform infrastructure provisioning.
 
@@ -82,7 +82,7 @@ To use a Windows machine to write and execute your Terraform scripts and to use 
 1. Install PowerShell tools by following the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). 
 
 2. Download and execute the [azure-setup.ps1 script](https://github.com/echuvyrov/terraform101/blob/master/azureSetup.ps1) from the PowerShell console. 
-3. To run the azure-setup.ps1 script, download it, execute the "./azure-setup.ps1 setup" command from the PowerShell console, and sign in to your Azure subscription with administrative privileges. 
+3. To run the azure-setup.ps1 script, download it, execute the `./azure-setup.ps1 setup` command from the PowerShell console, and sign in to your Azure subscription with administrative privileges. 
 4. Provide an application name (arbitrary string, required) when you are prompted, and (optionally) supply a strong password. If you don't provide a password, a strong password is generated for you by using .NET security libraries.
 
 ### Use Azure CLI 1.0 (for Linux or Mac users)
@@ -93,10 +93,10 @@ To get started with Terraform on Linux machines or Macs with Azure CLI 1.0, you 
 2. Download and install a JSON processor by following the instructions in [Download jq](https://stedolan.github.io/jq/download/).  
 
 3. Download and execute the [azure-setup.sh script](https://github.com/mitchellh/packer/blob/master/contrib/azure-setup.sh) bash script from the console. 
-4. To run the azure-setup.sh script, download it, execute the "./azure-setup setup" command from the console, and sign in to your Azure subscription with administrative privileges. 
+4. To run the azure-setup.sh script, download it, execute the `./azure-setup setup` command from the console, and sign in to your Azure subscription with administrative privileges. 
 5. Provide an application name (arbitrary string, required) when you are prompted, and (optionally) supply a strong password when you are prompted. If you don't provide a password, a strong password is generated for you by using .NET security libraries.
 
-All the previous scripts create an Azure AD application and a service principal, giving the service principal a contributor or owner-level access on the subscription. Because of the high level of access granted, you should always protect the security information generated by those scripts. Make a note of all four pieces of security information provided by those scripts: client_id, client_secret, subscription_id, and tenant_id.
+All the previous scripts create an Azure AD application and service principal, giving the service principal a contributor or owner-level access on the subscription. Because of the high level of access granted, you should always protect the security information generated by those scripts. Make a note of all four pieces of security information provided by those scripts: client_id, client_secret, subscription_id, and tenant_id.
 
 ## Set environment variables
 After you create and configure an Azure AD service principal, you need to let Terraform know the tenant ID, subscription ID, client ID, and client secret to use. You can do it by embedding those values in your Terraform scripts, as described in [Create basic infrastructure by using Terraform](terraform-create-complete-vm.md). Alternately, you can set the following environment variables (and thus avoid accidentally checking in or sharing your credentials):
@@ -106,7 +106,7 @@ After you create and configure an Azure AD service principal, you need to let Te
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
 
-This is a sample shell script you can use to set those variables:
+You can use this sample shell script to set those variables:
 
 ```
 #!/bin/sh
@@ -117,7 +117,7 @@ export ARM_CLIENT_SECRET=your_client_secret
 export ARM_TENANT_ID=your_tenant_id
 ```
 
-Additionally, if you use Terraform with Azure in China or either Azure Government or Azure Germany, you need to set the ENVIRONMENT variable appropriately.
+Additionally, if you use Terraform with Azure in China or either Azure Government or Azure Germany, you need to set the environment variable appropriately.
 
 ## Next steps
 You have now installed Terraform and configured Azure credentials so that you can start deploying infrastructure into your Azure subscription. Next, learn how to [create infrastructure with Terraform](terraform-create-complete-vm.md).
