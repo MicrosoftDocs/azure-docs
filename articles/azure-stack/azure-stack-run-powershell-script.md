@@ -78,7 +78,7 @@ To deploy the development kit, you must complete the following steps:
 1. Sign in as the Local Administrator to the development kit host. Use the credentials specified in the previous steps.
 
     > [!IMPORTANT]
-    > for AAD deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > For Azure Active Directory deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
 2. Open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > execute it > click **Install**.
 3. In the **Type** box select **Azure Cloud** or **ADFS**.
@@ -87,12 +87,12 @@ To deploy the development kit, you must complete the following steps:
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
 6. Select DHCP or static network configuration for the BGPNAT01 virtual machine.
-    - **DHCP** (default): The VM will get the IP configuration from the DHCP server.
+    - **DHCP** (default): The virtual machine gets the IP network configuration from the DHCP server.
     - **Static**: Only use this option if DHCP can’t assign a valid IP address for Azure Stack to access the Internet. A static IP address must be specified with the subnetmask length (e.g. 10.0.0.5/24).
 7. Optionally, set the following:
     - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: Sets a specific time server. Default = 
+    - **Time server**: Sets a specific time server. 
 8. Click **Next** and then click **Deploy**.
 9. If you're using an AAD deployment, you'll be asked to enter your Azure credentials global account.
 10. The deployment process can take a few hours, during which the system automatically reboots once.
