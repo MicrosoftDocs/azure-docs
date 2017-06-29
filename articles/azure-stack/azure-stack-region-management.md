@@ -18,18 +18,18 @@ ms.author: efemmano
 
 ---
 # Region management in Azure Stack
-Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region Management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
+Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
 
 The Azure Stack Development Kit is a single-node deployment, and equals one region. If you set up another instance of the Azure Stack Development Kit on separate hardware, this instance is a different region.
 
 ## Information available through the Region Management tile
-Azure Stack has a set of region management capabilities available in the **Region Management** tile. This tile is available to a cloud administrator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to a cloud administrator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
  ![The region management tile](media/azure-stack-manage-region/image1.png)
 
- If you click a region in the Region Management tile, you can access the following information:
+ If you click a region in the Region management tile, you can access the following information:
 
-  ![Description of panes on the Region Management blade](media/azure-stack-manage-region/image2.png)
+  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
 
 1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage tenant resources such as storage accounts and virtual networks.
 
