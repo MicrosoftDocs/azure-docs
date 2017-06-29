@@ -117,6 +117,7 @@ Yes.
 Azure Managed Disks currently supports only locally redundant storage managed disks.
 
 **Can I shrink or downsize my managed disks?**
+
 No. This feature is not supported currently. 
 
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
