@@ -184,6 +184,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Use Windows client images
       href: client-images.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Prepare a VHD for upload
       href: prepare-for-upload-vhd-image.md
     - name: Create a Managed Disk image
