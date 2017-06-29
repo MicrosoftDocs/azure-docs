@@ -43,24 +43,24 @@ The top section of the detailed usage CSV file shows the services that
 you used during the month's billing period. The following table lists
 the terms and descriptions shown in this section.
 
-  **Term**             **Description**
-  -------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Billing Period       The billing period when the meters was used
-  Meter Category       Identifies the top-level service for the usage
-  Meter Sub-Category   Defines the type of Azure service that can affect the rate
-  Meter Name           Identifies the unit of measure for the meter being consumed
-  Meter Region         Identifies the location of the datacenter for certain services that are priced based on datacenter location
-  SKU                  Identifies the unique system identifier for each Azure meter
-  Unit                 Identifies the Unit that the service is charged in. For example, GB, hours, 10,000 s.
-  Consumed Quantity    The amount of the meter used during the billing period
-  Included Quantity    The amount of the meter that is included at no charge in your current billing period
-  Overage Quantity     Shows the difference between the Consumed Quantity and the Included Quantity. You're billed for this amount. For Pay-As-You-Go offers with no Included Quantity with the offer, this total is the same as the Consumed Quantity.
-  Within Commitment    Shows the meter charges that are subtracted from your commitment amount associated with your 6 or 12-month offer. Meter charges are subtracted in chronological order.
-  Currency             The currency used in your current billing period
-  Overage              Shows the meter charges that exceed your commitment amount associated with your 6 or 12-month offer
-  Commitment Rate      Shows the commitment rate based on the total commitment amount associated with your 6 or 12-month offer
-  Rate                 The rate you're charged per billable unit
-  Value                Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column.
+| Term | Description |
+| --- | --- |
+|Billing Period |The billing period when the meters was used |
+|Meter Category |Identifies the top-level service for the usage |
+|Meter Sub-Category |Defines the type of Azure service that can affect the rate |
+|Meter Name |Identifies the unit of measure for the meter being consumed |
+|Meter Region |Identifies the location of the datacenter for certain services that are priced based on datacenter location |
+|SKU |Identifies the unique system identifier for each Azure meter |
+|Unit |Identifies the Unit that the service is charged in. For example, GB, hours, 10,000 s. |
+|Consumed Quantity |The amount of the meter used during the billing period |
+|Included Quantity |The amount of the meter that is included at no charge in your current billing period |
+|Overage Quantity |Shows the difference between the Consumed Quantity and the Included Quantity. You're billed for this amount. For Pay-As-You-Go offers with no Included Quantity with the offer, this total is the same as the Consumed Quantity. |
+|Within Commitment |Shows the meter charges that are subtracted from your commitment amount associated with your 6 or 12-month offer. Meter charges are subtracted in chronological order. |
+|Currency |The currency used in your current billing period |
+|Overage |Shows the meter charges that exceed your commitment amount associated with your 6 or 12-month offer |
+|Commitment Rate |Shows the commitment rate based on the total commitment amount associated with your 6 or 12-month offer |
+|Rate |The rate you're charged per billable unit |
+|Value |Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column. |
 
 Daily usage
 
