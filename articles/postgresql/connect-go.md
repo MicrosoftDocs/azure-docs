@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
-ms.devlang: NA
+ms.devlang: go
 ms.topic: hero-article
 ms.date: 06/29/2017
 ---
