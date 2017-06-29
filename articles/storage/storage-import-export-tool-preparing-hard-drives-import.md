@@ -19,7 +19,7 @@ ms.author: muralikk
 ---
 # Preparing hard drives for an Import Job
 
-The WAImportExport tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export service](storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
+The WAImportExport tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export service](storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article, we go over the use of this tool.
 
 ## Prerequisites
 
@@ -32,13 +32,13 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 ### Preparing disk for import job
 
-- **BitLocker -** BitLocker must be enabled on the machine which is running WAImportExport Tool. See [FAQ](#faq) for how to enable BitLocker
+- **BitLocker -** BitLocker must be enabled on the machine running the WAImportExport tool. See the [FAQ](#faq) for how to enable BitLocker.
 - **Disks** accessible from machine on which WAImportExport Tool is run. See [FAQ](#faq) for disk specification.
 - **Source files** - The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
 ### Repairing a partially failed import job
 
-- **Copy log files** that is generated when Azure Import/Export service copies data between Storage Account and Disk. It is located in your target storage account.
+- **Copy log file** that is generated when Azure Import/Export service copies data between Storage Account and Disk. It is located in your target storage account.
 
 ### Repairing a partially failed export job
 
@@ -55,9 +55,9 @@ Your next task is to create CSV files.
 
 ### What is dataset CSV
 
-Dataset CSV file is the value of /dataset flag is a CSV file that contains a list of directories and/or a list files to be copied to target drives. The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
+Dataset CSV file is the value of /dataset flag is a CSV file that contains a list of directories and/or a list of files to be copied to target drives. The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
 
-For each directory or file that will be imported, you need to identify a destination virtual directory or blob in the Azure Blob service. You will use these targets as inputs to the WAImportExport tool. Note that directories should be delimited with the forward slash character "/".
+For each directory or file to be imported, you must identify a destination virtual directory or blob in the Azure Blob service. You will use these targets as inputs to the WAImportExport tool. Directories should be delimited with the forward slash character "/".
 
 The following table shows some examples of blob targets:
 
@@ -80,10 +80,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Field | Description |
 | --- | --- |
-| BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located.The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path).If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex are allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).If only root is specified, the directory structure of the source is replicated in the destination blob container.If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
+| BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located. The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path). If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex is allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). If only root is specified, the directory structure of the source is replicated in the destination blob container. If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
 | BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information.  |
-| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If the object with same name present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
+| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk. Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If an object with same name is present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
 | MetadataFile | **[Optional]** <br/>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information |
 | PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information. |
 
@@ -91,9 +91,9 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### What is driveset CSV
 
-The value of the /InitialDriveSet or /AdditionalDriveSet flag is a CSV file which contains the list of disks to which the drive letters are mapped so that the tool can correctly pick the list of disks to be prepared. If the data size is greater than a single disk size, the WAImportExport tool will distribute the data across multiple disks enlisted in this CSV file in an optimized way.
+The value of the /InitialDriveSet or /AdditionalDriveSet flag is a CSV file that contains the list of disks to which the drive letters are mapped so that the tool can correctly pick the list of disks to be prepared. If the data size is greater than a single disk size, the WAImportExport tool will distribute the data across multiple disks enlisted in this CSV file in an optimized way.
 
-There is no limit on the number of disks the data can be written to in a single session. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the directory structure which was specified in dataset file. In order to create a driveset CSV, follow the steps below.
+There is no limit on the number of disks the data can be written to in a single session. The tool will distribute data based on disk size and folder size. It will select the disk that is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the directory structure that was specified in dataset file. In order to create a driveset CSV, follow the steps below.
 
 ### Create basic volume and assign drive letter
 
@@ -113,9 +113,9 @@ H,Format,SilentMode,Encrypt,
 | --- | --- |
 | DriveLetter | **[Required]**<br/> Each drive that is being provided to the tool as the destination needs have a simple NTFS volume on it and a drive letter assigned to it.<br/> <br/>**Example**: R or r |
 | FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Format**: Specifying this will format all the data on the disk. <br/>**AlreadyFormatted**: The tool will skip formatting when this value is specified. |
-| SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and prompt error message: "Incorrect value for SilentOrPromptOnFormat: none" |
-| Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**:Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decryt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key which is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and display error message: "Incorrect value for SilentOrPromptOnFormat: none" |
+| Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**: Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decrypt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
+| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  Preparing disk for import job
 
@@ -219,8 +219,8 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **Required** Only applicable for RepairExport.<br/> Path to the drive manifest file.  |
 |     /PathMapFile:&lt;DrivePathMapFile&gt; | **Optional**. Only applicable for RepairImport.<br/> Path to the file containing mappings of file paths relative to the drive root to locations of actual files (tab-delimited). When first specified, it will be populated with file paths with empty targets, which means either they are not found in TargetDirectories, access denied, with invalid name, or they exist in multiple directories. The path map file can be manually edited to include the correct target paths and  specified again for the tool to resolve the file paths correctly.  |
 |     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Required**. Only applicable for PreviewExport.<br/> Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format is the same as the blob list blob format in the Put Job operation of the Import/Export service REST API.  |
-|     /DriveSize:&lt;DriveSize&gt; | **Required**. Only applicable for PreviewExport.<br/>  Size of drives to be used for export. For example, 500GB, 1.5TB.Note: 1 GB = 1,000,000,000 bytes1 TB = 1,000,000,000,000 bytes  |
-|     /DataSet:&lt;dataset.csv&gt; | **Required**<br/> A CSV file that contains a list of directories and/or a list files to be copied to target drives.  |
+|     /DriveSize:&lt;DriveSize&gt; | **Required**. Only applicable for PreviewExport.<br/>  Size of drives to be used for export. For example, 500 GB, 1.5 TB. Note: 1 GB = 1,000,000,000 bytes1 TB = 1,000,000,000,000 bytes  |
+|     /DataSet:&lt;dataset.csv&gt; | **Required**<br/> A CSV file that contains a list of directories and/or a list of files to be copied to target drives.  |
 |     /silentmode  | **Optional**.<br/> If not specified, it will remind you the requirement of drives and need your confirmation to continue.  |
 
 ## Tool output
@@ -282,7 +282,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### Sample journal file (JRN) for session which records the trail of sessions
+### Sample journal file (JRN) for session that records the trail of sessions
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -306,13 +306,13 @@ StorageAccountKey: *******
 
 The WAImportExport tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use this tool to copy data to the hard drives you are going to ship to an Azure data center. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.
 
-#### How does the WAImportExport tool work on multiple sorce dir and disks?
+#### How does the WAImportExport tool work on multiple source dir and disks?
 
-If the data size is greater than the disk size, the WAImportExport tool will distribute the data across the disks in an optimized way. The data copy to multiple disks can be done in parallel or sequentially. There is no limit on the number of disks the data can be written to simultaneously. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the specified directory structure.
+If the data size is greater than the disk size, the WAImportExport tool will distribute the data across the disks in an optimized way. The data copy to multiple disks can be done in parallel or sequentially. There is no limit on the number of disks the data can be written to simultaneously. The tool will distribute data based on disk size and folder size. It will select the disk that is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the specified directory structure.
 
 #### Where can I find previous version of WAImportExport tool?
 
-WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
+WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple sources and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
 #### What is a session ID?
 
@@ -334,27 +334,27 @@ For each hard drive that you prepare with the Azure Import/Export Tool, the tool
 
 #### What is a log directory?
 
-The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory. The log are verbose logs.
+The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory. The logs are verbose logs.
 
 ### Prerequisites
 
 #### What are the specifications of my disk?
 
-One or more empty 2.5 or 3.5-inch SATAII or III or SSD hard drives connected to the copy machine.
+One or more empty 2.5-inch or 3.5-inch SATAII or III or SSD hard drives connected to the copy machine.
 
 #### How can I enable BitLocker on my machine?
 
-Simple way to check is by right-clicking on System drive. It will show you options for Bitlocker if the capability is turned on. If it is off, you wont see it.
+Simple way to check is by right-clicking on System drive. It will show you options for Bitlocker if the capability is turned on. If it is off, you won't see it.
 
 ![Check BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 
 Here is an article on [how to enable BitLocker](https://technet.microsoft.com/library/cc766295.aspx)
 
-It is possible that your machine does not have tpm chip. If you do not get an output using tpm.msc, look at the next FAQ.
+It is possible that your machine does not have TPM chip. If you do not get an output using tpm.msc, look at the next FAQ.
 
 #### How to disable Trusted Platform Module (TPM) in BitLocker?
 > [!NOTE]
-> Only if there is no TPM in their servers, you need to disable TPM policy.It is not necessary to disable TPM if there is a trusted TPM in user's server. 
+> Only if there is no TPM in their servers, you need to disable TPM policy. It is not necessary to disable TPM if there is a trusted TPM in user's server. 
 > 
 
 In order to disable TPM in BitLocker, go through the following steps:<br/>
@@ -391,11 +391,11 @@ Although data is distributed across disks, the data when uploaded to the storage
 
 #### How many of the input disks will have active IO in parallel, when copy is in progress?
 
-The tool distributes data across the input disks based on the size of the input files. That said, the number of active disks in parallel completely delends on the nature of the input data. Depending on the size of individual files in the input dataset, one or more disks may show active IO in parallel. See next FAQ for more details.
+The tool distributes data across the input disks based on the size of the input files. That said, the number of active disks in parallel completely delends on the nature of the input data. Depending on the size of individual files in the input dataset, one or more disks may show active IO in parallel. See next question for more details.
 
 #### How does the tool distribute the files across the disks?
 
-WAImportExport Tool reads and writes files batch by batch, one batch contains max of 100000 files. This means that max 100000 files can be written parallel. Multile disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disk simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
+WAImportExport Tool reads and writes files batch by batch, one batch contains max of 100000 files. This means that max 100000 files can be written parallel. Multiple disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disks simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
 
 ### WAImportExport output
 
@@ -403,7 +403,7 @@ WAImportExport Tool reads and writes files batch by batch, one batch contains ma
 
 **.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name `<DriveID>.xml` where DriveID is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
 
-**.jrn** - The journal file with suffix `.jrn` contains the status for all copy sessions for a hard drives. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
+**.jrn** - The journal file with suffix `.jrn` contains the status for all copy sessions for a hard drive. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
 
 ## Next steps
 
