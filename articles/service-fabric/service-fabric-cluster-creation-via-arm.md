@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
+ms.date: 06/23/2017
 ms.author: chackdan
 
 ---
@@ -27,7 +27,6 @@ This step-by-step guide walks you through setting up a secure Azure Service Fabr
 
 The guide covers the following procedures:
 
-* Setting up an Azure key vault to upload certificates for cluster and application security
 * Creating a secured cluster in Azure by using Azure Resource Manager
 * Authenticating users/clients by using Azure Active Directory (Azure AD) for cluster management
 
@@ -38,7 +37,7 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 ## Sign in to your Azure account
 This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
 
-Sign in to your Azure account:
+Sign in to your Azure account using PowerShell:
 
 ```powershell
 Login-AzureRmAccount

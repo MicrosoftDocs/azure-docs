@@ -3,7 +3,7 @@ title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
 description: Frequently asked questions about Service Fabric and their answers
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: chackdan
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
+ms.date: 06/20/2017
+ms.author: chackdan
 ---
 
 
