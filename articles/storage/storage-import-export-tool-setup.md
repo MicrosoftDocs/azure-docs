@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 06/29/2017
 ms.author: muralikk
 
 ---
@@ -52,7 +52,7 @@ If you are attempting to **repair an export**  that has partially failed, you wi
 
 ## Installing the Azure Import/Export Tool
 
-First, [download the Azure Import/Export Tool](https://www.microsoft.com/en-us/download/details.aspx?id=42659) and extract it to a directory on your computer, for example `c:\WAImportExport`.
+First, [download the Azure Import/Export Tool](https://www.microsoft.com/download/details.aspx?id=55280) and extract it to a directory on your computer, for example `c:\WAImportExport`.
 
 The Azure Import/Export Tool consists of the following files:
 
@@ -68,38 +68,25 @@ The Azure Import/Export Tool consists of the following files:
 
 Next, open a Command Prompt window in **Administrator mode**, and change into the directory containing the extracted files.
 
-To output help for the command, run the tool without parameters:
+To output help for the command, run the tool (`WAImportExport.exe`) without parameters:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId> [/logdir:<LogDirectory>]
-        [/sk:<StorageAccountKey>]
-        [/silentmode]
-        [/InitialDriveSet:<driveset.csv>]
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
+        [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]
         DataSet:<dataset.csv>
 
 Add more drives:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AdditionalDriveSet:<driveset.csv>
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 
 Abort an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AbortSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 Resume an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /ResumeSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 
 List drives:
     WAImportExport.exe PrepImport /j:<JournalFile> /ListDrives
@@ -174,7 +161,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export service
+          blob list blob format in the Put Job operation of the Import/Export Service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
