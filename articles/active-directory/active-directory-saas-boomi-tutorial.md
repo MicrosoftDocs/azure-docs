@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -220,16 +220,18 @@ In order to enable Azure AD users to log in to Boomi, they must be provisioned i
 
 	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
 
-4. Enter the user's **User e-mail address**.
+	a. In the **User e-mail address** textbox, type the email of user like BrittaSimon@contoso.com.
+	
+	b. In the **First name** textbox, type the First name of user like Britta.
 
-5. Enter the user's **First name** and **Last name**.
-
-6. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account. 
-
-7. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
-
-8. Click **OK**.
-
+	c. In the **Last name** textbox, type the Last name of user like Simon.
+	
+	d. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account.
+	
+	e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
+	
+	f. Click **OK**.
+	
 	> [!NOTE]
 	> The user will not receive a welcome notification email containing a password that can be used to log in to the AtomSphere account because his password is managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts. 
 
