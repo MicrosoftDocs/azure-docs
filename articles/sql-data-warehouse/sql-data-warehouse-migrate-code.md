@@ -14,11 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 01/30/2017
+ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 
 ---
 # Migrate your SQL code to SQL Data Warehouse
+This article explains code changes you will most likely need to make when migrating your code from another database to SQL Data Warehouse.
+
 When migrating your code from another database to SQL Data Warehouse, you will most likely need to make changes to your code base. Some SQL Data Warehouse features can significantly improve performance as they are designed to work in a distributed fashion. However, to maintain performance and scale, some features are also not available.
 
 ## Common T-SQL Limitations
@@ -74,7 +76,7 @@ Common table expressions have some limitations in SQL Data Warehouse including:
 * When used in statements prepared by sp_prepare, CTEs will behave the same way as other SELECT statements in PDW. However, if CTEs are used as part of CETAS prepared by sp_prepare, the behavior can defer from SQL Server and other PDW statements because of the way binding is implemented for sp_prepare. If SELECT that references CTE is using a wrong column that does not exist in CTE, the sp_prepare will pass without detecting the error, but the error will be thrown during sp_execute instead.
 
 ## Recursive CTEs
-Recursive CTEs are not supported in SQL Data Warehouse.  The migraion of recursive CTE can be somewhat complete and the best process is to break down the into multiple steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][group by clause with rollup / cube / grouping sets options] article.
+Recursive CTEs are not supported in SQL Data Warehouse.  The migration of recursive CTE can be somewhat complete and the best process is to break down the into multiple steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][group by clause with rollup / cube / grouping sets options] article.
 
 ## Unsupported system functions
 There are also some system functions that are not supported. Some of the main ones you might typically find used in data warehousing are:

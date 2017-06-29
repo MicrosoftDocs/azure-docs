@@ -46,6 +46,33 @@ One goal of planning is to ensure your data, your table schemas, and your code a
 
 Another goal of planning is to make design adjustments to ensure your solution takes advantage of the high query performance SQL Data Warehouse is designed to provide. Designing data warehouses for scale introduces different design patterns and so traditional approaches aren't always the best. Although you can make some design adjustments after migration, making changes sooner in the process will save time later.
 
+### Migrate your schemas
+
+As you plan for migrating your schemas, see the [table overview][table overview] to become familiar with table design considerations such as statistics, distribution, partitioning, and indexing.  It also lists some [unsupported table features][unsupported table features] and their workarounds.
+
+
+
+
+## Minimize the row width
+
+For table row width, PolyBase has a 1 MB limit.  If you plan to load data into SQL Data Warehouse with PolyBase, update your tables to have row widths of less than 1 MB. This includes counting the full-length of variable-length data.
+
+For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
+
+This table uses variable length data and the defined row width is less than one MB. When loading rows, PolyBase allocates the full length of the variable-length data. The full length of this row is greater than one MB.  PolyBase will not load data into this table.  
+
+### Add distribution to the table definition
+ 
+
+### Fix data type incompatibilities
+
+SQL Data Warehouse supports the common business data types.  The [data types][data types] article has a list of supported and [unsupported data types][unsupported data types]. That list also gives the workarounds. It also contains a query to identify [unsupported data types][unsupported data types].  When converting your data types, be sure to look at the [data type best practices][data type best practices].
+
+### Migrate your code
+
+
+### Migrate your data
+
 
 To perform a successful migration, you need to migrate your table schemas, your code, and your data. For guidance on these migration topics, see:
 
