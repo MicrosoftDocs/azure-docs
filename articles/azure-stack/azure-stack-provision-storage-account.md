@@ -3,7 +3,7 @@ title: Storage accounts in Azure Stack | Microsoft Docs
 description: Learn how to create an Azure Stack storage account.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
+author: vhorne
 manager: byronr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/1/2017
-ms.author: erikje
+ms.author: victorh
 
 ---
 # Storage accounts in Azure Stack
