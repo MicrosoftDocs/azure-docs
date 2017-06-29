@@ -23,6 +23,9 @@ ms.author: cjiang
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## Top issues
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
