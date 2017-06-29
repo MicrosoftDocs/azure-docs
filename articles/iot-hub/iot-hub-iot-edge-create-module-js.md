@@ -23,7 +23,7 @@ In this tutorial, we walk through environment setup and how to write a [BLE](htt
 
 ## Prerequisites
 
-In this section, you will set up your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.
+In this section, you set up your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.
 
 The following software is required:
 1. [Git Client](https://git-scm.com/downloads).
@@ -224,7 +224,7 @@ First we need to declare our `node` loader (since Azure IoT Edge supports loader
 ]
 ```
 
-Once we have declared our loaders, we also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package. Please include `args` in the JSON file even if it is `null`.
+Once we have declared our loaders, we also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package. Include `args` in the JSON file even if it is `null`.
 
 ```json
 "modules": [
