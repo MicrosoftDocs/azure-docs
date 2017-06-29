@@ -31,7 +31,7 @@
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
-### [Concurrency management](search-howto-concurrency.md)
+
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
