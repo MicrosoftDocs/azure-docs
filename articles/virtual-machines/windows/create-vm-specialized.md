@@ -14,17 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 06/29/2017
 ms.author: cynthn
 
 ---
 # Create a Windows VM from a specialized disk
 
-<!-- Need to mention that the VM retains the Computer name of the original VM. Also need to figure out what to attach the NSG to and how. -->
-
 Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
-When you use a specialized VM disk to create a new VM, the new VM will retain the computer name of the original VM. Other computer specific information will also be kept and in some cases, could cause issues. Be aware of what types of computer specific information your applications rely on when copying a VM.
+When you use a specialized VM disk to create a new VM, the new VM will retain the computer name of the original VM. Other computer specific information will also be kept and, in some cases, this could cause issues. Be aware of what types of computer specific information your applications rely on when copying a VM.
 
 You have two options:
 * [Upload a VHD](#option-1-upload-a-specialized-vhd)
@@ -263,7 +261,7 @@ Create the NIC. In this example, the NIC name is set to **myNicName**.
 ```powershell
 $nicName = "myNicName"
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroup $nsg.Name
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
 
@@ -282,7 +280,6 @@ $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
-	
 	
 
 ### Add the OS disk 
