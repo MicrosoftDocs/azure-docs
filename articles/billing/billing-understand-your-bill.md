@@ -24,20 +24,15 @@ verify your charges and usage:
 
 1.  **An invoice with the summary of usage and charges in PDF format**
 
-     > For invoice download, see [How to get your Azure billing invoice and
-     > daily usage data](billing-download-azure-invoice-daily-usage-date.md).
-     > For detailed terms and descriptions, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here.
+     For invoice download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). For detailed terms and descriptions, see [Breakdown of your Microsoft Azure invoice](billing-breakdown-your-invoice.md) here.
 
 2.  **A separate detailed daily usage file in CSV format**
 
-    > For CSV download, see [How to get your Azure billing invoice and daily
-    > usage data](billing-download-azure-invoice-daily-usage-date.md).
-    > For detailed terms and descriptions, see [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
+    For CSV download, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). For detailed terms and descriptions, see [Breakdown of your Microsoft Azure detailed usage](billing-breakdown-your-usage.md) here.
 
 3.  **Online through the Azure portal**
 
-    > For details, see [Azure portal cost
-    > management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+    For details, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
 ## <a name="reconcile"></a>How do I ensure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
@@ -112,10 +107,10 @@ on, there are a couple of options:
 
       To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
 
-## What about external service charges?
+## <a name="external"></a>What about external service charges?
 External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-## How do I make a payment?
+## <a name="payment"></a>How do I make a payment?
 If you set up a credit card or a debit card as your payment method, the payment is made automatically. On your credit card statement, the line item would say **MSFT Azure**.
 
 If you use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
