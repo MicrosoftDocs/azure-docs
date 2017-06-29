@@ -308,7 +308,14 @@ When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `t
 
 #### Ambiguous dates
 
-If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. For example, given the utterance "May 2nd", LUIS provides both a value for May 2nd in the following year and the preceding year. Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance.
+If it's unclear from an utterance whether a date refers to that date in the past or the future, LUIS provides both the most immediate past and future instances of that date. This means that if today's date precedes the date in the utterance in the current year, the most immediate past instance of that date is in the previous year. Otherwise the most immediate past date is in the current year. 
+
+For example, given the utterance "May 2nd":
+* If today's date is May 3rd 2017, LUIS provides both a value for May 2nd 2017 and May 2nd 2018. 
+* If today's date is May 1st 2017, LUIS provides both a value for May 2nd 2016 and May 2nd 2017.
+
+The following example shows the resolution of the entity "may 2nd" provided that today's date is a date between May 2nd 2017 and May 1st 2018.
+Fields containing `X` in the `timex` field represent parts of the date that are not explicitly specified in the utterance.
 
 ```
   "entities": [
