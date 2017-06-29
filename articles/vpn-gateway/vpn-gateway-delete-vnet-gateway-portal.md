@@ -1,6 +1,6 @@
 ---
 title: 'Delete a virtual network gateway: Azure portal: Resource Manager | Microsoft Docs'
-description: Delete a virtual network gateway using the Azure portal in the Resource Manager deployment model.
+description: Delete a virtual network gateway using the Azure portal in the Resource Manager deployment model. 
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -19,12 +19,11 @@ ms.author: cherylmc
 
 ---
 # Delete a virtual network gateway using the portal
+
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
->
->
 
 There are a couple of different approaches you can take when you want to delete a virtual network gateway for a VPN gateway configuration.
 
@@ -32,53 +31,20 @@ There are a couple of different approaches you can take when you want to delete 
 
 - If you want to keep some of the resources in your resource group, deleting a virtual network gateway becomes slightly more complicated. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created and the dependent resources for each connection.
 
-## <a name="deletegw"></a>Delete a VPN gateway
-
 To delete a virtual network gateway, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies.
 
-### Step 1: Navigate to the virtual network gateway
-
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. Click the virtual network gateway that you want to delete.
-
-  The graphic for a virtual network gateway is:
-
-  ![Locate virtual network gateway](./media/vpn-gateway-delete-vnet-gateway-portal/gw.png)
-
-### Step 2: Delete connections
-
-1. On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.
-2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
-3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
-
-### Step 3: Delete the virtual network gateway
-
-1. In **All resources**, locate the virtual network gateway that you want to delete.
-2. On the **Overview** blade, click **Delete** to delete the gateway.
-
->[!NOTE]
-> If you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
->
+[!INCLUDE [delete gateway](../../includes/vpn-gateway-delete-vnet-gateway-portal-include.md)]
 
 At this point, the virtual network gateway is deleted. The next steps help you delete any resources that are no longer being used.
 
 ### To delete the local network gateway
 
 1. In **All resources**, locate the local network gateways that were associated with each connection.
-
-  The graphic for a local network gateway is:
-
-  ![Locate local network gateway](./media/vpn-gateway-delete-vnet-gateway-portal/lng.png)
 2. On the **Overview** blade for the local network gateway, click **Delete**.
 
 ### To delete the Public IP address resource for the gateway
 
 1. In **All resources**, locate the Public IP address resource that was associated to the gateway. If the virtual network gateway was active-active, you will see two Public IP addresses. 
-
-  The graphic for a Public IP address is:
-
-  ![Public IP address](./media/vpn-gateway-delete-vnet-gateway-portal/pip.png)
-
 2. On the **Overview** page for the Public IP address, click **Delete**, then **Yes** to confirm.
 
 ### To delete the gateway subnet

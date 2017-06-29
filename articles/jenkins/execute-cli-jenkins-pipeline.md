@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy to Azure App Service with Jenkins and the Azure CLI | Microsoft Docs
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
 services: app-service\web
@@ -166,11 +166,12 @@ Open Jenkins in a web browser, click **New Item**.
 ## Verify your web app
 To verify the WAR file is deployed successfully to your web app. Open a web browser:
 
-* go to http://<app_name>.azurewebsites.net/api/calculator/ping; you see “pong” as a response
+* Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
+You see “**pong!**” as a response.
 
 ![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
 
-* go to http://<app_name>.azurewebsites.net/api/calculator/add?x=\<x\>&y=\<y\> (substitute \<x\> and \<y\> with any numbers) to get the sum of x and y
+* Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
 
 ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
