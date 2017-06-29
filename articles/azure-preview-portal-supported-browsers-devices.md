@@ -22,7 +22,7 @@ ms.author: micflan
 You can run the [Azure portal](https://portal.azure.com) on all modern desktop, tablet devices, and browsers.
 
 ### Supported devices
-The Azure portal runs great on modern PCs, Macs, and tablets. If you need to manage your Azure resources from a mobile device, try the Azure app that's available for preview on iPhone and Android. For more information, see the blog post [Introducing the Azure app public preview](https://azure.microsoft.com/en-us/blog/azure-app-preview/).
+The Azure portal runs great on modern PCs, Macs, and tablets. If you need to manage your Azure resources from a mobile device, try the Azure app that's available for preview on iPhone and Android. For more information, see the blog post [Introducing the Azure app public preview](https://azure.microsoft.com/blog/azure-app-preview/).
 
 ### Supported browsers
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
