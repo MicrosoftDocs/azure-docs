@@ -118,7 +118,7 @@ Open port for myVM1
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVmN1SG --name allow-oracle\
+    --nsg-name myVM1NSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
@@ -149,7 +149,7 @@ Open port for myVM2
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVm2N1SG --name allow-oracle\
+    --nsg-name myVM2NSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
@@ -160,7 +160,7 @@ az network nsg rule create --resource-group myResourceGroup\
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+$ ssh azureuser@<publicIpAddress>
 ```
 
 ### Create Database on myVM1 (Primary)
@@ -168,7 +168,7 @@ ssh azureuser@<publicIpAddress>
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser.
 
 ```bash
-sudo su - oracle
+$ sudo su - oracle
 ```
 
 create the database:
@@ -231,7 +231,7 @@ $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Optionally, You can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future logins.
+Optionally, You can added ORACLE_HOME and ORACLE_SID to the /home/oracle/.bashrc file, so that these settings are saved for future logins.
 
 ```bash
 # add oracle home
@@ -273,11 +273,12 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Turn on Flashback (which made the recovery a lot earlier) and set STANDBY_FILE_MANAGEMENT to auto
+Turn on Flashback (which made the recovery a lot earlier) and set STANDBY_FILE_MANAGEMENT to auto, exit sqlplus after that.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
 SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
+SQL> EXIT;
 ```
 
 ### Service setup on myVM1 (primary)
@@ -333,6 +334,12 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
+Enable Data Guard Broker
+```bash
+$ sqlplus / as sysdba
+SQL> ALTER SYSTEM SET dg_broker_start=true;
+SQL> EXIT;
+```
 Start the listener
 
 ```bash
@@ -341,6 +348,18 @@ $ lsnrctl start
 ```
 
 ### Service setup on myVM2 (Standby)
+
+SSH to myVM2
+
+```bash 
+$ ssh azureuser@<publicIpAddress>
+```
+
+Login as Oracle
+
+```bash
+$ sudo su - oracle
+```
 
 Edit or create the tnsnames.ora file, which is located at $ORACLE_HOME\network\admin folder
 
@@ -400,12 +419,6 @@ $ lsnrctl stop
 $ lsnrctl start
 ```
 
-Enable Data Guard Broker
-```bash
-$ sqlplus / as sysdba
-SQL> ALTER SYSTEM SET dg_broker_start=true;
-SQL> EXIT;
-```
 
 ### Restore database to myVM2 (Standby)
 
@@ -426,7 +439,7 @@ mkdir -p /u01/app/oracle/admin/cdb1/adump
 Create password file
 
 ```bash
-$ orapwd file=/u01/app/oracle/product/12.1.0.2/db_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
+$ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
 Start up database on myVM2
 
@@ -453,6 +466,24 @@ DUPLICATE TARGET DATABASE
   SPFILE
     SET db_unique_name='CDB1_STBY' COMMENT 'Is standby'
   NOFILENAMECHECK;
+```
+
+You should see similar messages below when the command is completed. Exit RMAN.
+```bash
+media recovery complete, elapsed time: 00:00:00
+Finished recover at 29-JUN-17
+Finished Duplicate Db at 29-JUN-17
+
+RMAN> EXIT;
+```
+
+Optionally, You can added ORACLE_HOME and ORACLE_SID to the /home/oracle/.bashrc file, so that these settings are saved for future logins.
+
+```bash
+# add oracle home
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+# add oracle sid
+export ORACLE_SID=cdb1
 ```
 
 Enable Data Guard Broker
