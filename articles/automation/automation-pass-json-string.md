@@ -63,10 +63,16 @@ Param(
      [object]$json
 )
 
-   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-   -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
+# Connect to Azure account   
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+# Convert object to actual JSON
+$json = $json | ConvertFrom-Json
+
+# Use the values from the JSON object as the parameters for your command
+Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
  ```
 
  Save and publish this runbook in your Automation account.
