@@ -11,8 +11,8 @@
 | Instances per gateway |10 | |
 | SSL certificates |20 |1 per HTTP Listeners |
 | Authentication certificates |5 | Maximum 10 |
-| Request timeout min |1 second | |
-| Request timeout max |24hrs | |
+| Request time out min |1 second | |
+| Request time out max |24 hrs | |
 | Number of sites |20 |1 per HTTP Listeners |
 | URL Maps per listener |1 | |
 
