@@ -82,13 +82,17 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
         If you are a cloud operator:
 
         ```powershell
-        (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod `
+         -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 `
+         -Method Get).authentication.audiences[0]
         ```
 
         If you are a user:
 
         ```powershell
-        (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod `
+         -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 `
+         -Method Get).authentication.audiences[0]
         ```
 
     * **Graph endpoint**: The value should be https://graph.windows.net.
