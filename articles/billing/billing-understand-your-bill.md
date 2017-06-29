@@ -3,7 +3,7 @@ title: Understanding your bill for Azure | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
-author: genlin
+author: genlin;tonguyen
 manager: ruchic
 editor: ''
 tags: billing
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
-ms.author: erihur;genli
+ms.date: 06/29/2017
+ms.author: erihur;genli;tonguyen
 
 ---
 # Understand your bill for Microsoft Azure
