@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/29/2017
 ms.author: muralikk
 
 ---
@@ -47,7 +47,7 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 ## Download and install WAImportExport
 
-Download the [latest version of WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Extract the zipped content to a directory on your computer.
+Download the [latest version of WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Extract the zipped content to a directory on your computer.
 
 Your next task is to create CSV files.
 
