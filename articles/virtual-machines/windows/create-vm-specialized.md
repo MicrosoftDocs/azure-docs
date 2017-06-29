@@ -263,7 +263,7 @@ Create the NIC. In this example, the NIC name is set to **myNicName**.
 ```powershell
 $nicName = "myNicName"
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id --network-security-group $nsg
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroup $nsg.Name
 ```
 
 
