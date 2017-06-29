@@ -107,8 +107,7 @@ on the second page of your Invoice.
 The Usage charges section of the invoice displays meter level
 information on your charges.
 
-![](media/image3.png){width="7.270833333333333in"
-height="3.8257327209098864in"}
+<kbd>![Usage charges section](./media/billing-breakdown-your-invoice/3.png)</kbd>
 
 The following table describes the usage charges column headers shown on
 your Invoice.
