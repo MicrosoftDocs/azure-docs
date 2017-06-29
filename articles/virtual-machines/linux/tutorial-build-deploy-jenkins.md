@@ -112,11 +112,11 @@ In Jenkins, create a new build project and configure it as follows:
 In the **General** tab, enter a name for your build project.
 
 In the **Source Code Management** tab, select **Git** and enter the details
-of the repository and branch containing your app code.
+of the repository and branch containing your app code. If your repository is
+not public, choose **Add** and provide credentials to connect to it. Select
+the branch containing your app.
 
 ![Add a repo to your build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
-
-TODO: NEED DETAILS HERE. HELP USER FILL OUT ACCURATELY FOR THIS SAMPLE. NEEDS SCREENSHOT.
 
 In the **Build Triggers** tab, select **Poll SCM** and enter the schedule `H/03 * * * *`
 to poll the Git repository for changes every three minutes. 
@@ -129,19 +129,16 @@ In the **Build** tab, enter the command `npm install` to ensure all dependencies
 
 ## Configure Jenkins for Team Services integration
 
-In the **Post-build Actions** tab:
- 
-   - For **Files to archive**, enter `**/*` to include all files.
+In the **Post-build Actions** tab, for **Files to archive**, enter `**/*` to include all files.
+For **Trigger release in TFS/Team Services**, enter the full URL of your account
+(such as `https://your-account-name.visualstudio.com`), the project name,
+the name of the release definition you will create, and the credentials to connect to your account.<p /> 
 
-   - For **Trigger release in TFS/Team Services**, enter the full URL of your account
-     (such as `https://your-account-name.visualstudio.com`), the project name,
-     the name of the release definition you will create, and the credentials to connect to your account.<p /> 
+![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 
-   ![Configuring Jenkins Post-build Actions](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-
-  > [!NOTE]
-  > Do you need a personal access token (PAT) for Jenkins to access your account?
-  > Read [How do I create a personal access token for Team Services and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to learn how to generate one.
+> [!NOTE]
+> Do you need a personal access token (PAT) for Jenkins to access your account?
+> Read [How do I create a personal access token for Team Services and TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to learn how to generate one.
 
 Save the build project.
 
@@ -179,38 +176,49 @@ In the Task catalog, open the **Utility** section and add an instance of the **S
 
 Configure the tasks as follows:
 
-   > **Deployment Step 1**: Create the deployment group using an [Azure Resource Group Deployment](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment) task. 
-   > Populate the task parameters as follows:
-   >
-   > * **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections**. 
-   >   If no connections appear, choose **Manage**, select **New Service Endpoint** then **Azure Resource Manager**, and follow the prompts.
-   >   Return to your release definition, refresh the **AzureRM Subscription** 
-   >   list, and select the connection you just created.
-   > * **Resource group**: Enter a name of the resource group you created earlier.
-   > * **Location**: Select a region for the deployment.
-   >
-   > ![Create a new resource group](media/tutorial-build-deploy-jenkins/provision-web-server.png)
-   >
-   > * **Template location**: `URL of the file`
-   > * **Template link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.json`
-   > * **Template parameters link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.parameters.json`
-   > * **Override template parameters**: A list of the override values, for example: `-location {location} -virtualMachineName {machine] -virtualMachineSize Standard_DS1_v2 -adminUsername {username} -virtualNetworkName fabrikam-node-rg-vnet -networkInterfaceName fabrikam-node-websvr1 -networkSecurityGroupName fabrikam-node-websvr1-nsg -adminPassword $(adminpassword) -diagnosticsStorageAccountName fabrikamnodewebsvr1 -diagnosticsStorageAccountId Microsoft.Storage/storageAccounts/fabrikamnodewebsvr1 -diagnosticsStorageAccountType Standard_LRS -addressPrefix 172.16.8.0/24 -subnetName default -subnetPrefix 172.16.8.0/24 -publicIpAddressName fabrikam-node-websvr1-ip -publicIpAddressType Dynamic`
-   > * **Enable prerequisites**: `Configure with Deployment Group agent`
-   > * **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to authenticate the connection to your team project.
-   >
-   > ![Create a Personal Access Token](media/tutorial-build-deploy-jenkins/create-a-pat.png)
-   >
-   > * **Team project**: Select your current project.
-   > * **Deployment Group**: Enter the same deployment group name as you used for the **Resource group** parameter above.
+![Azure Resource Group Deployment](media/tutorial-build-deploy-jenkins/azure-resource-group-deployment-icon.png) **[Azure Resource Group Deployment](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzureResourceGroupDeployment)** -
+Create the deployment group. 
 
-   > **Deployment Step 2**: Provide the configuration for a script to run on each server to install Node.js and start the app.
-   >
-   > * **Script Path**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`
-   > * **Specify Working Directory**: `Checked`
-   > * **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
+- **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections**. 
+  If no connections appear, choose **Manage**, select **New Service Endpoint** then **Azure Resource Manager**, and follow the prompts.
+  Return to your release definition, refresh the **AzureRM Subscription** 
+  list, and select the connection you just created.
+
+- **Resource group**: Enter a name of the resource group you created earlier.
+
+- **Location**: Select a region for the deployment.
+
+  ![Create a new resource group](media/tutorial-build-deploy-jenkins/provision-web-server.png)
+
+- **Template location**: `URL of the file`
+
+- **Template link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.json`
+
+- **Template parameters link**: `{your-git-repo}/ARM-Templates/UbuntuWeb1.parameters.json`
+
+- **Override template parameters**: A list of the override values, for example: `-location {location} -virtualMachineName {machine] -virtualMachineSize Standard_DS1_v2 -adminUsername {username} -virtualNetworkName fabrikam-node-rg-vnet -networkInterfaceName fabrikam-node-websvr1 -networkSecurityGroupName fabrikam-node-websvr1-nsg -adminPassword $(adminpassword) -diagnosticsStorageAccountName fabrikamnodewebsvr1 -diagnosticsStorageAccountId Microsoft.Storage/storageAccounts/fabrikamnodewebsvr1 -diagnosticsStorageAccountType Standard_LRS -addressPrefix 172.16.8.0/24 -subnetName default -subnetPrefix 172.16.8.0/24 -publicIpAddressName fabrikam-node-websvr1-ip -publicIpAddressType Dynamic`
+
+- **Enable prerequisites**: `Configure with Deployment Group agent`
+
+- **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to authenticate the connection to your team project.
+
+  ![Create a Personal Access Token](media/tutorial-build-deploy-jenkins/create-a-pat.png)
+
+- **Team project**: Select your current project.
+
+- **Deployment Group**: Enter the same deployment group name as you used for the **Resource group** parameter above.
+
+![Shell Script](media/tutorial-build-deploy-jenkins/shell-script.png) **[Shell Script](https://www.visualstudio.com/docs/build/steps/utility/shell-script)** -
+Provide the configuration for a script to run on each server to install Node.js and start the app.
+
+- **Script Path**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh`
+
+- **Specify Working Directory**: `Checked`
+
+- **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
    
-   The default settings for the Azure Resource Group Deployment task are to create or update a resource,
-   and to do so incrementally. The task will create the VMs the first time it runs, and subsequently just update them.
+>The default settings for the Azure Resource Group Deployment task are to create or update a resource,
+and to do so incrementally. The task will create the VMs the first time it runs, and subsequently just update them.
 
 Optionally, change the name of the environment by clicking on the name. 
 
