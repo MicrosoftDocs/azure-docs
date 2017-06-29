@@ -108,84 +108,70 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url1.png)
 
-    In the **Identifier** and **Reply URL** textbox, paste the value of  **App ID URI** value from App properties section of the Configuration of Kantega SSO for Confluence SAML Kerberos add-on. URL follows this pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<someid>/login`
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
 4. In **SP** initiated mode, check **Show advanced URL settings** and perform the following step:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url2.png)
 
-    In the **Sign-on URL** textbox, paste the value of  **App ID URI** value from App properties section of the Configuration of Kantega SSO for Confluence SAML Kerberos add-on. URL follows this pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<someid>/login`
-	 
+	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of Confluence plugin, which is explained later in the tutorial.
 
-5. Kantega SSO for Confluence application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/attribute.png)
-	
-6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on emailaddress attribute-
-
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| emailaddress | user.userprincipalname |
-
-	a. Click the attribute to open the **Edit Attribute** window.
-
-	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/attribute2.png)
-
-	b. Change the Attribute value from the **user.mail** to **user.userprincipalname**.
-	
-	c. Click **Ok** to save the setting.
-	
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_certificate.png) 
 
-8. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_400.png)
 	
-9. In a different web browser window, log in to your **Kantega SSO for Confluence admin portal** as an administrator.
+7. In a different web browser window, log in to your **Kantega SSO for Confluence admin portal** as an administrator.
 
-10. Hover on cog and click the **Add-ons**.
+8. Hover on cog and click the **Add-ons**.
     
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon1.png)
 
-11. Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**. 
+9. Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon.png)
 
-12. Search **Kantega SSO for Confluence SAML Kerberos** and click **Install** button to install the new SAML plugin.
+10. Search **Kantega SSO for Confluence SAML Kerberos** and click **Install** button to install the new SAML plugin.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon2.png)
 
-13. The plugin installation starts. Click **Close**.
+11. The plugin installation starts.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon3.png)
 
+12. Once the installation is complete. Click **Close**.
+
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon33.png)
 
-14.	Click **Manage**.
+13.	Click **Manage**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon34.png)
     
-15. Click **Configure** to configure the new plugin.
+14. Click **Configure** to configure the new plugin.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon35.png)
 
-16. This new plugin can also be found under **USERS & SECURITY** tab.
+15. This new plugin can also be found under **USERS & SECURITY** tab.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon36.png)
     
-17. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
+16. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon4.png)
 
-18. Select subscription level as **Basic**.
+17. Select subscription level as **Basic**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon5.png)  	 
 
-19. On the **App properties** section, perform following steps: 
+18. On the **App properties** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon6.png)
 
@@ -193,7 +179,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-20. On the **Metadata import** section, perform following steps: 
+19. On the **Metadata import** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon7.png)
 
@@ -201,7 +187,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-21. On the **Name and SSO location** section, perform following steps:
+20. On the **Name and SSO location** section, perform following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon8.png)
 	
@@ -209,11 +195,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-22. Verify the Signing certificate and click **Next**.
+21. Verify the Signing certificate and click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon9.png)
 
-23. On the **Confluence user accounts** section, perform following steps:
+22. On the **Confluence user accounts** section, perform following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon10.png)
 
@@ -221,11 +207,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-24. Click **Finish**.	
+23. Click **Finish**.	
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon11.png)
 
-25. On the **Known domains for Azure AD** section, perform following steps: 
+24. On the **Known domains for Azure AD** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon12.png)
 
