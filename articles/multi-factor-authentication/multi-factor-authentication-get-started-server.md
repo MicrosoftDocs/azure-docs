@@ -53,7 +53,6 @@ Make sure the server  that you're using for Azure Multi-Factor Authentication me
 | Software |<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 
 ### Azure Multi-Factor Authentication Server firewall requirements
-- - -
 Each MFA server must be able to communicate on port 443 outbound to the following addresses:
 
 * https://pfd.phonefactor.net
@@ -131,8 +130,7 @@ Now that the server is installed and configured you can quickly import users int
 2. At the bottom, select **Import from Active Directory**.
 3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
-
-![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
+   ![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## Send users an email
 Now that you have imported your users into the MFA Server, send an email to inform them that they have been enrolled for two-step verification.
