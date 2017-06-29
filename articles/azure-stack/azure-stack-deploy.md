@@ -84,7 +84,7 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
    | **Azure Active Directory account** | **Supported?** |
    | --- | --- |
    | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |No |
+   | Microsoft Account with valid Public Azure Subscription |Yes |
    | Work or school account with valid China Azure Subscription |Yes |
    | Work or school account with valid US Government Azure Subscription |Yes |
 
