@@ -21,8 +21,8 @@
     href: azure-stack-solution-pipeline.md
 - name: Concepts
   items:
-  - name: What's new
-    href: azure-stack-whats-new.md
+  - name: Release notes
+    href: azure-stack-asdk-release-notes.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
   - name: POC architecture
