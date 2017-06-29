@@ -55,9 +55,36 @@ There are 2 approach for this setup.
 
 ### 1. Direct connections between On-Premises and Azure, required open TCP ports on firewall. This approch is not recommended as it expose the TCP ports to outside world.
 
+### Topology
+
+Here is a summary of the Azure setup.
+
+- One sites (DR site)
+- One Virtual Network (Vnet)
+- One Oracle database with Data Guard (Active)
+- One Application service on DR site
+- One Jumpbox is used, which restricts access to private network, only allows sign in by administrator
+- Jumpbox, application service, database, and VPN gateway are on separate subnets
+- NSG is enforced on application and database subnets
+- Add NSG policy/rule to allow inbound TCP port 1521 (or user defined)
+- Add NSG policy/rule to restrict only the IP address/addresses on-premises (DB or application) to access the Vnet.
+
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### 2. A better approach is using Site-to-Site VPN. More information about setting up VPN is available from this [link](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)
+
+### Topology
+
+Here is a summary of the Azure setup.
+
+- One sites (DR site)
+- One Virtual Network (Vnet)
+- One Oracle database with Data Guard (Active)
+- One Application service on DR site
+- One Jumpbox is used, which restricts access to private network, only allows sign in by administrator
+- Jumpbox, application service, database, and VPN gateway are on separate subnets
+- NSG is enforced on application and database subnets
+- Site-to-Site VPN connection between on-premises and Azure
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
