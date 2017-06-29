@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) is an identity as a service (IDaaS) solution a
   - Azure AD Basic
   - Azure Multi-Factor Authentication
 
-Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented by one or more subscriptions, and each subscription includes a prepurchase number of licenses in your tenant. Per-user entitlements are achieved by:
+Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented by one or more subscriptions, and each subscription includes some prepurchased licenses in your tenant. Per-user entitlements are achieved by:
 
 * Assigning a license. 
 * Creating a link between the user and the product.
