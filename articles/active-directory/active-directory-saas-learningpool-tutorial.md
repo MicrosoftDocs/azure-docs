@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/29/2017
 ms.author: jeedes
 
 ---
@@ -123,11 +123,38 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_certificate.png) 
 
-5. Click **Save** button.
+5. Learningpool Act application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_attribute.png) 
+
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |
+	| urn:oid:1.2.840.113556.1.4.221 | user.userprincipalname |
+	| urn:oid:2.5.4.42 | user.givenname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |    
+	| urn:oid:2.5.4.4 | user.surname |
+	
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave the **Namespace** blank.
+	
+	e. Click **Ok**.
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-Learningpool-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Learningpool Act** side, you need to send the downloaded **Metadata XML** to [Learningpool Act support team](https://www.Learningpool.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Learningpool Act** side, you need to send the downloaded **Metadata XML** to [Learningpool Act support team](https://www.Learningpool.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
