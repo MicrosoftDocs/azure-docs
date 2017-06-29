@@ -19,7 +19,6 @@ ms.author: tonguyen
 
 ---
 # Breakdown of your Microsoft Azure invoice
-
 This reference article will breakdown the different components of your
 invoice for Microsoft Azure. The invoice provides a summary of your
 charges and provides instructions for payment. It’s available for
@@ -41,12 +40,11 @@ A few things to note:
     for estimation purposes only. Banks may have different costs for the
     conversion rates.
 
-[]{#pdf .anchor}Detailed terms and descriptions of your invoice
-
+## Detailed terms and descriptions of your invoice
 The following sections list the important terms that you see on your
 invoice and descriptions for each term.
 
-Account information
+### Account information
 
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
@@ -54,29 +52,20 @@ first page and shows information about your profile and subscription.
 ![](media/image1.png){width="7.333333333333333in"
 height="2.057407042869641in"}
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Term**                               **Description**
-  -------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Customer PO No.                        An optional purchase order number, assigned by you for tracking
-
-  Invoice No.                            A unique, Microsoft generated invoice number used for tracking purposes
-
-  Billing cycle                          Date range that this invoice covers
-
-  Invoice date                           Date that the invoice was generated, typically a day after end of the Billing cycle
-
-  Payment method                         Type of payment used on the account (invoice or credit card)
-
-  Bill to                                Billing address that is listed for the account
-
-  Subscription offer (“Pay-As-You-Go”)   Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/en-us/support/legal/offer-details/).
-
-  Account owner email                    The account email address that the Microsoft Azure account is registered under.
+| Term | Description |
+| --- | --- |
+| Customer PO No. |An optional purchase order number, assigned by you for tracking |
+| Invoice No. |A unique, Microsoft generated invoice number used for tracking purposes |
+| Billing cycle |Date range that this invoice covers |
+| Invoice date |Date that the invoice was generated, typically a day after end of the Billing cycle |
+| Payment method |Type of payment used on the account (invoice or credit card) |
+| Bill to |Billing address that is listed for the account |
+| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/en-us/support/legal/offer-details/). |
+| Account owner email | The account email address that the Microsoft Azure account is registered under.
                                          
                                          To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](https://docs.microsoft.com/en-us/azure/billing/billing-how-to-change-azure-account-profile).
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Understand the invoice summary
+### Understand the invoice summary
 
 The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
