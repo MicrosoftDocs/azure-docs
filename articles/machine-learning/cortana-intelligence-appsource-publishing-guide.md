@@ -23,12 +23,12 @@ AppSource is the single destination for Business Decision Makers (BDMs) to disco
 As a Microsoft Partner, you can really benefit from publishing on AppSource if you have:
 - Built an intelligent solution/app using [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
 - Your solution or app addresses a specific business problem.
-- You built modules or intellectual property that your customers can reuse relatively quickly in a predictaibe manner.
+- You built modules or intellectual property that your customers can reuse relatively quickly in a predictable manner.
 
 This article will walk through the steps to get a partner's Cortana Intelligence solution published to AppSource
 
 ## Getting started
-1. In the [Partner Community Benfits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), see page 9 to get listed as an Advanced Analytics partner.
+1. In the [Partner Community Benefits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), see page 9 to get listed as an Advanced Analytics partner.
 1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/) form.
 
     For the question *“Choose the products that your app is built for*”, check the **Other** checkbox and list “Cortana Intelligence” in the edit control.
@@ -81,7 +81,7 @@ Partners should think of the content they put on AppSource as an end to end sale
 
 All this should make the customer feel interested and wanting to know more. Think of these as pitch decks based presentation a good technical sales person would walk the new customers through. The suggested format of description is to break up the text into sub-sections based on value propositions, each with highlighted with a sub-heading. 
 
-Visitors usually glance over the  "offer summary" field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user's attention give them a reason to read on to get the specifics.
+Visitors usually glance over the "offer summary" field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user's attention give them a reason to read on to get the specifics.
 
 See what these partners have done.
 - [Neal Analytics Inventory
@@ -104,7 +104,7 @@ The content being added in AppSource should be of high quality and stitched up e
 That's why partners should think of the content they put on AppSource as an end to end sales orchestration. Based on the story line and features to be shown in trial experience, type of offer can be decided.
 
 ## Publish your app on the publishing portal
-Once we have evaluated the above steps for your application, you will get access to the publishing portal. For a detaile description on the next steps, see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app).
+Once we have evaluated the above steps for your application, you will get access to the publishing portal and can see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) for detailed instructions on next steps.
 
 If you need information about any of the fields, email <appsourcecissupport@microsoft.com>.
 ## My app is published on AppSource - now what?

@@ -78,7 +78,7 @@ After the tests complete, you will be asked to provide an explanation or justifi
 For example, if your app publishes to Azure SQL DW, the evaluation tests require you to also publish to Azure Analysis Services. 
 
 Your app may use IaaS virtual machines running Sql Server Analysis Services instead of Azure Analysis Services. This would be an acceptable reason for failure of the test.
-## Packaging your evalution results
+## Packaging your evaluation results
 After completing the test cases, your evaluation package will be exported to a zip file and you will be asked to provide feedback on the evaluation tool.
 
 ![Grade evaluation tool](./media/cortana-intelligence-appsource-evaluation-tool/7-grade-evaluation-tool.png)
@@ -145,13 +145,13 @@ Cortana Intelligence apps should scale to very large data sizes. In Azure, this 
 - Azure SQL Data Warehouse
 
 If your app does not require support for these data sizes or if you are using an alternative data platform, please explain this in the test case justification.
-#### Cortana Intelligence apps should include dedicated  ingestion data environments
+#### Cortana Intelligence apps should include dedicated ingestion data environments
 Cortana Intelligence apps should generally avoid directly inserting data into relational data sources. Instead, raw data should be stored in an unstructured environment, with idempotent inserts/updates into any relational stores using Azure Data Factory.
 
 For more information on copying data with Azure Data Factory, [Tutorial: Create a pipeline with Copy Activity using Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio).
 
 #### Azure SQL DW should use PolyBase for data ingestion
-Azure SQL DW supports Polybase for highly scalable, parallel data ingestion. Polybase allows you to use Azure SQL DW to issue queries against external datasets stored in either Azure Blob Storage or Azure Data Lake Store. This provides superior performance to alternative methods of bulk insters/updates.
+Azure SQL DW supports Polybase for highly scalable, parallel data ingestion. Polybase allows you to use Azure SQL DW to issue queries against external datasets stored in either Azure Blob Storage or Azure Data Lake Store. This provides superior performance to alternative methods of bulk updates.
 
 For instructions on getting started with Polybase and Azure SQL DW, see [Load data with PolyBase in SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
 
@@ -189,7 +189,7 @@ Using a single tool for managing and scheduling data movement and transformation
 
 If you are using a tool other than Azure Data Factory for data orchestration, please describe which tool or tools you are using.
 #### Azure Machine Learning models should be retrained using Azure Data Factory
-Azure Machine Learning(AzureML) provides easy to use tools for the creation and deployment of predictive modeling and machine learning pipelines. However, it is important that production deployments of these AzureML models is not based on a single fixed dataset, but instead adapts to the shifting dynamics of real-world phenomena.
+Azure Machine Learning (AzureML) provides easy to use tools for the creation and deployment of predictive modeling and machine learning pipelines. However, it is important that production deployments of these AzureML models is not based on a single fixed dataset, but instead adapts to the shifting dynamics of real-world phenomena.
 
 For more information on creating retraining web services in AzureML, see [Retrain Machine Learning models programmatically](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
