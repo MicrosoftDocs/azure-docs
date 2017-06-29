@@ -112,7 +112,7 @@ Pros of deploying from local Git are:
 * Branch-specific deployment, can deploy different branches to different [slots](web-sites-staged-publishing.md).
 * All functionality in the Kudu deployment engine is available (e.g. deployment versioning, rollback, package restore, automation).
 
-Con of deploying from local Git is:
+Cons of deploying from local Git is:
 
 * Some knowledge of the respective SCM system required.
 * No turn-key solutions for continuous deployment. 

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ---
 
@@ -22,7 +22,7 @@ ms.author: subramar
 
 Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Service Fabric, we've included preview support for Docker Compose natively in the platform. Service Fabric can accept version 3(+) of `docker-compose.yml` files. Since this support is in preview, only a subset of Compose directives are supported. For example, application upgrades aren't supported. However, you can always remove and deploy applications instead of upgrading them.  
 
-To use this preview, you need to install the preview SDK (version 255.255.x.x) through the portal. 
+To use this preview, you need to create your cluster with the preview SDK (version 255.255.x.x) through the portal. 
 
 > [!NOTE]
 > This feature is in preview and not supported.

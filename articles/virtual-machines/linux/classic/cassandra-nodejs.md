@@ -302,15 +302,13 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 
 ## Single Region Deployment Process
 **Step 1: Create the Virtual Network**
-Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) for detailed steps of the process.      
+Log into the Azure portal and create a virtual network (classic) with the attributes shown in the following table. See [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>West US</td><td></td></tr>
-<tr><td>DNS Servers    </td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
-<tr><td>Configure a point-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
-<tr><td>Configure a site-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
+<tr><td>DNS Servers</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
 <tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
