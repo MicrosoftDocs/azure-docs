@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -108,76 +108,62 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url1.png)
 
-    In the **Identifier** and **Reply URL** textbox, paste the value of  **App ID URI** value from App properties section of the Configuration of Kantega SSO for JIRA (SAML & Kerberos) add-on. URL follows this pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<someid>/login`
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
 4. In **SP** initiated mode, check **Show advanced URL settings** and  perform the following step:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_url2.png)
 
-    In the **Sign-on URL** textbox, paste the value of  **App ID URI** value from App properties section of the Configuration of Kantega SSO for JIRA (SAML & Kerberos) add-on. URL follows this pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<someid>/login`
-	 
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
 
-5. Kantega SSO for JIRA application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/attribute.png)
-	
-6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on emailaddress attribute-
-
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| emailaddress | user.userprincipalname |
-
-	a. Click the attribute to open the **Edit Attribute** window.
-
-	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/attribute2.png)
-
-	b. Change the Attribute value from the **user.mail** to **user.userprincipalname**.
-	
-	c. Click **Ok** to save the setting.
-
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_kantegassoforjira_certificate.png) 
 
-8. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_400.png)
 	
-9. In a different web browser window, log in to your Kantega SSO for JIRA admin portal as an administrator.
+7. In a different web browser window, log in to your Kantega SSO for JIRA admin portal as an administrator.
 
-10. Hover on cog and click the **Add-ons**.
+8. Hover on cog and click the **Add-ons**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon1.png)
 
-11. Under Add-ons tab section, click **Find new add-ons**. Search **Kantega SSO for JIRA (SAML & Kerberos)** and click **Install** button to install the new SAML plugin.
+9. Under Add-ons tab section, click **Find new add-ons**. Search **Kantega SSO for JIRA (SAML & Kerberos)** and click **Install** button to install the new SAML plugin.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon2.png)
 
-12. The plugin installation starts. Click **Close**.
+10. The plugin installation starts.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon3.png)
 
+11. Once the installation is complete. Click **Close**.
+
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon33.png)
 
-13.	Click **Manage**.
+12.	Click **Manage**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon34.png)
     
-14. New plugin is listed under **INTEGRATIONS**. Click **Configure** to configure the new plugin.
+13. New plugin is listed under **INTEGRATIONS**. Click **Configure** to configure the new plugin.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon35.png)
 
-15. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
+14. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon4.png)
 
-16. Select subscription level as **Basic**.
+15. Select subscription level as **Basic**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon5.png)  	 
 
-17. On the **App properties** section, perform following steps: 
+16. On the **App properties** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon6.png)
 
@@ -185,7 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-18. On the **Metadata import** section, perform following steps: 
+17. On the **Metadata import** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
 
@@ -193,7 +179,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-19. On the **Name and SSO location** section, perform following steps:
+18. On the **Name and SSO location** section, perform following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon8.png)
 	
@@ -201,11 +187,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-20. Verify the Signing certificate and click **Next**.
+19. Verify the Signing certificate and click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon9.png)
 
-21. On the **JIRA user accounts** section, perform following steps:
+20. On the **JIRA user accounts** section, perform following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon10.png)
 
@@ -213,11 +199,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Next**.
 
-22. Click **Finish**.	
+21. Click **Finish**.	
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon11.png)
 
-23. On the **Known domains for Azure AD** section, perform following steps: 
+22. On the **Known domains for Azure AD** section, perform following steps: 
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforjira-tutorial/addon12.png)
 
