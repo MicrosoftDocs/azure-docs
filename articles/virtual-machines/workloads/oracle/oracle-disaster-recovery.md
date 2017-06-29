@@ -27,22 +27,13 @@ ms.author: rclaus
 ## Goals
 - Design the topology and configuration that meet your DR requirements.
 
-## Scenario 1 (Primary site on-premises and DR site on Azure)
-
-A customer has an on-premises Oracle database setup on the primary site. A DR site is on Azure. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
-
-
-
-
-
-
-## Scenario 2 (Primary and DR sites on Azure)
+## Scenario 1 (Primary and DR sites on Azure)
 
 A customer has an Oracle database setup on the primary site. A DR site is on a different region. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
 
 ### Topology
 
-Similar to the customer's existing setup. Here is a summary of the Azure setup.
+Here is a summary of the Azure setup.
 
 - Two sites (Primary and DR site)
 - Two Virtual Network (Vnet)
@@ -56,7 +47,19 @@ Similar to the customer's existing setup. Here is a summary of the Azure setup.
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
+## Scenario 2 (Primary site on-premises and DR site on Azure)
 
+A customer has an on-premises Oracle database setup (primary site). A DR site is on Azure. Oracle Data Guard is used for quick recovery between these sites. The primary site also has a secondary database for reporting and other use. 
+
+There are 2 approach for this setup.
+
+### 1. Direct connections between On-Premises and Azure, required open TCP ports on firewall. This approch is not recommended as it expose the TCP ports to outside world.
+
+![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
+
+### 2. A better approach is using Site-to-Site VPN. More information about setting up VPN is available from this [link](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)
+
+![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
 ## Additional readings:
 
