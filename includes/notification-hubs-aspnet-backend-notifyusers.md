@@ -3,7 +3,7 @@ A new ASP.NET WebAPI backend will be created in the sections that follow and it 
 
 1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
 2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag.
+3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
 
 The following steps show how to create the new ASP.NET WebAPI backend: 
 
