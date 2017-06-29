@@ -311,7 +311,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
 Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
-#### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
+##### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
 
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
@@ -343,7 +343,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 
 5.	From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
  
-### Phase two: Provision new VMs on Azure
+##### Phase two: Provision new VMs on Azure
 
 1.	Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase one, with AcceleratedNetworking enabled on the vNIC:
 
@@ -435,4 +435,4 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     sudo reboot
     ```
 
-The VM should start with bond0 configured and the Accelerated Networking path enabled.  Run ifconfig to confirm.
+The VM should start with bond0 configured and the Accelerated Networking path enabled.  Run `ifconfig` to confirm.
