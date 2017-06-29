@@ -48,21 +48,24 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 
 1. Log on to the [Azure portal][azure-portal].
 2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-3. Click the namespace in which you would like to create the topic. In this case, it is **nstest1**.
+3. Click the namespace in which you would like to create the topic. In this case, it is **topictest100**.
    
-    ![Create a queue][createqueue1]
+    ![Create a topic][createtopic1]
 4. In the **Service Bus namespace** blade, click **Topics**, then click **Add topic**.
    
-    ![Select Queues][createqueue2]
+    ![Select Topics][createtopic2]
 5. Enter a name for the topic, and uncheck the **Enable partitioning** option. Leave the other options with their default values.
    
-    ![Select New][createqueue3]
+    ![Select New][createtopic3]
 6. At the bottom of the blade, click **Create**.
 
 ## 3. Create a subscription to the topic
 
-1. In the portal **All resources** pane, click the namespace you created in step 1, then click name of the topic you created in step 2.
+1. In the portal resources pane, click the namespace you created in step 1, then click name of the topic you created in step 2.
 2. A the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
+
+    ![Create subscription][createtopic4]
+
 3. Enter a name for the subscription. Leave the other options with their default values.
 
 ## 4. Send messages to the topic
@@ -138,13 +141,13 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
         }
     }
     ```
-3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** blade. The topic **Essentials** blade is displayed. In the subscription(s) listed near the bottom of the blade, notice that the **Message Count** value for each subscription should now be 1. Each time you run the sender application without retrieving the messages, this value increases by 1. Also note that the current size of the topic increments each time the app adds a message to the topic/subscription.
+3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** blade. The topic **Essentials** blade is displayed. In the subscription(s) listed near the bottom of the blade, notice that the **Message Count** value for each subscription should now be 1. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 1. Also note that the current size of the topic increments the **Current** value on the **Essentials** blade each time the app adds a message to the topic/subscription.
    
-      ![Message size][queue-message]
+      ![Message size][topic-message]
 
 ## 5. Receive messages from the subscription
 
-1. To receive the message you just sent, create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sender application.
+1. To receive the message or messages you just sent, create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sender application.
 2. Add the following `using` statement to the top of the Program.cs file.
    
     ```csharp
@@ -199,7 +202,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     ```
 4. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
    
-    ![Queue length][queue-message-receive]
+    ![Topic length][topic-message-receive]
 
 Congratulations! You have now created a topic and subscription, sent a message, and received that message.
 
@@ -210,6 +213,11 @@ Check out our [GitHub repository with samples](https://github.com/Azure/azure-se
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/nuget-package.png
-[queue-message]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message.png
-[queue-message-receive]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message-receive.png
+[topic-message]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message.png
+[topic-message-receive]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message-receive.png
+[createtopic1]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic1.png
+[createtopic2]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic2.png
+[createtopic3]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic3.png
+[createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[azure-portal]: https://portal.azure.com
