@@ -43,5 +43,5 @@ A Reference Data Set is a collection of items that will be augumented with the e
 
 ## Next steps
 
-* [Manipulate data](time-series-insights-manipulate-reference-data-using-csharp.md) within your reference data set programatically.
+* [Manipulate data](time-series-insights-manipulate-reference-data-csharp.md) within your reference data set programatically.
 * [Understand](/rest/api/time-series-insights/time-series-insights-reference-referencedataapi) the Reference Data API.
