@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Java) | Microsoft Docs
-description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for Java. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT hub using IoT SDKs for Java. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
