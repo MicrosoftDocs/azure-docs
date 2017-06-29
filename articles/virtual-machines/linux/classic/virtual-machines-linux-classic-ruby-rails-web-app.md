@@ -31,9 +31,9 @@ This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a differen
 ## Create an Azure VM
 Start by creating an Azure VM with a Linux image.
 
-To create the VM, you can use the Azure classic portal or the Azure Command-Line Interface (CLI).
+To create the VM, you can use the Azure portal or the Azure Command-Line Interface (CLI).
 
-### Azure Portal
+### Azure portal
 1. Sign into the [Azure portal](https://portal.azure.com)
 2. Click **New**, then type "Ubuntu Server 14.04" in the search box. Click the entry returned by the search. For the deployment model, select **Classic**, then click "Create".
 3. In the Basics blade, supply values for the required fields: Name (for the VM), User name, Authentication type and the corresponding credentials, Azure subscription, Resource group, and Location.
