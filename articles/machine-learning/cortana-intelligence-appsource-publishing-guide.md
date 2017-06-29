@@ -27,14 +27,14 @@ As a Microsoft Partner, you can really benefit from publishing on AppSource if y
 
 This article will walk through the steps to get a partner's Cortana Intelligence solution published to AppSource
 
-## Getting Started
+## Getting started
 1. In the [Partner Community Benfits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), see page 9 to get listed as an Advanced Analytics partner.
 1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/) form.
 
     For the question *“Choose the products that your app is built for*”, check the **Other** checkbox and list “Cortana Intelligence” in the edit control.
 1. Before a Cortana Intelligence app can get onboarded to AppSource, it must get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [Cortana Intelligence solution evaluation for AppSource publishing](https://aka.ms/cisappsrceval). This site is password protected and the site has instructions on how to get the password.
 
-## Solution Evaluation Criteria
+## Solution evaluation criteria
 Here is the list of criteria the app needs to meet
 1. App needs to address specific business use case problem within a given functional area in a repeatable manner with minimal configurations for predefined value propositions implementable within a short period.
 1. Solution should use at least one of the following components:
@@ -57,7 +57,7 @@ Here is the list of criteria the app needs to meet
      
 1. Use Power BI in your solution: Optional but highly recommended as it is proven to generate higher number of leads.
 
-## DevCenter Account Setup
+## DevCenter account setup
 This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, share the email ID associated with your DevCenter account. 
 
 If you don't have one, below are the key steps to setup a DevCenter account.
@@ -69,7 +69,7 @@ If you don't have one, below are the key steps to setup a DevCenter account.
 1. Enter the contact info you want to use for your developer account.
 For detailed step by step instruction on how to setup DevCenter account, see the instructions [here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
 
-## Provide info for Microsoft Sellers
+## Provide info for Microsoft sellers
 One of the key value propositions of AppSource for partners is to be able to collaborate with Microsoft Sellers in positioning partner apps in front of potential customers.
 
 Fill up [Partner Solution Info for Microsoft Sellers](https://aka.ms/aapartnerappinfo) and send it to [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). This is required step for a Cortana Intelligence app to get approved for publishing.
@@ -103,7 +103,7 @@ The content being added in AppSource should be of high quality and stitched up e
 
 That's why partners should think of the content they put on AppSource as an end to end sales orchestration. Based on the story line and features to be shown in trial experience, type of offer can be decided.
 
-## Publish your app on the Publishing Portal
+## Publish your app on the publishing portal
 Once we have evaluated the above steps for your application, you will get access to the publishing portal. For a detaile description on the next steps, see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app).
 
 If you need information about any of the fields, email <appsourcecissupport@microsoft.com>.

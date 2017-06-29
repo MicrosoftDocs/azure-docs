@@ -145,7 +145,7 @@ Cortana Intelligence apps should scale to very large data sizes. In Azure, this 
 - Azure SQL Data Warehouse
 
 If your app does not require support for these data sizes or if you are using an alternative data platform, please explain this in the test case justification.
-#### Cortana Intelligence apps should include dedicated “ingestion” data environments
+#### Cortana Intelligence apps should include dedicated  ingestion data environments
 Cortana Intelligence apps should generally avoid directly inserting data into relational data sources. Instead, raw data should be stored in an unstructured environment, with idempotent inserts/updates into any relational stores using Azure Data Factory.
 
 For more information on copying data with Azure Data Factory, [Tutorial: Create a pipeline with Copy Activity using Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio).
