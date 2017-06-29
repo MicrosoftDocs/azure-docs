@@ -15,47 +15,45 @@ ms.author: junyi
 ---
 # Azure IoT Edge BLE Data Converter Module with Java
 
-## Overview
-
 This tutorial showcases how one might build a module for Azure IoT Edge in Java.
 
 In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge Maven packages.
 
 ## Prerequisites
 
-In this section, you will setup your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu/Debian 8)* operating systems.
+In this section, you will set up your environment for IoT Edge module development. It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu/Debian 8)* operating systems.
 
 The following software is required:
 
-1. [Git Client](https://https://git-scm.com/downloads).
-2. [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-3. [Maven](https://maven.apache.org/install.html).
+* [Git Client](https://https://git-scm.com/downloads).
+* [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* [Maven](https://maven.apache.org/install.html).
 
-Open a command line terminal window and navigate to the working directory:
+Open a command-line terminal window and clone the following repository:
 
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 2. `cd iot-edge-samples/java/simulated_ble`
 
-## Overall Architecture
+## Overall architecture
 
 The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system which processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we will introduce the following two modules:
 
 1. A module which receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.
 2. A module which prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.
 
-The below image displays the typical end-to-end dataflow for this project:
+The following image displays the typical end-to-end dataflow for this project:
 
 ![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
-## Understanding the Code
+## Understanding the code
 
-### Maven Project Structure
+### Maven project structure
 
 Since Azure IoT Edge packages are based on Maven, we need to create a typical Maven project structure, which contains a `pom.xml` file.
 
-Ths POM inherits from the `com.microsoft.azure.gateway.gateway-module-base` package which declares all of the dependencies needed by a module project which includes the runtime binaries, the gateway configuration file path, and the execution behavior. This will save us lots of time and eliminate the need to write and rewrite hundreds of lines of code over and over again.
+The POM inherits from the `com.microsoft.azure.gateway.gateway-module-base` package, which declares all of the dependencies needed by a module project which includes the runtime binaries, the gateway configuration file path, and the execution behavior. This saves us lots of time and eliminate the need to write and rewrite hundreds of lines of code over and over again.
 
-We need to update the pom.xml file by declaring the required dependencies/plugins and the name of the configuration file to be used by our module as shown in the code snippet below.
+We need to update the pom.xml file by declaring the required dependencies/plugins and the name of the configuration file to be used by our module as shown in the following code snippet.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -117,7 +115,7 @@ We need to update the pom.xml file by declaring the required dependencies/plug
 </project>
 ```
 
-### Basic Understanding of an Azure IoT Edge Module
+### Basic understanding of an Azure IoT Edge module
 
 You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.
 
@@ -125,9 +123,9 @@ The input might be data from hardware (like a motion detector), a message from o
 
 The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** are also available in the `Message` and are simply a string-to-string mapping. You may think of **Properties** as the headers in a HTTP request, or the metadata of a file.
+Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** are also available in the `Message` and are simply a string-to-string mapping. You may think of **Properties** as the headers in an HTTP request, or the metadata of a file.
 
-In order to develop an Azure IoT Edge module in Java, you need to create a new module class which inherits from `com.microsoft.azure.gateway.core.GatewayModule` and implement the required abstract methods `receive()` and `destroy()`. At this point you may also choose to implement the optional `start()` or `create()` methods as well. The following code snippet shows you how to get started authoring an Azure IoT Edge module.
+In order to develop an Azure IoT Edge module in Java, you need to create a new module class which inherits from `com.microsoft.azure.gateway.core.GatewayModule` and implement the required abstract methods `receive()` and `destroy()`. At this point, you may also choose to implement the optional `start()` or `create()` methods as well. The following code snippet shows you how to get started authoring an Azure IoT Edge module.
 
 ```java
 import com.microsoft.azure.gateway.core.Broker;
@@ -164,7 +162,7 @@ public class MyEdgeModule extends GatewayModule {
 }
 ```
 
-### Converter Module
+### Converter module
 
 | Input                    | Processor                              | Output                 | Source File            |
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
@@ -196,13 +194,13 @@ public void receive(Message message) {
 }
 ```
 
-### Printer Module
+### Printer module
 
 | Input                          | Processor | Output                     | Source File          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
 | Any message from other modules | N/A       | Log the message to console | `PrinterModule.java` |
 
-This is a very simple, self-explanatory, module which outputs the received messages to the terminal window.
+This is a simple, self-explanatory, module which outputs the received messages to the terminal window.
 
 ```java
 @Override
@@ -211,7 +209,7 @@ public void receive(Message message) {
 }
 ```
 
-### Azure IoT Edge Configuration
+### Azure IoT Edge configuration
 
 The final step before running the modules is to configure the Azure IoT Edge and to establish the connections between modules.
 
@@ -229,7 +227,7 @@ First we need to declare our Java loader (since Azure IoT Edge supports loaders 
 }]
 ```
 
-Once we have declared our loaders we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module which is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
+Once we have declared our loaders, we will also need to declare our modules as well. Similar to declaring the loaders, they can also be referenced by their `name` attribute. When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module. The `simulated_device` module is a native module which is included in the Azure IoT Edge core runtime package. You should always include `args` in the JSON file even if it is `null`.
 
 ```json
 "modules": [
@@ -286,7 +284,7 @@ At the end of the configuration, we establish the connections. Each connection i
 ]
 ```
 
-## Running the Modules
+## Running the modules
 
 Use `mvn package` to build everything into the `target/` folder. `mvn clean package` is also recommended for a clean build.
 
