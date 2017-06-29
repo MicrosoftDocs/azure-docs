@@ -262,7 +262,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
-## Billing Reader
+### Billing Reader
 Can view all Billing information
 
 | **Actions** |  |
@@ -530,7 +530,7 @@ Can manage all Site Recovery management actions, except creating Recovery Servic
 | Microsoft.RecoveryServices/Vaults/certificates/write | Updates the vault credential certificate |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Create and manage extended info related to vault |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read  | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Read Recovery services vault notification configuration |
 | Microsoft.RecoveryServices/Vaults/read | Read Recovery Services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Manage discovery operation for fetching newly created containers |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identities |
@@ -559,7 +559,7 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.Network/virtualNetworks/read | Read virtual networks |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Read extended info related to vault |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read  | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Read Recovery services vault notification configuration |
 | Microsoft.RecoveryServices/Vaults/read | Read Recovery Services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Manage discovery operation for fetching newly created containers |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read operation status and result for a submitted operation |
@@ -568,38 +568,38 @@ Can Failover and Failback but can not perform other Site Recovery management act
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Read replication events |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Check consistency of the fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Read replication fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Re-associate replication gateway |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Re-associate replication gateway |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renew replication fabric certificate |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Read replication fabric networks |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Read replication fabric network mapping |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Read protection containers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Get list of all protectable items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Apply a specific recovery point |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Commit failover for a failed over item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Start planned failover for a protected item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Get list of all protected items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Get list of available recovery points |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Repair replication for a protected item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Start re-protect for a protected item|
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Start test failover of a protected item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Start cleanup of a test failover |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Start unplanned failover of a protected item |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Update the mobility service |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Read protection container mappings |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Read Recovery Services providers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Refresh Recovery Services provider |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Read storage classifications for replication fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Read storage classification mappings |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Read replication fabric network mapping |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Read protection containers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Get list of all protectable items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Apply a specific recovery point |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Commit failover for a failed over item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | Start planned failover for a protected item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Get list of all protected items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Get list of available recovery points |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Repair replication for a protected item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Start re-protect for a protected item|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Start test failover of a protected item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Start cleanup of a test failover |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Start unplanned failover of a protected item |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Update the mobility service |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Read protection container mappings |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Read Recovery Services providers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Refresh Recovery Services provider |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Read storage classifications for replication fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Read storage classification mappings |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Read registered vCenter information |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Create and manage replication jobs |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Read replication policies |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Commit failover for recovery plan failover |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Start failover of a recovery plan |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/action | Commit failover for recovery plan failover |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Start failover of a recovery plan |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Read recovery plans |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Start re-protect of a recovery plan |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Start test failover of a recovery plan |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Start cleanup of a recovery plan test failover |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Start unplanned failover of a recovery plan |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Start cleanup of a recovery plan test failover |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Start unplanned failover of a recovery plan |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Read storage configuration of a Recovery Services vault |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Read Recovery Services vault token information |
 | Microsoft.RecoveryServices/Vaults/usages/read | Read usage details of a Recovery Services vault |
@@ -617,7 +617,7 @@ Can monitor Site Recovery status in Recovery Services vault and raise Support ti
 | Microsoft.Authorization/*/read | Read roles and role assignments |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Read extended info related to vault |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Read alerts for the Recovery services vault |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read  | Read Recovery services vault notification configuration |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Read Recovery services vault notification configuration |
 | Microsoft.RecoveryServices/Vaults/read  | Read Recovery Services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Manage discovery operation for fetching newly created containers |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Read operation status and result for a submitted operation |
@@ -626,15 +626,15 @@ Can monitor Site Recovery status in Recovery Services vault and raise Support ti
 | Microsoft.RecoveryServices/vaults/replicationEvents/read  | Read replication events |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Read replication fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Read replication fabric networks |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read  | Read replication fabric network mapping |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read  |  Read protection containers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read  | Get list of all protectable items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read  | Get list of all protected items |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Get list of available recovery points |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read  | Read protection container mappings |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read  | Read Recovery Services providers |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read  | Read storage classifications for replication fabrics |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Read storage classification mappings |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Read replication fabric network mapping |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Read protection containers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Get list of all protectable items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Get list of all protected items |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Get list of available recovery points |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Read protection container mappings |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read  | Read Recovery Services providers |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Read storage classifications for replication fabrics |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Read storage classification mappings |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Read registered vCenter information |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Read status of replication jobs |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Read replication policies |
