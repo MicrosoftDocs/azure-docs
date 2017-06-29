@@ -103,7 +103,7 @@ on the second page of your Invoice.
 | Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](https://docs.microsoft.com/en-us/azure/billing/billing-how-to-change-azure-account-profile).|
 | Payment instructions |Instructions on how to pay depending on payment method (such as by credit card or by invoice). More details are available below.|
 
-### Usage Charges
+#### Usage Charges
 
 The Usage charges section of the invoice displays meter level
 information on your charges.
@@ -114,27 +114,24 @@ height="3.8257327209098864in"}
 The following table describes the usage charges column headers shown on
 your Invoice.
 
-  **Term**      **Description**
-  ------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Name          Identifies the top-level service for the usage
-  Type          Defines the Azure service type that can affect the rate.
-  Resource      Identifies the unit of measure for the meter being consumed.
-  Region        Identifies the location of the datacenter for certain services that are priced based on datacenter location.
-  Consumed      The amount of the meter used during the billing period.
-  Included      The amount of the meter that is included at no charge in your current billing period.
-  Billable      Shows the difference between the Consumed Quantity and the Included Quantity. You're billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total is the same as the Consumed Quantity.
-  Rate          The rate you're charged per billable unit.
-  Value         Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column.
-  Sub-Total     The sum of all your charges pre-tax for this billing period.
-  Grand Total   The sum of all your charges after tax for this billing period.
+| Term |Description |
+| --- | --- |
+| Name |Identifies the top-level service for the usage |
+| Type |Defines the Azure service type that can affect the rate |
+| Resource |Identifies the unit of measure for the meter being consumed |
+| Region |Identifies the location of the datacenter for certain services that are priced based on datacenter location |
+| Consumed |The amount of the meter used during the billing period |
+| Included |The amount of the meter that is included at no charge in your current billing period |
+| Billable |Shows the difference between the Consumed Quantity and the Included Quantity. You're billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total is the same as the Consumed Quantity |
+| Rate |The rate you're charged per billable unit |
+| Value |Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column. |
+| Sub-Total |The sum of all your charges pre-tax for this billing period |
+| Grand Total |The sum of all your charges after tax for this billing period |
 
-How do I ensure that the charges in my invoice are correct?
-
+## How do I ensure that the charges in my invoice are correct?
 If there is a charge on your invoice that you would like more details
 on, see [Understand your bill for Microsoft Azure.](/)
 
-Need help? Contact support.
-
-If you still need help, [contact
-support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+## Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 to get your issue resolved quickly.
