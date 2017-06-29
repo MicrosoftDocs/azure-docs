@@ -61,8 +61,8 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | [File storage](./germany-services-storage.md#storage) | Yes | Yes |
 | [Disk storage](./germany-services-storage.md#storage) | Yes | Yes |
 | StorSimple | No | No |
-| Backup | No | No |
-| Site Recovery | No | No |
+| Backup | Yes | Yes |
+| Site Recovery | Yes | Yes |
 | Import/Export | No | No |
 
 
@@ -120,7 +120,7 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | [Azure Active Directory](./germany-services-securityandidentity.md#azure-active-directory) | Yes | Yes |
-| [Key Vault](./germany-services-securityandidentity.md#key-vault) | Yes | Yes |
+| [Key Vault](./germany-services-securityandidentity.md#key-vault) | Yes | No |
 | Multi-Factor Authentication | Yes | Yes |
 
 
@@ -130,9 +130,9 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | Automation | No | No |
-| Backup | No | No |
+| Backup | Yes | Yes |
 | Log Analytics | No | No |
-| Site Recovery | No | No |
+| Site Recovery | Yes | Yes |
 | Scheduler | Yes | Yes |
 | Monitor | No | No |
 | Diagnostics | No | No |
