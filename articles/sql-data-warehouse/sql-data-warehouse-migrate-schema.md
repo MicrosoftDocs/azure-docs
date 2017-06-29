@@ -19,26 +19,27 @@ ms.author: joeyong;barbkess
 
 ---
 # Migrate your schemas to SQL Data Warehouse
-Guidance for migrating your SQL table schemas to SQL Data Warehouse. 
+Guidance for migrating your SQL schemas to SQL Data Warehouse. 
 
 ## Plan your schema migration
 
 As you plan a migration, see the [table overview][table overview] to become familiar with table design considerations such as statistics, distribution, partitioning, and indexing.  It also lists some [unsupported table features][unsupported table features] and their workarounds.
 
-## Consolidate databases by using user-defined schemas
+## Use user-defined schemas to consolidate databases
 
-Your existing workload probably has more than one database. For example, a traditional SQL Server data warehouse might include a staging database, a data warehouse database, and some data mart databases. In this topology each database operates as a separate workload with separate security boundaries.
+Your existing workload probably has more than one database. For example, a SQL Server data warehouse might include a staging database, a data warehouse database, and some data mart databases. In this topology, each database runs as a separate workload with separate security policies.
 
-By contrast, SQL Data Warehouse runs the entire data warehouse workload within one database. Cross database joins are not permitted. Therefore SQL Data Warehouse expects all tables used by the warehouse to be stored within the one database.
+By contrast, SQL Data Warehouse runs the entire data warehouse workload within one database. Cross database joins are not permitted. Therefore, SQL Data Warehouse expects all tables used by the data warehouse to be stored within the one database.
 
 We recommend using user-defined schemas to consolidate your existing workload into one database. For examples, see [User-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
 
-## Modify data types
-Modify data types to make them compatible with SQL Data Warehouse. The [data types][data types] article has a list of supported and [unsupported data types][unsupported data types]. That list also gives the workarounds for how to modify unsupported data types.
+## Use compatible data types
+Modify your data types to be compatible with SQL Data Warehouse. For a list of supported and unsupported data types, see [data types][data types]. That topic gives workarounds for the unsupported types. It also provides a query to identify existing types that are not supported in SQL Data Warehouse.
 
-Use the smallest data types that work for your data to minimize the row length. Shorter row lengths lead to better query performance. 
+## Minimize row size
+For best performance, minimize the row length of your tables. Since shorter row lengths lead to better performance, use the smallest data types that work for your data. 
 
-For table row width, PolyBase has a 1 MB limit.  If you plan to load data into SQL Data Warehouse with PolyBase, update your tables to have row widths of less than 1 MB. This includes counting the full-length of variable-length data.
+For table row width, PolyBase has a 1 MB limit.  If you plan to load data into SQL Data Warehouse with PolyBase, update your tables to have maximum row widths of less than 1 MB. 
 
 <!--
 - For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
@@ -48,15 +49,13 @@ For table row width, PolyBase has a 1 MB limit.  If you plan to load data into S
 -->
 
 ## Specify the distribution option
-When you create a table, you can specify how to distribute the table data across the Compute nodes. The choices are round-robin, replicated, or hash distributed. Each has pros and cons. If you don't specify the distribution option, SQL Data Warehouse will use round-robin as the default.
+SQL Data Warehouse is a distributed database system. Each table is distributed or replicated across the Compute nodes. There's a table option that lets you specify how to distribute the data. The choices are  round-robin, replicated, or hash distributed. Each has pros and cons. If you don't specify the distribution option, SQL Data Warehouse will use round-robin as the default.
 
-- Round-robin loads the data as fast as possible, but joins will require data movement which slows query performance.
-- Replicated ensures each Compute node has a copy of the data. Replicated tables will not require data movement in joins. They do require extra storage so they only work well for small tables.
-- Hash distributed assigns each row to a distribution via a hash function. This can provide the best query performance for joins.  When the table is distributed on the same column that is used in a join, data movement is not required. The hardest part, which isn't that hard, is you need to specify a distribution column. If you don't choose the best one the first time, you can re-create the table with a different column.  
+- Round-robin is the default. It is the simplest to use, and loads the data as fast as possible, but joins will require data movement which slows query performance.
+- Replicated stores a copy of the table on each Compute node. Replicated tables are performant because they do not require data movement for joins and aggregations. They do require extra storage, and therefore work best for smaller tables.
+- Hash distributed distributes the rows across all the nodes via a hash function. Hash distributed tables are the heart of SQL Data Warehouse since they are designed to provide high query performance on large tables. This option requires some planning to select the best column on which to distribute the data. However, if you don't choose the best column the first time, you can easily re-distribute the data on a different column. 
 
-To learn more about the distribution options and how to choose a distribution column, see [Distributed tables](sql-data-warehouse-tables-distribute.md)
-
-
+To choose the best distribution option for each table, see [Distributed tables](sql-data-warehouse-tables-distribute.md)
 
 
 ## Next steps
