@@ -1,13 +1,13 @@
 ---
 
   title: Get started with licensing in Azure Active Directory | Microsoft Docs
-  description: 'Azure Active Directory licensing: How it works, how to get started, and best practices'
+  description: How Azure Active Directory licensing works, how to get started with best practices
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
   manager: femila
-  editor: 'piotrci'
+  editor: ''
 
   ms.assetid:
   ms.service: active-directory
@@ -15,10 +15,11 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/01/2017
+  ms.date: 06/29/2017
   ms.author: curtand
+  ms.reviewer: piotrci
 
-  ms.custom: H1Hack27Feb2017; piotrci
+  ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 
@@ -139,7 +140,11 @@ Assignment errors can occur during Azure AD license assignment but are relativel
 - Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license requires removing the current one.
 - Exceeded available licenses: When the number of users in assigned groups exceeds the available licenses, a user's assignment status reflects a failure to assign due to missing licenses.
 
-Detailed information about group license assignment is available in this article.
+#### Azure AD B2B collaboration licensing
+
+B2B collaboration allows you to invite guest users into your Azure AD tenant to provide access to Azure AD services and any Azure resources you make available.  
+
+There is no charge for inviting B2B users and assigning them to an application in Azure AD. Also, up to 10 apps per guest user and 3 basic reports are also free for B2B collaboration users, since they are part of Azure AD Free tier. It's not required, but if you want to provide access to paid Azure AD features, those B2B guest users must be licensed with appropriate Azure AD licenses. An inviting tenant with an Azure AD paid license can assign B2B collaboration user rights to an additional five guest users invited to the tenant. For scenarios and information, see [B2B collaboration licensing guidance](active-directory-b2b-licensing.md).
 
 ### View assigned licenses
 
@@ -172,7 +177,7 @@ Trial extensions for customers are available as self-service sign-up through the
 To learn more about advanced scenarios for license management through
 groups, read the article [Assigning licenses to a group](active-directory-licensing-group-assignment-azure-portal.md).
 
-Now you might be ready to configure and use some Azure AD Premium features:
+Here's information about how to configure and use other Azure AD paid features:
 
 * [Self-service password reset](active-directory-manage-passwords.md)
 * [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
