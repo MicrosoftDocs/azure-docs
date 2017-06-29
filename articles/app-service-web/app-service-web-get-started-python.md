@@ -85,13 +85,14 @@ You’ve created an empty new web app in Azure.
 
 ## Configure to use Python
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
+Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
 
 ```azurecli-interactive
-az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
+
+Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
