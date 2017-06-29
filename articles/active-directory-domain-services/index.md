@@ -5,7 +5,7 @@ services: active-directory-ds
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:
+ms.assetid: 
 ms.service: active-directory-ds
 ms.tgt_pltfrm: na
 ms.devlang: na
