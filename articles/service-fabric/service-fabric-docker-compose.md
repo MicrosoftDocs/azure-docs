@@ -25,11 +25,7 @@ we have included preview support for Docker Compose natively in the platform. Se
 example, application upgrades are not supported. However, you can always remove and deploy applications instead of
 upgrading them.
 
-<<<<<<< HEAD
-To use this preview, you need to install the preview Service Fabric SDK (version 255.255.x.x) through the portal.
-=======
 To use this preview, you need to create your cluster with the preview SDK (version 255.255.x.x) through the portal. 
->>>>>>> master
 
 > [!NOTE]
 > This feature is in preview and not supported.
