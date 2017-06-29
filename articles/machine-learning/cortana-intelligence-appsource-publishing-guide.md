@@ -32,7 +32,7 @@ This article will walk through the steps to get a partner's Cortana Intelligence
 1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/) form.
 
     For the question *“Choose the products that your app is built for*”, check the **Other** checkbox and list “Cortana Intelligence” in the edit control.
-1. Before a Cortana Intelligence app can get onboarded to AppSource, it must get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [https://aka.ms/cisappsrceval](https://aka.ms/cisappsrceval). This site is password protected and the site has instructions on how to get the password.
+1. Before a Cortana Intelligence app can get onboarded to AppSource, it must get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [Cortana Intelligence solution evaluation for AppSource publishing](https://aka.ms/cisappsrceval). This site is password protected and the site has instructions on how to get the password.
 
 ## Solution Evaluation Criteria
 Here is the list of criteria the app needs to meet
@@ -104,7 +104,7 @@ The content being added in AppSource should be of high quality and stitched up e
 That's why partners should think of the content they put on AppSource as an end to end sales orchestration. Based on the story line and features to be shown in trial experience, type of offer can be decided.
 
 ## Publish your app on the Publishing Portal
-Once we have evaluated the above steps for your application, you will get access to the publishing portal and see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app)� for detailed instructions on next steps.
+Once we have evaluated the above steps for your application, you will get access to the publishing portal. For a detaile description on the next steps, see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app).
 
 If you need information about any of the fields, email <appsourcecissupport@microsoft.com>.
 ## My app is published on AppSource - now what?
