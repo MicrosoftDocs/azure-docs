@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: arramac
 
 ---
@@ -56,7 +56,7 @@ Now let's clone a Graph API (preview) app from github, set the connection string
 
 Let's make a quick review of what's happening in the app. Open the `Program.java` file and you find that these lines of code. 
 
-* The Gremlin `Client` is initialized from the configuration in `src/remote-secure.yaml` that you set earlier.
+* The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
 
     ```java
     Cluster cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -84,9 +84,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-java/keys.png)
 
-2. In Open the `src/remote-secure.yaml` file. 
+2. Open the `src/remote.yaml` file. 
 
-3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote-secure.yaml` file:
+3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote.yaml` file:
 
     Setting|Suggested value|Description
     ---|---|---
@@ -99,7 +99,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Run the console app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install required Java packages.
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 

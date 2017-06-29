@@ -37,16 +37,19 @@ In this tutorial, you will learn to:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+## Prerequisites
+
 To complete this tutorial, make sure you have:
-* PowerShell installed on your machine, and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* The latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
+* Installed the newest version of PowerShell and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html), and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+* Installed the latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) installed on your machine. Maven will be used to help manage dependencies, build, test and run the sample Java project
+* Installed the [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
 
-## Set up Data Environment
+* Installed [Apache Maven](https://maven.apache.org/download.cgi). Maven will be used to help manage dependencies, build, test and run the sample Java project
+
+## Set up data environment
 
 You will be provisioning a database per tenant. The database-per-tenant model provides the highest degree of isolation between tenants, with little DevOps cost. To optimize the cost of cloud resources, you will also be provisioning the tenant databases into an elastic pool which allows you to optimize the price performance for a group of databases. To learn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
@@ -499,7 +502,8 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 
 Try connecting to 'tenant1' using the Java application. You will get an error stating that the tenant does not exist.
 
-## Next Steps 
+## Next steps 
+
 In this tutorial, you learned to:
 > [!div class="checklist"]
 > * Set up a database environment to support a multi-tenant SaaS application, using the Database-per-tenant pattern
