@@ -1,6 +1,6 @@
 ---
-title: Monitor and log B2B transactions - Azure Logic Apps | Microsoft Docs
-description: Set up monitoring and logging for AS2, X12, and EDIFACT messages for your integration account and logic apps
+title: Monitor B2B transactions and set up logging - Azure Logic Apps | Microsoft Docs
+description: Monitor AS2, X12, and EDIFACT messages and start diagnostics logging for your integration account
 author: padmavc
 manager: anneta
 editor: ''
@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor AS2, X12, and EDIFACT messages and set up logging to check success, errors, and message properties
+# Monitor and start diagnostics logging for AS2, X12, and EDIFACT messages
 
 When you set up B2B communication in your integration account for your logic app 
 between two running business processes or applications, 

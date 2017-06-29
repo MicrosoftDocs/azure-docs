@@ -1,6 +1,6 @@
 ---
-title: Monitor performance, start logging, and get alerts - Azure Logic Apps | Microsoft Docs
-description: View run history, log diagnostic data, and set up alerts for your logic apps in Azure
+title: Check status, set up logging, and get alerts - Azure Logic Apps | Microsoft Docs
+description: Check your logic app runs, log diagnostic data, and set up alerts
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: LADocs; jehollan
 ---
 
-# Monitor status and performance, set up logging, and turn on alerts for Azure Logic Apps
+# Monitor status, set up logging, and turn on alerts for Azure Logic Apps
 
 After you [create a logic app](logic-apps-create-a-logic-app.md), 
 you can check its status, performance, and run history in the Azure portal. 

@@ -17,13 +17,13 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Query for AS2, X12, and EDIFACT messages in the Operations Management Suite
+# Query for AS2, X12, and EDIFACT messages in the Operations Management Suite (OMS)
 
 To find the B2B messages that you're tracking with 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
 in the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), 
-you can create queries that filter actions based on specific criteria, 
-for example, the interchange control number for the messages that you want to find.
+you can create queries that filter actions based on specific criteria. 
+For example, you can find messages based on a specific interchange control number.
 
 ## Requirements
 
