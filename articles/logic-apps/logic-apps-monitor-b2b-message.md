@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: LADocs; padmavc
 ---
 
-# Monitor and start diagnostics logging for AS2, X12, and EDIFACT messages
+# Monitor and set up diagnostics logging for AS2, X12, and EDIFACT messages in your integration account
 
 When you set up B2B communication in your integration account for your logic app 
 between two running business processes or applications, 
