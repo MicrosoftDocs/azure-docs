@@ -21,7 +21,12 @@ ms.author: xiaofmao
 
 Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. If you haven't installed the Storage Explorer (Preview) yet, go to [http://www.storageexplorer.com/](http://www.storageexplorer.com/) to download and install it.
+In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+
+Azure Stack requires Storage Explorer version 0.8.13. If you haven't installed it yet, [download](https://go.microsoft.com/fwlink/?LinkId=809306) Storage Explorer version 0.8.13 and install it.
+
+> [!WARNING]
+> Do not update Storage Explorer if you are prompted with an available update. To work with Azure Stack, you must continue to use version 0.8.13. 
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
@@ -38,6 +43,8 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
     ![Load the Azure Stack root certificate through mmc.exe][25]   
 
 3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackCertificationAuthority**. 
+
+    If you see multiple copies of this certificate, select the first one.
 
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
 
@@ -70,18 +77,22 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     * **Environment name**: The field can be customized by user.
     * **Authority**: The value should be https://login.windows.net.
-    * **Sign in resource id**: Retrieve the value by executing one of the following PowerShell scripts:
+    * **Sign in resource id**: Retrieve the value by running one of the following PowerShell scripts:
 
-        If you are a cloud administrator:
+        If you are a cloud operator:
 
         ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod `
+         -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 `
+         -Method Get).authentication.audiences[0]
         ```
 
-        If you are a tenant:
+        If you are a user:
 
         ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        (Invoke-RestMethod `
+         -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 `
+         -Method Get).authentication.audiences[0]
         ```
 
     * **Graph endpoint**: The value should be https://graph.windows.net.
@@ -102,7 +113,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
 ## Next steps
 * [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
 
 
 * To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
