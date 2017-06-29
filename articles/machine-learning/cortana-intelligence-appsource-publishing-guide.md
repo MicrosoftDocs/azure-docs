@@ -69,19 +69,19 @@ If you don't have one, below are the key steps to setup a DevCenter account.
 1. Enter the contact info you want to use for your developer account.
 For detailed step by step instruction on how to setup DevCenter account, see the instructions [here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration).
 
-## Provide info about your app to be shared with Microsoft Sellers
+## Provide info for Microsoft Sellers
 One of the key value propositions of AppSource for partners is to be able to collaborate with Microsoft Sellers in positioning partner apps in front of potential customers.
 
 Fill up [Partner Solution Info for Microsoft Sellers](https://aka.ms/aapartnerappinfo) and send it to [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs). This is required step for a Cortana Intelligence app to get approved for publishing.
 
-## Building a compelling customer walkthrough on AppSource
+## Buid a compelling customer walkthrough on AppSource
 First, take a look at [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) on AppSource. Every app entry in AppSource has title, summary (100 chars max), description (1300 chars max), images, videos (optional), pdf documents apart from entry point for a trial experience. Partners should leverage all these to build a compelling customer experience.
 
 Partners should think of the content they put on AppSource as an end to end sales orchestration. Customers read the title and description to understand the value proposition and then go through images & videos to understand what the solution is about. Case studies help potential customers see how existing customers are getting value. 
 
 All this should make the customer feel interested and wanting to know more. Think of these as pitch decks based presentation a good technical sales person would walk the new customers through. The suggested format of description is to break up the text into sub-sections based on value propositions, each with highlighted with a sub-heading. 
 
-Visitors usually glance over the  "offer summary" field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user�s attention give them a reason to read on to get the specifics.
+Visitors usually glance over the  "offer summary" field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user's attention give them a reason to read on to get the specifics.
 
 See what these partners have done.
 - [Neal Analytics Inventory
@@ -92,7 +92,7 @@ Personalization](https://appsource.microsoft.com/en-us/product/web-apps/plexure.
 Services](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
 The final act of sales is to show a demo of the app/solution showing how the value proposition is delivered. That is exactly what a customer trial experience on AppSource is meant for. A good demo will do the following:
-- Re-summarize the value proposition of the app in short and list out the persona�s within the customer firm who would interact with the solution
+- Re-summarize the value proposition of the app in short and list out the personas within the customer firm who would interact with the solution
 - Tell a story and sets the context about a sample customer dealing with specific issues
 - Explain how the situation can generally devolve and impact the customer (before) VS what would happen if the solution is in use. This can be shown using PowerBI dashboards etc.
 - Summarize how the solution makes it happen by using any specific Machine Learning algorithms etc.
