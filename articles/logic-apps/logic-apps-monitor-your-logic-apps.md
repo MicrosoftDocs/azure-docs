@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 06/23/2017
+ms.date: 07/7/2017
 ms.author: LADocs; jehollan
 ---
 
 # Monitor status, set up logging, and turn on alerts for Azure Logic Apps
 
-After you [create a logic app](logic-apps-create-a-logic-app.md), 
+After you [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), 
 you can check its status, performance, and run history in the Azure portal. 
-For monitoring events in real time, richer debugging, and notifications 
-about failures or other possible problems, you can set up 
-[logging](#azure-diagnostics) and [alerts](#add-azure-alerts). 
+For monitoring real-time events and richer debugging, 
+set up diagnostics [logging](#azure-diagnostics). 
+To get notifications about failures or other possible problems, 
+set up [alerts](#add-azure-alerts). 
 
 For example, you can create an alert for 
 "when more than five runs fail within an hour." 
@@ -221,8 +222,8 @@ Then select the options for where you want to send diagnostic data:
 
 ## Set up alerts for your logic app
 
-To notify you about metrics that you want to measure or thresholds 
-that are crossed while your logic app runs, you can set up 
+For monitoring metrics that you want to measure or thresholds 
+that are crossed when your logic app runs, set up 
 [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -257,11 +258,11 @@ choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:
 
 ## Azure Diagnostics event settings and details
 
-Each diagnostic event contains details about your logic app and that event, 
-like status, start time, end time, and so on. You can use these details 
-to set up tracking, monitoring, and logging with the 
-[REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic), 
-[REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Each diagnostic event has details about your logic app and that event, 
+for example, the status, start time, end time, and so on. 
+You can use these details to set up monitoring, tracking, and logging with the 
+[REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
+and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 For example, the `ActionCompleted` event has the 
 `clientTrackingId` and `trackedProperties` properties 
@@ -301,7 +302,7 @@ that you can use for tracking and monitoring:
 }
 ```
 
-* `clientTrackingId`: This ID is auto-generated if not provided, 
+* `clientTrackingId`: If not provided, this ID is auto-generated 
 and correlates events across a logic app run, 
 including any nested workflows that are called from the logic app. 
 You can manually specify this ID from a trigger by passing a 
