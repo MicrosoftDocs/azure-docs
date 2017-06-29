@@ -27,7 +27,7 @@ The objective of this tutorial is to show you the steps you need to perform in Z
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active Active directory tenant
-*   A ZenDesk tenant with the [Essential plan](https://www.zendesk.com/product/pricing/) or better enabled 
+*   A ZenDesk tenant with the [Enterprise plan](https://www.zendesk.com/product/pricing/) or better enabled 
 *   A user account in ZenDesk with Admin permissions 
 
 Note: The Azure AD provisioning integration relies on the [ZenDesk REST API](https://developer.zendesk.com/rest_api/docs/core/introduction#the-api) which is available to ZenDesk teams on the Essential plan or better.

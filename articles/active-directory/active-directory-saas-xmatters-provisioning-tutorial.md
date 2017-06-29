@@ -66,7 +66,9 @@ This section guides you through connecting your Azure AD to Xmatters's user acco
 
 ![Xmatters Provisioning](./media/active-directory-saas-xmatters-provisioning-tutorial/Xmatters1.png)
 
-5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password&Domain** of your Xmatters's account. 
+5)	Under the **Admin Credentials** section, input the **Admin Username&Admin Password&Domain** of your Xmatters's account(You can get these information while registering your account). 
+
+![Xmatters Provisioning](./media/active-directory-saas-xmatters-provisioning-tutorial/Xmatters2.png)
 
 6) In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Xmatters app. If the connection fails, ensure your Xmatters account has Admin permissions and try step 5 again.
 
