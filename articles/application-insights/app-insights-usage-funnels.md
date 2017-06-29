@@ -1,6 +1,6 @@
 ---
-title: Understand how customers use your app with the Azure Application Insights Funnel 
-description: Learn how you can use the funnels blade to discover how customers are interacting with your application.
+title: Azure Application Insights Funnels
+description: Learn how you can use Funnels to discover how customers are interacting with your application.
 services: application-insights
 documentationcenter: ''
 author: CFreemanwa
@@ -14,7 +14,7 @@ ms.date: 06/17/2017
 ms.author: cfreeman
 ---
 
-# Discover how customers are using your application with the Application Insights Funnel
+# Discover how customers are using your application with the Application Insights Funnels
 
 Understanding customer experience is of the utmost importance to your business. If your application involves multiple stages you will need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a "funnel". You can use the Application Insights funnels blade to gain insights into how effective your funnel is.
 
