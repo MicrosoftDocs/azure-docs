@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer and then provision a VM in Azure Stack (tenant) | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack.
+title: Subscribe to an offer | Microsoft Docs
+description: As a tenant, learn how to subscribe to an offer.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -33,9 +33,9 @@ After you subscribe to an offer, refresh the portal to see which services are pa
 # Subscribe to an add-on plan
 If the offer has an add-on plan, tenants can add them to their subscription at any time.  
 
-1. In the tenant portal, select More services > Subscriptions .
+1. In the tenant portal, select **More services** > **Subscriptions**.
 
-2. Click on the subscription > Add Plan button, and select the add-on plan.
+2. Click on the subscription > **Add Plan** button, and select the add-on plan.
 
 
 
