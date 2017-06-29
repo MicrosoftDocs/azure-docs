@@ -47,9 +47,9 @@ In addition, you will see a table including all user claims included in authenti
 
 
 ### Test accessing a method that has an *[Authorize]* attribute (Optional)
-In this step, you will test accessing the Authenticated controller as an anonymous user:<br/>
+In this step, you will test accessing the Claims controller as an anonymous user:<br/>
 Select the link to sign-out the user and complete the sign-out process.<br/>
-Now in your browser, type http://localhost:{port}/authenticated to access your controller that is protected with the `[Authorize]` attribute
+Now in your browser, type http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
 
 #### Expected results
 You should receive the prompt requiring you to authenticate to see the view.
