@@ -23,7 +23,7 @@ There are several things you need to know if you're new to Azure Stack administr
 
 ## Understand development kit builds
 
-Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
+Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the Azure Stack Development Kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
 
 Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The documentation on our website reflects the latest release build.
 
