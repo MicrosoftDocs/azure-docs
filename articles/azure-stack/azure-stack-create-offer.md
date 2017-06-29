@@ -21,6 +21,7 @@ ms.author: erikje
 [Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
 1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external). and then click **New** > **Tenant Offers + Plans** > **Offer**.
+
    ![](media/azure-stack-create-offer/image01.png)
 2. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name and is the only information about the offer that the users will see when subscribing. Therefore, be sure to use an intuitive name that helps the user understand what comes with the offer. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
