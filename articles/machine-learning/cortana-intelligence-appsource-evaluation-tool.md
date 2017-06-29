@@ -1,5 +1,5 @@
 ---
-title: Solution evaluation tool | Microsoft Docs
+title: Cortana Intelligence solution evaluation tool | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: anupams;v-bruham;garye
 --- 
-# Solution evaluation tool
+# Cortana Intelligence solution evaluation tool
 ## Overview
 You can use the Cortana Intelligence solution evaluation tool to assess your advanced analytics applications for compliance with Microsoft-recommended best practices. Microsoft is excited to work with our partners (ISVs / SIs) to provide high-quality solutions for customers, resellers and implementation partners to discover and try business solutions and make the most of their investments. This guide will walk through the process of using the Solution evaluation tool with your application and describe the specific best practices in checks for.
 

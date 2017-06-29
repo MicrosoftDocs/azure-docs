@@ -1,5 +1,5 @@
 ---
-title: AppSource publishing guide | Microsoft Docs
+title: Cortana Intelligence AppSource publishing guide | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: anupams;v-bruham;garye
 --- 
-# AppSource publishing guide
+# Cortana Intelligence AppSource publishing guide
 
 ## Overview
 AppSource is the single destination for Business Decision Makers (BDMs) to discover and seamlessly try business solutions/apps built by partners and evaluated by Microsoft. Watch [this video](https://youtu.be/hpq_Y9LuIB8) to learn how AppSource works. 
 
 As a Microsoft Partner, you can really benefit from publishing on AppSource if you have:
-- Built an intelligent solution/app using Microsoft’s [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Built an intelligent solution/app using [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
 - Your solution or app addresses a specific business problem.
 - You built modules or intellectual property that your customers can reuse relatively quickly in a predictaibe manner.
 
@@ -45,24 +45,22 @@ Here is the list of criteria the app needs to meet
     - Stream Analytics
     - Cognitive Services
     - Bot Framework
+    - Analysis Services
     - Microsoft R Server stand alone
     - R services on SQL 2016 or HDInsight Premium
-1. Solution should be generating at least $1000 a month with customer using DPOR/CSP.
-1. Solution should use the Azure Active Directory federated single signon (AAD federated SSO) with consent enabled for user authentication and resource access controls. 
+1. Solution should be generating at least $1000 a month per customer using DPOR/CSP.
+1. Solution should use the Azure Active Directory federated single signon (AAD federated SSO) with consent enabled for user authentication and resource access controls. You will need to show to the evaluation team that your solution is AAD federated SSO enabled before your app can be onboarded to AppSource.
 
-    To see what it means to be AAD federated SSO enabled, seek to position 02:35 in [AppSource trial experience walk through](https://aka.ms/trialexperienceforwebapps) video. 
-    
-    If your app is not enabled with AAD federated SSO yet, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
+     To see what it means to be AAD federated SSO enabled, seek to position 02:35 in [AppSource trial experience walk through](https://aka.ms/trialexperienceforwebapps) video. If your app is not enabled with AAD federated SSO yet, here is some documenation about it
+   1. [One-click sign in](https://identity.microsoft.com/Landing?ru=https://identity.microsoft.com/).
+   1. [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application).
      
-     You will need to show to the evaluation team that your solution is AAD federated SSO enabled before your app can be onboarded to AppSource.
-1. Use Power BI in your solution and share is Power BI desktop file (PBIX): Optional but highly recommended as it is proven to generate higher number of leads. Ensure the following:
-    - All data is imported into the PBIX file.
-    - No externally referenced data. We will create the Embedded Report for you.
+1. Use Power BI in your solution: Optional but highly recommended as it is proven to generate higher number of leads.
 
 ## DevCenter Account Setup
-This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, you can skip this step.
+This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, share the email ID associated with your DevCenter account. 
 
-Below are the key steps to setup a DevCenter account.
+If you don't have one, below are the key steps to setup a DevCenter account.
 1. Create a Microsoft account [here](https://signup.live.com/signup.aspx).
 1. Go to the Microsoft DevCenter [registration page](http://go.microsoft.com/fwlink/?LinkId=615100) and click "sign up".
 1. When prompted for payment, use the code that we provided to you. If you don't have a code, contact  [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20for%20promotion-code%20for%20DevCenter%20account%20setup).
@@ -83,33 +81,33 @@ Partners should think of the content they put on AppSource as an end to end sale
 
 All this should make the customer feel interested and wanting to know more. Think of these as pitch decks based presentation a good technical sales person would walk the new customers through. The suggested format of description is to break up the text into sub-sections based on value propositions, each with highlighted with a sub-heading. 
 
-Visitors usually glance over the “offer summary” field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user’s attention give them a reason to read on to get the specifics.
+Visitors usually glance over the  "offer summary" field and sub-headings to get gist of what the app addresses and why should they consider the app in just a quick glance. So, it is important to get the user�s attention give them a reason to read on to get the specifics.
 
 See what these partners have done.
 - [Neal Analytics Inventory
- Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview)
+Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview)
 - [Plexure Retail
- Personalization](https://appsource.microsoft.com/en-us/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
+Personalization](https://appsource.microsoft.com/en-us/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
 - [AvePoint Citizen
- Services](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
+Services](https://appsource.microsoft.com/en-us/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
 The final act of sales is to show a demo of the app/solution showing how the value proposition is delivered. That is exactly what a customer trial experience on AppSource is meant for. A good demo will do the following:
-- Re-summarize the value proposition of the app in short and list out the persona’s within the customer firm who would interact with the solution
+- Re-summarize the value proposition of the app in short and list out the persona�s within the customer firm who would interact with the solution
 - Tell a story and sets the context about a sample customer dealing with specific issues
 - Explain how the situation can generally devolve and impact the customer (before) VS what would happen if the solution is in use. This can be shown using PowerBI dashboards etc.
-- Summarize how the solution makes it happen – like using any specific Machine Learning algorithms etc.
+- Summarize how the solution makes it happen by using any specific Machine Learning algorithms etc.
 
 The content being added in AppSource should be of high quality and stitched up enough to enable the following:
-- A partner’s technical sales folks should be using it for their sales orchestration. Your sales teams using it is a good sign that you can expect MS sales folks also being able to do the same. This will enable customer point of contact to be able to consistently relay the same story to their team mates and higher ups to get budget and approvals before a purchase deal can be done.
+- A partner's technical sales folks should be using it for their sales orchestration. Your sales teams using it is a good sign that you can expect MS sales folks also being able to do the same. This will enable customer point of contact to be able to consistently relay the same story to their team mates and higher ups to get budget and approvals before a purchase deal can be done.
 - A customer visiting the site organically can go through the content all by themselves and feel excited to respond back to partner communication to move ahead with next steps.
 
-That’s why partners should think of the content they put on AppSource as an end to end sales orchestration. Based on the story line and features to be shown in trial experience, type of offer can be decided.
+That's why partners should think of the content they put on AppSource as an end to end sales orchestration. Based on the story line and features to be shown in trial experience, type of offer can be decided.
 
 ## Publish your app on the Publishing Portal
-See [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app)­ for detailed instructions on how to actually publish your Cortana Intelligence app on AppSource. All the folks who are approved to access (step \# 6) can access the documentation.
+Once we have evaluated the above steps for your application, you will get access to the publishing portal and see [How to publish a Cortana Intelligence offer via Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app)� for detailed instructions on next steps.
 
 If you need information about any of the fields, email <appsourcecissupport@microsoft.com>.
-## My app is published on AppSource – now what?
+## My app is published on AppSource - now what?
 Firstly, Congratulations on getting your app published.
 The level of returns you get from publishing your app on AppSource heavily depends on how you influence the target audience. See [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) for more details of how you can maximize the returns.
 
