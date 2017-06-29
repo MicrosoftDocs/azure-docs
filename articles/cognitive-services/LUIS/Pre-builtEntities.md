@@ -290,8 +290,8 @@ When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `t
     {
       "entity": "8am on may 2nd 2017",
       "type": "builtin.datetimeV2.datetime",
-      "startIndex": 13,
-      "endIndex": 31,
+      "startIndex": 15,
+      "endIndex": 30,
       "resolution": {
         "values": [
           {
@@ -322,8 +322,8 @@ Fields containing `X` in the `timex` field represent parts of the date that are 
     {
       "entity": "may 2nd",
       "type": "builtin.datetimeV2.date",
-      "startIndex": 13,
-      "endIndex": 19,
+      "startIndex": 0,
+      "endIndex": 6,
       "resolution": {
         "values": [
           {
