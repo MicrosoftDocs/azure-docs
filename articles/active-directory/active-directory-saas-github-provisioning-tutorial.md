@@ -73,7 +73,7 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 ![Authorization Dialog](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7) In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again(You can constitute **Tenant URL** by rule: "https://api.github.com/scim/v2/organizations/<your group name>/ " ).
+7) In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again(You can constitute **Tenant URL** by rule: "https://api.github.com/scim/v2/organizations/ + <group_name>" ).
 
 8) Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 
