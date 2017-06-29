@@ -35,7 +35,7 @@ A Reference Data Set is a collection of items that will be augumented with the e
     ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-referencedataset2.png)
 
 5.	Specify the name of the reference data set.
-6.	Specify the key name and its type. This name and type will be used to pick the correct property from the event in your event source. For instance, if your provide key name as “DeviceId” and type as “String”, then the ingress engine will look for a property with the name “DeviceId” of type “String” in the incoming event from your event source. You can provide more than one key to join with the event.
+6.	Specify the key name and its type. This name and type will be used to pick the correct property from the event in your event source. For instance, if your provide key name as “DeviceId” and type as “String”, then the ingress engine looks for a property with the name “DeviceId” of type “String” in the incoming event from your event source. You can provide more than one key to join with the event.
 
      ![Create the Time Series Insights reference data set - details](media/add-reference-data-set/getstarted-create-referencedataset3.png)
 
