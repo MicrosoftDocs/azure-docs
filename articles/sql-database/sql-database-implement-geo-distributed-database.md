@@ -31,9 +31,12 @@ In this tutorial, you configure an Azure SQL database and application for failov
 > * Create and compile a Java application to query an Azure SQL database
 > * Perform a disaster recovery drill
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this tutorial, make sure the following prerequisites are completed:
 
 - The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs). 
 - An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:

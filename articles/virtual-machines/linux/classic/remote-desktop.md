@@ -20,7 +20,7 @@ ms.author: mingzhan
 ---
 # Using Remote Desktop to connect to a Microsoft Azure Linux VM
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For the updated Resource Manager version of this article, see [here](../use-remote-desktop.md).
 
 ## Overview
 RDP (Remote Desktop Protocol) is a proprietary protocol used for Windows. How can we use RDP to connect to a Linux VM (virtual machine) remotely?
@@ -107,5 +107,5 @@ In a Windows machine, start the Remote Desktop client and input your Linux VM DN
 
 Log in with the user name and password of your Linux VM.
 
-## Next
+## Next steps
 For more information about using xrdp, see [http://www.xrdp.org/](http://www.xrdp.org/).

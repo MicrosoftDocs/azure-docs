@@ -9,8 +9,8 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
-ms.topic: article
-ms.date: 06/19/2017
+ms.topic: hero-article
+ms.date: 06/23/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
