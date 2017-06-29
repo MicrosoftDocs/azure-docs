@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 7/10/2017
 ms.author: victorh
 ms.custom: mvc
 
@@ -157,7 +157,7 @@ For information about adding different items to the marketplace , see [The Azure
 This step can take almost an hour to complete!
 
 
-1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
+1. After deploying Azure Stack, connect to the Azure Stack host desktop.
 
 2. If you haven't downloaded the Windows Server 2016 image already, go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps.
 
@@ -227,7 +227,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to subscribe to an offer.
 
-   a. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
+   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -243,7 +243,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   a. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
+   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.  
 
    b. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 
