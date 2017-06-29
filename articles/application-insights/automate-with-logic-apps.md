@@ -103,6 +103,10 @@ requests
 
 ![Logic App creation screen](./media/automate-with-logic-apps/step7.png)
 
+When your Logic App runs the recipients you specified in the email list will receive an email that looks like the following:
+
+![Logic App email](./media/automate-with-logic-apps/flow9.png)
+
 ## Next steps
 
 - Learn more about creating [Analytics queries](app-insights-analytics-using.md).
