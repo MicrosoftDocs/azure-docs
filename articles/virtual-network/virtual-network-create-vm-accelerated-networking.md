@@ -311,32 +311,35 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
 Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
-####Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
+#### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
 
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
 2.	Install LIS 4.2.1:
-```bash
-wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-tar -xvf lis-rpms-4.2.1-1.tar.gz
-cd LISISO && sudo ./install.sh
-```
+
+    ```bash
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    cd LISISO && sudo ./install.sh
+    ```
 
 3.	Download config files
-```bash
-cd /etc/udev/rules.d/  
-sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
-cd /usr/sbin/
-sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
-sudo chmod +x hv_vf_name
-cd /etc/sysconfig/network-scripts/
-sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
-```
+
+    ```bash
+    cd /etc/udev/rules.d/  
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
+    cd /usr/sbin/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
+    sudo chmod +x hv_vf_name
+    cd /etc/sysconfig/network-scripts/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
+    ```
 
 4.	Deprovision this VM
-```bash
-sudo waagent -deprovision+user 
-```
+
+    ```bash
+    sudo waagent -deprovision+user 
+    ```
 
 5.	From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
  
