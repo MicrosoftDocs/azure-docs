@@ -103,7 +103,7 @@ requests
 
 You can either wait for the trigger to run this action, or you can run the flow immediately by [running the trigger on demand](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 
-When the flow runs the recipients you have specified in the email list receive an email that looks like the following:
+When the flow runs, the recipients you have specified in the email list receive an email that looks like the following:
 
 ![Sample email](./media/app-insights-automate-with-flow/flow9.png)
 

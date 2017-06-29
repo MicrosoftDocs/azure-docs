@@ -19,7 +19,7 @@ ms.author: cfreeman
 Do you find yourself repeatedly running the same queries on your telemetry data to check that
 your service is functioning properly? Looking to automate these queries for finding trends and
 anomalies and build your own workflows around them? Well, Application Insights Connector (preview) for Azure Logic Apps is just what you need!
-With this integration, numerous processes can now be automated without writing a single line of code. You can create your Logic App with the Application Insights connector to quickly automate any Application Insights process. You can add additional actions as well. Logic Apps makes hundreds of actions available. For example, you can automatically send an email notification, or create a bug in Visual Studio Team Services as part of your Logic App. You can also use one of the many [templates](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-use-logic-app-templates) available for Logic Apps. These templates speed up the process of creating your Logic App. 
+With this integration, numerous processes can now be automated without writing a single line of code. You can create your Logic App with the Application Insights connector to quickly automate any Application Insights process. You can add additional actions as well. Logic Apps makes hundreds of actions available. For example, you can automatically send an email notification, or create a bug in Visual Studio Team Services as part of your Logic App. You can also use one of the many [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) available for Logic Apps. These templates speed up the process of creating your Logic App. 
 
 ## Tutorial for creating an Azure Logic App for Application Insights
 
@@ -50,7 +50,7 @@ In this tutorial, you learn how to create an Azure Logic App that uses the Analy
 
 **Prerequisite**
 
-You need an Application ID and an API Key for your resource to complete this step. You can retrieve them from the Azure Portal as demonstrated in the following diagram:
+You need an Application ID and an API Key for your resource to complete this step. You can retrieve them from the Azure portal as demonstrated in the following diagram:
 
 ![Application ID in the Azure portal](./media/automate-with-logic-apps/appid.png) 
 
