@@ -26,7 +26,7 @@ As a cloud operator, you can create a test virtual machine to validate your Azur
 > 
 
 ## Create a virtual machine
-1. On the Azure Stack Development Kit host, sign in to `https://adminportal.local.azurestack.external` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
+1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
 
 2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
