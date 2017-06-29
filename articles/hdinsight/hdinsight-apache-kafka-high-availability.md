@@ -46,7 +46,7 @@ If you must use a region that contains only two fault domains, use a replication
 
 For an example of creating topics and setting the replication factor, see the [Start with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) document.
 
-## How to Rebalance partition replicas
+## How to rebalance partition replicas
 
 Use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) to rebalance selected topics. This tool must be ran from an SSH session to the head node of your Kafka cluster.
 
