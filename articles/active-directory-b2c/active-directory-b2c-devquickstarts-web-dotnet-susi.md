@@ -110,7 +110,7 @@ After you add the identity providers to your B2C directory, edit each of your th
 
 You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
 
-## Sample code walk through
+## Sample code walkthrough
 The following sections show you how the sample application code is configured. You may use this as a guide in your future app development.
 
 ### Add authentication support

@@ -54,7 +54,7 @@ If your web application calls a web API secured by Azure AD B2C, perform these s
 > An **Application Secret** is an important security credential, and should be secured appropriately.
 > 
 
-[Jump to **Next steps**](#next-steps)
+[Jump to **next steps**](#next-steps)
 
 ## Register a web API
 
@@ -62,13 +62,13 @@ If your web application calls a web API secured by Azure AD B2C, perform these s
 
 Click **Published scopes** to add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.
 
-[Jump to **Next steps**](#next-steps)
+[Jump to **next steps**](#next-steps)
 
 ## Register a mobile or native application
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
-[Jump to **Next steps**](#next-steps)
+[Jump to **next steps**](#next-steps)
 
 ## Limitations
 
