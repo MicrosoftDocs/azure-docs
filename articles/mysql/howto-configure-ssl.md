@@ -100,10 +100,10 @@ Installing OpenSSL on a Windows PC can be done in the following ways:
 2. Through downloading a Win32/64 application provided by the community. While the OpenSSL Software Foundation does not provide or endorse any specific Windows installers, they provide a list of available installers [here](https://wiki.openssl.org/index.php/Binaries)
 
 ### Convert your .cer certificate to a local .pem
-The downloaded Root CA file has the **.cer** format. Use OpenSSL to convert the cert file to a **.pem**.  To do so, execute the openssl.exe command-line tool and execute the following command:
+The downloaded Root CA file has the **.crt** format. Use OpenSSL to convert the cert file to a **.pem**.  To do so, execute the openssl.exe command-line tool and execute the following command:
 
 ```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -out MyServerCACert.pem
+OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.crt -out MyServerCACert.pem
 ```
 Now that you have successfully created your certificate file (MyServerCACert.pem), you can now connect to your database server securely over SSL.
 
