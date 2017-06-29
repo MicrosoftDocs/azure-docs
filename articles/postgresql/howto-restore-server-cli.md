@@ -1,6 +1,6 @@
 ---
-title: 'How To Restore a Server in Azure Database for PostgreSQL | Microsoft Docs'
-description: This article describes how to backup and restore a server in Azure Database for PostgreSQL using the Azure CLI command line.
+title: 'How to back up and restore a server in Azure Database for PostgreSQL | Microsoft Docs'
+description: Learn how to back up and restore a server in Azure Database for PostgreSQL by using the Azure CLI command-line tool.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -12,29 +12,37 @@ ms.topic: article
 ms.date: 06/13/2017
 ---
 
-# How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure CLI
+# How to back up and restore a server in Azure Database for PostgreSQL by using the Azure CLI command-line tool
+
+Use the Azure Database for PostgreSQL managed database service to restore a server database to an earlier date that spans from seven to 35 days.
 
 ## Prerequisites
-To step through this how-to guide, you need:
+To complete this how-to guide, you need:
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+ 
 
-## Backup happens automatically
-When using Azure Database for PostgreSQL, the database service automatically makes a backup of the service every 5 minutes. 
+> [!IMPORTANT]
+> If you install and use the Azure CLI locally, this how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md)
+## Back up happens automatically
+When you use the Azure Database for PostgreSQL managed database service, the database service automatically makes a backup of the service every five minutes. 
 
-Using this automatic backup feature you may restore the server and all its databases into a new server at an earlier point-in-time.
+For Basic Tier, the backup files are available for seven days. For Standard Tier, the backup files are available for 35 days. For more information, see [Azure Database for PostgreSQL pricing tiers](concepts-service-tiers.md).
 
-## Restore a database to a previous point in time using the Azure CLI
-Azure Database for PostgreSQL allows you to restore the server to a previous point in time. The restored data is copied into a new server, and the existing server is left as is. For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon. Then retrieve the missing table and data from the restored copy of the server. 
+With this automatic back up feature, you can restore the entire server configuration to an earlier date, or point-in-time.
 
-Use the [az postgres server restore](/cli/azure/postgres/server#restore) Azure CLI command to do the restore.
+## Restore a database to an earlier date by using the Azure CLI tool
+Use Azure Database for PostgreSQL to restore the server to a previous point-in-time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
+
+To restore the server database, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server#restore) command.
 
 ### Run the restore command
+
+To restore the server database, at the Azure CLI command prompt, enter the following command:
+
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -42,14 +50,18 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 The `az postgres server restore` command requires the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  The resource group in which the source server exists.  |
+| resource-group |  myResourceGroup |  The resource group where the source server exists.  |
 | name | mypgserver-restored | The name of the new server that is created by the restore command. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's backup retention period. Use ISO8601 date and time format. For example, you may use your own local timezone, such as `2017-04-13T05:59:00-08:00`, or use UTC Zulu format `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Select a point-in-time to restore to. This date and time must be within the source server's back up retention period. Use the ISO8601 date and time format. For example, you can use your own local time zone, such as `2017-04-13T05:59:00-08:00`. You can also use the UTC Zulu format, for example, `2017-04-13T13:59:00Z`. |
 | source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
-Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server. The command is synchronous, and will return after waiting for the server to be restored. 
+When you restore a server to an earlier point-in-time, a new server is set up with all the original databases from the source server. The data from the original database is copied to the restored databases on the new server. 
 
-Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
+The location and pricing tier values for the restored server remain the same. 
+
+The `az postgres server restore` command is synchronous. After the server is restored, you can use it again to repeat the process for a different point-in-time. 
+
+After the restore process is complete, locate the new server and verify that the data is restored as expected.
 
 ## Next steps
-[Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
+*   [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
