@@ -19,10 +19,9 @@ ms.author: tonguyen
 
 ---
 # Breakdown of your Microsoft Azure detailed usage charges 
-This reference article will breakdown the different components of your
+This reference article breaks down the different components of your
 detailed usage charges for Microsoft Azure. The detailed usage charges
-CSV file breaks down the usage charges to daily and meter level line
-items for the current billing period. 
+CSV file contains daily and meter level usage charges for the current billing period. 
 
 To get your detailed usage file,
 see [How to get your Azure billing invoice and daily usage
@@ -45,7 +44,7 @@ the terms and descriptions shown in this section.
 
 | Term | Description |
 | --- | --- |
-|Billing Period |The billing period when the meters was used |
+|Billing Period |The billing period when the meters were used |
 |Meter Category |Identifies the top-level service for the usage |
 |Meter Sub-Category |Defines the type of Azure service that can affect the rate |
 |Meter Name |Identifies the unit of measure for the meter being consumed |
@@ -91,8 +90,8 @@ shown in this section.
 If there is a charge on your detailed usage file that you would like
 more details on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
 
-## What about external service charges?
-External services (also known as Marketplace orders) are transactions that use the same payment method from your subscription but are billed separately since they are provided by independent service vendors. They will not show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
+## <a name="external"></a>What about external service charges?
+External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?) to
