@@ -1,3 +1,5 @@
+2017-07-07
+
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Web Search, Image Search, Video Search, News Search, and Entity Search APIs, Bing Spell Check and Bing Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
 ## 1. BING SPELL CHECK API and BING AUTOSUGGEST API.
