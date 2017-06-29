@@ -203,6 +203,8 @@
       href: cli-ps-findimage.md
     - name: Create custom VM images
       href: create-upload-generic.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Upload custom VM images
       href: upload-vhd.md
     - name: Capture an existing VM into an image
