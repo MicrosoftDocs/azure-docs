@@ -273,7 +273,7 @@ When LUIS recognizes a **builtin.datetimeV2** entity, it uses the `value` and `t
 {
   "query": "set a reminder 8am May 2nd 2017",
   "topScoringIntent": {
-    "intent": "SetAlarm",
+    "intent": "SetReminder",
     "score": 0.49119997
   },
   "intents": [
