@@ -134,6 +134,8 @@ If you restrict access to the virtual network you must allow access to the manag
 | United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 
+For information on the IP addresses to use for Azure Government, see the [Azure Governemnt Intelligence + Analytics](../azure-government/documentation-government-services-intelligenceandanalytics.md) document.
+
 __If your region is not listed in the table__, allow traffic to port __443__ on the following IP addresses:
 
 * 168.61.49.99
