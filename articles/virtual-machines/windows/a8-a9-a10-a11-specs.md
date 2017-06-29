@@ -27,13 +27,16 @@ For basic specs, storage capacities, and disk details, see [Sizes for virtual ma
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## Access to the RDMA network
-To access the Azure RDMA network for Windows MPI traffic, RDMA-capable instances must meet the following requirements: 
+A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a second network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
+  
+This interface allows the RDMA-capable instances to communicate over an InfiniBand network, operating at FDR rates for H16r and H16mr virtual machines, and QDR rates for A8 and A9 virtual machines. The RDMA capabilities exposed in these virtual machines can boost the scalability and performance Message Passing Interface (MPI) applications.
+
+Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA network: 
 
 * **Operating system**
   
   * **Virtual machines** - Windows Server 2012 R2, Windows Server 2012
-  * **Cloud services** - Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 Guest OS family
-
+  
     > [!NOTE]
     > Currently, Windows Server 2016 does not support RDMA connectivity in Azure.
     >
@@ -41,10 +44,11 @@ To access the Azure RDMA network for Windows MPI traffic, RDMA-capable instances
 * **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
 
   Supported MPI implementations use the Microsoft Network Direct interface to communicate between instances. 
-* **HpcVmDrivers VM extension** - On RDMA-capable VMs, the HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. (In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically.) If you need to add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+
+* **HpcVmDrivers VM extension** - On RDMA-capable VMs, you must add the HpcVmDrivers extension to install Windows network device drivers for RDMA connectivity. (In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically.) To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
-  For example, to install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named myVM deployed in the Resource Manager deployment model:
+ The following command installs the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named *myVM* deployed in the resource group named *myResourceGroup* in the *West US* region:
 
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
