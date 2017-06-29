@@ -12,9 +12,6 @@
 ###[Access API with REST](media-services-rest-connect-with-aad.md)
 ###[Use CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
 ###[Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
-## Connect programmatically with ACS keys
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
 
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
