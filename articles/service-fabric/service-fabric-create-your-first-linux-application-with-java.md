@@ -30,6 +30,9 @@ This quick start helps you create your first Azure Service Fabric Java applicati
 ## Prerequisites
 Before you get started, install the Service Fabric SDK, the Azure CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2.0.md) (recommended) or
+[XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
+
 ## Create the application
 A Service Fabric application contains one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later.  You can also create, build, and deploy Service Fabric Java applications using a plugin for Eclipse. See [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md). For this quick start, use Yeoman to create an application with a single service that stores and gets a counter value.
 

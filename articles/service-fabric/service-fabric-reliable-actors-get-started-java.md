@@ -196,3 +196,8 @@ $ ./install.sh
 ### Deploy with Azure CLI 2.0
 
 If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2.0.md).
+
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

@@ -30,6 +30,9 @@ Service Fabric provides SDKs for building services on Linux in both .NET Core an
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2.0.md) (recommended) or
+[XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
+
 ## Create the application
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 

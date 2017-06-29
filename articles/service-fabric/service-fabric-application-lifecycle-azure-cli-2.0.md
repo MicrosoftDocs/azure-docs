@@ -143,3 +143,8 @@ az sf application package-delete --content-path app_package_dir
 
 Here, the `content-path` should be the same name as the directory that initially was uploaded when creating the
 application
+
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

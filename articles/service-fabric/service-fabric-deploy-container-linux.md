@@ -317,3 +317,8 @@ Now that you have deployed a containerized service, learn how to manage its life
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
