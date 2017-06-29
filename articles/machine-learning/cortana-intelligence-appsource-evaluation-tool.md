@@ -57,7 +57,7 @@ Publishing in this case means any datasets that are used to push data to end use
 - Datasets queried in a WebApp.
 
 >[!NOTE]
-If a specific resource is used for both ingestion and consumption, please choose “Consumption.”
+If a specific resource is used for both ingestion and consumption, please choose **Consumption**.
 
 ### Internal
 Use internal for any data resources that are used only in internal application processing.
