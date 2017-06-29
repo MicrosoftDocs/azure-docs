@@ -1,0 +1,26 @@
+- name: Bing Entities Search Documentation
+  name: Overview
+  items:
+    - name: Search the web for entities and places
+      href: search-the-web.md
+    - name: Use and display requirements
+      href: use-display-requirements.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Get started
+    href: quick-start.md
+- name: How to
+  items:
+  - name: Resize and crop thumbnails
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  items:
+  - name: REST v7 Preview
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+- name: Resources
+  items:
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
