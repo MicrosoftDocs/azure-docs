@@ -21,8 +21,6 @@ ms.author: twooley
 
 There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as a cloud operator, and what you need to tell your users for them to become productive quickly.
 
-This guidance is scoped to the Azure Stack Development Kit.
-
 ## Understand development kit builds
 
 Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
