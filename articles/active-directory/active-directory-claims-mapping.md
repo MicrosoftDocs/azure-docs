@@ -17,7 +17,7 @@ ms.author: billmath
 # Claims mapping in Azure Active Directory (Public preview)
 
 >[!NOTE]
->This feature replaces and supersedes the claims customization offered through the portal today (as documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization)). If you customize claims using the portal in addition to the Graph/Powershell method detailed in this document on the same application, tokens issued for that application will ignore the configuration in the portal.
+>This feature replaces and supersedes the claims customization offered through the portal today (as documented [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)). If you customize claims using the portal in addition to the Graph/Powershell method detailed in this document on the same application, tokens issued for that application will ignore the configuration in the portal.
 Configurations made through the methods detailed in this document will not reflect in the portal.
 
 This feature is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. Claims mapping policies can be used to:
