@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 06/29/2017
 ms.author: Barclayn
 ms.custom: AzLog
 
@@ -103,7 +103,8 @@ You should see something like what appears in the figure below. </br>
 >[!NOTE]
 You may get an error message when attempting to create a log profile. You can review the documentation for Get-AzureRmLogProfile, Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile you will see information about the log profile. You can delete the existing log profile by typing Remove-AzureRmLogProfile -name 'Log Profile Name'
 
-    ![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
+
+![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## Creating a Key Vault
 
