@@ -15,8 +15,6 @@ ms.author: junyi
 ---
 # Azure IoT Edge BLE Data Converter Module with Java
 
-## Overview
-
 This tutorial showcases how one might build a module for Azure IoT Edge in Java.
 
 In this tutorial, we will walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge Maven packages.
@@ -27,16 +25,16 @@ In this section, you will setup your environment for IoT Edge module development
 
 The following software is required:
 
-1. [Git Client](https://https://git-scm.com/downloads).
-2. [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-3. [Maven](https://maven.apache.org/install.html).
+* [Git Client](https://https://git-scm.com/downloads).
+* [**x64** JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* [Maven](https://maven.apache.org/install.html).
 
-Open a command line terminal window and navigate to the working directory:
+Open a command line terminal window and clone the following repository:
 
 1. `git clone https://github.com/Azure-Samples/iot-edge-samples.git`.
 2. `cd iot-edge-samples/java/simulated_ble`
 
-## Overall Architecture
+## Overall architecture
 
 The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Which means that the entire Azure IoT Edge architecture is a system which processes input and produces output; and that each individual module is also a tiny input-output subsystem. In this tutorial, we will introduce the following two modules:
 
@@ -47,9 +45,9 @@ The below image displays the typical end-to-end dataflow for this project:
 
 ![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")
 
-## Understanding the Code
+## Understanding the code
 
-### Maven Project Structure
+### Maven project structure
 
 Since Azure IoT Edge packages are based on Maven, we need to create a typical Maven project structure, which contains a `pom.xml` file.
 
@@ -117,7 +115,7 @@ We need to update the pom.xml file by declaring the required dependencies/plug
 </project>
 ```
 
-### Basic Understanding of an Azure IoT Edge Module
+### Basic understanding of an Azure IoT Edge module
 
 You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.
 
@@ -164,7 +162,7 @@ public class MyEdgeModule extends GatewayModule {
 }
 ```
 
-### Converter Module
+### Converter module
 
 | Input                    | Processor                              | Output                 | Source File            |
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
@@ -196,7 +194,7 @@ public void receive(Message message) {
 }
 ```
 
-### Printer Module
+### Printer module
 
 | Input                          | Processor | Output                     | Source File          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
@@ -211,7 +209,7 @@ public void receive(Message message) {
 }
 ```
 
-### Azure IoT Edge Configuration
+### Azure IoT Edge configuration
 
 The final step before running the modules is to configure the Azure IoT Edge and to establish the connections between modules.
 
@@ -286,7 +284,7 @@ At the end of the configuration, we establish the connections. Each connection i
 ]
 ```
 
-## Running the Modules
+## Running the modules
 
 Use `mvn package` to build everything into the `target/` folder. `mvn clean package` is also recommended for a clean build.
 
