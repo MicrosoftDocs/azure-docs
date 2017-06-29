@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/10/2017
 ms.author: erikje
 
 ---
@@ -24,7 +24,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
 To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
 
 ## Download
-1. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external) as a service administrator.
+1. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
 2. Some marketplace items can be very large.  Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -41,7 +41,7 @@ To download marketplace items, you must first [register Azure Stack with Azure](
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. After the download completes, you can deploy your new marketplace item as either a service administrator or tenant user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
+6. After the download completes, you can deploy your new marketplace item as either a cloud operator or tenant user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
 7. Click **Create** to open up the creation experience for the newly downloaded item. Follow the step-by-step instructions to deploy your item.
 
 ## Next steps
