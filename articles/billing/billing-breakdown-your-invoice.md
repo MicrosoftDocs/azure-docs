@@ -64,7 +64,6 @@ height="2.057407042869641in"}
 | Account owner email | The account email address that the Microsoft Azure account is registered under. To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](billing-how-to-change-azure-account-profile.md). |
 
 ### Understand the invoice summary
-
 The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
@@ -74,37 +73,27 @@ usage charges.
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
 
-Understand the previous charges
-
+#### Understand the previous charges
 The previous balance, payments, and outstanding balance section of the
 invoice summarizes transactions since your last billing period.
 
-  **Term**                                            **Description**
-  --------------------------------------------------- ---------------------------------------------------------------------------------
-  Previous balance                                    The total amount due from your last billing period
-  Payments                                            Total payments and credits applied to your last billing period
-  Outstanding balance (from previous billing cycle)   Any credits or remaining balance in your account since your last billing period
+| Term | Description |
+| --- | --- |
+| Previous balance |The total amount due from your last billing period |
+| Payments |Total payments and credits applied to your last billing period |
+| Outstanding balance (from previous billing cycle) |Any credits or remaining balance in your account since your last billing period |
 
-Understand the current charges
-
+#### Understand the current charges
 The Current Charges section of the invoice shows details about your
 monthly charges for the current billing period.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Term**        **Description**
-  --------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Usage charges   Usage charges are the total monthly charges on a subscription for the current billing period
+| Term | Description |
+| --- | --- |
+| Usage charges |Usage charges are the total monthly charges on a subscription for the current billing period|
+| Discounts |Service discounts applied to your current billing period|
+| Adjustments |Miscellaneous credits (Free Usage, Credits, etc.) or outstanding charges applied to your current billing period. For example, if you have the Visual Studio Enterprise with MSDN offer, you see a monthly credit. If you cancel your subscription, you see any monthly usage charges that exceed the monthly credit that you get with your subscription offer. The charges are from the start of your current billing period up to the subscription cancellation date. |
 
-  Discounts       Service discounts applied to your current billing period
-
-  Adjustments     Miscellaneous credits (Free Usage, Credits, etc.) or outstanding charges applied to your current billing period.
-                  
-                  For example, if you have the Visual Studio Enterprise with MSDN offer, you see a monthly credit.
-                  
-                  If you cancel your subscription, you see any monthly usage charges that exceed the monthly credit that you get with your subscription offer. The charges are from the start of your current billing period up to the subscription cancellation date.
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Sold to and payment instructions
+#### Sold to and payment instructions
 
 The following table describes the sold to and payment instructions shown
 on the second page of your Invoice.
