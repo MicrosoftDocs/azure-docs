@@ -1,6 +1,6 @@
 ---
 title: View Azure Application Insights app data | Microsoft Docs
-description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when it is monitored with Application Insights.
+description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -21,7 +21,7 @@ ms.author: banders
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in OMS. However, when you integrate your Application Insights apps with OMS, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers and can help reduce the time to detect and resolve both application and platform issues.
+The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in OMS. However, when you integrate your Application Insights apps with OMS, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
 When you use the solution, you can:
 
@@ -49,12 +49,12 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 2. In the OMS portal, click **Settings** &gt; **Data** &gt; **Application Insights**.
-3. Under **Select a subscription** , select a subscription that has Application Insights resources and then under **Application Name** , select one or more applications.
+3. Under **Select a subscription**, select a subscription that has Application Insights resources and then under **Application Name**, select one or more applications.
 4. Click **Save**.
 
-In approximately 30 minutes, data becomes available and you'll see the Application Insights tile updated with data, like the following image.
+In approximately 30 minutes, data becomes available and the Application Insights tile is updated with data, like the following image:
 
 ![Application Insights tile](./media/log-analytics-app-insights-connector/app-insights-tile.png)
 
@@ -74,13 +74,13 @@ The following sections describe how you can use the blades shown in the Applicat
 
 ### View Application Insights Connector information
 
-Click the **Application Insights** tile to open the **Application Insights** dashboard and you'll see the following blades.
+Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following blades.
 
 ![Application Insights dashboard](./media/log-analytics-app-insights-connector/app-insights-dash01.png)
 
 ![Application Insights dashboard](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-The dashboard includes the blades in the following table. Each blade lists up to ten items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
+The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 
 | **Column** | **Description** |
 | --- | --- |
@@ -113,15 +113,19 @@ When you click anywhere in the **Exceptions** blade, you see a visualization tha
 
 ![Application Insights Exceptions blade](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **\*** query also shows the perspective tab like the following image.
+Regardless of whether you click something one the **Application Insights Connector** dashboard, within the **Search** page itself, any query returning Application Insights data shows the Application Insights perspective. For example, if you are viewing Application Insights data, a **\*** query also shows the perspective tab like the following image:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
-Perspective components are updated depending on the search query. This means that you can filter the results by using any search field that gives you the ability to see the data from all your applications, a single selected application, or a group of applications.
+Perspective components are updated depending on the search query. This means that you can filter the results by using any search field that gives you the ability to see the data from:
+
+- All your applications
+- A single selected application
+- A group of applications
 
 ## Pivot to an Application Insights app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill-down in OMS search or you can pivot directly to the Application Insights app.
+Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in OMS search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 
@@ -151,14 +155,14 @@ The solution receives the following telemetry types of data from your connected 
 - Availability
 - Exceptions
 - Requests
-- Page views – For your workspace to receive page views, you must configure your apps to collect that information. See [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views) for more information.
-- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. See [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent) for more information.
+- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
+- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
 Data is received by OMS from Application Insights as it becomes available.
 
 ## Output data
 
-A record with a *type* of *ApplicationInsights* is created for each type of input data. ApplicationInsights records have the properties in the following sections.
+A record with a *type* of *ApplicationInsights* is created for each type of input data. ApplicationInsights records have properties shown in the following sections:
 
 ### Generic fields
 
@@ -178,7 +182,7 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 | City | City or town where the request originated |
 | isSynthetic | Indicates whether the request was created by a user or by automated method. True = user generated or false = automated method |
 | SamplingRate | Percentage of telemetry generated by the SDK that is sent to portal. Range 0.0-100.0. |
-| SampledCount | 100/(SamplingRate). For example 4 =&gt; 25% |
+| SampledCount | 100/(SamplingRate). For example, 4 =&gt; 25% |
 | IsAuthenticated | True or false |
 | OperationID | Items that have the same operation ID are shown as Related Items in the portal. Usually the request ID |
 | ParentOperationID | ID of the parent operation |
@@ -217,7 +221,7 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 | --- | --- |
 | TelemetryType | Exception |
 | ExceptionType | Type of the exception |
-| ExceptionMethod | The method that throw the exception |
+| ExceptionMethod | The method that creates the exception |
 | ExceptionAssembly | Assembly includes the framework and version as well as the public key token |
 | ExceptionGroup | Type of the exception |
 | ExceptionHandledAt | Indicates the level that handled the exception |
@@ -251,7 +255,7 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 
 ## Sample log searches
 
-This solution does not have a set of sample log searches shown on the dashboard, however sample log search queries with descriptions are shown above in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
+This solution does not have a set of sample log searches shown on the dashboard. However, sample log search queries with descriptions are shown in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
 
 ## Next steps
 
