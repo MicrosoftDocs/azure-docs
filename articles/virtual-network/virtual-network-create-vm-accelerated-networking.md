@@ -167,7 +167,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     ![Device Manager](./media/virtual-network-create-vm-accelerated-networking/image2.png)
 
 ## Create a Linux VM
-You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create the VM.
+You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS VMs there is a different workflow.  Please see the instructions below.
 
 ### <a name="linux-portal"></a>Portal
 1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
@@ -202,7 +202,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
       >
-5. In your browser, copy the following script:
+5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow outlined below:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -283,23 +283,144 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell, then press Enter.
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
-8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
-9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
 
-    ```bash
-    wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
+####Ubuntu/SLES
+
+1. At the prompt, enter uname -r and confirm the version: 
+    a. Ubuntu is “4.4.0-77-generic,” or greater
+    b. SLES is “4.4.59-92.20-default” or greater
+2. Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
+  		  
+     ```bash
+     Wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
+     chmod +x ./configure_hv_sriov.sh
+     sudo ./configure_hv_sriov.sh
+     ```
  
-    chmod +x ./bondvf.sh
+ 3. After running the script, the VM will restart after a 60 second pause.
+ 4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
+ 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
+ 
+ **Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
-    sudo ./bondvf.sh
+####RHEL/CentOS
 
-    sudo mv ~/bondvf.sh /etc/init.d
+Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
-    sudo update-rc.d bondvf.sh defaults
-    ```
+####Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
 
-    If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
-10. Restart the VM by entering the `sudo shutdown -r now` command.
-11. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
-12.	Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. **Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+2.	Install LIS 4.2.1:
+```bash
+wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar -xvf lis-rpms-4.2.1-1.tar.gz
+cd LISISO && sudo ./install.sh
+```
+
+3.	Download config files
+```bash
+cd /etc/udev/rules.d/  
+sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
+cd /usr/sbin/
+sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
+sudo chmod +x hv_vf_name
+cd /etc/sysconfig/network-scripts/
+sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
+```
+
+4.	Deprovision this VM
+```bash
+sudo waagent -deprovision+user 
+```
+
+5.	From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
+ 
+###Phase two: Provision new VMs on Azure
+
+1.	Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase one, with AcceleratedNetworking enabled on the vNIC:
+
+```powershell
+$RgName="MyResourceGroup"
+$Location="westus2"
+
+# Create a resource group
+New-AzureRmResourceGroup `
+ -Name $RgName `
+ -Location $Location
+
+# Create a subnet
+$Subnet = New-AzureRmVirtualNetworkSubnetConfig `
+ -Name MySubnet `
+ -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network
+$Vnet=New-AzureRmVirtualNetwork `
+ -ResourceGroupName $RgName `
+ -Location $Location `
+ -Name MyVnet `
+ -AddressPrefix 10.0.0.0/16 `
+ -Subnet $Subnet
+
+# Create a public IP address
+$Pip = New-AzureRmPublicIpAddress `
+ -Name MyPublicIp `
+ -ResourceGroupName $RgName `
+ -Location $Location `
+ -AllocationMethod Static
+
+# Create a virtual network interface and associate the public IP address to it
+$Nic = New-AzureRmNetworkInterface `
+ -Name MyNic `
+ -ResourceGroupName $RgName `
+ -Location $Location `
+ -SubnetId $Vnet.Subnets[0].Id `
+ -PublicIpAddressId $Pip.Id `
+ -EnableAcceleratedNetworking
+
+# Define a credential object for the VM. PowerShell prompts you for a username and password.
+$Cred = Get-Credential
+
+# The URI of the VHD created in Phase 1:
+$OSDiskURI = "phase one step 5 uri"
+
+# Create a Red Hat virtual machine configuration, for CentOS use PublisherName “OpenLogic”, Offer “CentOS”, and Skus “7.3”
+$VmConfig = New-AzureRmVMConfig `
+ -VMName MyVM -VMSize Standard_DS4_v2 | `
+  Set-AzureRmVMOperatingSystem `
+ -Linux `
+ -ComputerName myVM `
+ -Credential $Cred | `
+Set-AzureRmVMSourceImage `
+ -PublisherName “RedHat” `
+ -Offer “RHEL” `
+ -Skus “7.3” `
+ -Version latest | `
+Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+Set-AzureRmVMOSDisk `
+  -Linux `
+  -Name "OsDisk.vhd" `
+  -VhdUri $OSDiskURI `
+  -CreateOption FromImage
+
+# Create the virtual machine.    
+New-AzureRmVM `
+ -ResourceGroupName $RgName `
+ -Location $Location `
+ -VM $VmConfig
+```
+
+2.	After VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, we should see this item in the lspci output:
+
+0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+
+3.	Run the bonding script by:
+```bash
+sudo bondvf.sh
+```
+
+4.	Reboot the new VMs:
+```bash
+sudo reboot
+```
+At this point the VM should come up with bond0 configured and the Accelerated Networking path enabled.  Run ifconfig to confirm.
