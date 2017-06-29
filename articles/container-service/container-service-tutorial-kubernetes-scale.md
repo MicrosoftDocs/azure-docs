@@ -15,34 +15,34 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2017
+ms.date: 06/26/2017
 ms.author: danlep
 ---
 
 # Scale Kubernetes pods and Kubernetes infrastructure
 
-If you have been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. In this tutorial, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of agent nodes to change the cluster's capacity for hosting workloads.
+If you have been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 
-Tasks completed in this tutorial include:
+In this tutorial, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of agent nodes to change the cluster's capacity for hosting workloads. Tasks completed include:
 
 > [!div class="checklist"]
-> * Manually scale pods running the app front end
-> * Autoscale pods running the app front end
-> * Scale the agent nodes in the cluster
+> * Manually scaling Kubernetes pods
+> * Configuring Autoscale pods running the app front end
+> * Scale the Kubernetes Azure agent nodes
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+## Before you begin
 
-## Prerequisites
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-This tutorial is one of a multi-part series. You do not need to complete the full series to work through this tutorial, however the following items are required.
+At minimum, this tutorial requires a Kubernetes cluster with a running application.
 
-**ACS Kubernetes cluster** – see, [Create a Kubernetes cluster](container-service-tutorial-kubernetes-deploy-cluster.md) for information on creating the cluster.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-**App deployed** - This tutorial assumes you’ve deployed the [Azure Voting sample app](container-service-tutorial-kubernetes-deploy-application.md) on the cluster. You can run the commands using another app of your choice.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Manually scale pods
 
-The previous tutorial deployed the Azure Vote front-end and back-end each in a single pod. To verify, run the following command:
+The previous tutorial deployed the Azure Vote front-end and back-end each in a single pod. To verify, run the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
 
 ```bash
 kubectl get pods
@@ -56,13 +56,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manually change the number of pods in the `azure-vote-front` deployment using the `kubectl scale` command. (You can separately scale the pods in the `azure-vote-back` deployment.) This example increases the number to 4:
+Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command. This example increases the number to 4:
 
 ```bash
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run `kubectl get pods` to verify that Kubernetes is creating the pods. After a minute or so, the additional pods are running:
+Run [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) to verify that Kubernetes is creating the pods. After a minute or so, the additional pods are running:
 
 ```bash
 kubectl get pods
@@ -93,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-The following example uses the `kubectl autoscale` command to autoscale the number of pods in the `azure-vote-front` deployment. Here, if CPU utilization exceeds 50%, the autoscaler increases the pods to a maximum of 10.
+The following example uses the [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) command to autoscale the number of pods in the `azure-vote-front` deployment. Here, if CPU utilization exceeds 50%, the autoscaler increases the pods to a maximum of 10.
 
 
 ```bash
@@ -109,8 +109,8 @@ kubectl get hpa
 Output:
 
 ```bash
-NAME               REFERENCE                     TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
-azure-vote-front   Deployment/azure-vote-front   0% / 50%       1         10        4          23s
+NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
 After a few minutes with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3.
@@ -119,10 +119,10 @@ After a few minutes with minimal load on the Azure Vote app, the number of pod r
 
 If you created your Kubernetes cluster using default commands in the previous tutorial, it has three agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster. Use the [az acs scale](/cli/azure/acs#scale) command, and specify the number of agents with the `--new-agent-count` parameter.
 
-The following example reduces the number of agent nodes to 2 in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
+The following example increases the number of agent nodes to 4 in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
 ```azurecli-interactive
-az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 2
+az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
 The command output shows the number of agent nodes in the value of `agentPoolProfiles:count`:
@@ -131,7 +131,7 @@ The command output shows the number of agent nodes in the value of `agentPoolPro
 {
   "agentPoolProfiles": [
     {
-      "count": 2,
+      "count": 4,
       "dnsPrefix": "myK8SCluster-myK8SCluster-e44f25-k8s-agents",
       "fqdn": "",
       "name": "agentpools",
@@ -147,13 +147,12 @@ The command output shows the number of agent nodes in the value of `agentPoolPro
 In this tutorial, you used different scaling features in your Kubernetes cluster. Tasks covered included:
 
 > [!div class="checklist"]
-> * Manually scale pods running the app front end
-> * Autoscale pods running the app front end
-> * Scale the agent nodes in the cluster
+> * Manually scaling Kubernetes pods
+> * Configuring Autoscale pods running the app front end
+> * Scale the Kubernetes Azure agent nodes
 
 Advance to the next tutorial to learn about updating application in Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Update an application in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
-
 

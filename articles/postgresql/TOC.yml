@@ -19,6 +19,8 @@
       href: connect-nodejs.md
     - name: Java
       href: connect-java.md
+    - name: PHP
+      href: connect-php.md
     - name: .NET
       href: connect-csharp.md
 - name: Tutorials

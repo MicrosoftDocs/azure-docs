@@ -23,6 +23,8 @@ In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybr
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
+For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
+
 > [!NOTE]
 > The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
@@ -51,6 +53,9 @@ This tutorial assumes that you have at least some prior experience with SQL Data
     1.  In the **Sync Group Name** field, enter a name for the new sync group.
 
     2.  In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
+
+        > [!NOTE]
+        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database, its name, or its service level without dropping it.
 
         If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 
@@ -118,8 +123,8 @@ On the **Configure On-Premises** blade, do the following things:
 
     1.  Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
  
-    > [!IMPORTANT]
-    > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
+        > [!IMPORTANT]
+        > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
 
 
     2.  Enter a name for the agent.
@@ -165,6 +170,8 @@ On the **Configure On-Premises** blade, do the following things:
 
         ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
+3.  To connect to SQL Data Sync and the local agent, add your user name to the role `DataSync_Executor`. Data Sync creates this role on the SQL Server instance.
+
 ## Step 3 - Configure sync group
 
 After the new sync group members are created and deployed, Step 3, **Configure sync group**, is highlighted in the **New sync group** blade.
@@ -175,7 +182,7 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 
     ![Select tables to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-3.  By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync.
+3.  Enable the checkbox for the columns that you want to sync. Be sure to select the primary key column, or to leave it selected.
 
     ![Select fields to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
