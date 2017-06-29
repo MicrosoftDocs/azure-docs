@@ -4,14 +4,14 @@
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
 ## [Use AAD auth to access API](media-services-use-aad-auth-to-access-ams-api.md)
-###[Use portal to manage AAD auth](media-services-portal-get-started-with-aad.md)
-###[Access API with .NET](media-services-dotnet-get-started-with-aad.md)
-###[Access API with REST](media-services-rest-connect-with-aad.md)
-###[Use CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
-###[Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
+### [Use portal to manage AAD auth](media-services-portal-get-started-with-aad.md)
+### [Access API with .NET](media-services-dotnet-get-started-with-aad.md)
+### [Access API with REST](media-services-rest-connect-with-aad.md)
+### [Use CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
+### [Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
