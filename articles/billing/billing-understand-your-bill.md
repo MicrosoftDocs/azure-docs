@@ -65,12 +65,12 @@ on, there are a couple of options:
    The usage charges section of your invoice should have the total value
    for each meter that is consumed during your billing period, as highlighted in the screenshot below:
 
-  ![Invoice usage charges](./media/billing-understand-your-bill/1.png)
+  <kbd>![Invoice usage charges](./media/billing-understand-your-bill/1.png)</kbd>
 
    The same charge is shown in the statement section of your detailed
    usage CSV.
 
-   ![CSV usage charges](./media/billing-understand-your-bill/2.png)
+   <kbd>![CSV usage charges](./media/billing-understand-your-bill/2.png)</kbd>
 
    Additionally, there is a daily usage section in the detailed usage CSV
    file. The section has line items for each day that the meter was
