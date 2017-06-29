@@ -113,7 +113,7 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
-> [TIP]
+> [!TIP]
 > For an example of creating a .NET application using Azure SQL Database, see [Build an ASP.NET app in Azure with SQL Database](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
 >
 
@@ -175,24 +175,22 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. If you prefer to enable an Audit type (or location?) different from the one specified at the server level, turn **ON** Auditing, and choose the **Blob** Auditing Type.
-
-    > If server Blob auditing is enabled, the database configured audit will exist side by side with the server Blob audit.
+3. If you prefer to enable an Audit type (or location?) different from the one specified at the server level, turn **ON** Auditing, and choose the **Blob** Auditing Type. If server Blob auditing is enabled, the database configured audit will exist side by side with the server Blob audit.
 
     ![Turn on auditing](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-5. Select **Storage Details** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved, and the retention period, after which the old logs will be deleted, then click **OK** at the bottom. 
+4. Select **Storage Details** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved, and the retention period, after which the old logs will be deleted, then click **OK** at the bottom. 
 
-> [!Tip]
+> [!TIP]
 > Use the same storage account for all audited databases to get the most out of the auditing reports templates.
 > 
 
-6. Click **Save**.
+5. Click **Save**.
 
 > [!IMPORTANT]
 > If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
-
 >
+
 ## Enable SQL Database threat detection
 
 Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database. Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.

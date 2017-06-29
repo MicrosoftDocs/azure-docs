@@ -49,7 +49,7 @@ To complete this tutorial, make sure you have:
 
 * Installed [Apache Maven](https://maven.apache.org/download.cgi). Maven will be used to help manage dependencies, build, test and run the sample Java project
 
-## Set up Data Environment
+## Set up data environment
 
 You will be provisioning a database per tenant. The database-per-tenant model provides the highest degree of isolation between tenants, with little DevOps cost. To optimize the cost of cloud resources, you will also be provisioning the tenant databases into an elastic pool which allows you to optimize the price performance for a group of databases. To learn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
@@ -502,7 +502,8 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 
 Try connecting to 'tenant1' using the Java application. You will get an error stating that the tenant does not exist.
 
-## Next Steps 
+## Next steps 
+
 In this tutorial, you learned to:
 > [!div class="checklist"]
 > * Set up a database environment to support a multi-tenant SaaS application, using the Database-per-tenant pattern
