@@ -288,13 +288,13 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash cloud shell (Preview). The Bash cloud shell pane appears at the bottom of the portal and after a few seconds, presents a **username@Azure:~$** prompt. Though you can SSH to the VM from your computer, rather than the cloud shell, the instructions in this tutorial assume you're using the cloud shell.
 3. At the top of the portal, in the box that contains the text *Search resources*, type *MyVm*. When **MyVm** appears in the search results, click it.
 4. In the **MyVm** blade that appears, click the **Connect** button in the top left corner of the blade. **Note:** If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** only after you no longer see **Creating** under the **Connect** button.
-5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell, then press Enter.
+5. Azure opens a box telling you to enter the `ssh adminuser@<ipaddress>`. Enter this command in the cloud shell (or copy it from the box that appeared in step 4 and paste it in to the cloud shell), then press Enter.
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
 
 #### Ubuntu/SLES
 
-1. At the prompt, enter uname -r and confirm the version for:
+1. At the prompt, enter `uname -r` and confirm the version for:
 
     * Ubuntu is “4.4.0-77-generic,” or greater
     * SLES is “4.4.59-92.20-default” or greater
@@ -302,7 +302,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 2. Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
   		  
      ```bash
-     Wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
+     wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
