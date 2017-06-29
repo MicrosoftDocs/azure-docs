@@ -247,6 +247,11 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
 
+    $OSDiskName = "MyOSDiskName"
+    $OSDiskSAName = "thestorageaccountname"  
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $RgName -Name $OSDiskSAName -Type "Standard_GRS" -Location $Location
+    $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName
+
     # Create a virtual machine configuration
     $VmConfig = New-AzureRmVMConfig `
       -VMName MyVM -VMSize Standard_DS4_v2 | `
@@ -259,7 +264,8 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -Offer UbuntuServer `
       -Skus 16.04-LTS `
       -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $Nic.Id 
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk -Name $OSDiskName -VhdUri $OSDiskUri -CreateOption FromImage
 
     # Create the virtual machine.    
     New-AzureRmVM `
@@ -404,7 +410,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -Skus “7.3” `
      -Version latest | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
-    Set-AzureRmVMOSDisk `
+    Set-AzureRmVMOSDisk 
       -Linux `
       -Name "OsDisk.vhd" `
       -VhdUri $OSDiskURI `
