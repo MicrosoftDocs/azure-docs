@@ -19,7 +19,7 @@ ms.author: twooley
 ---
 # Using the administrator and user portals in Azure Stack
 
-There are two portals; the administrator portal and the user portal (also referred to as the *tenant* portal). The portals are backed by separate instances of Azure Resource Manager.
+There are two portals in Azure Stack; the administrator portal and the user portal (also referred to as the *tenant* portal). The portals are backed by separate instances of Azure Resource Manager.
 
 The following table shows how to connect to the portals and to Resource Manager endpoints in an Azure Stack Development Kit environment.
 
@@ -38,7 +38,7 @@ The administrator portal enables a cloud operator to perform administrative and 
 * create plans and offers
 * create subscriptions for tenants
 
-An administrator can also create resources such as virtual machines, virtual networks, and storage accounts.
+A cloud operator can also create resources such as virtual machines, virtual networks, and storage accounts.
 
  ![The administrator portal](media/azure-stack-manage-portals/image1.png)
 
