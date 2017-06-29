@@ -247,6 +247,11 @@ sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 * [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
 <!-- Links -->
 
 [azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli

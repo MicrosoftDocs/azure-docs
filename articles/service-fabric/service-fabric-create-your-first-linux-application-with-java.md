@@ -116,6 +116,11 @@ In Service Fabric explorer you see that the application and application type no 
 * [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png

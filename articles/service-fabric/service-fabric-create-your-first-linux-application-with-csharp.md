@@ -115,6 +115,11 @@ To add another service to an application already created using `yo`, perform the
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
+## Related Articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
