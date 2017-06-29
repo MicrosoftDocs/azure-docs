@@ -67,6 +67,9 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
+    > [!WARNING]
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+
 2. Use the following information to populate the entries on the **Custom deployment** blade:
     
     ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)

@@ -20,35 +20,30 @@ ms.author: rclaus
 
 # Create an Oracle Database 12c database in an Azure virtual machine
 
-You can use Azure CLI to create and manage Azure resources at a command prompt or in scripts. In this article, we use scripts in Azure CLI to deploy an Oracle Database 12c database from an Azure Marketplace gallery image.
+This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 12c database. Once the server is deployed, an SSH connection will be created in oder to further configure the Oracle database. 
 
-Before you begin, make sure that Azure CLI is installed. For more information, see [the Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure 
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-In Azure CLI, to sign in to your Azure subscription, use the [az login](/cli/azure/#login) command. Then, follow the on-screen instructions.
-
-```azurecli
-az login
-```
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named `myResourceGroup` in the `westus` location:
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
-az group create --name myResourceGroup --location westus
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
-
-## Create a VM
+## Create virtual machine
 
 To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
 
 The following example creates a VM named `myVM`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -310,16 +305,16 @@ You can log in by using the *SYS* account, and check the *as sysdba* checkbox. U
 
 ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## Delete the VM
+## Clean up resources
 
-When you no longer need the VM, you can use the following command to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
 ## Next steps
 
-[Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
+Learn about other [Oracle solutions on Azure](oracle-considerations.md). 
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+Try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.

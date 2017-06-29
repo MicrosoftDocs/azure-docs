@@ -89,6 +89,7 @@
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [Alert API](log-analytics-api-alerts.md)
 
 # Reference
@@ -96,6 +97,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

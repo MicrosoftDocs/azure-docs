@@ -46,6 +46,7 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 | URLs to open in proxy server |
 | --- |
 | \*.microsoftonline.com |
+| \*.microsoftonline.us |
 | \*.gov.us.microsoftonline.com |
 | +Certificate Revocation Lists |
 

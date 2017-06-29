@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
+ms.date: 6/29/2017
 ms.author: msfussell
 
 ---
@@ -55,6 +55,7 @@ Run the following commands to install docker on your Linux development box (if y
 1. In a terminal, type `yo azuresfcontainer`.
 2. Name your application - for example, mycontainerap
 3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+4. If the image does not have a workload entry-point defined, then you need to explicitly specify input commands with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
@@ -117,6 +118,9 @@ In the service manifest, add a `ContainerHost` for the entry point. Then set the
 ```
 
 You can provide input commands by specifying the optional `Commands` element with a comma-delimited set of commands to run inside the container.
+
+> [!NOTE]
+> If the image does not have a workload entry-point defined, then you need to explicitly specify input commands inside `Commands` element with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
 
 ## Understand resource governance
 Resource governance is a capability of the container that restricts the resources that the container can use on the host. The `ResourceGovernancePolicy`, which is specified in the application manifest is used to declare resource limits for a service code package. Resource limits can be set for the following resources:

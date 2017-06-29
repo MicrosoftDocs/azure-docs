@@ -39,7 +39,7 @@ Azure Operational Security refers to the services, controls,and features availab
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
 1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
-2.	[Azure Security Canter](https://docs.microsoft.com/azure/security-center/security-center-intro)
+2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 3.	[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
@@ -51,7 +51,6 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 
 
 ## Microsoft Operations Management Suite
-
 
 Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
@@ -87,7 +86,6 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 -	incident management
 -	compliance
 -	security standards certifications
-
 
 ### Azure Backup
 

@@ -1,6 +1,6 @@
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [How it Works](multi-factor-authentication-how-it-works.md)
+## [How it works](multi-factor-authentication-how-it-works.md)
 ## [How to get Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Get started
@@ -48,3 +48,5 @@
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS extension errors](multi-factor-authentication-nps-errors.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -54,13 +54,13 @@ Your users might be charged for the phone calls or text messages they receive, a
 
 **Q: Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?**
 
-Billing is based on the number of users configured to use Multi-Factor Authentication, whether or not they kicked off a verification that month.
+Billing is based on the number of users configured to use Multi-Factor Authentication, regardless of whether they performed two-step verification that month.
 
 **Q: How does Multi-Factor Authentication billing work?**
 
-When you purchase Azure Multi-Factor Authentication as a standalone service (by creating a per-user or per-authentication MFA provider) your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and websites.
+When you create a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and websites.
 
-When you purchase a subscription for Azure Multi-Factor Authentication (as a per-user annual license, or as part of an Office 365, Azure AD Premium, or Enterprise Mobility + Security bundle), your organization only pays the annual license fee for each user.
+When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Office 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way. 
 
 Learn more about your options in [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
@@ -68,17 +68,17 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes.
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer only applies to the global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
 
 Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider.
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. However, you can delete the MFA provider and create a new one with a different billing model.
+If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. However, you can delete the MFA provider and then create one with a different billing model.
 
-When an MFA provider is created, it can be linked to an Azure Active Directory (aka “Azure AD tenant”). If the current MFA Provider is linked to an Azure AD tenant, you can safely delete the MFA provider and create a new MFA Provider that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+When an MFA provider is created, it can be linked to an Azure Active Directory (aka “Azure AD tenant”). If the current MFA Provider is linked to an Azure AD tenant, you can safely delete the MFA provider and create one that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
 
-If, however, your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options will not be transferred to the new MFA provider. Also, existing Azure MFA Servers will need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
+If your MFA provider is *not* linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
 
 Learn more about MFA providers in [Getting started with an Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).
 
@@ -88,7 +88,7 @@ In some instances, yes.
 
 If your directory has a *per-user* Azure Multi-Factor Authentication provider, you can add MFA licenses. Users with licenses aren't be counted in the per-user consumption-based billing. Users without licenses can still be enabled for MFA through the MFA provider. If you purchase and assign licenses for all your users configured to use Multi-Factor Authentication, you can delete the Azure Multi-Factor Authentication provider. You can always create another per-user MFA provider if you have more users than licenses in the future.
 
-If your directory has a *per-authentication* Azure Multi-Factor Authentication provider, you will always be billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not.
+If your directory has a *per-authentication* Azure Multi-Factor Authentication provider, you are always billed for each authentication, as long as the MFA provider is linked to your subscription. You can assign MFA licenses to users, but you'll still be billed for every two-step verification request, whether it comes from someone with an MFA license assigned or not.
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
@@ -134,20 +134,25 @@ If you must use text messages, we recommend using one-way SMS rather than two-wa
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
-In some cases, yes. You can configure the timeout setting for two-way text messages in Azure MFA Server 7.0 and higher.
+In some cases, yes. 
 
-Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key.
+For one-way SMS with Azure MFA Server v7.0 or higher, you can configure the timeout setting by setting a registry key. After the MFA cloud service sends the text message, the verification code (or one-time passcode) is returned to the MFA Server. The MFA Server stores the code in memory for 300 seconds by default. If the user doesn't enter the code before the 300 seconds have passed, their authentication is denied. Use these steps to change the default timeout setting:
 
 1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
 2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
 
-For one-way text messages, MFA Server stores one-time passcodes for 300 seconds, and cloud-based MFA in Azure AD stores them for 180 seconds. This setting is not configurable.
+>[!TIP] 
+>If you have multiple MFA Servers, only the one that processed the original authentication request knows the verification code that was sent to the user. When the user enters the code, the authentication request to validate it must be sent to the same server. If the code validation is sent to a different server, the authentication is denied. 
+
+For two-way SMS with Azure MFA Server, you can configure the timeout setting in the MFA Management Portal. If users don't respond to the SMS within the defined timeout period, their authentication is denied. 
+
+For one-way SMS with Azure MFA in the cloud (including the AD FS adapter or the Network Policy Server extension), you cannot configure the timeout setting. Azure AD stores the verification code for 180 seconds. 
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
 If you are using Azure Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
 
-You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key in a CSV file and import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Internet Information Server (IIS) forms-based authentication, and Remote Authentication Dial-In User Service (RADIUS) when the client system can process access challenge responses.
+You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key in a CSV file and import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Internet Information Server (IIS) forms-based authentication, and Remote Authentication Dial-In User Service (RADIUS) as long as the client system can accept the user input.
 
 You can import third-party OATH TOTP tokens with the following formats:  
 
@@ -188,9 +193,9 @@ Tell them to follow this procedure to remove their account from the mobile app, 
 
 **Q: What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?**
 
-The 0x800434D4L error occurs when you try to sign in to a non-broswer application, installed on a local computer, that doesn't work with account that require two-step verification.
+The 0x800434D4L error occurs when you try to sign in to a non-browser application, installed on a local computer, that doesn't work with accounts that require two-step verification.
 
-A workaround for this is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
+A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## Next steps
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:

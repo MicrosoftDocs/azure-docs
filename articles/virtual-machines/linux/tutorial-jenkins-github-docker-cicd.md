@@ -1,6 +1,6 @@
 ---
-title: Create a CI/CD pipeline in Azure with Jenkins | Microsoft Docs
-description: Learn how to create a Jenkins instance in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
+title: Create a development pipeline in Azure with Jenkins | Microsoft Docs
+description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
+# How to create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]

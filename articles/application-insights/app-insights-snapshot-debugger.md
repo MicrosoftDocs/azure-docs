@@ -63,12 +63,11 @@ Snapshots are collected on exceptions that are visible only to the Application I
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users only by subscription owners. 
+To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Applicaton Insights resource or its resource group or subscription.
 
-1. On the Azure navigation menu, select **More services** > **Subscriptions** > **Access Control**.
-
+1. On the Application Insights navigation menu, select **Access Control (IAM)**.
 2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user.
+3. Click **Add**, and then select a user or group.
 
     >[!IMPORTANT] 
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
@@ -173,29 +172,23 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
-### Check Application Insights Analytics for exceptions with snapshots
+### Use Application Insights search to find exceptions with snapshots
 
-When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is transmitted along with the exception telemetry to Application Insights. You can use Application Insights Analytics to search for exceptions with snapshots by using the following query:
+When a snapshot is created, the throwing exception is tagged with a snapshot ID. When the exception telemetry is reported to Application Insights, that snapshot ID is included as a custom property. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
 
-```sql
-    exceptions
-    | where isnotnull(customDimensions["ai.snapshot.id"])
-```
+1. Browse to your Application Insights resource in the Azure portal.
+2. Click **Search**.
+3. Type `ai.snapshot.id` in the Search text box and press Enter.
 
-If this query returns no results, then no snapshots were reported to Application Insights for your application in the selected time range.
+![Search for telemetry with a snapshot ID in the portal](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)
 
-If you want to search for a specific snapshot ID that you found in the Uploader logs, the query should look like this:
+If this search returns no results, then no snapshots were reported to Application Insights for your application in the selected time range.
 
-```sql
-    exceptions
-    | where customDimensions["ai.snapshot.id"] == "139e411a23934dc0b9ea08a626db16c5"
-```
-
-If this query returns no results for a snapshot that you know was uploaded, follow these steps:
+To search for a specific snapshot ID from the Uploader logs, type that ID in the Search box. If you can't find telemetry for a snapshot that you know was uploaded, follow these steps:
 
 1. Double-check that you're looking at the right Application Insights resource by verifying the instrumentation key.
 
-2. Extend the time range of the query if necessary to include the time when the snapshot was created. You can use the timestamp in the Uploader log to help.
+2. Using the timestamp from the Uploader log, adjust the Time Range filter of the search to cover that time range.
 
 If you still don't see an exception with that snapshot ID, then the exception telemetry wasn't reported to Application Insights. This situation can happen if your application crashed after it took the snapshot but before it reported the exception telemetry. In this case, check the App Service logs under `Diagnose and solve problems` to see if there were unexpected restarts or unhandled exceptions.
 

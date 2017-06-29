@@ -26,4 +26,5 @@
 ## [Azure Stream Analytics](/azure/stream-analytics/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/time-series-insights/)

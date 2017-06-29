@@ -223,9 +223,9 @@ The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure 
 
 ### Get the Batch File Conventions library for .NET
 
-The Batch File Conventions library for .NET is available on [NuGet][nuget_package]. The library extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods. 
+The Batch File Conventions library for .NET is available on [NuGet][nuget_package]. The library extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods. Also see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) for the File Conventions library.
 
-The [source code][github_file_conventions] for the File Conventions library is available on GitHub in the Microsoft Azure SDK for .NET repository.
+The [source code][github_file_conventions] for the File Conventions library is available on GitHub in the Microsoft Azure SDK for .NET repository. 
 
 ### Explore other approaches for persisting output data
 
