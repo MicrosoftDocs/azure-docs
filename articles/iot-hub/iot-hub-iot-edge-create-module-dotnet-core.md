@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge BLE Data Converter Module with C# | Microsoft Docs
+title: Creating Azure IoT Edge Module with C# | Microsoft Docs
 description: Tutorial on how to build a BLE converter module for Azure IoT Edge with C# and NuGet packages using Visual Studio Code.
 services: iot-hub
 author: jeffreyCline
@@ -14,7 +14,7 @@ ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
 ---
-# Azure IoT Edge BLE Data Converter Module with C&#x23;
+# Creating Azure IoT Edge Module with C&#x23;
 
 ## Overview
 
