@@ -4,7 +4,7 @@ description: Learn how to read and understand the usage and bill for your Azure 
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: ruchic
+manager: tonguyen
 editor: ''
 tags: billing
 
