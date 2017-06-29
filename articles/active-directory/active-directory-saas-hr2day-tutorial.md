@@ -2,10 +2,9 @@
 title: 'Tutorial: Azure Active Directory integration with HR2day by Merces | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HR2day by Merces.
 services: active-directory
-documentationcenter: ''
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: ''
 
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
@@ -13,38 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 06/24/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with HR2day by Merces
-The objective of this tutorial is to show you how to integrate HR2day by Merces with Azure Active Directory (Azure AD).  
+
+In this tutorial, you learn how to integrate HR2day by Merces with Azure Active Directory (Azure AD).
+
 Integrating HR2day by Merces with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to HR2day by Merces
-* You can enable your users to automatically get signed-on to HR2day by Merces (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+- You can control in Azure AD who has access to HR2day by Merces
+- You can enable your users to automatically get signed-on to HR2day by Merces (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
+
 To configure Azure AD integration with HR2day by Merces, you need the following items:
 
-* An Azure AD subscription
-* A HR2day by Merces single-sign on enabled subscription
+- An Azure AD subscription
+- An HR2day by Merces single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-> 
-> 
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding HR2day by Merces from the gallery
@@ -55,220 +55,205 @@ To configure the integration of HR2day by Merces into Azure AD, you need to add 
 
 **To add HR2day by Merces from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-   
-    ![Active Directory][1]
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+	![Active Directory][1]
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Applications][2]
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-4. Click **Add** at the bottom of the page.
-   
-    ![Applications][3]
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-    ![Applications][4]
+	![Applications][3]
 
-6. In the search box, type **HR2day by Merces**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_01.png)
+4. In the search box, type **HR2day by Merces**.
 
-7. In the results pane, select **HR2day by Merces**, and then click **Complete** to add the application.
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_search.png)
 
-## Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with HR2day by Merces based on a test user called "Britta Simon".
+5. In the results panel, select **HR2day by Merces**, and then click **Add** button to add the application.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in HR2day by Merces to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in HR2day by Merces needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in HR2day by Merces.
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with HR2day by Merces based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in HR2day by Merces is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in HR2day by Merces needs to be established.
+
+In HR2day by Merces, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
 To configure and test Azure AD single sign-on with HR2day by Merces, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a HR2day by Merces test user](#creating-a-hr2day-by-merces-test-user)** - to have a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of her.
+3. **[Creating an HR2day by Merces test user](#creating-an-hr2day-by-merces-test-user)** - to have a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
-The objective of this section is to outline how to enable users to authenticate to HR2day by Merces with their account in Azure AD using federation based on the SAML protocol.
+### Configuring Azure AD single sign-on
 
-Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. 
-
-![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_00.png) 
-
-Before you can configure the SAML assertion, you need to contact your HR2day support team via [servicedesk@merces.nl](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your HR2day by Merces application.
 
 **To configure Azure AD single sign-on with HR2day by Merces, perform the following steps:**
 
-1. In the Azure classic portal, on the **HR2day by Merces** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_06.png) 
+1. In the Azure portal, on the **HR2day by Merces** application integration page, click **Single sign-on**.
 
-2. To add the required attribute mappings, perform the following steps, perform the following steps: 
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_07.png) 
+	![Configure Single Sign-On][4]
 
-    a. Click **add user attribute**.
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
 
-    b. In the **Attribute Name** textbox, type **“ATTR_LOGINCLAIM”**.
+3. On the **HR2day by Merces Domain and URLs** section, perform the following steps:
 
-    c. From the **Attribute Value** list, select **Join()**. 
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    d. From the **String1** list, select **User.mail**. 
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.force.com/<instancename>`
 
-    e. In the **String2** textbox, type the **unique identifier** provided by your HR2day team. 
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://hr2day.force.com/<companyname>`
 
-    f. In the **Separator** textbox, type **@**.
-
-    g. Click **Complete**.
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) to get these values. 
+ 
 
 
-1. Click **Apply Changes**.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-2. In the menu on the top, click **Quick Start** to open the **Quick Start** dialog.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_general_08.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
-3. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-   
-    ![Configure Single Sign-On][6] 
+5. The objective of this section is to outline how to enable users to authenticate to HR2day by Merces with their account in Azure AD using federation based on the SAML protocol.
 
-4. On the **How would you like users to sign on to HR2day by Merces** page, select **Azure AD Single Sign-On**, and then click **Next**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_03.png) 
+    Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. 
 
-5. On the **Configure App Settings** dialog page, perform the following steps: 
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_04.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_00.png)
+	
+	> [!NOTE] 
+    Before you can configure the SAML assertion, you need to contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.	
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your HR2day by Merces application using the following pattern: **“https://\<tenant name\>.force.com/\<instance name\>”**.
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+	
+      | Attribute Name    |   Attribute Value |  
+    | ------------------- | -------------------- |    
+	| ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+	
+	  a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-    b. Click **Next**.
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_04.png)
 
-1. On the **Configure single sign-on at HR2day by Merces** page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) 
-   
-    a. Click **Download certificate**, and then save the file on your computer.
-   
-    b. Click **Next**.
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
 
-2. To get SSO configured for your application, contact your HR2day by Merces support team via [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) and attach the downloaded certificate file to your email. Also please do provide the SAML SSO URL, Sign Out URL and Issuer URL so that they can be configured for SSO integration.
+	b. In the **Name** textbox, type **“ATTR_LOGINCLAIM”**.
+
+	c. From the **Value** list, select **Join()**.
+
+	d. From the **String1** list, select **user.mail**.
+
+	e. From the **String2** list, type the **unique identifier** provided by your HR2day team.
+
+	f. In the **Separator** textbox, type **@**.
+	
+	g. Click **Ok**.
+
+7. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_general_400.png)
+
+8. On the **HR2day by Merces Configuration** section, click **Configure HR2day by Merces** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
+
+9. To get SSO configured for your application, contact your  [HR2day by Merces Client support team](mailTo:servicedesk@merces.nl) and attach the downloaded **Certificate(Base64)** file to your email. Also please do provide the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** so that they can be configured for SSO integration.
 
     > [!NOTE]
     > Please mention to Merces team that this integration need Entity ID to be set with this pattern **https://hr2day.force.com/INSTANCENAME**
     > 
     > 
 
-1. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-   
-    ![Azure AD Single Sign-On][10]
-2. On the **Single sign-on confirmation** page, click **Complete**.  
-   
-    ![Azure AD Single Sign-On][11]
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][20]
+![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_09.png) 
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_01.png) 
 
-3. To display the list of users, in the menu on the top, click **Users**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png) 
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_02.png) 
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png) 
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_05.png) 
-   
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
 
-6. On the **User Profile** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_06.png) 
-   
-    a. In the **First Name** textbox, type **Britta**.  
-   
-    b. In the **Last Name** textbox, type, **Simon**.
-   
-    c. In the **Display Name** textbox, type **Britta Simon**.
-   
-    d. In the **Role** list, select **User**.
-   
-    e. Click **Next**.
+    a. In the **Name** textbox, type **BrittaSimon**.
 
-7. On the **Get temporary password** dialog page, click **create**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_07.png) 
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
 
-8. On the **Get temporary password** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-hr2day-tutorial/create_aaduser_08.png) 
-   
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+	c. Select **Show Password** and write down the value of the **Password**.
 
-### Creating a HR2day by Merces test user
-The objective of this section is to create a user called Britta Simon in HR2day by Merces. Please work with HR2day by Merces support team to add the users in the HR2day account. 
+    d. Click **Create**.
+ 
+### Creating an HR2day by Merces test user
+
+The objective of this section is to create a user called Britta Simon in HR2day by Merces. Please work with [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) to add the users in the HR2day account. 
 
 > [!NOTE]
 > If you need to create an user manually, you need to 
-> contact the HR2day by Merces support team.
-> 
-> 
+> contact the [HR2day by Merces Client support team](mailto:servicedesk@merces.nl).
 
 ### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to HR2day by Merces.
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to HR2day by Merces.
 
 ![Assign User][200] 
 
 **To assign Britta Simon to HR2day by Merces, perform the following steps:**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Assign User][201] 
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
 
 2. In the applications list, select **HR2day by Merces**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_50.png) 
 
-3. In the menu on the top, click **Users**.
-   
-    ![Assign User][203] 
+	![Configure Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
-4. In the Users list, select **Britta Simon**.
+3. In the menu on the left, click **Users and groups**.
 
-5. In the toolbar on the bottom, click **Assign**.
-   
-    ![Assign User][205]
+	![Assign User][202] 
 
-### Testing Single Sign-On
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+
 When you click the HR2day by Merces tile in the Access Panel, you should get automatically signed-on to your HR2day by Merces application.
 
-## Additional Resources
+## Additional resources
+
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -277,13 +262,10 @@ When you click the HR2day by Merces tile in the Access Panel, you should get aut
 [3]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
+

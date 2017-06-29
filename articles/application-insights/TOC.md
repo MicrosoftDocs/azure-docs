@@ -88,6 +88,10 @@
 
 #### [F5 insights](app-insights-visual-studio.md)
 #### [Trends](app-insights-visual-studio-trends.md)
+#### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Usage
+#### [Overview](app-insights-usage-overview.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 #### [Retention](app-insights-usage-retention.md)
 #### [Workbooks](app-insights-usage-workbooks.md)
