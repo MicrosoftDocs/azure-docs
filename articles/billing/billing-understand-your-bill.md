@@ -108,7 +108,7 @@ on, there are a couple of options:
       To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
 
 ## <a name="external"></a>What about external service charges?
-External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
+External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="payment"></a>How do I make a payment?
 If you set up a credit card or a debit card as your payment method, the payment is made automatically. On your credit card statement, the line item would say **MSFT Azure**.
