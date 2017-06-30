@@ -7,10 +7,10 @@
 ## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
-## [Create administrative group](active-directory-ds-getting-started.md)
+## [Create administrative group](active-directory-ds-getting-started-create-group.md)
 ## [Create or select a virtual network](active-directory-ds-getting-started-vnet.md)
 ## [Enable Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Update DNS settings](active-directory-ds-getting-started-dns.md)
+## [Update DNS settings](active-directory-ds-getting-started-update-dns.md)
 ## Enable password sync
 ### [Cloud-only tenant](active-directory-ds-getting-started-password-sync.md)
 ### [Synced tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
