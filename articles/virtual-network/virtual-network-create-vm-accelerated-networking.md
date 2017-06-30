@@ -391,11 +391,18 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
+    # Specify the base image's VHD URI (from phase one step 5). 
+    # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
+    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    $OSDiskName = "MyOSDiskName.vhd"
+    $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
+
+    # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
+    $destOsDiskName = "MyOsDiskName.vhd" # Must end with ".vhd" extension
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
-    
-    # The URI of the VHD created in Phase 1:
-    $OSDiskURI = "phase one step 5 uri"
     
     # Create a Red Hat virtual machine configuration, for CentOS use PublisherName “OpenLogic”, Offer “CentOS”, and Skus “7.3”
     $VmConfig = New-AzureRmVMConfig `
@@ -412,9 +419,11 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk 
       -Linux `
-      -Name "OsDisk.vhd" `
+      -Name $OSDiskName `
+      -SourceImageUri $sourceUri `
       -VhdUri $OSDiskURI `
-      -CreateOption FromImage
+      -CreateOption FromImage '
+      -Linux
     
     # Create the virtual machine.    
     New-AzureRmVM `
