@@ -1,6 +1,6 @@
 ﻿---
-title: Integrate logs from Key Vault using Event Hubs - Azure  | Microsoft Docs
-description: Tutorial going over the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
+title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
+description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
 author: barclayn
 manager: MBaldwin
@@ -16,25 +16,25 @@ ms.custom: AzLog
 
 ---
 
-# Azure Log integration tutorial - Processing Azure Key Vault events using Event Hubs
+# Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
-Azure Log Integration (AzLog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking Key Vault activity logged to an Event Hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
+You can use Azure Log Integration (AzLog) to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and make it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
 
 >[!NOTE]
-Most of the steps involved in this tutorial involve configuring Key Vault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
+Most of the steps involved in this tutorial involve configuring key vaults, storage accounts, and event hubs. The specific Azure Log Integration steps are at the end of this document.
 
-There is information provided along the way to help you understand the reasons behind each step and when appropriate links will be included to other articles to give you more detail on certain topics.
+Information provided along the way helps you understand the reasons behind each step. When appropriate, links are included to other articles to give you more detail on certain topics.
 
-Please take note that most of these steps involve the configuration of the Event Hub and Key Vault.  
+For more information about the services that this tutorial mentions, see: 
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
-- [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure Log Integration](security-azure-log-integration-overview.md)
 
 
 ## Initial setup
 
-Before you can complete the steps in this article you will need the following:
+Before you can complete the steps in this article, you need the following:
 
 1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription you can get a [free subscription](https://azure.microsoft.com/free/)
 2. A system with access to the Internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
@@ -81,7 +81,7 @@ You should see something like what appears in the figure below. </br>
         - ``` $name = 'azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
         - ``` $storageName = $name``` (This will be used for the storage account name)
         - ```$rgname = $name ``` (This will be used for the resource group name)
-        - ``` $eventHubNameSpaceName = $name``` (This is the event hub name space name)
+        - ``` $eventHubNameSpaceName = $name``` (This is the event hub namespace name)
 6. Next you need to specify the subscription that you will be working with.
     - Type ```Select-AzureRmSubscription -SubscriptionName $subscriptionName``` and hit **Enter**
 7. Next you will create a resource group.
@@ -90,7 +90,7 @@ You should see something like what appears in the figure below. </br>
         ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 8. Next you will create a storage account that will be used to keep track of state information.
     - ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
-9. Next the event hub name space. This is required to create an Event Hub.
+9. Next the event hub namespace. This is required to create an event hub.
     - ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 10. Next you will get the rule ID that will be used with the insights provider.
     - ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
@@ -106,13 +106,13 @@ You may get an error message when attempting to create a log profile. You can re
 
 ![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
-## Creating a Key Vault
+## Creating a key vault
 
-First you will create the Azure Key Vault by typing:
+First you will create the key vault by typing:
 
 ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
-Next you will configure logging for Key Vault.
+Next you will configure logging for the key vault.
 
 ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
@@ -149,8 +149,8 @@ You will run the AzLog command for each event hub:
 
 After a minute or so of running the last few commands you should see json files being generated. You can confirm that by monitoring the directory **c:\users\AzLog\EventHubJson**
 
-## Next Steps
+## Next steps
 
 - [Azure Log Integration FAQ](security-azure-log-integration-faq.md)
-- [Get started with Azure log integration](security-azure-log-integration-get-started.md)
+- [Get started with Azure Log Integration](security-azure-log-integration-get-started.md)
 - [Integrate logs from Azure resources into your SIEM systems ](security-azure-log-integration-overview.md)
