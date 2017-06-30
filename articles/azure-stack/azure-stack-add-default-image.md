@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 07/04/2017
 ms.author: sngun
 
 ---
@@ -89,9 +89,7 @@ After the download completes, the image is added to the **Marketplace Management
    New-AzsServer2016VMImage `
      -ISOPath $ISOPath
    ```
-   To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. 
-
-   It takes about an hour to publish the image to the Azure Stack marketplace.
+   To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. It takes about an hour to publish the image to the Azure Stack marketplace.
 
 ## Parameters
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 07/4/2017
 ms.author: sngun
 
 ---
@@ -23,7 +23,8 @@ be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
 ## Add a VM image to marketplace with PowerShell
-If the virtual machine image is available locally on the Azure Stack POC computer (or on an externally connected device), use the following steps:
+
+You can use the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
