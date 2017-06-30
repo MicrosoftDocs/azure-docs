@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon35.png)
 
-14. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provide** dropdown.
+14. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon4.png)
 
