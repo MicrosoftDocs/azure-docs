@@ -84,7 +84,7 @@ shown in this section.
 |Service Info 1 |The project name that the service belongs to on your subscription |
 |Service Info 2 |Legacy field that captures optional service-specific metadata |
 
-## How do I ensure that the charges in my detailed usage file are correct?
+## How do I make sure that the charges in my detailed usage file are correct?
 If there is a charge on your detailed usage file that you would like
 more details on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
 
