@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
@@ -202,15 +202,15 @@ In this section, you create a user called Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/active-directory-saas-origami-tutorial/tutorial_origami_56.png)
 
-    a. In the **User Name** textbox, type the **email address** of BrittaSimon.
+    a. In the **User Name** textbox, enter the email of user like **brittasimon@contoso.com**.
 
     b. In the **Password** textbox, type a password.
 
     c. In the **Confirm Password** textbox, type the password again.
 
-    d. In the **First Name** textbox, type **Britta**.
+    d. In the **First Name** textbox, enter the first name of user like **Britta**.
 
-    e. In the **Last Name** textbox, type **Simon**.
+    e. In the **Last Name** textbox, enter the last name of user like **Simon**.
 
     f. Click **Save**.
    
