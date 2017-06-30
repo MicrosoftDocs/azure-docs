@@ -25,12 +25,12 @@ This article talks about steps to configure reports for Azure Backup using Recov
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.
 2. Reports for Azure SQL, DPM and Azure Backup Server are not supported at this time.
 3. You can view reports across vaults and across subscriptions, if same storage account is configured for each of the vaults. Storage account selected should be in the same region as recovery services vault.
-4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports.
+4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports. 
 
 ## Prerequisites
 1. Create an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
-3. Register the resource provider **Microsoft.insights** if not registered already, with the subscription of storage account and also with the subscription of Recovery Services vault to enable reporting data to flow to the storage account.
+3. Register the resource provider **Microsoft.insights** if not registered already, with the subscription of storage account and also with the subscription of Recovery Services vault to enable reporting data to flow to the storage account. To do the same, you must go to Azure portal > Subscription > Resource providers and check for this provider to register it. 
 
 ## Configure storage account for reports
 Use the following steps to configure the storage account for recovery services vault using Azure portal. This is a one-time configuration and once storage account is configured, you can go to Power BI directly to view content pack and leverage reports.
