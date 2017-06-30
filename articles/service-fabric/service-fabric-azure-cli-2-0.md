@@ -122,7 +122,7 @@ Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs
 
 When performing operations, you may run into the following error:
 
-> Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+> `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
 In this case, double check the specified cluster endpoint is reachable and listening. Verify also that the Service
 Fabric Explorer UI is reachable at that host and port. Use `az sf cluster select` to update the endpoint.

@@ -1,6 +1,6 @@
 ---
-title: Getting started with Service Fabric XPlat CLI
-description: Getting started with Service Fabric XPlat CLI
+title: Getting started with Azure Service Fabric XPlat CLI
+description: Getting started with Azure Service Fabric XPlat CLI
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -17,7 +17,7 @@ ms.date: 06/29/2017
 ms.author: subramar
 ---
 
-# Using the XPlat CLI to interact with a Service Fabric Cluster
+# Using the XPlat CLI to interact with a Service Fabric cluster
 
 You can interact with Service Fabric cluster from Linux machines using the XPlat CLI on Linux.
 
@@ -87,7 +87,7 @@ You can use PowerShell or CLI to interact with your Linux Service Fabric Cluster
 > [!WARNING]
 > These clusters aren’t secure, thus, you may be opening up your one-box by adding the public IP address in the cluster manifest.
 
-## Using the XPlat CLI to connect to a Service Fabric Cluster
+## Using the XPlat CLI to connect to a Service Fabric cluster
 
 The following Azure CLI commands describe how to connect to a secure cluster. The certificate details must match a
 certificate on the cluster nodes.
@@ -223,6 +223,6 @@ packages), so use password authentication instead.
 
 Set up the development environment and deploy a Service Fabric application to a Linux cluster.
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)

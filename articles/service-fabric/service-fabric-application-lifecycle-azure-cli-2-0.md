@@ -17,7 +17,7 @@ Follow this documentation to create and delete applications running in a Service
 ## Prerequisites
 
 Be sure to install the Azure CLI 2.0 and select your Service Fabric cluster. More information can be found in the
-[getting started with Azure CLI 2.0 documentation](service-fabric-azure-cli-2.0.md).
+[getting started with Azure CLI 2.0 documentation](service-fabric-azure-cli-2-0.md).
 
 You should also have a Service Fabric application package ready to be deployed. More information about how to author
 and package an application can be found in the [application model documentation](service-fabric-application-model.md).
@@ -144,7 +144,7 @@ az sf application package-delete --content-path app_package_dir
 Here, the `content-path` should be the same name as the directory that initially was uploaded when creating the
 application
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

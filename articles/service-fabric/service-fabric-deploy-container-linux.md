@@ -66,27 +66,27 @@ Once the application is built, you can deploy it to the local cluster using the 
 
 1. Connect to the local Service Fabric cluster.
 
-```bash
+    ```bash
     azure servicefabric cluster connect
-```
+    ```
 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
-```bash
+    ```bash
     ./install.sh
-```
+    ```
 
 3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
 4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 5. Use the uninstall script provided in the template to delete the application instance and unregister the application type.
 
-```bash
+    ```bash
     ./uninstall.sh
-```
+    ```
 
 ### Using Azure CLI 2.0
 
-See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2.0.md).
+See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
 For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
@@ -322,7 +322,7 @@ Now that you have deployed a containerized service, learn how to manage its life
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

@@ -151,7 +151,7 @@ The [XPlat CLI][azure-xplat-cli-github] includes commands for interacting with S
 As an alternative to the XPlat CLI, there is now a Service Fabric command module included in the Azure CLI.
 
 For more information on installing the Azure CLI 2.0 and using the Service Fabric commands, see the 
-[getting started documentation](service-fabric-azure-cli-2.0.md).
+[getting started documentation](service-fabric-azure-cli-2-0.md).
 
 ## Set up a local cluster
 If everything has installed successfully, you should be able to start a local cluster.
@@ -247,9 +247,9 @@ sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 * [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Links -->

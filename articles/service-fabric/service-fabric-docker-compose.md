@@ -131,7 +131,7 @@ previewing this effort by adding support for docker-compose.yml, which is an ins
 
 * Read up on the [Service Fabric application model](service-fabric-application-model.md).
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

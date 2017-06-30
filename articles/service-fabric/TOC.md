@@ -146,6 +146,7 @@
 ### [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Deploy or remove applications
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Upgrade an application
@@ -220,7 +221,7 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
-### [Manage a cluster using Azure CLI 2.0 COmmands](service-fabric-azure-cli-2.0.md)
+### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
@@ -264,7 +265,7 @@
 # Reference
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI 2.0 Service Fabric Commands](/cli/azure/sf)
+## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)

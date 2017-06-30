@@ -30,7 +30,7 @@ This quick start helps you create your first Azure Service Fabric Java applicati
 ## Prerequisites
 Before you get started, install the Service Fabric SDK, the Azure CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
-You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2.0.md) (recommended) or
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
 [XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
 
 ## Create the application
@@ -69,7 +69,7 @@ Once the application is built, you can deploy it to the local cluster.
 ### Using Azure CLI 2.0
 
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
-[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2.0.md) for
+[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
 detailed instructions.
 
 Parameters to these commands can be found in the generated manifests inside the application package.
@@ -116,9 +116,9 @@ In Service Fabric explorer you see that the application and application type no 
 * [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->

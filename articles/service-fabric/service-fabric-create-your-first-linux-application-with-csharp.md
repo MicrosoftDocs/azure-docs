@@ -30,7 +30,7 @@ Service Fabric provides SDKs for building services on Linux in both .NET Core an
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
-You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2.0.md) (recommended) or
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
 [XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
 
 ## Create the application
@@ -76,7 +76,7 @@ Once the application is built, you can deploy it to the local cluster.
 ### Using Azure CLI 2.0
 
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
-[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2.0.md) for
+[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
 detailed instructions.
 
 Parameters to these commands can be found in the generated manifests inside the application package.
@@ -115,9 +115,9 @@ To add another service to an application already created using `yo`, perform the
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
-## Related Articles
+## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2.0.md)
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
