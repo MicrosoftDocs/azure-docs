@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-
+ms.custom: mvc
 ---
 
 # Azure Functions Runtime Overview

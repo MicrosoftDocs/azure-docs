@@ -28,11 +28,6 @@ With SQL Database, you:
 
 This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
 
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
-> 
-> 
-
 To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Connect to Azure SQL Database
@@ -68,8 +63,9 @@ An action is an operation carried out by the workflow defined in a logic app. [L
    > 
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
-## View the swagger
-See the [swagger details](/connectors/sql/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sql/). 
 
 ## Next steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).

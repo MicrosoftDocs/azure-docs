@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
 
 ---
 # Remote monitoring preconfigured solution walkthrough
-## Introduction
+
 The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
@@ -29,14 +29,17 @@ This article walks you through some of the key elements of the remote monitoring
 * Design your own IoT solution that uses Azure services.
 
 ## Logical architecture
+
 The following diagram outlines the logical components of the preconfigured solution:
 
 ![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## Simulated devices
+
 In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
 
 ### Device-to-cloud messages
+
 Each simulated device can send the following message types to IoT Hub:
 
 | Message | Description |
@@ -47,10 +50,9 @@ Each simulated device can send the following message types to IoT Hub:
 
 > [!NOTE]
 > The solution stores the list of commands supported by the device in a Cosmos DB database and not in the device twin.
-> 
-> 
 
 ### Properties and device twins
+
 The simulated devices send the following device properties to the [twin][lnk-device-twins] in the IoT hub as *reported properties*. The device sends reported properties at startup and in response to a **Change Device State** command or method.
 
 | Property | Purpose |
@@ -73,6 +75,7 @@ The simulated devices send the following device properties to the [twin][lnk-dev
 | System.InstalledRAM |Amount of RAM installed on the device |
 
 The simulator seeds these properties in simulated devices with sample values. Each time the simulator initializes a simulated device, the device reports the pre-defined metadata to IoT Hub as reported properties. Reported properties can only be updated by the device. To change a reported property, you set a desired property in solution portal. It is the responsibility of the device to:
+
 1. Periodically retrieve desired properties from the IoT hub.
 2. Update its configuration with the desired property value.
 3. Send the new value back to the hub as a reported property.
@@ -83,6 +86,7 @@ From the solution dashboard, you can use *desired properties* to set properties 
 > The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored in the simulated device.
 
 ### Methods
+
 The simulated devices can handle the following methods ([direct methods][lnk-direct-methods]) invoked from the solution portal through the IoT hub:
 
 | Method | Description |
@@ -93,7 +97,8 @@ The simulated devices can handle the following methods ([direct methods][lnk-dir
 
 Some methods use reported properties to report on progress. For example, the **InitiateFirmwareUpdate** method simulates running the update asynchronously on the device. The method returns immediately on the device, while the asynchronous task continues to send status updates back to the solution dashboard using reported properties.
 
-### Commands 
+### Commands
+
 The simulated devices can handle the following commands (cloud-to-device messages) sent from the solution portal through the IoT hub:
 
 | Command | Description |
@@ -107,10 +112,9 @@ The simulated devices can handle the following commands (cloud-to-device message
 
 > [!NOTE]
 > For a comparison of these commands (cloud-to-device messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
-> 
-> 
 
 ## IoT Hub
+
 The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
 
 The IoT hub in the solution also:
@@ -122,6 +126,7 @@ The IoT hub in the solution also:
 - Schedules jobs to set properties for multiple devices or invoke methods on multiple devices.
 
 ## Azure Stream Analytics
+
 In the remote monitoring solution, [Azure Stream Analytics][lnk-asa] (ASA) dispatches device messages received by the IoT hub to other back-end components for processing or storage. Different ASA jobs perform specific functions based on the content of the messages.
 
 **Job 1: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at startup and in response to a **SendDeviceInfo** command. This job uses the following query definition to identify **device-info** messages:
@@ -219,15 +224,19 @@ GROUP BY
 ```
 
 ## Event Hubs
+
 The **device info** and **rules** ASA jobs output their data to Event Hubs to reliably forward on to the **Event Processor** running in the WebJob.
 
 ## Azure storage
+
 The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The portal reads the telemetry data from blob storage to populate the charts. To display alerts, the solution portal reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the solution portal.
 
 ## WebJobs
+
 In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles command responses. It uses command response messages to update the device command history (stored in the Cosmos DB database).
 
 ## Cosmos DB
+
 The solution uses a Cosmos DB database to store information about the devices connected to the solution. This information includes the history of commands sent to devices from the solution portal and of methods invoked from the solution portal.
 
 ## Solution portal
@@ -235,9 +244,11 @@ The solution uses a Cosmos DB database to store information about the devices co
 The solution portal is a web app deployed as part of the preconfigured solution. The key pages in the solution portal are the dashboard and the device list.
 
 ### Dashboard
+
 This page in the web app uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
 
 ### Device list
+
 From this page in the solution portal you can:
 
 * Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific Cosmos DB database.
@@ -247,6 +258,7 @@ From this page in the solution portal you can:
 * Enable and disable devices.
 
 ## Next steps
+
 The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
 
 * [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)

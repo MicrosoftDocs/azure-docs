@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/22/2017
 ms.author: kgremban
 
 ---
@@ -114,7 +114,7 @@ There are four aspects to consider at the outbound proxy:
 Allow access to the following endpoints for connector service access:
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 For initial registration, allow access to the following endpoints:
 

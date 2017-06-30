@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 
 ---
@@ -65,6 +65,10 @@ Returns the base64 representation of the input string.
 |:--- |:--- |:--- |:--- |
 | inputString |Yes |string |The value to return as a base64 representation. |
 
+### Return value
+
+A string containing the base64 representation.
+
 ### Examples
 
 The following example shows how to use the base64 function.
@@ -106,9 +110,13 @@ The following example shows how to use the base64 function.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string containing the base64 representation.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="base64tojson" />
 
@@ -122,6 +130,10 @@ Converts a base64 representation to a JSON object.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Yes |string |The base64 representation to convert to a JSON object. |
+
+### Return value
+
+A JSON object.
 
 ### Examples
 
@@ -164,9 +176,13 @@ The following example uses the base64ToJson function to convert a base64 value:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A JSON object.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="base64tostring" />
 
@@ -180,6 +196,10 @@ Converts a base64 representation to a string.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Yes |string |The base64 representation to convert to a string. |
+
+### Return value
+
+A string of the converted base64 value.
 
 ### Examples
 
@@ -222,9 +242,13 @@ The following example uses the base64ToString function to convert a base64 value
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string of the converted base64 value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="bool" />
 
@@ -238,6 +262,9 @@ Converts the parameter to a boolean.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or int |The value to convert to a boolean. |
+
+### Return value
+A boolean of the converted value.
 
 ### Examples
 
@@ -269,8 +296,14 @@ The following example shows how to use bool with a string or integer.
 }
 ```
 
-### Return value
-A boolean.
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 <a id="concat" />
 
@@ -285,6 +318,9 @@ Combines multiple string values and returns the concatenated string, or combines
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string or array |The first value for concatenation. |
 | additional arguments |No |string |Additional values in sequential order for concatenation. |
+
+### Return value
+A string or array of concatenated values.
 
 ### Examples
 
@@ -303,12 +339,18 @@ The following example shows how to combine two string values and return a concat
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 The following example shows how to combine two arrays.
 
@@ -345,8 +387,11 @@ The following example shows how to combine two arrays.
 }
 ```
 
-### Return value
-A string or array of concatenated values.
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 <a id="contains" />
 
@@ -361,6 +406,10 @@ Checks whether an array contains a value, an object contains a key, or a string 
 |:--- |:--- |:--- |:--- |
 | container |Yes |array, object, or string |The value that contains the value to find. |
 | itemToFind |Yes |string or int |The value to find. |
+
+### Return value
+
+**True** if the item is found; otherwise, **False**.
 
 ### Examples
 
@@ -415,9 +464,16 @@ The following example shows how to use contains with different types:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-**True** if the item is found; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 <a id="datauri" />
 
@@ -432,6 +488,10 @@ Converts a value to a data URI.
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Yes |string |The value to convert to a data URI. |
 
+### Return value
+
+A string formatted as a data URI.
+
 ### Examples
 
 The following example converts a value to a data URI, and converts a data URI to a string:
@@ -464,9 +524,12 @@ The following example converts a value to a data URI, and converts a data URI to
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string formatted as a data URI.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 <a id="datauritostring" />
 
@@ -481,6 +544,10 @@ Converts a data URI formatted value to a string.
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Yes |string |The data URI value to convert. |
 
+### Return value
+
+A string containing the converted value.
+
 ### Examples
 
 The following example converts a value to a data URI, and converts a data URI to a string:
@@ -513,9 +580,12 @@ The following example converts a value to a data URI, and converts a data URI to
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string containing the converted value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 <a id="empty" /> 
 
@@ -529,6 +599,10 @@ Determines if an array, object, or string is empty.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+
+### Return value
+
+Returns **True** if the value is empty; otherwise, **False**.
 
 ### Examples
 
@@ -571,9 +645,13 @@ The following example checks whether an array, object, and string are empty.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the value is empty; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 <a id="endswith" />
 
@@ -588,6 +666,10 @@ Determines whether a string ends with a value. The comparison is case-insensitiv
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Yes |string |The value that contains the item to find. |
 | stringToFind |Yes |string |The value to find. |
+
+### Return value
+
+**True** if the last character or characters of the string match the value; otherwise, **False**.
 
 ### Examples
 
@@ -627,9 +709,16 @@ The following example shows how to use the startsWith and endsWith functions:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-**True** if the last character or characters of the string match the value; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 <a id="first" />
 
@@ -643,6 +732,10 @@ Returns the first character of the string, or first element of the array.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The value to retrieve the first element or character. |
+
+### Return value
+
+A string of the first character, or the type (string, int, array, or object) of the first element in an array.
 
 ### Examples
 
@@ -673,9 +766,12 @@ The following example shows how to use the first function with an array and stri
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string of the first character, or the type (string, int, array, or object) of the first element in an array.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="indexof" />
 
@@ -690,6 +786,10 @@ Returns the first position of a value within a string. The comparison is case-in
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Yes |string |The value that contains the item to find. |
 | stringToFind |Yes |string |The value to find. |
+
+### Return value
+
+An integer that represents the position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
 
 ### Examples
 
@@ -725,10 +825,15 @@ The following example shows how to use the indexOf and lastIndexOf functions:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer that represents the position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
-
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 <a id="last" />
 
@@ -742,6 +847,10 @@ Returns last character of the string, or the last element of the array.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The value to retrieve the last element or character. |
+
+### Return value
+
+A string of the last character, or the type (string, int, array, or object) of the last element in an array.
 
 ### Examples
 
@@ -772,9 +881,12 @@ The following example shows how to use the last function with an array and strin
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string of the last character, or the type (string, int, array, or object) of the last element in an array.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="lastindexof" />
 
@@ -789,6 +901,10 @@ Returns the last position of a value within a string. The comparison is case-ins
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Yes |string |The value that contains the item to find. |
 | stringToFind |Yes |string |The value to find. |
+
+### Return value
+
+An integer that represents the last position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
 
 ### Examples
 
@@ -824,10 +940,15 @@ The following example shows how to use the indexOf and lastIndexOf functions:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An integer that represents the last position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
-
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 <a id="length" />
 
@@ -841,6 +962,10 @@ Returns the number of characters in a string, or elements in an array.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The array to use for getting the number of elements, or the string to use for getting the number of characters. |
+
+### Return value
+
+An int. 
 
 ### Examples
 
@@ -878,9 +1003,12 @@ The following example shows how to use length with an array and string:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An int. 
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 <a id="padleft" />
 
@@ -899,6 +1027,10 @@ Returns a right-aligned string by adding characters to the left until reaching t
 
 If the original string is longer than the number of characters to pad, no characters are added.
 
+### Return value
+
+A string with at least the number of specified characters.
+
 ### Examples
 
 The following example shows how to pad the user-provided parameter value by adding the zero character until it reaches the total number of characters. 
@@ -911,44 +1043,46 @@ The following example shows how to pad the user-provided parameter value by addi
         "testString": {
             "type": "string",
             "defaultValue": "123"
-        },
-        "totalCharacters": {
-            "type": "int",
-            "defaultValue": 10
         }
     },
     "resources": [],
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+            "value": "[padLeft(parameters('testString'),10,'0')]"
         }
     }
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string with at least the number of specified characters.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringOutput | String | 0000000123 |
 
 <a id="replace" />
 
 ## replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Returns a new string with all instances of one character in the specified string replaced by another character.
+Returns a new string with all instances of one string replaced by another string.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Yes |string |The value that has all instances of one character replaced by another character. |
-| oldCharacter |Yes |string |The character to be removed from the original string. |
-| newCharacter |Yes |string |The character to add in place of the removed character. |
+| originalString |Yes |string |The value that has all instances of one string replaced by another string. |
+| oldString |Yes |string |The string to be removed from the original string. |
+| newString |Yes |string |The string to add in place of the removed string. |
+
+### Return value
+
+A string with the replaced characters.
 
 ### Examples
 
-The following example shows how to remove all dashes from the user-provided string.
+The following example shows how to remove all dashes from the user-provided string, and how to replace part of the string with another string.
 
 ```json
 {
@@ -962,17 +1096,24 @@ The following example shows how to remove all dashes from the user-provided stri
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string with the replaced characters.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | 1231231234 |
+| secodeOutput | String | 123-123-xxxx |
 
 <a id="skip" />
 
@@ -987,6 +1128,10 @@ Returns a string with all the characters after the specified number of character
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
 | numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+
+### Return value
+
+An array or string.
 
 ### Examples
 
@@ -1032,9 +1177,12 @@ The following example skips the specified number of elements in the array, and t
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | two three |
 
 <a id="split" />
 
@@ -1049,6 +1197,10 @@ Returns an array of strings that contains the substrings of the input string tha
 |:--- |:--- |:--- |:--- |
 | inputString |Yes |string |The string to split. |
 | delimiter |Yes |string or array of strings |The delimiter to use for splitting the string. |
+
+### Return value
+
+An array of strings.
 
 ### Examples
 
@@ -1085,9 +1237,12 @@ The following example splits the input string with a comma, and with either a co
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array of strings.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | Array | ["one", "two", "three"] |
+| secondOutput | Array | ["one", "two", "three"] |
 
 <a id="startswith" />
 
@@ -1102,6 +1257,10 @@ Determines whether a string starts with a value. The comparison is case-insensit
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Yes |string |The value that contains the item to find. |
 | stringToFind |Yes |string |The value to find. |
+
+### Return value
+
+**True** if the first character or characters of the string match the value; otherwise, **False**.
 
 ### Examples
 
@@ -1141,10 +1300,16 @@ The following example shows how to use the startsWith and endsWith functions:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-**True** if the first character or characters of the string match the value; otherwise, **False**.
-
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 <a id="string" />
 
@@ -1158,6 +1323,10 @@ Converts the specified value to a string.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Yes | Any |The value to convert to string. Any type of value can be converted, including objects and arrays. |
+
+### Return value
+
+A string of the converted value.
 
 ### Examples
 
@@ -1206,9 +1375,13 @@ The following example shows how to convert different types of values to strings:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 <a id="substring" />
 
@@ -1224,6 +1397,23 @@ Returns a substring that starts at the specified character position and contains
 | stringToParse |Yes |string |The original string from which the substring is extracted. |
 | startIndex |No |int |The zero-based starting character position for the substring. |
 | length |No |int |The number of characters for the substring. Must refer to a location within the string. |
+
+### Return value
+
+The substring.
+
+### Remarks
+
+The function fails when the substring extends beyond the end of the string. The following example fails with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
 
 ### Examples
 
@@ -1249,16 +1439,12 @@ The following example extracts a substring from a parameter.
 }
 ```
 
-The following example fails with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
+The output from the preceding example with the default values is:
 
-```json
-"parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
-}
-```
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| substringOutput | String | two |
+
 
 <a id="take" />
 
@@ -1273,6 +1459,10 @@ Returns a string with the specified number of characters from the start of the s
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
 | numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+
+### Return value
+
+An array or string.
 
 ### Examples
 
@@ -1318,9 +1508,12 @@ The following example takes the specified number of elements from the array, and
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | String | on |
 
 <a id="tolower" />
 
@@ -1335,6 +1528,10 @@ Converts the specified string to lower case.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Yes |string |The value to convert to lower case. |
 
+### Return value
+
+The string converted to lower case.
+
 ### Examples
 
 The following example converts a parameter value to lower case and to upper case.
@@ -1362,6 +1559,13 @@ The following example converts a parameter value to lower case and to upper case
 	}
 }
 ```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 <a id="toupper" />
 
@@ -1376,6 +1580,10 @@ Converts the specified string to upper case.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Yes |string |The value to convert to upper case. |
 
+### Return value
+
+The string converted to upper case.
+
 ### Examples
 
 The following example converts a parameter value to lower case and to upper case.
@@ -1404,6 +1612,13 @@ The following example converts a parameter value to lower case and to upper case
 }
 ```
 
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
+
 <a id="trim" />
 
 ## trim
@@ -1416,6 +1631,10 @@ Removes all leading and trailing white-space characters from the specified strin
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Yes |string |The value to trim. |
+
+### Return value
+
+The string without leading and trailing white-space characters.
 
 ### Examples
 
@@ -1441,6 +1660,12 @@ The following example trims the white-space characters from the parameter.
 }
 ```
 
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| return | String | one two three |
+
 <a id="uniquestring" />
 
 ## uniqueString
@@ -1462,8 +1687,6 @@ This function is helpful when you need to create a unique name for a resource. Y
 The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
 
     tcvhiyu5h2o5o
-
-### Examples
 
 The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
@@ -1496,7 +1719,29 @@ The following example shows how to create a unique name for a storage account ba
 
 ### Return value
 
-A string containing 13 characters
+A string containing 13 characters.
+
+### Examples
+
+The following example returns results from uniquestring:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "uniqueRG": {
+            "value": "[uniqueString(resourceGroup().id)]",
+            "type" : "string"
+        },
+        "uniqueDeploy": {
+            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "type" : "string"
+        }
+    }
+}
+```
 
 <a id="uri" />
 
@@ -1513,6 +1758,10 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
 The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing `http://contoso.com/resources/azuredeploy.json` as the baseUri parameter results in a base URI of `http://contoso.com/resources/`.
+
+### Return value
+
+A string representing the absolute URI for the base and relative values.
 
 ### Examples
 
@@ -1551,9 +1800,13 @@ The following example shows how to use uri, uriComponent, and uriComponentToStri
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string representing the absolute URI for the base and relative values.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 <a id="uricomponent" />
 
@@ -1568,6 +1821,10 @@ Encodes a URI.
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Yes |string |The value to encode. |
 
+### Return value
+
+A string of the URI encoded value.
+
 ### Examples
 
 The following example shows how to use uri, uriComponent, and uriComponentToString:
@@ -1599,9 +1856,14 @@ The following example shows how to use uri, uriComponent, and uriComponentToStri
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A string of the URI encoded value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 <a id="uricomponenttostring" />
 
@@ -1616,6 +1878,10 @@ Returns a string of a URI encoded value.
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Yes |string |The URI encoded value to convert to a string. |
 
+### Return value
+
+A decoded string of URI encoded value.
+
 ### Examples
 
 The following example shows how to use uri, uriComponent, and uriComponentToString:
@@ -1647,9 +1913,14 @@ The following example shows how to use uri, uriComponent, and uriComponentToStri
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-A decoded string of URI encoded value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

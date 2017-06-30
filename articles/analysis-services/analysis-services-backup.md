@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 
 ---
@@ -27,7 +27,7 @@ Backing up tabular model databases in Azure Analysis Services is much the same a
 > 
 > 
 
-Backups are saved with a .abf extension. For in-memory tabular models, both model data and metadata are stored. For Direct Query tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
+Backups are saved with an abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
 
 
 
@@ -50,7 +50,7 @@ Before backing up, you need to configure storage settings for your server.
 
     ![Select container](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Save your backup settings. You must save your changes whenever you change storage settings, or enable or disable backup.
+5. Save your backup settings.
 
     ![Save backup settings](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -62,7 +62,7 @@ Before backing up, you need to configure storage settings for your server.
 
 2. In **Backup Database** > **Backup file**, click **Browse**.
 
-3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given a .abf extension. 
+3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. 
 
 4. In the **Backup Database** dialog, select options.
 
@@ -84,7 +84,7 @@ When restoring, your backup file must be in the storage account you've configure
 
 
 > [!NOTE]
-> If you're restoring a tabular model database from an on-premises SQL Server Analysis Services server, you must first remove all of the domain users from the model's roles, and add them back to the roles as Azure Active Directory users. The roles will be the same.
+> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Azure Active Directory users.
 > 
 > 
 
@@ -109,5 +109,5 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powers
 ## Related information
 
 [Azure storage accounts](../storage/storage-create-storage-account.md)  
-[High availablility](analysis-services-bcdr.md)     
+[High availability](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)

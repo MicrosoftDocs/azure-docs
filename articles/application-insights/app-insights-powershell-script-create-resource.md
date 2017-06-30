@@ -3,8 +3,8 @@ title: PowerShell script to create an Application Insights resource | Microsoft 
 description: Automate creation of Application Insights resources.
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # PowerShell script to create an Application Insights resource

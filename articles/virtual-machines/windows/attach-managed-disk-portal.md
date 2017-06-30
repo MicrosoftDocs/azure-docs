@@ -54,5 +54,28 @@ You can also [attach a data disk using Powershell](attach-disk-ps.md).
 9. You will get a warning that formatting the disks will erase all of the data, click **OK**.
 10. When the format is complete, click **OK**.
 
+## Use TRIM with standard storage
+
+If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
+
+You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+If the command returns 0, TRIM is enabled correctly. If it returns 1, run the following command to enable TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+After deleting data from your disk, you can ensure the TRIM operations flush properly by running defrag with TRIM:
+
+```
+defrag.exe <volume:> -l
+```
+
+You can also ensure the entire volume is trimmed by formatting the volume.
+
 ## Next steps
 If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -636,7 +636,7 @@ Decodes the parameter from a URL encoded string. This function supports paramete
 The following example returns `"https://portal.azure.com/"`:
 
 ```json
-"[encodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
+"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
 ## Math functions

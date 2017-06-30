@@ -41,7 +41,7 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This problem could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
-* **AllowedSyncCycleInterval**. The most frequently interval Azure AD allows synchronizations to occur. You cannot synchronize more frequently than this setting and still be supported.
+* **AllowedSyncCycleInterval**. The shortest time interval between synchronization cycles allowed by Azure AD. You cannot synchronize more frequently than this setting and still be supported.
 * **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this change takes effect after next synchronization cycle. From build 1.1.281 the change takes effect immediately.
 * **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, then you configure this setting. In the picture above, the scheduler has been set to run every hour instead. If you set this setting to a value lower than AllowedSyncInterval, then the latter is used.
 * **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync. The latter would also reprocess any new or changed rules.

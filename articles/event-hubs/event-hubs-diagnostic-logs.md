@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm;babanisa
 
 ---
@@ -22,10 +22,10 @@ ms.author: sethm;babanisa
 
 You can view two types of logs for Azure Event Hubs:
 * **[Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. These logs have information about operations performed on a job. The logs are always enabled.
-* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs, for a richer view into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view into everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
-Diagnostics logs are **off** by default. To enable diagnostic logs:
+Diagnostics logs are disabled by default. To enable diagnostic logs:
 
 1.	In the Azure portal, go to the streaming job blade.
 
@@ -33,11 +33,11 @@ Diagnostics logs are **off** by default. To enable diagnostic logs:
 
 	![Blade navigation to diagnostic logs](./media/event-hubs-diagnostic-logs/image1.png)  
 
-3.	Select **Turn on diagnostics**.
+3.	Click **Turn on diagnostics**.
 
 	![Turn on diagnostic logs](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.	For **Status**, select **On**.
+4.	For **Status**, click **On**.
 
 	![Change the status of diagnostic logs](./media/event-hubs-diagnostic-logs/image3.png)
 
@@ -55,7 +55,7 @@ For more information about configuring diagnostics, see the [overview of Azure d
 Event Hubs captures diagnostic logs for two categories:
 
 * **ArchivalLogs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
-* **OperationalLogs** information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
+* **OperationalLogs**: information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
 
 ## Diagnostic logs schema
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following examples.

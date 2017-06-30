@@ -119,8 +119,9 @@ This topic shows you how to use the Oracle Database connector in a logic app.
 * Any table with composite keys
 * Nested object types in tables
  
-## View the swagger
-See the [swagger details](/connectors/oracle/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/oracle/). 
 
 ## Get some help
 

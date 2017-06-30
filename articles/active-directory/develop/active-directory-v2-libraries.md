@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 authentication libraries | Microsoft Docs
 description: Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2017
-ms.author: skwan;bryanla
+ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 authentication libraries

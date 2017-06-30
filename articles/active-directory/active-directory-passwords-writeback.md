@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Password writeback overview
@@ -69,11 +71,23 @@ When a federated or password hash synchronized user comes to reset or change the
 
     We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
-## Scenarios supported for password writeback
+## Configuring password writeback
 
 We recommend that you use the auto-update feature of [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
 
-Additional information about [DirSync and Azure AD Sync support lifecycle](connect/active-directory-aadconnect-dirsync-deprecated.md)
+DirSync and Azure AD Sync are no longer supported means of enabling password writeback the article [Upgrade from DirSync and Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) has more information to help with your transition.
+
+The steps below assume you have already configured Azure AD Connect in your environment using the [Express](./connect/active-directory-aadconnect-get-started-express.md) or [Custom](./connect/active-directory-aadconnect-get-started-custom.md) settings.
+
+1. To configure and enable password writeback log in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
+2. On the Welcome screen click **Configure**.
+3. On the Additional tasks screen click **Customize synchronization options** and then choose **Next**.
+4. On the Connect to Azure AD screen enter a Global Administrator credential and choose **Next**.
+5. On the Connect your directories and Domain and OU filtering screens you can choose **Next**.
+6. On the Optional features screen check the box next to **Password writeback** and click **Next**.
+   ![Enable password writeback in Azure AD Connect][Writeback]
+7. On the Ready to configure screen click **Configure** and wait for the process to complete.
+8. When you see Configuration complete you can click **Exit**
 
 ## Licensing requirements for password writeback
 
@@ -178,3 +192,4 @@ The following links provide additional information regarding password reset usin
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
 
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"

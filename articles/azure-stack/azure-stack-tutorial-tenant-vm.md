@@ -12,9 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 5/10/2017
 ms.author: victorh
+ms.custom: mvc
 
 ---
 # Make virtual machines available to your Azure Stack users

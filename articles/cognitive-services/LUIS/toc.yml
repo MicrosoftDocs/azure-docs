@@ -21,6 +21,8 @@
     href: luis-concept-entity-types.md
   - name: Utterances
     href: luis-concept-utterance.md
+  - name: Features
+    href: luis-concept-feature.md
   - name: Support for multiple languages
     href: luis-concept-language-support.md
 - name: How-to guides
@@ -67,8 +69,10 @@
       href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
-  - name: LUIS API
+  - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
+  - name: Endpoint API
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
   - name: SDKs
     items:
     - name: Android
@@ -81,5 +85,7 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
 - name: Resources
   items: 
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: LUIS FAQ
     href: luis-resources-faq.md

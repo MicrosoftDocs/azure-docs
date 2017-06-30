@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2016
+ms.date: 06/01/2017
 ms.author: helaw
 
 ---
 
 # Check your templates for Azure Stack with Template Validator
-You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) work with Azure Stack. The template validation tool is available as a part of the Azure Stack tools. Download the Azure Stack tools by using the steps descibed in the [download tools from GitHub](azure-stack-powershell-download.md) article. 
+You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) work with Azure Stack. The template validation tool is available as a part of the Azure Stack tools. Download the Azure Stack tools by using the steps described in the [download tools from GitHub](azure-stack-powershell-download.md) article. 
 
-To validate templates, you will use the following PowerShell modules and the JSON file located in **TemplateValidator** and **CloudCapabilities** folders: 
+To validate templates, you use the following PowerShell modules and the JSON file located in **TemplateValidator** and **CloudCapabilities** folders: 
 
  - AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in a cloud like Azure Stack.
  - AzureRM.TemplateValidator.psm1 uses a cloud capabilities JSON file to test templates for deployment in Azure Stack.
- - AzureStackCapabilities_TP2.json is a default cloud capabilities file.  You can create your own, or use this file to get started. 
+ - AzureStackCapabilities_TP3.json is a default cloud capabilities file.  You can create your own, or use this file to get started. 
 
 In this topic, you run validation against your templates, and optionally build a cloud capabilities file.
 
@@ -72,7 +72,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates`
 ```
 
 ## Build cloud capabilities file
-The downloaded files include a default AzureStackCapabilities_TP2.json file, which describes the service versions available in a default installation of Azure Stack TP2.  As you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new services.  
+The downloaded files include a default AzureStackCapabilities_TP3.json file, which describes the service versions available in a default installation of Azure Stack TP3.  As you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new services.  
 
 1.  Make sure you have connectivity to Azure Stack.  These steps can be performed from [MAS-CON01](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or you can use [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) to connect from your workstation. 
 2.  Import the AzureRM.CloudCapabilities PowerShell module:

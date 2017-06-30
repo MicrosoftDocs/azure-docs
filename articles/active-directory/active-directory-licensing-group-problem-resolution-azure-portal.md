@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/28/2017
+  ms.date: 06/05/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
@@ -30,7 +30,26 @@ When you assign licenses directly to individual users, without using group-based
 
 When you're using group-based licensing, the same errors can occur, but they happen in the background when the Azure AD service is assigning licenses. For this reason, the errors can't be communicated to you immediately. Instead, they're recorded on the user object and then reported via the administrative portal. Note that the original intent to license the user is never lost, but it's recorded in an error state for future investigation and resolution.
 
-To find users that are in an error state for each group, open the blade for each group. Under **Licenses**, there will be a notification displayed if there are any users in an error state. Select the notification to open a list of all affected users. You can view the users individually to understand the underlying problem. In this article, we'll describe each potential problem and the way to resolve it.
+## How to find license assignment errors
+
+1. To find users in an error state in a specific group, open the blade for the group. Under **Licenses**, there will be a notification displayed if there are any users in an error state.
+
+![Group, error notification](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+
+2. Click the notification to open a list of all affected users. You can click on each user individually to see more details.
+
+![Group, list of users in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+
+3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses** and then **Overview**. An info box is displayed when some groups require your attention.
+
+![Overview, information about groups in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+
+4. Click on the box to see a list of all groups with errors. You can click each group for more details.
+
+![Overview, list of groups with errors](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
+
+Below is a description of each potential problem and the way to resolve it.
 
 ## Not enough licenses
 

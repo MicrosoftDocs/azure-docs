@@ -3,7 +3,7 @@ title: Managing statistics on tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: shigu;barbkess
 
 ---
 # Managing statistics on tables in SQL Data Warehouse

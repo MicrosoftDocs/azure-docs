@@ -1,5 +1,5 @@
 ---
-title: Use DataFu with Pig on HDInsight
+title: Use DataFu with Pig on HDInsight - Azure | Microsoft Docs
 description: DataFu is a collection of libraries for use with Hadoop. Learn how you can use DataFu with Pig on your HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -29,7 +29,7 @@ Learn how to use DataFu with HDInsight. DataFu is a collection of Open Source li
 * An Azure HDInsight cluster (Linux or Windows based)
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 

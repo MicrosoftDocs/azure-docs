@@ -1,6 +1,6 @@
 ---
 
-title: Getting started with the Azure AD reporting API | Microsoft Docs
+title: Getting started with the Azure AD reporting API on the Azure AD classic portal | Microsoft Docs
 description: How to get started with the Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
 
 ---
-# Getting started with the Azure Active Directory reporting API
+# Getting started with the Azure Active Directory reporting API on the Azure AD classic portal
 *This topic is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Azure Active Directory provides you with a variety of reports. The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.

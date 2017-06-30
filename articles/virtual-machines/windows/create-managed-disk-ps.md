@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # Create managed disks from unmanaged disks in a storage account
 
-A managed disk can be created from an existing data disk or an OS disk that is currently in an Azure storage account. You can also crate an empty disk that can be used as a new data disk for a VM. 
+A managed disk can be created from an existing data disk or an OS disk that is currently in an Azure storage account. You can also create an empty disk that can be used as a new data disk for a VM. 
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.

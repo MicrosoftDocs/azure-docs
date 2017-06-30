@@ -116,16 +116,11 @@ then
 fi
 
 #set the default subscription id
-az account set --name $subscriptionId
-
-set +e
+az account set --subscription $subscriptionId
 
 #Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
+if [ $(az group exists --name $resourceGroupName) == 'false' ]; then
 	echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-	set -e
 	(
 		set -x
 		az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
@@ -142,7 +137,7 @@ echo "Starting deployment..."
 )
 
 if [ $?  == 0 ];
- then
+then
 	echo "Template has been successfully deployed"
 fi
 ```
@@ -161,7 +156,7 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group show](/cli/azure/group#show) | Get a resource group. |
+| [az group exists](/cli/azure/group#exists) | Checks whether resource group exists. |
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az group deployment create](/cli/azure/group/deployment#create) | Start a deployment.  |
 | [az group delete](/cli/azure/group#delete) | Deletes a resource group including all its resources. |
