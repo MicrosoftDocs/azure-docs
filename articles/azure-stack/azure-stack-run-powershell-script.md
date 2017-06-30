@@ -57,7 +57,7 @@ To deploy the development kit, you must complete the following steps:
 2. Make sure the development kit host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
 3. Sign in as the Local Administrator to your development kit host.
 4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
-5. Copy the development kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/vnext/Deployment) to a folder on the development kit host.
+5. Copy the development kit installer file (asdk-installer.ps1) from the [Github repository](https://github.com/Azure/AzureStack-Tools/tree/master/Deployment) to a folder on the development kit host.
 6. Run the asdk-installer.ps1 script > click **Prepare vhdx**.
 7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
 8. Optional: Check the **Add drivers** box to specifiy a folder containing additional drivers that you want on the host.
