@@ -46,7 +46,7 @@ Status: June 2017
   * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
   * Otherwise, the **Sync all domains and OUs** option is selected.
 
-The issue it is that the **Sync all domains and OUs** option is selected, even if OU-based filtering is enabled. Before saving any synchronization configuration changes in the wizard, make sure the **Sync selected domains and OUs** option is selected first. Otherwise, OU-based filtering will be disabled.
+The issue that arises is that the **Sync all domains and OUs option** is always selected when you run the Wizard.  This occurs even if OU-based filtering was previously configured. Before saving any AAD Connect configuration changes, make sure the **Sync selected domains and OUs option is selected** and confirm that all OUs that need to synchronize are enabled again. Otherwise, OU-based filtering will be disabled.
 
 #### Fixed issues
 
