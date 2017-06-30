@@ -24,10 +24,11 @@ ms.author: rclaus
 
 - Have existing Oracle database running on-premises and plan to migrate to Azure
 - Understanding of various metrics of Oracle AWR reports
+- Having a baseline for application performance and plaform utilization
 
 ## Goals
 
-- Understanding the topology different between on-premises and Azure
+- Understanding to optimize your Oracle deployment on Azure
 - Explore performance tuning options for Oracle database in Azure environment
 
 ### On-premises vs on Azure
@@ -41,17 +42,17 @@ Following table listed some of the difference.
 > | --- | --- | --- |
 > | **Networking** |LAN/WAN  |SDN - Software defined networking|
 > | **Security Group** |IP/Port restrictions tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Recovery** |MTBF (Mean Time Between Failure) |MTTR (Mean Time To Recover)|
-> | **Planned maintenance** |Patching/Upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) |
-> | **Resource** |Dedicated  |Shared |
+> | **Resilience** |MTBF (Mean Time Between Failure) |MTTR (Mean Time To Recover)|
+> | **Planned maintenance** |Patching/Upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
+> | **Resource** |Dedicated  |Shared with other clients|
 > | **Regions** |Data centers |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
 > | **Storage** |SAN/Physical Disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Resilience** |vertical scale |horizontal scale|
+> | **SCale** |vertical scale |horizontal scale|
 
 
 ### Requirements
 
-- Determine the database size and growth rate, then estimate the storage size
+- Determine the database size and growth rate
 - Determine the IOPS requirements, could be estimated based on Oracle AWR report or others network monitoring tools
 
 ## Configuration Options
@@ -99,15 +100,13 @@ The followings are the metrics that can be obtained from the AWR report.
 
 One thing you may look at is the top five timed foreground events that, indicated where the system bottlenecks are.
 
-For example: Diagram below, the log file sync is on the top, which is the number of waits for the LGWR to write the log buffer to the redo log file. This indicated a better perform storage/disks are required.
+For example: Diagram below, the log file sync is on the top, which is the number of waits for the LGWR to write the log buffer to the redo log file. This indicated a better perform storage/disks are required. In addition, the number of CPU (cores) and memory are also shown in the diagram.
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
-The next step is look at the number of CPU (cores) and memory. In this example above, 16 cores and 110-GB memory were used.
+Diagram below shows the total IO of read and write. There are 59 GB read and 247.3 GB write during the time of the report.
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
-
-Diagram above shows the total IO of read and write. There are 59 GB read and 247.3 GB write during the time of the report.
 
 #### 2. Estimate the VM size
 
@@ -132,14 +131,12 @@ The total network throughput is estimate based on the followings:
 
 ![Screenshot of the SQL*Net throughput](./media/oracle-design/sqlnet_info.png)
 
-By default, VPN gateway (VPNGw) is used, but if the total network throughput exceeded the limits of VPNGw, then Express route should be used. More information can be obtained from [VPN Gateway Pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h)
+Based on your network bandwidth requirements, there are various gateway types, such as Basic, VpnGw, ExpressRoute are available for you to choose from. More information can be obtained from [VPN Gateway Pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h)
 
 Recommendations
 
 - Network latency is higher compared to an on-premises deployment. Reducing network round trips can greatly improve performance.
 - Consolidate applications that, have high transactions or “Chatty” Apps on the same virtual machine to reduce round-trips.
-- Host your VMs on the same V-NET and Cloud Service.
-- VMs on availability sets need to be in the same Cloud Service.
 
 ### Disk types and configurations
 
@@ -149,7 +146,7 @@ Recommendations
 
 - Managed disks: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you.
 
-- Premium storage disks: Premium Storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, F series. The Premium disk comes with different sizes and You have choice of various disk sizes from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
+- Premium storage disks (best suited for production workloads): Premium Storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, F series. The Premium disk comes with different sizes and You have choice of various disk sizes from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
 When you create a new managed disk from the portal, you can choose the 'Account type' for specified the type of disk you want to use. It is important to know that, not all available disks are shown in the drop-down box. It is because Azure storage is integrated with VMs and where the limits are across SKUs (for example, max number of drives, max IOPs). So once you picked a particular size of VM, it only shows the available premium storage SKUs based of that VM size.
 
@@ -159,7 +156,7 @@ For more information, see [the Azure premium storage](https://docs.microsoft.com
 
 Once you configured your storage on a VM, you may want to load test the disks prior create a database. Knowing what the IO rate in terms of both latency and throughput could help you determine if the VMs support the expected throughput with latency targets.
 
-There are a number of tools for load test, such as Oracle Orion, Sysbench, Fio, etc.
+There are a number of tools for application load test, such as Oracle Orion, Sysbench, Fio, etc.
 
 Run the load test again after deployed Oracle database, start your regular and peak workloads, the results would show you the based-line of your environment.
 
@@ -173,7 +170,7 @@ For example:
 The Redo size is 12200000 bytes per second, which is equal to 11.63 MBPs
 The IOPS is 12200000 / 2358 = 5174
 
-To meet the 5174 IOPS throughput, you can either select 2 x P30 disk or 3 x P20 or 11 x P10 premium disks.
+Once you have a clear picture of IO requirements, you can chose a combination of drives best suited to meet those requirements
 
 Recommendations
 
@@ -183,9 +180,6 @@ Recommendations
 - Use data compression to reduce IO (for both data and indexes)
 - Separate Redo logs, system, temp, and undo TS on separate data disks
 - Recommended not to put any application files on default OS disk (/dev/sda). This disk is optimized for fast VM boot time, may not provide good performance for your application.
-
-
-
 
 ### Disk Cache settings
 
@@ -199,7 +193,7 @@ There are three options for Host Caching.
 
 Recommendations
 
-To maximize the throughput, it is recommended to start with 'None' for Host Caching. It is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. Update the /etc/fstab file with the UUID to the disks.
+To maximize the throughput, it is recommended to start with 'None' for Host Caching. For premium storage, it is important to note that you must disable the "barriers" when you mount the file system with 'ReadOnly' or 'None' options. Update the /etc/fstab file with the UUID to the disks.
 
 For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
@@ -209,7 +203,7 @@ For more information, see [Premium Storage for Linux VMs](https://docs.microsoft
 - For SYSTEM, TEMP and UNDO use 'None' for caching
 - For DATA use 'None' for caching, but if your database is Read only or Read intensive, use 'Read-only' caching
 
-Once your data disk setting is saved, the host caching setting cannot change. Instead, you make a snapshot on the disk, then bring it offline and then restore the snapshot to a new disk with new host cache setting.
+Once your data disk setting is saved, the host(AFAIK) cache setting cannot change unless you un-mount the drive at the OS level and then remount it after changed.
 
 
 ## Security
