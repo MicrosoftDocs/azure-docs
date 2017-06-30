@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/18/2017
+ms.date: 07/10/2017
 ms.author: sngun
 
 ---
@@ -51,45 +51,35 @@ If the virtual machine image is available locally on the Azure Stack POC compute
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-    $TenantID = Get-DirectoryTenantID `
+    $TenantID = Get-AzsDirectoryTenantId `
       -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    $TenantID = Get-DirectoryTenantID `
-      -ADFS `
+    $TenantID = Get-AzsDirectoryTenantId `
+      -ADFS 
       -EnvironmentName AzureStackAdmin 
     ```
 
-5. Add the VM image by invoking the `Add-VMImage` cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters.
-PowerShell. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+5. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
-     # Store the service administrator account credentials in a variable 
-     $UserName='<Username of the service administrator account>'
-     $Password='<Admin password provided when deploying Azure Stack>'| `
-       ConvertTo-SecureString -Force -AsPlainText
-     $Credential=New-Object PSCredential($UserName,$Password)
-
-     Add-VMImage `
+     Add-AzsVMImage `
        -publisher "Canonical" `
        -offer "UbuntuServer" `
        -sku "14.04.3-LTS" `
        -version "1.0.0" `
        -osType Linux `
        -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-       -TenantId $TenantID `
-       -EnvironmentName "AzureStackAdmin" `
-       -azureStackCredentials $Credential
      ```
 
 The command does the following:
 
 * Authenticates to the Azure Stack environment
 * Uploads the local VHD to a newly created temporary storage account
-* Adds the VM image to the VM image repository
+* Adds the VM image to the VM image repository and
 * Creates a Marketplace item
 
 To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
@@ -101,32 +91,27 @@ To verify that the command ran successfully, go to Marketplace in the portal, an
 When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
 
 ```powershell
-Remove-VMImage `
+Remove-AzsVMImage `
   -publisher "Canonical" `
   -offer "UbuntuServer" `
   -sku "14.04.3-LTS" `
   -version "1.0.0" `
-  -tenantID <GUID AADTenant> `
-  -EnvironmentName "AzureStackAdmin"
 ```
 
 ## Parameters
 
 | Parameter | Description |
 | --- | --- |
-| **tenantID** |Your Azure Active Directory tenant ID in the form *&lt;AADTenantID*.onmicrosoft.com&gt;. |
-| **publisher** |The publisher name segment of the VM Image that tenants use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
+| **publisher** |The publisher name segment of the VM image that tenants use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
 | **offer** |The offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
 | **sku** |The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
 | **version** |The version of the VM Image that tenants use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
 | **osType** |The osType of the image must be either ‘Windows’ or ‘Linux’. |
 | **osDiskLocalPath** |The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
 | **dataDiskLocalPaths** |An optional array of the local paths for data disks that can be uploaded as part of the VM image. |
-| **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. The default is set to true. |
-| **title** |The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. |
+| **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. By default, it is set to true. |
+| **title** |The display name of Marketplace item. By default, it is set to the Publisher-Offer-Sku of the VM image. |
 | **description** |The description of the Marketplace item. |
-| **EnvironmentName** |The Azure Stack administrator's PowerShell environment name. |
-| **azureStackCredentials** |The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
 | **location** |The location to which the VM image should be published. By default, this value is set to local.|
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
