@@ -38,7 +38,7 @@ period and daily usage. To get your detailed usage CSV file, see
 [How to get your Azure billing invoice and daily usage
 data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
-Your usage charges are displayed at the meter level. The following table is a list of terms that mean the same thing between the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown on the detailed usage file.
+Your usage charges are displayed at the meter level. The following list of terms mean the same thing between the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown on the detailed usage file.
 
  | Invoice (PDF) | Detailed usage (CSV)|
  | --- | --- |
@@ -52,7 +52,7 @@ Your usage charges are displayed at the meter level. The following table is a li
  |Billable |Overage Quantity |
 
 The usage charges section of your invoice has the total value
-for each meter that was consumed during your billing period. For example, the screenshot below shows a usage charge for the Azure Scheduler service.
+for each meter that was consumed during your billing period. For example, the following screenshot shows a usage charge for the Azure Scheduler service.
 
 ![Invoice usage charges](./media/billing-understand-your-bill/1.png)
 
