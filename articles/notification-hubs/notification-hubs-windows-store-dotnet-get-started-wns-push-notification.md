@@ -59,11 +59,11 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 
 8. Back on the [Windows Dev Center](http://dev.windows.com/overview) page for your new app, click **Services**, click **Push notifications**, and then click **WNS/MPNS**.
 
-9. Click *New Notification**.
+9. Click **New Notification**.
 
 10. Click **Blank (Toast)** template and then click **OK**.
 
-11. Enter a notification **Name** and Visual **Context** message. Then click *Save as draft**.
+11. Enter a notification **Name** and Visual **Context** message. Then click **Save as draft**.
 
 12. Navigate to the [Application Registration Portal](http://apps.dev.microsoft.com) and log in.
 
