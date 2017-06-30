@@ -2,10 +2,9 @@
 title: 'Tutorial: Azure Active Directory integration with RunMyProcess | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RunMyProcess.
 services: active-directory
-documentationcenter: ''
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: ''
 
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
@@ -13,216 +12,245 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 06/30/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with RunMyProcess
-The objective of this tutorial is to show you how to integrate RunMyProcess with Azure Active Directory (Azure AD).
+
+In this tutorial, you learn how to integrate RunMyProcess with Azure Active Directory (Azure AD).
 
 Integrating RunMyProcess with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to RunMyProcess
-* You can enable your users to automatically get signed-on to RunMyProcess single sign-on (SSO) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+- You can control in Azure AD who has access to RunMyProcess
+- You can enable your users to automatically get signed-on to RunMyProcess (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
+
 To configure Azure AD integration with RunMyProcess, you need the following items:
 
-* An Azure AD subscription
-* A RunMyProcess SSO enabled subscription
+- An Azure AD subscription
+- A RunMyProcess single sign-on enabled subscription
 
->[!NOTE]
->To test the steps in this tutorial, we do not recommend using a production environment. 
-> 
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.
-
+In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding RunMyProcess from the gallery
-2. Configuring and testing Azure AD SSO
+2. Configuring and testing Azure AD single sign-on
 
-## Add RunMyProcess from the gallery
+## Adding RunMyProcess from the gallery
 To configure the integration of RunMyProcess into Azure AD, you need to add RunMyProcess from the gallery to your list of managed SaaS apps.
 
 **To add RunMyProcess from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Applications][2]
-4. Click **Add** at the bottom of the page.
-   
-    ![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-    ![Applications][4]
-6. In the search box, type **RunMyProcess**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_01.png)
-7. In the results pane, select **RunMyProcess**, and then click **Complete** to add the application.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_0001.png)
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-## Configure and test Azure AD SSo
-The objective of this section is to show you how to configure and test Azure AD single sign-on with RunMyProcess based on a test user called "Britta Simon".
+	![Active Directory][1]
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in RunMyProcess is to a user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in RunMyProcess needs to be established.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in RunMyProcess.
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
 
-To configure and test Azure AD SSO with RunMyProcess, you need to complete the following building blocks:
+	![Applications][3]
 
-1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+4. In the search box, type **RunMyProcess**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_search.png)
+
+5. In the results panel, select **RunMyProcess**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with RunMyProcess based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in RunMyProcess is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in RunMyProcess needs to be established.
+
+In RunMyProcess, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with RunMyProcess, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a RunMyProcess test user](#creating-a-runmyprocess-test-user)** - to have a counterpart of Britta Simon in RunMyProcess that is linked to the Azure AD representation of her.
+3. **[Creating a RunMyProcess test user](#creating-a-runmyprocess-test-user)** - to have a counterpart of Britta Simon in RunMyProcess that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
-In this section, you enable Azure AD single sign-on in the classic portal and configure SSO in your RunMyProcess application.
+### Configuring Azure AD single sign-on
 
-**To configure Azure AD SSO with RunMyProcess, perform the following steps:**
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your RunMyProcess application.
 
-1. In the classic portal, on the **RunMyProcess** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-   
-    ![Configure Single Sign-On][6] 
-2. On the **How would you like users to sign on to RunMyProcess** page, select **Azure AD Single Sign-On**, and then click **Next**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_03.png) 
-3. On the **Configure App Settings** dialog page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_04.png) 
-  1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://live.runmyprocess.com/live/<tenant id>`. 
-  2. click **Next**.
-    >[!NOTE]
-    >Please note that you have to update the value with the actual Sign On URL. To get this value, contact RunMyProcess support team via <mailto:support@runmyprocess.com>.
-    >  
-4. On the **Configure single sign-on at RunMyProcess** page, click **Download Certificate** and then save the file on your computer:
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_05.png)
-5. In a different web browser window, sign-on to your RunMyProcess tenant as an administrator.
-6. In left navigation panel, click **Account** and select **Configuration**.
+**To configure Azure AD single sign-on with RunMyProcess, perform the following steps:**
+
+1. In the Azure portal, on the **RunMyProcess** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_samlbase.png)
+
+3. On the **RunMyProcess Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_url.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://live.runmyprocess.com/live/<instancename>`
+
+	> [!NOTE] 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [RunMyProcess Client support team](mailto:support@runmyprocess.com) to get the value. 
+
+4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_400.png)
+
+6. On the **RunMyProcess Configuration** section, click **Configure RunMyProcess** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_configure.png) 
+
+7. In a different web browser window, sign-on to your RunMyProcess tenant as an administrator.
+
+8. In left navigation panel, click **Account** and select **Configuration**.
    
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_001.png)
-7. Go to **Authentication method** section and perform below steps:
+9. Go to **Authentication method** section and perform below steps:
    
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_002.png)
-  1. As **Method**, select **SSO with Samlv2**. 
-  2. In the **SSO redirect** textbox put the value of **SAML SSO URL** from Azure AD application configuration wizard.
-  3. In the **Logout redirect** textbox put the value of **Single Sign-Out Service URL** from Azure AD application configuration wizard.
-  4. In the **Name Id Format** textbox put the value of **Name Identifier Format** from Azure AD application configuration wizard.
-  5. Copy the content of the downloaded certificate file and then paste it into the **Certificate** textbox. 
-  6. Click **Save** icon.
-8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-   
-    ![Azure AD Single Sign-On][10]
-9. On the **Single sign-on confirmation** page, click **Complete**.  
-   
-    ![Azure AD Single Sign-On][11]
 
-### Create an Azure AD test user
-The objective of this section is to create a test user in the classic portal called Britta Simon.
+    a. As **Method**, select **SSO with Samlv2**. 
 
-![Create Azure AD User][20]
+    b. In the **SSO redirect** textbox paste the value of **SAML Single Sign-On Service URL** from Azure AD application configuration wizard.
+
+    c. In the **Logout redirect** textbox paste the value of **Single Sign-Out Service URL** from Azure AD application configuration wizard.
+
+    d. In the **Name Id Format** textbox put the value of **Name Identifier Format** from Azure AD application configuration wizard.
+
+    e. Copy the content of the downloaded certificate file and then paste it into the **Certificate** textbox. 
+ 
+    f. Click **Save** icon.
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
+
+![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_01.png) 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_02.png) 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_03.png) 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_04.png) 
- 1. As Type Of User, select New user in your organization.  
- 2. In the User Name **textbox**, type **BrittaSimon**. 
- 3. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_01.png) 
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_05.png)  
- 1. In the **First Name** textbox, type **Britta**.   
- 2. In the **Last Name** textbox, type, **Simon**. 
- 3. In the **Display Name** textbox, type **Britta Simon**. 
- 4. In the **Role** list, select **User**. 
- 5. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_06.png) 
-8. On the **Get temporary password** dialog page, perform the following steps:
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_07.png)  
- 1. Write down the value of the **New Password**.
- 2. Click **Complete**.   
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_02.png) 
 
-### Create a RunMyProcess test user
-In order to enable Azure AD users to log into RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_03.png) 
 
-**To provision a user accounts, perform the following steps:**
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-runmyprocess-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a RunMyProcess test user
+
+In order to enable Azure AD users to log in to RunMyProcess, they must be provisioned into RunMyProcess. In the case of RunMyProcess, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
 
 1. Log in to your RunMyProcess company site as an administrator.
+
 2. Click **Account** and select **Users** in left navigation panel, then click **New User**.
    
-   ![New User](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
+    ![New User](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
+
 3. In the **User Settings** section, perform the following steps:
    
-   ![Profile](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile")   
- 1. Type the **Name** and **E-mail** of a valid AAD account you want to provision into the related textboxes. 
- 2. Select an **IDE language**, a **Language** and a **Profile**. 
- 3. Select **Send account creation e-mail to me**. 
- 4. Click **Save**.
-   
-   >[!NOTE]
-   >You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Azure Active Directory user accounts. 
-   > 
+    ![Profile](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile") 
+  
+    a. Type the **Name** and **E-mail** of a valid AAD account you want to provision into the related textboxes. 
 
-### Assign the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to RunMyProcess.
+    b. Select an **IDE language**, a **Language, and a **Profile**. 
+
+    c. Select **Send account creation e-mail to me**. 
+
+    d. Click **Save**.
+   
+    >[!NOTE]
+    >You can use any other RunMyProcess user account creation tools or APIs provided by RunMyProcess to provision Azure Active Directory user accounts. 
+    > 
+
+### Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to RunMyProcess.
 
 ![Assign User][200] 
 
 **To assign Britta Simon to RunMyProcess, perform the following steps:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-   
-    ![Assign User][201] 
-2. In the applications list, select **RunMyProcess**.
-   
-    ![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_50.png) 
-3. In the menu on the top, click **Users**.
-   
-    ![Assign User][203]
-4. In the Users list, select **Britta Simon**.
-5. bar on the bottom, click **Assign**.
-   
-    ![Assign User][205]
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-### Test single sign-on
+	![Assign User][201] 
+
+2. In the applications list, select **RunMyProcess**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
 
 When you click the RunMyProcess tile in the Access Panel, you should get automatically signed-on to your RunMyProcess application.
 
 ## Additional resources
+
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -231,13 +259,10 @@ When you click the RunMyProcess tile in the Access Panel, you should get automat
 [3]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-runmyprocess-tutorial/tutorial_general_205.png
+
