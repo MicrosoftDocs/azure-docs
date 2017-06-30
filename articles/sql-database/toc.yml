@@ -35,7 +35,7 @@
   items:
   - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
-  - name: 1 - Dsign DB using .NET
+  - name: 1 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
