@@ -51,28 +51,26 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 
 4. Accept the defaults for the target and minimum platform versions.
 
-5. In Solution Explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**.
-   The **Associate Your App with the Windows Store** wizard appears.
+5. In Solution Explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**. The **Associate Your App with the Windows Store** wizard appears.
 
 6. In the wizard, sign in with your Microsoft account.
 
-7. Click the app that you registered in step 2, click **Next**, and then click **Associate**.
-   This adds the required Windows Store registration information to the application manifest.
+7. Click the app that you registered in step 2, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
 
-8. Back on the [Windows Dev Center](https://dev.windows.com/overview) page, click your new app, click **Services**, click **Push notifications**, and then click **WNS/MPNS**.
+8. Back on the [Windows Dev Center](http://dev.windows.com/overview) page for your new app, click **Services**, click **Push notifications**, and then click **WNS/MPNS**.
 
 9. Click **New Notification**.
 
 10. Click **Blank (Toast)** template and then click **OK**.
 
-11. Enter a notification **Name** and Visual **Content** message.  Then click **Save as draft**.
+11. Enter a notification **Name** and Visual **Context** message. Then click **Save as draft**.
 
-12. Navigate to the [Applicaton Registration Portal](https://apps.dev.microsoft.com) and log in.
+12. Navigate to the [Application Registration Portal](http://apps.dev.microsoft.com) and log in.
 
-13. Click on your application name. make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
+13. Click on your application name. Make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
 
-> [!NOTE]
->The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+     > [AZURE.WARNING]
+    The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -123,7 +121,8 @@ Your notification hub is now configured to work with WNS, and you have the conne
    
    > [!NOTE]
    > Make sure to replace the "your hub name" placeholder with the name of the notification hub that appears in the Azure Portal. Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained from the **Access Polices** page of your Notification Hub in a previous section.
-
+   > 
+   > 
 5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
    
         InitNotificationsAsync();
@@ -154,6 +153,7 @@ To send notifications by using a .NET console application follow these steps.
 1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
    
     This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
+
 2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
    
     This displays the Package Manager Console in Visual Studio.
@@ -181,7 +181,8 @@ To send notifications by using a .NET console application follow these steps.
    
    > [!NOTE]
    > Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
-   
+   > 
+   > 
 6. Add the following lines in the **Main** method:
    
          SendNotificationAsync();
