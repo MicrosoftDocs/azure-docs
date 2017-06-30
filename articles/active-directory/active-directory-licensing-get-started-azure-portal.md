@@ -92,11 +92,11 @@ For a detailed discussion of license assignment to groups, including advanced sc
 
 ## Get started with Azure AD licensing
 
-Getting started with Azure AD is easy. You can always create your directory as a part of signing up for a free Azure trial. Learn more about [signing up as an organization](sign-up-organization.md).
+Getting started with Azure AD is easy. You can always create your directory as a part of signing up for an [Azure free trial](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
 The following best practices can help ensure that your tenant is aligned with other Microsoft services you might be consuming and with your goals for the service:
 
-- If you are already using any of the organizational services from Microsoft, you already have an Azure AD directory. It is useful to use the same directory for other services so that core identity management, including provisioning and hybrid single sign-on (SSO), can be used across the services. With single sign-on, your users benefit from the rich capabilities across the services. Thus, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory again.
+- If you are already using any of the organizational services from Microsoft, you already have an Azure AD tenant. It is useful to use the same tenant for other services so that core identity management, including provisioning and hybrid single sign-on (SSO), can be used across the services. With single sign-on, your users benefit from the rich capabilities across the services. Thus, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same tenant again.
 
 - We recommend that you use a new tenant in the Azure portal if you are planning to:
   - Use Azure AD for a different set of users (such as partners or customers).
