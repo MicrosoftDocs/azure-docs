@@ -381,7 +381,7 @@ The following Azure Resource Manager template creates a Linux-based Hadoop clust
 
 ## Appendix: Resource Manager template to create a Spark cluster
 
-This section provides an ARM template that you can use to create an HDInsight Spark cluster. This template includes configurations for `spark-defaults` and `spark-thrift-sparkconf` (for Spark 1.6 clusters) and `spark2-defaults` and `spark2-thrift-sparkconf` (for Spark 2 clusters). In addition to this, HDInsight calculates and sets configurations such as `spark.executor.instances`, `spark.executor.memory`, and `spark.executor.cores` based on the cluster size. 
+This section provides a Resource Manager template that you can use to create an HDInsight Spark cluster. This template includes configurations for `spark-defaults` and `spark-thrift-sparkconf` (for Spark 1.6 clusters) and `spark2-defaults` and `spark2-thrift-sparkconf` (for Spark 2 clusters). In addition to this, HDInsight calculates and sets configurations such as `spark.executor.instances`, `spark.executor.memory`, and `spark.executor.cores` based on the cluster size. 
 
 If you set any one parameter in a section as part of the template itself, HDInsight does not calculate and set the other parameters of the same section. For example, parameter `spark.executor.instances` is in the  `spark-defaults` configuration. If you set another parameter (for example, `spark.yarn.exector.memoryOverhead`) in the `spark-defaults` configuration, HDInsight does not calculate and set the `spark.executor.instances` parameter as well.
 
