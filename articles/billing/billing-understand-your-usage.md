@@ -18,10 +18,8 @@ ms.date: 06/29/2017
 ms.author: tonguyen
 
 ---
-# Breakdown of your Microsoft Azure detailed usage charges 
-This reference article breaks down the different components of your
-detailed usage charges for Microsoft Azure. The detailed usage charges
-CSV file contains daily and meter level usage charges for the current billing period. 
+# Understand terms on your Microsoft Azure detailed usage charges 
+The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period. 
 
 To get your detailed usage file,
 see [How to get your Azure billing invoice and daily usage
