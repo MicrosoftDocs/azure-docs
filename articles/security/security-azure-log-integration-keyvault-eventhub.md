@@ -42,7 +42,7 @@ Before you can complete the steps in this article, you need the following:
 
 3. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installed. To install it:
    1. Use Remote Desktop to connect to the system mentioned in step 2.
-   2. Copy the Azure Log Integration installer to it. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).
+   2. Copy the Azure Log Integration installer to the system. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).
    3. Start the installer and accept the terms in the Microsoft Software License Terms.
    4. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
    
@@ -53,7 +53,7 @@ Before you can complete the steps in this article, you need the following:
    If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
 
    After you have at least PowerShell 5.0, you can proceed to install the latest version:
-   1. In a PowerShell window, type ```Install-Module Azure``` and press the Enter key. Complete the installation steps. 
+   1. In a PowerShell window, type ```Install-Module Azure``` and press Enter. Complete the installation steps. 
    2. Type ```Install-Module AzureRM``` and press Enter. Complete the installation steps.
 
    For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
@@ -72,10 +72,10 @@ You should see something like this:</br>
    >[!NOTE]
    >If this is the first time that you're logging in to Azure from this machine, you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this data collection because it will be used to improve Azure PowerShell.
 
-4. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name.
+4. After successful authentication, you're logged in and you see the information in the following screenshot. Note the subscription ID and subscription name.
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Create variables to store values that will be used later. Type each of the following PowerShell lines and press Enter after each one. Pay attention to the comments next to them. You may need to adjust the values to match your environment.
+5. Create variables to store values that will be used later. Type each of the following PowerShell lines and press Enter after each one. You may need to adjust the values to match your environment.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different, and you can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any other location of your choosing.)
     - ```$random = Get-Random```
