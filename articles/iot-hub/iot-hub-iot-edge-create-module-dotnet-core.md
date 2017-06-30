@@ -61,13 +61,14 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 5. Insert the `XML` blob shown in the following code snippet between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the preceding image and save the file (`Ctrl + S`).
 
-```xml
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Devices.Gateway.Module.NetStandard" Version="1.0.5" />
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-  </ItemGroup> 
-```
+   ```xml
+     <ItemGroup>
+       <PackageReference Include="Microsoft.Azure.Devices.Gateway.Module.NetStandard" Version="1.0.5" />
+       <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+       <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+     </ItemGroup> 
+   ```
+
 6. Once you save the `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image: 
 
 	![Visual Studio Code restore dependencies dialog](media/iot-hub-iot-edge-create-module/vscode-restore.png)
@@ -92,60 +93,60 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 
 8. Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the following code snippet into your `BleConverterModule.cs` file.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.Devices.Gateway;
-using Newtonsoft.Json;
+   ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Globalization;
+   using System.Linq;
+   using System.Text;
+   using System.Threading;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Devices.Gateway;
+   using Newtonsoft.Json;
+   
+   namespace IoTEdgeConverterModule
+   {
+       public class BleConverterModule : IGatewayModule, IGatewayModuleStart
+       {
+           private Broker broker;
+           private string configuration;
+           private int messageCount;
 
-namespace IoTEdgeConverterModule
-{
-    public class BleConverterModule : IGatewayModule, IGatewayModuleStart
-    {
-        private Broker broker;
-        private string configuration;
-        private int messageCount;
+           public void Create(Broker broker, byte[] configuration)
+           {
+               this.broker = broker;
+               this.configuration = System.Text.Encoding.UTF8.GetString(configuration);
+           }
+   
+           public void Start()
+           {
+           }
 
-        public void Create(Broker broker, byte[] configuration)
-        {
-            this.broker = broker;
-            this.configuration = System.Text.Encoding.UTF8.GetString(configuration);
-        }
+           public void Destroy()
+           {
+           }
 
-        public void Start()
-        {
-        }
+           public void Receive(Message received_message)
+           {
+               string recMsg = Encoding.UTF8.GetString(received_message.Content, 0, received_message.Content.Length);
+               BleData receivedData = JsonConvert.DeserializeObject<BleData>(recMsg);
 
-        public void Destroy()
-        {
-        }
-
-        public void Receive(Message received_message)
-        {
-            string recMsg = Encoding.UTF8.GetString(received_message.Content, 0, received_message.Content.Length);
-            BleData receivedData = JsonConvert.DeserializeObject<BleData>(recMsg);
-
-            float temperature = float.Parse(receivedData.Temperature, CultureInfo.InvariantCulture.NumberFormat); 
-            Dictionary<string, string> receivedProperties = received_message.Properties;
+               float temperature = float.Parse(receivedData.Temperature, CultureInfo.InvariantCulture.NumberFormat); 
+               Dictionary<string, string> receivedProperties = received_message.Properties;
             
-            Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("source", receivedProperties["source"]);
-            properties.Add("macAddress", receivedProperties["macAddress"]);
-            properties.Add("temperatureAlert", temperature > 30 ? "true" : "false");
-
-            String content = String.Format("{0} \"deviceId\": \"Intel NUC Gateway\", \"messageId\": {1}, \"temperature\": {2} {3}", "{", ++this.messageCount, temperature, "}");
-            Message messageToPublish = new Message(content, properties);
-
-            this.broker.Publish(messageToPublish);
-        }
-    }
-}
-```
+               Dictionary<string, string> properties = new Dictionary<string, string>();
+               properties.Add("source", receivedProperties["source"]);
+               properties.Add("macAddress", receivedProperties["macAddress"]);
+               properties.Add("temperatureAlert", temperature > 30 ? "true" : "false");
+   
+               String content = String.Format("{0} \"deviceId\": \"Intel NUC Gateway\", \"messageId\": {1}, \"temperature\": {2} {3}", "{", ++this.messageCount, temperature, "}");
+               Message messageToPublish = new Message(content, properties);
+   
+               this.broker.Publish(messageToPublish);
+           }
+       }
+   }
+   ```
 
 9. Save the file by pressing `Ctrl` + `S`.
 
