@@ -19,7 +19,11 @@ ms.author: maheshu
 ---
 # Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 
-## Task 2 - Export the secure LDAP certificate to a .PFX file
+## Before you begin
+Ensure you've completed [Task 1 - obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md).
+
+
+## Task 2 - export the secure LDAP certificate to a .PFX file
 Before you start this task, ensure that you have obtained the secure LDAP certificate from a public certification authority or have created a self-signed certificate.
 
 Perform the following steps, to export the LDAPS certificate to a .PFX file.
@@ -74,7 +78,7 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
     ![Password for certificate export ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
-    > Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](#task-3---enable-secure-ldap-for-the-managed-domain)
+    > Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
     >
     >
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
@@ -86,4 +90,4 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
 
 ## Next step
-[Task 2 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+[Task 3 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

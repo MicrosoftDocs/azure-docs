@@ -49,7 +49,7 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 
 <br>
 
-## Task 1 - Obtain a certificate for secure LDAP
+## Task 1 - obtain a certificate for secure LDAP
 The first task involves obtaining a certificate used for secure LDAP access to the managed domain. You have two options:
 
 * Obtain a certificate from a certification authority. The authority may be a public certification authority.
@@ -58,7 +58,7 @@ The first task involves obtaining a certificate used for secure LDAP access to t
 ### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
 If your organization obtains its certificates from a public certification authority, you need to obtain the secure LDAP certificate from that public certification authority.
 
-When requesting a certificate, ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
+When requesting a certificate, ensure that you satisfy all the requirements outlined in [Requirements for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the secure LDAP certificate.
