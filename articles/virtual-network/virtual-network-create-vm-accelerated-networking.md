@@ -286,11 +286,11 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
 At this point, the instructions vary based on the distribution you are using. 
 
-Ubuntu/SLES
+#### Ubuntu/SLES
 
 1. At the prompt, enter uname -r and confirm the version: 
-    a. Ubuntu is “4.4.0-77-generic,” or greater
-    b. SLES is “4.4.59-92.20-default” or greater
+    * Ubuntu is “4.4.0-77-generic,” or greater
+    * SLES is “4.4.59-92.20-default” or greater
 2.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
 
     ```bash
@@ -302,24 +302,25 @@ Ubuntu/SLES
     ```
 
 3. After running the script, the VM will restart after a 60 second pause.
-4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
+4. Once the VM is restarted, reconnect to it by completing steps 5-7 of the [Configure Linux](#configure-linux) section again.
 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
 
-**Note:** Application using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+**Note:** Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
-RHEL/CentOS
+#### RHEL/CentOS
 
-Phase one: prepare a base image. 
-1.	  Provision a non-Accelerated Networking RHEL/CentOS 7.3 VM on Azure
-2.	  When this base VM started up, disable the Network Manager with:
+##### Phase one: prepare a base image
+
+1. Provision a non-Accelerated Networking RHEL/CentOS 7.3 VM on Azure
+2. After the base VM starts up, disable the Network Manager with:
 
     ```bash
     sudo service NetworkManager stop
-
-    sudo chkconfig NetworkManager off    
+    
+    sudo chkconfig NetworkManager off
     ```
 
-3.	  Install LIS 4.2.1:
+3. Install LIS 4.2.1:
 
     ```bash
     wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
@@ -327,31 +328,35 @@ Phase one: prepare a base image.
     tar -xvf lis-rpms-4.2.1.tar.gz
     
     cd LISISO && sudo ./install.sh
-    
+
     sudo reboot
     ```
     
-    After VM comes up, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
+    After the VM starts, verify the LIS version by “modinfo hv_vmbus”. The version should be “4.2.1”.
+    
+4. From the Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
 
-4. From Azure portal, stop this VM; and go to VM’s “Disks”, capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account.
- 
-Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
+##### Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
+
 1. Provision new VMs based on the base image VHD captured in phase one with AcceleratedNetworking enabled on the vNIC.  Currently the only way to do this provisioning is by using PowerShell. Step-by-step instructions are here, Create VM from a special VHD in Azure with the only difference being when you create the NIC.  You will need to add the following parameter: 
     
     ```powershell
     $vm= Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.ID -Enable Accelerated Networking
     ```
     
-2. After VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, we should see this item in the lspci output:
-0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+2. After the VMs boot up, check the VF device by “lspci” and check the Mellanox entry. For example, you see the following line in the lspci output:
 
-3. Run the bonding script by:
+    ```
+    0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+    ```
+    
+3. Run the bonding script:
     
     ```bash
     sudo bondvf.sh
     ```
     
-4. Re-Enable Network Manager on the new VMs by:
+4. Re-Enable Network Manager on the new VMs:
     
     ```bash
     sudo service NetworkManager start
@@ -359,7 +364,7 @@ Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
     sudo chkconfig NetworkManager on
     ```
 
-    After this, we should see Network Manager is running. We can check this by:
+    After this, you see Network Manager is running. You can check this with the following command:
 
     ```bash
     ps -aux | grep NetworkManager
@@ -371,7 +376,7 @@ Phase two: Provision SRIOV CentOS 7.3 VMs on Azure
     sudo reboot
     ```
 
-6. After new VMs come up, check the data path switch to VF by:
+6. After the new VMs come up, check the data path switch to VF:
 
     ```bash
     dmesg | grep switched
