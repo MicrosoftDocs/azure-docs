@@ -121,9 +121,12 @@ If you restrict access to the virtual network you must allow access to the manag
 
 | Country | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- | ---- |
+| Asia | East Asia | 23.102.235.122</br>52.175.32.59 | 443 |
 | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 |
+| China | China North | 42.159.96.170</br>139.217.2.219 | 443 |
+| &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 |
 | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 |
 | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 |
@@ -131,7 +134,8 @@ If you restrict access to the virtual network you must allow access to the manag
 | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | 443 |
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 |
-| United States | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
+| United States | Central US | 13.67.223.215</br>40.77.106.9 | 443 |
+| &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 |
 
 For information on the IP addresses to use for Azure Government, see the [Azure Governemnt Intelligence + Analytics](../azure-government/documentation-government-services-intelligenceandanalytics.md) document.
