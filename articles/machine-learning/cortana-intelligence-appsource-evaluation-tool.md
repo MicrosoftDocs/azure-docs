@@ -111,7 +111,7 @@ Azure Data Lake Store (ADLS) supports at-rest encryption by default using ADLS-m
 
 For information about specifying ADLS encryption settings, [Create an Azure Data Lake Store account](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
 
-### Azure SQL and Azure SQL DW should use encryption
+### Azure SQL and Azure SQL Data Warehouse should use encryption
 Azure SQL and Azure SQL DW both support Transparent Data Encryption (TDE), which provides real-time encryption and decryption of both data and log files.
 
 | For more information about | See this article |
@@ -142,7 +142,7 @@ Cortana Intelligence apps should generally avoid directly inserting data into re
 
 For more information on copying data with Azure Data Factory, [Tutorial: Create a pipeline with Copy Activity using Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio).
 
-### Azure SQL DW should use PolyBase for data ingestion
+### Azure SQL Data Warehouse should use PolyBase for data ingestion
 Azure SQL DW supports PolyBase for highly scalable, parallel data ingestion. PolyBase allows you to use Azure SQL DW to issue queries against external datasets stored in either Azure Blob Storage or Azure Data Lake Store. This provides superior performance to alternative methods of bulk updates.
 
 For instructions on getting started with PolyBase and Azure SQL DW, see [Load data with PolyBase in SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
@@ -167,7 +167,7 @@ For more information about geo-replication for Azure SQL databases, see [SQL Dat
 
 For instructions on how to configure geo-replication for Azure SQL, see [Configure active geo-replication for Azure SQL Database with Transact-SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
 
-### Azure SQL DW should have geo-redundant backups enabled
+### Azure SQL Data Warehouse should have geo-redundant backups enabled
 Azure SQL DW supports daily backups to geo-redundant storage. This geo-replication ensures you can restore the data warehouse even in situations where you cannot access snapshots stored in your primary region. This feature is on by default and should not be disable for Cortana Intelligence apps.
 
 For more information about Azure SQL DW backups and restoration, see here [SQL Data Warehouse Backups](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
