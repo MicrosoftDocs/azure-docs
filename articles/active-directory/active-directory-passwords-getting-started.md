@@ -51,7 +51,7 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
     * Require users to register when signing in
     * Number of days before users are asked to reconfirm their authentication information
 
-6. OPTIONAL: The **"Notification"**  provides administrators the options to:
+6. OPTIONAL: The **"Notification"** screen provides administrators the options to:
     * Notify users on password resets
     * Notify all admins when other admins reset their password
 
