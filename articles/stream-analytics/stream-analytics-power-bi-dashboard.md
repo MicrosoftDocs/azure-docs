@@ -46,19 +46,17 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 4. Under **Sink**, select **Power BI**.
 
+   ![Create an output for Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
 
-    ![Create an output for Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
-
-4. Click **Authorize**.
+5. Click **Authorize**.
 
     A window opens where you can provide your Azure credentials for a work or school account. 
 
     ![Enter credentials for access to Power BI](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
 
-5. Enter your credentials. Be aware then when you enter your credentials, you're also giving permission to the Streaming Analytics job to access your Power BI area.
+6. Enter your credentials. Be aware then when you enter your credentials, you're also giving permission to the Streaming Analytics job to access your Power BI area.
 
-6. When you're returned to the **New output** blade, enter the following information:
-
+7. When you're returned to the **New output** blade, enter the following information:
 
     * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
     * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
@@ -120,7 +118,7 @@ This section is optional, but recommended.
 
 1. If the TelcoStreaming app is not currently running, start it by following these steps:
 
-    * Open a command window. 
+    * Open a command window.
     * Go to the folder where the telcogenerator.exe and modified telcodatagen.exe.config files are.
     * Run the following command:
 
@@ -142,7 +140,6 @@ This section is optional, but recommended.
 3. In the job blade, click **Start**.
 
     ![Start the Stream Analytics job](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
-
 
 Your Streaming Analytics job starts looking for fraudulent calls in the incoming stream. The job also creates the dataset and table in Power BI and starts sending data about the fraudulent calls to them.
 
