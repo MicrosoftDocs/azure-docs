@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://sso.heroku.com/saml/<company-name>`
 
 	> [!NOTE]
-	>These values are not real. Update these values with the actual Sign-On URL and Identifier. You get these values from [Heroku Client support team](https://www.heroku.com/support), which is described in later sections of this article. 
+	>These values are not real. Update these values with the actual Sign-On URL and Identifier. You get these values from Heroku team, which is described in later sections of this article. 
 		
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -126,11 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_general_400.png)
 
-6. On the **Heroku Configuration** section, click **Configure Heroku** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL and SAML Identifier** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_configure.png) 
-
-7. To enable SSO in Heroku, perform the following steps:
+6. To enable SSO in Heroku, perform the following steps:
    
     a. Log in to the Heroku account as an administrator.
 
@@ -138,13 +134,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. On the **Single Sign On Page**, click **Upload Metadata**.
 
-    d. Upload the metadata file you have downloaded from the Azure portal.
+    d. Upload the metadata file, which you have downloaded from the Azure portal.
 
     e. When the setup is successful, administrators see a confirmation dialog and the URL of the SSO Login for end users is displayed. 
 
-    f. Go back to **Heroku Domain and URLs section** in Azure portal, Copy your **Sign-on url** and **identifier** then paste these values into the  **Heroku Login URL** and **Heroku Entity ID** textboxes respectively. 
+	f. Copy the **Heroku Login URL** and **Heroku Entity ID** values and go back to **Heroku Domain and URLs** section in Azure portal and paste these values into the **Sign-On Url** and **Identifier** textboxes respectively.
 
-8. Click Complete.
+	![Configure Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) 
+	
+8. Click **Next**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
