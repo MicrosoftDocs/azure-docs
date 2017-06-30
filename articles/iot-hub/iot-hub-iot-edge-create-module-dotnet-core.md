@@ -157,7 +157,7 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
 11. To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window. 
 
    ```csharp
-    System;
+   using System;
    using Newtonsoft.Json;
 
    namespace IoTEdgeConverterModule
@@ -380,5 +380,5 @@ View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-star
     
     - If you want to terminate the application, press the `<Enter>` key.
 
-        >[!IMPORTANT]
-         It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this action may cause the process to terminate abnormally.
+    >[!IMPORTANT]
+    It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**). As this action may cause the process to terminate abnormally.
