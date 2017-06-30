@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<suddomain>.printix.net`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.printix.net`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Printix Client support team](mailto:support@printix.net) to get the value. 
@@ -132,11 +132,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_07.png)
 
 9. On the **Azure** tab, input federation metadata URL to the textbox of "**Federation metadata document**". 
+
+    Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
    
     ![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_08.png)
    
-     Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
-
 10. Click the "**Test**" button and click "**OK**" button if the test was successful.
    
      Azure active directory page will show after clicking the **test** button. "The test was successful" here means after entering the credentials of your Azure test account it will pop up a message "Settings tested OK".Then click the **OK** button.
@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Printix. Printix supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user is created during an attempt to access Printix if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+There is no action item for you in this section. A new user is created during an attempt to access Printix if it doesn't exist yet. 
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact the [Printix support team](mailto:support@printix.net).
