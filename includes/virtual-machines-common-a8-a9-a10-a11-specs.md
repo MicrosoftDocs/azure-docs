@@ -2,6 +2,7 @@
 
 ## Deployment considerations
 * **Azure subscription** – To deploy more than a few compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+
 * **Pricing and availability** - These VM sizes are offered only in the Standard pricing tier. Check [Products available by region]
 (https://azure.microsoft.com/regions/services/) for availability in Azure regions. 
 * **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. (Default limits may vary depending on your subscription category.)
