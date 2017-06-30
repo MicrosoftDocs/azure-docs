@@ -85,7 +85,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## What Linux distributions/versions are supported on Azure?
 
-You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed-distros).
+You can find the list at Linux on [Azure-Endorsed Distributions](endorsed-distros.md).
 
 ## Can I add an existing Classic VM to an availability set?
 
