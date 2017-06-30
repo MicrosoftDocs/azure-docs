@@ -13,15 +13,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 06/30/2017
 ms.author: chasat
 
 ---
 # Monitor health and alerts in Azure Stack
 
-Azure Stack includes infrastructure monitoring capabilities that enable a cloud administrator to view health and alerts for an Azure Stack region.
+Azure Stack includes infrastructure monitoring capabilities that enable a cloud operator to view health and alerts for an Azure Stack region.
 
-This preview release of Azure Stack has a set of region management capabilities available in the **Region Management** tile. The Region Management tile, pinned by default in the administrator portal for the Default Provider Subscription, lists all the deployed regions of Azure Stack. It also shows the count of active critical and warning alerts for each region. This tile is your entry point into the health and alert functionality of Azure Stack.
+Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile, pinned by default in the administrator portal for the Default Provider Subscription, lists all the deployed regions of Azure Stack. It also shows the count of active critical and warning alerts for each region. This tile is your entry point into the health and alert functionality of Azure Stack.
 
  ![The Region Management tile](media/azure-stack-monitor-health/image1.png)
 
@@ -33,22 +33,22 @@ This preview release of Azure Stack has a set of region management capabilities 
  
  You can view the health state of components in both the Azure Stack administrator portal and through Rest API and PowerShell.
  
-To view the health state in the portal, click the region that you want to view in the **Region Management** tile. You can view the health state of infrastructure roles and of resource providers. However, in the TP3 release, not all infrastructure roles and resource providers report health state.
+To view the health state in the portal, click the region that you want to view in the **Region management** tile. You can view the health state of infrastructure roles and of resource providers. Note that in this release, the Compute resource provider does not report health state.
 
 ![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
 
 You can click a resource provider or infrastructure role to view more detailed information.
 
-New in TP3, you can restart or shut down an infrastructure role instance for troubleshooting purposes. To do this, click an infrastructure role, click the role instance, and then in the **Role Instance** blade, click **Restart**, **Shutdown**, or **Start**. (The available options depend on the current state.)
+If you click an infrastructure role, and then click the role instance, you’ll see options in the **Role instance** blade to Start, Restart, or Shutdown. (The available options depend on the current state.) Although there is the capability to start, restart, or shut down an infrastructure role instance, we don’t recommend that you do so without guidance from the [Azure Stack forum](https://aka.ms/azurestackforum).
 
 > [!WARNING]
->In an Azure Stack Proof of Concept (POC) environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers is unavailable until the role instance starts. If you restart or shut down the MAS-XRP01 role instance (associated with the Infrastructure management controller), you must use Hyper-V Manager to start the virtual machine.
+>In an Azure Stack Development Kit environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers is unavailable until the role instance starts. If you restart or shut down the AzS-Xrp01 role instance (associated with several of the infrastructure roles), you must use Hyper-V Manager to start the virtual machine.
 >
 >
  
 ## View alerts
 
-The list of active alerts for each Azure Stack region is available directly from the Region Management blade. The first tile in the default configuration is the Alerts tile, which displays a summary of the critical and warning alerts for the region. You can pin the Alerts tile, like any other tile on this blade, to the dashboard for quick access.   
+The list of active alerts for each Azure Stack region is available directly from the **Region management** blade. The first tile in the default configuration is the **Alerts** tile, which displays a summary of the critical and warning alerts for the region. You can pin the Alerts tile, like any other tile on this blade, to the dashboard for quick access.   
 
 ![Alerts tile that shows a warning](media/azure-stack-monitor-health/image3.png)
 
@@ -56,7 +56,7 @@ By selecting the top portion of the **Alerts** tile, you navigate to the list of
 
 ![Filtered warning alerts](media/azure-stack-monitor-health/image4.png)
   
-The Alerts blade supports the ability to filter both on status (Active or Closed) and severity (Critical or Warning). The default view displays all Active alerts. All closed alerts are removed from the system after seven days.
+The **Alerts** blade supports the ability to filter both on status (Active or Closed) and severity (Critical or Warning). The default view displays all Active alerts. All closed alerts are removed from the system after seven days.
 
 ![Filter pane to filter by critical or warning status](media/azure-stack-monitor-health/image5.png)
 
@@ -64,13 +64,11 @@ The Alerts blade also exposes the **View API** action, which displays the Rest A
 
 ![The View API option that shows the Rest API](media/azure-stack-monitor-health/image6.png)
 
-From the Alerts blade, you can select an alert to navigate to the **Alert Details** blade. This blade displays all fields that are associated with the alert, and enables quick navigation to the affected component and source of the alert. For example, the following alert occurs if one of the infrastructure role instances goes offline or is not accessible.  
+From the Alerts blade, you can select an alert to navigate to the **Alert details** blade. This blade displays all fields that are associated with the alert, and enables quick navigation to the affected component and source of the alert. For example, the following alert occurs if one of the infrastructure role instances goes offline or is not accessible.  
 
 ![The Alert Details blade](media/azure-stack-monitor-health/image7.png)
 
 After the infrastructure role instance is back online, this alert automatically closes.
-
-Now that you know more about health and viewing alerts in Azure Stack, it’s time to learn more about how to update Azure Stack.
 
 ## Next steps
 
